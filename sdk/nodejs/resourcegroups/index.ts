@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGroup";
-export * from "./group";
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+
+export { GroupArgs } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 // Export enums:
 export * from "../types/enums/resourcegroups";
-
-// Import resources to register:
-import { Group } from "./group";
 
 const _module = {
     version: utilities.getVersion(),

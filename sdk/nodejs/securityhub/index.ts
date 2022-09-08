@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getHub";
-export * from "./hub";
+export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
+export const getHub: typeof import("./getHub").getHub = null as any;
+export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
 
-// Import resources to register:
-import { Hub } from "./hub";
+export { HubArgs } from "./hub";
+export type Hub = import("./hub").Hub;
+export const Hub: typeof import("./hub").Hub = null as any;
+
+utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
+utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
 
 const _module = {
     version: utilities.getVersion(),

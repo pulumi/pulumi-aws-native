@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getNotificationRule";
-export * from "./notificationRule";
+export { GetNotificationRuleArgs, GetNotificationRuleResult, GetNotificationRuleOutputArgs } from "./getNotificationRule";
+export const getNotificationRule: typeof import("./getNotificationRule").getNotificationRule = null as any;
+export const getNotificationRuleOutput: typeof import("./getNotificationRule").getNotificationRuleOutput = null as any;
+
+export { NotificationRuleArgs } from "./notificationRule";
+export type NotificationRule = import("./notificationRule").NotificationRule;
+export const NotificationRule: typeof import("./notificationRule").NotificationRule = null as any;
+
+utilities.lazyLoad(exports, ["getNotificationRule","getNotificationRuleOutput"], () => require("./getNotificationRule"));
+utilities.lazyLoad(exports, ["NotificationRule"], () => require("./notificationRule"));
 
 // Export enums:
 export * from "../types/enums/codestarnotifications";
-
-// Import resources to register:
-import { NotificationRule } from "./notificationRule";
 
 const _module = {
     version: utilities.getVersion(),

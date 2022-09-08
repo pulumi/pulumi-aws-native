@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPoint";
-export * from "./bucket";
-export * from "./bucketPolicy";
-export * from "./endpoint";
-export * from "./getAccessPoint";
-export * from "./getBucket";
-export * from "./getBucketPolicy";
-export * from "./getEndpoint";
+export { AccessPointArgs } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+
+export { BucketArgs } from "./bucket";
+export type Bucket = import("./bucket").Bucket;
+export const Bucket: typeof import("./bucket").Bucket = null as any;
+
+export { BucketPolicyArgs } from "./bucketPolicy";
+export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
+export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+
+export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
+export const getBucket: typeof import("./getBucket").getBucket = null as any;
+export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
+
+export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs } from "./getBucketPolicy";
+export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
+export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
+utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
+utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 // Export enums:
 export * from "../types/enums/s3outposts";
-
-// Import resources to register:
-import { AccessPoint } from "./accessPoint";
-import { Bucket } from "./bucket";
-import { BucketPolicy } from "./bucketPolicy";
-import { Endpoint } from "./endpoint";
 
 const _module = {
     version: utilities.getVersion(),

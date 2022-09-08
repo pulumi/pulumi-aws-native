@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./applicationInstance";
-export * from "./getApplicationInstance";
-export * from "./getPackage";
-export * from "./getPackageVersion";
-export * from "./package";
-export * from "./packageVersion";
+export { ApplicationInstanceArgs } from "./applicationInstance";
+export type ApplicationInstance = import("./applicationInstance").ApplicationInstance;
+export const ApplicationInstance: typeof import("./applicationInstance").ApplicationInstance = null as any;
+
+export { GetApplicationInstanceArgs, GetApplicationInstanceResult, GetApplicationInstanceOutputArgs } from "./getApplicationInstance";
+export const getApplicationInstance: typeof import("./getApplicationInstance").getApplicationInstance = null as any;
+export const getApplicationInstanceOutput: typeof import("./getApplicationInstance").getApplicationInstanceOutput = null as any;
+
+export { GetPackageArgs, GetPackageResult, GetPackageOutputArgs } from "./getPackage";
+export const getPackage: typeof import("./getPackage").getPackage = null as any;
+export const getPackageOutput: typeof import("./getPackage").getPackageOutput = null as any;
+
+export { GetPackageVersionArgs, GetPackageVersionResult, GetPackageVersionOutputArgs } from "./getPackageVersion";
+export const getPackageVersion: typeof import("./getPackageVersion").getPackageVersion = null as any;
+export const getPackageVersionOutput: typeof import("./getPackageVersion").getPackageVersionOutput = null as any;
+
+export { PackageArgs } from "./package";
+export type Package = import("./package").Package;
+export const Package: typeof import("./package").Package = null as any;
+
+export { PackageVersionArgs } from "./packageVersion";
+export type PackageVersion = import("./packageVersion").PackageVersion;
+export const PackageVersion: typeof import("./packageVersion").PackageVersion = null as any;
+
+utilities.lazyLoad(exports, ["ApplicationInstance"], () => require("./applicationInstance"));
+utilities.lazyLoad(exports, ["getApplicationInstance","getApplicationInstanceOutput"], () => require("./getApplicationInstance"));
+utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
+utilities.lazyLoad(exports, ["getPackageVersion","getPackageVersionOutput"], () => require("./getPackageVersion"));
+utilities.lazyLoad(exports, ["Package"], () => require("./package"));
+utilities.lazyLoad(exports, ["PackageVersion"], () => require("./packageVersion"));
 
 // Export enums:
 export * from "../types/enums/panorama";
-
-// Import resources to register:
-import { ApplicationInstance } from "./applicationInstance";
-import { Package } from "./package";
-import { PackageVersion } from "./packageVersion";
 
 const _module = {
     version: utilities.getVersion(),

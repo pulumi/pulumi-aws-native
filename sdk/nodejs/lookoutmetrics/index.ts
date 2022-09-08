@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alert";
-export * from "./anomalyDetector";
-export * from "./getAlert";
-export * from "./getAnomalyDetector";
+export { AlertArgs } from "./alert";
+export type Alert = import("./alert").Alert;
+export const Alert: typeof import("./alert").Alert = null as any;
+
+export { AnomalyDetectorArgs } from "./anomalyDetector";
+export type AnomalyDetector = import("./anomalyDetector").AnomalyDetector;
+export const AnomalyDetector: typeof import("./anomalyDetector").AnomalyDetector = null as any;
+
+export { GetAlertArgs, GetAlertResult, GetAlertOutputArgs } from "./getAlert";
+export const getAlert: typeof import("./getAlert").getAlert = null as any;
+export const getAlertOutput: typeof import("./getAlert").getAlertOutput = null as any;
+
+export { GetAnomalyDetectorArgs, GetAnomalyDetectorResult, GetAnomalyDetectorOutputArgs } from "./getAnomalyDetector";
+export const getAnomalyDetector: typeof import("./getAnomalyDetector").getAnomalyDetector = null as any;
+export const getAnomalyDetectorOutput: typeof import("./getAnomalyDetector").getAnomalyDetectorOutput = null as any;
+
+utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
+utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
+utilities.lazyLoad(exports, ["getAlert","getAlertOutput"], () => require("./getAlert"));
+utilities.lazyLoad(exports, ["getAnomalyDetector","getAnomalyDetectorOutput"], () => require("./getAnomalyDetector"));
 
 // Export enums:
 export * from "../types/enums/lookoutmetrics";
-
-// Import resources to register:
-import { Alert } from "./alert";
-import { AnomalyDetector } from "./anomalyDetector";
 
 const _module = {
     version: utilities.getVersion(),

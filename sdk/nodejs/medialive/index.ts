@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./channel";
-export * from "./getChannel";
-export * from "./getInput";
-export * from "./getInputSecurityGroup";
-export * from "./input";
-export * from "./inputSecurityGroup";
+export { ChannelArgs } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
 
-// Import resources to register:
-import { Channel } from "./channel";
-import { Input } from "./input";
-import { InputSecurityGroup } from "./inputSecurityGroup";
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+
+export { GetInputSecurityGroupArgs, GetInputSecurityGroupResult, GetInputSecurityGroupOutputArgs } from "./getInputSecurityGroup";
+export const getInputSecurityGroup: typeof import("./getInputSecurityGroup").getInputSecurityGroup = null as any;
+export const getInputSecurityGroupOutput: typeof import("./getInputSecurityGroup").getInputSecurityGroupOutput = null as any;
+
+export { InputArgs } from "./input";
+export type Input = import("./input").Input;
+export const Input: typeof import("./input").Input = null as any;
+
+export { InputSecurityGroupArgs } from "./inputSecurityGroup";
+export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGroup;
+export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
+
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+utilities.lazyLoad(exports, ["getInputSecurityGroup","getInputSecurityGroupOutput"], () => require("./getInputSecurityGroup"));
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
+utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 
 const _module = {
     version: utilities.getVersion(),

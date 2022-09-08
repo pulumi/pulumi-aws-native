@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domain";
-export * from "./getDomain";
-export * from "./getIntegration";
-export * from "./getObjectType";
-export * from "./integration";
-export * from "./objectType";
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+
+export { GetObjectTypeArgs, GetObjectTypeResult, GetObjectTypeOutputArgs } from "./getObjectType";
+export const getObjectType: typeof import("./getObjectType").getObjectType = null as any;
+export const getObjectTypeOutput: typeof import("./getObjectType").getObjectTypeOutput = null as any;
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+
+export { ObjectTypeArgs } from "./objectType";
+export type ObjectType = import("./objectType").ObjectType;
+export const ObjectType: typeof import("./objectType").ObjectType = null as any;
+
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+utilities.lazyLoad(exports, ["getObjectType","getObjectTypeOutput"], () => require("./getObjectType"));
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
+utilities.lazyLoad(exports, ["ObjectType"], () => require("./objectType"));
 
 // Export enums:
 export * from "../types/enums/customerprofiles";
-
-// Import resources to register:
-import { Domain } from "./domain";
-import { Integration } from "./integration";
-import { ObjectType } from "./objectType";
 
 const _module = {
     version: utilities.getVersion(),

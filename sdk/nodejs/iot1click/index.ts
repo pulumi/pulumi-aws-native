@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./device";
-export * from "./getDevice";
-export * from "./getPlacement";
-export * from "./getProject";
-export * from "./placement";
-export * from "./project";
+export { DeviceArgs } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
 
-// Import resources to register:
-import { Device } from "./device";
-import { Placement } from "./placement";
-import { Project } from "./project";
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+
+export { GetPlacementArgs, GetPlacementResult, GetPlacementOutputArgs } from "./getPlacement";
+export const getPlacement: typeof import("./getPlacement").getPlacement = null as any;
+export const getPlacementOutput: typeof import("./getPlacement").getPlacementOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { PlacementArgs } from "./placement";
+export type Placement = import("./placement").Placement;
+export const Placement: typeof import("./placement").Placement = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+utilities.lazyLoad(exports, ["getPlacement","getPlacementOutput"], () => require("./getPlacement"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["Placement"], () => require("./placement"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 const _module = {
     version: utilities.getVersion(),

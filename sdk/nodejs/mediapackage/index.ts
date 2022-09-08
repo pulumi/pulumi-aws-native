@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./asset";
-export * from "./channel";
-export * from "./getAsset";
-export * from "./getChannel";
-export * from "./getOriginEndpoint";
-export * from "./getPackagingConfiguration";
-export * from "./getPackagingGroup";
-export * from "./originEndpoint";
-export * from "./packagingConfiguration";
-export * from "./packagingGroup";
+export { AssetArgs } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+
+export { ChannelArgs } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+
+export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
+export const getAsset: typeof import("./getAsset").getAsset = null as any;
+export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+
+export { GetOriginEndpointArgs, GetOriginEndpointResult, GetOriginEndpointOutputArgs } from "./getOriginEndpoint";
+export const getOriginEndpoint: typeof import("./getOriginEndpoint").getOriginEndpoint = null as any;
+export const getOriginEndpointOutput: typeof import("./getOriginEndpoint").getOriginEndpointOutput = null as any;
+
+export { GetPackagingConfigurationArgs, GetPackagingConfigurationResult, GetPackagingConfigurationOutputArgs } from "./getPackagingConfiguration";
+export const getPackagingConfiguration: typeof import("./getPackagingConfiguration").getPackagingConfiguration = null as any;
+export const getPackagingConfigurationOutput: typeof import("./getPackagingConfiguration").getPackagingConfigurationOutput = null as any;
+
+export { GetPackagingGroupArgs, GetPackagingGroupResult, GetPackagingGroupOutputArgs } from "./getPackagingGroup";
+export const getPackagingGroup: typeof import("./getPackagingGroup").getPackagingGroup = null as any;
+export const getPackagingGroupOutput: typeof import("./getPackagingGroup").getPackagingGroupOutput = null as any;
+
+export { OriginEndpointArgs } from "./originEndpoint";
+export type OriginEndpoint = import("./originEndpoint").OriginEndpoint;
+export const OriginEndpoint: typeof import("./originEndpoint").OriginEndpoint = null as any;
+
+export { PackagingConfigurationArgs } from "./packagingConfiguration";
+export type PackagingConfiguration = import("./packagingConfiguration").PackagingConfiguration;
+export const PackagingConfiguration: typeof import("./packagingConfiguration").PackagingConfiguration = null as any;
+
+export { PackagingGroupArgs } from "./packagingGroup";
+export type PackagingGroup = import("./packagingGroup").PackagingGroup;
+export const PackagingGroup: typeof import("./packagingGroup").PackagingGroup = null as any;
+
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+utilities.lazyLoad(exports, ["getOriginEndpoint","getOriginEndpointOutput"], () => require("./getOriginEndpoint"));
+utilities.lazyLoad(exports, ["getPackagingConfiguration","getPackagingConfigurationOutput"], () => require("./getPackagingConfiguration"));
+utilities.lazyLoad(exports, ["getPackagingGroup","getPackagingGroupOutput"], () => require("./getPackagingGroup"));
+utilities.lazyLoad(exports, ["OriginEndpoint"], () => require("./originEndpoint"));
+utilities.lazyLoad(exports, ["PackagingConfiguration"], () => require("./packagingConfiguration"));
+utilities.lazyLoad(exports, ["PackagingGroup"], () => require("./packagingGroup"));
 
 // Export enums:
 export * from "../types/enums/mediapackage";
-
-// Import resources to register:
-import { Asset } from "./asset";
-import { Channel } from "./channel";
-import { OriginEndpoint } from "./originEndpoint";
-import { PackagingConfiguration } from "./packagingConfiguration";
-import { PackagingGroup } from "./packagingGroup";
 
 const _module = {
     version: utilities.getVersion(),

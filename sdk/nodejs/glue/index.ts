@@ -5,61 +5,174 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./classifier";
-export * from "./connection";
-export * from "./crawler";
-export * from "./dataCatalogEncryptionSettings";
-export * from "./database";
-export * from "./devEndpoint";
-export * from "./getClassifier";
-export * from "./getConnection";
-export * from "./getCrawler";
-export * from "./getDataCatalogEncryptionSettings";
-export * from "./getDatabase";
-export * from "./getDevEndpoint";
-export * from "./getJob";
-export * from "./getMLTransform";
-export * from "./getPartition";
-export * from "./getRegistry";
-export * from "./getSchema";
-export * from "./getSchemaVersion";
-export * from "./getSecurityConfiguration";
-export * from "./getTable";
-export * from "./getTrigger";
-export * from "./getWorkflow";
-export * from "./job";
-export * from "./mltransform";
-export * from "./partition";
-export * from "./registry";
-export * from "./schema";
-export * from "./schemaVersion";
-export * from "./schemaVersionMetadata";
-export * from "./securityConfiguration";
-export * from "./table";
-export * from "./trigger";
-export * from "./workflow";
+export { ClassifierArgs } from "./classifier";
+export type Classifier = import("./classifier").Classifier;
+export const Classifier: typeof import("./classifier").Classifier = null as any;
+
+export { ConnectionArgs } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+
+export { CrawlerArgs } from "./crawler";
+export type Crawler = import("./crawler").Crawler;
+export const Crawler: typeof import("./crawler").Crawler = null as any;
+
+export { DataCatalogEncryptionSettingsArgs } from "./dataCatalogEncryptionSettings";
+export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings;
+export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
+
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { DevEndpointArgs } from "./devEndpoint";
+export type DevEndpoint = import("./devEndpoint").DevEndpoint;
+export const DevEndpoint: typeof import("./devEndpoint").DevEndpoint = null as any;
+
+export { GetClassifierArgs, GetClassifierResult, GetClassifierOutputArgs } from "./getClassifier";
+export const getClassifier: typeof import("./getClassifier").getClassifier = null as any;
+export const getClassifierOutput: typeof import("./getClassifier").getClassifierOutput = null as any;
+
+export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
+export const getConnection: typeof import("./getConnection").getConnection = null as any;
+export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
+
+export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCrawler";
+export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
+export const getCrawlerOutput: typeof import("./getCrawler").getCrawlerOutput = null as any;
+
+export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsResult, GetDataCatalogEncryptionSettingsOutputArgs } from "./getDataCatalogEncryptionSettings";
+export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
+export const getDataCatalogEncryptionSettingsOutput: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettingsOutput = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetDevEndpointArgs, GetDevEndpointResult, GetDevEndpointOutputArgs } from "./getDevEndpoint";
+export const getDevEndpoint: typeof import("./getDevEndpoint").getDevEndpoint = null as any;
+export const getDevEndpointOutput: typeof import("./getDevEndpoint").getDevEndpointOutput = null as any;
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+
+export { GetMLTransformArgs, GetMLTransformResult, GetMLTransformOutputArgs } from "./getMLTransform";
+export const getMLTransform: typeof import("./getMLTransform").getMLTransform = null as any;
+export const getMLTransformOutput: typeof import("./getMLTransform").getMLTransformOutput = null as any;
+
+export { GetPartitionArgs, GetPartitionResult, GetPartitionOutputArgs } from "./getPartition";
+export const getPartition: typeof import("./getPartition").getPartition = null as any;
+export const getPartitionOutput: typeof import("./getPartition").getPartitionOutput = null as any;
+
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+
+export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
+export const getSchema: typeof import("./getSchema").getSchema = null as any;
+export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
+
+export { GetSchemaVersionArgs, GetSchemaVersionResult, GetSchemaVersionOutputArgs } from "./getSchemaVersion";
+export const getSchemaVersion: typeof import("./getSchemaVersion").getSchemaVersion = null as any;
+export const getSchemaVersionOutput: typeof import("./getSchemaVersion").getSchemaVersionOutput = null as any;
+
+export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
+export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
+export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
+
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+
+export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
+export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
+export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
+
+export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
+export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
+export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+
+export { JobArgs } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+
+export { MLTransformArgs } from "./mltransform";
+export type MLTransform = import("./mltransform").MLTransform;
+export const MLTransform: typeof import("./mltransform").MLTransform = null as any;
+
+export { PartitionArgs } from "./partition";
+export type Partition = import("./partition").Partition;
+export const Partition: typeof import("./partition").Partition = null as any;
+
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+
+export { SchemaArgs } from "./schema";
+export type Schema = import("./schema").Schema;
+export const Schema: typeof import("./schema").Schema = null as any;
+
+export { SchemaVersionArgs } from "./schemaVersion";
+export type SchemaVersion = import("./schemaVersion").SchemaVersion;
+export const SchemaVersion: typeof import("./schemaVersion").SchemaVersion = null as any;
+
+export { SchemaVersionMetadataArgs } from "./schemaVersionMetadata";
+export type SchemaVersionMetadata = import("./schemaVersionMetadata").SchemaVersionMetadata;
+export const SchemaVersionMetadata: typeof import("./schemaVersionMetadata").SchemaVersionMetadata = null as any;
+
+export { SecurityConfigurationArgs } from "./securityConfiguration";
+export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
+export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+
+export { TableArgs } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+export { TriggerArgs } from "./trigger";
+export type Trigger = import("./trigger").Trigger;
+export const Trigger: typeof import("./trigger").Trigger = null as any;
+
+export { WorkflowArgs } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+
+utilities.lazyLoad(exports, ["Classifier"], () => require("./classifier"));
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
+utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["DevEndpoint"], () => require("./devEndpoint"));
+utilities.lazyLoad(exports, ["getClassifier","getClassifierOutput"], () => require("./getClassifier"));
+utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+utilities.lazyLoad(exports, ["getCrawler","getCrawlerOutput"], () => require("./getCrawler"));
+utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getDevEndpoint","getDevEndpointOutput"], () => require("./getDevEndpoint"));
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+utilities.lazyLoad(exports, ["getMLTransform","getMLTransformOutput"], () => require("./getMLTransform"));
+utilities.lazyLoad(exports, ["getPartition","getPartitionOutput"], () => require("./getPartition"));
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
+utilities.lazyLoad(exports, ["getSchemaVersion","getSchemaVersionOutput"], () => require("./getSchemaVersion"));
+utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+utilities.lazyLoad(exports, ["MLTransform"], () => require("./mltransform"));
+utilities.lazyLoad(exports, ["Partition"], () => require("./partition"));
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+utilities.lazyLoad(exports, ["SchemaVersion"], () => require("./schemaVersion"));
+utilities.lazyLoad(exports, ["SchemaVersionMetadata"], () => require("./schemaVersionMetadata"));
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
 // Export enums:
 export * from "../types/enums/glue";
-
-// Import resources to register:
-import { Classifier } from "./classifier";
-import { Connection } from "./connection";
-import { Crawler } from "./crawler";
-import { DataCatalogEncryptionSettings } from "./dataCatalogEncryptionSettings";
-import { Database } from "./database";
-import { DevEndpoint } from "./devEndpoint";
-import { Job } from "./job";
-import { MLTransform } from "./mltransform";
-import { Partition } from "./partition";
-import { Registry } from "./registry";
-import { Schema } from "./schema";
-import { SchemaVersion } from "./schemaVersion";
-import { SchemaVersionMetadata } from "./schemaVersionMetadata";
-import { SecurityConfiguration } from "./securityConfiguration";
-import { Table } from "./table";
-import { Trigger } from "./trigger";
-import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connector";
-export * from "./getConnector";
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
 // Export enums:
 export * from "../types/enums/kafkaconnect";
-
-// Import resources to register:
-import { Connector } from "./connector";
 
 const _module = {
     version: utilities.getVersion(),

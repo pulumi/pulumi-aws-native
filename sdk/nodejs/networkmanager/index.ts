@@ -5,41 +5,111 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connectAttachment";
-export * from "./connectPeer";
-export * from "./coreNetwork";
-export * from "./customerGatewayAssociation";
-export * from "./device";
-export * from "./getConnectAttachment";
-export * from "./getConnectPeer";
-export * from "./getCoreNetwork";
-export * from "./getDevice";
-export * from "./getGlobalNetwork";
-export * from "./getLink";
-export * from "./getSite";
-export * from "./getSiteToSiteVpnAttachment";
-export * from "./getVpcAttachment";
-export * from "./globalNetwork";
-export * from "./link";
-export * from "./linkAssociation";
-export * from "./site";
-export * from "./siteToSiteVpnAttachment";
-export * from "./transitGatewayRegistration";
-export * from "./vpcAttachment";
+export { ConnectAttachmentArgs } from "./connectAttachment";
+export type ConnectAttachment = import("./connectAttachment").ConnectAttachment;
+export const ConnectAttachment: typeof import("./connectAttachment").ConnectAttachment = null as any;
 
-// Import resources to register:
-import { ConnectAttachment } from "./connectAttachment";
-import { ConnectPeer } from "./connectPeer";
-import { CoreNetwork } from "./coreNetwork";
-import { CustomerGatewayAssociation } from "./customerGatewayAssociation";
-import { Device } from "./device";
-import { GlobalNetwork } from "./globalNetwork";
-import { Link } from "./link";
-import { LinkAssociation } from "./linkAssociation";
-import { Site } from "./site";
-import { SiteToSiteVpnAttachment } from "./siteToSiteVpnAttachment";
-import { TransitGatewayRegistration } from "./transitGatewayRegistration";
-import { VpcAttachment } from "./vpcAttachment";
+export { ConnectPeerArgs } from "./connectPeer";
+export type ConnectPeer = import("./connectPeer").ConnectPeer;
+export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
+
+export { CoreNetworkArgs } from "./coreNetwork";
+export type CoreNetwork = import("./coreNetwork").CoreNetwork;
+export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
+
+export { CustomerGatewayAssociationArgs } from "./customerGatewayAssociation";
+export type CustomerGatewayAssociation = import("./customerGatewayAssociation").CustomerGatewayAssociation;
+export const CustomerGatewayAssociation: typeof import("./customerGatewayAssociation").CustomerGatewayAssociation = null as any;
+
+export { DeviceArgs } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
+
+export { GetConnectAttachmentArgs, GetConnectAttachmentResult, GetConnectAttachmentOutputArgs } from "./getConnectAttachment";
+export const getConnectAttachment: typeof import("./getConnectAttachment").getConnectAttachment = null as any;
+export const getConnectAttachmentOutput: typeof import("./getConnectAttachment").getConnectAttachmentOutput = null as any;
+
+export { GetConnectPeerArgs, GetConnectPeerResult, GetConnectPeerOutputArgs } from "./getConnectPeer";
+export const getConnectPeer: typeof import("./getConnectPeer").getConnectPeer = null as any;
+export const getConnectPeerOutput: typeof import("./getConnectPeer").getConnectPeerOutput = null as any;
+
+export { GetCoreNetworkArgs, GetCoreNetworkResult, GetCoreNetworkOutputArgs } from "./getCoreNetwork";
+export const getCoreNetwork: typeof import("./getCoreNetwork").getCoreNetwork = null as any;
+export const getCoreNetworkOutput: typeof import("./getCoreNetwork").getCoreNetworkOutput = null as any;
+
+export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
+export const getDevice: typeof import("./getDevice").getDevice = null as any;
+export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+
+export { GetGlobalNetworkArgs, GetGlobalNetworkResult, GetGlobalNetworkOutputArgs } from "./getGlobalNetwork";
+export const getGlobalNetwork: typeof import("./getGlobalNetwork").getGlobalNetwork = null as any;
+export const getGlobalNetworkOutput: typeof import("./getGlobalNetwork").getGlobalNetworkOutput = null as any;
+
+export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
+export const getLink: typeof import("./getLink").getLink = null as any;
+export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
+
+export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
+export const getSite: typeof import("./getSite").getSite = null as any;
+export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+
+export { GetSiteToSiteVpnAttachmentArgs, GetSiteToSiteVpnAttachmentResult, GetSiteToSiteVpnAttachmentOutputArgs } from "./getSiteToSiteVpnAttachment";
+export const getSiteToSiteVpnAttachment: typeof import("./getSiteToSiteVpnAttachment").getSiteToSiteVpnAttachment = null as any;
+export const getSiteToSiteVpnAttachmentOutput: typeof import("./getSiteToSiteVpnAttachment").getSiteToSiteVpnAttachmentOutput = null as any;
+
+export { GetVpcAttachmentArgs, GetVpcAttachmentResult, GetVpcAttachmentOutputArgs } from "./getVpcAttachment";
+export const getVpcAttachment: typeof import("./getVpcAttachment").getVpcAttachment = null as any;
+export const getVpcAttachmentOutput: typeof import("./getVpcAttachment").getVpcAttachmentOutput = null as any;
+
+export { GlobalNetworkArgs } from "./globalNetwork";
+export type GlobalNetwork = import("./globalNetwork").GlobalNetwork;
+export const GlobalNetwork: typeof import("./globalNetwork").GlobalNetwork = null as any;
+
+export { LinkArgs } from "./link";
+export type Link = import("./link").Link;
+export const Link: typeof import("./link").Link = null as any;
+
+export { LinkAssociationArgs } from "./linkAssociation";
+export type LinkAssociation = import("./linkAssociation").LinkAssociation;
+export const LinkAssociation: typeof import("./linkAssociation").LinkAssociation = null as any;
+
+export { SiteArgs } from "./site";
+export type Site = import("./site").Site;
+export const Site: typeof import("./site").Site = null as any;
+
+export { SiteToSiteVpnAttachmentArgs } from "./siteToSiteVpnAttachment";
+export type SiteToSiteVpnAttachment = import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment;
+export const SiteToSiteVpnAttachment: typeof import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment = null as any;
+
+export { TransitGatewayRegistrationArgs } from "./transitGatewayRegistration";
+export type TransitGatewayRegistration = import("./transitGatewayRegistration").TransitGatewayRegistration;
+export const TransitGatewayRegistration: typeof import("./transitGatewayRegistration").TransitGatewayRegistration = null as any;
+
+export { VpcAttachmentArgs } from "./vpcAttachment";
+export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
+export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
+
+utilities.lazyLoad(exports, ["ConnectAttachment"], () => require("./connectAttachment"));
+utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
+utilities.lazyLoad(exports, ["CoreNetwork"], () => require("./coreNetwork"));
+utilities.lazyLoad(exports, ["CustomerGatewayAssociation"], () => require("./customerGatewayAssociation"));
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["getConnectAttachment","getConnectAttachmentOutput"], () => require("./getConnectAttachment"));
+utilities.lazyLoad(exports, ["getConnectPeer","getConnectPeerOutput"], () => require("./getConnectPeer"));
+utilities.lazyLoad(exports, ["getCoreNetwork","getCoreNetworkOutput"], () => require("./getCoreNetwork"));
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+utilities.lazyLoad(exports, ["getGlobalNetwork","getGlobalNetworkOutput"], () => require("./getGlobalNetwork"));
+utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+utilities.lazyLoad(exports, ["getSiteToSiteVpnAttachment","getSiteToSiteVpnAttachmentOutput"], () => require("./getSiteToSiteVpnAttachment"));
+utilities.lazyLoad(exports, ["getVpcAttachment","getVpcAttachmentOutput"], () => require("./getVpcAttachment"));
+utilities.lazyLoad(exports, ["GlobalNetwork"], () => require("./globalNetwork"));
+utilities.lazyLoad(exports, ["Link"], () => require("./link"));
+utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
+utilities.lazyLoad(exports, ["SiteToSiteVpnAttachment"], () => require("./siteToSiteVpnAttachment"));
+utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
+utilities.lazyLoad(exports, ["VpcAttachment"], () => require("./vpcAttachment"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataIntegration";
-export * from "./eventIntegration";
-export * from "./getDataIntegration";
-export * from "./getEventIntegration";
+export { DataIntegrationArgs } from "./dataIntegration";
+export type DataIntegration = import("./dataIntegration").DataIntegration;
+export const DataIntegration: typeof import("./dataIntegration").DataIntegration = null as any;
 
-// Import resources to register:
-import { DataIntegration } from "./dataIntegration";
-import { EventIntegration } from "./eventIntegration";
+export { EventIntegrationArgs } from "./eventIntegration";
+export type EventIntegration = import("./eventIntegration").EventIntegration;
+export const EventIntegration: typeof import("./eventIntegration").EventIntegration = null as any;
+
+export { GetDataIntegrationArgs, GetDataIntegrationResult, GetDataIntegrationOutputArgs } from "./getDataIntegration";
+export const getDataIntegration: typeof import("./getDataIntegration").getDataIntegration = null as any;
+export const getDataIntegrationOutput: typeof import("./getDataIntegration").getDataIntegrationOutput = null as any;
+
+export { GetEventIntegrationArgs, GetEventIntegrationResult, GetEventIntegrationOutputArgs } from "./getEventIntegration";
+export const getEventIntegration: typeof import("./getEventIntegration").getEventIntegration = null as any;
+export const getEventIntegrationOutput: typeof import("./getEventIntegration").getEventIntegrationOutput = null as any;
+
+utilities.lazyLoad(exports, ["DataIntegration"], () => require("./dataIntegration"));
+utilities.lazyLoad(exports, ["EventIntegration"], () => require("./eventIntegration"));
+utilities.lazyLoad(exports, ["getDataIntegration","getDataIntegrationOutput"], () => require("./getDataIntegration"));
+utilities.lazyLoad(exports, ["getEventIntegration","getEventIntegrationOutput"], () => require("./getEventIntegration"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./batchScramSecret";
-export * from "./cluster";
-export * from "./configuration";
-export * from "./getBatchScramSecret";
-export * from "./getCluster";
-export * from "./getConfiguration";
-export * from "./getServerlessCluster";
-export * from "./serverlessCluster";
+export { BatchScramSecretArgs } from "./batchScramSecret";
+export type BatchScramSecret = import("./batchScramSecret").BatchScramSecret;
+export const BatchScramSecret: typeof import("./batchScramSecret").BatchScramSecret = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+
+export { GetBatchScramSecretArgs, GetBatchScramSecretResult, GetBatchScramSecretOutputArgs } from "./getBatchScramSecret";
+export const getBatchScramSecret: typeof import("./getBatchScramSecret").getBatchScramSecret = null as any;
+export const getBatchScramSecretOutput: typeof import("./getBatchScramSecret").getBatchScramSecretOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+
+export { GetServerlessClusterArgs, GetServerlessClusterResult, GetServerlessClusterOutputArgs } from "./getServerlessCluster";
+export const getServerlessCluster: typeof import("./getServerlessCluster").getServerlessCluster = null as any;
+export const getServerlessClusterOutput: typeof import("./getServerlessCluster").getServerlessClusterOutput = null as any;
+
+export { ServerlessClusterArgs } from "./serverlessCluster";
+export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
+export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
+
+utilities.lazyLoad(exports, ["BatchScramSecret"], () => require("./batchScramSecret"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+utilities.lazyLoad(exports, ["getBatchScramSecret","getBatchScramSecretOutput"], () => require("./getBatchScramSecret"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
+utilities.lazyLoad(exports, ["getServerlessCluster","getServerlessClusterOutput"], () => require("./getServerlessCluster"));
+utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
 
 // Export enums:
 export * from "../types/enums/msk";
-
-// Import resources to register:
-import { BatchScramSecret } from "./batchScramSecret";
-import { Cluster } from "./cluster";
-import { Configuration } from "./configuration";
-import { ServerlessCluster } from "./serverlessCluster";
 
 const _module = {
     version: utilities.getVersion(),

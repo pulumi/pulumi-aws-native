@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./computeEnvironment";
-export * from "./getComputeEnvironment";
-export * from "./getJobDefinition";
-export * from "./getJobQueue";
-export * from "./getSchedulingPolicy";
-export * from "./jobDefinition";
-export * from "./jobQueue";
-export * from "./schedulingPolicy";
+export { ComputeEnvironmentArgs } from "./computeEnvironment";
+export type ComputeEnvironment = import("./computeEnvironment").ComputeEnvironment;
+export const ComputeEnvironment: typeof import("./computeEnvironment").ComputeEnvironment = null as any;
+
+export { GetComputeEnvironmentArgs, GetComputeEnvironmentResult, GetComputeEnvironmentOutputArgs } from "./getComputeEnvironment";
+export const getComputeEnvironment: typeof import("./getComputeEnvironment").getComputeEnvironment = null as any;
+export const getComputeEnvironmentOutput: typeof import("./getComputeEnvironment").getComputeEnvironmentOutput = null as any;
+
+export { GetJobDefinitionArgs, GetJobDefinitionResult, GetJobDefinitionOutputArgs } from "./getJobDefinition";
+export const getJobDefinition: typeof import("./getJobDefinition").getJobDefinition = null as any;
+export const getJobDefinitionOutput: typeof import("./getJobDefinition").getJobDefinitionOutput = null as any;
+
+export { GetJobQueueArgs, GetJobQueueResult, GetJobQueueOutputArgs } from "./getJobQueue";
+export const getJobQueue: typeof import("./getJobQueue").getJobQueue = null as any;
+export const getJobQueueOutput: typeof import("./getJobQueue").getJobQueueOutput = null as any;
+
+export { GetSchedulingPolicyArgs, GetSchedulingPolicyResult, GetSchedulingPolicyOutputArgs } from "./getSchedulingPolicy";
+export const getSchedulingPolicy: typeof import("./getSchedulingPolicy").getSchedulingPolicy = null as any;
+export const getSchedulingPolicyOutput: typeof import("./getSchedulingPolicy").getSchedulingPolicyOutput = null as any;
+
+export { JobDefinitionArgs } from "./jobDefinition";
+export type JobDefinition = import("./jobDefinition").JobDefinition;
+export const JobDefinition: typeof import("./jobDefinition").JobDefinition = null as any;
+
+export { JobQueueArgs } from "./jobQueue";
+export type JobQueue = import("./jobQueue").JobQueue;
+export const JobQueue: typeof import("./jobQueue").JobQueue = null as any;
+
+export { SchedulingPolicyArgs } from "./schedulingPolicy";
+export type SchedulingPolicy = import("./schedulingPolicy").SchedulingPolicy;
+export const SchedulingPolicy: typeof import("./schedulingPolicy").SchedulingPolicy = null as any;
+
+utilities.lazyLoad(exports, ["ComputeEnvironment"], () => require("./computeEnvironment"));
+utilities.lazyLoad(exports, ["getComputeEnvironment","getComputeEnvironmentOutput"], () => require("./getComputeEnvironment"));
+utilities.lazyLoad(exports, ["getJobDefinition","getJobDefinitionOutput"], () => require("./getJobDefinition"));
+utilities.lazyLoad(exports, ["getJobQueue","getJobQueueOutput"], () => require("./getJobQueue"));
+utilities.lazyLoad(exports, ["getSchedulingPolicy","getSchedulingPolicyOutput"], () => require("./getSchedulingPolicy"));
+utilities.lazyLoad(exports, ["JobDefinition"], () => require("./jobDefinition"));
+utilities.lazyLoad(exports, ["JobQueue"], () => require("./jobQueue"));
+utilities.lazyLoad(exports, ["SchedulingPolicy"], () => require("./schedulingPolicy"));
 
 // Export enums:
 export * from "../types/enums/batch";
-
-// Import resources to register:
-import { ComputeEnvironment } from "./computeEnvironment";
-import { JobDefinition } from "./jobDefinition";
-import { JobQueue } from "./jobQueue";
-import { SchedulingPolicy } from "./schedulingPolicy";
 
 const _module = {
     version: utilities.getVersion(),

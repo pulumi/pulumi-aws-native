@@ -5,47 +5,136 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessKey";
-export * from "./getAccessKey";
-export * from "./getGroup";
-export * from "./getInstanceProfile";
-export * from "./getManagedPolicy";
-export * from "./getOIDCProvider";
-export * from "./getPolicy";
-export * from "./getRole";
-export * from "./getSAMLProvider";
-export * from "./getServerCertificate";
-export * from "./getServiceLinkedRole";
-export * from "./getUser";
-export * from "./getUserToGroupAddition";
-export * from "./getVirtualMFADevice";
-export * from "./group";
-export * from "./instanceProfile";
-export * from "./managedPolicy";
-export * from "./oidcprovider";
-export * from "./policy";
-export * from "./role";
-export * from "./samlprovider";
-export * from "./serverCertificate";
-export * from "./serviceLinkedRole";
-export * from "./user";
-export * from "./userToGroupAddition";
-export * from "./virtualMFADevice";
+export { AccessKeyArgs } from "./accessKey";
+export type AccessKey = import("./accessKey").AccessKey;
+export const AccessKey: typeof import("./accessKey").AccessKey = null as any;
 
-// Import resources to register:
-import { AccessKey } from "./accessKey";
-import { Group } from "./group";
-import { InstanceProfile } from "./instanceProfile";
-import { ManagedPolicy } from "./managedPolicy";
-import { OIDCProvider } from "./oidcprovider";
-import { Policy } from "./policy";
-import { Role } from "./role";
-import { SAMLProvider } from "./samlprovider";
-import { ServerCertificate } from "./serverCertificate";
-import { ServiceLinkedRole } from "./serviceLinkedRole";
-import { User } from "./user";
-import { UserToGroupAddition } from "./userToGroupAddition";
-import { VirtualMFADevice } from "./virtualMFADevice";
+export { GetAccessKeyArgs, GetAccessKeyResult, GetAccessKeyOutputArgs } from "./getAccessKey";
+export const getAccessKey: typeof import("./getAccessKey").getAccessKey = null as any;
+export const getAccessKeyOutput: typeof import("./getAccessKey").getAccessKeyOutput = null as any;
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+
+export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
+export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
+export const getInstanceProfileOutput: typeof import("./getInstanceProfile").getInstanceProfileOutput = null as any;
+
+export { GetManagedPolicyArgs, GetManagedPolicyResult, GetManagedPolicyOutputArgs } from "./getManagedPolicy";
+export const getManagedPolicy: typeof import("./getManagedPolicy").getManagedPolicy = null as any;
+export const getManagedPolicyOutput: typeof import("./getManagedPolicy").getManagedPolicyOutput = null as any;
+
+export { GetOIDCProviderArgs, GetOIDCProviderResult, GetOIDCProviderOutputArgs } from "./getOIDCProvider";
+export const getOIDCProvider: typeof import("./getOIDCProvider").getOIDCProvider = null as any;
+export const getOIDCProviderOutput: typeof import("./getOIDCProvider").getOIDCProviderOutput = null as any;
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
+export const getRole: typeof import("./getRole").getRole = null as any;
+export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
+
+export { GetSAMLProviderArgs, GetSAMLProviderResult, GetSAMLProviderOutputArgs } from "./getSAMLProvider";
+export const getSAMLProvider: typeof import("./getSAMLProvider").getSAMLProvider = null as any;
+export const getSAMLProviderOutput: typeof import("./getSAMLProvider").getSAMLProviderOutput = null as any;
+
+export { GetServerCertificateArgs, GetServerCertificateResult, GetServerCertificateOutputArgs } from "./getServerCertificate";
+export const getServerCertificate: typeof import("./getServerCertificate").getServerCertificate = null as any;
+export const getServerCertificateOutput: typeof import("./getServerCertificate").getServerCertificateOutput = null as any;
+
+export { GetServiceLinkedRoleArgs, GetServiceLinkedRoleResult, GetServiceLinkedRoleOutputArgs } from "./getServiceLinkedRole";
+export const getServiceLinkedRole: typeof import("./getServiceLinkedRole").getServiceLinkedRole = null as any;
+export const getServiceLinkedRoleOutput: typeof import("./getServiceLinkedRole").getServiceLinkedRoleOutput = null as any;
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+
+export { GetUserToGroupAdditionArgs, GetUserToGroupAdditionResult, GetUserToGroupAdditionOutputArgs } from "./getUserToGroupAddition";
+export const getUserToGroupAddition: typeof import("./getUserToGroupAddition").getUserToGroupAddition = null as any;
+export const getUserToGroupAdditionOutput: typeof import("./getUserToGroupAddition").getUserToGroupAdditionOutput = null as any;
+
+export { GetVirtualMFADeviceArgs, GetVirtualMFADeviceResult, GetVirtualMFADeviceOutputArgs } from "./getVirtualMFADevice";
+export const getVirtualMFADevice: typeof import("./getVirtualMFADevice").getVirtualMFADevice = null as any;
+export const getVirtualMFADeviceOutput: typeof import("./getVirtualMFADevice").getVirtualMFADeviceOutput = null as any;
+
+export { GroupArgs } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+
+export { InstanceProfileArgs } from "./instanceProfile";
+export type InstanceProfile = import("./instanceProfile").InstanceProfile;
+export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
+
+export { ManagedPolicyArgs } from "./managedPolicy";
+export type ManagedPolicy = import("./managedPolicy").ManagedPolicy;
+export const ManagedPolicy: typeof import("./managedPolicy").ManagedPolicy = null as any;
+
+export { OIDCProviderArgs } from "./oidcprovider";
+export type OIDCProvider = import("./oidcprovider").OIDCProvider;
+export const OIDCProvider: typeof import("./oidcprovider").OIDCProvider = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { RoleArgs } from "./role";
+export type Role = import("./role").Role;
+export const Role: typeof import("./role").Role = null as any;
+
+export { SAMLProviderArgs } from "./samlprovider";
+export type SAMLProvider = import("./samlprovider").SAMLProvider;
+export const SAMLProvider: typeof import("./samlprovider").SAMLProvider = null as any;
+
+export { ServerCertificateArgs } from "./serverCertificate";
+export type ServerCertificate = import("./serverCertificate").ServerCertificate;
+export const ServerCertificate: typeof import("./serverCertificate").ServerCertificate = null as any;
+
+export { ServiceLinkedRoleArgs } from "./serviceLinkedRole";
+export type ServiceLinkedRole = import("./serviceLinkedRole").ServiceLinkedRole;
+export const ServiceLinkedRole: typeof import("./serviceLinkedRole").ServiceLinkedRole = null as any;
+
+export { UserArgs } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+export { UserToGroupAdditionArgs } from "./userToGroupAddition";
+export type UserToGroupAddition = import("./userToGroupAddition").UserToGroupAddition;
+export const UserToGroupAddition: typeof import("./userToGroupAddition").UserToGroupAddition = null as any;
+
+export { VirtualMFADeviceArgs } from "./virtualMFADevice";
+export type VirtualMFADevice = import("./virtualMFADevice").VirtualMFADevice;
+export const VirtualMFADevice: typeof import("./virtualMFADevice").VirtualMFADevice = null as any;
+
+utilities.lazyLoad(exports, ["AccessKey"], () => require("./accessKey"));
+utilities.lazyLoad(exports, ["getAccessKey","getAccessKeyOutput"], () => require("./getAccessKey"));
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+utilities.lazyLoad(exports, ["getInstanceProfile","getInstanceProfileOutput"], () => require("./getInstanceProfile"));
+utilities.lazyLoad(exports, ["getManagedPolicy","getManagedPolicyOutput"], () => require("./getManagedPolicy"));
+utilities.lazyLoad(exports, ["getOIDCProvider","getOIDCProviderOutput"], () => require("./getOIDCProvider"));
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
+utilities.lazyLoad(exports, ["getSAMLProvider","getSAMLProviderOutput"], () => require("./getSAMLProvider"));
+utilities.lazyLoad(exports, ["getServerCertificate","getServerCertificateOutput"], () => require("./getServerCertificate"));
+utilities.lazyLoad(exports, ["getServiceLinkedRole","getServiceLinkedRoleOutput"], () => require("./getServiceLinkedRole"));
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+utilities.lazyLoad(exports, ["getUserToGroupAddition","getUserToGroupAdditionOutput"], () => require("./getUserToGroupAddition"));
+utilities.lazyLoad(exports, ["getVirtualMFADevice","getVirtualMFADeviceOutput"], () => require("./getVirtualMFADevice"));
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
+utilities.lazyLoad(exports, ["ManagedPolicy"], () => require("./managedPolicy"));
+utilities.lazyLoad(exports, ["OIDCProvider"], () => require("./oidcprovider"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["Role"], () => require("./role"));
+utilities.lazyLoad(exports, ["SAMLProvider"], () => require("./samlprovider"));
+utilities.lazyLoad(exports, ["ServerCertificate"], () => require("./serverCertificate"));
+utilities.lazyLoad(exports, ["ServiceLinkedRole"], () => require("./serviceLinkedRole"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+utilities.lazyLoad(exports, ["UserToGroupAddition"], () => require("./userToGroupAddition"));
+utilities.lazyLoad(exports, ["VirtualMFADevice"], () => require("./virtualMFADevice"));
 
 const _module = {
     version: utilities.getVersion(),

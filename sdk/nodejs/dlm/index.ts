@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getLifecyclePolicy";
-export * from "./lifecyclePolicy";
+export { GetLifecyclePolicyArgs, GetLifecyclePolicyResult, GetLifecyclePolicyOutputArgs } from "./getLifecyclePolicy";
+export const getLifecyclePolicy: typeof import("./getLifecyclePolicy").getLifecyclePolicy = null as any;
+export const getLifecyclePolicyOutput: typeof import("./getLifecyclePolicy").getLifecyclePolicyOutput = null as any;
 
-// Import resources to register:
-import { LifecyclePolicy } from "./lifecyclePolicy";
+export { LifecyclePolicyArgs } from "./lifecyclePolicy";
+export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
+export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
+
+utilities.lazyLoad(exports, ["getLifecyclePolicy","getLifecyclePolicyOutput"], () => require("./getLifecyclePolicy"));
+utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
 const _module = {
     version: utilities.getVersion(),

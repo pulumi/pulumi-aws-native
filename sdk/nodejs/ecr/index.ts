@@ -5,25 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPublicRepository";
-export * from "./getRegistryPolicy";
-export * from "./getReplicationConfiguration";
-export * from "./getRepository";
-export * from "./publicRepository";
-export * from "./pullThroughCacheRule";
-export * from "./registryPolicy";
-export * from "./replicationConfiguration";
-export * from "./repository";
+export { GetPublicRepositoryArgs, GetPublicRepositoryResult, GetPublicRepositoryOutputArgs } from "./getPublicRepository";
+export const getPublicRepository: typeof import("./getPublicRepository").getPublicRepository = null as any;
+export const getPublicRepositoryOutput: typeof import("./getPublicRepository").getPublicRepositoryOutput = null as any;
+
+export { GetRegistryPolicyArgs, GetRegistryPolicyResult, GetRegistryPolicyOutputArgs } from "./getRegistryPolicy";
+export const getRegistryPolicy: typeof import("./getRegistryPolicy").getRegistryPolicy = null as any;
+export const getRegistryPolicyOutput: typeof import("./getRegistryPolicy").getRegistryPolicyOutput = null as any;
+
+export { GetReplicationConfigurationArgs, GetReplicationConfigurationResult, GetReplicationConfigurationOutputArgs } from "./getReplicationConfiguration";
+export const getReplicationConfiguration: typeof import("./getReplicationConfiguration").getReplicationConfiguration = null as any;
+export const getReplicationConfigurationOutput: typeof import("./getReplicationConfiguration").getReplicationConfigurationOutput = null as any;
+
+export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
+export const getRepository: typeof import("./getRepository").getRepository = null as any;
+export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+
+export { PublicRepositoryArgs } from "./publicRepository";
+export type PublicRepository = import("./publicRepository").PublicRepository;
+export const PublicRepository: typeof import("./publicRepository").PublicRepository = null as any;
+
+export { PullThroughCacheRuleArgs } from "./pullThroughCacheRule";
+export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
+export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
+
+export { RegistryPolicyArgs } from "./registryPolicy";
+export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
+export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
+
+export { ReplicationConfigurationArgs } from "./replicationConfiguration";
+export type ReplicationConfiguration = import("./replicationConfiguration").ReplicationConfiguration;
+export const ReplicationConfiguration: typeof import("./replicationConfiguration").ReplicationConfiguration = null as any;
+
+export { RepositoryArgs } from "./repository";
+export type Repository = import("./repository").Repository;
+export const Repository: typeof import("./repository").Repository = null as any;
+
+utilities.lazyLoad(exports, ["getPublicRepository","getPublicRepositoryOutput"], () => require("./getPublicRepository"));
+utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
+utilities.lazyLoad(exports, ["getReplicationConfiguration","getReplicationConfigurationOutput"], () => require("./getReplicationConfiguration"));
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
+utilities.lazyLoad(exports, ["PublicRepository"], () => require("./publicRepository"));
+utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
+utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
+utilities.lazyLoad(exports, ["ReplicationConfiguration"], () => require("./replicationConfiguration"));
+utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
 
 // Export enums:
 export * from "../types/enums/ecr";
-
-// Import resources to register:
-import { PublicRepository } from "./publicRepository";
-import { PullThroughCacheRule } from "./pullThroughCacheRule";
-import { RegistryPolicy } from "./registryPolicy";
-import { ReplicationConfiguration } from "./replicationConfiguration";
-import { Repository } from "./repository";
 
 const _module = {
     version: utilities.getVersion(),

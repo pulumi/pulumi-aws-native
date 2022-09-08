@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGraph";
-export * from "./getMemberInvitation";
-export * from "./graph";
-export * from "./memberInvitation";
+export { GetGraphArgs, GetGraphResult, GetGraphOutputArgs } from "./getGraph";
+export const getGraph: typeof import("./getGraph").getGraph = null as any;
+export const getGraphOutput: typeof import("./getGraph").getGraphOutput = null as any;
 
-// Import resources to register:
-import { Graph } from "./graph";
-import { MemberInvitation } from "./memberInvitation";
+export { GetMemberInvitationArgs, GetMemberInvitationResult, GetMemberInvitationOutputArgs } from "./getMemberInvitation";
+export const getMemberInvitation: typeof import("./getMemberInvitation").getMemberInvitation = null as any;
+export const getMemberInvitationOutput: typeof import("./getMemberInvitation").getMemberInvitationOutput = null as any;
+
+export { GraphArgs } from "./graph";
+export type Graph = import("./graph").Graph;
+export const Graph: typeof import("./graph").Graph = null as any;
+
+export { MemberInvitationArgs } from "./memberInvitation";
+export type MemberInvitation = import("./memberInvitation").MemberInvitation;
+export const MemberInvitation: typeof import("./memberInvitation").MemberInvitation = null as any;
+
+utilities.lazyLoad(exports, ["getGraph","getGraphOutput"], () => require("./getGraph"));
+utilities.lazyLoad(exports, ["getMemberInvitation","getMemberInvitationOutput"], () => require("./getMemberInvitation"));
+utilities.lazyLoad(exports, ["Graph"], () => require("./graph"));
+utilities.lazyLoad(exports, ["MemberInvitation"], () => require("./memberInvitation"));
 
 const _module = {
     version: utilities.getVersion(),

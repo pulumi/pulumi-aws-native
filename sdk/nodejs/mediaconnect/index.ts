@@ -5,25 +5,54 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./flow";
-export * from "./flowEntitlement";
-export * from "./flowOutput";
-export * from "./flowSource";
-export * from "./flowVpcInterface";
-export * from "./getFlow";
-export * from "./getFlowEntitlement";
-export * from "./getFlowSource";
-export * from "./getFlowVpcInterface";
+export { FlowArgs } from "./flow";
+export type Flow = import("./flow").Flow;
+export const Flow: typeof import("./flow").Flow = null as any;
+
+export { FlowEntitlementArgs } from "./flowEntitlement";
+export type FlowEntitlement = import("./flowEntitlement").FlowEntitlement;
+export const FlowEntitlement: typeof import("./flowEntitlement").FlowEntitlement = null as any;
+
+export { FlowOutputArgs } from "./flowOutput";
+export type FlowOutput = import("./flowOutput").FlowOutput;
+export const FlowOutput: typeof import("./flowOutput").FlowOutput = null as any;
+
+export { FlowSourceArgs } from "./flowSource";
+export type FlowSource = import("./flowSource").FlowSource;
+export const FlowSource: typeof import("./flowSource").FlowSource = null as any;
+
+export { FlowVpcInterfaceArgs } from "./flowVpcInterface";
+export type FlowVpcInterface = import("./flowVpcInterface").FlowVpcInterface;
+export const FlowVpcInterface: typeof import("./flowVpcInterface").FlowVpcInterface = null as any;
+
+export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
+export const getFlow: typeof import("./getFlow").getFlow = null as any;
+export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
+
+export { GetFlowEntitlementArgs, GetFlowEntitlementResult, GetFlowEntitlementOutputArgs } from "./getFlowEntitlement";
+export const getFlowEntitlement: typeof import("./getFlowEntitlement").getFlowEntitlement = null as any;
+export const getFlowEntitlementOutput: typeof import("./getFlowEntitlement").getFlowEntitlementOutput = null as any;
+
+export { GetFlowSourceArgs, GetFlowSourceResult, GetFlowSourceOutputArgs } from "./getFlowSource";
+export const getFlowSource: typeof import("./getFlowSource").getFlowSource = null as any;
+export const getFlowSourceOutput: typeof import("./getFlowSource").getFlowSourceOutput = null as any;
+
+export { GetFlowVpcInterfaceArgs, GetFlowVpcInterfaceResult, GetFlowVpcInterfaceOutputArgs } from "./getFlowVpcInterface";
+export const getFlowVpcInterface: typeof import("./getFlowVpcInterface").getFlowVpcInterface = null as any;
+export const getFlowVpcInterfaceOutput: typeof import("./getFlowVpcInterface").getFlowVpcInterfaceOutput = null as any;
+
+utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
+utilities.lazyLoad(exports, ["FlowEntitlement"], () => require("./flowEntitlement"));
+utilities.lazyLoad(exports, ["FlowOutput"], () => require("./flowOutput"));
+utilities.lazyLoad(exports, ["FlowSource"], () => require("./flowSource"));
+utilities.lazyLoad(exports, ["FlowVpcInterface"], () => require("./flowVpcInterface"));
+utilities.lazyLoad(exports, ["getFlow","getFlowOutput"], () => require("./getFlow"));
+utilities.lazyLoad(exports, ["getFlowEntitlement","getFlowEntitlementOutput"], () => require("./getFlowEntitlement"));
+utilities.lazyLoad(exports, ["getFlowSource","getFlowSourceOutput"], () => require("./getFlowSource"));
+utilities.lazyLoad(exports, ["getFlowVpcInterface","getFlowVpcInterfaceOutput"], () => require("./getFlowVpcInterface"));
 
 // Export enums:
 export * from "../types/enums/mediaconnect";
-
-// Import resources to register:
-import { Flow } from "./flow";
-import { FlowEntitlement } from "./flowEntitlement";
-import { FlowOutput } from "./flowOutput";
-import { FlowSource } from "./flowSource";
-import { FlowVpcInterface } from "./flowVpcInterface";
 
 const _module = {
     version: utilities.getVersion(),

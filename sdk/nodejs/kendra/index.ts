@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataSource";
-export * from "./faq";
-export * from "./getDataSource";
-export * from "./getFaq";
-export * from "./getIndex";
-export * from "./index_";
+export { DataSourceArgs } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
+
+export { FaqArgs } from "./faq";
+export type Faq = import("./faq").Faq;
+export const Faq: typeof import("./faq").Faq = null as any;
+
+export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
+export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
+export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+
+export { GetFaqArgs, GetFaqResult, GetFaqOutputArgs } from "./getFaq";
+export const getFaq: typeof import("./getFaq").getFaq = null as any;
+export const getFaqOutput: typeof import("./getFaq").getFaqOutput = null as any;
+
+export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
+export const getIndex: typeof import("./getIndex").getIndex = null as any;
+export const getIndexOutput: typeof import("./getIndex").getIndexOutput = null as any;
+
+export { IndexArgs } from "./index_";
+export type Index = import("./index_").Index;
+export const Index: typeof import("./index_").Index = null as any;
+
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+utilities.lazyLoad(exports, ["Faq"], () => require("./faq"));
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+utilities.lazyLoad(exports, ["getFaq","getFaqOutput"], () => require("./getFaq"));
+utilities.lazyLoad(exports, ["getIndex","getIndexOutput"], () => require("./getIndex"));
+utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
 
 // Export enums:
 export * from "../types/enums/kendra";
-
-// Import resources to register:
-import { DataSource } from "./dataSource";
-import { Faq } from "./faq";
-import { Index } from "./index_";
 
 const _module = {
     version: utilities.getVersion(),

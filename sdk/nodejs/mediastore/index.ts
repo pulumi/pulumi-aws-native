@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./container";
-export * from "./getContainer";
+export { ContainerArgs } from "./container";
+export type Container = import("./container").Container;
+export const Container: typeof import("./container").Container = null as any;
 
-// Import resources to register:
-import { Container } from "./container";
+export { GetContainerArgs, GetContainerResult, GetContainerOutputArgs } from "./getContainer";
+export const getContainer: typeof import("./getContainer").getContainer = null as any;
+export const getContainerOutput: typeof import("./getContainer").getContainerOutput = null as any;
+
+utilities.lazyLoad(exports, ["Container"], () => require("./container"));
+utilities.lazyLoad(exports, ["getContainer","getContainerOutput"], () => require("./getContainer"));
 
 const _module = {
     version: utilities.getVersion(),

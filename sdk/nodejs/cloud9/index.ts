@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./environmentEC2";
-export * from "./getEnvironmentEC2";
+export { EnvironmentEC2Args } from "./environmentEC2";
+export type EnvironmentEC2 = import("./environmentEC2").EnvironmentEC2;
+export const EnvironmentEC2: typeof import("./environmentEC2").EnvironmentEC2 = null as any;
 
-// Import resources to register:
-import { EnvironmentEC2 } from "./environmentEC2";
+export { GetEnvironmentEC2Args, GetEnvironmentEC2Result, GetEnvironmentEC2OutputArgs } from "./getEnvironmentEC2";
+export const getEnvironmentEC2: typeof import("./getEnvironmentEC2").getEnvironmentEC2 = null as any;
+export const getEnvironmentEC2Output: typeof import("./getEnvironmentEC2").getEnvironmentEC2Output = null as any;
+
+utilities.lazyLoad(exports, ["EnvironmentEC2"], () => require("./environmentEC2"));
+utilities.lazyLoad(exports, ["getEnvironmentEC2","getEnvironmentEC2Output"], () => require("./getEnvironmentEC2"));
 
 const _module = {
     version: utilities.getVersion(),

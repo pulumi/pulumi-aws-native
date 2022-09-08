@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getNotificationChannel";
-export * from "./getResourceCollection";
-export * from "./notificationChannel";
-export * from "./resourceCollection";
+export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
+export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
+export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
+
+export { GetResourceCollectionArgs, GetResourceCollectionResult, GetResourceCollectionOutputArgs } from "./getResourceCollection";
+export const getResourceCollection: typeof import("./getResourceCollection").getResourceCollection = null as any;
+export const getResourceCollectionOutput: typeof import("./getResourceCollection").getResourceCollectionOutput = null as any;
+
+export { NotificationChannelArgs } from "./notificationChannel";
+export type NotificationChannel = import("./notificationChannel").NotificationChannel;
+export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+
+export { ResourceCollectionArgs } from "./resourceCollection";
+export type ResourceCollection = import("./resourceCollection").ResourceCollection;
+export const ResourceCollection: typeof import("./resourceCollection").ResourceCollection = null as any;
+
+utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
+utilities.lazyLoad(exports, ["getResourceCollection","getResourceCollectionOutput"], () => require("./getResourceCollection"));
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
+utilities.lazyLoad(exports, ["ResourceCollection"], () => require("./resourceCollection"));
 
 // Export enums:
 export * from "../types/enums/devopsguru";
-
-// Import resources to register:
-import { NotificationChannel } from "./notificationChannel";
-import { ResourceCollection } from "./resourceCollection";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./addon";
-export * from "./cluster";
-export * from "./fargateProfile";
-export * from "./getAddon";
-export * from "./getCluster";
-export * from "./getFargateProfile";
-export * from "./getIdentityProviderConfig";
-export * from "./getNodegroup";
-export * from "./identityProviderConfig";
-export * from "./nodegroup";
+export { AddonArgs } from "./addon";
+export type Addon = import("./addon").Addon;
+export const Addon: typeof import("./addon").Addon = null as any;
+
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { FargateProfileArgs } from "./fargateProfile";
+export type FargateProfile = import("./fargateProfile").FargateProfile;
+export const FargateProfile: typeof import("./fargateProfile").FargateProfile = null as any;
+
+export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
+export const getAddon: typeof import("./getAddon").getAddon = null as any;
+export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetFargateProfileArgs, GetFargateProfileResult, GetFargateProfileOutputArgs } from "./getFargateProfile";
+export const getFargateProfile: typeof import("./getFargateProfile").getFargateProfile = null as any;
+export const getFargateProfileOutput: typeof import("./getFargateProfile").getFargateProfileOutput = null as any;
+
+export { GetIdentityProviderConfigArgs, GetIdentityProviderConfigResult, GetIdentityProviderConfigOutputArgs } from "./getIdentityProviderConfig";
+export const getIdentityProviderConfig: typeof import("./getIdentityProviderConfig").getIdentityProviderConfig = null as any;
+export const getIdentityProviderConfigOutput: typeof import("./getIdentityProviderConfig").getIdentityProviderConfigOutput = null as any;
+
+export { GetNodegroupArgs, GetNodegroupResult, GetNodegroupOutputArgs } from "./getNodegroup";
+export const getNodegroup: typeof import("./getNodegroup").getNodegroup = null as any;
+export const getNodegroupOutput: typeof import("./getNodegroup").getNodegroupOutput = null as any;
+
+export { IdentityProviderConfigArgs } from "./identityProviderConfig";
+export type IdentityProviderConfig = import("./identityProviderConfig").IdentityProviderConfig;
+export const IdentityProviderConfig: typeof import("./identityProviderConfig").IdentityProviderConfig = null as any;
+
+export { NodegroupArgs } from "./nodegroup";
+export type Nodegroup = import("./nodegroup").Nodegroup;
+export const Nodegroup: typeof import("./nodegroup").Nodegroup = null as any;
+
+utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["FargateProfile"], () => require("./fargateProfile"));
+utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getFargateProfile","getFargateProfileOutput"], () => require("./getFargateProfile"));
+utilities.lazyLoad(exports, ["getIdentityProviderConfig","getIdentityProviderConfigOutput"], () => require("./getIdentityProviderConfig"));
+utilities.lazyLoad(exports, ["getNodegroup","getNodegroupOutput"], () => require("./getNodegroup"));
+utilities.lazyLoad(exports, ["IdentityProviderConfig"], () => require("./identityProviderConfig"));
+utilities.lazyLoad(exports, ["Nodegroup"], () => require("./nodegroup"));
 
 // Export enums:
 export * from "../types/enums/eks";
-
-// Import resources to register:
-import { Addon } from "./addon";
-import { Cluster } from "./cluster";
-import { FargateProfile } from "./fargateProfile";
-import { IdentityProviderConfig } from "./identityProviderConfig";
-import { Nodegroup } from "./nodegroup";
 
 const _module = {
     version: utilities.getVersion(),

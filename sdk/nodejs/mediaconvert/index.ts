@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getJobTemplate";
-export * from "./getPreset";
-export * from "./getQueue";
-export * from "./jobTemplate";
-export * from "./preset";
-export * from "./queue";
+export { GetJobTemplateArgs, GetJobTemplateResult, GetJobTemplateOutputArgs } from "./getJobTemplate";
+export const getJobTemplate: typeof import("./getJobTemplate").getJobTemplate = null as any;
+export const getJobTemplateOutput: typeof import("./getJobTemplate").getJobTemplateOutput = null as any;
 
-// Import resources to register:
-import { JobTemplate } from "./jobTemplate";
-import { Preset } from "./preset";
-import { Queue } from "./queue";
+export { GetPresetArgs, GetPresetResult, GetPresetOutputArgs } from "./getPreset";
+export const getPreset: typeof import("./getPreset").getPreset = null as any;
+export const getPresetOutput: typeof import("./getPreset").getPresetOutput = null as any;
+
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+
+export { JobTemplateArgs } from "./jobTemplate";
+export type JobTemplate = import("./jobTemplate").JobTemplate;
+export const JobTemplate: typeof import("./jobTemplate").JobTemplate = null as any;
+
+export { PresetArgs } from "./preset";
+export type Preset = import("./preset").Preset;
+export const Preset: typeof import("./preset").Preset = null as any;
+
+export { QueueArgs } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+
+utilities.lazyLoad(exports, ["getJobTemplate","getJobTemplateOutput"], () => require("./getJobTemplate"));
+utilities.lazyLoad(exports, ["getPreset","getPresetOutput"], () => require("./getPreset"));
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+utilities.lazyLoad(exports, ["JobTemplate"], () => require("./jobTemplate"));
+utilities.lazyLoad(exports, ["Preset"], () => require("./preset"));
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 const _module = {
     version: utilities.getVersion(),

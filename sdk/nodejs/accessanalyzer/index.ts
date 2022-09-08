@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./analyzer";
-export * from "./getAnalyzer";
+export { AnalyzerArgs } from "./analyzer";
+export type Analyzer = import("./analyzer").Analyzer;
+export const Analyzer: typeof import("./analyzer").Analyzer = null as any;
 
-// Import resources to register:
-import { Analyzer } from "./analyzer";
+export { GetAnalyzerArgs, GetAnalyzerResult, GetAnalyzerOutputArgs } from "./getAnalyzer";
+export const getAnalyzer: typeof import("./getAnalyzer").getAnalyzer = null as any;
+export const getAnalyzerOutput: typeof import("./getAnalyzer").getAnalyzerOutput = null as any;
+
+utilities.lazyLoad(exports, ["Analyzer"], () => require("./analyzer"));
+utilities.lazyLoad(exports, ["getAnalyzer","getAnalyzerOutput"], () => require("./getAnalyzer"));
 
 const _module = {
     version: utilities.getVersion(),

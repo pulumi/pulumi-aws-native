@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./firewall";
-export * from "./firewallPolicy";
-export * from "./getFirewall";
-export * from "./getFirewallPolicy";
-export * from "./getLoggingConfiguration";
-export * from "./getRuleGroup";
-export * from "./loggingConfiguration";
-export * from "./ruleGroup";
+export { FirewallArgs } from "./firewall";
+export type Firewall = import("./firewall").Firewall;
+export const Firewall: typeof import("./firewall").Firewall = null as any;
+
+export { FirewallPolicyArgs } from "./firewallPolicy";
+export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
+export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
+
+export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
+export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
+export const getFirewallOutput: typeof import("./getFirewall").getFirewallOutput = null as any;
+
+export { GetFirewallPolicyArgs, GetFirewallPolicyResult, GetFirewallPolicyOutputArgs } from "./getFirewallPolicy";
+export const getFirewallPolicy: typeof import("./getFirewallPolicy").getFirewallPolicy = null as any;
+export const getFirewallPolicyOutput: typeof import("./getFirewallPolicy").getFirewallPolicyOutput = null as any;
+
+export { GetLoggingConfigurationArgs, GetLoggingConfigurationResult, GetLoggingConfigurationOutputArgs } from "./getLoggingConfiguration";
+export const getLoggingConfiguration: typeof import("./getLoggingConfiguration").getLoggingConfiguration = null as any;
+export const getLoggingConfigurationOutput: typeof import("./getLoggingConfiguration").getLoggingConfigurationOutput = null as any;
+
+export { GetRuleGroupArgs, GetRuleGroupResult, GetRuleGroupOutputArgs } from "./getRuleGroup";
+export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null as any;
+export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
+
+export { LoggingConfigurationArgs } from "./loggingConfiguration";
+export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
+export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;
+
+export { RuleGroupArgs } from "./ruleGroup";
+export type RuleGroup = import("./ruleGroup").RuleGroup;
+export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
+
+utilities.lazyLoad(exports, ["Firewall"], () => require("./firewall"));
+utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
+utilities.lazyLoad(exports, ["getFirewall","getFirewallOutput"], () => require("./getFirewall"));
+utilities.lazyLoad(exports, ["getFirewallPolicy","getFirewallPolicyOutput"], () => require("./getFirewallPolicy"));
+utilities.lazyLoad(exports, ["getLoggingConfiguration","getLoggingConfigurationOutput"], () => require("./getLoggingConfiguration"));
+utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
+utilities.lazyLoad(exports, ["LoggingConfiguration"], () => require("./loggingConfiguration"));
+utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
 
 // Export enums:
 export * from "../types/enums/networkfirewall";
-
-// Import resources to register:
-import { Firewall } from "./firewall";
-import { FirewallPolicy } from "./firewallPolicy";
-import { LoggingConfiguration } from "./loggingConfiguration";
-import { RuleGroup } from "./ruleGroup";
 
 const _module = {
     version: utilities.getVersion(),

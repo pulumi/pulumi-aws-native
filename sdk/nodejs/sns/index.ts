@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSubscription";
-export * from "./getTopic";
-export * from "./getTopicPolicy";
-export * from "./subscription";
-export * from "./topic";
-export * from "./topicPolicy";
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
 
-// Import resources to register:
-import { Subscription } from "./subscription";
-import { Topic } from "./topic";
-import { TopicPolicy } from "./topicPolicy";
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+
+export { GetTopicPolicyArgs, GetTopicPolicyResult, GetTopicPolicyOutputArgs } from "./getTopicPolicy";
+export const getTopicPolicy: typeof import("./getTopicPolicy").getTopicPolicy = null as any;
+export const getTopicPolicyOutput: typeof import("./getTopicPolicy").getTopicPolicyOutput = null as any;
+
+export { SubscriptionArgs } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+
+export { TopicArgs } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+
+export { TopicPolicyArgs } from "./topicPolicy";
+export type TopicPolicy = import("./topicPolicy").TopicPolicy;
+export const TopicPolicy: typeof import("./topicPolicy").TopicPolicy = null as any;
+
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+utilities.lazyLoad(exports, ["getTopicPolicy","getTopicPolicyOutput"], () => require("./getTopicPolicy"));
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
+utilities.lazyLoad(exports, ["TopicPolicy"], () => require("./topicPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

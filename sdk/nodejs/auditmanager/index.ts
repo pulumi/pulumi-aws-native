@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assessment";
-export * from "./getAssessment";
+export { AssessmentArgs } from "./assessment";
+export type Assessment = import("./assessment").Assessment;
+export const Assessment: typeof import("./assessment").Assessment = null as any;
+
+export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
+export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
+export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
+
+utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
+utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
 
 // Export enums:
 export * from "../types/enums/auditmanager";
-
-// Import resources to register:
-import { Assessment } from "./assessment";
 
 const _module = {
     version: utilities.getVersion(),

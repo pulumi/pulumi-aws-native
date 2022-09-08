@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPoint";
-export * from "./accessPointPolicy";
-export * from "./getAccessPoint";
-export * from "./getAccessPointPolicy";
+export { AccessPointArgs } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
 
-// Import resources to register:
-import { AccessPoint } from "./accessPoint";
-import { AccessPointPolicy } from "./accessPointPolicy";
+export { AccessPointPolicyArgs } from "./accessPointPolicy";
+export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
+export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
+
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+
+export { GetAccessPointPolicyArgs, GetAccessPointPolicyResult, GetAccessPointPolicyOutputArgs } from "./getAccessPointPolicy";
+export const getAccessPointPolicy: typeof import("./getAccessPointPolicy").getAccessPointPolicy = null as any;
+export const getAccessPointPolicyOutput: typeof import("./getAccessPointPolicy").getAccessPointPolicyOutput = null as any;
+
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
+utilities.lazyLoad(exports, ["getAccessPointPolicy","getAccessPointPolicyOutput"], () => require("./getAccessPointPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

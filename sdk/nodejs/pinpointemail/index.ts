@@ -5,20 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./configurationSet";
-export * from "./configurationSetEventDestination";
-export * from "./dedicatedIpPool";
-export * from "./getConfigurationSet";
-export * from "./getConfigurationSetEventDestination";
-export * from "./getDedicatedIpPool";
-export * from "./getIdentity";
-export * from "./identity";
+export { ConfigurationSetArgs } from "./configurationSet";
+export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
+export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
 
-// Import resources to register:
-import { ConfigurationSet } from "./configurationSet";
-import { ConfigurationSetEventDestination } from "./configurationSetEventDestination";
-import { DedicatedIpPool } from "./dedicatedIpPool";
-import { Identity } from "./identity";
+export { ConfigurationSetEventDestinationArgs } from "./configurationSetEventDestination";
+export type ConfigurationSetEventDestination = import("./configurationSetEventDestination").ConfigurationSetEventDestination;
+export const ConfigurationSetEventDestination: typeof import("./configurationSetEventDestination").ConfigurationSetEventDestination = null as any;
+
+export { DedicatedIpPoolArgs } from "./dedicatedIpPool";
+export type DedicatedIpPool = import("./dedicatedIpPool").DedicatedIpPool;
+export const DedicatedIpPool: typeof import("./dedicatedIpPool").DedicatedIpPool = null as any;
+
+export { GetConfigurationSetArgs, GetConfigurationSetResult, GetConfigurationSetOutputArgs } from "./getConfigurationSet";
+export const getConfigurationSet: typeof import("./getConfigurationSet").getConfigurationSet = null as any;
+export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
+
+export { GetConfigurationSetEventDestinationArgs, GetConfigurationSetEventDestinationResult, GetConfigurationSetEventDestinationOutputArgs } from "./getConfigurationSetEventDestination";
+export const getConfigurationSetEventDestination: typeof import("./getConfigurationSetEventDestination").getConfigurationSetEventDestination = null as any;
+export const getConfigurationSetEventDestinationOutput: typeof import("./getConfigurationSetEventDestination").getConfigurationSetEventDestinationOutput = null as any;
+
+export { GetDedicatedIpPoolArgs, GetDedicatedIpPoolResult, GetDedicatedIpPoolOutputArgs } from "./getDedicatedIpPool";
+export const getDedicatedIpPool: typeof import("./getDedicatedIpPool").getDedicatedIpPool = null as any;
+export const getDedicatedIpPoolOutput: typeof import("./getDedicatedIpPool").getDedicatedIpPoolOutput = null as any;
+
+export { GetIdentityArgs, GetIdentityResult, GetIdentityOutputArgs } from "./getIdentity";
+export const getIdentity: typeof import("./getIdentity").getIdentity = null as any;
+export const getIdentityOutput: typeof import("./getIdentity").getIdentityOutput = null as any;
+
+export { IdentityArgs } from "./identity";
+export type Identity = import("./identity").Identity;
+export const Identity: typeof import("./identity").Identity = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
+utilities.lazyLoad(exports, ["ConfigurationSetEventDestination"], () => require("./configurationSetEventDestination"));
+utilities.lazyLoad(exports, ["DedicatedIpPool"], () => require("./dedicatedIpPool"));
+utilities.lazyLoad(exports, ["getConfigurationSet","getConfigurationSetOutput"], () => require("./getConfigurationSet"));
+utilities.lazyLoad(exports, ["getConfigurationSetEventDestination","getConfigurationSetEventDestinationOutput"], () => require("./getConfigurationSetEventDestination"));
+utilities.lazyLoad(exports, ["getDedicatedIpPool","getDedicatedIpPoolOutput"], () => require("./getDedicatedIpPool"));
+utilities.lazyLoad(exports, ["getIdentity","getIdentityOutput"], () => require("./getIdentity"));
+utilities.lazyLoad(exports, ["Identity"], () => require("./identity"));
 
 const _module = {
     version: utilities.getVersion(),

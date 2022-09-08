@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getStream";
-export * from "./getStreamConsumer";
-export * from "./stream";
-export * from "./streamConsumer";
+export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
+export const getStream: typeof import("./getStream").getStream = null as any;
+export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
+
+export { GetStreamConsumerArgs, GetStreamConsumerResult, GetStreamConsumerOutputArgs } from "./getStreamConsumer";
+export const getStreamConsumer: typeof import("./getStreamConsumer").getStreamConsumer = null as any;
+export const getStreamConsumerOutput: typeof import("./getStreamConsumer").getStreamConsumerOutput = null as any;
+
+export { StreamArgs } from "./stream";
+export type Stream = import("./stream").Stream;
+export const Stream: typeof import("./stream").Stream = null as any;
+
+export { StreamConsumerArgs } from "./streamConsumer";
+export type StreamConsumer = import("./streamConsumer").StreamConsumer;
+export const StreamConsumer: typeof import("./streamConsumer").StreamConsumer = null as any;
+
+utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
+utilities.lazyLoad(exports, ["getStreamConsumer","getStreamConsumerOutput"], () => require("./getStreamConsumer"));
+utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+utilities.lazyLoad(exports, ["StreamConsumer"], () => require("./streamConsumer"));
 
 // Export enums:
 export * from "../types/enums/kinesis";
-
-// Import resources to register:
-import { Stream } from "./stream";
-import { StreamConsumer } from "./streamConsumer";
 
 const _module = {
     version: utilities.getVersion(),

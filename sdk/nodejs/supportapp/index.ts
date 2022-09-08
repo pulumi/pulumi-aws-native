@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accountAlias";
-export * from "./getAccountAlias";
-export * from "./getSlackChannelConfiguration";
-export * from "./slackChannelConfiguration";
+export { AccountAliasArgs } from "./accountAlias";
+export type AccountAlias = import("./accountAlias").AccountAlias;
+export const AccountAlias: typeof import("./accountAlias").AccountAlias = null as any;
+
+export { GetAccountAliasArgs, GetAccountAliasResult, GetAccountAliasOutputArgs } from "./getAccountAlias";
+export const getAccountAlias: typeof import("./getAccountAlias").getAccountAlias = null as any;
+export const getAccountAliasOutput: typeof import("./getAccountAlias").getAccountAliasOutput = null as any;
+
+export { GetSlackChannelConfigurationArgs, GetSlackChannelConfigurationResult, GetSlackChannelConfigurationOutputArgs } from "./getSlackChannelConfiguration";
+export const getSlackChannelConfiguration: typeof import("./getSlackChannelConfiguration").getSlackChannelConfiguration = null as any;
+export const getSlackChannelConfigurationOutput: typeof import("./getSlackChannelConfiguration").getSlackChannelConfigurationOutput = null as any;
+
+export { SlackChannelConfigurationArgs } from "./slackChannelConfiguration";
+export type SlackChannelConfiguration = import("./slackChannelConfiguration").SlackChannelConfiguration;
+export const SlackChannelConfiguration: typeof import("./slackChannelConfiguration").SlackChannelConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["AccountAlias"], () => require("./accountAlias"));
+utilities.lazyLoad(exports, ["getAccountAlias","getAccountAliasOutput"], () => require("./getAccountAlias"));
+utilities.lazyLoad(exports, ["getSlackChannelConfiguration","getSlackChannelConfigurationOutput"], () => require("./getSlackChannelConfiguration"));
+utilities.lazyLoad(exports, ["SlackChannelConfiguration"], () => require("./slackChannelConfiguration"));
 
 // Export enums:
 export * from "../types/enums/supportapp";
-
-// Import resources to register:
-import { AccountAlias } from "./accountAlias";
-import { SlackChannelConfiguration } from "./slackChannelConfiguration";
 
 const _module = {
     version: utilities.getVersion(),

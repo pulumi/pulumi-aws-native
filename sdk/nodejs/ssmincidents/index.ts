@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getReplicationSet";
-export * from "./getResponsePlan";
-export * from "./replicationSet";
-export * from "./responsePlan";
+export { GetReplicationSetArgs, GetReplicationSetResult, GetReplicationSetOutputArgs } from "./getReplicationSet";
+export const getReplicationSet: typeof import("./getReplicationSet").getReplicationSet = null as any;
+export const getReplicationSetOutput: typeof import("./getReplicationSet").getReplicationSetOutput = null as any;
+
+export { GetResponsePlanArgs, GetResponsePlanResult, GetResponsePlanOutputArgs } from "./getResponsePlan";
+export const getResponsePlan: typeof import("./getResponsePlan").getResponsePlan = null as any;
+export const getResponsePlanOutput: typeof import("./getResponsePlan").getResponsePlanOutput = null as any;
+
+export { ReplicationSetArgs } from "./replicationSet";
+export type ReplicationSet = import("./replicationSet").ReplicationSet;
+export const ReplicationSet: typeof import("./replicationSet").ReplicationSet = null as any;
+
+export { ResponsePlanArgs } from "./responsePlan";
+export type ResponsePlan = import("./responsePlan").ResponsePlan;
+export const ResponsePlan: typeof import("./responsePlan").ResponsePlan = null as any;
+
+utilities.lazyLoad(exports, ["getReplicationSet","getReplicationSetOutput"], () => require("./getReplicationSet"));
+utilities.lazyLoad(exports, ["getResponsePlan","getResponsePlanOutput"], () => require("./getResponsePlan"));
+utilities.lazyLoad(exports, ["ReplicationSet"], () => require("./replicationSet"));
+utilities.lazyLoad(exports, ["ResponsePlan"], () => require("./responsePlan"));
 
 // Export enums:
 export * from "../types/enums/ssmincidents";
-
-// Import resources to register:
-import { ReplicationSet } from "./replicationSet";
-import { ResponsePlan } from "./responsePlan";
 
 const _module = {
     version: utilities.getVersion(),

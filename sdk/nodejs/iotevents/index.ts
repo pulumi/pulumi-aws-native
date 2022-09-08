@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alarmModel";
-export * from "./detectorModel";
-export * from "./getAlarmModel";
-export * from "./getDetectorModel";
-export * from "./getInput";
-export * from "./input";
+export { AlarmModelArgs } from "./alarmModel";
+export type AlarmModel = import("./alarmModel").AlarmModel;
+export const AlarmModel: typeof import("./alarmModel").AlarmModel = null as any;
+
+export { DetectorModelArgs } from "./detectorModel";
+export type DetectorModel = import("./detectorModel").DetectorModel;
+export const DetectorModel: typeof import("./detectorModel").DetectorModel = null as any;
+
+export { GetAlarmModelArgs, GetAlarmModelResult, GetAlarmModelOutputArgs } from "./getAlarmModel";
+export const getAlarmModel: typeof import("./getAlarmModel").getAlarmModel = null as any;
+export const getAlarmModelOutput: typeof import("./getAlarmModel").getAlarmModelOutput = null as any;
+
+export { GetDetectorModelArgs, GetDetectorModelResult, GetDetectorModelOutputArgs } from "./getDetectorModel";
+export const getDetectorModel: typeof import("./getDetectorModel").getDetectorModel = null as any;
+export const getDetectorModelOutput: typeof import("./getDetectorModel").getDetectorModelOutput = null as any;
+
+export { GetInputArgs, GetInputResult, GetInputOutputArgs } from "./getInput";
+export const getInput: typeof import("./getInput").getInput = null as any;
+export const getInputOutput: typeof import("./getInput").getInputOutput = null as any;
+
+export { InputArgs } from "./input";
+export type Input = import("./input").Input;
+export const Input: typeof import("./input").Input = null as any;
+
+utilities.lazyLoad(exports, ["AlarmModel"], () => require("./alarmModel"));
+utilities.lazyLoad(exports, ["DetectorModel"], () => require("./detectorModel"));
+utilities.lazyLoad(exports, ["getAlarmModel","getAlarmModelOutput"], () => require("./getAlarmModel"));
+utilities.lazyLoad(exports, ["getDetectorModel","getDetectorModelOutput"], () => require("./getDetectorModel"));
+utilities.lazyLoad(exports, ["getInput","getInputOutput"], () => require("./getInput"));
+utilities.lazyLoad(exports, ["Input"], () => require("./input"));
 
 // Export enums:
 export * from "../types/enums/iotevents";
-
-// Import resources to register:
-import { AlarmModel } from "./alarmModel";
-import { DetectorModel } from "./detectorModel";
-import { Input } from "./input";
 
 const _module = {
     version: utilities.getVersion(),

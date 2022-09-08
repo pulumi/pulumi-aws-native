@@ -5,84 +5,249 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./appImageConfig";
-export * from "./codeRepository";
-export * from "./dataQualityJobDefinition";
-export * from "./device";
-export * from "./deviceFleet";
-export * from "./domain";
-export * from "./endpoint";
-export * from "./endpointConfig";
-export * from "./featureGroup";
-export * from "./getApp";
-export * from "./getAppImageConfig";
-export * from "./getCodeRepository";
-export * from "./getDataQualityJobDefinition";
-export * from "./getDeviceFleet";
-export * from "./getDomain";
-export * from "./getEndpoint";
-export * from "./getEndpointConfig";
-export * from "./getImage";
-export * from "./getImageVersion";
-export * from "./getModel";
-export * from "./getModelBiasJobDefinition";
-export * from "./getModelExplainabilityJobDefinition";
-export * from "./getModelPackage";
-export * from "./getModelPackageGroup";
-export * from "./getModelQualityJobDefinition";
-export * from "./getMonitoringSchedule";
-export * from "./getNotebookInstance";
-export * from "./getNotebookInstanceLifecycleConfig";
-export * from "./getPipeline";
-export * from "./getProject";
-export * from "./getUserProfile";
-export * from "./getWorkteam";
-export * from "./image";
-export * from "./imageVersion";
-export * from "./model";
-export * from "./modelBiasJobDefinition";
-export * from "./modelExplainabilityJobDefinition";
-export * from "./modelPackage";
-export * from "./modelPackageGroup";
-export * from "./modelQualityJobDefinition";
-export * from "./monitoringSchedule";
-export * from "./notebookInstance";
-export * from "./notebookInstanceLifecycleConfig";
-export * from "./pipeline";
-export * from "./project";
-export * from "./userProfile";
-export * from "./workteam";
+export { AppArgs } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
+
+export { AppImageConfigArgs } from "./appImageConfig";
+export type AppImageConfig = import("./appImageConfig").AppImageConfig;
+export const AppImageConfig: typeof import("./appImageConfig").AppImageConfig = null as any;
+
+export { CodeRepositoryArgs } from "./codeRepository";
+export type CodeRepository = import("./codeRepository").CodeRepository;
+export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
+
+export { DataQualityJobDefinitionArgs } from "./dataQualityJobDefinition";
+export type DataQualityJobDefinition = import("./dataQualityJobDefinition").DataQualityJobDefinition;
+export const DataQualityJobDefinition: typeof import("./dataQualityJobDefinition").DataQualityJobDefinition = null as any;
+
+export { DeviceArgs } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
+
+export { DeviceFleetArgs } from "./deviceFleet";
+export type DeviceFleet = import("./deviceFleet").DeviceFleet;
+export const DeviceFleet: typeof import("./deviceFleet").DeviceFleet = null as any;
+
+export { DomainArgs } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+
+export { EndpointConfigArgs } from "./endpointConfig";
+export type EndpointConfig = import("./endpointConfig").EndpointConfig;
+export const EndpointConfig: typeof import("./endpointConfig").EndpointConfig = null as any;
+
+export { FeatureGroupArgs } from "./featureGroup";
+export type FeatureGroup = import("./featureGroup").FeatureGroup;
+export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
+
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+
+export { GetAppImageConfigArgs, GetAppImageConfigResult, GetAppImageConfigOutputArgs } from "./getAppImageConfig";
+export const getAppImageConfig: typeof import("./getAppImageConfig").getAppImageConfig = null as any;
+export const getAppImageConfigOutput: typeof import("./getAppImageConfig").getAppImageConfigOutput = null as any;
+
+export { GetCodeRepositoryArgs, GetCodeRepositoryResult, GetCodeRepositoryOutputArgs } from "./getCodeRepository";
+export const getCodeRepository: typeof import("./getCodeRepository").getCodeRepository = null as any;
+export const getCodeRepositoryOutput: typeof import("./getCodeRepository").getCodeRepositoryOutput = null as any;
+
+export { GetDataQualityJobDefinitionArgs, GetDataQualityJobDefinitionResult, GetDataQualityJobDefinitionOutputArgs } from "./getDataQualityJobDefinition";
+export const getDataQualityJobDefinition: typeof import("./getDataQualityJobDefinition").getDataQualityJobDefinition = null as any;
+export const getDataQualityJobDefinitionOutput: typeof import("./getDataQualityJobDefinition").getDataQualityJobDefinitionOutput = null as any;
+
+export { GetDeviceFleetArgs, GetDeviceFleetResult, GetDeviceFleetOutputArgs } from "./getDeviceFleet";
+export const getDeviceFleet: typeof import("./getDeviceFleet").getDeviceFleet = null as any;
+export const getDeviceFleetOutput: typeof import("./getDeviceFleet").getDeviceFleetOutput = null as any;
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+
+export { GetEndpointConfigArgs, GetEndpointConfigResult, GetEndpointConfigOutputArgs } from "./getEndpointConfig";
+export const getEndpointConfig: typeof import("./getEndpointConfig").getEndpointConfig = null as any;
+export const getEndpointConfigOutput: typeof import("./getEndpointConfig").getEndpointConfigOutput = null as any;
+
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+
+export { GetImageVersionArgs, GetImageVersionResult, GetImageVersionOutputArgs } from "./getImageVersion";
+export const getImageVersion: typeof import("./getImageVersion").getImageVersion = null as any;
+export const getImageVersionOutput: typeof import("./getImageVersion").getImageVersionOutput = null as any;
+
+export { GetModelArgs, GetModelResult, GetModelOutputArgs } from "./getModel";
+export const getModel: typeof import("./getModel").getModel = null as any;
+export const getModelOutput: typeof import("./getModel").getModelOutput = null as any;
+
+export { GetModelBiasJobDefinitionArgs, GetModelBiasJobDefinitionResult, GetModelBiasJobDefinitionOutputArgs } from "./getModelBiasJobDefinition";
+export const getModelBiasJobDefinition: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinition = null as any;
+export const getModelBiasJobDefinitionOutput: typeof import("./getModelBiasJobDefinition").getModelBiasJobDefinitionOutput = null as any;
+
+export { GetModelExplainabilityJobDefinitionArgs, GetModelExplainabilityJobDefinitionResult, GetModelExplainabilityJobDefinitionOutputArgs } from "./getModelExplainabilityJobDefinition";
+export const getModelExplainabilityJobDefinition: typeof import("./getModelExplainabilityJobDefinition").getModelExplainabilityJobDefinition = null as any;
+export const getModelExplainabilityJobDefinitionOutput: typeof import("./getModelExplainabilityJobDefinition").getModelExplainabilityJobDefinitionOutput = null as any;
+
+export { GetModelPackageArgs, GetModelPackageResult, GetModelPackageOutputArgs } from "./getModelPackage";
+export const getModelPackage: typeof import("./getModelPackage").getModelPackage = null as any;
+export const getModelPackageOutput: typeof import("./getModelPackage").getModelPackageOutput = null as any;
+
+export { GetModelPackageGroupArgs, GetModelPackageGroupResult, GetModelPackageGroupOutputArgs } from "./getModelPackageGroup";
+export const getModelPackageGroup: typeof import("./getModelPackageGroup").getModelPackageGroup = null as any;
+export const getModelPackageGroupOutput: typeof import("./getModelPackageGroup").getModelPackageGroupOutput = null as any;
+
+export { GetModelQualityJobDefinitionArgs, GetModelQualityJobDefinitionResult, GetModelQualityJobDefinitionOutputArgs } from "./getModelQualityJobDefinition";
+export const getModelQualityJobDefinition: typeof import("./getModelQualityJobDefinition").getModelQualityJobDefinition = null as any;
+export const getModelQualityJobDefinitionOutput: typeof import("./getModelQualityJobDefinition").getModelQualityJobDefinitionOutput = null as any;
+
+export { GetMonitoringScheduleArgs, GetMonitoringScheduleResult, GetMonitoringScheduleOutputArgs } from "./getMonitoringSchedule";
+export const getMonitoringSchedule: typeof import("./getMonitoringSchedule").getMonitoringSchedule = null as any;
+export const getMonitoringScheduleOutput: typeof import("./getMonitoringSchedule").getMonitoringScheduleOutput = null as any;
+
+export { GetNotebookInstanceArgs, GetNotebookInstanceResult, GetNotebookInstanceOutputArgs } from "./getNotebookInstance";
+export const getNotebookInstance: typeof import("./getNotebookInstance").getNotebookInstance = null as any;
+export const getNotebookInstanceOutput: typeof import("./getNotebookInstance").getNotebookInstanceOutput = null as any;
+
+export { GetNotebookInstanceLifecycleConfigArgs, GetNotebookInstanceLifecycleConfigResult, GetNotebookInstanceLifecycleConfigOutputArgs } from "./getNotebookInstanceLifecycleConfig";
+export const getNotebookInstanceLifecycleConfig: typeof import("./getNotebookInstanceLifecycleConfig").getNotebookInstanceLifecycleConfig = null as any;
+export const getNotebookInstanceLifecycleConfigOutput: typeof import("./getNotebookInstanceLifecycleConfig").getNotebookInstanceLifecycleConfigOutput = null as any;
+
+export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
+export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
+export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
+export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
+export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
+
+export { GetWorkteamArgs, GetWorkteamResult, GetWorkteamOutputArgs } from "./getWorkteam";
+export const getWorkteam: typeof import("./getWorkteam").getWorkteam = null as any;
+export const getWorkteamOutput: typeof import("./getWorkteam").getWorkteamOutput = null as any;
+
+export { ImageArgs } from "./image";
+export type Image = import("./image").Image;
+export const Image: typeof import("./image").Image = null as any;
+
+export { ImageVersionArgs } from "./imageVersion";
+export type ImageVersion = import("./imageVersion").ImageVersion;
+export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
+
+export { ModelArgs } from "./model";
+export type Model = import("./model").Model;
+export const Model: typeof import("./model").Model = null as any;
+
+export { ModelBiasJobDefinitionArgs } from "./modelBiasJobDefinition";
+export type ModelBiasJobDefinition = import("./modelBiasJobDefinition").ModelBiasJobDefinition;
+export const ModelBiasJobDefinition: typeof import("./modelBiasJobDefinition").ModelBiasJobDefinition = null as any;
+
+export { ModelExplainabilityJobDefinitionArgs } from "./modelExplainabilityJobDefinition";
+export type ModelExplainabilityJobDefinition = import("./modelExplainabilityJobDefinition").ModelExplainabilityJobDefinition;
+export const ModelExplainabilityJobDefinition: typeof import("./modelExplainabilityJobDefinition").ModelExplainabilityJobDefinition = null as any;
+
+export { ModelPackageArgs } from "./modelPackage";
+export type ModelPackage = import("./modelPackage").ModelPackage;
+export const ModelPackage: typeof import("./modelPackage").ModelPackage = null as any;
+
+export { ModelPackageGroupArgs } from "./modelPackageGroup";
+export type ModelPackageGroup = import("./modelPackageGroup").ModelPackageGroup;
+export const ModelPackageGroup: typeof import("./modelPackageGroup").ModelPackageGroup = null as any;
+
+export { ModelQualityJobDefinitionArgs } from "./modelQualityJobDefinition";
+export type ModelQualityJobDefinition = import("./modelQualityJobDefinition").ModelQualityJobDefinition;
+export const ModelQualityJobDefinition: typeof import("./modelQualityJobDefinition").ModelQualityJobDefinition = null as any;
+
+export { MonitoringScheduleArgs } from "./monitoringSchedule";
+export type MonitoringSchedule = import("./monitoringSchedule").MonitoringSchedule;
+export const MonitoringSchedule: typeof import("./monitoringSchedule").MonitoringSchedule = null as any;
+
+export { NotebookInstanceArgs } from "./notebookInstance";
+export type NotebookInstance = import("./notebookInstance").NotebookInstance;
+export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
+
+export { NotebookInstanceLifecycleConfigArgs } from "./notebookInstanceLifecycleConfig";
+export type NotebookInstanceLifecycleConfig = import("./notebookInstanceLifecycleConfig").NotebookInstanceLifecycleConfig;
+export const NotebookInstanceLifecycleConfig: typeof import("./notebookInstanceLifecycleConfig").NotebookInstanceLifecycleConfig = null as any;
+
+export { PipelineArgs } from "./pipeline";
+export type Pipeline = import("./pipeline").Pipeline;
+export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { UserProfileArgs } from "./userProfile";
+export type UserProfile = import("./userProfile").UserProfile;
+export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+
+export { WorkteamArgs } from "./workteam";
+export type Workteam = import("./workteam").Workteam;
+export const Workteam: typeof import("./workteam").Workteam = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["AppImageConfig"], () => require("./appImageConfig"));
+utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
+utilities.lazyLoad(exports, ["DataQualityJobDefinition"], () => require("./dataQualityJobDefinition"));
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["DeviceFleet"], () => require("./deviceFleet"));
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+utilities.lazyLoad(exports, ["EndpointConfig"], () => require("./endpointConfig"));
+utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+utilities.lazyLoad(exports, ["getAppImageConfig","getAppImageConfigOutput"], () => require("./getAppImageConfig"));
+utilities.lazyLoad(exports, ["getCodeRepository","getCodeRepositoryOutput"], () => require("./getCodeRepository"));
+utilities.lazyLoad(exports, ["getDataQualityJobDefinition","getDataQualityJobDefinitionOutput"], () => require("./getDataQualityJobDefinition"));
+utilities.lazyLoad(exports, ["getDeviceFleet","getDeviceFleetOutput"], () => require("./getDeviceFleet"));
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+utilities.lazyLoad(exports, ["getEndpointConfig","getEndpointConfigOutput"], () => require("./getEndpointConfig"));
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+utilities.lazyLoad(exports, ["getImageVersion","getImageVersionOutput"], () => require("./getImageVersion"));
+utilities.lazyLoad(exports, ["getModel","getModelOutput"], () => require("./getModel"));
+utilities.lazyLoad(exports, ["getModelBiasJobDefinition","getModelBiasJobDefinitionOutput"], () => require("./getModelBiasJobDefinition"));
+utilities.lazyLoad(exports, ["getModelExplainabilityJobDefinition","getModelExplainabilityJobDefinitionOutput"], () => require("./getModelExplainabilityJobDefinition"));
+utilities.lazyLoad(exports, ["getModelPackage","getModelPackageOutput"], () => require("./getModelPackage"));
+utilities.lazyLoad(exports, ["getModelPackageGroup","getModelPackageGroupOutput"], () => require("./getModelPackageGroup"));
+utilities.lazyLoad(exports, ["getModelQualityJobDefinition","getModelQualityJobDefinitionOutput"], () => require("./getModelQualityJobDefinition"));
+utilities.lazyLoad(exports, ["getMonitoringSchedule","getMonitoringScheduleOutput"], () => require("./getMonitoringSchedule"));
+utilities.lazyLoad(exports, ["getNotebookInstance","getNotebookInstanceOutput"], () => require("./getNotebookInstance"));
+utilities.lazyLoad(exports, ["getNotebookInstanceLifecycleConfig","getNotebookInstanceLifecycleConfigOutput"], () => require("./getNotebookInstanceLifecycleConfig"));
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["getUserProfile","getUserProfileOutput"], () => require("./getUserProfile"));
+utilities.lazyLoad(exports, ["getWorkteam","getWorkteamOutput"], () => require("./getWorkteam"));
+utilities.lazyLoad(exports, ["Image"], () => require("./image"));
+utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
+utilities.lazyLoad(exports, ["Model"], () => require("./model"));
+utilities.lazyLoad(exports, ["ModelBiasJobDefinition"], () => require("./modelBiasJobDefinition"));
+utilities.lazyLoad(exports, ["ModelExplainabilityJobDefinition"], () => require("./modelExplainabilityJobDefinition"));
+utilities.lazyLoad(exports, ["ModelPackage"], () => require("./modelPackage"));
+utilities.lazyLoad(exports, ["ModelPackageGroup"], () => require("./modelPackageGroup"));
+utilities.lazyLoad(exports, ["ModelQualityJobDefinition"], () => require("./modelQualityJobDefinition"));
+utilities.lazyLoad(exports, ["MonitoringSchedule"], () => require("./monitoringSchedule"));
+utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
+utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfig"], () => require("./notebookInstanceLifecycleConfig"));
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
+utilities.lazyLoad(exports, ["Workteam"], () => require("./workteam"));
 
 // Export enums:
 export * from "../types/enums/sagemaker";
-
-// Import resources to register:
-import { App } from "./app";
-import { AppImageConfig } from "./appImageConfig";
-import { CodeRepository } from "./codeRepository";
-import { DataQualityJobDefinition } from "./dataQualityJobDefinition";
-import { Device } from "./device";
-import { DeviceFleet } from "./deviceFleet";
-import { Domain } from "./domain";
-import { Endpoint } from "./endpoint";
-import { EndpointConfig } from "./endpointConfig";
-import { FeatureGroup } from "./featureGroup";
-import { Image } from "./image";
-import { ImageVersion } from "./imageVersion";
-import { Model } from "./model";
-import { ModelBiasJobDefinition } from "./modelBiasJobDefinition";
-import { ModelExplainabilityJobDefinition } from "./modelExplainabilityJobDefinition";
-import { ModelPackage } from "./modelPackage";
-import { ModelPackageGroup } from "./modelPackageGroup";
-import { ModelQualityJobDefinition } from "./modelQualityJobDefinition";
-import { MonitoringSchedule } from "./monitoringSchedule";
-import { NotebookInstance } from "./notebookInstance";
-import { NotebookInstanceLifecycleConfig } from "./notebookInstanceLifecycleConfig";
-import { Pipeline } from "./pipeline";
-import { Project } from "./project";
-import { UserProfile } from "./userProfile";
-import { Workteam } from "./workteam";
 
 const _module = {
     version: utilities.getVersion(),

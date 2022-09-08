@@ -5,28 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./geofenceCollection";
-export * from "./getGeofenceCollection";
-export * from "./getMap";
-export * from "./getPlaceIndex";
-export * from "./getRouteCalculator";
-export * from "./getTracker";
-export * from "./map";
-export * from "./placeIndex";
-export * from "./routeCalculator";
-export * from "./tracker";
-export * from "./trackerConsumer";
+export { GeofenceCollectionArgs } from "./geofenceCollection";
+export type GeofenceCollection = import("./geofenceCollection").GeofenceCollection;
+export const GeofenceCollection: typeof import("./geofenceCollection").GeofenceCollection = null as any;
+
+export { GetGeofenceCollectionArgs, GetGeofenceCollectionResult, GetGeofenceCollectionOutputArgs } from "./getGeofenceCollection";
+export const getGeofenceCollection: typeof import("./getGeofenceCollection").getGeofenceCollection = null as any;
+export const getGeofenceCollectionOutput: typeof import("./getGeofenceCollection").getGeofenceCollectionOutput = null as any;
+
+export { GetMapArgs, GetMapResult, GetMapOutputArgs } from "./getMap";
+export const getMap: typeof import("./getMap").getMap = null as any;
+export const getMapOutput: typeof import("./getMap").getMapOutput = null as any;
+
+export { GetPlaceIndexArgs, GetPlaceIndexResult, GetPlaceIndexOutputArgs } from "./getPlaceIndex";
+export const getPlaceIndex: typeof import("./getPlaceIndex").getPlaceIndex = null as any;
+export const getPlaceIndexOutput: typeof import("./getPlaceIndex").getPlaceIndexOutput = null as any;
+
+export { GetRouteCalculatorArgs, GetRouteCalculatorResult, GetRouteCalculatorOutputArgs } from "./getRouteCalculator";
+export const getRouteCalculator: typeof import("./getRouteCalculator").getRouteCalculator = null as any;
+export const getRouteCalculatorOutput: typeof import("./getRouteCalculator").getRouteCalculatorOutput = null as any;
+
+export { GetTrackerArgs, GetTrackerResult, GetTrackerOutputArgs } from "./getTracker";
+export const getTracker: typeof import("./getTracker").getTracker = null as any;
+export const getTrackerOutput: typeof import("./getTracker").getTrackerOutput = null as any;
+
+export { MapArgs } from "./map";
+export type Map = import("./map").Map;
+export const Map: typeof import("./map").Map = null as any;
+
+export { PlaceIndexArgs } from "./placeIndex";
+export type PlaceIndex = import("./placeIndex").PlaceIndex;
+export const PlaceIndex: typeof import("./placeIndex").PlaceIndex = null as any;
+
+export { RouteCalculatorArgs } from "./routeCalculator";
+export type RouteCalculator = import("./routeCalculator").RouteCalculator;
+export const RouteCalculator: typeof import("./routeCalculator").RouteCalculator = null as any;
+
+export { TrackerArgs } from "./tracker";
+export type Tracker = import("./tracker").Tracker;
+export const Tracker: typeof import("./tracker").Tracker = null as any;
+
+export { TrackerConsumerArgs } from "./trackerConsumer";
+export type TrackerConsumer = import("./trackerConsumer").TrackerConsumer;
+export const TrackerConsumer: typeof import("./trackerConsumer").TrackerConsumer = null as any;
+
+utilities.lazyLoad(exports, ["GeofenceCollection"], () => require("./geofenceCollection"));
+utilities.lazyLoad(exports, ["getGeofenceCollection","getGeofenceCollectionOutput"], () => require("./getGeofenceCollection"));
+utilities.lazyLoad(exports, ["getMap","getMapOutput"], () => require("./getMap"));
+utilities.lazyLoad(exports, ["getPlaceIndex","getPlaceIndexOutput"], () => require("./getPlaceIndex"));
+utilities.lazyLoad(exports, ["getRouteCalculator","getRouteCalculatorOutput"], () => require("./getRouteCalculator"));
+utilities.lazyLoad(exports, ["getTracker","getTrackerOutput"], () => require("./getTracker"));
+utilities.lazyLoad(exports, ["Map"], () => require("./map"));
+utilities.lazyLoad(exports, ["PlaceIndex"], () => require("./placeIndex"));
+utilities.lazyLoad(exports, ["RouteCalculator"], () => require("./routeCalculator"));
+utilities.lazyLoad(exports, ["Tracker"], () => require("./tracker"));
+utilities.lazyLoad(exports, ["TrackerConsumer"], () => require("./trackerConsumer"));
 
 // Export enums:
 export * from "../types/enums/location";
-
-// Import resources to register:
-import { GeofenceCollection } from "./geofenceCollection";
-import { Map } from "./map";
-import { PlaceIndex } from "./placeIndex";
-import { RouteCalculator } from "./routeCalculator";
-import { Tracker } from "./tracker";
-import { TrackerConsumer } from "./trackerConsumer";
 
 const _module = {
     version: utilities.getVersion(),

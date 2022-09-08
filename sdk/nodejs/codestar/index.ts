@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGitHubRepository";
-export * from "./gitHubRepository";
+export { GetGitHubRepositoryArgs, GetGitHubRepositoryResult, GetGitHubRepositoryOutputArgs } from "./getGitHubRepository";
+export const getGitHubRepository: typeof import("./getGitHubRepository").getGitHubRepository = null as any;
+export const getGitHubRepositoryOutput: typeof import("./getGitHubRepository").getGitHubRepositoryOutput = null as any;
 
-// Import resources to register:
-import { GitHubRepository } from "./gitHubRepository";
+export { GitHubRepositoryArgs } from "./gitHubRepository";
+export type GitHubRepository = import("./gitHubRepository").GitHubRepository;
+export const GitHubRepository: typeof import("./gitHubRepository").GitHubRepository = null as any;
+
+utilities.lazyLoad(exports, ["getGitHubRepository","getGitHubRepositoryOutput"], () => require("./getGitHubRepository"));
+utilities.lazyLoad(exports, ["GitHubRepository"], () => require("./gitHubRepository"));
 
 const _module = {
     version: utilities.getVersion(),

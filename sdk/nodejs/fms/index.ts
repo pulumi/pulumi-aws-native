@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getNotificationChannel";
-export * from "./getPolicy";
-export * from "./notificationChannel";
-export * from "./policy";
+export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
+export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
+export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+
+export { NotificationChannelArgs } from "./notificationChannel";
+export type NotificationChannel = import("./notificationChannel").NotificationChannel;
+export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+
+export { PolicyArgs } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
 // Export enums:
 export * from "../types/enums/fms";
-
-// Import resources to register:
-import { NotificationChannel } from "./notificationChannel";
-import { Policy } from "./policy";
 
 const _module = {
     version: utilities.getVersion(),

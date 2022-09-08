@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./appMonitor";
-export * from "./getAppMonitor";
+export { AppMonitorArgs } from "./appMonitor";
+export type AppMonitor = import("./appMonitor").AppMonitor;
+export const AppMonitor: typeof import("./appMonitor").AppMonitor = null as any;
+
+export { GetAppMonitorArgs, GetAppMonitorResult, GetAppMonitorOutputArgs } from "./getAppMonitor";
+export const getAppMonitor: typeof import("./getAppMonitor").getAppMonitor = null as any;
+export const getAppMonitorOutput: typeof import("./getAppMonitor").getAppMonitorOutput = null as any;
+
+utilities.lazyLoad(exports, ["AppMonitor"], () => require("./appMonitor"));
+utilities.lazyLoad(exports, ["getAppMonitor","getAppMonitorOutput"], () => require("./getAppMonitor"));
 
 // Export enums:
 export * from "../types/enums/rum";
-
-// Import resources to register:
-import { AppMonitor } from "./appMonitor";
 
 const _module = {
     version: utilities.getVersion(),

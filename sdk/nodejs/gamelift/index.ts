@@ -5,35 +5,89 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alias";
-export * from "./build";
-export * from "./fleet";
-export * from "./gameServerGroup";
-export * from "./gameSessionQueue";
-export * from "./getAlias";
-export * from "./getBuild";
-export * from "./getFleet";
-export * from "./getGameServerGroup";
-export * from "./getGameSessionQueue";
-export * from "./getMatchmakingConfiguration";
-export * from "./getMatchmakingRuleSet";
-export * from "./getScript";
-export * from "./matchmakingConfiguration";
-export * from "./matchmakingRuleSet";
-export * from "./script";
+export { AliasArgs } from "./alias";
+export type Alias = import("./alias").Alias;
+export const Alias: typeof import("./alias").Alias = null as any;
+
+export { BuildArgs } from "./build";
+export type Build = import("./build").Build;
+export const Build: typeof import("./build").Build = null as any;
+
+export { FleetArgs } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+
+export { GameServerGroupArgs } from "./gameServerGroup";
+export type GameServerGroup = import("./gameServerGroup").GameServerGroup;
+export const GameServerGroup: typeof import("./gameServerGroup").GameServerGroup = null as any;
+
+export { GameSessionQueueArgs } from "./gameSessionQueue";
+export type GameSessionQueue = import("./gameSessionQueue").GameSessionQueue;
+export const GameSessionQueue: typeof import("./gameSessionQueue").GameSessionQueue = null as any;
+
+export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
+export const getAlias: typeof import("./getAlias").getAlias = null as any;
+export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
+
+export { GetBuildArgs, GetBuildResult, GetBuildOutputArgs } from "./getBuild";
+export const getBuild: typeof import("./getBuild").getBuild = null as any;
+export const getBuildOutput: typeof import("./getBuild").getBuildOutput = null as any;
+
+export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
+export const getFleet: typeof import("./getFleet").getFleet = null as any;
+export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
+
+export { GetGameServerGroupArgs, GetGameServerGroupResult, GetGameServerGroupOutputArgs } from "./getGameServerGroup";
+export const getGameServerGroup: typeof import("./getGameServerGroup").getGameServerGroup = null as any;
+export const getGameServerGroupOutput: typeof import("./getGameServerGroup").getGameServerGroupOutput = null as any;
+
+export { GetGameSessionQueueArgs, GetGameSessionQueueResult, GetGameSessionQueueOutputArgs } from "./getGameSessionQueue";
+export const getGameSessionQueue: typeof import("./getGameSessionQueue").getGameSessionQueue = null as any;
+export const getGameSessionQueueOutput: typeof import("./getGameSessionQueue").getGameSessionQueueOutput = null as any;
+
+export { GetMatchmakingConfigurationArgs, GetMatchmakingConfigurationResult, GetMatchmakingConfigurationOutputArgs } from "./getMatchmakingConfiguration";
+export const getMatchmakingConfiguration: typeof import("./getMatchmakingConfiguration").getMatchmakingConfiguration = null as any;
+export const getMatchmakingConfigurationOutput: typeof import("./getMatchmakingConfiguration").getMatchmakingConfigurationOutput = null as any;
+
+export { GetMatchmakingRuleSetArgs, GetMatchmakingRuleSetResult, GetMatchmakingRuleSetOutputArgs } from "./getMatchmakingRuleSet";
+export const getMatchmakingRuleSet: typeof import("./getMatchmakingRuleSet").getMatchmakingRuleSet = null as any;
+export const getMatchmakingRuleSetOutput: typeof import("./getMatchmakingRuleSet").getMatchmakingRuleSetOutput = null as any;
+
+export { GetScriptArgs, GetScriptResult, GetScriptOutputArgs } from "./getScript";
+export const getScript: typeof import("./getScript").getScript = null as any;
+export const getScriptOutput: typeof import("./getScript").getScriptOutput = null as any;
+
+export { MatchmakingConfigurationArgs } from "./matchmakingConfiguration";
+export type MatchmakingConfiguration = import("./matchmakingConfiguration").MatchmakingConfiguration;
+export const MatchmakingConfiguration: typeof import("./matchmakingConfiguration").MatchmakingConfiguration = null as any;
+
+export { MatchmakingRuleSetArgs } from "./matchmakingRuleSet";
+export type MatchmakingRuleSet = import("./matchmakingRuleSet").MatchmakingRuleSet;
+export const MatchmakingRuleSet: typeof import("./matchmakingRuleSet").MatchmakingRuleSet = null as any;
+
+export { ScriptArgs } from "./script";
+export type Script = import("./script").Script;
+export const Script: typeof import("./script").Script = null as any;
+
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
+utilities.lazyLoad(exports, ["Build"], () => require("./build"));
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+utilities.lazyLoad(exports, ["GameServerGroup"], () => require("./gameServerGroup"));
+utilities.lazyLoad(exports, ["GameSessionQueue"], () => require("./gameSessionQueue"));
+utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
+utilities.lazyLoad(exports, ["getBuild","getBuildOutput"], () => require("./getBuild"));
+utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+utilities.lazyLoad(exports, ["getGameServerGroup","getGameServerGroupOutput"], () => require("./getGameServerGroup"));
+utilities.lazyLoad(exports, ["getGameSessionQueue","getGameSessionQueueOutput"], () => require("./getGameSessionQueue"));
+utilities.lazyLoad(exports, ["getMatchmakingConfiguration","getMatchmakingConfigurationOutput"], () => require("./getMatchmakingConfiguration"));
+utilities.lazyLoad(exports, ["getMatchmakingRuleSet","getMatchmakingRuleSetOutput"], () => require("./getMatchmakingRuleSet"));
+utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
+utilities.lazyLoad(exports, ["MatchmakingConfiguration"], () => require("./matchmakingConfiguration"));
+utilities.lazyLoad(exports, ["MatchmakingRuleSet"], () => require("./matchmakingRuleSet"));
+utilities.lazyLoad(exports, ["Script"], () => require("./script"));
 
 // Export enums:
 export * from "../types/enums/gamelift";
-
-// Import resources to register:
-import { Alias } from "./alias";
-import { Build } from "./build";
-import { Fleet } from "./fleet";
-import { GameServerGroup } from "./gameServerGroup";
-import { GameSessionQueue } from "./gameSessionQueue";
-import { MatchmakingConfiguration } from "./matchmakingConfiguration";
-import { MatchmakingRuleSet } from "./matchmakingRuleSet";
-import { Script } from "./script";
 
 const _module = {
     version: utilities.getVersion(),

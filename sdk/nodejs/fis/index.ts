@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./experimentTemplate";
-export * from "./getExperimentTemplate";
+export { ExperimentTemplateArgs } from "./experimentTemplate";
+export type ExperimentTemplate = import("./experimentTemplate").ExperimentTemplate;
+export const ExperimentTemplate: typeof import("./experimentTemplate").ExperimentTemplate = null as any;
 
-// Import resources to register:
-import { ExperimentTemplate } from "./experimentTemplate";
+export { GetExperimentTemplateArgs, GetExperimentTemplateResult, GetExperimentTemplateOutputArgs } from "./getExperimentTemplate";
+export const getExperimentTemplate: typeof import("./getExperimentTemplate").getExperimentTemplate = null as any;
+export const getExperimentTemplateOutput: typeof import("./getExperimentTemplate").getExperimentTemplateOutput = null as any;
+
+utilities.lazyLoad(exports, ["ExperimentTemplate"], () => require("./experimentTemplate"));
+utilities.lazyLoad(exports, ["getExperimentTemplate","getExperimentTemplateOutput"], () => require("./getExperimentTemplate"));
 
 const _module = {
     version: utilities.getVersion(),
