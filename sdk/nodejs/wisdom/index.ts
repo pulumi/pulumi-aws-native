@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assistant";
-export * from "./assistantAssociation";
-export * from "./getAssistant";
-export * from "./getAssistantAssociation";
-export * from "./getKnowledgeBase";
-export * from "./knowledgeBase";
+export { AssistantArgs } from "./assistant";
+export type Assistant = import("./assistant").Assistant;
+export const Assistant: typeof import("./assistant").Assistant = null as any;
+
+export { AssistantAssociationArgs } from "./assistantAssociation";
+export type AssistantAssociation = import("./assistantAssociation").AssistantAssociation;
+export const AssistantAssociation: typeof import("./assistantAssociation").AssistantAssociation = null as any;
+
+export { GetAssistantArgs, GetAssistantResult, GetAssistantOutputArgs } from "./getAssistant";
+export const getAssistant: typeof import("./getAssistant").getAssistant = null as any;
+export const getAssistantOutput: typeof import("./getAssistant").getAssistantOutput = null as any;
+
+export { GetAssistantAssociationArgs, GetAssistantAssociationResult, GetAssistantAssociationOutputArgs } from "./getAssistantAssociation";
+export const getAssistantAssociation: typeof import("./getAssistantAssociation").getAssistantAssociation = null as any;
+export const getAssistantAssociationOutput: typeof import("./getAssistantAssociation").getAssistantAssociationOutput = null as any;
+
+export { GetKnowledgeBaseArgs, GetKnowledgeBaseResult, GetKnowledgeBaseOutputArgs } from "./getKnowledgeBase";
+export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeBase = null as any;
+export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
+
+export { KnowledgeBaseArgs } from "./knowledgeBase";
+export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
+export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
+
+utilities.lazyLoad(exports, ["Assistant"], () => require("./assistant"));
+utilities.lazyLoad(exports, ["AssistantAssociation"], () => require("./assistantAssociation"));
+utilities.lazyLoad(exports, ["getAssistant","getAssistantOutput"], () => require("./getAssistant"));
+utilities.lazyLoad(exports, ["getAssistantAssociation","getAssistantAssociationOutput"], () => require("./getAssistantAssociation"));
+utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
+utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
 
 // Export enums:
 export * from "../types/enums/wisdom";
-
-// Import resources to register:
-import { Assistant } from "./assistant";
-import { AssistantAssociation } from "./assistantAssociation";
-import { KnowledgeBase } from "./knowledgeBase";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPoint";
-export * from "./fileSystem";
-export * from "./getAccessPoint";
-export * from "./getFileSystem";
-export * from "./getMountTarget";
-export * from "./mountTarget";
+export { AccessPointArgs } from "./accessPoint";
+export type AccessPoint = import("./accessPoint").AccessPoint;
+export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
 
-// Import resources to register:
-import { AccessPoint } from "./accessPoint";
-import { FileSystem } from "./fileSystem";
-import { MountTarget } from "./mountTarget";
+export { FileSystemArgs } from "./fileSystem";
+export type FileSystem = import("./fileSystem").FileSystem;
+export const FileSystem: typeof import("./fileSystem").FileSystem = null as any;
+
+export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
+export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
+export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+
+export { GetFileSystemArgs, GetFileSystemResult, GetFileSystemOutputArgs } from "./getFileSystem";
+export const getFileSystem: typeof import("./getFileSystem").getFileSystem = null as any;
+export const getFileSystemOutput: typeof import("./getFileSystem").getFileSystemOutput = null as any;
+
+export { GetMountTargetArgs, GetMountTargetResult, GetMountTargetOutputArgs } from "./getMountTarget";
+export const getMountTarget: typeof import("./getMountTarget").getMountTarget = null as any;
+export const getMountTargetOutput: typeof import("./getMountTarget").getMountTargetOutput = null as any;
+
+export { MountTargetArgs } from "./mountTarget";
+export type MountTarget = import("./mountTarget").MountTarget;
+export const MountTarget: typeof import("./mountTarget").MountTarget = null as any;
+
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
+utilities.lazyLoad(exports, ["FileSystem"], () => require("./fileSystem"));
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
+utilities.lazyLoad(exports, ["getFileSystem","getFileSystemOutput"], () => require("./getFileSystem"));
+utilities.lazyLoad(exports, ["getMountTarget","getMountTargetOutput"], () => require("./getMountTarget"));
+utilities.lazyLoad(exports, ["MountTarget"], () => require("./mountTarget"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,26 +5,59 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./experiment";
-export * from "./feature";
-export * from "./getExperiment";
-export * from "./getFeature";
-export * from "./getLaunch";
-export * from "./getProject";
-export * from "./getSegment";
-export * from "./launch";
-export * from "./project";
-export * from "./segment";
+export { ExperimentArgs } from "./experiment";
+export type Experiment = import("./experiment").Experiment;
+export const Experiment: typeof import("./experiment").Experiment = null as any;
+
+export { FeatureArgs } from "./feature";
+export type Feature = import("./feature").Feature;
+export const Feature: typeof import("./feature").Feature = null as any;
+
+export { GetExperimentArgs, GetExperimentResult, GetExperimentOutputArgs } from "./getExperiment";
+export const getExperiment: typeof import("./getExperiment").getExperiment = null as any;
+export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
+
+export { GetFeatureArgs, GetFeatureResult, GetFeatureOutputArgs } from "./getFeature";
+export const getFeature: typeof import("./getFeature").getFeature = null as any;
+export const getFeatureOutput: typeof import("./getFeature").getFeatureOutput = null as any;
+
+export { GetLaunchArgs, GetLaunchResult, GetLaunchOutputArgs } from "./getLaunch";
+export const getLaunch: typeof import("./getLaunch").getLaunch = null as any;
+export const getLaunchOutput: typeof import("./getLaunch").getLaunchOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { GetSegmentArgs, GetSegmentResult, GetSegmentOutputArgs } from "./getSegment";
+export const getSegment: typeof import("./getSegment").getSegment = null as any;
+export const getSegmentOutput: typeof import("./getSegment").getSegmentOutput = null as any;
+
+export { LaunchArgs } from "./launch";
+export type Launch = import("./launch").Launch;
+export const Launch: typeof import("./launch").Launch = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { SegmentArgs } from "./segment";
+export type Segment = import("./segment").Segment;
+export const Segment: typeof import("./segment").Segment = null as any;
+
+utilities.lazyLoad(exports, ["Experiment"], () => require("./experiment"));
+utilities.lazyLoad(exports, ["Feature"], () => require("./feature"));
+utilities.lazyLoad(exports, ["getExperiment","getExperimentOutput"], () => require("./getExperiment"));
+utilities.lazyLoad(exports, ["getFeature","getFeatureOutput"], () => require("./getFeature"));
+utilities.lazyLoad(exports, ["getLaunch","getLaunchOutput"], () => require("./getLaunch"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["getSegment","getSegmentOutput"], () => require("./getSegment"));
+utilities.lazyLoad(exports, ["Launch"], () => require("./launch"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["Segment"], () => require("./segment"));
 
 // Export enums:
 export * from "../types/enums/evidently";
-
-// Import resources to register:
-import { Experiment } from "./experiment";
-import { Feature } from "./feature";
-import { Launch } from "./launch";
-import { Project } from "./project";
-import { Segment } from "./segment";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getQueue";
-export * from "./getQueuePolicy";
-export * from "./queue";
-export * from "./queuePolicy";
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
 
-// Import resources to register:
-import { Queue } from "./queue";
-import { QueuePolicy } from "./queuePolicy";
+export { GetQueuePolicyArgs, GetQueuePolicyResult, GetQueuePolicyOutputArgs } from "./getQueuePolicy";
+export const getQueuePolicy: typeof import("./getQueuePolicy").getQueuePolicy = null as any;
+export const getQueuePolicyOutput: typeof import("./getQueuePolicy").getQueuePolicyOutput = null as any;
+
+export { QueueArgs } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+
+export { QueuePolicyArgs } from "./queuePolicy";
+export type QueuePolicy = import("./queuePolicy").QueuePolicy;
+export const QueuePolicy: typeof import("./queuePolicy").QueuePolicy = null as any;
+
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+utilities.lazyLoad(exports, ["getQueuePolicy","getQueuePolicyOutput"], () => require("./getQueuePolicy"));
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./connectionAlias";
-export * from "./getConnectionAlias";
-export * from "./getWorkspace";
-export * from "./workspace";
+export { ConnectionAliasArgs } from "./connectionAlias";
+export type ConnectionAlias = import("./connectionAlias").ConnectionAlias;
+export const ConnectionAlias: typeof import("./connectionAlias").ConnectionAlias = null as any;
+
+export { GetConnectionAliasArgs, GetConnectionAliasResult, GetConnectionAliasOutputArgs } from "./getConnectionAlias";
+export const getConnectionAlias: typeof import("./getConnectionAlias").getConnectionAlias = null as any;
+export const getConnectionAliasOutput: typeof import("./getConnectionAlias").getConnectionAliasOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["ConnectionAlias"], () => require("./connectionAlias"));
+utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../types/enums/workspaces";
-
-// Import resources to register:
-import { ConnectionAlias } from "./connectionAlias";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

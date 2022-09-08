@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./channel";
-export * from "./getChannel";
-export * from "./getPlaybackKeyPair";
-export * from "./getRecordingConfiguration";
-export * from "./getStreamKey";
-export * from "./playbackKeyPair";
-export * from "./recordingConfiguration";
-export * from "./streamKey";
+export { ChannelArgs } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+
+export { GetPlaybackKeyPairArgs, GetPlaybackKeyPairResult, GetPlaybackKeyPairOutputArgs } from "./getPlaybackKeyPair";
+export const getPlaybackKeyPair: typeof import("./getPlaybackKeyPair").getPlaybackKeyPair = null as any;
+export const getPlaybackKeyPairOutput: typeof import("./getPlaybackKeyPair").getPlaybackKeyPairOutput = null as any;
+
+export { GetRecordingConfigurationArgs, GetRecordingConfigurationResult, GetRecordingConfigurationOutputArgs } from "./getRecordingConfiguration";
+export const getRecordingConfiguration: typeof import("./getRecordingConfiguration").getRecordingConfiguration = null as any;
+export const getRecordingConfigurationOutput: typeof import("./getRecordingConfiguration").getRecordingConfigurationOutput = null as any;
+
+export { GetStreamKeyArgs, GetStreamKeyResult, GetStreamKeyOutputArgs } from "./getStreamKey";
+export const getStreamKey: typeof import("./getStreamKey").getStreamKey = null as any;
+export const getStreamKeyOutput: typeof import("./getStreamKey").getStreamKeyOutput = null as any;
+
+export { PlaybackKeyPairArgs } from "./playbackKeyPair";
+export type PlaybackKeyPair = import("./playbackKeyPair").PlaybackKeyPair;
+export const PlaybackKeyPair: typeof import("./playbackKeyPair").PlaybackKeyPair = null as any;
+
+export { RecordingConfigurationArgs } from "./recordingConfiguration";
+export type RecordingConfiguration = import("./recordingConfiguration").RecordingConfiguration;
+export const RecordingConfiguration: typeof import("./recordingConfiguration").RecordingConfiguration = null as any;
+
+export { StreamKeyArgs } from "./streamKey";
+export type StreamKey = import("./streamKey").StreamKey;
+export const StreamKey: typeof import("./streamKey").StreamKey = null as any;
+
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+utilities.lazyLoad(exports, ["getPlaybackKeyPair","getPlaybackKeyPairOutput"], () => require("./getPlaybackKeyPair"));
+utilities.lazyLoad(exports, ["getRecordingConfiguration","getRecordingConfigurationOutput"], () => require("./getRecordingConfiguration"));
+utilities.lazyLoad(exports, ["getStreamKey","getStreamKeyOutput"], () => require("./getStreamKey"));
+utilities.lazyLoad(exports, ["PlaybackKeyPair"], () => require("./playbackKeyPair"));
+utilities.lazyLoad(exports, ["RecordingConfiguration"], () => require("./recordingConfiguration"));
+utilities.lazyLoad(exports, ["StreamKey"], () => require("./streamKey"));
 
 // Export enums:
 export * from "../types/enums/ivs";
-
-// Import resources to register:
-import { Channel } from "./channel";
-import { PlaybackKeyPair } from "./playbackKeyPair";
-import { RecordingConfiguration } from "./recordingConfiguration";
-import { StreamKey } from "./streamKey";
 
 const _module = {
     version: utilities.getVersion(),

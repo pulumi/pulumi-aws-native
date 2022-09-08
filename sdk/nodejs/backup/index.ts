@@ -5,23 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./backupPlan";
-export * from "./backupSelection";
-export * from "./backupVault";
-export * from "./framework";
-export * from "./getBackupPlan";
-export * from "./getBackupSelection";
-export * from "./getBackupVault";
-export * from "./getFramework";
-export * from "./getReportPlan";
-export * from "./reportPlan";
+export { BackupPlanArgs } from "./backupPlan";
+export type BackupPlan = import("./backupPlan").BackupPlan;
+export const BackupPlan: typeof import("./backupPlan").BackupPlan = null as any;
 
-// Import resources to register:
-import { BackupPlan } from "./backupPlan";
-import { BackupSelection } from "./backupSelection";
-import { BackupVault } from "./backupVault";
-import { Framework } from "./framework";
-import { ReportPlan } from "./reportPlan";
+export { BackupSelectionArgs } from "./backupSelection";
+export type BackupSelection = import("./backupSelection").BackupSelection;
+export const BackupSelection: typeof import("./backupSelection").BackupSelection = null as any;
+
+export { BackupVaultArgs } from "./backupVault";
+export type BackupVault = import("./backupVault").BackupVault;
+export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
+
+export { FrameworkArgs } from "./framework";
+export type Framework = import("./framework").Framework;
+export const Framework: typeof import("./framework").Framework = null as any;
+
+export { GetBackupPlanArgs, GetBackupPlanResult, GetBackupPlanOutputArgs } from "./getBackupPlan";
+export const getBackupPlan: typeof import("./getBackupPlan").getBackupPlan = null as any;
+export const getBackupPlanOutput: typeof import("./getBackupPlan").getBackupPlanOutput = null as any;
+
+export { GetBackupSelectionArgs, GetBackupSelectionResult, GetBackupSelectionOutputArgs } from "./getBackupSelection";
+export const getBackupSelection: typeof import("./getBackupSelection").getBackupSelection = null as any;
+export const getBackupSelectionOutput: typeof import("./getBackupSelection").getBackupSelectionOutput = null as any;
+
+export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
+export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
+export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
+
+export { GetFrameworkArgs, GetFrameworkResult, GetFrameworkOutputArgs } from "./getFramework";
+export const getFramework: typeof import("./getFramework").getFramework = null as any;
+export const getFrameworkOutput: typeof import("./getFramework").getFrameworkOutput = null as any;
+
+export { GetReportPlanArgs, GetReportPlanResult, GetReportPlanOutputArgs } from "./getReportPlan";
+export const getReportPlan: typeof import("./getReportPlan").getReportPlan = null as any;
+export const getReportPlanOutput: typeof import("./getReportPlan").getReportPlanOutput = null as any;
+
+export { ReportPlanArgs } from "./reportPlan";
+export type ReportPlan = import("./reportPlan").ReportPlan;
+export const ReportPlan: typeof import("./reportPlan").ReportPlan = null as any;
+
+utilities.lazyLoad(exports, ["BackupPlan"], () => require("./backupPlan"));
+utilities.lazyLoad(exports, ["BackupSelection"], () => require("./backupSelection"));
+utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
+utilities.lazyLoad(exports, ["Framework"], () => require("./framework"));
+utilities.lazyLoad(exports, ["getBackupPlan","getBackupPlanOutput"], () => require("./getBackupPlan"));
+utilities.lazyLoad(exports, ["getBackupSelection","getBackupSelectionOutput"], () => require("./getBackupSelection"));
+utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
+utilities.lazyLoad(exports, ["getFramework","getFrameworkOutput"], () => require("./getFramework"));
+utilities.lazyLoad(exports, ["getReportPlan","getReportPlanOutput"], () => require("./getReportPlan"));
+utilities.lazyLoad(exports, ["ReportPlan"], () => require("./reportPlan"));
 
 const _module = {
     version: utilities.getVersion(),

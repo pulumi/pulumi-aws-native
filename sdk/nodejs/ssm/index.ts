@@ -5,35 +5,89 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./association";
-export * from "./document";
-export * from "./getAssociation";
-export * from "./getDocument";
-export * from "./getMaintenanceWindow";
-export * from "./getMaintenanceWindowTarget";
-export * from "./getMaintenanceWindowTask";
-export * from "./getParameter";
-export * from "./getPatchBaseline";
-export * from "./getResourceDataSync";
-export * from "./maintenanceWindow";
-export * from "./maintenanceWindowTarget";
-export * from "./maintenanceWindowTask";
-export * from "./parameter";
-export * from "./patchBaseline";
-export * from "./resourceDataSync";
+export { AssociationArgs } from "./association";
+export type Association = import("./association").Association;
+export const Association: typeof import("./association").Association = null as any;
+
+export { DocumentArgs } from "./document";
+export type Document = import("./document").Document;
+export const Document: typeof import("./document").Document = null as any;
+
+export { GetAssociationArgs, GetAssociationResult, GetAssociationOutputArgs } from "./getAssociation";
+export const getAssociation: typeof import("./getAssociation").getAssociation = null as any;
+export const getAssociationOutput: typeof import("./getAssociation").getAssociationOutput = null as any;
+
+export { GetDocumentArgs, GetDocumentResult, GetDocumentOutputArgs } from "./getDocument";
+export const getDocument: typeof import("./getDocument").getDocument = null as any;
+export const getDocumentOutput: typeof import("./getDocument").getDocumentOutput = null as any;
+
+export { GetMaintenanceWindowArgs, GetMaintenanceWindowResult, GetMaintenanceWindowOutputArgs } from "./getMaintenanceWindow";
+export const getMaintenanceWindow: typeof import("./getMaintenanceWindow").getMaintenanceWindow = null as any;
+export const getMaintenanceWindowOutput: typeof import("./getMaintenanceWindow").getMaintenanceWindowOutput = null as any;
+
+export { GetMaintenanceWindowTargetArgs, GetMaintenanceWindowTargetResult, GetMaintenanceWindowTargetOutputArgs } from "./getMaintenanceWindowTarget";
+export const getMaintenanceWindowTarget: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTarget = null as any;
+export const getMaintenanceWindowTargetOutput: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTargetOutput = null as any;
+
+export { GetMaintenanceWindowTaskArgs, GetMaintenanceWindowTaskResult, GetMaintenanceWindowTaskOutputArgs } from "./getMaintenanceWindowTask";
+export const getMaintenanceWindowTask: typeof import("./getMaintenanceWindowTask").getMaintenanceWindowTask = null as any;
+export const getMaintenanceWindowTaskOutput: typeof import("./getMaintenanceWindowTask").getMaintenanceWindowTaskOutput = null as any;
+
+export { GetParameterArgs, GetParameterResult, GetParameterOutputArgs } from "./getParameter";
+export const getParameter: typeof import("./getParameter").getParameter = null as any;
+export const getParameterOutput: typeof import("./getParameter").getParameterOutput = null as any;
+
+export { GetPatchBaselineArgs, GetPatchBaselineResult, GetPatchBaselineOutputArgs } from "./getPatchBaseline";
+export const getPatchBaseline: typeof import("./getPatchBaseline").getPatchBaseline = null as any;
+export const getPatchBaselineOutput: typeof import("./getPatchBaseline").getPatchBaselineOutput = null as any;
+
+export { GetResourceDataSyncArgs, GetResourceDataSyncResult, GetResourceDataSyncOutputArgs } from "./getResourceDataSync";
+export const getResourceDataSync: typeof import("./getResourceDataSync").getResourceDataSync = null as any;
+export const getResourceDataSyncOutput: typeof import("./getResourceDataSync").getResourceDataSyncOutput = null as any;
+
+export { MaintenanceWindowArgs } from "./maintenanceWindow";
+export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
+export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
+
+export { MaintenanceWindowTargetArgs } from "./maintenanceWindowTarget";
+export type MaintenanceWindowTarget = import("./maintenanceWindowTarget").MaintenanceWindowTarget;
+export const MaintenanceWindowTarget: typeof import("./maintenanceWindowTarget").MaintenanceWindowTarget = null as any;
+
+export { MaintenanceWindowTaskArgs } from "./maintenanceWindowTask";
+export type MaintenanceWindowTask = import("./maintenanceWindowTask").MaintenanceWindowTask;
+export const MaintenanceWindowTask: typeof import("./maintenanceWindowTask").MaintenanceWindowTask = null as any;
+
+export { ParameterArgs } from "./parameter";
+export type Parameter = import("./parameter").Parameter;
+export const Parameter: typeof import("./parameter").Parameter = null as any;
+
+export { PatchBaselineArgs } from "./patchBaseline";
+export type PatchBaseline = import("./patchBaseline").PatchBaseline;
+export const PatchBaseline: typeof import("./patchBaseline").PatchBaseline = null as any;
+
+export { ResourceDataSyncArgs } from "./resourceDataSync";
+export type ResourceDataSync = import("./resourceDataSync").ResourceDataSync;
+export const ResourceDataSync: typeof import("./resourceDataSync").ResourceDataSync = null as any;
+
+utilities.lazyLoad(exports, ["Association"], () => require("./association"));
+utilities.lazyLoad(exports, ["Document"], () => require("./document"));
+utilities.lazyLoad(exports, ["getAssociation","getAssociationOutput"], () => require("./getAssociation"));
+utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
+utilities.lazyLoad(exports, ["getMaintenanceWindow","getMaintenanceWindowOutput"], () => require("./getMaintenanceWindow"));
+utilities.lazyLoad(exports, ["getMaintenanceWindowTarget","getMaintenanceWindowTargetOutput"], () => require("./getMaintenanceWindowTarget"));
+utilities.lazyLoad(exports, ["getMaintenanceWindowTask","getMaintenanceWindowTaskOutput"], () => require("./getMaintenanceWindowTask"));
+utilities.lazyLoad(exports, ["getParameter","getParameterOutput"], () => require("./getParameter"));
+utilities.lazyLoad(exports, ["getPatchBaseline","getPatchBaselineOutput"], () => require("./getPatchBaseline"));
+utilities.lazyLoad(exports, ["getResourceDataSync","getResourceDataSyncOutput"], () => require("./getResourceDataSync"));
+utilities.lazyLoad(exports, ["MaintenanceWindow"], () => require("./maintenanceWindow"));
+utilities.lazyLoad(exports, ["MaintenanceWindowTarget"], () => require("./maintenanceWindowTarget"));
+utilities.lazyLoad(exports, ["MaintenanceWindowTask"], () => require("./maintenanceWindowTask"));
+utilities.lazyLoad(exports, ["Parameter"], () => require("./parameter"));
+utilities.lazyLoad(exports, ["PatchBaseline"], () => require("./patchBaseline"));
+utilities.lazyLoad(exports, ["ResourceDataSync"], () => require("./resourceDataSync"));
 
 // Export enums:
 export * from "../types/enums/ssm";
-
-// Import resources to register:
-import { Association } from "./association";
-import { Document } from "./document";
-import { MaintenanceWindow } from "./maintenanceWindow";
-import { MaintenanceWindowTarget } from "./maintenanceWindowTarget";
-import { MaintenanceWindowTask } from "./maintenanceWindowTask";
-import { Parameter } from "./parameter";
-import { PatchBaseline } from "./patchBaseline";
-import { ResourceDataSync } from "./resourceDataSync";
 
 const _module = {
     version: utilities.getVersion(),

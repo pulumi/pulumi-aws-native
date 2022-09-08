@@ -5,16 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSigningProfile";
-export * from "./profilePermission";
-export * from "./signingProfile";
+export { GetSigningProfileArgs, GetSigningProfileResult, GetSigningProfileOutputArgs } from "./getSigningProfile";
+export const getSigningProfile: typeof import("./getSigningProfile").getSigningProfile = null as any;
+export const getSigningProfileOutput: typeof import("./getSigningProfile").getSigningProfileOutput = null as any;
+
+export { ProfilePermissionArgs } from "./profilePermission";
+export type ProfilePermission = import("./profilePermission").ProfilePermission;
+export const ProfilePermission: typeof import("./profilePermission").ProfilePermission = null as any;
+
+export { SigningProfileArgs } from "./signingProfile";
+export type SigningProfile = import("./signingProfile").SigningProfile;
+export const SigningProfile: typeof import("./signingProfile").SigningProfile = null as any;
+
+utilities.lazyLoad(exports, ["getSigningProfile","getSigningProfileOutput"], () => require("./getSigningProfile"));
+utilities.lazyLoad(exports, ["ProfilePermission"], () => require("./profilePermission"));
+utilities.lazyLoad(exports, ["SigningProfile"], () => require("./signingProfile"));
 
 // Export enums:
 export * from "../types/enums/signer";
-
-// Import resources to register:
-import { ProfilePermission } from "./profilePermission";
-import { SigningProfile } from "./signingProfile";
 
 const _module = {
     version: utilities.getVersion(),

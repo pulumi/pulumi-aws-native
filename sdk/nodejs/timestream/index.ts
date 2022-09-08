@@ -5,20 +5,39 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./database";
-export * from "./getDatabase";
-export * from "./getScheduledQuery";
-export * from "./getTable";
-export * from "./scheduledQuery";
-export * from "./table";
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+
+export { GetScheduledQueryArgs, GetScheduledQueryResult, GetScheduledQueryOutputArgs } from "./getScheduledQuery";
+export const getScheduledQuery: typeof import("./getScheduledQuery").getScheduledQuery = null as any;
+export const getScheduledQueryOutput: typeof import("./getScheduledQuery").getScheduledQueryOutput = null as any;
+
+export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
+export const getTable: typeof import("./getTable").getTable = null as any;
+export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+
+export { ScheduledQueryArgs } from "./scheduledQuery";
+export type ScheduledQuery = import("./scheduledQuery").ScheduledQuery;
+export const ScheduledQuery: typeof import("./scheduledQuery").ScheduledQuery = null as any;
+
+export { TableArgs } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+utilities.lazyLoad(exports, ["getScheduledQuery","getScheduledQueryOutput"], () => require("./getScheduledQuery"));
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
+utilities.lazyLoad(exports, ["ScheduledQuery"], () => require("./scheduledQuery"));
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
 
 // Export enums:
 export * from "../types/enums/timestream";
-
-// Import resources to register:
-import { Database } from "./database";
-import { ScheduledQuery } from "./scheduledQuery";
-import { Table } from "./table";
 
 const _module = {
     version: utilities.getVersion(),

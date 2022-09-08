@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSkill";
-export * from "./skill";
+export { GetSkillArgs, GetSkillResult, GetSkillOutputArgs } from "./getSkill";
+export const getSkill: typeof import("./getSkill").getSkill = null as any;
+export const getSkillOutput: typeof import("./getSkill").getSkillOutput = null as any;
 
-// Import resources to register:
-import { Skill } from "./skill";
+export { SkillArgs } from "./skill";
+export type Skill = import("./skill").Skill;
+export const Skill: typeof import("./skill").Skill = null as any;
+
+utilities.lazyLoad(exports, ["getSkill","getSkillOutput"], () => require("./getSkill"));
+utilities.lazyLoad(exports, ["Skill"], () => require("./skill"));
 
 const _module = {
     version: utilities.getVersion(),

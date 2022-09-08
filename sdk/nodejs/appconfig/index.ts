@@ -5,26 +5,66 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./configurationProfile";
-export * from "./deployment";
-export * from "./deploymentStrategy";
-export * from "./environment";
-export * from "./getApplication";
-export * from "./getConfigurationProfile";
-export * from "./getDeployment";
-export * from "./getDeploymentStrategy";
-export * from "./getEnvironment";
-export * from "./getHostedConfigurationVersion";
-export * from "./hostedConfigurationVersion";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
 
-// Import resources to register:
-import { Application } from "./application";
-import { ConfigurationProfile } from "./configurationProfile";
-import { Deployment } from "./deployment";
-import { DeploymentStrategy } from "./deploymentStrategy";
-import { Environment } from "./environment";
-import { HostedConfigurationVersion } from "./hostedConfigurationVersion";
+export { ConfigurationProfileArgs } from "./configurationProfile";
+export type ConfigurationProfile = import("./configurationProfile").ConfigurationProfile;
+export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
+
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+
+export { DeploymentStrategyArgs } from "./deploymentStrategy";
+export type DeploymentStrategy = import("./deploymentStrategy").DeploymentStrategy;
+export const DeploymentStrategy: typeof import("./deploymentStrategy").DeploymentStrategy = null as any;
+
+export { EnvironmentArgs } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigurationProfileOutputArgs } from "./getConfigurationProfile";
+export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
+export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+
+export { GetDeploymentStrategyArgs, GetDeploymentStrategyResult, GetDeploymentStrategyOutputArgs } from "./getDeploymentStrategy";
+export const getDeploymentStrategy: typeof import("./getDeploymentStrategy").getDeploymentStrategy = null as any;
+export const getDeploymentStrategyOutput: typeof import("./getDeploymentStrategy").getDeploymentStrategyOutput = null as any;
+
+export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
+export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
+export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
+
+export { GetHostedConfigurationVersionArgs, GetHostedConfigurationVersionResult, GetHostedConfigurationVersionOutputArgs } from "./getHostedConfigurationVersion";
+export const getHostedConfigurationVersion: typeof import("./getHostedConfigurationVersion").getHostedConfigurationVersion = null as any;
+export const getHostedConfigurationVersionOutput: typeof import("./getHostedConfigurationVersion").getHostedConfigurationVersionOutput = null as any;
+
+export { HostedConfigurationVersionArgs } from "./hostedConfigurationVersion";
+export type HostedConfigurationVersion = import("./hostedConfigurationVersion").HostedConfigurationVersion;
+export const HostedConfigurationVersion: typeof import("./hostedConfigurationVersion").HostedConfigurationVersion = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
+utilities.lazyLoad(exports, ["getDeploymentStrategy","getDeploymentStrategyOutput"], () => require("./getDeploymentStrategy"));
+utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+utilities.lazyLoad(exports, ["getHostedConfigurationVersion","getHostedConfigurationVersionOutput"], () => require("./getHostedConfigurationVersion"));
+utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
 
 const _module = {
     version: utilities.getVersion(),

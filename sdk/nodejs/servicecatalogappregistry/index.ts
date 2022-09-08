@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./attributeGroup";
-export * from "./attributeGroupAssociation";
-export * from "./getApplication";
-export * from "./getAttributeGroup";
-export * from "./getAttributeGroupAssociation";
-export * from "./getResourceAssociation";
-export * from "./resourceAssociation";
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+
+export { AttributeGroupArgs } from "./attributeGroup";
+export type AttributeGroup = import("./attributeGroup").AttributeGroup;
+export const AttributeGroup: typeof import("./attributeGroup").AttributeGroup = null as any;
+
+export { AttributeGroupAssociationArgs } from "./attributeGroupAssociation";
+export type AttributeGroupAssociation = import("./attributeGroupAssociation").AttributeGroupAssociation;
+export const AttributeGroupAssociation: typeof import("./attributeGroupAssociation").AttributeGroupAssociation = null as any;
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+
+export { GetAttributeGroupArgs, GetAttributeGroupResult, GetAttributeGroupOutputArgs } from "./getAttributeGroup";
+export const getAttributeGroup: typeof import("./getAttributeGroup").getAttributeGroup = null as any;
+export const getAttributeGroupOutput: typeof import("./getAttributeGroup").getAttributeGroupOutput = null as any;
+
+export { GetAttributeGroupAssociationArgs, GetAttributeGroupAssociationResult, GetAttributeGroupAssociationOutputArgs } from "./getAttributeGroupAssociation";
+export const getAttributeGroupAssociation: typeof import("./getAttributeGroupAssociation").getAttributeGroupAssociation = null as any;
+export const getAttributeGroupAssociationOutput: typeof import("./getAttributeGroupAssociation").getAttributeGroupAssociationOutput = null as any;
+
+export { GetResourceAssociationArgs, GetResourceAssociationResult, GetResourceAssociationOutputArgs } from "./getResourceAssociation";
+export const getResourceAssociation: typeof import("./getResourceAssociation").getResourceAssociation = null as any;
+export const getResourceAssociationOutput: typeof import("./getResourceAssociation").getResourceAssociationOutput = null as any;
+
+export { ResourceAssociationArgs } from "./resourceAssociation";
+export type ResourceAssociation = import("./resourceAssociation").ResourceAssociation;
+export const ResourceAssociation: typeof import("./resourceAssociation").ResourceAssociation = null as any;
+
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+utilities.lazyLoad(exports, ["AttributeGroup"], () => require("./attributeGroup"));
+utilities.lazyLoad(exports, ["AttributeGroupAssociation"], () => require("./attributeGroupAssociation"));
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+utilities.lazyLoad(exports, ["getAttributeGroup","getAttributeGroupOutput"], () => require("./getAttributeGroup"));
+utilities.lazyLoad(exports, ["getAttributeGroupAssociation","getAttributeGroupAssociationOutput"], () => require("./getAttributeGroupAssociation"));
+utilities.lazyLoad(exports, ["getResourceAssociation","getResourceAssociationOutput"], () => require("./getResourceAssociation"));
+utilities.lazyLoad(exports, ["ResourceAssociation"], () => require("./resourceAssociation"));
 
 // Export enums:
 export * from "../types/enums/servicecatalogappregistry";
-
-// Import resources to register:
-import { Application } from "./application";
-import { AttributeGroup } from "./attributeGroup";
-import { AttributeGroupAssociation } from "./attributeGroupAssociation";
-import { ResourceAssociation } from "./resourceAssociation";
 
 const _module = {
     version: utilities.getVersion(),

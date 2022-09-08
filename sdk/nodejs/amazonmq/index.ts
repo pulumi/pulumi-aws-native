@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./broker";
-export * from "./configuration";
-export * from "./configurationAssociation";
-export * from "./getBroker";
-export * from "./getConfiguration";
-export * from "./getConfigurationAssociation";
+export { BrokerArgs } from "./broker";
+export type Broker = import("./broker").Broker;
+export const Broker: typeof import("./broker").Broker = null as any;
 
-// Import resources to register:
-import { Broker } from "./broker";
-import { Configuration } from "./configuration";
-import { ConfigurationAssociation } from "./configurationAssociation";
+export { ConfigurationArgs } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+
+export { ConfigurationAssociationArgs } from "./configurationAssociation";
+export type ConfigurationAssociation = import("./configurationAssociation").ConfigurationAssociation;
+export const ConfigurationAssociation: typeof import("./configurationAssociation").ConfigurationAssociation = null as any;
+
+export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
+export const getBroker: typeof import("./getBroker").getBroker = null as any;
+export const getBrokerOutput: typeof import("./getBroker").getBrokerOutput = null as any;
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+
+export { GetConfigurationAssociationArgs, GetConfigurationAssociationResult, GetConfigurationAssociationOutputArgs } from "./getConfigurationAssociation";
+export const getConfigurationAssociation: typeof import("./getConfigurationAssociation").getConfigurationAssociation = null as any;
+export const getConfigurationAssociationOutput: typeof import("./getConfigurationAssociation").getConfigurationAssociationOutput = null as any;
+
+utilities.lazyLoad(exports, ["Broker"], () => require("./broker"));
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+utilities.lazyLoad(exports, ["ConfigurationAssociation"], () => require("./configurationAssociation"));
+utilities.lazyLoad(exports, ["getBroker","getBrokerOutput"], () => require("./getBroker"));
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
+utilities.lazyLoad(exports, ["getConfigurationAssociation","getConfigurationAssociationOutput"], () => require("./getConfigurationAssociation"));
 
 const _module = {
     version: utilities.getVersion(),

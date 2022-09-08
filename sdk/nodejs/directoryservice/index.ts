@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getMicrosoftAD";
-export * from "./getSimpleAD";
-export * from "./microsoftAD";
-export * from "./simpleAD";
+export { GetMicrosoftADArgs, GetMicrosoftADResult, GetMicrosoftADOutputArgs } from "./getMicrosoftAD";
+export const getMicrosoftAD: typeof import("./getMicrosoftAD").getMicrosoftAD = null as any;
+export const getMicrosoftADOutput: typeof import("./getMicrosoftAD").getMicrosoftADOutput = null as any;
 
-// Import resources to register:
-import { MicrosoftAD } from "./microsoftAD";
-import { SimpleAD } from "./simpleAD";
+export { GetSimpleADArgs, GetSimpleADResult, GetSimpleADOutputArgs } from "./getSimpleAD";
+export const getSimpleAD: typeof import("./getSimpleAD").getSimpleAD = null as any;
+export const getSimpleADOutput: typeof import("./getSimpleAD").getSimpleADOutput = null as any;
+
+export { MicrosoftADArgs } from "./microsoftAD";
+export type MicrosoftAD = import("./microsoftAD").MicrosoftAD;
+export const MicrosoftAD: typeof import("./microsoftAD").MicrosoftAD = null as any;
+
+export { SimpleADArgs } from "./simpleAD";
+export type SimpleAD = import("./simpleAD").SimpleAD;
+export const SimpleAD: typeof import("./simpleAD").SimpleAD = null as any;
+
+utilities.lazyLoad(exports, ["getMicrosoftAD","getMicrosoftADOutput"], () => require("./getMicrosoftAD"));
+utilities.lazyLoad(exports, ["getSimpleAD","getSimpleADOutput"], () => require("./getSimpleAD"));
+utilities.lazyLoad(exports, ["MicrosoftAD"], () => require("./microsoftAD"));
+utilities.lazyLoad(exports, ["SimpleAD"], () => require("./simpleAD"));
 
 const _module = {
     version: utilities.getVersion(),

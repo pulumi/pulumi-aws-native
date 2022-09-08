@@ -5,32 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPolicy";
-export * from "./asset";
-export * from "./assetModel";
-export * from "./dashboard";
-export * from "./gateway";
-export * from "./getAccessPolicy";
-export * from "./getAsset";
-export * from "./getAssetModel";
-export * from "./getDashboard";
-export * from "./getGateway";
-export * from "./getPortal";
-export * from "./getProject";
-export * from "./portal";
-export * from "./project";
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+
+export { AssetArgs } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+
+export { AssetModelArgs } from "./assetModel";
+export type AssetModel = import("./assetModel").AssetModel;
+export const AssetModel: typeof import("./assetModel").AssetModel = null as any;
+
+export { DashboardArgs } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+
+export { GatewayArgs } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+
+export { GetAssetArgs, GetAssetResult, GetAssetOutputArgs } from "./getAsset";
+export const getAsset: typeof import("./getAsset").getAsset = null as any;
+export const getAssetOutput: typeof import("./getAsset").getAssetOutput = null as any;
+
+export { GetAssetModelArgs, GetAssetModelResult, GetAssetModelOutputArgs } from "./getAssetModel";
+export const getAssetModel: typeof import("./getAssetModel").getAssetModel = null as any;
+export const getAssetModelOutput: typeof import("./getAssetModel").getAssetModelOutput = null as any;
+
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+
+export { GetPortalArgs, GetPortalResult, GetPortalOutputArgs } from "./getPortal";
+export const getPortal: typeof import("./getPortal").getPortal = null as any;
+export const getPortalOutput: typeof import("./getPortal").getPortalOutput = null as any;
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+
+export { PortalArgs } from "./portal";
+export type Portal = import("./portal").Portal;
+export const Portal: typeof import("./portal").Portal = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
+utilities.lazyLoad(exports, ["AssetModel"], () => require("./assetModel"));
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+utilities.lazyLoad(exports, ["getAsset","getAssetOutput"], () => require("./getAsset"));
+utilities.lazyLoad(exports, ["getAssetModel","getAssetModelOutput"], () => require("./getAssetModel"));
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+utilities.lazyLoad(exports, ["getPortal","getPortalOutput"], () => require("./getPortal"));
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["Portal"], () => require("./portal"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 // Export enums:
 export * from "../types/enums/iotsitewise";
-
-// Import resources to register:
-import { AccessPolicy } from "./accessPolicy";
-import { Asset } from "./asset";
-import { AssetModel } from "./assetModel";
-import { Dashboard } from "./dashboard";
-import { Gateway } from "./gateway";
-import { Portal } from "./portal";
-import { Project } from "./project";
 
 const _module = {
     version: utilities.getVersion(),

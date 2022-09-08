@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getRepositoryAssociation";
-export * from "./repositoryAssociation";
+export { GetRepositoryAssociationArgs, GetRepositoryAssociationResult, GetRepositoryAssociationOutputArgs } from "./getRepositoryAssociation";
+export const getRepositoryAssociation: typeof import("./getRepositoryAssociation").getRepositoryAssociation = null as any;
+export const getRepositoryAssociationOutput: typeof import("./getRepositoryAssociation").getRepositoryAssociationOutput = null as any;
+
+export { RepositoryAssociationArgs } from "./repositoryAssociation";
+export type RepositoryAssociation = import("./repositoryAssociation").RepositoryAssociation;
+export const RepositoryAssociation: typeof import("./repositoryAssociation").RepositoryAssociation = null as any;
+
+utilities.lazyLoad(exports, ["getRepositoryAssociation","getRepositoryAssociationOutput"], () => require("./getRepositoryAssociation"));
+utilities.lazyLoad(exports, ["RepositoryAssociation"], () => require("./repositoryAssociation"));
 
 // Export enums:
 export * from "../types/enums/codegurureviewer";
-
-// Import resources to register:
-import { RepositoryAssociation } from "./repositoryAssociation";
 
 const _module = {
     version: utilities.getVersion(),

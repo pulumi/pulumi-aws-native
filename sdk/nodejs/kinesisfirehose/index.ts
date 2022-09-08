@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./deliveryStream";
-export * from "./getDeliveryStream";
+export { DeliveryStreamArgs } from "./deliveryStream";
+export type DeliveryStream = import("./deliveryStream").DeliveryStream;
+export const DeliveryStream: typeof import("./deliveryStream").DeliveryStream = null as any;
+
+export { GetDeliveryStreamArgs, GetDeliveryStreamResult, GetDeliveryStreamOutputArgs } from "./getDeliveryStream";
+export const getDeliveryStream: typeof import("./getDeliveryStream").getDeliveryStream = null as any;
+export const getDeliveryStreamOutput: typeof import("./getDeliveryStream").getDeliveryStreamOutput = null as any;
+
+utilities.lazyLoad(exports, ["DeliveryStream"], () => require("./deliveryStream"));
+utilities.lazyLoad(exports, ["getDeliveryStream","getDeliveryStreamOutput"], () => require("./getDeliveryStream"));
 
 // Export enums:
 export * from "../types/enums/kinesisfirehose";
-
-// Import resources to register:
-import { DeliveryStream } from "./deliveryStream";
 
 const _module = {
     version: utilities.getVersion(),

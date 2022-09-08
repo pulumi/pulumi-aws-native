@@ -5,31 +5,74 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./destination";
-export * from "./getDestination";
-export * from "./getLogGroup";
-export * from "./getMetricFilter";
-export * from "./getQueryDefinition";
-export * from "./getResourcePolicy";
-export * from "./getSubscriptionFilter";
-export * from "./logGroup";
-export * from "./logStream";
-export * from "./metricFilter";
-export * from "./queryDefinition";
-export * from "./resourcePolicy";
-export * from "./subscriptionFilter";
+export { DestinationArgs } from "./destination";
+export type Destination = import("./destination").Destination;
+export const Destination: typeof import("./destination").Destination = null as any;
+
+export { GetDestinationArgs, GetDestinationResult, GetDestinationOutputArgs } from "./getDestination";
+export const getDestination: typeof import("./getDestination").getDestination = null as any;
+export const getDestinationOutput: typeof import("./getDestination").getDestinationOutput = null as any;
+
+export { GetLogGroupArgs, GetLogGroupResult, GetLogGroupOutputArgs } from "./getLogGroup";
+export const getLogGroup: typeof import("./getLogGroup").getLogGroup = null as any;
+export const getLogGroupOutput: typeof import("./getLogGroup").getLogGroupOutput = null as any;
+
+export { GetMetricFilterArgs, GetMetricFilterResult, GetMetricFilterOutputArgs } from "./getMetricFilter";
+export const getMetricFilter: typeof import("./getMetricFilter").getMetricFilter = null as any;
+export const getMetricFilterOutput: typeof import("./getMetricFilter").getMetricFilterOutput = null as any;
+
+export { GetQueryDefinitionArgs, GetQueryDefinitionResult, GetQueryDefinitionOutputArgs } from "./getQueryDefinition";
+export const getQueryDefinition: typeof import("./getQueryDefinition").getQueryDefinition = null as any;
+export const getQueryDefinitionOutput: typeof import("./getQueryDefinition").getQueryDefinitionOutput = null as any;
+
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+
+export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscriptionFilterOutputArgs } from "./getSubscriptionFilter";
+export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
+export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
+
+export { LogGroupArgs } from "./logGroup";
+export type LogGroup = import("./logGroup").LogGroup;
+export const LogGroup: typeof import("./logGroup").LogGroup = null as any;
+
+export { LogStreamArgs } from "./logStream";
+export type LogStream = import("./logStream").LogStream;
+export const LogStream: typeof import("./logStream").LogStream = null as any;
+
+export { MetricFilterArgs } from "./metricFilter";
+export type MetricFilter = import("./metricFilter").MetricFilter;
+export const MetricFilter: typeof import("./metricFilter").MetricFilter = null as any;
+
+export { QueryDefinitionArgs } from "./queryDefinition";
+export type QueryDefinition = import("./queryDefinition").QueryDefinition;
+export const QueryDefinition: typeof import("./queryDefinition").QueryDefinition = null as any;
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+
+export { SubscriptionFilterArgs } from "./subscriptionFilter";
+export type SubscriptionFilter = import("./subscriptionFilter").SubscriptionFilter;
+export const SubscriptionFilter: typeof import("./subscriptionFilter").SubscriptionFilter = null as any;
+
+utilities.lazyLoad(exports, ["Destination"], () => require("./destination"));
+utilities.lazyLoad(exports, ["getDestination","getDestinationOutput"], () => require("./getDestination"));
+utilities.lazyLoad(exports, ["getLogGroup","getLogGroupOutput"], () => require("./getLogGroup"));
+utilities.lazyLoad(exports, ["getMetricFilter","getMetricFilterOutput"], () => require("./getMetricFilter"));
+utilities.lazyLoad(exports, ["getQueryDefinition","getQueryDefinitionOutput"], () => require("./getQueryDefinition"));
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+utilities.lazyLoad(exports, ["getSubscriptionFilter","getSubscriptionFilterOutput"], () => require("./getSubscriptionFilter"));
+utilities.lazyLoad(exports, ["LogGroup"], () => require("./logGroup"));
+utilities.lazyLoad(exports, ["LogStream"], () => require("./logStream"));
+utilities.lazyLoad(exports, ["MetricFilter"], () => require("./metricFilter"));
+utilities.lazyLoad(exports, ["QueryDefinition"], () => require("./queryDefinition"));
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+utilities.lazyLoad(exports, ["SubscriptionFilter"], () => require("./subscriptionFilter"));
 
 // Export enums:
 export * from "../types/enums/logs";
-
-// Import resources to register:
-import { Destination } from "./destination";
-import { LogGroup } from "./logGroup";
-import { LogStream } from "./logStream";
-import { MetricFilter } from "./metricFilter";
-import { QueryDefinition } from "./queryDefinition";
-import { ResourcePolicy } from "./resourcePolicy";
-import { SubscriptionFilter } from "./subscriptionFilter";
 
 const _module = {
     version: utilities.getVersion(),

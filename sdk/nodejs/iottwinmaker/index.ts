@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./componentType";
-export * from "./entity";
-export * from "./getComponentType";
-export * from "./getEntity";
-export * from "./getScene";
-export * from "./getWorkspace";
-export * from "./scene";
-export * from "./workspace";
+export { ComponentTypeArgs } from "./componentType";
+export type ComponentType = import("./componentType").ComponentType;
+export const ComponentType: typeof import("./componentType").ComponentType = null as any;
+
+export { EntityArgs } from "./entity";
+export type Entity = import("./entity").Entity;
+export const Entity: typeof import("./entity").Entity = null as any;
+
+export { GetComponentTypeArgs, GetComponentTypeResult, GetComponentTypeOutputArgs } from "./getComponentType";
+export const getComponentType: typeof import("./getComponentType").getComponentType = null as any;
+export const getComponentTypeOutput: typeof import("./getComponentType").getComponentTypeOutput = null as any;
+
+export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity";
+export const getEntity: typeof import("./getEntity").getEntity = null as any;
+export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
+
+export { GetSceneArgs, GetSceneResult, GetSceneOutputArgs } from "./getScene";
+export const getScene: typeof import("./getScene").getScene = null as any;
+export const getSceneOutput: typeof import("./getScene").getSceneOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { SceneArgs } from "./scene";
+export type Scene = import("./scene").Scene;
+export const Scene: typeof import("./scene").Scene = null as any;
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["ComponentType"], () => require("./componentType"));
+utilities.lazyLoad(exports, ["Entity"], () => require("./entity"));
+utilities.lazyLoad(exports, ["getComponentType","getComponentTypeOutput"], () => require("./getComponentType"));
+utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+utilities.lazyLoad(exports, ["getScene","getSceneOutput"], () => require("./getScene"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["Scene"], () => require("./scene"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 // Export enums:
 export * from "../types/enums/iottwinmaker";
-
-// Import resources to register:
-import { ComponentType } from "./componentType";
-import { Entity } from "./entity";
-import { Scene } from "./scene";
-import { Workspace } from "./workspace";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataCatalog";
-export * from "./getDataCatalog";
-export * from "./getNamedQuery";
-export * from "./getPreparedStatement";
-export * from "./getWorkGroup";
-export * from "./namedQuery";
-export * from "./preparedStatement";
-export * from "./workGroup";
+export { DataCatalogArgs } from "./dataCatalog";
+export type DataCatalog = import("./dataCatalog").DataCatalog;
+export const DataCatalog: typeof import("./dataCatalog").DataCatalog = null as any;
+
+export { GetDataCatalogArgs, GetDataCatalogResult, GetDataCatalogOutputArgs } from "./getDataCatalog";
+export const getDataCatalog: typeof import("./getDataCatalog").getDataCatalog = null as any;
+export const getDataCatalogOutput: typeof import("./getDataCatalog").getDataCatalogOutput = null as any;
+
+export { GetNamedQueryArgs, GetNamedQueryResult, GetNamedQueryOutputArgs } from "./getNamedQuery";
+export const getNamedQuery: typeof import("./getNamedQuery").getNamedQuery = null as any;
+export const getNamedQueryOutput: typeof import("./getNamedQuery").getNamedQueryOutput = null as any;
+
+export { GetPreparedStatementArgs, GetPreparedStatementResult, GetPreparedStatementOutputArgs } from "./getPreparedStatement";
+export const getPreparedStatement: typeof import("./getPreparedStatement").getPreparedStatement = null as any;
+export const getPreparedStatementOutput: typeof import("./getPreparedStatement").getPreparedStatementOutput = null as any;
+
+export { GetWorkGroupArgs, GetWorkGroupResult, GetWorkGroupOutputArgs } from "./getWorkGroup";
+export const getWorkGroup: typeof import("./getWorkGroup").getWorkGroup = null as any;
+export const getWorkGroupOutput: typeof import("./getWorkGroup").getWorkGroupOutput = null as any;
+
+export { NamedQueryArgs } from "./namedQuery";
+export type NamedQuery = import("./namedQuery").NamedQuery;
+export const NamedQuery: typeof import("./namedQuery").NamedQuery = null as any;
+
+export { PreparedStatementArgs } from "./preparedStatement";
+export type PreparedStatement = import("./preparedStatement").PreparedStatement;
+export const PreparedStatement: typeof import("./preparedStatement").PreparedStatement = null as any;
+
+export { WorkGroupArgs } from "./workGroup";
+export type WorkGroup = import("./workGroup").WorkGroup;
+export const WorkGroup: typeof import("./workGroup").WorkGroup = null as any;
+
+utilities.lazyLoad(exports, ["DataCatalog"], () => require("./dataCatalog"));
+utilities.lazyLoad(exports, ["getDataCatalog","getDataCatalogOutput"], () => require("./getDataCatalog"));
+utilities.lazyLoad(exports, ["getNamedQuery","getNamedQueryOutput"], () => require("./getNamedQuery"));
+utilities.lazyLoad(exports, ["getPreparedStatement","getPreparedStatementOutput"], () => require("./getPreparedStatement"));
+utilities.lazyLoad(exports, ["getWorkGroup","getWorkGroupOutput"], () => require("./getWorkGroup"));
+utilities.lazyLoad(exports, ["NamedQuery"], () => require("./namedQuery"));
+utilities.lazyLoad(exports, ["PreparedStatement"], () => require("./preparedStatement"));
+utilities.lazyLoad(exports, ["WorkGroup"], () => require("./workGroup"));
 
 // Export enums:
 export * from "../types/enums/athena";
-
-// Import resources to register:
-import { DataCatalog } from "./dataCatalog";
-import { NamedQuery } from "./namedQuery";
-import { PreparedStatement } from "./preparedStatement";
-import { WorkGroup } from "./workGroup";
 
 const _module = {
     version: utilities.getVersion(),

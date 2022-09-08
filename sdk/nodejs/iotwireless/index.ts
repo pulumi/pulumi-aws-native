@@ -5,41 +5,109 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./destination";
-export * from "./deviceProfile";
-export * from "./fuotaTask";
-export * from "./getDestination";
-export * from "./getDeviceProfile";
-export * from "./getFuotaTask";
-export * from "./getMulticastGroup";
-export * from "./getNetworkAnalyzerConfiguration";
-export * from "./getPartnerAccount";
-export * from "./getServiceProfile";
-export * from "./getTaskDefinition";
-export * from "./getWirelessDevice";
-export * from "./getWirelessGateway";
-export * from "./multicastGroup";
-export * from "./networkAnalyzerConfiguration";
-export * from "./partnerAccount";
-export * from "./serviceProfile";
-export * from "./taskDefinition";
-export * from "./wirelessDevice";
-export * from "./wirelessGateway";
+export { DestinationArgs } from "./destination";
+export type Destination = import("./destination").Destination;
+export const Destination: typeof import("./destination").Destination = null as any;
+
+export { DeviceProfileArgs } from "./deviceProfile";
+export type DeviceProfile = import("./deviceProfile").DeviceProfile;
+export const DeviceProfile: typeof import("./deviceProfile").DeviceProfile = null as any;
+
+export { FuotaTaskArgs } from "./fuotaTask";
+export type FuotaTask = import("./fuotaTask").FuotaTask;
+export const FuotaTask: typeof import("./fuotaTask").FuotaTask = null as any;
+
+export { GetDestinationArgs, GetDestinationResult, GetDestinationOutputArgs } from "./getDestination";
+export const getDestination: typeof import("./getDestination").getDestination = null as any;
+export const getDestinationOutput: typeof import("./getDestination").getDestinationOutput = null as any;
+
+export { GetDeviceProfileArgs, GetDeviceProfileResult, GetDeviceProfileOutputArgs } from "./getDeviceProfile";
+export const getDeviceProfile: typeof import("./getDeviceProfile").getDeviceProfile = null as any;
+export const getDeviceProfileOutput: typeof import("./getDeviceProfile").getDeviceProfileOutput = null as any;
+
+export { GetFuotaTaskArgs, GetFuotaTaskResult, GetFuotaTaskOutputArgs } from "./getFuotaTask";
+export const getFuotaTask: typeof import("./getFuotaTask").getFuotaTask = null as any;
+export const getFuotaTaskOutput: typeof import("./getFuotaTask").getFuotaTaskOutput = null as any;
+
+export { GetMulticastGroupArgs, GetMulticastGroupResult, GetMulticastGroupOutputArgs } from "./getMulticastGroup";
+export const getMulticastGroup: typeof import("./getMulticastGroup").getMulticastGroup = null as any;
+export const getMulticastGroupOutput: typeof import("./getMulticastGroup").getMulticastGroupOutput = null as any;
+
+export { GetNetworkAnalyzerConfigurationArgs, GetNetworkAnalyzerConfigurationResult, GetNetworkAnalyzerConfigurationOutputArgs } from "./getNetworkAnalyzerConfiguration";
+export const getNetworkAnalyzerConfiguration: typeof import("./getNetworkAnalyzerConfiguration").getNetworkAnalyzerConfiguration = null as any;
+export const getNetworkAnalyzerConfigurationOutput: typeof import("./getNetworkAnalyzerConfiguration").getNetworkAnalyzerConfigurationOutput = null as any;
+
+export { GetPartnerAccountArgs, GetPartnerAccountResult, GetPartnerAccountOutputArgs } from "./getPartnerAccount";
+export const getPartnerAccount: typeof import("./getPartnerAccount").getPartnerAccount = null as any;
+export const getPartnerAccountOutput: typeof import("./getPartnerAccount").getPartnerAccountOutput = null as any;
+
+export { GetServiceProfileArgs, GetServiceProfileResult, GetServiceProfileOutputArgs } from "./getServiceProfile";
+export const getServiceProfile: typeof import("./getServiceProfile").getServiceProfile = null as any;
+export const getServiceProfileOutput: typeof import("./getServiceProfile").getServiceProfileOutput = null as any;
+
+export { GetTaskDefinitionArgs, GetTaskDefinitionResult, GetTaskDefinitionOutputArgs } from "./getTaskDefinition";
+export const getTaskDefinition: typeof import("./getTaskDefinition").getTaskDefinition = null as any;
+export const getTaskDefinitionOutput: typeof import("./getTaskDefinition").getTaskDefinitionOutput = null as any;
+
+export { GetWirelessDeviceArgs, GetWirelessDeviceResult, GetWirelessDeviceOutputArgs } from "./getWirelessDevice";
+export const getWirelessDevice: typeof import("./getWirelessDevice").getWirelessDevice = null as any;
+export const getWirelessDeviceOutput: typeof import("./getWirelessDevice").getWirelessDeviceOutput = null as any;
+
+export { GetWirelessGatewayArgs, GetWirelessGatewayResult, GetWirelessGatewayOutputArgs } from "./getWirelessGateway";
+export const getWirelessGateway: typeof import("./getWirelessGateway").getWirelessGateway = null as any;
+export const getWirelessGatewayOutput: typeof import("./getWirelessGateway").getWirelessGatewayOutput = null as any;
+
+export { MulticastGroupArgs } from "./multicastGroup";
+export type MulticastGroup = import("./multicastGroup").MulticastGroup;
+export const MulticastGroup: typeof import("./multicastGroup").MulticastGroup = null as any;
+
+export { NetworkAnalyzerConfigurationArgs } from "./networkAnalyzerConfiguration";
+export type NetworkAnalyzerConfiguration = import("./networkAnalyzerConfiguration").NetworkAnalyzerConfiguration;
+export const NetworkAnalyzerConfiguration: typeof import("./networkAnalyzerConfiguration").NetworkAnalyzerConfiguration = null as any;
+
+export { PartnerAccountArgs } from "./partnerAccount";
+export type PartnerAccount = import("./partnerAccount").PartnerAccount;
+export const PartnerAccount: typeof import("./partnerAccount").PartnerAccount = null as any;
+
+export { ServiceProfileArgs } from "./serviceProfile";
+export type ServiceProfile = import("./serviceProfile").ServiceProfile;
+export const ServiceProfile: typeof import("./serviceProfile").ServiceProfile = null as any;
+
+export { TaskDefinitionArgs } from "./taskDefinition";
+export type TaskDefinition = import("./taskDefinition").TaskDefinition;
+export const TaskDefinition: typeof import("./taskDefinition").TaskDefinition = null as any;
+
+export { WirelessDeviceArgs } from "./wirelessDevice";
+export type WirelessDevice = import("./wirelessDevice").WirelessDevice;
+export const WirelessDevice: typeof import("./wirelessDevice").WirelessDevice = null as any;
+
+export { WirelessGatewayArgs } from "./wirelessGateway";
+export type WirelessGateway = import("./wirelessGateway").WirelessGateway;
+export const WirelessGateway: typeof import("./wirelessGateway").WirelessGateway = null as any;
+
+utilities.lazyLoad(exports, ["Destination"], () => require("./destination"));
+utilities.lazyLoad(exports, ["DeviceProfile"], () => require("./deviceProfile"));
+utilities.lazyLoad(exports, ["FuotaTask"], () => require("./fuotaTask"));
+utilities.lazyLoad(exports, ["getDestination","getDestinationOutput"], () => require("./getDestination"));
+utilities.lazyLoad(exports, ["getDeviceProfile","getDeviceProfileOutput"], () => require("./getDeviceProfile"));
+utilities.lazyLoad(exports, ["getFuotaTask","getFuotaTaskOutput"], () => require("./getFuotaTask"));
+utilities.lazyLoad(exports, ["getMulticastGroup","getMulticastGroupOutput"], () => require("./getMulticastGroup"));
+utilities.lazyLoad(exports, ["getNetworkAnalyzerConfiguration","getNetworkAnalyzerConfigurationOutput"], () => require("./getNetworkAnalyzerConfiguration"));
+utilities.lazyLoad(exports, ["getPartnerAccount","getPartnerAccountOutput"], () => require("./getPartnerAccount"));
+utilities.lazyLoad(exports, ["getServiceProfile","getServiceProfileOutput"], () => require("./getServiceProfile"));
+utilities.lazyLoad(exports, ["getTaskDefinition","getTaskDefinitionOutput"], () => require("./getTaskDefinition"));
+utilities.lazyLoad(exports, ["getWirelessDevice","getWirelessDeviceOutput"], () => require("./getWirelessDevice"));
+utilities.lazyLoad(exports, ["getWirelessGateway","getWirelessGatewayOutput"], () => require("./getWirelessGateway"));
+utilities.lazyLoad(exports, ["MulticastGroup"], () => require("./multicastGroup"));
+utilities.lazyLoad(exports, ["NetworkAnalyzerConfiguration"], () => require("./networkAnalyzerConfiguration"));
+utilities.lazyLoad(exports, ["PartnerAccount"], () => require("./partnerAccount"));
+utilities.lazyLoad(exports, ["ServiceProfile"], () => require("./serviceProfile"));
+utilities.lazyLoad(exports, ["TaskDefinition"], () => require("./taskDefinition"));
+utilities.lazyLoad(exports, ["WirelessDevice"], () => require("./wirelessDevice"));
+utilities.lazyLoad(exports, ["WirelessGateway"], () => require("./wirelessGateway"));
 
 // Export enums:
 export * from "../types/enums/iotwireless";
-
-// Import resources to register:
-import { Destination } from "./destination";
-import { DeviceProfile } from "./deviceProfile";
-import { FuotaTask } from "./fuotaTask";
-import { MulticastGroup } from "./multicastGroup";
-import { NetworkAnalyzerConfiguration } from "./networkAnalyzerConfiguration";
-import { PartnerAccount } from "./partnerAccount";
-import { ServiceProfile } from "./serviceProfile";
-import { TaskDefinition } from "./taskDefinition";
-import { WirelessDevice } from "./wirelessDevice";
-import { WirelessGateway } from "./wirelessGateway";
 
 const _module = {
     version: utilities.getVersion(),

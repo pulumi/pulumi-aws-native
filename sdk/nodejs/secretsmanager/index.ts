@@ -5,20 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getResourcePolicy";
-export * from "./getRotationSchedule";
-export * from "./getSecret";
-export * from "./getSecretTargetAttachment";
-export * from "./resourcePolicy";
-export * from "./rotationSchedule";
-export * from "./secret";
-export * from "./secretTargetAttachment";
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 
-// Import resources to register:
-import { ResourcePolicy } from "./resourcePolicy";
-import { RotationSchedule } from "./rotationSchedule";
-import { Secret } from "./secret";
-import { SecretTargetAttachment } from "./secretTargetAttachment";
+export { GetRotationScheduleArgs, GetRotationScheduleResult, GetRotationScheduleOutputArgs } from "./getRotationSchedule";
+export const getRotationSchedule: typeof import("./getRotationSchedule").getRotationSchedule = null as any;
+export const getRotationScheduleOutput: typeof import("./getRotationSchedule").getRotationScheduleOutput = null as any;
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+
+export { GetSecretTargetAttachmentArgs, GetSecretTargetAttachmentResult, GetSecretTargetAttachmentOutputArgs } from "./getSecretTargetAttachment";
+export const getSecretTargetAttachment: typeof import("./getSecretTargetAttachment").getSecretTargetAttachment = null as any;
+export const getSecretTargetAttachmentOutput: typeof import("./getSecretTargetAttachment").getSecretTargetAttachmentOutput = null as any;
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+
+export { RotationScheduleArgs } from "./rotationSchedule";
+export type RotationSchedule = import("./rotationSchedule").RotationSchedule;
+export const RotationSchedule: typeof import("./rotationSchedule").RotationSchedule = null as any;
+
+export { SecretArgs } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+
+export { SecretTargetAttachmentArgs } from "./secretTargetAttachment";
+export type SecretTargetAttachment = import("./secretTargetAttachment").SecretTargetAttachment;
+export const SecretTargetAttachment: typeof import("./secretTargetAttachment").SecretTargetAttachment = null as any;
+
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+utilities.lazyLoad(exports, ["getRotationSchedule","getRotationScheduleOutput"], () => require("./getRotationSchedule"));
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+utilities.lazyLoad(exports, ["getSecretTargetAttachment","getSecretTargetAttachmentOutput"], () => require("./getSecretTargetAttachment"));
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+utilities.lazyLoad(exports, ["RotationSchedule"], () => require("./rotationSchedule"));
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+utilities.lazyLoad(exports, ["SecretTargetAttachment"], () => require("./secretTargetAttachment"));
 
 const _module = {
     version: utilities.getVersion(),

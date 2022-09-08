@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getScalableTarget";
-export * from "./getScalingPolicy";
-export * from "./scalableTarget";
-export * from "./scalingPolicy";
+export { GetScalableTargetArgs, GetScalableTargetResult, GetScalableTargetOutputArgs } from "./getScalableTarget";
+export const getScalableTarget: typeof import("./getScalableTarget").getScalableTarget = null as any;
+export const getScalableTargetOutput: typeof import("./getScalableTarget").getScalableTargetOutput = null as any;
 
-// Import resources to register:
-import { ScalableTarget } from "./scalableTarget";
-import { ScalingPolicy } from "./scalingPolicy";
+export { GetScalingPolicyArgs, GetScalingPolicyResult, GetScalingPolicyOutputArgs } from "./getScalingPolicy";
+export const getScalingPolicy: typeof import("./getScalingPolicy").getScalingPolicy = null as any;
+export const getScalingPolicyOutput: typeof import("./getScalingPolicy").getScalingPolicyOutput = null as any;
+
+export { ScalableTargetArgs } from "./scalableTarget";
+export type ScalableTarget = import("./scalableTarget").ScalableTarget;
+export const ScalableTarget: typeof import("./scalableTarget").ScalableTarget = null as any;
+
+export { ScalingPolicyArgs } from "./scalingPolicy";
+export type ScalingPolicy = import("./scalingPolicy").ScalingPolicy;
+export const ScalingPolicy: typeof import("./scalingPolicy").ScalingPolicy = null as any;
+
+utilities.lazyLoad(exports, ["getScalableTarget","getScalableTargetOutput"], () => require("./getScalableTarget"));
+utilities.lazyLoad(exports, ["getScalingPolicy","getScalingPolicyOutput"], () => require("./getScalingPolicy"));
+utilities.lazyLoad(exports, ["ScalableTarget"], () => require("./scalableTarget"));
+utilities.lazyLoad(exports, ["ScalingPolicy"], () => require("./scalingPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./getApp";
-export * from "./getResiliencyPolicy";
-export * from "./resiliencyPolicy";
+export { AppArgs } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
+
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+
+export { GetResiliencyPolicyArgs, GetResiliencyPolicyResult, GetResiliencyPolicyOutputArgs } from "./getResiliencyPolicy";
+export const getResiliencyPolicy: typeof import("./getResiliencyPolicy").getResiliencyPolicy = null as any;
+export const getResiliencyPolicyOutput: typeof import("./getResiliencyPolicy").getResiliencyPolicyOutput = null as any;
+
+export { ResiliencyPolicyArgs } from "./resiliencyPolicy";
+export type ResiliencyPolicy = import("./resiliencyPolicy").ResiliencyPolicy;
+export const ResiliencyPolicy: typeof import("./resiliencyPolicy").ResiliencyPolicy = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+utilities.lazyLoad(exports, ["getResiliencyPolicy","getResiliencyPolicyOutput"], () => require("./getResiliencyPolicy"));
+utilities.lazyLoad(exports, ["ResiliencyPolicy"], () => require("./resiliencyPolicy"));
 
 // Export enums:
 export * from "../types/enums/resiliencehub";
-
-// Import resources to register:
-import { App } from "./app";
-import { ResiliencyPolicy } from "./resiliencyPolicy";
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSlackChannelConfiguration";
-export * from "./slackChannelConfiguration";
+export { GetSlackChannelConfigurationArgs, GetSlackChannelConfigurationResult, GetSlackChannelConfigurationOutputArgs } from "./getSlackChannelConfiguration";
+export const getSlackChannelConfiguration: typeof import("./getSlackChannelConfiguration").getSlackChannelConfiguration = null as any;
+export const getSlackChannelConfigurationOutput: typeof import("./getSlackChannelConfiguration").getSlackChannelConfigurationOutput = null as any;
 
-// Import resources to register:
-import { SlackChannelConfiguration } from "./slackChannelConfiguration";
+export { SlackChannelConfigurationArgs } from "./slackChannelConfiguration";
+export type SlackChannelConfiguration = import("./slackChannelConfiguration").SlackChannelConfiguration;
+export const SlackChannelConfiguration: typeof import("./slackChannelConfiguration").SlackChannelConfiguration = null as any;
+
+utilities.lazyLoad(exports, ["getSlackChannelConfiguration","getSlackChannelConfigurationOutput"], () => require("./getSlackChannelConfiguration"));
+utilities.lazyLoad(exports, ["SlackChannelConfiguration"], () => require("./slackChannelConfiguration"));
 
 const _module = {
     version: utilities.getVersion(),

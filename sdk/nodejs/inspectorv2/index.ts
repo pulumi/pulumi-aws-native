@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./filter";
-export * from "./getFilter";
+export { FilterArgs } from "./filter";
+export type Filter = import("./filter").Filter;
+export const Filter: typeof import("./filter").Filter = null as any;
+
+export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
+export const getFilter: typeof import("./getFilter").getFilter = null as any;
+export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
+
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
+utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
 
 // Export enums:
 export * from "../types/enums/inspectorv2";
-
-// Import resources to register:
-import { Filter } from "./filter";
 
 const _module = {
     version: utilities.getVersion(),

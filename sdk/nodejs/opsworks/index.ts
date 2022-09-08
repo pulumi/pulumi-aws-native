@@ -5,29 +5,76 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./app";
-export * from "./elasticLoadBalancerAttachment";
-export * from "./getApp";
-export * from "./getElasticLoadBalancerAttachment";
-export * from "./getInstance";
-export * from "./getLayer";
-export * from "./getStack";
-export * from "./getUserProfile";
-export * from "./getVolume";
-export * from "./instance";
-export * from "./layer";
-export * from "./stack";
-export * from "./userProfile";
-export * from "./volume";
+export { AppArgs } from "./app";
+export type App = import("./app").App;
+export const App: typeof import("./app").App = null as any;
 
-// Import resources to register:
-import { App } from "./app";
-import { ElasticLoadBalancerAttachment } from "./elasticLoadBalancerAttachment";
-import { Instance } from "./instance";
-import { Layer } from "./layer";
-import { Stack } from "./stack";
-import { UserProfile } from "./userProfile";
-import { Volume } from "./volume";
+export { ElasticLoadBalancerAttachmentArgs } from "./elasticLoadBalancerAttachment";
+export type ElasticLoadBalancerAttachment = import("./elasticLoadBalancerAttachment").ElasticLoadBalancerAttachment;
+export const ElasticLoadBalancerAttachment: typeof import("./elasticLoadBalancerAttachment").ElasticLoadBalancerAttachment = null as any;
+
+export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
+export const getApp: typeof import("./getApp").getApp = null as any;
+export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+
+export { GetElasticLoadBalancerAttachmentArgs, GetElasticLoadBalancerAttachmentResult, GetElasticLoadBalancerAttachmentOutputArgs } from "./getElasticLoadBalancerAttachment";
+export const getElasticLoadBalancerAttachment: typeof import("./getElasticLoadBalancerAttachment").getElasticLoadBalancerAttachment = null as any;
+export const getElasticLoadBalancerAttachmentOutput: typeof import("./getElasticLoadBalancerAttachment").getElasticLoadBalancerAttachmentOutput = null as any;
+
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+
+export { GetLayerArgs, GetLayerResult, GetLayerOutputArgs } from "./getLayer";
+export const getLayer: typeof import("./getLayer").getLayer = null as any;
+export const getLayerOutput: typeof import("./getLayer").getLayerOutput = null as any;
+
+export { GetStackArgs, GetStackResult, GetStackOutputArgs } from "./getStack";
+export const getStack: typeof import("./getStack").getStack = null as any;
+export const getStackOutput: typeof import("./getStack").getStackOutput = null as any;
+
+export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
+export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
+export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
+
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+
+export { InstanceArgs } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
+export { LayerArgs } from "./layer";
+export type Layer = import("./layer").Layer;
+export const Layer: typeof import("./layer").Layer = null as any;
+
+export { StackArgs } from "./stack";
+export type Stack = import("./stack").Stack;
+export const Stack: typeof import("./stack").Stack = null as any;
+
+export { UserProfileArgs } from "./userProfile";
+export type UserProfile = import("./userProfile").UserProfile;
+export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
+
+export { VolumeArgs } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
+utilities.lazyLoad(exports, ["ElasticLoadBalancerAttachment"], () => require("./elasticLoadBalancerAttachment"));
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
+utilities.lazyLoad(exports, ["getElasticLoadBalancerAttachment","getElasticLoadBalancerAttachmentOutput"], () => require("./getElasticLoadBalancerAttachment"));
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+utilities.lazyLoad(exports, ["getLayer","getLayerOutput"], () => require("./getLayer"));
+utilities.lazyLoad(exports, ["getStack","getStackOutput"], () => require("./getStack"));
+utilities.lazyLoad(exports, ["getUserProfile","getUserProfileOutput"], () => require("./getUserProfile"));
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
+utilities.lazyLoad(exports, ["Layer"], () => require("./layer"));
+utilities.lazyLoad(exports, ["Stack"], () => require("./stack"));
+utilities.lazyLoad(exports, ["UserProfile"], () => require("./userProfile"));
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 const _module = {
     version: utilities.getVersion(),

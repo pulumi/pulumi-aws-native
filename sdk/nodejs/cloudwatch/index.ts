@@ -5,26 +5,66 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alarm";
-export * from "./anomalyDetector";
-export * from "./compositeAlarm";
-export * from "./dashboard";
-export * from "./getAlarm";
-export * from "./getAnomalyDetector";
-export * from "./getCompositeAlarm";
-export * from "./getDashboard";
-export * from "./getInsightRule";
-export * from "./getMetricStream";
-export * from "./insightRule";
-export * from "./metricStream";
+export { AlarmArgs } from "./alarm";
+export type Alarm = import("./alarm").Alarm;
+export const Alarm: typeof import("./alarm").Alarm = null as any;
 
-// Import resources to register:
-import { Alarm } from "./alarm";
-import { AnomalyDetector } from "./anomalyDetector";
-import { CompositeAlarm } from "./compositeAlarm";
-import { Dashboard } from "./dashboard";
-import { InsightRule } from "./insightRule";
-import { MetricStream } from "./metricStream";
+export { AnomalyDetectorArgs } from "./anomalyDetector";
+export type AnomalyDetector = import("./anomalyDetector").AnomalyDetector;
+export const AnomalyDetector: typeof import("./anomalyDetector").AnomalyDetector = null as any;
+
+export { CompositeAlarmArgs } from "./compositeAlarm";
+export type CompositeAlarm = import("./compositeAlarm").CompositeAlarm;
+export const CompositeAlarm: typeof import("./compositeAlarm").CompositeAlarm = null as any;
+
+export { DashboardArgs } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+
+export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
+export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
+export const getAlarmOutput: typeof import("./getAlarm").getAlarmOutput = null as any;
+
+export { GetAnomalyDetectorArgs, GetAnomalyDetectorResult, GetAnomalyDetectorOutputArgs } from "./getAnomalyDetector";
+export const getAnomalyDetector: typeof import("./getAnomalyDetector").getAnomalyDetector = null as any;
+export const getAnomalyDetectorOutput: typeof import("./getAnomalyDetector").getAnomalyDetectorOutput = null as any;
+
+export { GetCompositeAlarmArgs, GetCompositeAlarmResult, GetCompositeAlarmOutputArgs } from "./getCompositeAlarm";
+export const getCompositeAlarm: typeof import("./getCompositeAlarm").getCompositeAlarm = null as any;
+export const getCompositeAlarmOutput: typeof import("./getCompositeAlarm").getCompositeAlarmOutput = null as any;
+
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+
+export { GetInsightRuleArgs, GetInsightRuleResult, GetInsightRuleOutputArgs } from "./getInsightRule";
+export const getInsightRule: typeof import("./getInsightRule").getInsightRule = null as any;
+export const getInsightRuleOutput: typeof import("./getInsightRule").getInsightRuleOutput = null as any;
+
+export { GetMetricStreamArgs, GetMetricStreamResult, GetMetricStreamOutputArgs } from "./getMetricStream";
+export const getMetricStream: typeof import("./getMetricStream").getMetricStream = null as any;
+export const getMetricStreamOutput: typeof import("./getMetricStream").getMetricStreamOutput = null as any;
+
+export { InsightRuleArgs } from "./insightRule";
+export type InsightRule = import("./insightRule").InsightRule;
+export const InsightRule: typeof import("./insightRule").InsightRule = null as any;
+
+export { MetricStreamArgs } from "./metricStream";
+export type MetricStream = import("./metricStream").MetricStream;
+export const MetricStream: typeof import("./metricStream").MetricStream = null as any;
+
+utilities.lazyLoad(exports, ["Alarm"], () => require("./alarm"));
+utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
+utilities.lazyLoad(exports, ["CompositeAlarm"], () => require("./compositeAlarm"));
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+utilities.lazyLoad(exports, ["getAlarm","getAlarmOutput"], () => require("./getAlarm"));
+utilities.lazyLoad(exports, ["getAnomalyDetector","getAnomalyDetectorOutput"], () => require("./getAnomalyDetector"));
+utilities.lazyLoad(exports, ["getCompositeAlarm","getCompositeAlarmOutput"], () => require("./getCompositeAlarm"));
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+utilities.lazyLoad(exports, ["getInsightRule","getInsightRuleOutput"], () => require("./getInsightRule"));
+utilities.lazyLoad(exports, ["getMetricStream","getMetricStreamOutput"], () => require("./getMetricStream"));
+utilities.lazyLoad(exports, ["InsightRule"], () => require("./insightRule"));
+utilities.lazyLoad(exports, ["MetricStream"], () => require("./metricStream"));
 
 const _module = {
     version: utilities.getVersion(),

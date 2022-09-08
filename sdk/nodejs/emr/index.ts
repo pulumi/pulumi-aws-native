@@ -5,32 +5,79 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./getCluster";
-export * from "./getInstanceFleetConfig";
-export * from "./getInstanceGroupConfig";
-export * from "./getSecurityConfiguration";
-export * from "./getStep";
-export * from "./getStudio";
-export * from "./getStudioSessionMapping";
-export * from "./instanceFleetConfig";
-export * from "./instanceGroupConfig";
-export * from "./securityConfiguration";
-export * from "./step";
-export * from "./studio";
-export * from "./studioSessionMapping";
+export { ClusterArgs } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+
+export { GetInstanceFleetConfigArgs, GetInstanceFleetConfigResult, GetInstanceFleetConfigOutputArgs } from "./getInstanceFleetConfig";
+export const getInstanceFleetConfig: typeof import("./getInstanceFleetConfig").getInstanceFleetConfig = null as any;
+export const getInstanceFleetConfigOutput: typeof import("./getInstanceFleetConfig").getInstanceFleetConfigOutput = null as any;
+
+export { GetInstanceGroupConfigArgs, GetInstanceGroupConfigResult, GetInstanceGroupConfigOutputArgs } from "./getInstanceGroupConfig";
+export const getInstanceGroupConfig: typeof import("./getInstanceGroupConfig").getInstanceGroupConfig = null as any;
+export const getInstanceGroupConfigOutput: typeof import("./getInstanceGroupConfig").getInstanceGroupConfigOutput = null as any;
+
+export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
+export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
+export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
+
+export { GetStepArgs, GetStepResult, GetStepOutputArgs } from "./getStep";
+export const getStep: typeof import("./getStep").getStep = null as any;
+export const getStepOutput: typeof import("./getStep").getStepOutput = null as any;
+
+export { GetStudioArgs, GetStudioResult, GetStudioOutputArgs } from "./getStudio";
+export const getStudio: typeof import("./getStudio").getStudio = null as any;
+export const getStudioOutput: typeof import("./getStudio").getStudioOutput = null as any;
+
+export { GetStudioSessionMappingArgs, GetStudioSessionMappingResult, GetStudioSessionMappingOutputArgs } from "./getStudioSessionMapping";
+export const getStudioSessionMapping: typeof import("./getStudioSessionMapping").getStudioSessionMapping = null as any;
+export const getStudioSessionMappingOutput: typeof import("./getStudioSessionMapping").getStudioSessionMappingOutput = null as any;
+
+export { InstanceFleetConfigArgs } from "./instanceFleetConfig";
+export type InstanceFleetConfig = import("./instanceFleetConfig").InstanceFleetConfig;
+export const InstanceFleetConfig: typeof import("./instanceFleetConfig").InstanceFleetConfig = null as any;
+
+export { InstanceGroupConfigArgs } from "./instanceGroupConfig";
+export type InstanceGroupConfig = import("./instanceGroupConfig").InstanceGroupConfig;
+export const InstanceGroupConfig: typeof import("./instanceGroupConfig").InstanceGroupConfig = null as any;
+
+export { SecurityConfigurationArgs } from "./securityConfiguration";
+export type SecurityConfiguration = import("./securityConfiguration").SecurityConfiguration;
+export const SecurityConfiguration: typeof import("./securityConfiguration").SecurityConfiguration = null as any;
+
+export { StepArgs } from "./step";
+export type Step = import("./step").Step;
+export const Step: typeof import("./step").Step = null as any;
+
+export { StudioArgs } from "./studio";
+export type Studio = import("./studio").Studio;
+export const Studio: typeof import("./studio").Studio = null as any;
+
+export { StudioSessionMappingArgs } from "./studioSessionMapping";
+export type StudioSessionMapping = import("./studioSessionMapping").StudioSessionMapping;
+export const StudioSessionMapping: typeof import("./studioSessionMapping").StudioSessionMapping = null as any;
+
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["getInstanceFleetConfig","getInstanceFleetConfigOutput"], () => require("./getInstanceFleetConfig"));
+utilities.lazyLoad(exports, ["getInstanceGroupConfig","getInstanceGroupConfigOutput"], () => require("./getInstanceGroupConfig"));
+utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
+utilities.lazyLoad(exports, ["getStep","getStepOutput"], () => require("./getStep"));
+utilities.lazyLoad(exports, ["getStudio","getStudioOutput"], () => require("./getStudio"));
+utilities.lazyLoad(exports, ["getStudioSessionMapping","getStudioSessionMappingOutput"], () => require("./getStudioSessionMapping"));
+utilities.lazyLoad(exports, ["InstanceFleetConfig"], () => require("./instanceFleetConfig"));
+utilities.lazyLoad(exports, ["InstanceGroupConfig"], () => require("./instanceGroupConfig"));
+utilities.lazyLoad(exports, ["SecurityConfiguration"], () => require("./securityConfiguration"));
+utilities.lazyLoad(exports, ["Step"], () => require("./step"));
+utilities.lazyLoad(exports, ["Studio"], () => require("./studio"));
+utilities.lazyLoad(exports, ["StudioSessionMapping"], () => require("./studioSessionMapping"));
 
 // Export enums:
 export * from "../types/enums/emr";
-
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { InstanceFleetConfig } from "./instanceFleetConfig";
-import { InstanceGroupConfig } from "./instanceGroupConfig";
-import { SecurityConfiguration } from "./securityConfiguration";
-import { Step } from "./step";
-import { Studio } from "./studio";
-import { StudioSessionMapping } from "./studioSessionMapping";
 
 const _module = {
     version: utilities.getVersion(),

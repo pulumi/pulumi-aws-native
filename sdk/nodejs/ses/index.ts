@@ -5,34 +5,91 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./configurationSet";
-export * from "./configurationSetEventDestination";
-export * from "./contactList";
-export * from "./dedicatedIpPool";
-export * from "./emailIdentity";
-export * from "./getConfigurationSet";
-export * from "./getConfigurationSetEventDestination";
-export * from "./getContactList";
-export * from "./getEmailIdentity";
-export * from "./getReceiptFilter";
-export * from "./getReceiptRule";
-export * from "./getReceiptRuleSet";
-export * from "./getTemplate";
-export * from "./receiptFilter";
-export * from "./receiptRule";
-export * from "./receiptRuleSet";
-export * from "./template";
+export { ConfigurationSetArgs } from "./configurationSet";
+export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
+export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
 
-// Import resources to register:
-import { ConfigurationSet } from "./configurationSet";
-import { ConfigurationSetEventDestination } from "./configurationSetEventDestination";
-import { ContactList } from "./contactList";
-import { DedicatedIpPool } from "./dedicatedIpPool";
-import { EmailIdentity } from "./emailIdentity";
-import { ReceiptFilter } from "./receiptFilter";
-import { ReceiptRule } from "./receiptRule";
-import { ReceiptRuleSet } from "./receiptRuleSet";
-import { Template } from "./template";
+export { ConfigurationSetEventDestinationArgs } from "./configurationSetEventDestination";
+export type ConfigurationSetEventDestination = import("./configurationSetEventDestination").ConfigurationSetEventDestination;
+export const ConfigurationSetEventDestination: typeof import("./configurationSetEventDestination").ConfigurationSetEventDestination = null as any;
+
+export { ContactListArgs } from "./contactList";
+export type ContactList = import("./contactList").ContactList;
+export const ContactList: typeof import("./contactList").ContactList = null as any;
+
+export { DedicatedIpPoolArgs } from "./dedicatedIpPool";
+export type DedicatedIpPool = import("./dedicatedIpPool").DedicatedIpPool;
+export const DedicatedIpPool: typeof import("./dedicatedIpPool").DedicatedIpPool = null as any;
+
+export { EmailIdentityArgs } from "./emailIdentity";
+export type EmailIdentity = import("./emailIdentity").EmailIdentity;
+export const EmailIdentity: typeof import("./emailIdentity").EmailIdentity = null as any;
+
+export { GetConfigurationSetArgs, GetConfigurationSetResult, GetConfigurationSetOutputArgs } from "./getConfigurationSet";
+export const getConfigurationSet: typeof import("./getConfigurationSet").getConfigurationSet = null as any;
+export const getConfigurationSetOutput: typeof import("./getConfigurationSet").getConfigurationSetOutput = null as any;
+
+export { GetConfigurationSetEventDestinationArgs, GetConfigurationSetEventDestinationResult, GetConfigurationSetEventDestinationOutputArgs } from "./getConfigurationSetEventDestination";
+export const getConfigurationSetEventDestination: typeof import("./getConfigurationSetEventDestination").getConfigurationSetEventDestination = null as any;
+export const getConfigurationSetEventDestinationOutput: typeof import("./getConfigurationSetEventDestination").getConfigurationSetEventDestinationOutput = null as any;
+
+export { GetContactListArgs, GetContactListResult, GetContactListOutputArgs } from "./getContactList";
+export const getContactList: typeof import("./getContactList").getContactList = null as any;
+export const getContactListOutput: typeof import("./getContactList").getContactListOutput = null as any;
+
+export { GetEmailIdentityArgs, GetEmailIdentityResult, GetEmailIdentityOutputArgs } from "./getEmailIdentity";
+export const getEmailIdentity: typeof import("./getEmailIdentity").getEmailIdentity = null as any;
+export const getEmailIdentityOutput: typeof import("./getEmailIdentity").getEmailIdentityOutput = null as any;
+
+export { GetReceiptFilterArgs, GetReceiptFilterResult, GetReceiptFilterOutputArgs } from "./getReceiptFilter";
+export const getReceiptFilter: typeof import("./getReceiptFilter").getReceiptFilter = null as any;
+export const getReceiptFilterOutput: typeof import("./getReceiptFilter").getReceiptFilterOutput = null as any;
+
+export { GetReceiptRuleArgs, GetReceiptRuleResult, GetReceiptRuleOutputArgs } from "./getReceiptRule";
+export const getReceiptRule: typeof import("./getReceiptRule").getReceiptRule = null as any;
+export const getReceiptRuleOutput: typeof import("./getReceiptRule").getReceiptRuleOutput = null as any;
+
+export { GetReceiptRuleSetArgs, GetReceiptRuleSetResult, GetReceiptRuleSetOutputArgs } from "./getReceiptRuleSet";
+export const getReceiptRuleSet: typeof import("./getReceiptRuleSet").getReceiptRuleSet = null as any;
+export const getReceiptRuleSetOutput: typeof import("./getReceiptRuleSet").getReceiptRuleSetOutput = null as any;
+
+export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
+export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
+export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
+
+export { ReceiptFilterArgs } from "./receiptFilter";
+export type ReceiptFilter = import("./receiptFilter").ReceiptFilter;
+export const ReceiptFilter: typeof import("./receiptFilter").ReceiptFilter = null as any;
+
+export { ReceiptRuleArgs } from "./receiptRule";
+export type ReceiptRule = import("./receiptRule").ReceiptRule;
+export const ReceiptRule: typeof import("./receiptRule").ReceiptRule = null as any;
+
+export { ReceiptRuleSetArgs } from "./receiptRuleSet";
+export type ReceiptRuleSet = import("./receiptRuleSet").ReceiptRuleSet;
+export const ReceiptRuleSet: typeof import("./receiptRuleSet").ReceiptRuleSet = null as any;
+
+export { TemplateArgs } from "./template";
+export type Template = import("./template").Template;
+export const Template: typeof import("./template").Template = null as any;
+
+utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
+utilities.lazyLoad(exports, ["ConfigurationSetEventDestination"], () => require("./configurationSetEventDestination"));
+utilities.lazyLoad(exports, ["ContactList"], () => require("./contactList"));
+utilities.lazyLoad(exports, ["DedicatedIpPool"], () => require("./dedicatedIpPool"));
+utilities.lazyLoad(exports, ["EmailIdentity"], () => require("./emailIdentity"));
+utilities.lazyLoad(exports, ["getConfigurationSet","getConfigurationSetOutput"], () => require("./getConfigurationSet"));
+utilities.lazyLoad(exports, ["getConfigurationSetEventDestination","getConfigurationSetEventDestinationOutput"], () => require("./getConfigurationSetEventDestination"));
+utilities.lazyLoad(exports, ["getContactList","getContactListOutput"], () => require("./getContactList"));
+utilities.lazyLoad(exports, ["getEmailIdentity","getEmailIdentityOutput"], () => require("./getEmailIdentity"));
+utilities.lazyLoad(exports, ["getReceiptFilter","getReceiptFilterOutput"], () => require("./getReceiptFilter"));
+utilities.lazyLoad(exports, ["getReceiptRule","getReceiptRuleOutput"], () => require("./getReceiptRule"));
+utilities.lazyLoad(exports, ["getReceiptRuleSet","getReceiptRuleSetOutput"], () => require("./getReceiptRuleSet"));
+utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
+utilities.lazyLoad(exports, ["ReceiptFilter"], () => require("./receiptFilter"));
+utilities.lazyLoad(exports, ["ReceiptRule"], () => require("./receiptRule"));
+utilities.lazyLoad(exports, ["ReceiptRuleSet"], () => require("./receiptRuleSet"));
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 
 const _module = {
     version: utilities.getVersion(),

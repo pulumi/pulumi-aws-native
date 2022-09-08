@@ -5,17 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getProject";
-export * from "./getReportGroup";
-export * from "./getSourceCredential";
-export * from "./project";
-export * from "./reportGroup";
-export * from "./sourceCredential";
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 
-// Import resources to register:
-import { Project } from "./project";
-import { ReportGroup } from "./reportGroup";
-import { SourceCredential } from "./sourceCredential";
+export { GetReportGroupArgs, GetReportGroupResult, GetReportGroupOutputArgs } from "./getReportGroup";
+export const getReportGroup: typeof import("./getReportGroup").getReportGroup = null as any;
+export const getReportGroupOutput: typeof import("./getReportGroup").getReportGroupOutput = null as any;
+
+export { GetSourceCredentialArgs, GetSourceCredentialResult, GetSourceCredentialOutputArgs } from "./getSourceCredential";
+export const getSourceCredential: typeof import("./getSourceCredential").getSourceCredential = null as any;
+export const getSourceCredentialOutput: typeof import("./getSourceCredential").getSourceCredentialOutput = null as any;
+
+export { ProjectArgs } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+
+export { ReportGroupArgs } from "./reportGroup";
+export type ReportGroup = import("./reportGroup").ReportGroup;
+export const ReportGroup: typeof import("./reportGroup").ReportGroup = null as any;
+
+export { SourceCredentialArgs } from "./sourceCredential";
+export type SourceCredential = import("./sourceCredential").SourceCredential;
+export const SourceCredential: typeof import("./sourceCredential").SourceCredential = null as any;
+
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+utilities.lazyLoad(exports, ["getReportGroup","getReportGroupOutput"], () => require("./getReportGroup"));
+utilities.lazyLoad(exports, ["getSourceCredential","getSourceCredentialOutput"], () => require("./getSourceCredential"));
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+utilities.lazyLoad(exports, ["ReportGroup"], () => require("./reportGroup"));
+utilities.lazyLoad(exports, ["SourceCredential"], () => require("./sourceCredential"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./bot";
-export * from "./botAlias";
-export * from "./botVersion";
-export * from "./getBot";
-export * from "./getBotAlias";
-export * from "./getBotVersion";
-export * from "./getResourcePolicy";
-export * from "./resourcePolicy";
+export { BotArgs } from "./bot";
+export type Bot = import("./bot").Bot;
+export const Bot: typeof import("./bot").Bot = null as any;
+
+export { BotAliasArgs } from "./botAlias";
+export type BotAlias = import("./botAlias").BotAlias;
+export const BotAlias: typeof import("./botAlias").BotAlias = null as any;
+
+export { BotVersionArgs } from "./botVersion";
+export type BotVersion = import("./botVersion").BotVersion;
+export const BotVersion: typeof import("./botVersion").BotVersion = null as any;
+
+export { GetBotArgs, GetBotResult, GetBotOutputArgs } from "./getBot";
+export const getBot: typeof import("./getBot").getBot = null as any;
+export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
+
+export { GetBotAliasArgs, GetBotAliasResult, GetBotAliasOutputArgs } from "./getBotAlias";
+export const getBotAlias: typeof import("./getBotAlias").getBotAlias = null as any;
+export const getBotAliasOutput: typeof import("./getBotAlias").getBotAliasOutput = null as any;
+
+export { GetBotVersionArgs, GetBotVersionResult, GetBotVersionOutputArgs } from "./getBotVersion";
+export const getBotVersion: typeof import("./getBotVersion").getBotVersion = null as any;
+export const getBotVersionOutput: typeof import("./getBotVersion").getBotVersionOutput = null as any;
+
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+
+utilities.lazyLoad(exports, ["Bot"], () => require("./bot"));
+utilities.lazyLoad(exports, ["BotAlias"], () => require("./botAlias"));
+utilities.lazyLoad(exports, ["BotVersion"], () => require("./botVersion"));
+utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
+utilities.lazyLoad(exports, ["getBotAlias","getBotAliasOutput"], () => require("./getBotAlias"));
+utilities.lazyLoad(exports, ["getBotVersion","getBotVersionOutput"], () => require("./getBotVersion"));
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 // Export enums:
 export * from "../types/enums/lex";
-
-// Import resources to register:
-import { Bot } from "./bot";
-import { BotAlias } from "./botAlias";
-import { BotVersion } from "./botVersion";
-import { ResourcePolicy } from "./resourcePolicy";
 
 const _module = {
     version: utilities.getVersion(),

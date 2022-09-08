@@ -5,47 +5,129 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./agent";
-export * from "./getAgent";
-export * from "./getLocationEFS";
-export * from "./getLocationFSxLustre";
-export * from "./getLocationFSxONTAP";
-export * from "./getLocationFSxOpenZFS";
-export * from "./getLocationFSxWindows";
-export * from "./getLocationHDFS";
-export * from "./getLocationNFS";
-export * from "./getLocationObjectStorage";
-export * from "./getLocationS3";
-export * from "./getLocationSMB";
-export * from "./getTask";
-export * from "./locationEFS";
-export * from "./locationFSxLustre";
-export * from "./locationFSxONTAP";
-export * from "./locationFSxOpenZFS";
-export * from "./locationFSxWindows";
-export * from "./locationHDFS";
-export * from "./locationNFS";
-export * from "./locationObjectStorage";
-export * from "./locationS3";
-export * from "./locationSMB";
-export * from "./task";
+export { AgentArgs } from "./agent";
+export type Agent = import("./agent").Agent;
+export const Agent: typeof import("./agent").Agent = null as any;
+
+export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
+export const getAgent: typeof import("./getAgent").getAgent = null as any;
+export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
+
+export { GetLocationEFSArgs, GetLocationEFSResult, GetLocationEFSOutputArgs } from "./getLocationEFS";
+export const getLocationEFS: typeof import("./getLocationEFS").getLocationEFS = null as any;
+export const getLocationEFSOutput: typeof import("./getLocationEFS").getLocationEFSOutput = null as any;
+
+export { GetLocationFSxLustreArgs, GetLocationFSxLustreResult, GetLocationFSxLustreOutputArgs } from "./getLocationFSxLustre";
+export const getLocationFSxLustre: typeof import("./getLocationFSxLustre").getLocationFSxLustre = null as any;
+export const getLocationFSxLustreOutput: typeof import("./getLocationFSxLustre").getLocationFSxLustreOutput = null as any;
+
+export { GetLocationFSxONTAPArgs, GetLocationFSxONTAPResult, GetLocationFSxONTAPOutputArgs } from "./getLocationFSxONTAP";
+export const getLocationFSxONTAP: typeof import("./getLocationFSxONTAP").getLocationFSxONTAP = null as any;
+export const getLocationFSxONTAPOutput: typeof import("./getLocationFSxONTAP").getLocationFSxONTAPOutput = null as any;
+
+export { GetLocationFSxOpenZFSArgs, GetLocationFSxOpenZFSResult, GetLocationFSxOpenZFSOutputArgs } from "./getLocationFSxOpenZFS";
+export const getLocationFSxOpenZFS: typeof import("./getLocationFSxOpenZFS").getLocationFSxOpenZFS = null as any;
+export const getLocationFSxOpenZFSOutput: typeof import("./getLocationFSxOpenZFS").getLocationFSxOpenZFSOutput = null as any;
+
+export { GetLocationFSxWindowsArgs, GetLocationFSxWindowsResult, GetLocationFSxWindowsOutputArgs } from "./getLocationFSxWindows";
+export const getLocationFSxWindows: typeof import("./getLocationFSxWindows").getLocationFSxWindows = null as any;
+export const getLocationFSxWindowsOutput: typeof import("./getLocationFSxWindows").getLocationFSxWindowsOutput = null as any;
+
+export { GetLocationHDFSArgs, GetLocationHDFSResult, GetLocationHDFSOutputArgs } from "./getLocationHDFS";
+export const getLocationHDFS: typeof import("./getLocationHDFS").getLocationHDFS = null as any;
+export const getLocationHDFSOutput: typeof import("./getLocationHDFS").getLocationHDFSOutput = null as any;
+
+export { GetLocationNFSArgs, GetLocationNFSResult, GetLocationNFSOutputArgs } from "./getLocationNFS";
+export const getLocationNFS: typeof import("./getLocationNFS").getLocationNFS = null as any;
+export const getLocationNFSOutput: typeof import("./getLocationNFS").getLocationNFSOutput = null as any;
+
+export { GetLocationObjectStorageArgs, GetLocationObjectStorageResult, GetLocationObjectStorageOutputArgs } from "./getLocationObjectStorage";
+export const getLocationObjectStorage: typeof import("./getLocationObjectStorage").getLocationObjectStorage = null as any;
+export const getLocationObjectStorageOutput: typeof import("./getLocationObjectStorage").getLocationObjectStorageOutput = null as any;
+
+export { GetLocationS3Args, GetLocationS3Result, GetLocationS3OutputArgs } from "./getLocationS3";
+export const getLocationS3: typeof import("./getLocationS3").getLocationS3 = null as any;
+export const getLocationS3Output: typeof import("./getLocationS3").getLocationS3Output = null as any;
+
+export { GetLocationSMBArgs, GetLocationSMBResult, GetLocationSMBOutputArgs } from "./getLocationSMB";
+export const getLocationSMB: typeof import("./getLocationSMB").getLocationSMB = null as any;
+export const getLocationSMBOutput: typeof import("./getLocationSMB").getLocationSMBOutput = null as any;
+
+export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
+export const getTask: typeof import("./getTask").getTask = null as any;
+export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+
+export { LocationEFSArgs } from "./locationEFS";
+export type LocationEFS = import("./locationEFS").LocationEFS;
+export const LocationEFS: typeof import("./locationEFS").LocationEFS = null as any;
+
+export { LocationFSxLustreArgs } from "./locationFSxLustre";
+export type LocationFSxLustre = import("./locationFSxLustre").LocationFSxLustre;
+export const LocationFSxLustre: typeof import("./locationFSxLustre").LocationFSxLustre = null as any;
+
+export { LocationFSxONTAPArgs } from "./locationFSxONTAP";
+export type LocationFSxONTAP = import("./locationFSxONTAP").LocationFSxONTAP;
+export const LocationFSxONTAP: typeof import("./locationFSxONTAP").LocationFSxONTAP = null as any;
+
+export { LocationFSxOpenZFSArgs } from "./locationFSxOpenZFS";
+export type LocationFSxOpenZFS = import("./locationFSxOpenZFS").LocationFSxOpenZFS;
+export const LocationFSxOpenZFS: typeof import("./locationFSxOpenZFS").LocationFSxOpenZFS = null as any;
+
+export { LocationFSxWindowsArgs } from "./locationFSxWindows";
+export type LocationFSxWindows = import("./locationFSxWindows").LocationFSxWindows;
+export const LocationFSxWindows: typeof import("./locationFSxWindows").LocationFSxWindows = null as any;
+
+export { LocationHDFSArgs } from "./locationHDFS";
+export type LocationHDFS = import("./locationHDFS").LocationHDFS;
+export const LocationHDFS: typeof import("./locationHDFS").LocationHDFS = null as any;
+
+export { LocationNFSArgs } from "./locationNFS";
+export type LocationNFS = import("./locationNFS").LocationNFS;
+export const LocationNFS: typeof import("./locationNFS").LocationNFS = null as any;
+
+export { LocationObjectStorageArgs } from "./locationObjectStorage";
+export type LocationObjectStorage = import("./locationObjectStorage").LocationObjectStorage;
+export const LocationObjectStorage: typeof import("./locationObjectStorage").LocationObjectStorage = null as any;
+
+export { LocationS3Args } from "./locationS3";
+export type LocationS3 = import("./locationS3").LocationS3;
+export const LocationS3: typeof import("./locationS3").LocationS3 = null as any;
+
+export { LocationSMBArgs } from "./locationSMB";
+export type LocationSMB = import("./locationSMB").LocationSMB;
+export const LocationSMB: typeof import("./locationSMB").LocationSMB = null as any;
+
+export { TaskArgs } from "./task";
+export type Task = import("./task").Task;
+export const Task: typeof import("./task").Task = null as any;
+
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
+utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
+utilities.lazyLoad(exports, ["getLocationEFS","getLocationEFSOutput"], () => require("./getLocationEFS"));
+utilities.lazyLoad(exports, ["getLocationFSxLustre","getLocationFSxLustreOutput"], () => require("./getLocationFSxLustre"));
+utilities.lazyLoad(exports, ["getLocationFSxONTAP","getLocationFSxONTAPOutput"], () => require("./getLocationFSxONTAP"));
+utilities.lazyLoad(exports, ["getLocationFSxOpenZFS","getLocationFSxOpenZFSOutput"], () => require("./getLocationFSxOpenZFS"));
+utilities.lazyLoad(exports, ["getLocationFSxWindows","getLocationFSxWindowsOutput"], () => require("./getLocationFSxWindows"));
+utilities.lazyLoad(exports, ["getLocationHDFS","getLocationHDFSOutput"], () => require("./getLocationHDFS"));
+utilities.lazyLoad(exports, ["getLocationNFS","getLocationNFSOutput"], () => require("./getLocationNFS"));
+utilities.lazyLoad(exports, ["getLocationObjectStorage","getLocationObjectStorageOutput"], () => require("./getLocationObjectStorage"));
+utilities.lazyLoad(exports, ["getLocationS3","getLocationS3Output"], () => require("./getLocationS3"));
+utilities.lazyLoad(exports, ["getLocationSMB","getLocationSMBOutput"], () => require("./getLocationSMB"));
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
+utilities.lazyLoad(exports, ["LocationEFS"], () => require("./locationEFS"));
+utilities.lazyLoad(exports, ["LocationFSxLustre"], () => require("./locationFSxLustre"));
+utilities.lazyLoad(exports, ["LocationFSxONTAP"], () => require("./locationFSxONTAP"));
+utilities.lazyLoad(exports, ["LocationFSxOpenZFS"], () => require("./locationFSxOpenZFS"));
+utilities.lazyLoad(exports, ["LocationFSxWindows"], () => require("./locationFSxWindows"));
+utilities.lazyLoad(exports, ["LocationHDFS"], () => require("./locationHDFS"));
+utilities.lazyLoad(exports, ["LocationNFS"], () => require("./locationNFS"));
+utilities.lazyLoad(exports, ["LocationObjectStorage"], () => require("./locationObjectStorage"));
+utilities.lazyLoad(exports, ["LocationS3"], () => require("./locationS3"));
+utilities.lazyLoad(exports, ["LocationSMB"], () => require("./locationSMB"));
+utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 
 // Export enums:
 export * from "../types/enums/datasync";
-
-// Import resources to register:
-import { Agent } from "./agent";
-import { LocationEFS } from "./locationEFS";
-import { LocationFSxLustre } from "./locationFSxLustre";
-import { LocationFSxONTAP } from "./locationFSxONTAP";
-import { LocationFSxOpenZFS } from "./locationFSxOpenZFS";
-import { LocationFSxWindows } from "./locationFSxWindows";
-import { LocationHDFS } from "./locationHDFS";
-import { LocationNFS } from "./locationNFS";
-import { LocationObjectStorage } from "./locationObjectStorage";
-import { LocationS3 } from "./locationS3";
-import { LocationSMB } from "./locationSMB";
-import { Task } from "./task";
 
 const _module = {
     version: utilities.getVersion(),

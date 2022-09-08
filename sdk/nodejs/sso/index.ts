@@ -5,19 +5,34 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./getInstanceAccessControlAttributeConfiguration";
-export * from "./getPermissionSet";
-export * from "./instanceAccessControlAttributeConfiguration";
-export * from "./permissionSet";
+export { AssignmentArgs } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
+
+export { GetInstanceAccessControlAttributeConfigurationArgs, GetInstanceAccessControlAttributeConfigurationResult, GetInstanceAccessControlAttributeConfigurationOutputArgs } from "./getInstanceAccessControlAttributeConfiguration";
+export const getInstanceAccessControlAttributeConfiguration: typeof import("./getInstanceAccessControlAttributeConfiguration").getInstanceAccessControlAttributeConfiguration = null as any;
+export const getInstanceAccessControlAttributeConfigurationOutput: typeof import("./getInstanceAccessControlAttributeConfiguration").getInstanceAccessControlAttributeConfigurationOutput = null as any;
+
+export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArgs } from "./getPermissionSet";
+export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
+export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
+
+export { InstanceAccessControlAttributeConfigurationArgs } from "./instanceAccessControlAttributeConfiguration";
+export type InstanceAccessControlAttributeConfiguration = import("./instanceAccessControlAttributeConfiguration").InstanceAccessControlAttributeConfiguration;
+export const InstanceAccessControlAttributeConfiguration: typeof import("./instanceAccessControlAttributeConfiguration").InstanceAccessControlAttributeConfiguration = null as any;
+
+export { PermissionSetArgs } from "./permissionSet";
+export type PermissionSet = import("./permissionSet").PermissionSet;
+export const PermissionSet: typeof import("./permissionSet").PermissionSet = null as any;
+
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+utilities.lazyLoad(exports, ["getInstanceAccessControlAttributeConfiguration","getInstanceAccessControlAttributeConfigurationOutput"], () => require("./getInstanceAccessControlAttributeConfiguration"));
+utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
+utilities.lazyLoad(exports, ["InstanceAccessControlAttributeConfiguration"], () => require("./instanceAccessControlAttributeConfiguration"));
+utilities.lazyLoad(exports, ["PermissionSet"], () => require("./permissionSet"));
 
 // Export enums:
 export * from "../types/enums/sso";
-
-// Import resources to register:
-import { Assignment } from "./assignment";
-import { InstanceAccessControlAttributeConfiguration } from "./instanceAccessControlAttributeConfiguration";
-import { PermissionSet } from "./permissionSet";
 
 const _module = {
     version: utilities.getVersion(),

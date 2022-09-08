@@ -5,17 +5,57 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./cidr";
-export * from "./extensionResource";
-export * from "./getAccountId";
-export * from "./getAzs";
-export * from "./getPartition";
-export * from "./getRegion";
-export * from "./getSsmParameterList";
-export * from "./getSsmParameterString";
-export * from "./getUrlSuffix";
-export * from "./importValue";
-export * from "./provider";
+export { CidrArgs, CidrResult, CidrOutputArgs } from "./cidr";
+export const cidr: typeof import("./cidr").cidr = null as any;
+export const cidrOutput: typeof import("./cidr").cidrOutput = null as any;
+
+export { ExtensionResourceArgs } from "./extensionResource";
+export type ExtensionResource = import("./extensionResource").ExtensionResource;
+export const ExtensionResource: typeof import("./extensionResource").ExtensionResource = null as any;
+
+export { GetAccountIdResult } from "./getAccountId";
+export const getAccountId: typeof import("./getAccountId").getAccountId = null as any;
+
+export { GetAzsArgs, GetAzsResult, GetAzsOutputArgs } from "./getAzs";
+export const getAzs: typeof import("./getAzs").getAzs = null as any;
+export const getAzsOutput: typeof import("./getAzs").getAzsOutput = null as any;
+
+export { GetPartitionResult } from "./getPartition";
+export const getPartition: typeof import("./getPartition").getPartition = null as any;
+
+export { GetRegionResult } from "./getRegion";
+export const getRegion: typeof import("./getRegion").getRegion = null as any;
+
+export { GetSsmParameterListArgs, GetSsmParameterListResult, GetSsmParameterListOutputArgs } from "./getSsmParameterList";
+export const getSsmParameterList: typeof import("./getSsmParameterList").getSsmParameterList = null as any;
+export const getSsmParameterListOutput: typeof import("./getSsmParameterList").getSsmParameterListOutput = null as any;
+
+export { GetSsmParameterStringArgs, GetSsmParameterStringResult, GetSsmParameterStringOutputArgs } from "./getSsmParameterString";
+export const getSsmParameterString: typeof import("./getSsmParameterString").getSsmParameterString = null as any;
+export const getSsmParameterStringOutput: typeof import("./getSsmParameterString").getSsmParameterStringOutput = null as any;
+
+export { GetUrlSuffixResult } from "./getUrlSuffix";
+export const getUrlSuffix: typeof import("./getUrlSuffix").getUrlSuffix = null as any;
+
+export { ImportValueArgs, ImportValueResult, ImportValueOutputArgs } from "./importValue";
+export const importValue: typeof import("./importValue").importValue = null as any;
+export const importValueOutput: typeof import("./importValue").importValueOutput = null as any;
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+
+utilities.lazyLoad(exports, ["cidr","cidrOutput"], () => require("./cidr"));
+utilities.lazyLoad(exports, ["ExtensionResource"], () => require("./extensionResource"));
+utilities.lazyLoad(exports, ["getAccountId"], () => require("./getAccountId"));
+utilities.lazyLoad(exports, ["getAzs","getAzsOutput"], () => require("./getAzs"));
+utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
+utilities.lazyLoad(exports, ["getRegion"], () => require("./getRegion"));
+utilities.lazyLoad(exports, ["getSsmParameterList","getSsmParameterListOutput"], () => require("./getSsmParameterList"));
+utilities.lazyLoad(exports, ["getSsmParameterString","getSsmParameterStringOutput"], () => require("./getSsmParameterString"));
+utilities.lazyLoad(exports, ["getUrlSuffix"], () => require("./getUrlSuffix"));
+utilities.lazyLoad(exports, ["importValue","importValueOutput"], () => require("./importValue"));
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 // Export enums:
 export * from "./types/enums";
@@ -423,9 +463,6 @@ export {
     xray,
 };
 
-// Import resources to register:
-import { ExtensionResource } from "./extensionResource";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -438,9 +475,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws-native", "index", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("aws-native", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

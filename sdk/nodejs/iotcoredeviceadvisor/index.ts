@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSuiteDefinition";
-export * from "./suiteDefinition";
+export { GetSuiteDefinitionArgs, GetSuiteDefinitionResult, GetSuiteDefinitionOutputArgs } from "./getSuiteDefinition";
+export const getSuiteDefinition: typeof import("./getSuiteDefinition").getSuiteDefinition = null as any;
+export const getSuiteDefinitionOutput: typeof import("./getSuiteDefinition").getSuiteDefinitionOutput = null as any;
 
-// Import resources to register:
-import { SuiteDefinition } from "./suiteDefinition";
+export { SuiteDefinitionArgs } from "./suiteDefinition";
+export type SuiteDefinition = import("./suiteDefinition").SuiteDefinition;
+export const SuiteDefinition: typeof import("./suiteDefinition").SuiteDefinition = null as any;
+
+utilities.lazyLoad(exports, ["getSuiteDefinition","getSuiteDefinitionOutput"], () => require("./getSuiteDefinition"));
+utilities.lazyLoad(exports, ["SuiteDefinition"], () => require("./suiteDefinition"));
 
 const _module = {
     version: utilities.getVersion(),

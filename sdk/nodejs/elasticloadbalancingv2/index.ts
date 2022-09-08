@@ -5,23 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getListener";
-export * from "./getListenerCertificate";
-export * from "./getListenerRule";
-export * from "./getLoadBalancer";
-export * from "./getTargetGroup";
-export * from "./listener";
-export * from "./listenerCertificate";
-export * from "./listenerRule";
-export * from "./loadBalancer";
-export * from "./targetGroup";
+export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
+export const getListener: typeof import("./getListener").getListener = null as any;
+export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
 
-// Import resources to register:
-import { Listener } from "./listener";
-import { ListenerCertificate } from "./listenerCertificate";
-import { ListenerRule } from "./listenerRule";
-import { LoadBalancer } from "./loadBalancer";
-import { TargetGroup } from "./targetGroup";
+export { GetListenerCertificateArgs, GetListenerCertificateResult, GetListenerCertificateOutputArgs } from "./getListenerCertificate";
+export const getListenerCertificate: typeof import("./getListenerCertificate").getListenerCertificate = null as any;
+export const getListenerCertificateOutput: typeof import("./getListenerCertificate").getListenerCertificateOutput = null as any;
+
+export { GetListenerRuleArgs, GetListenerRuleResult, GetListenerRuleOutputArgs } from "./getListenerRule";
+export const getListenerRule: typeof import("./getListenerRule").getListenerRule = null as any;
+export const getListenerRuleOutput: typeof import("./getListenerRule").getListenerRuleOutput = null as any;
+
+export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
+export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
+export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+
+export { GetTargetGroupArgs, GetTargetGroupResult, GetTargetGroupOutputArgs } from "./getTargetGroup";
+export const getTargetGroup: typeof import("./getTargetGroup").getTargetGroup = null as any;
+export const getTargetGroupOutput: typeof import("./getTargetGroup").getTargetGroupOutput = null as any;
+
+export { ListenerArgs } from "./listener";
+export type Listener = import("./listener").Listener;
+export const Listener: typeof import("./listener").Listener = null as any;
+
+export { ListenerCertificateArgs } from "./listenerCertificate";
+export type ListenerCertificate = import("./listenerCertificate").ListenerCertificate;
+export const ListenerCertificate: typeof import("./listenerCertificate").ListenerCertificate = null as any;
+
+export { ListenerRuleArgs } from "./listenerRule";
+export type ListenerRule = import("./listenerRule").ListenerRule;
+export const ListenerRule: typeof import("./listenerRule").ListenerRule = null as any;
+
+export { LoadBalancerArgs } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+
+export { TargetGroupArgs } from "./targetGroup";
+export type TargetGroup = import("./targetGroup").TargetGroup;
+export const TargetGroup: typeof import("./targetGroup").TargetGroup = null as any;
+
+utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
+utilities.lazyLoad(exports, ["getListenerCertificate","getListenerCertificateOutput"], () => require("./getListenerCertificate"));
+utilities.lazyLoad(exports, ["getListenerRule","getListenerRuleOutput"], () => require("./getListenerRule"));
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
+utilities.lazyLoad(exports, ["getTargetGroup","getTargetGroupOutput"], () => require("./getTargetGroup"));
+utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
+utilities.lazyLoad(exports, ["ListenerCertificate"], () => require("./listenerCertificate"));
+utilities.lazyLoad(exports, ["ListenerRule"], () => require("./listenerRule"));
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+utilities.lazyLoad(exports, ["TargetGroup"], () => require("./targetGroup"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,38 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./aggregationAuthorization";
-export * from "./configRule";
-export * from "./configurationAggregator";
-export * from "./configurationRecorder";
-export * from "./conformancePack";
-export * from "./deliveryChannel";
-export * from "./getAggregationAuthorization";
-export * from "./getConfigRule";
-export * from "./getConfigurationAggregator";
-export * from "./getConfigurationRecorder";
-export * from "./getConformancePack";
-export * from "./getDeliveryChannel";
-export * from "./getOrganizationConfigRule";
-export * from "./getOrganizationConformancePack";
-export * from "./getRemediationConfiguration";
-export * from "./getStoredQuery";
-export * from "./organizationConfigRule";
-export * from "./organizationConformancePack";
-export * from "./remediationConfiguration";
-export * from "./storedQuery";
+export { AggregationAuthorizationArgs } from "./aggregationAuthorization";
+export type AggregationAuthorization = import("./aggregationAuthorization").AggregationAuthorization;
+export const AggregationAuthorization: typeof import("./aggregationAuthorization").AggregationAuthorization = null as any;
 
-// Import resources to register:
-import { AggregationAuthorization } from "./aggregationAuthorization";
-import { ConfigRule } from "./configRule";
-import { ConfigurationAggregator } from "./configurationAggregator";
-import { ConfigurationRecorder } from "./configurationRecorder";
-import { ConformancePack } from "./conformancePack";
-import { DeliveryChannel } from "./deliveryChannel";
-import { OrganizationConfigRule } from "./organizationConfigRule";
-import { OrganizationConformancePack } from "./organizationConformancePack";
-import { RemediationConfiguration } from "./remediationConfiguration";
-import { StoredQuery } from "./storedQuery";
+export { ConfigRuleArgs } from "./configRule";
+export type ConfigRule = import("./configRule").ConfigRule;
+export const ConfigRule: typeof import("./configRule").ConfigRule = null as any;
+
+export { ConfigurationAggregatorArgs } from "./configurationAggregator";
+export type ConfigurationAggregator = import("./configurationAggregator").ConfigurationAggregator;
+export const ConfigurationAggregator: typeof import("./configurationAggregator").ConfigurationAggregator = null as any;
+
+export { ConfigurationRecorderArgs } from "./configurationRecorder";
+export type ConfigurationRecorder = import("./configurationRecorder").ConfigurationRecorder;
+export const ConfigurationRecorder: typeof import("./configurationRecorder").ConfigurationRecorder = null as any;
+
+export { ConformancePackArgs } from "./conformancePack";
+export type ConformancePack = import("./conformancePack").ConformancePack;
+export const ConformancePack: typeof import("./conformancePack").ConformancePack = null as any;
+
+export { DeliveryChannelArgs } from "./deliveryChannel";
+export type DeliveryChannel = import("./deliveryChannel").DeliveryChannel;
+export const DeliveryChannel: typeof import("./deliveryChannel").DeliveryChannel = null as any;
+
+export { GetAggregationAuthorizationArgs, GetAggregationAuthorizationResult, GetAggregationAuthorizationOutputArgs } from "./getAggregationAuthorization";
+export const getAggregationAuthorization: typeof import("./getAggregationAuthorization").getAggregationAuthorization = null as any;
+export const getAggregationAuthorizationOutput: typeof import("./getAggregationAuthorization").getAggregationAuthorizationOutput = null as any;
+
+export { GetConfigRuleArgs, GetConfigRuleResult, GetConfigRuleOutputArgs } from "./getConfigRule";
+export const getConfigRule: typeof import("./getConfigRule").getConfigRule = null as any;
+export const getConfigRuleOutput: typeof import("./getConfigRule").getConfigRuleOutput = null as any;
+
+export { GetConfigurationAggregatorArgs, GetConfigurationAggregatorResult, GetConfigurationAggregatorOutputArgs } from "./getConfigurationAggregator";
+export const getConfigurationAggregator: typeof import("./getConfigurationAggregator").getConfigurationAggregator = null as any;
+export const getConfigurationAggregatorOutput: typeof import("./getConfigurationAggregator").getConfigurationAggregatorOutput = null as any;
+
+export { GetConfigurationRecorderArgs, GetConfigurationRecorderResult, GetConfigurationRecorderOutputArgs } from "./getConfigurationRecorder";
+export const getConfigurationRecorder: typeof import("./getConfigurationRecorder").getConfigurationRecorder = null as any;
+export const getConfigurationRecorderOutput: typeof import("./getConfigurationRecorder").getConfigurationRecorderOutput = null as any;
+
+export { GetConformancePackArgs, GetConformancePackResult, GetConformancePackOutputArgs } from "./getConformancePack";
+export const getConformancePack: typeof import("./getConformancePack").getConformancePack = null as any;
+export const getConformancePackOutput: typeof import("./getConformancePack").getConformancePackOutput = null as any;
+
+export { GetDeliveryChannelArgs, GetDeliveryChannelResult, GetDeliveryChannelOutputArgs } from "./getDeliveryChannel";
+export const getDeliveryChannel: typeof import("./getDeliveryChannel").getDeliveryChannel = null as any;
+export const getDeliveryChannelOutput: typeof import("./getDeliveryChannel").getDeliveryChannelOutput = null as any;
+
+export { GetOrganizationConfigRuleArgs, GetOrganizationConfigRuleResult, GetOrganizationConfigRuleOutputArgs } from "./getOrganizationConfigRule";
+export const getOrganizationConfigRule: typeof import("./getOrganizationConfigRule").getOrganizationConfigRule = null as any;
+export const getOrganizationConfigRuleOutput: typeof import("./getOrganizationConfigRule").getOrganizationConfigRuleOutput = null as any;
+
+export { GetOrganizationConformancePackArgs, GetOrganizationConformancePackResult, GetOrganizationConformancePackOutputArgs } from "./getOrganizationConformancePack";
+export const getOrganizationConformancePack: typeof import("./getOrganizationConformancePack").getOrganizationConformancePack = null as any;
+export const getOrganizationConformancePackOutput: typeof import("./getOrganizationConformancePack").getOrganizationConformancePackOutput = null as any;
+
+export { GetRemediationConfigurationArgs, GetRemediationConfigurationResult, GetRemediationConfigurationOutputArgs } from "./getRemediationConfiguration";
+export const getRemediationConfiguration: typeof import("./getRemediationConfiguration").getRemediationConfiguration = null as any;
+export const getRemediationConfigurationOutput: typeof import("./getRemediationConfiguration").getRemediationConfigurationOutput = null as any;
+
+export { GetStoredQueryArgs, GetStoredQueryResult, GetStoredQueryOutputArgs } from "./getStoredQuery";
+export const getStoredQuery: typeof import("./getStoredQuery").getStoredQuery = null as any;
+export const getStoredQueryOutput: typeof import("./getStoredQuery").getStoredQueryOutput = null as any;
+
+export { OrganizationConfigRuleArgs } from "./organizationConfigRule";
+export type OrganizationConfigRule = import("./organizationConfigRule").OrganizationConfigRule;
+export const OrganizationConfigRule: typeof import("./organizationConfigRule").OrganizationConfigRule = null as any;
+
+export { OrganizationConformancePackArgs } from "./organizationConformancePack";
+export type OrganizationConformancePack = import("./organizationConformancePack").OrganizationConformancePack;
+export const OrganizationConformancePack: typeof import("./organizationConformancePack").OrganizationConformancePack = null as any;
+
+export { RemediationConfigurationArgs } from "./remediationConfiguration";
+export type RemediationConfiguration = import("./remediationConfiguration").RemediationConfiguration;
+export const RemediationConfiguration: typeof import("./remediationConfiguration").RemediationConfiguration = null as any;
+
+export { StoredQueryArgs } from "./storedQuery";
+export type StoredQuery = import("./storedQuery").StoredQuery;
+export const StoredQuery: typeof import("./storedQuery").StoredQuery = null as any;
+
+utilities.lazyLoad(exports, ["AggregationAuthorization"], () => require("./aggregationAuthorization"));
+utilities.lazyLoad(exports, ["ConfigRule"], () => require("./configRule"));
+utilities.lazyLoad(exports, ["ConfigurationAggregator"], () => require("./configurationAggregator"));
+utilities.lazyLoad(exports, ["ConfigurationRecorder"], () => require("./configurationRecorder"));
+utilities.lazyLoad(exports, ["ConformancePack"], () => require("./conformancePack"));
+utilities.lazyLoad(exports, ["DeliveryChannel"], () => require("./deliveryChannel"));
+utilities.lazyLoad(exports, ["getAggregationAuthorization","getAggregationAuthorizationOutput"], () => require("./getAggregationAuthorization"));
+utilities.lazyLoad(exports, ["getConfigRule","getConfigRuleOutput"], () => require("./getConfigRule"));
+utilities.lazyLoad(exports, ["getConfigurationAggregator","getConfigurationAggregatorOutput"], () => require("./getConfigurationAggregator"));
+utilities.lazyLoad(exports, ["getConfigurationRecorder","getConfigurationRecorderOutput"], () => require("./getConfigurationRecorder"));
+utilities.lazyLoad(exports, ["getConformancePack","getConformancePackOutput"], () => require("./getConformancePack"));
+utilities.lazyLoad(exports, ["getDeliveryChannel","getDeliveryChannelOutput"], () => require("./getDeliveryChannel"));
+utilities.lazyLoad(exports, ["getOrganizationConfigRule","getOrganizationConfigRuleOutput"], () => require("./getOrganizationConfigRule"));
+utilities.lazyLoad(exports, ["getOrganizationConformancePack","getOrganizationConformancePackOutput"], () => require("./getOrganizationConformancePack"));
+utilities.lazyLoad(exports, ["getRemediationConfiguration","getRemediationConfigurationOutput"], () => require("./getRemediationConfiguration"));
+utilities.lazyLoad(exports, ["getStoredQuery","getStoredQueryOutput"], () => require("./getStoredQuery"));
+utilities.lazyLoad(exports, ["OrganizationConfigRule"], () => require("./organizationConfigRule"));
+utilities.lazyLoad(exports, ["OrganizationConformancePack"], () => require("./organizationConformancePack"));
+utilities.lazyLoad(exports, ["RemediationConfiguration"], () => require("./remediationConfiguration"));
+utilities.lazyLoad(exports, ["StoredQuery"], () => require("./storedQuery"));
 
 const _module = {
     version: utilities.getVersion(),

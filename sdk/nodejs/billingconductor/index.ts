@@ -5,23 +5,49 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./billingGroup";
-export * from "./customLineItem";
-export * from "./getBillingGroup";
-export * from "./getCustomLineItem";
-export * from "./getPricingPlan";
-export * from "./getPricingRule";
-export * from "./pricingPlan";
-export * from "./pricingRule";
+export { BillingGroupArgs } from "./billingGroup";
+export type BillingGroup = import("./billingGroup").BillingGroup;
+export const BillingGroup: typeof import("./billingGroup").BillingGroup = null as any;
+
+export { CustomLineItemArgs } from "./customLineItem";
+export type CustomLineItem = import("./customLineItem").CustomLineItem;
+export const CustomLineItem: typeof import("./customLineItem").CustomLineItem = null as any;
+
+export { GetBillingGroupArgs, GetBillingGroupResult, GetBillingGroupOutputArgs } from "./getBillingGroup";
+export const getBillingGroup: typeof import("./getBillingGroup").getBillingGroup = null as any;
+export const getBillingGroupOutput: typeof import("./getBillingGroup").getBillingGroupOutput = null as any;
+
+export { GetCustomLineItemArgs, GetCustomLineItemResult, GetCustomLineItemOutputArgs } from "./getCustomLineItem";
+export const getCustomLineItem: typeof import("./getCustomLineItem").getCustomLineItem = null as any;
+export const getCustomLineItemOutput: typeof import("./getCustomLineItem").getCustomLineItemOutput = null as any;
+
+export { GetPricingPlanArgs, GetPricingPlanResult, GetPricingPlanOutputArgs } from "./getPricingPlan";
+export const getPricingPlan: typeof import("./getPricingPlan").getPricingPlan = null as any;
+export const getPricingPlanOutput: typeof import("./getPricingPlan").getPricingPlanOutput = null as any;
+
+export { GetPricingRuleArgs, GetPricingRuleResult, GetPricingRuleOutputArgs } from "./getPricingRule";
+export const getPricingRule: typeof import("./getPricingRule").getPricingRule = null as any;
+export const getPricingRuleOutput: typeof import("./getPricingRule").getPricingRuleOutput = null as any;
+
+export { PricingPlanArgs } from "./pricingPlan";
+export type PricingPlan = import("./pricingPlan").PricingPlan;
+export const PricingPlan: typeof import("./pricingPlan").PricingPlan = null as any;
+
+export { PricingRuleArgs } from "./pricingRule";
+export type PricingRule = import("./pricingRule").PricingRule;
+export const PricingRule: typeof import("./pricingRule").PricingRule = null as any;
+
+utilities.lazyLoad(exports, ["BillingGroup"], () => require("./billingGroup"));
+utilities.lazyLoad(exports, ["CustomLineItem"], () => require("./customLineItem"));
+utilities.lazyLoad(exports, ["getBillingGroup","getBillingGroupOutput"], () => require("./getBillingGroup"));
+utilities.lazyLoad(exports, ["getCustomLineItem","getCustomLineItemOutput"], () => require("./getCustomLineItem"));
+utilities.lazyLoad(exports, ["getPricingPlan","getPricingPlanOutput"], () => require("./getPricingPlan"));
+utilities.lazyLoad(exports, ["getPricingRule","getPricingRuleOutput"], () => require("./getPricingRule"));
+utilities.lazyLoad(exports, ["PricingPlan"], () => require("./pricingPlan"));
+utilities.lazyLoad(exports, ["PricingRule"], () => require("./pricingRule"));
 
 // Export enums:
 export * from "../types/enums/billingconductor";
-
-// Import resources to register:
-import { BillingGroup } from "./billingGroup";
-import { CustomLineItem } from "./customLineItem";
-import { PricingPlan } from "./pricingPlan";
-import { PricingRule } from "./pricingRule";
 
 const _module = {
     version: utilities.getVersion(),

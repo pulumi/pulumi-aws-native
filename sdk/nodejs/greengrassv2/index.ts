@@ -5,14 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./componentVersion";
-export * from "./getComponentVersion";
+export { ComponentVersionArgs } from "./componentVersion";
+export type ComponentVersion = import("./componentVersion").ComponentVersion;
+export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
+
+export { GetComponentVersionArgs, GetComponentVersionResult, GetComponentVersionOutputArgs } from "./getComponentVersion";
+export const getComponentVersion: typeof import("./getComponentVersion").getComponentVersion = null as any;
+export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
+
+utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
+utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
 
 // Export enums:
 export * from "../types/enums/greengrassv2";
-
-// Import resources to register:
-import { ComponentVersion } from "./componentVersion";
 
 const _module = {
     version: utilities.getVersion(),
