@@ -12,9 +12,6 @@
     "ConnectivityType" : {
       "type" : "string"
     },
-    "PrivateIpAddress" : {
-      "type" : "string"
-    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -43,7 +40,7 @@
     }
   },
   "required" : [ "SubnetId" ],
-  "createOnlyProperties" : [ "/properties/SubnetId", "/properties/ConnectivityType", "/properties/AllocationId", "/properties/PrivateIpAddress" ],
+  "createOnlyProperties" : [ "/properties/SubnetId", "/properties/ConnectivityType", "/properties/AllocationId" ],
   "primaryIdentifier" : [ "/properties/NatGatewayId" ],
   "readOnlyProperties" : [ "/properties/NatGatewayId" ],
   "tagging" : {
