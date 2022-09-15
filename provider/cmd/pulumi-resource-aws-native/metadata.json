@@ -12226,9 +12226,6 @@
                 "connectivityType": {
                     "type": "string"
                 },
-                "privateIpAddress": {
-                    "type": "string"
-                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12249,9 +12246,6 @@
                 "natGatewayId": {
                     "type": "string"
                 },
-                "privateIpAddress": {
-                    "type": "string"
-                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12268,7 +12262,6 @@
             "createOnly": [
                 "allocationId",
                 "connectivityType",
-                "privateIpAddress",
                 "subnetId"
             ]
         },
@@ -13922,6 +13915,97 @@
                 "vpcId"
             ]
         },
+        "aws-native:ec2:VPNConnection": {
+            "cf": "AWS::EC2::VPNConnection",
+            "inputs": {
+                "customerGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the customer gateway at your end of the VPN connection."
+                },
+                "staticRoutesOnly": {
+                    "type": "boolean",
+                    "description": "Indicates whether the VPN connection uses static routes only."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionTag"
+                    },
+                    "description": "Any tags assigned to the VPN connection."
+                },
+                "transitGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway associated with the VPN connection."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection."
+                },
+                "vpnGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the virtual private gateway at the AWS side of the VPN connection."
+                },
+                "vpnTunnelOptionsSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification"
+                    },
+                    "description": "The tunnel options for the VPN connection."
+                }
+            },
+            "outputs": {
+                "customerGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the customer gateway at your end of the VPN connection."
+                },
+                "staticRoutesOnly": {
+                    "type": "boolean",
+                    "description": "Indicates whether the VPN connection uses static routes only."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionTag"
+                    },
+                    "description": "Any tags assigned to the VPN connection."
+                },
+                "transitGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway associated with the VPN connection."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection."
+                },
+                "vpnConnectionId": {
+                    "type": "string",
+                    "description": "The provider-assigned unique ID for this managed resource"
+                },
+                "vpnGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the virtual private gateway at the AWS side of the VPN connection."
+                },
+                "vpnTunnelOptionsSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification"
+                    },
+                    "description": "The tunnel options for the VPN connection."
+                }
+            },
+            "required": [
+                "customerGatewayId",
+                "type"
+            ],
+            "createOnly": [
+                "customerGatewayId",
+                "staticRoutesOnly",
+                "transitGatewayId",
+                "type",
+                "vpnGatewayId",
+                "vpnTunnelOptionsSpecifications"
+            ]
+        },
         "aws-native:ec2:VPNGateway": {
             "cf": "AWS::EC2::VPNGateway",
             "inputs": {
@@ -15127,6 +15211,9 @@
                     "type": "string",
                     "description": "The unique name to give to your cluster."
                 },
+                "outpostConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterOutpostConfig"
+                },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
@@ -15187,6 +15274,9 @@
                     "type": "string",
                     "description": "The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template."
                 },
+                "outpostConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterOutpostConfig"
+                },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
@@ -15219,6 +15309,7 @@
                 "encryptionConfig",
                 "kubernetesNetworkConfig",
                 "name",
+                "outpostConfig",
                 "resourcesVpcConfig/SecurityGroupIds",
                 "resourcesVpcConfig/SubnetIds",
                 "roleArn"
@@ -16949,6 +17040,9 @@
         "aws-native:evidently:Project": {
             "cf": "AWS::Evidently::Project",
             "inputs": {
+                "appConfigResource": {
+                    "$ref": "#/types/aws-native:evidently:ProjectAppConfigResourceObject"
+                },
                 "dataDelivery": {
                     "$ref": "#/types/aws-native:evidently:ProjectDataDeliveryObject"
                 },
@@ -16967,6 +17061,9 @@
                 }
             },
             "outputs": {
+                "appConfigResource": {
+                    "$ref": "#/types/aws-native:evidently:ProjectAppConfigResourceObject"
+                },
                 "arn": {
                     "type": "string"
                 },
@@ -20619,6 +20716,9 @@
                 "registrationConfig": {
                     "$ref": "#/types/aws-native:iot:CACertificateRegistrationConfig"
                 },
+                "removeAutoRegistration": {
+                    "type": "boolean"
+                },
                 "status": {
                     "$ref": "#/types/aws-native:iot:CACertificateStatus"
                 },
@@ -20649,6 +20749,9 @@
                 },
                 "registrationConfig": {
                     "$ref": "#/types/aws-native:iot:CACertificateRegistrationConfig"
+                },
+                "removeAutoRegistration": {
+                    "type": "boolean"
                 },
                 "status": {
                     "$ref": "#/types/aws-native:iot:CACertificateStatus"
@@ -27745,6 +27848,60 @@
                 "trackerName"
             ]
         },
+        "aws-native:logs:Destination": {
+            "cf": "AWS::Logs::Destination",
+            "inputs": {
+                "destinationName": {
+                    "type": "string",
+                    "description": "The name of the destination resource"
+                },
+                "destinationPolicy": {
+                    "type": "string",
+                    "description": "An IAM policy document that governs which AWS accounts can create subscription filters against this destination."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "destinationName": {
+                    "type": "string",
+                    "description": "The name of the destination resource"
+                },
+                "destinationPolicy": {
+                    "type": "string",
+                    "description": "An IAM policy document that governs which AWS accounts can create subscription filters against this destination."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "destinationName",
+                "minLength": 1,
+                "maxLength": 512
+            },
+            "required": [
+                "roleArn",
+                "targetArn"
+            ],
+            "createOnly": [
+                "destinationName"
+            ]
+        },
         "aws-native:logs:LogGroup": {
             "cf": "AWS::Logs::LogGroup",
             "inputs": {
@@ -28179,6 +28336,60 @@
             },
             "createOnly": [
                 "projectName"
+            ]
+        },
+        "aws-native:m2:Application": {
+            "cf": "AWS::M2::Application",
+            "inputs": {
+                "definition": {
+                    "$ref": "#/types/aws-native:m2:ApplicationDefinition"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:ApplicationEngineType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:ApplicationTagMap"
+                }
+            },
+            "outputs": {
+                "applicationArn": {
+                    "type": "string"
+                },
+                "applicationId": {
+                    "type": "string"
+                },
+                "definition": {
+                    "$ref": "#/types/aws-native:m2:ApplicationDefinition"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:ApplicationEngineType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:ApplicationTagMap"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "definition",
+                "engineType"
+            ],
+            "createOnly": [
+                "engineType",
+                "name"
             ]
         },
         "aws-native:m2:Environment": {
@@ -33948,6 +34159,10 @@
                     "type": "string",
                     "description": "The name of the DB cluster parameter group to associate with this DB cluster."
                 },
+                "dBClusterResourceId": {
+                    "type": "string",
+                    "description": "The AWS Region-unique, immutable identifier for the DB cluster."
+                },
                 "dBSubnetGroupName": {
                     "type": "string",
                     "description": "A DB subnet group that you want to associate with this DB cluster."
@@ -34215,6 +34430,10 @@
                     "type": "boolean",
                     "description": "A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied."
                 },
+                "customIAMInstanceProfile": {
+                    "type": "string",
+                    "description": "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:\n * The profile must exist in your account.\n * The profile must have an IAM role that Amazon EC2 has permissions to assume.\n * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .\nFor the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .\n\nThis setting is required for RDS Custom."
+                },
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
@@ -34328,6 +34547,10 @@
                 "multiAZ": {
                     "type": "boolean",
                     "description": "Specifies whether the database instance is a multiple Availability Zone deployment."
+                },
+                "ncharCharacterSetName": {
+                    "type": "string",
+                    "description": "The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom."
                 },
                 "optionGroupName": {
                     "type": "string",
@@ -34455,6 +34678,10 @@
                     "type": "boolean",
                     "description": "A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied."
                 },
+                "customIAMInstanceProfile": {
+                    "type": "string",
+                    "description": "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:\n * The profile must exist in your account.\n * The profile must have an IAM role that Amazon EC2 has permissions to assume.\n * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .\nFor the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .\n\nThis setting is required for RDS Custom."
+                },
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
@@ -34569,6 +34796,10 @@
                     "type": "boolean",
                     "description": "Specifies whether the database instance is a multiple Availability Zone deployment."
                 },
+                "ncharCharacterSetName": {
+                    "type": "string",
+                    "description": "The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom."
+                },
                 "optionGroupName": {
                     "type": "string",
                     "description": "Indicates that the DB instance should be associated with the specified option group."
@@ -34664,6 +34895,7 @@
                 "dBSubnetGroupName",
                 "kmsKeyId",
                 "masterUsername",
+                "ncharCharacterSetName",
                 "port",
                 "publiclyAccessible",
                 "sourceDBInstanceIdentifier",
@@ -35742,46 +35974,54 @@
             "cf": "AWS::Redshift::ClusterParameterGroup",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the parameter group."
                 },
                 "parameterGroupFamily": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters."
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
-                    }
+                    },
+                    "description": "An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "outputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the parameter group."
                 },
                 "parameterGroupFamily": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters."
                 },
                 "parameterGroupName": {
                     "type": "string",
-                    "description": "Cloudformation will generate a unique group name."
+                    "description": "The name of the cluster parameter group."
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
-                    }
+                    },
+                    "description": "An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "required": [
@@ -35797,36 +36037,46 @@
             "cf": "AWS::Redshift::ClusterSubnetGroup",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter group."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The list of VPC subnet IDs"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
-                    }
+                    },
+                    "description": "The list of tags for the cluster parameter group."
                 }
             },
             "outputs": {
+                "clusterSubnetGroupName": {
+                    "type": "string",
+                    "description": "This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be \"Default\". "
+                },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter group."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The list of VPC subnet IDs"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
-                    }
+                    },
+                    "description": "The list of tags for the cluster parameter group."
                 }
             },
             "required": [
@@ -56734,6 +56984,28 @@
                 }
             }
         },
+        "aws-native:ec2:VPNConnectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification": {
+            "type": "object",
+            "properties": {
+                "preSharedKey": {
+                    "type": "string"
+                },
+                "tunnelInsideCidr": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ec2:VPNGatewayTag": {
             "type": "object",
             "properties": {
@@ -58022,6 +58294,22 @@
                             "name": "ClusterLoggingValue"
                         }
                     }
+                }
+            }
+        },
+        "aws-native:eks:ClusterOutpostConfig": {
+            "type": "object",
+            "properties": {
+                "controlPlaneInstanceType": {
+                    "type": "string",
+                    "description": "Specify the Instance type of the machines that should be used to create your cluster."
+                },
+                "outpostArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster."
                 }
             }
         },
@@ -59453,6 +59741,17 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:evidently:ProjectAppConfigResourceObject": {
+            "type": "object",
+            "properties": {
+                "applicationId": {
+                    "type": "string"
+                },
+                "environmentId": {
+                    "type": "string"
                 }
             }
         },
@@ -71440,6 +71739,15 @@
                 }
             }
         },
+        "aws-native:m2:ApplicationDefinition": {
+            "type": "object"
+        },
+        "aws-native:m2:ApplicationEngineType": {
+            "type": "string"
+        },
+        "aws-native:m2:ApplicationTagMap": {
+            "type": "object"
+        },
         "aws-native:m2:EnvironmentEngineType": {
             "type": "string"
         },
@@ -71873,6 +72181,10 @@
                     "type": "string",
                     "description": "An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV)."
                 },
+                "encryptionMethod": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointCmafEncryptionEncryptionMethod",
+                    "description": "The encryption method used"
+                },
                 "keyRotationIntervalSeconds": {
                     "type": "integer",
                     "description": "Time (in seconds) between each encryption key rotation."
@@ -71881,6 +72193,9 @@
                     "$ref": "#/types/aws-native:mediapackage:OriginEndpointSpekeKeyProvider"
                 }
             }
+        },
+        "aws-native:mediapackage:OriginEndpointCmafEncryptionEncryptionMethod": {
+            "type": "string"
         },
         "aws-native:mediapackage:OriginEndpointCmafPackage": {
             "type": "object",
@@ -76717,10 +77032,12 @@
             "type": "object",
             "properties": {
                 "parameterName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the parameter."
                 },
                 "parameterValue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters."
                 }
             }
         },
@@ -76728,10 +77045,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -76739,10 +77058,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -86810,6 +87131,12 @@
                 "id"
             ]
         },
+        "aws-native:ec2:getVPNConnection": {
+            "cf": "AWS::EC2::VPNConnection",
+            "ids": [
+                "vpnConnectionId"
+            ]
+        },
         "aws-native:ec2:getVPNGateway": {
             "cf": "AWS::EC2::VPNGateway",
             "ids": [
@@ -87875,6 +88202,12 @@
                 "trackerName"
             ]
         },
+        "aws-native:logs:getDestination": {
+            "cf": "AWS::Logs::Destination",
+            "ids": [
+                "destinationName"
+            ]
+        },
         "aws-native:logs:getLogGroup": {
             "cf": "AWS::Logs::LogGroup",
             "ids": [
@@ -87923,6 +88256,12 @@
             "cf": "AWS::LookoutVision::Project",
             "ids": [
                 "projectName"
+            ]
+        },
+        "aws-native:m2:getApplication": {
+            "cf": "AWS::M2::Application",
+            "ids": [
+                "applicationArn"
             ]
         },
         "aws-native:m2:getEnvironment": {
@@ -88376,7 +88715,7 @@
         "aws-native:redshift:getClusterSubnetGroup": {
             "cf": "AWS::Redshift::ClusterSubnetGroup",
             "ids": [
-                "id"
+                "clusterSubnetGroupName"
             ]
         },
         "aws-native:redshift:getEndpointAccess": {

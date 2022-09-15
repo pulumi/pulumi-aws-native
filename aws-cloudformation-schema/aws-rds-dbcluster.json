@@ -57,6 +57,10 @@
       "description" : "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.",
       "type" : "string"
     },
+    "DBClusterResourceId" : {
+      "description" : "The AWS Region-unique, immutable identifier for the DB cluster.",
+      "type" : "string"
+    },
     "GlobalClusterIdentifier" : {
       "description" : "If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.\n\nIf you aren't configuring a global database cluster, don't specify this property.",
       "type" : "string",
@@ -316,7 +320,7 @@
     "/properties/SnapshotIdentifier" : "$lowercase(SnapshotIdentifier)",
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)"
   },
-  "readOnlyProperties" : [ "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address" ],
+  "readOnlyProperties" : [ "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
