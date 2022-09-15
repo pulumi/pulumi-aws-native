@@ -18,16 +18,16 @@ require (
 	github.com/golang/glog v1.0.0
 	github.com/golang/protobuf v1.5.2
 	github.com/google/uuid v1.3.0
-	github.com/hashicorp/hcl/v2 v2.12.0
+	github.com/hashicorp/hcl/v2 v2.14.0
 	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.39.3
-	github.com/pulumi/pulumi/sdk/v3 v3.39.3
-	github.com/stretchr/testify v1.7.1
+	github.com/pulumi/pulumi/pkg/v3 v3.40.0
+	github.com/pulumi/pulumi/sdk/v3 v3.40.0
+	github.com/stretchr/testify v1.8.0
 	github.com/zclconf/go-cty v1.10.0
-	google.golang.org/grpc v1.47.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/grpc v1.49.0
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
@@ -139,7 +139,7 @@ require (
 	github.com/segmentio/asm v1.1.3 // indirect
 	github.com/segmentio/encoding v0.3.5 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
-	github.com/spf13/cobra v1.4.0 // indirect
+	github.com/spf13/cobra v1.5.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/tweekmonster/luser v0.0.0-20161003172636-3fa38070dbd7 // indirect
