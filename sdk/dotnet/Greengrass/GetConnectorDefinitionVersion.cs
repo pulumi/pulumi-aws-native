@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
         /// </summary>
         public static Task<GetConnectorDefinitionVersionResult> InvokeAsync(GetConnectorDefinitionVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
         /// </summary>
         public static Output<GetConnectorDefinitionVersionResult> Invoke(GetConnectorDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorDefinitionVersionResult>("aws-native:greengrass:getConnectorDefinitionVersion", args ?? new GetConnectorDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 

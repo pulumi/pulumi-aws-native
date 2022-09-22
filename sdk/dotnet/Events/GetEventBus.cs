@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Events
         /// Resource Type definition for AWS::Events::EventBus
         /// </summary>
         public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::EventBus
         /// </summary>
         public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws-native:events:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());
     }
 
 

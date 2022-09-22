@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECS
         /// Resource Schema describing various properties for ECS TaskDefinition
         /// </summary>
         public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema describing various properties for ECS TaskDefinition
         /// </summary>
         public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:ecs:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

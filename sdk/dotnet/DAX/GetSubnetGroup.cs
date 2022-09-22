@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DAX
         /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

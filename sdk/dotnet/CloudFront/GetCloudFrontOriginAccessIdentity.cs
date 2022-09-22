@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
         /// </summary>
         public static Task<GetCloudFrontOriginAccessIdentityResult> InvokeAsync(GetCloudFrontOriginAccessIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
         /// </summary>
         public static Output<GetCloudFrontOriginAccessIdentityResult> Invoke(GetCloudFrontOriginAccessIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFrontOriginAccessIdentityResult>("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args ?? new GetCloudFrontOriginAccessIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

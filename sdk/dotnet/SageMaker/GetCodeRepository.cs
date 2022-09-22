@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::CodeRepository
         /// </summary>
         public static Task<GetCodeRepositoryResult> InvokeAsync(GetCodeRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::CodeRepository
         /// </summary>
         public static Output<GetCodeRepositoryResult> Invoke(GetCodeRepositoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeRepositoryResult>("aws-native:sagemaker:getCodeRepository", args ?? new GetCodeRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

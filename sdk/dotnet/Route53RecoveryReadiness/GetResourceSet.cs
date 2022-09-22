@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
         /// </summary>
         public static Task<GetResourceSetResult> InvokeAsync(GetResourceSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
         /// </summary>
         public static Output<GetResourceSetResult> Invoke(GetResourceSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceSetResult>("aws-native:route53recoveryreadiness:getResourceSet", args ?? new GetResourceSetInvokeArgs(), options.WithDefaults());
     }
 
 

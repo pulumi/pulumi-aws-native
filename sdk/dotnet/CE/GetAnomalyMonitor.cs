@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CE
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
         /// </summary>
         public static Task<GetAnomalyMonitorResult> InvokeAsync(GetAnomalyMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
         /// </summary>
         public static Output<GetAnomalyMonitorResult> Invoke(GetAnomalyMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalyMonitorResult>("aws-native:ce:getAnomalyMonitor", args ?? new GetAnomalyMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::Deployment
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Deployment
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:apigatewayv2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
         public static Task<GetCloudFormationProvisionedProductResult> InvokeAsync(GetCloudFormationProvisionedProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
         /// </summary>
         public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
     }
 
 

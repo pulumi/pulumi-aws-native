@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::DocumentationPart
         /// </summary>
         public static Task<GetDocumentationPartResult> InvokeAsync(GetDocumentationPartArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::DocumentationPart
         /// </summary>
         public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
     }
 
 

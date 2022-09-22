@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSM
         /// Resource Type definition for AWS::SSM::MaintenanceWindowTarget
         /// </summary>
         public static Task<GetMaintenanceWindowTargetResult> InvokeAsync(GetMaintenanceWindowTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowTargetResult>("aws-native:ssm:getMaintenanceWindowTarget", args ?? new GetMaintenanceWindowTargetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceWindowTargetResult>("aws-native:ssm:getMaintenanceWindowTarget", args ?? new GetMaintenanceWindowTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::MaintenanceWindowTarget
         /// </summary>
         public static Output<GetMaintenanceWindowTargetResult> Invoke(GetMaintenanceWindowTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowTargetResult>("aws-native:ssm:getMaintenanceWindowTarget", args ?? new GetMaintenanceWindowTargetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceWindowTargetResult>("aws-native:ssm:getMaintenanceWindowTarget", args ?? new GetMaintenanceWindowTargetInvokeArgs(), options.WithDefaults());
     }
 
 

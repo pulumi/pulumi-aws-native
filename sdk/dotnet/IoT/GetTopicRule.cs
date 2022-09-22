@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Resource Type definition for AWS::IoT::TopicRule
         /// </summary>
         public static Task<GetTopicRuleResult> InvokeAsync(GetTopicRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::TopicRule
         /// </summary>
         public static Output<GetTopicRuleResult> Invoke(GetTopicRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicRuleResult>("aws-native:iot:getTopicRule", args ?? new GetTopicRuleInvokeArgs(), options.WithDefaults());
     }
 
 

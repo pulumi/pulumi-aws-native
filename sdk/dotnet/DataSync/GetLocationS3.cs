@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationS3
         /// </summary>
         public static Task<GetLocationS3Result> InvokeAsync(GetLocationS3Args args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3Args(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3Args(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationS3
         /// </summary>
         public static Output<GetLocationS3Result> Invoke(GetLocationS3InvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3InvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationS3Result>("aws-native:datasync:getLocationS3", args ?? new GetLocationS3InvokeArgs(), options.WithDefaults());
     }
 
 

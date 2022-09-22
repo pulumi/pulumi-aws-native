@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// A module that has been registered in the CloudFormation registry.
         /// </summary>
         public static Task<GetModuleVersionResult> InvokeAsync(GetModuleVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A module that has been registered in the CloudFormation registry.
         /// </summary>
         public static Output<GetModuleVersionResult> Invoke(GetModuleVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModuleVersionResult>("aws-native:cloudformation:getModuleVersion", args ?? new GetModuleVersionInvokeArgs(), options.WithDefaults());
     }
 
 

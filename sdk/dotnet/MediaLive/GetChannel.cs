@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaLive
         /// Resource Type definition for AWS::MediaLive::Channel
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Channel
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:medialive:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

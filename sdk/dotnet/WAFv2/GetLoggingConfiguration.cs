@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// A WAFv2 Logging Configuration Resource Provider
         /// </summary>
         public static Task<GetLoggingConfigurationResult> InvokeAsync(GetLoggingConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A WAFv2 Logging Configuration Resource Provider
         /// </summary>
         public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:wafv2:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

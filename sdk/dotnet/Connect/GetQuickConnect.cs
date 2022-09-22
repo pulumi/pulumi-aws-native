@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Connect
         /// Resource Type definition for AWS::Connect::QuickConnect
         /// </summary>
         public static Task<GetQuickConnectResult> InvokeAsync(GetQuickConnectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::QuickConnect
         /// </summary>
         public static Output<GetQuickConnectResult> Invoke(GetQuickConnectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQuickConnectResult>("aws-native:connect:getQuickConnect", args ?? new GetQuickConnectInvokeArgs(), options.WithDefaults());
     }
 
 

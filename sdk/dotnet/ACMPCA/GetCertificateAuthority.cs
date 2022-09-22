@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// Private certificate authority.
         /// </summary>
         public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Private certificate authority.
         /// </summary>
         public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws-native:acmpca:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithDefaults());
     }
 
 

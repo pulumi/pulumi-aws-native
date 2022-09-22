@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFRegional
         /// Resource Type definition for AWS::WAFRegional::IPSet
         /// </summary>
         public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:wafregional:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:wafregional:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::IPSet
         /// </summary>
         public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:wafregional:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:wafregional:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
     }
 
 

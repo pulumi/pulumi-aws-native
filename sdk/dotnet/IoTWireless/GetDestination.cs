@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Destination's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Destination's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:iotwireless:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
         /// </summary>
         public static Task<GetGlobalNetworkResult> InvokeAsync(GetGlobalNetworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
         /// </summary>
         public static Output<GetGlobalNetworkResult> Invoke(GetGlobalNetworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws-native:networkmanager:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

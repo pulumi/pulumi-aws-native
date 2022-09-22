@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// Resource schema for AWS::IoTTwinMaker::ComponentType
         /// </summary>
         public static Task<GetComponentTypeResult> InvokeAsync(GetComponentTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentTypeResult>("aws-native:iottwinmaker:getComponentType", args ?? new GetComponentTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentTypeResult>("aws-native:iottwinmaker:getComponentType", args ?? new GetComponentTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTTwinMaker::ComponentType
         /// </summary>
         public static Output<GetComponentTypeResult> Invoke(GetComponentTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentTypeResult>("aws-native:iottwinmaker:getComponentType", args ?? new GetComponentTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentTypeResult>("aws-native:iottwinmaker:getComponentType", args ?? new GetComponentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

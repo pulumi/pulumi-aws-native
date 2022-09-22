@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Neptune
         /// Resource Type definition for AWS::Neptune::DBClusterParameterGroup
         /// </summary>
         public static Task<GetDBClusterParameterGroupResult> InvokeAsync(GetDBClusterParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterParameterGroupResult>("aws-native:neptune:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterParameterGroupResult>("aws-native:neptune:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBClusterParameterGroup
         /// </summary>
         public static Output<GetDBClusterParameterGroupResult> Invoke(GetDBClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBClusterParameterGroupResult>("aws-native:neptune:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBClusterParameterGroupResult>("aws-native:neptune:getDBClusterParameterGroup", args ?? new GetDBClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

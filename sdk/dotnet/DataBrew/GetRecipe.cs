@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// Resource schema for AWS::DataBrew::Recipe.
         /// </summary>
         public static Task<GetRecipeResult> InvokeAsync(GetRecipeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Recipe.
         /// </summary>
         public static Output<GetRecipeResult> Invoke(GetRecipeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecipeResult>("aws-native:databrew:getRecipe", args ?? new GetRecipeInvokeArgs(), options.WithDefaults());
     }
 
 

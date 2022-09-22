@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Forecast
         /// Represents a dataset group that holds a collection of related datasets
         /// </summary>
         public static Task<GetDatasetGroupResult> InvokeAsync(GetDatasetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a dataset group that holds a collection of related datasets
         /// </summary>
         public static Output<GetDatasetGroupResult> Invoke(GetDatasetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

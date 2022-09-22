@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.S3
         /// Resource Type definition for AWS::S3::BucketPolicy
         /// </summary>
         public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::S3::BucketPolicy
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

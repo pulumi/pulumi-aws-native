@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// Resource Type definition for AWS::MemoryDB::ACL
         /// </summary>
         public static Task<GetACLResult> InvokeAsync(GetACLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MemoryDB::ACL
         /// </summary>
         public static Output<GetACLResult> Invoke(GetACLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetACLResult>("aws-native:memorydb:getACL", args ?? new GetACLInvokeArgs(), options.WithDefaults());
     }
 
 

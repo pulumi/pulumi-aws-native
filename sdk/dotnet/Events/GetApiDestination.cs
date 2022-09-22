@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Events
         /// Resource Type definition for AWS::Events::ApiDestination.
         /// </summary>
         public static Task<GetApiDestinationResult> InvokeAsync(GetApiDestinationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::ApiDestination.
         /// </summary>
         public static Output<GetApiDestinationResult> Invoke(GetApiDestinationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

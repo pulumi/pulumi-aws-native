@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::OIDCProvider
         /// </summary>
         public static Task<GetOIDCProviderResult> InvokeAsync(GetOIDCProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::OIDCProvider
         /// </summary>
         public static Output<GetOIDCProviderResult> Invoke(GetOIDCProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOIDCProviderResult>("aws-native:iam:getOIDCProvider", args ?? new GetOIDCProviderInvokeArgs(), options.WithDefaults());
     }
 
 

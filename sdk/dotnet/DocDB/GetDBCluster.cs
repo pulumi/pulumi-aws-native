@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DocDB
         /// Resource Type definition for AWS::DocDB::DBCluster
         /// </summary>
         public static Task<GetDBClusterResult> InvokeAsync(GetDBClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DocDB::DBCluster
         /// </summary>
         public static Output<GetDBClusterResult> Invoke(GetDBClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:docdb:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AmplifyUIBuilder
         /// Definition of AWS::AmplifyUIBuilder::Component Resource Type
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("aws-native:amplifyuibuilder:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("aws-native:amplifyuibuilder:getComponent", args ?? new GetComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::AmplifyUIBuilder::Component Resource Type
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws-native:amplifyuibuilder:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws-native:amplifyuibuilder:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

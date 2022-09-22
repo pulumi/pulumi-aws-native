@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MSK
         /// Resource Type definition for AWS::MSK::ServerlessCluster
         /// </summary>
         public static Task<GetServerlessClusterResult> InvokeAsync(GetServerlessClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerlessClusterResult>("aws-native:msk:getServerlessCluster", args ?? new GetServerlessClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessClusterResult>("aws-native:msk:getServerlessCluster", args ?? new GetServerlessClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MSK::ServerlessCluster
         /// </summary>
         public static Output<GetServerlessClusterResult> Invoke(GetServerlessClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerlessClusterResult>("aws-native:msk:getServerlessCluster", args ?? new GetServerlessClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessClusterResult>("aws-native:msk:getServerlessCluster", args ?? new GetServerlessClusterInvokeArgs(), options.WithDefaults());
     }
 
 

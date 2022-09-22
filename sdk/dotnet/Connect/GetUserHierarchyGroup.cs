@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Connect
         /// Resource Type definition for AWS::Connect::UserHierarchyGroup
         /// </summary>
         public static Task<GetUserHierarchyGroupResult> InvokeAsync(GetUserHierarchyGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::UserHierarchyGroup
         /// </summary>
         public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

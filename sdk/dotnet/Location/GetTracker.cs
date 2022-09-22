@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Location
         /// Definition of AWS::Location::Tracker Resource Type
         /// </summary>
         public static Task<GetTrackerResult> InvokeAsync(GetTrackerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::Tracker Resource Type
         /// </summary>
         public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
     }
 
 

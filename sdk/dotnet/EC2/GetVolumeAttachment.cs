@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VolumeAttachment
         /// </summary>
         public static Task<GetVolumeAttachmentResult> InvokeAsync(GetVolumeAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VolumeAttachment
         /// </summary>
         public static Output<GetVolumeAttachmentResult> Invoke(GetVolumeAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeAttachmentResult>("aws-native:ec2:getVolumeAttachment", args ?? new GetVolumeAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

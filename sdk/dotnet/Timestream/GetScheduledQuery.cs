@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Timestream
         /// The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
         /// </summary>
         public static Task<GetScheduledQueryResult> InvokeAsync(GetScheduledQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
         /// </summary>
         public static Output<GetScheduledQueryResult> Invoke(GetScheduledQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryResult>("aws-native:timestream:getScheduledQuery", args ?? new GetScheduledQueryInvokeArgs(), options.WithDefaults());
     }
 
 

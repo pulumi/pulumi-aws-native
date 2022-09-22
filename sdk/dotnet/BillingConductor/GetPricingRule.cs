@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.BillingConductor
         /// A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
         /// </summary>
         public static Task<GetPricingRuleResult> InvokeAsync(GetPricingRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPricingRuleResult>("aws-native:billingconductor:getPricingRule", args ?? new GetPricingRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPricingRuleResult>("aws-native:billingconductor:getPricingRule", args ?? new GetPricingRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
         /// </summary>
         public static Output<GetPricingRuleResult> Invoke(GetPricingRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPricingRuleResult>("aws-native:billingconductor:getPricingRule", args ?? new GetPricingRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPricingRuleResult>("aws-native:billingconductor:getPricingRule", args ?? new GetPricingRuleInvokeArgs(), options.WithDefaults());
     }
 
 

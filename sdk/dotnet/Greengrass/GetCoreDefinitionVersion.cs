@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
         /// </summary>
         public static Task<GetCoreDefinitionVersionResult> InvokeAsync(GetCoreDefinitionVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
         /// </summary>
         public static Output<GetCoreDefinitionVersionResult> Invoke(GetCoreDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCoreDefinitionVersionResult>("aws-native:greengrass:getCoreDefinitionVersion", args ?? new GetCoreDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 

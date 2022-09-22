@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::TrafficMirrorTarget
         /// </summary>
         public static Task<GetTrafficMirrorTargetResult> InvokeAsync(GetTrafficMirrorTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TrafficMirrorTarget
         /// </summary>
         public static Output<GetTrafficMirrorTargetResult> Invoke(GetTrafficMirrorTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorTargetResult>("aws-native:ec2:getTrafficMirrorTarget", args ?? new GetTrafficMirrorTargetInvokeArgs(), options.WithDefaults());
     }
 
 

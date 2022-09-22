@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// A custom metric published by your devices to Device Defender.
         /// </summary>
         public static Task<GetCustomMetricResult> InvokeAsync(GetCustomMetricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom metric published by your devices to Device Defender.
         /// </summary>
         public static Output<GetCustomMetricResult> Invoke(GetCustomMetricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomMetricResult>("aws-native:iot:getCustomMetric", args ?? new GetCustomMetricInvokeArgs(), options.WithDefaults());
     }
 
 

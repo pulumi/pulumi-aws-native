@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::Role
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::Role
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws-native:iam:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
 
 

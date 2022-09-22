@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::Model
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Model
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:sagemaker:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 

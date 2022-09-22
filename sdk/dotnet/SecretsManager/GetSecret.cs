@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SecretsManager
         /// Resource Type definition for AWS::SecretsManager::Secret
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::Secret
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws-native:secretsmanager:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

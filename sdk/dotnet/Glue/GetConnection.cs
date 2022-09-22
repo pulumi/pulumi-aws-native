@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::Connection
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Connection
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:glue:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

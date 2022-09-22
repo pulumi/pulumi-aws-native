@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Creates an authorizer.
         /// </summary>
         public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates an authorizer.
         /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:iot:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
     }
 
 

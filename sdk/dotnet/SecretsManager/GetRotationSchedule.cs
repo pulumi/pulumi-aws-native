@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SecretsManager
         /// Resource Type definition for AWS::SecretsManager::RotationSchedule
         /// </summary>
         public static Task<GetRotationScheduleResult> InvokeAsync(GetRotationScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRotationScheduleResult>("aws-native:secretsmanager:getRotationSchedule", args ?? new GetRotationScheduleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRotationScheduleResult>("aws-native:secretsmanager:getRotationSchedule", args ?? new GetRotationScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::RotationSchedule
         /// </summary>
         public static Output<GetRotationScheduleResult> Invoke(GetRotationScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRotationScheduleResult>("aws-native:secretsmanager:getRotationSchedule", args ?? new GetRotationScheduleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRotationScheduleResult>("aws-native:secretsmanager:getRotationSchedule", args ?? new GetRotationScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

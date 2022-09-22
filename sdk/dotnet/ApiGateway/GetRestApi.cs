@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
     }
 
 

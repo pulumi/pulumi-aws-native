@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RoboMaker
         /// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
         /// </summary>
         public static Task<GetSimulationApplicationResult> InvokeAsync(GetSimulationApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
         /// </summary>
         public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::Route
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Route
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:appmesh:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SES
         /// Resource Type definition for AWS::SES::ReceiptRule
         /// </summary>
         public static Task<GetReceiptRuleResult> InvokeAsync(GetReceiptRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReceiptRuleResult>("aws-native:ses:getReceiptRule", args ?? new GetReceiptRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReceiptRuleResult>("aws-native:ses:getReceiptRule", args ?? new GetReceiptRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::ReceiptRule
         /// </summary>
         public static Output<GetReceiptRuleResult> Invoke(GetReceiptRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReceiptRuleResult>("aws-native:ses:getReceiptRule", args ?? new GetReceiptRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReceiptRuleResult>("aws-native:ses:getReceiptRule", args ?? new GetReceiptRuleInvokeArgs(), options.WithDefaults());
     }
 
 

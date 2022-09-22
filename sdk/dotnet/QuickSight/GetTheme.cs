@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.QuickSight
         /// Definition of the AWS::QuickSight::Theme Resource Type.
         /// </summary>
         public static Task<GetThemeResult> InvokeAsync(GetThemeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Theme Resource Type.
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:quicksight:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 

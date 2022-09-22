@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The resource schema for creating an Amazon Connect Customer Profiles Integration.
         /// </summary>
         public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema for creating an Amazon Connect Customer Profiles Integration.
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:customerprofiles:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

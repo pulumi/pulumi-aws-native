@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
         /// </summary>
         public static Task<GetTagOptionAssociationResult> InvokeAsync(GetTagOptionAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
         /// </summary>
         public static Output<GetTagOptionAssociationResult> Invoke(GetTagOptionAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagOptionAssociationResult>("aws-native:servicecatalog:getTagOptionAssociation", args ?? new GetTagOptionAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

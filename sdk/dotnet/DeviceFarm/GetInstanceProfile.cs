@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:devicefarm:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

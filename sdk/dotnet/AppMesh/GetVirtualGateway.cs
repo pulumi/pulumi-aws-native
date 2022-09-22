@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::VirtualGateway
         /// </summary>
         public static Task<GetVirtualGatewayResult> InvokeAsync(GetVirtualGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualGateway
         /// </summary>
         public static Output<GetVirtualGatewayResult> Invoke(GetVirtualGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualGatewayResult>("aws-native:appmesh:getVirtualGateway", args ?? new GetVirtualGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

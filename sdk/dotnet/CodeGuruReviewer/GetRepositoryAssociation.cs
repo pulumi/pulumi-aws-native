@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
         /// </summary>
         public static Task<GetRepositoryAssociationResult> InvokeAsync(GetRepositoryAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
         /// </summary>
         public static Output<GetRepositoryAssociationResult> Invoke(GetRepositoryAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

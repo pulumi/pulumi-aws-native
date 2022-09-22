@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
         /// </summary>
         public static Task<GetAPNSSandboxChannelResult> InvokeAsync(GetAPNSSandboxChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAPNSSandboxChannelResult>("aws-native:pinpoint:getAPNSSandboxChannel", args ?? new GetAPNSSandboxChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAPNSSandboxChannelResult>("aws-native:pinpoint:getAPNSSandboxChannel", args ?? new GetAPNSSandboxChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
         /// </summary>
         public static Output<GetAPNSSandboxChannelResult> Invoke(GetAPNSSandboxChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAPNSSandboxChannelResult>("aws-native:pinpoint:getAPNSSandboxChannel", args ?? new GetAPNSSandboxChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAPNSSandboxChannelResult>("aws-native:pinpoint:getAPNSSandboxChannel", args ?? new GetAPNSSandboxChannelInvokeArgs(), options.WithDefaults());
     }
 
 

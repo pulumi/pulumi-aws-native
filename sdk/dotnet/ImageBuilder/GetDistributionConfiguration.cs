@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
         /// </summary>
         public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
         /// </summary>
         public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws-native:imagebuilder:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

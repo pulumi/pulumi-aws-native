@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
         /// </summary>
         public static Task<GetNotebookInstanceLifecycleConfigResult> InvokeAsync(GetNotebookInstanceLifecycleConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstanceLifecycleConfig
         /// </summary>
         public static Output<GetNotebookInstanceLifecycleConfigResult> Invoke(GetNotebookInstanceLifecycleConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceLifecycleConfigResult>("aws-native:sagemaker:getNotebookInstanceLifecycleConfig", args ?? new GetNotebookInstanceLifecycleConfigInvokeArgs(), options.WithDefaults());
     }
 
 

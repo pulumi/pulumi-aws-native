@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// Represents a launch profile which delegates access to a collection of studio components to studio users
         /// </summary>
         public static Task<GetLaunchProfileResult> InvokeAsync(GetLaunchProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a launch profile which delegates access to a collection of studio components to studio users
         /// </summary>
         public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
     }
 
 

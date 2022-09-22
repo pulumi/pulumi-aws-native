@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::EventSourceMapping
         /// </summary>
         public static Task<GetEventSourceMappingResult> InvokeAsync(GetEventSourceMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventSourceMapping
         /// </summary>
         public static Output<GetEventSourceMappingResult> Invoke(GetEventSourceMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSourceMappingResult>("aws-native:lambda:getEventSourceMapping", args ?? new GetEventSourceMappingInvokeArgs(), options.WithDefaults());
     }
 
 

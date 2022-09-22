@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// A snapshot of the documentation of an API.
         /// </summary>
         public static Task<GetDocumentationVersionResult> InvokeAsync(GetDocumentationVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A snapshot of the documentation of an API.
         /// </summary>
         public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

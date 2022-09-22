@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::LayerVersionPermission
         /// </summary>
         public static Task<GetLayerVersionPermissionResult> InvokeAsync(GetLayerVersionPermissionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::LayerVersionPermission
         /// </summary>
         public static Output<GetLayerVersionPermissionResult> Invoke(GetLayerVersionPermissionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionInvokeArgs(), options.WithDefaults());
     }
 
 

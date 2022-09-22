@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Resource-specific logging allows you to specify a logging level for a specific thing group.
         /// </summary>
         public static Task<GetResourceSpecificLoggingResult> InvokeAsync(GetResourceSpecificLoggingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource-specific logging allows you to specify a logging level for a specific thing group.
         /// </summary>
         public static Output<GetResourceSpecificLoggingResult> Invoke(GetResourceSpecificLoggingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceSpecificLoggingResult>("aws-native:iot:getResourceSpecificLogging", args ?? new GetResourceSpecificLoggingInvokeArgs(), options.WithDefaults());
     }
 
 

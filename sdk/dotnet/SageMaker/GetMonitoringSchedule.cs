@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
         /// </summary>
         public static Task<GetMonitoringScheduleResult> InvokeAsync(GetMonitoringScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
         /// </summary>
         public static Output<GetMonitoringScheduleResult> Invoke(GetMonitoringScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

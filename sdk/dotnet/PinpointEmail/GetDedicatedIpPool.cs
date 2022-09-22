@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
         /// </summary>
         public static Task<GetDedicatedIpPoolResult> InvokeAsync(GetDedicatedIpPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
         /// </summary>
         public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws-native:pinpointemail:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
     }
 
 

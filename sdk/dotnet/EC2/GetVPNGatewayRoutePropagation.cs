@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
         /// </summary>
         public static Task<GetVPNGatewayRoutePropagationResult> InvokeAsync(GetVPNGatewayRoutePropagationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
         /// </summary>
         public static Output<GetVPNGatewayRoutePropagationResult> Invoke(GetVPNGatewayRoutePropagationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPNGatewayRoutePropagationResult>("aws-native:ec2:getVPNGatewayRoutePropagation", args ?? new GetVPNGatewayRoutePropagationInvokeArgs(), options.WithDefaults());
     }
 
 

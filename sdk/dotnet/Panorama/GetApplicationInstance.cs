@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Panorama
         /// Schema for ApplicationInstance CloudFormation Resource
         /// </summary>
         public static Task<GetApplicationInstanceResult> InvokeAsync(GetApplicationInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for ApplicationInstance CloudFormation Resource
         /// </summary>
         public static Output<GetApplicationInstanceResult> Invoke(GetApplicationInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationInstanceResult>("aws-native:panorama:getApplicationInstance", args ?? new GetApplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

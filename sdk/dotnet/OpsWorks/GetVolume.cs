@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.OpsWorks
         /// Resource Type definition for AWS::OpsWorks::Volume
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Volume
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws-native:opsworks:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

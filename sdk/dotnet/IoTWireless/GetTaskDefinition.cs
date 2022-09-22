@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Creates a gateway task definition.
         /// </summary>
         public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates a gateway task definition.
         /// </summary>
         public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws-native:iotwireless:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

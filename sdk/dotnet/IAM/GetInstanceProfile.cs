@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::InstanceProfile
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::InstanceProfile
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

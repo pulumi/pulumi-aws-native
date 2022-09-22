@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
         /// </summary>
         public static Task<GetTransitGatewayVpcAttachmentResult> InvokeAsync(GetTransitGatewayVpcAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayVpcAttachmentResult>("aws-native:ec2:getTransitGatewayVpcAttachment", args ?? new GetTransitGatewayVpcAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayVpcAttachmentResult>("aws-native:ec2:getTransitGatewayVpcAttachment", args ?? new GetTransitGatewayVpcAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
         /// </summary>
         public static Output<GetTransitGatewayVpcAttachmentResult> Invoke(GetTransitGatewayVpcAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayVpcAttachmentResult>("aws-native:ec2:getTransitGatewayVpcAttachment", args ?? new GetTransitGatewayVpcAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayVpcAttachmentResult>("aws-native:ec2:getTransitGatewayVpcAttachment", args ?? new GetTransitGatewayVpcAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

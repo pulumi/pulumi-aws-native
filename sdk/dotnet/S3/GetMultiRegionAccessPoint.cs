@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.S3
         /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
         /// </summary>
         public static Task<GetMultiRegionAccessPointResult> InvokeAsync(GetMultiRegionAccessPointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
         /// </summary>
         public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

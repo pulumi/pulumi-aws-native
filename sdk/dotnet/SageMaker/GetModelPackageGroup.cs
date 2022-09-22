@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
         /// </summary>
         public static Task<GetModelPackageGroupResult> InvokeAsync(GetModelPackageGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
         /// </summary>
         public static Output<GetModelPackageGroupResult> Invoke(GetModelPackageGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupInvokeArgs(), options.WithDefaults());
     }
 
 

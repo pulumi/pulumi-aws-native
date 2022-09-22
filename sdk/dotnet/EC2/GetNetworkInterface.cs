@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::NetworkInterface resource creates network interface
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws-native:ec2:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws-native:ec2:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::NetworkInterface resource creates network interface
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("aws-native:ec2:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("aws-native:ec2:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

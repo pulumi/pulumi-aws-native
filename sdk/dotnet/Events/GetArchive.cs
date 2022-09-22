@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Events
         /// Resource Type definition for AWS::Events::Archive
         /// </summary>
         public static Task<GetArchiveResult> InvokeAsync(GetArchiveArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Events::Archive
         /// </summary>
         public static Output<GetArchiveResult> Invoke(GetArchiveInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetArchiveResult>("aws-native:events:getArchive", args ?? new GetArchiveInvokeArgs(), options.WithDefaults());
     }
 
 

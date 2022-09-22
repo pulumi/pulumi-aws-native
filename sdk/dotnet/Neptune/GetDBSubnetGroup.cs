@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Neptune
         /// Resource Type definition for AWS::Neptune::DBSubnetGroup
         /// </summary>
         public static Task<GetDBSubnetGroupResult> InvokeAsync(GetDBSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:neptune:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:neptune:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBSubnetGroup
         /// </summary>
         public static Output<GetDBSubnetGroupResult> Invoke(GetDBSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:neptune:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:neptune:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

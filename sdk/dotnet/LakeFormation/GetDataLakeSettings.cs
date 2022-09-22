@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LakeFormation
         /// Resource Type definition for AWS::LakeFormation::DataLakeSettings
         /// </summary>
         public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LakeFormation::DataLakeSettings
         /// </summary>
         public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws-native:lakeformation:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

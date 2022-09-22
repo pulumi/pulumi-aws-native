@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::VpcLink
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::VpcLink
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
     }
 
 

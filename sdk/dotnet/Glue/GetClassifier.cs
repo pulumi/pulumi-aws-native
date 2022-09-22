@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::Classifier
         /// </summary>
         public static Task<GetClassifierResult> InvokeAsync(GetClassifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Classifier
         /// </summary>
         public static Output<GetClassifierResult> Invoke(GetClassifierInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClassifierResult>("aws-native:glue:getClassifier", args ?? new GetClassifierInvokeArgs(), options.WithDefaults());
     }
 
 

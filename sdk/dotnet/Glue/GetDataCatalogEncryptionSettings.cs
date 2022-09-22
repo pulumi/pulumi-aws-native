@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
         /// </summary>
         public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
         /// </summary>
         public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws-native:glue:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

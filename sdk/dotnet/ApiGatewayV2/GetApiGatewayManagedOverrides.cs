@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
         /// </summary>
         public static Task<GetApiGatewayManagedOverridesResult> InvokeAsync(GetApiGatewayManagedOverridesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiGatewayManagedOverridesResult>("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args ?? new GetApiGatewayManagedOverridesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiGatewayManagedOverridesResult>("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args ?? new GetApiGatewayManagedOverridesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
         /// </summary>
         public static Output<GetApiGatewayManagedOverridesResult> Invoke(GetApiGatewayManagedOverridesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiGatewayManagedOverridesResult>("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args ?? new GetApiGatewayManagedOverridesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayManagedOverridesResult>("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args ?? new GetApiGatewayManagedOverridesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
         /// </summary>
         public static Task<GetAlarmModelResult> InvokeAsync(GetAlarmModelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTEvents
         /// Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
         /// </summary>
         public static Output<GetAlarmModelResult> Invoke(GetAlarmModelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelInvokeArgs(), options.WithDefaults());
     }
 
 

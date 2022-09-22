@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::DomainName.
         /// </summary>
         public static Task<GetDomainNameResult> InvokeAsync(GetDomainNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::DomainName.
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:apigateway:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
     }
 
 

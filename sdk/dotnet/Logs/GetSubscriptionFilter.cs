@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Logs
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetSubscriptionFilterResult> InvokeAsync(GetSubscriptionFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetSubscriptionFilterResult> Invoke(GetSubscriptionFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionFilterResult>("aws-native:logs:getSubscriptionFilter", args ?? new GetSubscriptionFilterInvokeArgs(), options.WithDefaults());
     }
 
 

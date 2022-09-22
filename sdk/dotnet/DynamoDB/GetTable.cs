@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DynamoDB
         /// Version: None. Resource Type definition for AWS::DynamoDB::Table
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Version: None. Resource Type definition for AWS::DynamoDB::Table
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:dynamodb:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

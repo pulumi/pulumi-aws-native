@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
         /// </summary>
         public static Task<GetPolicyPrincipalAttachmentResult> InvokeAsync(GetPolicyPrincipalAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyPrincipalAttachmentResult>("aws-native:iot:getPolicyPrincipalAttachment", args ?? new GetPolicyPrincipalAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyPrincipalAttachmentResult>("aws-native:iot:getPolicyPrincipalAttachment", args ?? new GetPolicyPrincipalAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
         /// </summary>
         public static Output<GetPolicyPrincipalAttachmentResult> Invoke(GetPolicyPrincipalAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyPrincipalAttachmentResult>("aws-native:iot:getPolicyPrincipalAttachment", args ?? new GetPolicyPrincipalAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyPrincipalAttachmentResult>("aws-native:iot:getPolicyPrincipalAttachment", args ?? new GetPolicyPrincipalAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::Resolver
         /// </summary>
         public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::Resolver
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("aws-native:appsync:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
     }
 
 

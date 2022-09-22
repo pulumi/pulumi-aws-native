@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::Permission
         /// </summary>
         public static Task<GetPermissionResult> InvokeAsync(GetPermissionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Permission
         /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:lambda:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
     }
 
 

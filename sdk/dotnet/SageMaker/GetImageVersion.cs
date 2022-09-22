@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::ImageVersion
         /// </summary>
         public static Task<GetImageVersionResult> InvokeAsync(GetImageVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ImageVersion
         /// </summary>
         public static Output<GetImageVersionResult> Invoke(GetImageVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageVersionResult>("aws-native:sagemaker:getImageVersion", args ?? new GetImageVersionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
         /// </summary>
         public static Task<GetModelBiasJobDefinitionResult> InvokeAsync(GetModelBiasJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
         /// </summary>
         public static Output<GetModelBiasJobDefinitionResult> Invoke(GetModelBiasJobDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelBiasJobDefinitionResult>("aws-native:sagemaker:getModelBiasJobDefinition", args ?? new GetModelBiasJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

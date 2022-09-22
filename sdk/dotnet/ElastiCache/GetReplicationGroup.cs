@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Resource Type definition for AWS::ElastiCache::ReplicationGroup
         /// </summary>
         public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::ReplicationGroup
         /// </summary>
         public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws-native:elasticache:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LicenseManager
         /// Resource Type definition for AWS::LicenseManager::License
         /// </summary>
         public static Task<GetLicenseResult> InvokeAsync(GetLicenseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LicenseManager::License
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::InAppTemplate
         /// </summary>
         public static Task<GetInAppTemplateResult> InvokeAsync(GetInAppTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::InAppTemplate
         /// </summary>
         public static Output<GetInAppTemplateResult> Invoke(GetInAppTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInAppTemplateResult>("aws-native:pinpoint:getInAppTemplate", args ?? new GetInAppTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

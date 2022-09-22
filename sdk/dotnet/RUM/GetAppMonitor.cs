@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RUM
         /// Resource Type definition for AWS::RUM::AppMonitor
         /// </summary>
         public static Task<GetAppMonitorResult> InvokeAsync(GetAppMonitorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RUM::AppMonitor
         /// </summary>
         public static Output<GetAppMonitorResult> Invoke(GetAppMonitorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppMonitorResult>("aws-native:rum:getAppMonitor", args ?? new GetAppMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LakeFormation
         /// A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
         /// </summary>
         public static Task<GetTagAssociationResult> InvokeAsync(GetTagAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagAssociationResult>("aws-native:lakeformation:getTagAssociation", args ?? new GetTagAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagAssociationResult>("aws-native:lakeformation:getTagAssociation", args ?? new GetTagAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
         /// </summary>
         public static Output<GetTagAssociationResult> Invoke(GetTagAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagAssociationResult>("aws-native:lakeformation:getTagAssociation", args ?? new GetTagAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagAssociationResult>("aws-native:lakeformation:getTagAssociation", args ?? new GetTagAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Specifies the configuration data for a registered hook in CloudFormation Registry.
         /// </summary>
         public static Task<GetHookTypeConfigResult> InvokeAsync(GetHookTypeConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHookTypeConfigResult>("aws-native:cloudformation:getHookTypeConfig", args ?? new GetHookTypeConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHookTypeConfigResult>("aws-native:cloudformation:getHookTypeConfig", args ?? new GetHookTypeConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies the configuration data for a registered hook in CloudFormation Registry.
         /// </summary>
         public static Output<GetHookTypeConfigResult> Invoke(GetHookTypeConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHookTypeConfigResult>("aws-native:cloudformation:getHookTypeConfig", args ?? new GetHookTypeConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHookTypeConfigResult>("aws-native:cloudformation:getHookTypeConfig", args ?? new GetHookTypeConfigInvokeArgs(), options.WithDefaults());
     }
 
 

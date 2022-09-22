@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Athena
         /// Resource schema for AWS::Athena::DataCatalog
         /// </summary>
         public static Task<GetDataCatalogResult> InvokeAsync(GetDataCatalogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::DataCatalog
         /// </summary>
         public static Output<GetDataCatalogResult> Invoke(GetDataCatalogInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogInvokeArgs(), options.WithDefaults());
     }
 
 

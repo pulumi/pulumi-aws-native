@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DMS
         /// Resource Type definition for AWS::DMS::ReplicationTask
         /// </summary>
         public static Task<GetReplicationTaskResult> InvokeAsync(GetReplicationTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationTaskResult>("aws-native:dms:getReplicationTask", args ?? new GetReplicationTaskArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationTaskResult>("aws-native:dms:getReplicationTask", args ?? new GetReplicationTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationTask
         /// </summary>
         public static Output<GetReplicationTaskResult> Invoke(GetReplicationTaskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationTaskResult>("aws-native:dms:getReplicationTask", args ?? new GetReplicationTaskInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationTaskResult>("aws-native:dms:getReplicationTask", args ?? new GetReplicationTaskInvokeArgs(), options.WithDefaults());
     }
 
 

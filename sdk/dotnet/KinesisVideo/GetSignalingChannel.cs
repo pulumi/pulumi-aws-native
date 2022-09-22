@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// Resource Type Definition for AWS::KinesisVideo::SignalingChannel
         /// </summary>
         public static Task<GetSignalingChannelResult> InvokeAsync(GetSignalingChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::KinesisVideo::SignalingChannel
         /// </summary>
         public static Output<GetSignalingChannelResult> Invoke(GetSignalingChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalingChannelResult>("aws-native:kinesisvideo:getSignalingChannel", args ?? new GetSignalingChannelInvokeArgs(), options.WithDefaults());
     }
 
 

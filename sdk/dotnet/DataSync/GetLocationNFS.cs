@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationNFS
         /// </summary>
         public static Task<GetLocationNFSResult> InvokeAsync(GetLocationNFSArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationNFS
         /// </summary>
         public static Output<GetLocationNFSResult> Invoke(GetLocationNFSInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationNFSResult>("aws-native:datasync:getLocationNFS", args ?? new GetLocationNFSInvokeArgs(), options.WithDefaults());
     }
 
 

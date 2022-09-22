@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::AggregationAuthorization
         /// </summary>
         public static Task<GetAggregationAuthorizationResult> InvokeAsync(GetAggregationAuthorizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::AggregationAuthorization
         /// </summary>
         public static Output<GetAggregationAuthorizationResult> Invoke(GetAggregationAuthorizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAggregationAuthorizationResult>("aws-native:configuration:getAggregationAuthorization", args ?? new GetAggregationAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

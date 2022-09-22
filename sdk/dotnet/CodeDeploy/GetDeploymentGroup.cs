@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// Resource Type definition for AWS::CodeDeploy::DeploymentGroup
         /// </summary>
         public static Task<GetDeploymentGroupResult> InvokeAsync(GetDeploymentGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentGroup
         /// </summary>
         public static Output<GetDeploymentGroupResult> Invoke(GetDeploymentGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentGroupResult>("aws-native:codedeploy:getDeploymentGroup", args ?? new GetDeploymentGroupInvokeArgs(), options.WithDefaults());
     }
 
 

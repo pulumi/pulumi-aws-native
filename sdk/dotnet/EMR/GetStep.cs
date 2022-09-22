@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EMR
         /// Resource Type definition for AWS::EMR::Step
         /// </summary>
         public static Task<GetStepResult> InvokeAsync(GetStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::Step
         /// </summary>
         public static Output<GetStepResult> Invoke(GetStepInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStepResult>("aws-native:emr:getStep", args ?? new GetStepInvokeArgs(), options.WithDefaults());
     }
 
 

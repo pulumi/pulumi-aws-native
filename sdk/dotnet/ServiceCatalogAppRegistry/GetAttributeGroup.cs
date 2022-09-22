@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
         /// </summary>
         public static Task<GetAttributeGroupResult> InvokeAsync(GetAttributeGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
         /// </summary>
         public static Output<GetAttributeGroupResult> Invoke(GetAttributeGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttributeGroupResult>("aws-native:servicecatalogappregistry:getAttributeGroup", args ?? new GetAttributeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::Fleet
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Fleet
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:appstream:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

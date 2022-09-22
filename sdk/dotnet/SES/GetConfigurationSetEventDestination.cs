@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SES
         /// Resource Type definition for AWS::SES::ConfigurationSetEventDestination
         /// </summary>
         public static Task<GetConfigurationSetEventDestinationResult> InvokeAsync(GetConfigurationSetEventDestinationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::ConfigurationSetEventDestination
         /// </summary>
         public static Output<GetConfigurationSetEventDestinationResult> Invoke(GetConfigurationSetEventDestinationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

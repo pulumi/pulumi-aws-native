@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
         /// </summary>
         public static Task<GetMitigationActionResult> InvokeAsync(GetMitigationActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
         /// </summary>
         public static Output<GetMitigationActionResult> Invoke(GetMitigationActionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMitigationActionResult>("aws-native:iot:getMitigationAction", args ?? new GetMitigationActionInvokeArgs(), options.WithDefaults());
     }
 
 

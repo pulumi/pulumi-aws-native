@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Budgets
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetBudgetsActionResult> InvokeAsync(GetBudgetsActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetBudgetsActionResult> Invoke(GetBudgetsActionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionInvokeArgs(), options.WithDefaults());
     }
 
 

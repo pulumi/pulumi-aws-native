@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::ConfigRule
         /// </summary>
         public static Task<GetConfigRuleResult> InvokeAsync(GetConfigRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigRule
         /// </summary>
         public static Output<GetConfigRuleResult> Invoke(GetConfigRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigRuleResult>("aws-native:configuration:getConfigRule", args ?? new GetConfigRuleInvokeArgs(), options.WithDefaults());
     }
 
 

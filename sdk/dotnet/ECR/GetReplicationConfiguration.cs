@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECR
         /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
         /// </summary>
         public static Task<GetReplicationConfigurationResult> InvokeAsync(GetReplicationConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
         /// </summary>
         public static Output<GetReplicationConfigurationResult> Invoke(GetReplicationConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationConfigurationResult>("aws-native:ecr:getReplicationConfiguration", args ?? new GetReplicationConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

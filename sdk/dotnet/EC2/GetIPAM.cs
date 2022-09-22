@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Schema of AWS::EC2::IPAM Type
         /// </summary>
         public static Task<GetIPAMResult> InvokeAsync(GetIPAMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAM Type
         /// </summary>
         public static Output<GetIPAMResult> Invoke(GetIPAMInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPAMResult>("aws-native:ec2:getIPAM", args ?? new GetIPAMInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
         public static Task<GetDeliveryChannelResult> InvokeAsync(GetDeliveryChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
         public static Output<GetDeliveryChannelResult> Invoke(GetDeliveryChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelInvokeArgs(), options.WithDefaults());
     }
 
 

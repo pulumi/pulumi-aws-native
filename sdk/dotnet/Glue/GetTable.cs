@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::Table
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Table
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:glue:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

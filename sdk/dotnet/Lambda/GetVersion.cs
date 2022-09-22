@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::Version
         /// </summary>
         public static Task<GetVersionResult> InvokeAsync(GetVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Version
         /// </summary>
         public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
     }
 
 

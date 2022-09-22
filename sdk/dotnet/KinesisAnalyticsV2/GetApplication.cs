@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:kinesisanalyticsv2:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

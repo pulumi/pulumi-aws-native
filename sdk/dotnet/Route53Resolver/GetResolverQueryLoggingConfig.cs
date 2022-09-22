@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
         /// </summary>
         public static Task<GetResolverQueryLoggingConfigResult> InvokeAsync(GetResolverQueryLoggingConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
         /// </summary>
         public static Output<GetResolverQueryLoggingConfigResult> Invoke(GetResolverQueryLoggingConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigResult>("aws-native:route53resolver:getResolverQueryLoggingConfig", args ?? new GetResolverQueryLoggingConfigInvokeArgs(), options.WithDefaults());
     }
 
 

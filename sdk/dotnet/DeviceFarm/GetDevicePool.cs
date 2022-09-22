@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
         /// </summary>
         public static Task<GetDevicePoolResult> InvokeAsync(GetDevicePoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
     }
 
 

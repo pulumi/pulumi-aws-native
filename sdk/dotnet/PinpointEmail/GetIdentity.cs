@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.PinpointEmail
         /// Resource Type definition for AWS::PinpointEmail::Identity
         /// </summary>
         public static Task<GetIdentityResult> InvokeAsync(GetIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::PinpointEmail::Identity
         /// </summary>
         public static Output<GetIdentityResult> Invoke(GetIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityResult>("aws-native:pinpointemail:getIdentity", args ?? new GetIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

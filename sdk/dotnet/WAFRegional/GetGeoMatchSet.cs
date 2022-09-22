@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFRegional
         /// Resource Type definition for AWS::WAFRegional::GeoMatchSet
         /// </summary>
         public static Task<GetGeoMatchSetResult> InvokeAsync(GetGeoMatchSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::GeoMatchSet
         /// </summary>
         public static Output<GetGeoMatchSetResult> Invoke(GetGeoMatchSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGeoMatchSetResult>("aws-native:wafregional:getGeoMatchSet", args ?? new GetGeoMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 

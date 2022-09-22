@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Schema for AWS::ServiceCatalog::ServiceAction
         /// </summary>
         public static Task<GetServiceActionResult> InvokeAsync(GetServiceActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema for AWS::ServiceCatalog::ServiceAction
         /// </summary>
         public static Output<GetServiceActionResult> Invoke(GetServiceActionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceActionResult>("aws-native:servicecatalog:getServiceAction", args ?? new GetServiceActionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::Subnet
         /// </summary>
         public static Task<GetSubnetResult> InvokeAsync(GetSubnetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::Subnet
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 

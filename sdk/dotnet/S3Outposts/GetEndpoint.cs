@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.S3Outposts
         /// Resource Type Definition for AWS::S3Outposts::Endpoint
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::S3Outposts::Endpoint
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("aws-native:s3outposts:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

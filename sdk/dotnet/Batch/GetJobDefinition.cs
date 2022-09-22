@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Batch
         /// Resource Type definition for AWS::Batch::JobDefinition
         /// </summary>
         public static Task<GetJobDefinitionResult> InvokeAsync(GetJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Batch::JobDefinition
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("aws-native:batch:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

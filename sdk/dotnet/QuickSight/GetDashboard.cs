@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.QuickSight
         /// Definition of the AWS::QuickSight::Dashboard Resource Type.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the AWS::QuickSight::Dashboard Resource Type.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:quicksight:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

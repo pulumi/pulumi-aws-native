@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         /// Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
         /// </summary>
         public static Task<GetApplicationReferenceDataSourceResult> InvokeAsync(GetApplicationReferenceDataSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalytics:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalytics:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
         /// </summary>
         public static Output<GetApplicationReferenceDataSourceResult> Invoke(GetApplicationReferenceDataSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalytics:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationReferenceDataSourceResult>("aws-native:kinesisanalytics:getApplicationReferenceDataSource", args ?? new GetApplicationReferenceDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 

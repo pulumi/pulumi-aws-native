@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// Resource Type definition for AWS::WorkSpaces::Workspace
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::Workspace
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("aws-native:workspaces:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

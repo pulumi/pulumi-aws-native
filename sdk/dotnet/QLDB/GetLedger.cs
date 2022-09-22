@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.QLDB
         /// Resource Type definition for AWS::QLDB::Ledger
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::QLDB::Ledger
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws-native:qldb:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::NotebookInstance
         /// </summary>
         public static Task<GetNotebookInstanceResult> InvokeAsync(GetNotebookInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::NotebookInstance
         /// </summary>
         public static Output<GetNotebookInstanceResult> Invoke(GetNotebookInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotebookInstanceResult>("aws-native:sagemaker:getNotebookInstance", args ?? new GetNotebookInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

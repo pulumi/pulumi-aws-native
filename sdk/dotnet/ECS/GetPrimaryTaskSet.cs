@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECS
         /// A pseudo-resource that manages which of your ECS task sets is primary.
         /// </summary>
         public static Task<GetPrimaryTaskSetResult> InvokeAsync(GetPrimaryTaskSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A pseudo-resource that manages which of your ECS task sets is primary.
         /// </summary>
         public static Output<GetPrimaryTaskSetResult> Invoke(GetPrimaryTaskSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetInvokeArgs(), options.WithDefaults());
     }
 
 

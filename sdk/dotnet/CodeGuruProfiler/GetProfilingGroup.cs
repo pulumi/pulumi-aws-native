@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
         /// </summary>
         public static Task<GetProfilingGroupResult> InvokeAsync(GetProfilingGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
         /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

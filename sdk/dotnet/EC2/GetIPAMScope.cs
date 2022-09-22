@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Schema of AWS::EC2::IPAMScope Type
         /// </summary>
         public static Task<GetIPAMScopeResult> InvokeAsync(GetIPAMScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMScope Type
         /// </summary>
         public static Output<GetIPAMScopeResult> Invoke(GetIPAMScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPAMScopeResult>("aws-native:ec2:getIPAMScope", args ?? new GetIPAMScopeInvokeArgs(), options.WithDefaults());
     }
 
 

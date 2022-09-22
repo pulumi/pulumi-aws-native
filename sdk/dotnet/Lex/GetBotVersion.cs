@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lex
         /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
         public static Task<GetBotVersionResult> InvokeAsync(GetBotVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
         /// </summary>
         public static Output<GetBotVersionResult> Invoke(GetBotVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotVersionResult>("aws-native:lex:getBotVersion", args ?? new GetBotVersionInvokeArgs(), options.WithDefaults());
     }
 
 

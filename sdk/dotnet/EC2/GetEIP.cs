@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::EIP
         /// </summary>
         public static Task<GetEIPResult> InvokeAsync(GetEIPArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEIPResult>("aws-native:ec2:getEIP", args ?? new GetEIPArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEIPResult>("aws-native:ec2:getEIP", args ?? new GetEIPArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EIP
         /// </summary>
         public static Output<GetEIPResult> Invoke(GetEIPInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEIPResult>("aws-native:ec2:getEIP", args ?? new GetEIPInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEIPResult>("aws-native:ec2:getEIP", args ?? new GetEIPInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Kendra
         /// A Kendra FAQ resource
         /// </summary>
         public static Task<GetFaqResult> InvokeAsync(GetFaqArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Kendra FAQ resource
         /// </summary>
         public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
     }
 
 

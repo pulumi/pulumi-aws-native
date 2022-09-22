@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SES
         /// Resource Type definition for AWS::SES::Template
         /// </summary>
         public static Task<GetTemplateResult> InvokeAsync(GetTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SES::Template
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
         /// </summary>
         public static Task<GetNetworkInterfaceAttachmentResult> InvokeAsync(GetNetworkInterfaceAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
         /// </summary>
         public static Output<GetNetworkInterfaceAttachmentResult> Invoke(GetNetworkInterfaceAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

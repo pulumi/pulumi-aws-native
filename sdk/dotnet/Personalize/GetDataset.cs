@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Personalize
         /// Resource schema for AWS::Personalize::Dataset.
         /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Personalize::Dataset.
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

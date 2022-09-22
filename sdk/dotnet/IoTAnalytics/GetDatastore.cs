@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// Resource Type definition for AWS::IoTAnalytics::Datastore
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTAnalytics::Datastore
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("aws-native:iotanalytics:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

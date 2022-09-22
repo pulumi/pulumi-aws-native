@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Publishes new or first hook version to AWS CloudFormation Registry.
         /// </summary>
         public static Task<GetHookVersionResult> InvokeAsync(GetHookVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHookVersionResult>("aws-native:cloudformation:getHookVersion", args ?? new GetHookVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHookVersionResult>("aws-native:cloudformation:getHookVersion", args ?? new GetHookVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Publishes new or first hook version to AWS CloudFormation Registry.
         /// </summary>
         public static Output<GetHookVersionResult> Invoke(GetHookVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHookVersionResult>("aws-native:cloudformation:getHookVersion", args ?? new GetHookVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHookVersionResult>("aws-native:cloudformation:getHookVersion", args ?? new GetHookVersionInvokeArgs(), options.WithDefaults());
     }
 
 

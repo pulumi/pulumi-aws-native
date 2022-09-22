@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
         /// </summary>
         public static Task<GetGameServerGroupResult> InvokeAsync(GetGameServerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
         /// </summary>
         public static Output<GetGameServerGroupResult> Invoke(GetGameServerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGameServerGroupResult>("aws-native:gamelift:getGameServerGroup", args ?? new GetGameServerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

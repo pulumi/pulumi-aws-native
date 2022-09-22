@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::Campaign
         /// </summary>
         public static Task<GetCampaignResult> InvokeAsync(GetCampaignArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Campaign
         /// </summary>
         public static Output<GetCampaignResult> Invoke(GetCampaignInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCampaignResult>("aws-native:pinpoint:getCampaign", args ?? new GetCampaignInvokeArgs(), options.WithDefaults());
     }
 
 

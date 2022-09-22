@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
         /// </summary>
         public static Task<GetSubnetNetworkAclAssociationResult> InvokeAsync(GetSubnetNetworkAclAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
         /// </summary>
         public static Output<GetSubnetNetworkAclAssociationResult> Invoke(GetSubnetNetworkAclAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetNetworkAclAssociationResult>("aws-native:ec2:getSubnetNetworkAclAssociation", args ?? new GetSubnetNetworkAclAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

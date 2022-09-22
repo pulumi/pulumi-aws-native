@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// Resource Type definition for AWS::Lightsail::StaticIp
         /// </summary>
         public static Task<GetStaticIpResult> InvokeAsync(GetStaticIpArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::StaticIp
         /// </summary>
         public static Output<GetStaticIpResult> Invoke(GetStaticIpInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpInvokeArgs(), options.WithDefaults());
     }
 
 

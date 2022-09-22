@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.OpsWorks
         /// Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
         /// </summary>
         public static Task<GetElasticLoadBalancerAttachmentResult> InvokeAsync(GetElasticLoadBalancerAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
         /// </summary>
         public static Output<GetElasticLoadBalancerAttachmentResult> Invoke(GetElasticLoadBalancerAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancerAttachmentResult>("aws-native:opsworks:getElasticLoadBalancerAttachment", args ?? new GetElasticLoadBalancerAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

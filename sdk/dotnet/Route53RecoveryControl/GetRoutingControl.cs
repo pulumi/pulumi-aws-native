@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// AWS Route53 Recovery Control Routing Control resource schema .
         /// </summary>
         public static Task<GetRoutingControlResult> InvokeAsync(GetRoutingControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Control Routing Control resource schema .
         /// </summary>
         public static Output<GetRoutingControlResult> Invoke(GetRoutingControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutingControlResult>("aws-native:route53recoverycontrol:getRoutingControl", args ?? new GetRoutingControlInvokeArgs(), options.WithDefaults());
     }
 
 

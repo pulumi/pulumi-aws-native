@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Enable a resource that has been published in the CloudFormation Registry.
         /// </summary>
         public static Task<GetTypeActivationResult> InvokeAsync(GetTypeActivationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Enable a resource that has been published in the CloudFormation Registry.
         /// </summary>
         public static Output<GetTypeActivationResult> Invoke(GetTypeActivationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationInvokeArgs(), options.WithDefaults());
     }
 
 

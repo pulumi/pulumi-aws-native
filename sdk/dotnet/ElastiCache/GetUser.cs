@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ElastiCache
         /// Resource Type definition for AWS::ElastiCache::User
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElastiCache::User
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws-native:elasticache:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

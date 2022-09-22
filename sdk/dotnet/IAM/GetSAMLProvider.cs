@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::SAMLProvider
         /// </summary>
         public static Task<GetSAMLProviderResult> InvokeAsync(GetSAMLProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::SAMLProvider
         /// </summary>
         public static Output<GetSAMLProviderResult> Invoke(GetSAMLProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAMLProviderResult>("aws-native:iam:getSAMLProvider", args ?? new GetSAMLProviderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
         /// </summary>
         public static Task<GetResolverEndpointResult> InvokeAsync(GetResolverEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverEndpointResult>("aws-native:route53resolver:getResolverEndpoint", args ?? new GetResolverEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverEndpointResult>("aws-native:route53resolver:getResolverEndpoint", args ?? new GetResolverEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
         /// </summary>
         public static Output<GetResolverEndpointResult> Invoke(GetResolverEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws-native:route53resolver:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws-native:route53resolver:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

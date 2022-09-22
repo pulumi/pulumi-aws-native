@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AmazonMQ
         /// Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
         /// </summary>
         public static Task<GetConfigurationAssociationResult> InvokeAsync(GetConfigurationAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssociationResult>("aws-native:amazonmq:getConfigurationAssociation", args ?? new GetConfigurationAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssociationResult>("aws-native:amazonmq:getConfigurationAssociation", args ?? new GetConfigurationAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
         /// </summary>
         public static Output<GetConfigurationAssociationResult> Invoke(GetConfigurationAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssociationResult>("aws-native:amazonmq:getConfigurationAssociation", args ?? new GetConfigurationAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssociationResult>("aws-native:amazonmq:getConfigurationAssociation", args ?? new GetConfigurationAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

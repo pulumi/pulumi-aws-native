@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::TrafficMirrorSession
         /// </summary>
         public static Task<GetTrafficMirrorSessionResult> InvokeAsync(GetTrafficMirrorSessionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorSessionResult>("aws-native:ec2:getTrafficMirrorSession", args ?? new GetTrafficMirrorSessionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorSessionResult>("aws-native:ec2:getTrafficMirrorSession", args ?? new GetTrafficMirrorSessionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TrafficMirrorSession
         /// </summary>
         public static Output<GetTrafficMirrorSessionResult> Invoke(GetTrafficMirrorSessionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorSessionResult>("aws-native:ec2:getTrafficMirrorSession", args ?? new GetTrafficMirrorSessionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorSessionResult>("aws-native:ec2:getTrafficMirrorSession", args ?? new GetTrafficMirrorSessionInvokeArgs(), options.WithDefaults());
     }
 
 

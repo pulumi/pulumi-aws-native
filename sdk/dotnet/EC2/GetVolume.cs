@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::Volume
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws-native:ec2:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws-native:ec2:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::Volume
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws-native:ec2:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws-native:ec2:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

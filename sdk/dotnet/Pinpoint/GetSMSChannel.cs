@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::SMSChannel
         /// </summary>
         public static Task<GetSMSChannelResult> InvokeAsync(GetSMSChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SMSChannel
         /// </summary>
         public static Output<GetSMSChannelResult> Invoke(GetSMSChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSMSChannelResult>("aws-native:pinpoint:getSMSChannel", args ?? new GetSMSChannelInvokeArgs(), options.WithDefaults());
     }
 
 

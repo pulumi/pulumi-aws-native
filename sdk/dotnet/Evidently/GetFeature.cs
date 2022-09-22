@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Evidently
         /// Resource Type definition for AWS::Evidently::Feature.
         /// </summary>
         public static Task<GetFeatureResult> InvokeAsync(GetFeatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Feature.
         /// </summary>
         public static Output<GetFeatureResult> Invoke(GetFeatureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

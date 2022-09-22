@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
         /// </summary>
         public static Task<GetScalableTargetResult> InvokeAsync(GetScalableTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
         /// </summary>
         public static Output<GetScalableTargetResult> Invoke(GetScalableTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalableTargetResult>("aws-native:applicationautoscaling:getScalableTarget", args ?? new GetScalableTargetInvokeArgs(), options.WithDefaults());
     }
 
 

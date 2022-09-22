@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Redshift
         /// Resource schema for a Redshift-managed VPC endpoint.
         /// </summary>
         public static Task<GetEndpointAccessResult> InvokeAsync(GetEndpointAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for a Redshift-managed VPC endpoint.
         /// </summary>
         public static Output<GetEndpointAccessResult> Invoke(GetEndpointAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAccessResult>("aws-native:redshift:getEndpointAccess", args ?? new GetEndpointAccessInvokeArgs(), options.WithDefaults());
     }
 
 

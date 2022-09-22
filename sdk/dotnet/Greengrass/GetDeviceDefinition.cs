@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::DeviceDefinition
         /// </summary>
         public static Task<GetDeviceDefinitionResult> InvokeAsync(GetDeviceDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinition
         /// </summary>
         public static Output<GetDeviceDefinitionResult> Invoke(GetDeviceDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionResult>("aws-native:greengrass:getDeviceDefinition", args ?? new GetDeviceDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

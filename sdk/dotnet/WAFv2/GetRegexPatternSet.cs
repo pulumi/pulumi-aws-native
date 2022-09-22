@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
         /// </summary>
         public static Task<GetRegexPatternSetResult> InvokeAsync(GetRegexPatternSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
         /// </summary>
         public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
     }
 
 

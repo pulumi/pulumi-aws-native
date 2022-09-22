@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The AWS::NetworkManager::Device type describes a device.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::Device type describes a device.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws-native:networkmanager:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

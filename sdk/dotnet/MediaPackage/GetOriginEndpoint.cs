@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// Resource schema for AWS::MediaPackage::OriginEndpoint
         /// </summary>
         public static Task<GetOriginEndpointResult> InvokeAsync(GetOriginEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginEndpointResult>("aws-native:mediapackage:getOriginEndpoint", args ?? new GetOriginEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginEndpointResult>("aws-native:mediapackage:getOriginEndpoint", args ?? new GetOriginEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::OriginEndpoint
         /// </summary>
         public static Output<GetOriginEndpointResult> Invoke(GetOriginEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginEndpointResult>("aws-native:mediapackage:getOriginEndpoint", args ?? new GetOriginEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginEndpointResult>("aws-native:mediapackage:getOriginEndpoint", args ?? new GetOriginEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

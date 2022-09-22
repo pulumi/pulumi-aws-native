@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::GatewayResponse
         /// </summary>
         public static Task<GetGatewayResponseResult> InvokeAsync(GetGatewayResponseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::GatewayResponse
         /// </summary>
         public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
     }
 
 

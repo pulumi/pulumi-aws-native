@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationHDFS.
         /// </summary>
         public static Task<GetLocationHDFSResult> InvokeAsync(GetLocationHDFSArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationHDFS.
         /// </summary>
         public static Output<GetLocationHDFSResult> Invoke(GetLocationHDFSInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationHDFSResult>("aws-native:datasync:getLocationHDFS", args ?? new GetLocationHDFSInvokeArgs(), options.WithDefaults());
     }
 
 

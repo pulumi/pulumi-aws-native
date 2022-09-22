@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.FSx
         /// Resource Type definition for AWS::FSx::FileSystem
         /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::FSx::FileSystem
         /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws-native:fsx:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT1Click
         /// Resource Type definition for AWS::IoT1Click::Placement
         /// </summary>
         public static Task<GetPlacementResult> InvokeAsync(GetPlacementArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT1Click::Placement
         /// </summary>
         public static Output<GetPlacementResult> Invoke(GetPlacementInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementResult>("aws-native:iot1click:getPlacement", args ?? new GetPlacementInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::EmailTemplate
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("aws-native:pinpoint:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("aws-native:pinpoint:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::EmailTemplate
         /// </summary>
         public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("aws-native:pinpoint:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("aws-native:pinpoint:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

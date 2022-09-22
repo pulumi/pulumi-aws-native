@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAF
         /// Resource Type definition for AWS::WAF::ByteMatchSet
         /// </summary>
         public static Task<GetByteMatchSetResult> InvokeAsync(GetByteMatchSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::ByteMatchSet
         /// </summary>
         public static Output<GetByteMatchSetResult> Invoke(GetByteMatchSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetByteMatchSetResult>("aws-native:waf:getByteMatchSet", args ?? new GetByteMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 

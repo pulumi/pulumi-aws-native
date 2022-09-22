@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
         public static Task<GetCloudFormationProductResult> InvokeAsync(GetCloudFormationProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
         public static Output<GetCloudFormationProductResult> Invoke(GetCloudFormationProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::Account
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Account
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:apigateway:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

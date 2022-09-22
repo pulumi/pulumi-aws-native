@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RAM
         /// Resource Type definition for AWS::RAM::ResourceShare
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RAM::ResourceShare
         /// </summary>
         public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws-native:ram:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithDefaults());
     }
 
 

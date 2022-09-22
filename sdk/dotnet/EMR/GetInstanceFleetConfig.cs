@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EMR
         /// Resource Type definition for AWS::EMR::InstanceFleetConfig
         /// </summary>
         public static Task<GetInstanceFleetConfigResult> InvokeAsync(GetInstanceFleetConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceFleetConfig
         /// </summary>
         public static Output<GetInstanceFleetConfigResult> Invoke(GetInstanceFleetConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceFleetConfigResult>("aws-native:emr:getInstanceFleetConfig", args ?? new GetInstanceFleetConfigInvokeArgs(), options.WithDefaults());
     }
 
 

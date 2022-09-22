@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataBrew
         /// Resource schema for AWS::DataBrew::Ruleset.
         /// </summary>
         public static Task<GetRulesetResult> InvokeAsync(GetRulesetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataBrew::Ruleset.
         /// </summary>
         public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

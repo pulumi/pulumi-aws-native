@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::AppImageConfig
         /// </summary>
         public static Task<GetAppImageConfigResult> InvokeAsync(GetAppImageConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::AppImageConfig
         /// </summary>
         public static Output<GetAppImageConfigResult> Invoke(GetAppImageConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigInvokeArgs(), options.WithDefaults());
     }
 
 

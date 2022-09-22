@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DAX
         /// Resource Type definition for AWS::DAX::ParameterGroup
         /// </summary>
         public static Task<GetParameterGroupResult> InvokeAsync(GetParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DAX::ParameterGroup
         /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:dax:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

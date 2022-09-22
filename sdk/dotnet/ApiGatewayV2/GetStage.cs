@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::Stage
         /// </summary>
         public static Task<GetStageResult> InvokeAsync(GetStageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Stage
         /// </summary>
         public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigatewayv2:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
     }
 
 

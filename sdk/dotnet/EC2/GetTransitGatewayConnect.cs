@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::TransitGatewayConnect type
         /// </summary>
         public static Task<GetTransitGatewayConnectResult> InvokeAsync(GetTransitGatewayConnectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayConnect type
         /// </summary>
         public static Output<GetTransitGatewayConnectResult> Invoke(GetTransitGatewayConnectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayConnectResult>("aws-native:ec2:getTransitGatewayConnect", args ?? new GetTransitGatewayConnectInvokeArgs(), options.WithDefaults());
     }
 
 

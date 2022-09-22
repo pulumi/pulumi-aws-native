@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::SecurityConfiguration
         /// </summary>
         public static Task<GetSecurityConfigurationResult> InvokeAsync(GetSecurityConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConfigurationResult>("aws-native:glue:getSecurityConfiguration", args ?? new GetSecurityConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConfigurationResult>("aws-native:glue:getSecurityConfiguration", args ?? new GetSecurityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::SecurityConfiguration
         /// </summary>
         public static Output<GetSecurityConfigurationResult> Invoke(GetSecurityConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityConfigurationResult>("aws-native:glue:getSecurityConfiguration", args ?? new GetSecurityConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConfigurationResult>("aws-native:glue:getSecurityConfiguration", args ?? new GetSecurityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         /// Resource Type definition for AWS::ManagedBlockchain::Node
         /// </summary>
         public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ManagedBlockchain::Node
         /// </summary>
         public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodeResult>("aws-native:managedblockchain:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
     }
 
 

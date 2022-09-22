@@ -12,10 +12,10 @@ namespace Pulumi.AwsNative
     public static class GetSsmParameterString
     {
         public static Task<GetSsmParameterStringResult> InvokeAsync(GetSsmParameterStringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSsmParameterStringResult>("aws-native:index:getSsmParameterString", args ?? new GetSsmParameterStringArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSsmParameterStringResult>("aws-native:index:getSsmParameterString", args ?? new GetSsmParameterStringArgs(), options.WithDefaults());
 
         public static Output<GetSsmParameterStringResult> Invoke(GetSsmParameterStringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSsmParameterStringResult>("aws-native:index:getSsmParameterString", args ?? new GetSsmParameterStringInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterStringResult>("aws-native:index:getSsmParameterString", args ?? new GetSsmParameterStringInvokeArgs(), options.WithDefaults());
     }
 
 

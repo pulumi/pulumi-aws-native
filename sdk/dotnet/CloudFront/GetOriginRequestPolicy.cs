@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
         /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
         /// </summary>
         public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws-native:cloudfront:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

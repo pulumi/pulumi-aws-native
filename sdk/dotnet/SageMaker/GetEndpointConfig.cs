@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::EndpointConfig
         /// </summary>
         public static Task<GetEndpointConfigResult> InvokeAsync(GetEndpointConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::EndpointConfig
         /// </summary>
         public static Output<GetEndpointConfigResult> Invoke(GetEndpointConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointConfigResult>("aws-native:sagemaker:getEndpointConfig", args ?? new GetEndpointConfigInvokeArgs(), options.WithDefaults());
     }
 
 

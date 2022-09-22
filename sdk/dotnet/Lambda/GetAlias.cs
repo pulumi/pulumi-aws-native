@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::Alias
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Alias
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:lambda:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

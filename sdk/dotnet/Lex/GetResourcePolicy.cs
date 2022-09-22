@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lex
         /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:lex:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KMS
         /// The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws-native:kms:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

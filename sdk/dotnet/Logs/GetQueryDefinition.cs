@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Logs
         /// The resource schema for AWSLogs QueryDefinition
         /// </summary>
         public static Task<GetQueryDefinitionResult> InvokeAsync(GetQueryDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema for AWSLogs QueryDefinition
         /// </summary>
         public static Output<GetQueryDefinitionResult> Invoke(GetQueryDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

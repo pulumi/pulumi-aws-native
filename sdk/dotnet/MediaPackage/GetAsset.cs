@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaPackage
         /// Resource schema for AWS::MediaPackage::Asset
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaPackage::Asset
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

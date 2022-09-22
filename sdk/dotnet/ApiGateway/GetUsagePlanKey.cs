@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
         /// </summary>
         public static Task<GetUsagePlanKeyResult> InvokeAsync(GetUsagePlanKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
         /// </summary>
         public static Output<GetUsagePlanKeyResult> Invoke(GetUsagePlanKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyInvokeArgs(), options.WithDefaults());
     }
 
 

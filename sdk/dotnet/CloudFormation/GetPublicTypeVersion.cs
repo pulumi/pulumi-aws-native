@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Test and Publish a resource that has been registered in the CloudFormation Registry.
         /// </summary>
         public static Task<GetPublicTypeVersionResult> InvokeAsync(GetPublicTypeVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Test and Publish a resource that has been registered in the CloudFormation Registry.
         /// </summary>
         public static Output<GetPublicTypeVersionResult> Invoke(GetPublicTypeVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionInvokeArgs(), options.WithDefaults());
     }
 
 

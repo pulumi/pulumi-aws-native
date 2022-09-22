@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EventSchemas
         /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
         /// </summary>
         public static Task<GetRegistryPolicyResult> InvokeAsync(GetRegistryPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
         /// </summary>
         public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

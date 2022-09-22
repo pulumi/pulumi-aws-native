@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Budgets
         /// Resource Type definition for AWS::Budgets::Budget
         /// </summary>
         public static Task<GetBudgetResult> InvokeAsync(GetBudgetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Budgets::Budget
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("aws-native:budgets:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
     }
 
 

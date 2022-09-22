@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Redshift
         /// Resource Type definition for AWS::Redshift::ClusterParameterGroup
         /// </summary>
         public static Task<GetClusterParameterGroupResult> InvokeAsync(GetClusterParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterParameterGroup
         /// </summary>
         public static Output<GetClusterParameterGroupResult> Invoke(GetClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterParameterGroupResult>("aws-native:redshift:getClusterParameterGroup", args ?? new GetClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

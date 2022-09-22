@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Panorama
         /// Schema for Package CloudFormation Resource
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for Package CloudFormation Resource
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 

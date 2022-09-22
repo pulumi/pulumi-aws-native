@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MSK
         /// Resource Type definition for AWS::MSK::BatchScramSecret
         /// </summary>
         public static Task<GetBatchScramSecretResult> InvokeAsync(GetBatchScramSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchScramSecretResult>("aws-native:msk:getBatchScramSecret", args ?? new GetBatchScramSecretArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchScramSecretResult>("aws-native:msk:getBatchScramSecret", args ?? new GetBatchScramSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MSK::BatchScramSecret
         /// </summary>
         public static Output<GetBatchScramSecretResult> Invoke(GetBatchScramSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBatchScramSecretResult>("aws-native:msk:getBatchScramSecret", args ?? new GetBatchScramSecretInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBatchScramSecretResult>("aws-native:msk:getBatchScramSecret", args ?? new GetBatchScramSecretInvokeArgs(), options.WithDefaults());
     }
 
 

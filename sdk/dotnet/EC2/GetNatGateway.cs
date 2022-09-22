@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::NatGateway
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws-native:ec2:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws-native:ec2:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NatGateway
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("aws-native:ec2:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("aws-native:ec2:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

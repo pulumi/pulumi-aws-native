@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel
         /// </summary>
         public static Task<GetAPNSVoipSandboxChannelResult> InvokeAsync(GetAPNSVoipSandboxChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAPNSVoipSandboxChannelResult>("aws-native:pinpoint:getAPNSVoipSandboxChannel", args ?? new GetAPNSVoipSandboxChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAPNSVoipSandboxChannelResult>("aws-native:pinpoint:getAPNSVoipSandboxChannel", args ?? new GetAPNSVoipSandboxChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel
         /// </summary>
         public static Output<GetAPNSVoipSandboxChannelResult> Invoke(GetAPNSVoipSandboxChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAPNSVoipSandboxChannelResult>("aws-native:pinpoint:getAPNSVoipSandboxChannel", args ?? new GetAPNSVoipSandboxChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAPNSVoipSandboxChannelResult>("aws-native:pinpoint:getAPNSVoipSandboxChannel", args ?? new GetAPNSVoipSandboxChannelInvokeArgs(), options.WithDefaults());
     }
 
 

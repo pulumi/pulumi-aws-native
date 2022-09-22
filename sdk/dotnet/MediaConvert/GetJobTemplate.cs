@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaConvert
         /// Resource Type definition for AWS::MediaConvert::JobTemplate
         /// </summary>
         public static Task<GetJobTemplateResult> InvokeAsync(GetJobTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::JobTemplate
         /// </summary>
         public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:mediaconvert:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

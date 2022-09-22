@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RoboMaker
         /// AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
         /// </summary>
         public static Task<GetSimulationApplicationVersionResult> InvokeAsync(GetSimulationApplicationVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
         /// </summary>
         public static Output<GetSimulationApplicationVersionResult> Invoke(GetSimulationApplicationVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationVersionResult>("aws-native:robomaker:getSimulationApplicationVersion", args ?? new GetSimulationApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

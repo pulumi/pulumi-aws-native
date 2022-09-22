@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Device Profile's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetDeviceProfileResult> InvokeAsync(GetDeviceProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceProfileResult>("aws-native:iotwireless:getDeviceProfile", args ?? new GetDeviceProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceProfileResult>("aws-native:iotwireless:getDeviceProfile", args ?? new GetDeviceProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Device Profile's resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetDeviceProfileResult> Invoke(GetDeviceProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceProfileResult>("aws-native:iotwireless:getDeviceProfile", args ?? new GetDeviceProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceProfileResult>("aws-native:iotwireless:getDeviceProfile", args ?? new GetDeviceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

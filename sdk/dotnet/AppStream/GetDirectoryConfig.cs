@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::DirectoryConfig
         /// </summary>
         public static Task<GetDirectoryConfigResult> InvokeAsync(GetDirectoryConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::DirectoryConfig
         /// </summary>
         public static Output<GetDirectoryConfigResult> Invoke(GetDirectoryConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryConfigResult>("aws-native:appstream:getDirectoryConfig", args ?? new GetDirectoryConfigInvokeArgs(), options.WithDefaults());
     }
 
 

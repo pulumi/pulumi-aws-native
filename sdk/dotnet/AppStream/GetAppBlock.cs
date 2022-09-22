@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::AppBlock
         /// </summary>
         public static Task<GetAppBlockResult> InvokeAsync(GetAppBlockArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::AppBlock
         /// </summary>
         public static Output<GetAppBlockResult> Invoke(GetAppBlockInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppBlockResult>("aws-native:appstream:getAppBlock", args ?? new GetAppBlockInvokeArgs(), options.WithDefaults());
     }
 
 

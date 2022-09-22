@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::DevEndpoint
         /// </summary>
         public static Task<GetDevEndpointResult> InvokeAsync(GetDevEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::DevEndpoint
         /// </summary>
         public static Output<GetDevEndpointResult> Invoke(GetDevEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevEndpointResult>("aws-native:glue:getDevEndpoint", args ?? new GetDevEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

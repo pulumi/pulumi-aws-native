@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::CapacityReservationFleet
         /// </summary>
         public static Task<GetCapacityReservationFleetResult> InvokeAsync(GetCapacityReservationFleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::CapacityReservationFleet
         /// </summary>
         public static Output<GetCapacityReservationFleetResult> Invoke(GetCapacityReservationFleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationFleetResult>("aws-native:ec2:getCapacityReservationFleet", args ?? new GetCapacityReservationFleetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
         /// </summary>
         public static Task<GetApplicationCloudWatchLoggingOptionResult> InvokeAsync(GetApplicationCloudWatchLoggingOptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
         /// </summary>
         public static Output<GetApplicationCloudWatchLoggingOptionResult> Invoke(GetApplicationCloudWatchLoggingOptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationCloudWatchLoggingOptionResult>("aws-native:kinesisanalyticsv2:getApplicationCloudWatchLoggingOption", args ?? new GetApplicationCloudWatchLoggingOptionInvokeArgs(), options.WithDefaults());
     }
 
 

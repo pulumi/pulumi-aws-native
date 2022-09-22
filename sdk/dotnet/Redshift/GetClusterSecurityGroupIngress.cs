@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Redshift
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
         /// </summary>
         public static Task<GetClusterSecurityGroupIngressResult> InvokeAsync(GetClusterSecurityGroupIngressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress
         /// </summary>
         public static Output<GetClusterSecurityGroupIngressResult> Invoke(GetClusterSecurityGroupIngressInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupIngressResult>("aws-native:redshift:getClusterSecurityGroupIngress", args ?? new GetClusterSecurityGroupIngressInvokeArgs(), options.WithDefaults());
     }
 
 

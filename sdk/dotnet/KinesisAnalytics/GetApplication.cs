@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisAnalytics
         /// Resource Type definition for AWS::KinesisAnalytics::Application
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:kinesisanalytics:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:kinesisanalytics:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalytics::Application
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:kinesisanalytics:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:kinesisanalytics:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

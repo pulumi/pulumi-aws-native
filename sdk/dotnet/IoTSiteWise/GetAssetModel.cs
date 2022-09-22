@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// Resource schema for AWS::IoTSiteWise::AssetModel
         /// </summary>
         public static Task<GetAssetModelResult> InvokeAsync(GetAssetModelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetModelResult>("aws-native:iotsitewise:getAssetModel", args ?? new GetAssetModelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetModelResult>("aws-native:iotsitewise:getAssetModel", args ?? new GetAssetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::AssetModel
         /// </summary>
         public static Output<GetAssetModelResult> Invoke(GetAssetModelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetModelResult>("aws-native:iotsitewise:getAssetModel", args ?? new GetAssetModelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetModelResult>("aws-native:iotsitewise:getAssetModel", args ?? new GetAssetModelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::Integration
         /// </summary>
         public static Task<GetIntegrationResult> InvokeAsync(GetIntegrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:apigatewayv2:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationResult>("aws-native:apigatewayv2:getIntegration", args ?? new GetIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Integration
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:apigatewayv2:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:apigatewayv2:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

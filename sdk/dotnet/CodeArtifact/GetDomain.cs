@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// The resource schema to create a CodeArtifact domain.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema to create a CodeArtifact domain.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:codeartifact:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

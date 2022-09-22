@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EMR
         /// Resource Type definition for AWS::EMR::InstanceGroupConfig
         /// </summary>
         public static Task<GetInstanceGroupConfigResult> InvokeAsync(GetInstanceGroupConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::InstanceGroupConfig
         /// </summary>
         public static Output<GetInstanceGroupConfigResult> Invoke(GetInstanceGroupConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceGroupConfigResult>("aws-native:emr:getInstanceGroupConfig", args ?? new GetInstanceGroupConfigInvokeArgs(), options.WithDefaults());
     }
 
 

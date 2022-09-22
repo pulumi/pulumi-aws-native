@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::Route
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:ec2:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:ec2:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::Route
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:ec2:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:ec2:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

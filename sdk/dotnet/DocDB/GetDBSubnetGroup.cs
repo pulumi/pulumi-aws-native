@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DocDB
         /// Resource Type definition for AWS::DocDB::DBSubnetGroup
         /// </summary>
         public static Task<GetDBSubnetGroupResult> InvokeAsync(GetDBSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:docdb:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:docdb:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DocDB::DBSubnetGroup
         /// </summary>
         public static Output<GetDBSubnetGroupResult> Invoke(GetDBSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:docdb:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:docdb:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

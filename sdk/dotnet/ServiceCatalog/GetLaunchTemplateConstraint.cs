@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
         /// </summary>
         public static Task<GetLaunchTemplateConstraintResult> InvokeAsync(GetLaunchTemplateConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
         /// </summary>
         public static Output<GetLaunchTemplateConstraintResult> Invoke(GetLaunchTemplateConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateConstraintResult>("aws-native:servicecatalog:getLaunchTemplateConstraint", args ?? new GetLaunchTemplateConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

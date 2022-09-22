@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// An aggregated metric of certain devices in your fleet
         /// </summary>
         public static Task<GetFleetMetricResult> InvokeAsync(GetFleetMetricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricArgs(), options.WithDefaults());
 
         /// <summary>
         /// An aggregated metric of certain devices in your fleet
         /// </summary>
         public static Output<GetFleetMetricResult> Invoke(GetFleetMetricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricInvokeArgs(), options.WithDefaults());
     }
 
 

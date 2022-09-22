@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Amplify
         /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

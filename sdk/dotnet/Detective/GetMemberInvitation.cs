@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Detective
         /// Resource schema for AWS::Detective::MemberInvitation
         /// </summary>
         public static Task<GetMemberInvitationResult> InvokeAsync(GetMemberInvitationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Detective::MemberInvitation
         /// </summary>
         public static Output<GetMemberInvitationResult> Invoke(GetMemberInvitationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationInvokeArgs(), options.WithDefaults());
     }
 
 

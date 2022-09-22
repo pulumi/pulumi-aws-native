@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
         /// </summary>
         public static Task<GetFirewallRuleGroupResult> InvokeAsync(GetFirewallRuleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
         /// </summary>
         public static Output<GetFirewallRuleGroupResult> Invoke(GetFirewallRuleGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupResult>("aws-native:route53resolver:getFirewallRuleGroup", args ?? new GetFirewallRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

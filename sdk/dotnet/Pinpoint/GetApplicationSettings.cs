@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::ApplicationSettings
         /// </summary>
         public static Task<GetApplicationSettingsResult> InvokeAsync(GetApplicationSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ApplicationSettings
         /// </summary>
         public static Output<GetApplicationSettingsResult> Invoke(GetApplicationSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationSettingsResult>("aws-native:pinpoint:getApplicationSettings", args ?? new GetApplicationSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

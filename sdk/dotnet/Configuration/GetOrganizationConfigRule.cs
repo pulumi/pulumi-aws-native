@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::OrganizationConfigRule
         /// </summary>
         public static Task<GetOrganizationConfigRuleResult> InvokeAsync(GetOrganizationConfigRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::OrganizationConfigRule
         /// </summary>
         public static Output<GetOrganizationConfigRuleResult> Invoke(GetOrganizationConfigRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConfigRuleResult>("aws-native:configuration:getOrganizationConfigRule", args ?? new GetOrganizationConfigRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::EC2Fleet
         /// </summary>
         public static Task<GetEC2FleetResult> InvokeAsync(GetEC2FleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EC2Fleet
         /// </summary>
         public static Output<GetEC2FleetResult> Invoke(GetEC2FleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEC2FleetResult>("aws-native:ec2:getEC2Fleet", args ?? new GetEC2FleetInvokeArgs(), options.WithDefaults());
     }
 
 

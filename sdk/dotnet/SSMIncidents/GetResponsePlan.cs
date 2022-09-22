@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSMIncidents
         /// Resource type definition for AWS::SSMIncidents::ResponsePlan
         /// </summary>
         public static Task<GetResponsePlanResult> InvokeAsync(GetResponsePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource type definition for AWS::SSMIncidents::ResponsePlan
         /// </summary>
         public static Output<GetResponsePlanResult> Invoke(GetResponsePlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResponsePlanResult>("aws-native:ssmincidents:getResponsePlan", args ?? new GetResponsePlanInvokeArgs(), options.WithDefaults());
     }
 
 

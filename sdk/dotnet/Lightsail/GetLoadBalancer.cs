@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// Resource Type definition for AWS::Lightsail::LoadBalancer
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws-native:lightsail:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws-native:lightsail:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::LoadBalancer
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws-native:lightsail:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws-native:lightsail:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
     }
 
 

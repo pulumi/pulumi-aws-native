@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Describes an association between a local gateway route table and a VPC.
         /// </summary>
         public static Task<GetLocalGatewayRouteTableVPCAssociationResult> InvokeAsync(GetLocalGatewayRouteTableVPCAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes an association between a local gateway route table and a VPC.
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVPCAssociationResult> Invoke(GetLocalGatewayRouteTableVPCAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVPCAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", args ?? new GetLocalGatewayRouteTableVPCAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

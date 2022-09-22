@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
         /// </summary>
         public static Task<GetListenerCertificateResult> InvokeAsync(GetListenerCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
         /// </summary>
         public static Output<GetListenerCertificateResult> Invoke(GetListenerCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerCertificateResult>("aws-native:elasticloadbalancingv2:getListenerCertificate", args ?? new GetListenerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

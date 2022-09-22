@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
         /// </summary>
         public static Task<GetVPCGatewayAttachmentResult> InvokeAsync(GetVPCGatewayAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
         /// </summary>
         public static Output<GetVPCGatewayAttachmentResult> Invoke(GetVPCGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCGatewayAttachmentResult>("aws-native:ec2:getVPCGatewayAttachment", args ?? new GetVPCGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

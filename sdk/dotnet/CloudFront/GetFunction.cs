@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::Function
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::Function
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws-native:cloudfront:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

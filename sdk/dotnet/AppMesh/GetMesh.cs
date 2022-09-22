@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::Mesh
         /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::Mesh
         /// </summary>
         public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws-native:appmesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithDefaults());
     }
 
 

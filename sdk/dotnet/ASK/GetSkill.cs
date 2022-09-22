@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ASK
         /// Resource Type definition for Alexa::ASK::Skill
         /// </summary>
         public static Task<GetSkillResult> InvokeAsync(GetSkillArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for Alexa::ASK::Skill
         /// </summary>
         public static Output<GetSkillResult> Invoke(GetSkillInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSkillResult>("aws-native:ask:getSkill", args ?? new GetSkillInvokeArgs(), options.WithDefaults());
     }
 
 

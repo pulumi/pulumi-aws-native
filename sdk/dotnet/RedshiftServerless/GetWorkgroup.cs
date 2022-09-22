@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// Definition of AWS::RedshiftServerless::Workgroup Resource Type
         /// </summary>
         public static Task<GetWorkgroupResult> InvokeAsync(GetWorkgroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkgroupResult>("aws-native:redshiftserverless:getWorkgroup", args ?? new GetWorkgroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkgroupResult>("aws-native:redshiftserverless:getWorkgroup", args ?? new GetWorkgroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RedshiftServerless::Workgroup Resource Type
         /// </summary>
         public static Output<GetWorkgroupResult> Invoke(GetWorkgroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkgroupResult>("aws-native:redshiftserverless:getWorkgroup", args ?? new GetWorkgroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkgroupResult>("aws-native:redshiftserverless:getWorkgroup", args ?? new GetWorkgroupInvokeArgs(), options.WithDefaults());
     }
 
 

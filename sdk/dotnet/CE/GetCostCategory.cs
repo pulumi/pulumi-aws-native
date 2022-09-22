@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CE
         /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
         /// </summary>
         public static Task<GetCostCategoryResult> InvokeAsync(GetCostCategoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
         /// </summary>
         public static Output<GetCostCategoryResult> Invoke(GetCostCategoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCostCategoryResult>("aws-native:ce:getCostCategory", args ?? new GetCostCategoryInvokeArgs(), options.WithDefaults());
     }
 
 

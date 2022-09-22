@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cloud9
         /// Resource Type definition for AWS::Cloud9::EnvironmentEC2
         /// </summary>
         public static Task<GetEnvironmentEC2Result> InvokeAsync(GetEnvironmentEC2Args args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2Args(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2Args(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cloud9::EnvironmentEC2
         /// </summary>
         public static Output<GetEnvironmentEC2Result> Invoke(GetEnvironmentEC2InvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2InvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentEC2Result>("aws-native:cloud9:getEnvironmentEC2", args ?? new GetEnvironmentEC2InvokeArgs(), options.WithDefaults());
     }
 
 

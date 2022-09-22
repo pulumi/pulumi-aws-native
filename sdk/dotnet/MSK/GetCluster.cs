@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MSK
         /// Resource Type definition for AWS::MSK::Cluster
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MSK::Cluster
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:msk:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

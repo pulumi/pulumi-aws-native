@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAF
         /// Resource Type definition for AWS::WAF::SqlInjectionMatchSet
         /// </summary>
         public static Task<GetSqlInjectionMatchSetResult> InvokeAsync(GetSqlInjectionMatchSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::SqlInjectionMatchSet
         /// </summary>
         public static Output<GetSqlInjectionMatchSetResult> Invoke(GetSqlInjectionMatchSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlInjectionMatchSetResult>("aws-native:waf:getSqlInjectionMatchSet", args ?? new GetSqlInjectionMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 

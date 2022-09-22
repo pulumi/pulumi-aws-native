@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// Definition of AWS::RolesAnywhere::CRL Resource Type
         /// </summary>
         public static Task<GetCRLResult> InvokeAsync(GetCRLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCRLResult>("aws-native:rolesanywhere:getCRL", args ?? new GetCRLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCRLResult>("aws-native:rolesanywhere:getCRL", args ?? new GetCRLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RolesAnywhere::CRL Resource Type
         /// </summary>
         public static Output<GetCRLResult> Invoke(GetCRLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCRLResult>("aws-native:rolesanywhere:getCRL", args ?? new GetCRLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCRLResult>("aws-native:rolesanywhere:getCRL", args ?? new GetCRLInvokeArgs(), options.WithDefaults());
     }
 
 

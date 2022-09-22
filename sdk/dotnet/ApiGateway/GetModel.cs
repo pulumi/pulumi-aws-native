@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::Model
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Model
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 

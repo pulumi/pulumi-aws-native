@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaLive
         /// Resource Type definition for AWS::MediaLive::InputSecurityGroup
         /// </summary>
         public static Task<GetInputSecurityGroupResult> InvokeAsync(GetInputSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::InputSecurityGroup
         /// </summary>
         public static Output<GetInputSecurityGroupResult> Invoke(GetInputSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInputSecurityGroupResult>("aws-native:medialive:getInputSecurityGroup", args ?? new GetInputSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

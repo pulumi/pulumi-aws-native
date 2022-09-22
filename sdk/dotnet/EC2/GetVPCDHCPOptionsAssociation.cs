@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
         /// </summary>
         public static Task<GetVPCDHCPOptionsAssociationResult> InvokeAsync(GetVPCDHCPOptionsAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
         /// </summary>
         public static Output<GetVPCDHCPOptionsAssociationResult> Invoke(GetVPCDHCPOptionsAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCDHCPOptionsAssociationResult>("aws-native:ec2:getVPCDHCPOptionsAssociation", args ?? new GetVPCDHCPOptionsAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

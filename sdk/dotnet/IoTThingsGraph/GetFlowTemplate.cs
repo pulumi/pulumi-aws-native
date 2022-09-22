@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTThingsGraph
         /// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
         /// </summary>
         public static Task<GetFlowTemplateResult> InvokeAsync(GetFlowTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
         /// </summary>
         public static Output<GetFlowTemplateResult> Invoke(GetFlowTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowTemplateResult>("aws-native:iotthingsgraph:getFlowTemplate", args ?? new GetFlowTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

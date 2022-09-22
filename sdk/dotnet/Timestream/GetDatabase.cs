@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Timestream
         /// The AWS::Timestream::Database resource creates a Timestream database.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::Database resource creates a Timestream database.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("aws-native:timestream:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

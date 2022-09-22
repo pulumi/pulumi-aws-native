@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Create and manage NetworkAnalyzerConfiguration resource.
         /// </summary>
         public static Task<GetNetworkAnalyzerConfigurationResult> InvokeAsync(GetNetworkAnalyzerConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAnalyzerConfigurationResult>("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args ?? new GetNetworkAnalyzerConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAnalyzerConfigurationResult>("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args ?? new GetNetworkAnalyzerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage NetworkAnalyzerConfiguration resource.
         /// </summary>
         public static Output<GetNetworkAnalyzerConfigurationResult> Invoke(GetNetworkAnalyzerConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkAnalyzerConfigurationResult>("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args ?? new GetNetworkAnalyzerConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAnalyzerConfigurationResult>("aws-native:iotwireless:getNetworkAnalyzerConfiguration", args ?? new GetNetworkAnalyzerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

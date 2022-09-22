@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeStar
         /// Resource Type definition for AWS::CodeStar::GitHubRepository
         /// </summary>
         public static Task<GetGitHubRepositoryResult> InvokeAsync(GetGitHubRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeStar::GitHubRepository
         /// </summary>
         public static Output<GetGitHubRepositoryResult> Invoke(GetGitHubRepositoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGitHubRepositoryResult>("aws-native:codestar:getGitHubRepository", args ?? new GetGitHubRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

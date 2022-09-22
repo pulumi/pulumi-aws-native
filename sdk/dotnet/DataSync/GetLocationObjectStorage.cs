@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationObjectStorage.
         /// </summary>
         public static Task<GetLocationObjectStorageResult> InvokeAsync(GetLocationObjectStorageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationObjectStorage.
         /// </summary>
         public static Output<GetLocationObjectStorageResult> Invoke(GetLocationObjectStorageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationObjectStorageResult>("aws-native:datasync:getLocationObjectStorage", args ?? new GetLocationObjectStorageInvokeArgs(), options.WithDefaults());
     }
 
 

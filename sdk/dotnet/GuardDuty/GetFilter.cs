@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GuardDuty
         /// Resource Type definition for AWS::GuardDuty::Filter
         /// </summary>
         public static Task<GetFilterResult> InvokeAsync(GetFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Filter
         /// </summary>
         public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:guardduty:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// Resource Type definition for AWS::GameLift::GameSessionQueue
         /// </summary>
         public static Task<GetGameSessionQueueResult> InvokeAsync(GetGameSessionQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::GameSessionQueue
         /// </summary>
         public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
     }
 
 

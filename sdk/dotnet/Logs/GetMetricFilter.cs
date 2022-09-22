@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Logs
         /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
         /// </summary>
         public static Task<GetMetricFilterResult> InvokeAsync(GetMetricFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
         /// </summary>
         public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
     }
 
 

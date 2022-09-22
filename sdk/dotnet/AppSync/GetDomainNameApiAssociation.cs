@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::DomainNameApiAssociation
         /// </summary>
         public static Task<GetDomainNameApiAssociationResult> InvokeAsync(GetDomainNameApiAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameApiAssociationResult>("aws-native:appsync:getDomainNameApiAssociation", args ?? new GetDomainNameApiAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainNameApiAssociationResult>("aws-native:appsync:getDomainNameApiAssociation", args ?? new GetDomainNameApiAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::DomainNameApiAssociation
         /// </summary>
         public static Output<GetDomainNameApiAssociationResult> Invoke(GetDomainNameApiAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainNameApiAssociationResult>("aws-native:appsync:getDomainNameApiAssociation", args ?? new GetDomainNameApiAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameApiAssociationResult>("aws-native:appsync:getDomainNameApiAssociation", args ?? new GetDomainNameApiAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

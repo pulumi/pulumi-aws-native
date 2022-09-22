@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
         /// </summary>
         public static Task<GetScalingPolicyResult> InvokeAsync(GetScalingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
         /// </summary>
         public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:applicationautoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

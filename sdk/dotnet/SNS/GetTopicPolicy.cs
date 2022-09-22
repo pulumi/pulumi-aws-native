@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SNS
         /// Resource Type definition for AWS::SNS::TopicPolicy
         /// </summary>
         public static Task<GetTopicPolicyResult> InvokeAsync(GetTopicPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SNS::TopicPolicy
         /// </summary>
         public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

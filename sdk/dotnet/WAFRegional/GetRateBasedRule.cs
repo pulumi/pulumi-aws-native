@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFRegional
         /// Resource Type definition for AWS::WAFRegional::RateBasedRule
         /// </summary>
         public static Task<GetRateBasedRuleResult> InvokeAsync(GetRateBasedRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::RateBasedRule
         /// </summary>
         public static Output<GetRateBasedRuleResult> Invoke(GetRateBasedRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRateBasedRuleResult>("aws-native:wafregional:getRateBasedRule", args ?? new GetRateBasedRuleInvokeArgs(), options.WithDefaults());
     }
 
 

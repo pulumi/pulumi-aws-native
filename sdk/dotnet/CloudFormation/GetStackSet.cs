@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
         /// </summary>
         public static Task<GetStackSetResult> InvokeAsync(GetStackSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
         /// </summary>
         public static Output<GetStackSetResult> Invoke(GetStackSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackSetResult>("aws-native:cloudformation:getStackSet", args ?? new GetStackSetInvokeArgs(), options.WithDefaults());
     }
 
 

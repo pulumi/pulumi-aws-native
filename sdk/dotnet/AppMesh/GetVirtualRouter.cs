@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::VirtualRouter
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualRouter
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("aws-native:appmesh:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());
     }
 
 

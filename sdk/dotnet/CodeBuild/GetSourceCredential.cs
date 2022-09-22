@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeBuild
         /// Resource Type definition for AWS::CodeBuild::SourceCredential
         /// </summary>
         public static Task<GetSourceCredentialResult> InvokeAsync(GetSourceCredentialArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceCredentialResult>("aws-native:codebuild:getSourceCredential", args ?? new GetSourceCredentialArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceCredentialResult>("aws-native:codebuild:getSourceCredential", args ?? new GetSourceCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeBuild::SourceCredential
         /// </summary>
         public static Output<GetSourceCredentialResult> Invoke(GetSourceCredentialInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSourceCredentialResult>("aws-native:codebuild:getSourceCredential", args ?? new GetSourceCredentialInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceCredentialResult>("aws-native:codebuild:getSourceCredential", args ?? new GetSourceCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

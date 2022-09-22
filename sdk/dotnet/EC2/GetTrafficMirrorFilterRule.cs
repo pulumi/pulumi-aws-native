@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::TrafficMirrorFilterRule
         /// </summary>
         public static Task<GetTrafficMirrorFilterRuleResult> InvokeAsync(GetTrafficMirrorFilterRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorFilterRuleResult>("aws-native:ec2:getTrafficMirrorFilterRule", args ?? new GetTrafficMirrorFilterRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficMirrorFilterRuleResult>("aws-native:ec2:getTrafficMirrorFilterRule", args ?? new GetTrafficMirrorFilterRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TrafficMirrorFilterRule
         /// </summary>
         public static Output<GetTrafficMirrorFilterRuleResult> Invoke(GetTrafficMirrorFilterRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorFilterRuleResult>("aws-native:ec2:getTrafficMirrorFilterRule", args ?? new GetTrafficMirrorFilterRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrafficMirrorFilterRuleResult>("aws-native:ec2:getTrafficMirrorFilterRule", args ?? new GetTrafficMirrorFilterRuleInvokeArgs(), options.WithDefaults());
     }
 
 

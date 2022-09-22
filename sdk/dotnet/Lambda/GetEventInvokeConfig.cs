@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::EventInvokeConfig
         /// </summary>
         public static Task<GetEventInvokeConfigResult> InvokeAsync(GetEventInvokeConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::EventInvokeConfig
         /// </summary>
         public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
     }
 
 

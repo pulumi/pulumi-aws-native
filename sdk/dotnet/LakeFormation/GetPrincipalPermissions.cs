@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LakeFormation
         /// A resource schema representing a Lake Formation Permission.
         /// </summary>
         public static Task<GetPrincipalPermissionsResult> InvokeAsync(GetPrincipalPermissionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalPermissionsResult>("aws-native:lakeformation:getPrincipalPermissions", args ?? new GetPrincipalPermissionsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrincipalPermissionsResult>("aws-native:lakeformation:getPrincipalPermissions", args ?? new GetPrincipalPermissionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema representing a Lake Formation Permission.
         /// </summary>
         public static Output<GetPrincipalPermissionsResult> Invoke(GetPrincipalPermissionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrincipalPermissionsResult>("aws-native:lakeformation:getPrincipalPermissions", args ?? new GetPrincipalPermissionsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrincipalPermissionsResult>("aws-native:lakeformation:getPrincipalPermissions", args ?? new GetPrincipalPermissionsInvokeArgs(), options.WithDefaults());
     }
 
 

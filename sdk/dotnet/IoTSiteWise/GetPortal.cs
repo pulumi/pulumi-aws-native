@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// Resource schema for AWS::IoTSiteWise::Portal
         /// </summary>
         public static Task<GetPortalResult> InvokeAsync(GetPortalArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::IoTSiteWise::Portal
         /// </summary>
         public static Output<GetPortalResult> Invoke(GetPortalInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPortalResult>("aws-native:iotsitewise:getPortal", args ?? new GetPortalInvokeArgs(), options.WithDefaults());
     }
 
 

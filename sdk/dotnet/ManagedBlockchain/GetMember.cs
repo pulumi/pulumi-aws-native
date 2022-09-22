@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         /// Resource Type definition for AWS::ManagedBlockchain::Member
         /// </summary>
         public static Task<GetMemberResult> InvokeAsync(GetMemberArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMemberResult>("aws-native:managedblockchain:getMember", args ?? new GetMemberArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMemberResult>("aws-native:managedblockchain:getMember", args ?? new GetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ManagedBlockchain::Member
         /// </summary>
         public static Output<GetMemberResult> Invoke(GetMemberInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMemberResult>("aws-native:managedblockchain:getMember", args ?? new GetMemberInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMemberResult>("aws-native:managedblockchain:getMember", args ?? new GetMemberInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Resource Type definition for AWS::GlobalAccelerator::Listener
         /// </summary>
         public static Task<GetListenerResult> InvokeAsync(GetListenerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Listener
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

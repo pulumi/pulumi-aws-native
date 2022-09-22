@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.StepFunctions
         /// Resource schema for Activity
         /// </summary>
         public static Task<GetActivityResult> InvokeAsync(GetActivityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for Activity
         /// </summary>
         public static Output<GetActivityResult> Invoke(GetActivityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws-native:stepfunctions:getActivity", args ?? new GetActivityInvokeArgs(), options.WithDefaults());
     }
 
 

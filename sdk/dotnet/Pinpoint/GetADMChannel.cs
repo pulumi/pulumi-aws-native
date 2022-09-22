@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::ADMChannel
         /// </summary>
         public static Task<GetADMChannelResult> InvokeAsync(GetADMChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::ADMChannel
         /// </summary>
         public static Output<GetADMChannelResult> Invoke(GetADMChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetADMChannelResult>("aws-native:pinpoint:getADMChannel", args ?? new GetADMChannelInvokeArgs(), options.WithDefaults());
     }
 
 

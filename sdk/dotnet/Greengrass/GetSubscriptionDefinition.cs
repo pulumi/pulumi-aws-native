@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinition
         /// </summary>
         public static Task<GetSubscriptionDefinitionResult> InvokeAsync(GetSubscriptionDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::SubscriptionDefinition
         /// </summary>
         public static Output<GetSubscriptionDefinitionResult> Invoke(GetSubscriptionDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionDefinitionResult>("aws-native:greengrass:getSubscriptionDefinition", args ?? new GetSubscriptionDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

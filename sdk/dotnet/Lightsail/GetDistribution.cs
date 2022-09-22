@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// Resource Type definition for AWS::Lightsail::Distribution
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::Distribution
         /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:lightsail:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
     }
 
 

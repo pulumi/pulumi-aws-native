@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::ApiKey
         /// </summary>
         public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::ApiKey
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 

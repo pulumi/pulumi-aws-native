@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Resource Type definition for AWS::CloudWatch::InsightRule
         /// </summary>
         public static Task<GetInsightRuleResult> InvokeAsync(GetInsightRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::InsightRule
         /// </summary>
         public static Output<GetInsightRuleResult> Invoke(GetInsightRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInsightRuleResult>("aws-native:cloudwatch:getInsightRule", args ?? new GetInsightRuleInvokeArgs(), options.WithDefaults());
     }
 
 

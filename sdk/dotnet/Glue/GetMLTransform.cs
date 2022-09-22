@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::MLTransform
         /// </summary>
         public static Task<GetMLTransformResult> InvokeAsync(GetMLTransformArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::MLTransform
         /// </summary>
         public static Output<GetMLTransformResult> Invoke(GetMLTransformInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMLTransformResult>("aws-native:glue:getMLTransform", args ?? new GetMLTransformInvokeArgs(), options.WithDefaults());
     }
 
 

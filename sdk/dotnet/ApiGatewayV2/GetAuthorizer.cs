@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::Authorizer
         /// </summary>
         public static Task<GetAuthorizerResult> InvokeAsync(GetAuthorizerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws-native:apigatewayv2:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizerResult>("aws-native:apigatewayv2:getAuthorizer", args ?? new GetAuthorizerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::Authorizer
         /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:apigatewayv2:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:apigatewayv2:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
     }
 
 

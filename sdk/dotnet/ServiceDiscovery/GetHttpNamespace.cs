@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
         /// </summary>
         public static Task<GetHttpNamespaceResult> InvokeAsync(GetHttpNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
         /// </summary>
         public static Output<GetHttpNamespaceResult> Invoke(GetHttpNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHttpNamespaceResult>("aws-native:servicediscovery:getHttpNamespace", args ?? new GetHttpNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

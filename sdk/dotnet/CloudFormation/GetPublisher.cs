@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Register as a publisher in the CloudFormation Registry.
         /// </summary>
         public static Task<GetPublisherResult> InvokeAsync(GetPublisherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Register as a publisher in the CloudFormation Registry.
         /// </summary>
         public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
     }
 
 

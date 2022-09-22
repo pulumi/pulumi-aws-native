@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCCidrBlock
         /// </summary>
         public static Task<GetVPCCidrBlockResult> InvokeAsync(GetVPCCidrBlockArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCCidrBlock
         /// </summary>
         public static Output<GetVPCCidrBlockResult> Invoke(GetVPCCidrBlockInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCCidrBlockResult>("aws-native:ec2:getVPCCidrBlock", args ?? new GetVPCCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 

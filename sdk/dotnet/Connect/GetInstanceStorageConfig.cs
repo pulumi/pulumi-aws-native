@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Connect
         /// Resource Type definition for AWS::Connect::InstanceStorageConfig
         /// </summary>
         public static Task<GetInstanceStorageConfigResult> InvokeAsync(GetInstanceStorageConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceStorageConfigResult>("aws-native:connect:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceStorageConfigResult>("aws-native:connect:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::InstanceStorageConfig
         /// </summary>
         public static Output<GetInstanceStorageConfigResult> Invoke(GetInstanceStorageConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws-native:connect:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceStorageConfigResult>("aws-native:connect:getInstanceStorageConfig", args ?? new GetInstanceStorageConfigInvokeArgs(), options.WithDefaults());
     }
 
 

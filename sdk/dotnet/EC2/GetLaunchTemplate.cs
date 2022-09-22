@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::LaunchTemplate
         /// </summary>
         public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::LaunchTemplate
         /// </summary>
         public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws-native:ec2:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

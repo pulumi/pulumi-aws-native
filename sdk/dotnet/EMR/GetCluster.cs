@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EMR
         /// Resource Type definition for AWS::EMR::Cluster
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:emr:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws-native:emr:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EMR::Cluster
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:emr:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:emr:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

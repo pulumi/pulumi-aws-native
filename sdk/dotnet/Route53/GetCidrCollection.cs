@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53
         /// Resource schema for AWS::Route53::CidrCollection.
         /// </summary>
         public static Task<GetCidrCollectionResult> InvokeAsync(GetCidrCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCidrCollectionResult>("aws-native:route53:getCidrCollection", args ?? new GetCidrCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCidrCollectionResult>("aws-native:route53:getCidrCollection", args ?? new GetCidrCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53::CidrCollection.
         /// </summary>
         public static Output<GetCidrCollectionResult> Invoke(GetCidrCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCidrCollectionResult>("aws-native:route53:getCidrCollection", args ?? new GetCidrCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCidrCollectionResult>("aws-native:route53:getCidrCollection", args ?? new GetCidrCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

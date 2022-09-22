@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// Resource Type definition for AWS::GameLift::Script
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Script
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("aws-native:gamelift:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
     }
 
 

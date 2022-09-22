@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::ClientCertificate
         /// </summary>
         public static Task<GetClientCertificateResult> InvokeAsync(GetClientCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::ClientCertificate
         /// </summary>
         public static Output<GetClientCertificateResult> Invoke(GetClientCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

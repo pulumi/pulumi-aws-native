@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.HealthLake
         /// HealthLake FHIR Datastore
         /// </summary>
         public static Task<GetFHIRDatastoreResult> InvokeAsync(GetFHIRDatastoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// HealthLake FHIR Datastore
         /// </summary>
         public static Output<GetFHIRDatastoreResult> Invoke(GetFHIRDatastoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFHIRDatastoreResult>("aws-native:healthlake:getFHIRDatastore", args ?? new GetFHIRDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

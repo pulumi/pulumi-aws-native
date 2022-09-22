@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::StreamingDistribution
         /// </summary>
         public static Task<GetStreamingDistributionResult> InvokeAsync(GetStreamingDistributionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::StreamingDistribution
         /// </summary>
         public static Output<GetStreamingDistributionResult> Invoke(GetStreamingDistributionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingDistributionResult>("aws-native:cloudfront:getStreamingDistribution", args ?? new GetStreamingDistributionInvokeArgs(), options.WithDefaults());
     }
 
 

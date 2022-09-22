@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Detective
         /// Resource schema for AWS::Detective::Graph
         /// </summary>
         public static Task<GetGraphResult> InvokeAsync(GetGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Detective::Graph
         /// </summary>
         public static Output<GetGraphResult> Invoke(GetGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphResult>("aws-native:detective:getGraph", args ?? new GetGraphInvokeArgs(), options.WithDefaults());
     }
 
 

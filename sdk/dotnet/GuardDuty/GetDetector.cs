@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GuardDuty
         /// Resource Type definition for AWS::GuardDuty::Detector
         /// </summary>
         public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::Detector
         /// </summary>
         public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws-native:guardduty:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// Definition of AWS::RefactorSpaces::Route Resource Type
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::RefactorSpaces::Route Resource Type
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

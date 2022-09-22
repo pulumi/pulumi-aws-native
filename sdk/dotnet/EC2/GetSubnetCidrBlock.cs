@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::SubnetCidrBlock
         /// </summary>
         public static Task<GetSubnetCidrBlockResult> InvokeAsync(GetSubnetCidrBlockArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetCidrBlock
         /// </summary>
         public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 
