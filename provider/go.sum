@@ -819,8 +819,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.35.4-0.20220707201547-515cf6191cb9/go.mod h1:
 github.com/pulumi/pulumi/pkg/v3 v3.36.1-0.20220725155140-d69eea638451/go.mod h1:W6+hMuAfpcsQONfi3e/El4yavNNeER7NDpGS29dQHVQ=
 github.com/pulumi/pulumi/pkg/v3 v3.37.3-0.20220809202049-8441ea2eeefd/go.mod h1:fqioE6+15BcfbrwtMbatflfCSZtKtjJe2t+z6itTkt0=
 github.com/pulumi/pulumi/pkg/v3 v3.38.1-0.20220825161912-0fc18cbafb78/go.mod h1:b1VnAnwsu+rLwFSZJ6Awxl8czGpypf1QeNCiBinLC00=
-github.com/pulumi/pulumi/pkg/v3 v3.40.0 h1:DgFF8WVygu5tioxhhD0v32BySiTDXGrHPVf4rtRSMjs=
-github.com/pulumi/pulumi/pkg/v3 v3.40.0/go.mod h1:wjXisTOj3NrYejuTZdWrkjUPiPweD0jkNmcyX4Qr/sg=
+github.com/pulumi/pulumi/pkg/v3 v3.40.1 h1:uY1KQQ1ljcplXmvSDDh43mpCrYWohPCqXX6Q+VkLJic=
+github.com/pulumi/pulumi/pkg/v3 v3.40.1/go.mod h1:Of6sFHjTHQGIFqUoXOu2fG/H+HzR4bQRDNTUZZrIvUY=
 github.com/pulumi/pulumi/sdk/v3 v3.26.0/go.mod h1:VsxW+TGv2VBLe/MeqsAr9r0zKzK/gbAhFT9QxYr24cY=
 github.com/pulumi/pulumi/sdk/v3 v3.28.0/go.mod h1:Oe6AnW5MjJE5X2UJeqeXm1Al7qahdLVhIPeiKuoqxAw=
 github.com/pulumi/pulumi/sdk/v3 v3.31.0/go.mod h1:hGo/+AL1L4sPL9Ukd/i5bNFM3WHs3dHcA+GKEW7M3RA=
@@ -838,8 +838,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.37.2/go.mod h1:e1xuPnh9aKzCesrFf96DEzcybLdRWR
 github.com/pulumi/pulumi/sdk/v3 v3.37.3-0.20220809202049-8441ea2eeefd/go.mod h1:3/6Fr/c01n7Hw7mtAlO7X8WMBgLP5AVTyYe4CRfJQc4=
 github.com/pulumi/pulumi/sdk/v3 v3.38.0/go.mod h1:3/6Fr/c01n7Hw7mtAlO7X8WMBgLP5AVTyYe4CRfJQc4=
 github.com/pulumi/pulumi/sdk/v3 v3.38.1-0.20220825161912-0fc18cbafb78/go.mod h1:Fw52iyR/4T9xWm7cTcshy4rGEXyPwhXKKEalczKZ8RY=
-github.com/pulumi/pulumi/sdk/v3 v3.40.0 h1:s1XNwPIyW7bU4Dn0U8sd2nVQ0SiYLuLSpu5GDa+oGRQ=
-github.com/pulumi/pulumi/sdk/v3 v3.40.0/go.mod h1:Fw52iyR/4T9xWm7cTcshy4rGEXyPwhXKKEalczKZ8RY=
+github.com/pulumi/pulumi/sdk/v3 v3.40.1 h1:PLKYHyRffrO9nNfidDGGr2xkf8G0wjtSZx1Zj7OwyyA=
+github.com/pulumi/pulumi/sdk/v3 v3.40.1/go.mod h1:tSNA8Z+GnEjMxH+qtrfcwpmOQj7mTPTAmJUhwvuox5I=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
