@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Create and manage a Domain Configuration
         /// </summary>
         public static Task<GetDomainConfigurationResult> InvokeAsync(GetDomainConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage a Domain Configuration
         /// </summary>
         public static Output<GetDomainConfigurationResult> Invoke(GetDomainConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainConfigurationResult>("aws-native:iot:getDomainConfiguration", args ?? new GetDomainConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

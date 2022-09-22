@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SecurityHub
         /// Resource Type definition for AWS::SecurityHub::Hub
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecurityHub::Hub
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 

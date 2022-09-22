@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Athena
         /// Resource schema for AWS::Athena::NamedQuery
         /// </summary>
         public static Task<GetNamedQueryResult> InvokeAsync(GetNamedQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Athena::NamedQuery
         /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
     }
 
 

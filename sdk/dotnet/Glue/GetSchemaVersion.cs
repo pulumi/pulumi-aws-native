@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
         /// </summary>
         public static Task<GetSchemaVersionResult> InvokeAsync(GetSchemaVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
         /// </summary>
         public static Output<GetSchemaVersionResult> Invoke(GetSchemaVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaVersionResult>("aws-native:glue:getSchemaVersion", args ?? new GetSchemaVersionInvokeArgs(), options.WithDefaults());
     }
 
 

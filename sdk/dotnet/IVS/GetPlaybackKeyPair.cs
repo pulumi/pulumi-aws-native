@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IVS
         /// Resource Type definition for AWS::IVS::PlaybackKeyPair
         /// </summary>
         public static Task<GetPlaybackKeyPairResult> InvokeAsync(GetPlaybackKeyPairArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IVS::PlaybackKeyPair
         /// </summary>
         public static Output<GetPlaybackKeyPairResult> Invoke(GetPlaybackKeyPairInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaybackKeyPairResult>("aws-native:ivs:getPlaybackKeyPair", args ?? new GetPlaybackKeyPairInvokeArgs(), options.WithDefaults());
     }
 
 

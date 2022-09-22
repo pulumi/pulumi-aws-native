@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::Segment
         /// </summary>
         public static Task<GetSegmentResult> InvokeAsync(GetSegmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::Segment
         /// </summary>
         public static Output<GetSegmentResult> Invoke(GetSegmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSegmentResult>("aws-native:pinpoint:getSegment", args ?? new GetSegmentInvokeArgs(), options.WithDefaults());
     }
 
 

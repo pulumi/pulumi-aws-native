@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
         /// </summary>
         public static Task<GetLoggingResult> InvokeAsync(GetLoggingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
         /// </summary>
         public static Output<GetLoggingResult> Invoke(GetLoggingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggingResult>("aws-native:iot:getLogging", args ?? new GetLoggingInvokeArgs(), options.WithDefaults());
     }
 
 

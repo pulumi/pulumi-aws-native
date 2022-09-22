@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
         /// </summary>
         public static Task<GetLoggerDefinitionVersionResult> InvokeAsync(GetLoggerDefinitionVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
         /// </summary>
         public static Output<GetLoggerDefinitionVersionResult> Invoke(GetLoggerDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggerDefinitionVersionResult>("aws-native:greengrass:getLoggerDefinitionVersion", args ?? new GetLoggerDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 

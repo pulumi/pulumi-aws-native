@@ -12,10 +12,10 @@ namespace Pulumi.AwsNative
     public static class ImportValue
     {
         public static Task<ImportValueResult> InvokeAsync(ImportValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueArgs(), options.WithDefaults());
 
         public static Output<ImportValueResult> Invoke(ImportValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Resource Type definition for AWS::GlobalAccelerator::Accelerator
         /// </summary>
         public static Task<GetAcceleratorResult> InvokeAsync(GetAcceleratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::Accelerator
         /// </summary>
         public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws-native:globalaccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
 

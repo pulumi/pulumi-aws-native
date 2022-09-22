@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::AccessKey
         /// </summary>
         public static Task<GetAccessKeyResult> InvokeAsync(GetAccessKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::AccessKey
         /// </summary>
         public static Output<GetAccessKeyResult> Invoke(GetAccessKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessKeyResult>("aws-native:iam:getAccessKey", args ?? new GetAccessKeyInvokeArgs(), options.WithDefaults());
     }
 
 

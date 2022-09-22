@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Macie
         /// Macie CustomDataIdentifier resource schema
         /// </summary>
         public static Task<GetCustomDataIdentifierResult> InvokeAsync(GetCustomDataIdentifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Macie CustomDataIdentifier resource schema
         /// </summary>
         public static Output<GetCustomDataIdentifierResult> Invoke(GetCustomDataIdentifierInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierInvokeArgs(), options.WithDefaults());
     }
 
 

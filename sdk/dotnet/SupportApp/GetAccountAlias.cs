@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SupportApp
         /// An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
         /// </summary>
         public static Task<GetAccountAliasResult> InvokeAsync(GetAccountAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAliasResult>("aws-native:supportapp:getAccountAlias", args ?? new GetAccountAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountAliasResult>("aws-native:supportapp:getAccountAlias", args ?? new GetAccountAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
         /// </summary>
         public static Output<GetAccountAliasResult> Invoke(GetAccountAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountAliasResult>("aws-native:supportapp:getAccountAlias", args ?? new GetAccountAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountAliasResult>("aws-native:supportapp:getAccountAlias", args ?? new GetAccountAliasInvokeArgs(), options.WithDefaults());
     }
 
 

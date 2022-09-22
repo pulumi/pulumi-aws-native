@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::ConfigurationRecorder
         /// </summary>
         public static Task<GetConfigurationRecorderResult> InvokeAsync(GetConfigurationRecorderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::ConfigurationRecorder
         /// </summary>
         public static Output<GetConfigurationRecorderResult> Invoke(GetConfigurationRecorderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationRecorderResult>("aws-native:configuration:getConfigurationRecorder", args ?? new GetConfigurationRecorderInvokeArgs(), options.WithDefaults());
     }
 
 

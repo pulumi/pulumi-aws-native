@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::ImageBuilder
         /// </summary>
         public static Task<GetImageBuilderResult> InvokeAsync(GetImageBuilderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::ImageBuilder
         /// </summary>
         public static Output<GetImageBuilderResult> Invoke(GetImageBuilderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderInvokeArgs(), options.WithDefaults());
     }
 
 

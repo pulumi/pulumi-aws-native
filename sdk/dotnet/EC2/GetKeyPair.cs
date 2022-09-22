@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::KeyPair creates an SSH key pair
         /// </summary>
         public static Task<GetKeyPairResult> InvokeAsync(GetKeyPairArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::KeyPair creates an SSH key pair
         /// </summary>
         public static Output<GetKeyPairResult> Invoke(GetKeyPairInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyPairResult>("aws-native:ec2:getKeyPair", args ?? new GetKeyPairInvokeArgs(), options.WithDefaults());
     }
 
 

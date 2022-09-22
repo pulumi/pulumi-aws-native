@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.OpsWorks
         /// Resource Type definition for AWS::OpsWorks::Layer
         /// </summary>
         public static Task<GetLayerResult> InvokeAsync(GetLayerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Layer
         /// </summary>
         public static Output<GetLayerResult> Invoke(GetLayerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLayerResult>("aws-native:opsworks:getLayer", args ?? new GetLayerInvokeArgs(), options.WithDefaults());
     }
 
 

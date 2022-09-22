@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.FSx
         /// Resource Type definition for AWS::FSx::StorageVirtualMachine
         /// </summary>
         public static Task<GetStorageVirtualMachineResult> InvokeAsync(GetStorageVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageVirtualMachineResult>("aws-native:fsx:getStorageVirtualMachine", args ?? new GetStorageVirtualMachineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageVirtualMachineResult>("aws-native:fsx:getStorageVirtualMachine", args ?? new GetStorageVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::FSx::StorageVirtualMachine
         /// </summary>
         public static Output<GetStorageVirtualMachineResult> Invoke(GetStorageVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageVirtualMachineResult>("aws-native:fsx:getStorageVirtualMachine", args ?? new GetStorageVirtualMachineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageVirtualMachineResult>("aws-native:fsx:getStorageVirtualMachine", args ?? new GetStorageVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

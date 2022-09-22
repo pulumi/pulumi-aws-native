@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53
         /// Resource schema for AWS::Route53::HostedZone.
         /// </summary>
         public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53::HostedZone.
         /// </summary>
         public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws-native:route53:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithDefaults());
     }
 
 

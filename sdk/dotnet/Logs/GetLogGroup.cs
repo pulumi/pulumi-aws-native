@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Logs
         /// Resource schema for AWS::Logs::LogGroup
         /// </summary>
         public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Logs::LogGroup
         /// </summary>
         public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws-native:logs:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::OriginAccessControl
         /// </summary>
         public static Task<GetOriginAccessControlResult> InvokeAsync(GetOriginAccessControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessControlResult>("aws-native:cloudfront:getOriginAccessControl", args ?? new GetOriginAccessControlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOriginAccessControlResult>("aws-native:cloudfront:getOriginAccessControl", args ?? new GetOriginAccessControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::OriginAccessControl
         /// </summary>
         public static Output<GetOriginAccessControlResult> Invoke(GetOriginAccessControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOriginAccessControlResult>("aws-native:cloudfront:getOriginAccessControl", args ?? new GetOriginAccessControlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginAccessControlResult>("aws-native:cloudfront:getOriginAccessControl", args ?? new GetOriginAccessControlInvokeArgs(), options.WithDefaults());
     }
 
 

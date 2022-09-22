@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Neptune
         /// Resource Type definition for AWS::Neptune::DBInstance
         /// </summary>
         public static Task<GetDBInstanceResult> InvokeAsync(GetDBInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:neptune:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:neptune:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBInstance
         /// </summary>
         public static Output<GetDBInstanceResult> Invoke(GetDBInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:neptune:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:neptune:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

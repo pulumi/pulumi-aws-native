@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::EventStream
         /// </summary>
         public static Task<GetEventStreamResult> InvokeAsync(GetEventStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::EventStream
         /// </summary>
         public static Output<GetEventStreamResult> Invoke(GetEventStreamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventStreamResult>("aws-native:pinpoint:getEventStream", args ?? new GetEventStreamInvokeArgs(), options.WithDefaults());
     }
 
 

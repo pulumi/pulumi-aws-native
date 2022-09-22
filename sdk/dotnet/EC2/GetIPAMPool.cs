@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Schema of AWS::EC2::IPAMPool Type
         /// </summary>
         public static Task<GetIPAMPoolResult> InvokeAsync(GetIPAMPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMPool Type
         /// </summary>
         public static Output<GetIPAMPoolResult> Invoke(GetIPAMPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPAMPoolResult>("aws-native:ec2:getIPAMPool", args ?? new GetIPAMPoolInvokeArgs(), options.WithDefaults());
     }
 
 

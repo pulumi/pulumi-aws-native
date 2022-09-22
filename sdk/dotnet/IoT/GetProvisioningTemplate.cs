@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Creates a fleet provisioning template.
         /// </summary>
         public static Task<GetProvisioningTemplateResult> InvokeAsync(GetProvisioningTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates a fleet provisioning template.
         /// </summary>
         public static Output<GetProvisioningTemplateResult> Invoke(GetProvisioningTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

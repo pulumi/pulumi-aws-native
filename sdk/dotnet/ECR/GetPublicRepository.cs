@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECR
         /// The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
         /// </summary>
         public static Task<GetPublicRepositoryResult> InvokeAsync(GetPublicRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicRepositoryResult>("aws-native:ecr:getPublicRepository", args ?? new GetPublicRepositoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicRepositoryResult>("aws-native:ecr:getPublicRepository", args ?? new GetPublicRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
         /// </summary>
         public static Output<GetPublicRepositoryResult> Invoke(GetPublicRepositoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicRepositoryResult>("aws-native:ecr:getPublicRepository", args ?? new GetPublicRepositoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicRepositoryResult>("aws-native:ecr:getPublicRepository", args ?? new GetPublicRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::BaiduChannel
         /// </summary>
         public static Task<GetBaiduChannelResult> InvokeAsync(GetBaiduChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::BaiduChannel
         /// </summary>
         public static Output<GetBaiduChannelResult> Invoke(GetBaiduChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBaiduChannelResult>("aws-native:pinpoint:getBaiduChannel", args ?? new GetBaiduChannelInvokeArgs(), options.WithDefaults());
     }
 
 

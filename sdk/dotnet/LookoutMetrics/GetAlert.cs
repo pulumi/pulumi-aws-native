@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// Resource Type definition for AWS::LookoutMetrics::Alert
         /// </summary>
         public static Task<GetAlertResult> InvokeAsync(GetAlertArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::LookoutMetrics::Alert
         /// </summary>
         public static Output<GetAlertResult> Invoke(GetAlertInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertResult>("aws-native:lookoutmetrics:getAlert", args ?? new GetAlertInvokeArgs(), options.WithDefaults());
     }
 
 

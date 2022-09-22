@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The AWS::NetworkManager::Link type describes a link.
         /// </summary>
         public static Task<GetLinkResult> InvokeAsync(GetLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::NetworkManager::Link type describes a link.
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws-native:networkmanager:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
 

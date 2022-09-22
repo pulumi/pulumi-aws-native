@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Neptune
         /// Resource Type definition for AWS::Neptune::DBParameterGroup
         /// </summary>
         public static Task<GetDBParameterGroupResult> InvokeAsync(GetDBParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Neptune::DBParameterGroup
         /// </summary>
         public static Output<GetDBParameterGroupResult> Invoke(GetDBParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:neptune:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// Resource Type definition for AWS::AppIntegrations::DataIntegration
         /// </summary>
         public static Task<GetDataIntegrationResult> InvokeAsync(GetDataIntegrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataIntegrationResult>("aws-native:appintegrations:getDataIntegration", args ?? new GetDataIntegrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataIntegrationResult>("aws-native:appintegrations:getDataIntegration", args ?? new GetDataIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppIntegrations::DataIntegration
         /// </summary>
         public static Output<GetDataIntegrationResult> Invoke(GetDataIntegrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataIntegrationResult>("aws-native:appintegrations:getDataIntegration", args ?? new GetDataIntegrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataIntegrationResult>("aws-native:appintegrations:getDataIntegration", args ?? new GetDataIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

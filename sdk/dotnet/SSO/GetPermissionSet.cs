@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSO
         /// Resource Type definition for SSO PermissionSet
         /// </summary>
         public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for SSO PermissionSet
         /// </summary>
         public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
     }
 
 

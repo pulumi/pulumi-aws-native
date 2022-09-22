@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Batch
         /// Resource Type schema for AWS::Batch::SchedulingPolicy
         /// </summary>
         public static Task<GetSchedulingPolicyResult> InvokeAsync(GetSchedulingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type schema for AWS::Batch::SchedulingPolicy
         /// </summary>
         public static Output<GetSchedulingPolicyResult> Invoke(GetSchedulingPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchedulingPolicyResult>("aws-native:batch:getSchedulingPolicy", args ?? new GetSchedulingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

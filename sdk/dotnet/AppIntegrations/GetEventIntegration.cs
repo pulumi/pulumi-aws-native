@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppIntegrations
         /// Resource Type definition for AWS::AppIntegrations::EventIntegration
         /// </summary>
         public static Task<GetEventIntegrationResult> InvokeAsync(GetEventIntegrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppIntegrations::EventIntegration
         /// </summary>
         public static Output<GetEventIntegrationResult> Invoke(GetEventIntegrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventIntegrationResult>("aws-native:appintegrations:getEventIntegration", args ?? new GetEventIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

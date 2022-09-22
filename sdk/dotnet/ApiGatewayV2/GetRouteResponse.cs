@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
         /// </summary>
         public static Task<GetRouteResponseResult> InvokeAsync(GetRouteResponseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::RouteResponse
         /// </summary>
         public static Output<GetRouteResponseResult> Invoke(GetRouteResponseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseInvokeArgs(), options.WithDefaults());
     }
 
 

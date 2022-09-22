@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
         /// </summary>
         public static Task<GetRegistryResult> InvokeAsync(GetRegistryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("aws-native:glue:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

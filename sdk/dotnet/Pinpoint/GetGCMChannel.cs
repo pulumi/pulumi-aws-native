@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::GCMChannel
         /// </summary>
         public static Task<GetGCMChannelResult> InvokeAsync(GetGCMChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::GCMChannel
         /// </summary>
         public static Output<GetGCMChannelResult> Invoke(GetGCMChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGCMChannelResult>("aws-native:pinpoint:getGCMChannel", args ?? new GetGCMChannelInvokeArgs(), options.WithDefaults());
     }
 
 

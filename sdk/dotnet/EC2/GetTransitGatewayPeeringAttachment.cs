@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::TransitGatewayPeeringAttachment type
         /// </summary>
         public static Task<GetTransitGatewayPeeringAttachmentResult> InvokeAsync(GetTransitGatewayPeeringAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayPeeringAttachment type
         /// </summary>
         public static Output<GetTransitGatewayPeeringAttachmentResult> Invoke(GetTransitGatewayPeeringAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

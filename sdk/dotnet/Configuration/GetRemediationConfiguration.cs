@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::RemediationConfiguration
         /// </summary>
         public static Task<GetRemediationConfigurationResult> InvokeAsync(GetRemediationConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::RemediationConfiguration
         /// </summary>
         public static Output<GetRemediationConfigurationResult> Invoke(GetRemediationConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemediationConfigurationResult>("aws-native:configuration:getRemediationConfiguration", args ?? new GetRemediationConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

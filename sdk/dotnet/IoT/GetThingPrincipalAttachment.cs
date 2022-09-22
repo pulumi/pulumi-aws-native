@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Resource Type definition for AWS::IoT::ThingPrincipalAttachment
         /// </summary>
         public static Task<GetThingPrincipalAttachmentResult> InvokeAsync(GetThingPrincipalAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IoT::ThingPrincipalAttachment
         /// </summary>
         public static Output<GetThingPrincipalAttachmentResult> Invoke(GetThingPrincipalAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThingPrincipalAttachmentResult>("aws-native:iot:getThingPrincipalAttachment", args ?? new GetThingPrincipalAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

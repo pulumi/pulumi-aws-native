@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
         /// </summary>
         public static Task<GetLaunchNotificationConstraintResult> InvokeAsync(GetLaunchNotificationConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchNotificationConstraintResult>("aws-native:servicecatalog:getLaunchNotificationConstraint", args ?? new GetLaunchNotificationConstraintArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchNotificationConstraintResult>("aws-native:servicecatalog:getLaunchNotificationConstraint", args ?? new GetLaunchNotificationConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
         /// </summary>
         public static Output<GetLaunchNotificationConstraintResult> Invoke(GetLaunchNotificationConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchNotificationConstraintResult>("aws-native:servicecatalog:getLaunchNotificationConstraint", args ?? new GetLaunchNotificationConstraintInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchNotificationConstraintResult>("aws-native:servicecatalog:getLaunchNotificationConstraint", args ?? new GetLaunchNotificationConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

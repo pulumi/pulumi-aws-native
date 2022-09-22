@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// Resource Type definition for AWS::ServiceDiscovery::Service
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:servicediscovery:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws-native:servicediscovery:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::Service
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:servicediscovery:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:servicediscovery:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

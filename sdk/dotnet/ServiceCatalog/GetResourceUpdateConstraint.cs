@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
         /// </summary>
         public static Task<GetResourceUpdateConstraintResult> InvokeAsync(GetResourceUpdateConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceUpdateConstraintResult>("aws-native:servicecatalog:getResourceUpdateConstraint", args ?? new GetResourceUpdateConstraintArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceUpdateConstraintResult>("aws-native:servicecatalog:getResourceUpdateConstraint", args ?? new GetResourceUpdateConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
         /// </summary>
         public static Output<GetResourceUpdateConstraintResult> Invoke(GetResourceUpdateConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceUpdateConstraintResult>("aws-native:servicecatalog:getResourceUpdateConstraint", args ?? new GetResourceUpdateConstraintInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceUpdateConstraintResult>("aws-native:servicecatalog:getResourceUpdateConstraint", args ?? new GetResourceUpdateConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

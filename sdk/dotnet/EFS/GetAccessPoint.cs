@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EFS
         /// Resource Type definition for AWS::EFS::AccessPoint
         /// </summary>
         public static Task<GetAccessPointResult> InvokeAsync(GetAccessPointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EFS::AccessPoint
         /// </summary>
         public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:efs:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DMS
         /// Resource Type definition for AWS::DMS::ReplicationSubnetGroup
         /// </summary>
         public static Task<GetReplicationSubnetGroupResult> InvokeAsync(GetReplicationSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DMS::ReplicationSubnetGroup
         /// </summary>
         public static Output<GetReplicationSubnetGroupResult> Invoke(GetReplicationSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSubnetGroupResult>("aws-native:dms:getReplicationSubnetGroup", args ?? new GetReplicationSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

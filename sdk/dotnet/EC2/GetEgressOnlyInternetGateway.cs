@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
         /// </summary>
         public static Task<GetEgressOnlyInternetGatewayResult> InvokeAsync(GetEgressOnlyInternetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
         /// </summary>
         public static Output<GetEgressOnlyInternetGatewayResult> Invoke(GetEgressOnlyInternetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

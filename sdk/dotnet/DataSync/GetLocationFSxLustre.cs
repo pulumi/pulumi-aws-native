@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationFSxLustre.
         /// </summary>
         public static Task<GetLocationFSxLustreResult> InvokeAsync(GetLocationFSxLustreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationFSxLustreResult>("aws-native:datasync:getLocationFSxLustre", args ?? new GetLocationFSxLustreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationFSxLustreResult>("aws-native:datasync:getLocationFSxLustre", args ?? new GetLocationFSxLustreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationFSxLustre.
         /// </summary>
         public static Output<GetLocationFSxLustreResult> Invoke(GetLocationFSxLustreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationFSxLustreResult>("aws-native:datasync:getLocationFSxLustre", args ?? new GetLocationFSxLustreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxLustreResult>("aws-native:datasync:getLocationFSxLustre", args ?? new GetLocationFSxLustreInvokeArgs(), options.WithDefaults());
     }
 
 

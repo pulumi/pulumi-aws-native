@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Timestream
         /// The AWS::Timestream::Table resource creates a Timestream Table.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Timestream::Table resource creates a Timestream Table.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

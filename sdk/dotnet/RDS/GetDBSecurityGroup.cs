@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// Resource Type definition for AWS::RDS::DBSecurityGroup
         /// </summary>
         public static Task<GetDBSecurityGroupResult> InvokeAsync(GetDBSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroup
         /// </summary>
         public static Output<GetDBSecurityGroupResult> Invoke(GetDBSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupResult>("aws-native:rds:getDBSecurityGroup", args ?? new GetDBSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

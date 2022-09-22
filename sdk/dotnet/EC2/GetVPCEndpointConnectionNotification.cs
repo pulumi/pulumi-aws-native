@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
         /// </summary>
         public static Task<GetVPCEndpointConnectionNotificationResult> InvokeAsync(GetVPCEndpointConnectionNotificationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
         /// </summary>
         public static Output<GetVPCEndpointConnectionNotificationResult> Invoke(GetVPCEndpointConnectionNotificationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCEndpointConnectionNotificationResult>("aws-native:ec2:getVPCEndpointConnectionNotification", args ?? new GetVPCEndpointConnectionNotificationInvokeArgs(), options.WithDefaults());
     }
 
 

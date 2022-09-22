@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.APS
         /// RuleGroupsNamespace schema for cloudformation.
         /// </summary>
         public static Task<GetRuleGroupsNamespaceResult> InvokeAsync(GetRuleGroupsNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// RuleGroupsNamespace schema for cloudformation.
         /// </summary>
         public static Output<GetRuleGroupsNamespaceResult> Invoke(GetRuleGroupsNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

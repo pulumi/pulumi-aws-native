@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cassandra
         /// Resource schema for AWS::Cassandra::Keyspace
         /// </summary>
         public static Task<GetKeyspaceResult> InvokeAsync(GetKeyspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Cassandra::Keyspace
         /// </summary>
         public static Output<GetKeyspaceResult> Invoke(GetKeyspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceInvokeArgs(), options.WithDefaults());
     }
 
 

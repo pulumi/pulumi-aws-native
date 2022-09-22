@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCPeeringConnection
         /// </summary>
         public static Task<GetVPCPeeringConnectionResult> InvokeAsync(GetVPCPeeringConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCPeeringConnection
         /// </summary>
         public static Output<GetVPCPeeringConnectionResult> Invoke(GetVPCPeeringConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCPeeringConnectionResult>("aws-native:ec2:getVPCPeeringConnection", args ?? new GetVPCPeeringConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

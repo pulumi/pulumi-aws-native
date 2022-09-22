@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DirectoryService
         /// Resource Type definition for AWS::DirectoryService::MicrosoftAD
         /// </summary>
         public static Task<GetMicrosoftADResult> InvokeAsync(GetMicrosoftADArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::MicrosoftAD
         /// </summary>
         public static Output<GetMicrosoftADResult> Invoke(GetMicrosoftADInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftADResult>("aws-native:directoryservice:getMicrosoftAD", args ?? new GetMicrosoftADInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
         /// </summary>
         public static Task<GetLoadBalancerTlsCertificateResult> InvokeAsync(GetLoadBalancerTlsCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
         /// </summary>
         public static Output<GetLoadBalancerTlsCertificateResult> Invoke(GetLoadBalancerTlsCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

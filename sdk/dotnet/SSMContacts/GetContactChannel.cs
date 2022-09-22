@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSMContacts
         /// Resource Type definition for AWS::SSMContacts::ContactChannel
         /// </summary>
         public static Task<GetContactChannelResult> InvokeAsync(GetContactChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSMContacts::ContactChannel
         /// </summary>
         public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::KeyGroup
         /// </summary>
         public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::KeyGroup
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AutoScalingPlans
         /// Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScalingPlans::ScalingPlan
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("aws-native:autoscalingplans:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

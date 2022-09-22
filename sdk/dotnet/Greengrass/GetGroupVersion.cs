@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::GroupVersion
         /// </summary>
         public static Task<GetGroupVersionResult> InvokeAsync(GetGroupVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::GroupVersion
         /// </summary>
         public static Output<GetGroupVersionResult> Invoke(GetGroupVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupVersionResult>("aws-native:greengrass:getGroupVersion", args ?? new GetGroupVersionInvokeArgs(), options.WithDefaults());
     }
 
 

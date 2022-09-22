@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lambda
         /// Resource Type definition for AWS::Lambda::Url
         /// </summary>
         public static Task<GetUrlResult> InvokeAsync(GetUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Lambda::Url
         /// </summary>
         public static Output<GetUrlResult> Invoke(GetUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUrlResult>("aws-native:lambda:getUrl", args ?? new GetUrlInvokeArgs(), options.WithDefaults());
     }
 
 

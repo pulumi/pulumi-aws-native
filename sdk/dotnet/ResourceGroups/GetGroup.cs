@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// Schema for ResourceGroups::Group
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for ResourceGroups::Group
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

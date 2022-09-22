@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// Resource Type definition for AWS::ApiGatewayV2::ApiMapping
         /// </summary>
         public static Task<GetApiMappingResult> InvokeAsync(GetApiMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGatewayV2::ApiMapping
         /// </summary>
         public static Output<GetApiMappingResult> Invoke(GetApiMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiMappingResult>("aws-native:apigatewayv2:getApiMapping", args ?? new GetApiMappingInvokeArgs(), options.WithDefaults());
     }
 
 

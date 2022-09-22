@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCEndpointService
         /// </summary>
         public static Task<GetVPCEndpointServiceResult> InvokeAsync(GetVPCEndpointServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointService
         /// </summary>
         public static Output<GetVPCEndpointServiceResult> Invoke(GetVPCEndpointServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServiceResult>("aws-native:ec2:getVPCEndpointService", args ?? new GetVPCEndpointServiceInvokeArgs(), options.WithDefaults());
     }
 
 

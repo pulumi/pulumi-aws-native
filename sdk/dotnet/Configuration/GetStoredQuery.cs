@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Configuration
         /// Resource Type definition for AWS::Config::StoredQuery
         /// </summary>
         public static Task<GetStoredQueryResult> InvokeAsync(GetStoredQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Config::StoredQuery
         /// </summary>
         public static Output<GetStoredQueryResult> Invoke(GetStoredQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStoredQueryResult>("aws-native:configuration:getStoredQuery", args ?? new GetStoredQueryInvokeArgs(), options.WithDefaults());
     }
 
 

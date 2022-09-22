@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
         /// </summary>
         public static Task<GetDeviceDefinitionVersionResult> InvokeAsync(GetDeviceDefinitionVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
         /// </summary>
         public static Output<GetDeviceDefinitionVersionResult> Invoke(GetDeviceDefinitionVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceDefinitionVersionResult>("aws-native:greengrass:getDeviceDefinitionVersion", args ?? new GetDeviceDefinitionVersionInvokeArgs(), options.WithDefaults());
     }
 
 

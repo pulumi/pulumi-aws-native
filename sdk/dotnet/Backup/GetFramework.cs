@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Backup
         /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
         /// </summary>
         public static Task<GetFrameworkResult> InvokeAsync(GetFrameworkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
         /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
 

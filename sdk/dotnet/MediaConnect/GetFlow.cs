@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// Resource schema for AWS::MediaConnect::Flow
         /// </summary>
         public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::Flow
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:mediaconnect:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::UsagePlan
         /// </summary>
         public static Task<GetUsagePlanResult> InvokeAsync(GetUsagePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::UsagePlan
         /// </summary>
         public static Output<GetUsagePlanResult> Invoke(GetUsagePlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanInvokeArgs(), options.WithDefaults());
     }
 
 

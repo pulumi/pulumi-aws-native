@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LicenseManager
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetGrantResult> InvokeAsync(GetGrantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetGrantResult> Invoke(GetGrantInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantInvokeArgs(), options.WithDefaults());
     }
 
 

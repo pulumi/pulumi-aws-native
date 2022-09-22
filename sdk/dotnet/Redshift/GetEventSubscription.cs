@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Redshift
         /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

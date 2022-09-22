@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFv2
         /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
         /// </summary>
         public static Task<GetIPSetResult> InvokeAsync(GetIPSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
         /// </summary>
         public static Output<GetIPSetResult> Invoke(GetIPSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPSetResult>("aws-native:wafv2:getIPSet", args ?? new GetIPSetInvokeArgs(), options.WithDefaults());
     }
 
 

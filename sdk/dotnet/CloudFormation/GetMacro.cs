@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Resource Type definition for AWS::CloudFormation::Macro
         /// </summary>
         public static Task<GetMacroResult> InvokeAsync(GetMacroArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::Macro
         /// </summary>
         public static Output<GetMacroResult> Invoke(GetMacroInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMacroResult>("aws-native:cloudformation:getMacro", args ?? new GetMacroInvokeArgs(), options.WithDefaults());
     }
 
 

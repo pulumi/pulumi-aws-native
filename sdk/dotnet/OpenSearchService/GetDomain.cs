@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:opensearchservice:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

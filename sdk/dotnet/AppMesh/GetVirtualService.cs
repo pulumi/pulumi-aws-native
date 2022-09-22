@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::VirtualService
         /// </summary>
         public static Task<GetVirtualServiceResult> InvokeAsync(GetVirtualServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualService
         /// </summary>
         public static Output<GetVirtualServiceResult> Invoke(GetVirtualServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualServiceResult>("aws-native:appmesh:getVirtualService", args ?? new GetVirtualServiceInvokeArgs(), options.WithDefaults());
     }
 
 

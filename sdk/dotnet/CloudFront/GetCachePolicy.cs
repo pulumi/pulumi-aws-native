@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// Resource Type definition for AWS::CloudFront::CachePolicy
         /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFront::CachePolicy
         /// </summary>
         public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws-native:cloudfront:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

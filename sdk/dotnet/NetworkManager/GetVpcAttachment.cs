@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// AWS::NetworkManager::VpcAttachment Resoruce Type
         /// </summary>
         public static Task<GetVpcAttachmentResult> InvokeAsync(GetVpcAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws-native:networkmanager:getVpcAttachment", args ?? new GetVpcAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentResult>("aws-native:networkmanager:getVpcAttachment", args ?? new GetVpcAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::NetworkManager::VpcAttachment Resoruce Type
         /// </summary>
         public static Output<GetVpcAttachmentResult> Invoke(GetVpcAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentResult>("aws-native:networkmanager:getVpcAttachment", args ?? new GetVpcAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentResult>("aws-native:networkmanager:getVpcAttachment", args ?? new GetVpcAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

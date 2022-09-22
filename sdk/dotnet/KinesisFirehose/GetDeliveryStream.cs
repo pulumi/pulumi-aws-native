@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
         /// </summary>
         public static Task<GetDeliveryStreamResult> InvokeAsync(GetDeliveryStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
         /// </summary>
         public static Output<GetDeliveryStreamResult> Invoke(GetDeliveryStreamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryStreamResult>("aws-native:kinesisfirehose:getDeliveryStream", args ?? new GetDeliveryStreamInvokeArgs(), options.WithDefaults());
     }
 
 

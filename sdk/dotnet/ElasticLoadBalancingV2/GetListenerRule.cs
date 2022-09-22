@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
         /// </summary>
         public static Task<GetListenerRuleResult> InvokeAsync(GetListenerRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetListenerRuleResult>("aws-native:elasticloadbalancingv2:getListenerRule", args ?? new GetListenerRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetListenerRuleResult>("aws-native:elasticloadbalancingv2:getListenerRule", args ?? new GetListenerRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
         /// </summary>
         public static Output<GetListenerRuleResult> Invoke(GetListenerRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetListenerRuleResult>("aws-native:elasticloadbalancingv2:getListenerRule", args ?? new GetListenerRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerRuleResult>("aws-native:elasticloadbalancingv2:getListenerRule", args ?? new GetListenerRuleInvokeArgs(), options.WithDefaults());
     }
 
 

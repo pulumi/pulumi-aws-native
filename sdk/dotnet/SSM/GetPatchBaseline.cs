@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSM
         /// Resource Type definition for AWS::SSM::PatchBaseline
         /// </summary>
         public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws-native:ssm:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws-native:ssm:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::PatchBaseline
         /// </summary>
         public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws-native:ssm:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws-native:ssm:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());
     }
 
 

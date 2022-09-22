@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaConvert
         /// Resource Type definition for AWS::MediaConvert::Queue
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Queue
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws-native:mediaconvert:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

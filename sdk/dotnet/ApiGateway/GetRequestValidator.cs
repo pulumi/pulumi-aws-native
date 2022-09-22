@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::RequestValidator
         /// </summary>
         public static Task<GetRequestValidatorResult> InvokeAsync(GetRequestValidatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::RequestValidator
         /// </summary>
         public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
     }
 
 

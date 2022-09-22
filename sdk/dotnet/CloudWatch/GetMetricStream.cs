@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Resource Type definition for Metric Stream
         /// </summary>
         public static Task<GetMetricStreamResult> InvokeAsync(GetMetricStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for Metric Stream
         /// </summary>
         public static Output<GetMetricStreamResult> Invoke(GetMetricStreamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricStreamResult>("aws-native:cloudwatch:getMetricStream", args ?? new GetMetricStreamInvokeArgs(), options.WithDefaults());
     }
 
 

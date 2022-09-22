@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::GraphQLSchema
         /// </summary>
         public static Task<GetGraphQLSchemaResult> InvokeAsync(GetGraphQLSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLSchema
         /// </summary>
         public static Output<GetGraphQLSchemaResult> Invoke(GetGraphQLSchemaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLSchemaResult>("aws-native:appsync:getGraphQLSchema", args ?? new GetGraphQLSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

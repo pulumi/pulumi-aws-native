@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// A resource schema for a Detector in Amazon Fraud Detector.
         /// </summary>
         public static Task<GetDetectorResult> InvokeAsync(GetDetectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws-native:frauddetector:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDetectorResult>("aws-native:frauddetector:getDetector", args ?? new GetDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema for a Detector in Amazon Fraud Detector.
         /// </summary>
         public static Output<GetDetectorResult> Invoke(GetDetectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws-native:frauddetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDetectorResult>("aws-native:frauddetector:getDetector", args ?? new GetDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Resource Type definition for AWS::CloudWatch::AnomalyDetector
         /// </summary>
         public static Task<GetAnomalyDetectorResult> InvokeAsync(GetAnomalyDetectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudWatch::AnomalyDetector
         /// </summary>
         public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:cloudwatch:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

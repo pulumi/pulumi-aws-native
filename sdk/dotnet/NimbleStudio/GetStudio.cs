@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// Represents a studio that contains other Nimble Studio resources
         /// </summary>
         public static Task<GetStudioResult> InvokeAsync(GetStudioArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a studio that contains other Nimble Studio resources
         /// </summary>
         public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
     }
 
 

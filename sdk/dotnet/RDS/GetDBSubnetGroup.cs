@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
         /// </summary>
         public static Task<GetDBSubnetGroupResult> InvokeAsync(GetDBSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
         /// </summary>
         public static Output<GetDBSubnetGroupResult> Invoke(GetDBSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBSubnetGroupResult>("aws-native:rds:getDBSubnetGroup", args ?? new GetDBSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

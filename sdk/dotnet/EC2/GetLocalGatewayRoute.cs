@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Describes a route for a local gateway route table.
         /// </summary>
         public static Task<GetLocalGatewayRouteResult> InvokeAsync(GetLocalGatewayRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a route for a local gateway route table.
         /// </summary>
         public static Output<GetLocalGatewayRouteResult> Invoke(GetLocalGatewayRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteResult>("aws-native:ec2:getLocalGatewayRoute", args ?? new GetLocalGatewayRouteInvokeArgs(), options.WithDefaults());
     }
 
 

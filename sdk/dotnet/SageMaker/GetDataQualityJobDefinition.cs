@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
         /// </summary>
         public static Task<GetDataQualityJobDefinitionResult> InvokeAsync(GetDataQualityJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataQualityJobDefinitionResult>("aws-native:sagemaker:getDataQualityJobDefinition", args ?? new GetDataQualityJobDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataQualityJobDefinitionResult>("aws-native:sagemaker:getDataQualityJobDefinition", args ?? new GetDataQualityJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
         /// </summary>
         public static Output<GetDataQualityJobDefinitionResult> Invoke(GetDataQualityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataQualityJobDefinitionResult>("aws-native:sagemaker:getDataQualityJobDefinition", args ?? new GetDataQualityJobDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataQualityJobDefinitionResult>("aws-native:sagemaker:getDataQualityJobDefinition", args ?? new GetDataQualityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

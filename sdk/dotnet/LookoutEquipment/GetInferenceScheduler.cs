@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LookoutEquipment
         /// Resource schema for LookoutEquipment InferenceScheduler.
         /// </summary>
         public static Task<GetInferenceSchedulerResult> InvokeAsync(GetInferenceSchedulerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for LookoutEquipment InferenceScheduler.
         /// </summary>
         public static Output<GetInferenceSchedulerResult> Invoke(GetInferenceSchedulerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceSchedulerResult>("aws-native:lookoutequipment:getInferenceScheduler", args ?? new GetInferenceSchedulerInvokeArgs(), options.WithDefaults());
     }
 
 

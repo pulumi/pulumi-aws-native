@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.BillingConductor
         /// Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
         /// </summary>
         public static Task<GetPricingPlanResult> InvokeAsync(GetPricingPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPricingPlanResult>("aws-native:billingconductor:getPricingPlan", args ?? new GetPricingPlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPricingPlanResult>("aws-native:billingconductor:getPricingPlan", args ?? new GetPricingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
         /// </summary>
         public static Output<GetPricingPlanResult> Invoke(GetPricingPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPricingPlanResult>("aws-native:billingconductor:getPricingPlan", args ?? new GetPricingPlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPricingPlanResult>("aws-native:billingconductor:getPricingPlan", args ?? new GetPricingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

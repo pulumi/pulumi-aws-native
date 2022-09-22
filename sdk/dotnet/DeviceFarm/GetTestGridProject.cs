@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
         /// </summary>
         public static Task<GetTestGridProjectResult> InvokeAsync(GetTestGridProjectArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
         /// </summary>
         public static Output<GetTestGridProjectResult> Invoke(GetTestGridProjectInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestGridProjectResult>("aws-native:devicefarm:getTestGridProject", args ?? new GetTestGridProjectInvokeArgs(), options.WithDefaults());
     }
 
 

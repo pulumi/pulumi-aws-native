@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
         /// </summary>
         public static Task<GetVPCEConfigurationResult> InvokeAsync(GetVPCEConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEConfigurationResult>("aws-native:devicefarm:getVPCEConfiguration", args ?? new GetVPCEConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCEConfigurationResult>("aws-native:devicefarm:getVPCEConfiguration", args ?? new GetVPCEConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
         /// </summary>
         public static Output<GetVPCEConfigurationResult> Invoke(GetVPCEConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCEConfigurationResult>("aws-native:devicefarm:getVPCEConfiguration", args ?? new GetVPCEConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCEConfigurationResult>("aws-native:devicefarm:getVPCEConfiguration", args ?? new GetVPCEConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

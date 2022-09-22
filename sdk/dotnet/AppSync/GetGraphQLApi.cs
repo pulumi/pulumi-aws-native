@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::GraphQLApi
         /// </summary>
         public static Task<GetGraphQLApiResult> InvokeAsync(GetGraphQLApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::GraphQLApi
         /// </summary>
         public static Output<GetGraphQLApiResult> Invoke(GetGraphQLApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResult>("aws-native:appsync:getGraphQLApi", args ?? new GetGraphQLApiInvokeArgs(), options.WithDefaults());
     }
 
 

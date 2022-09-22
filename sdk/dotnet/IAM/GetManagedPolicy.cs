@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::ManagedPolicy
         /// </summary>
         public static Task<GetManagedPolicyResult> InvokeAsync(GetManagedPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::ManagedPolicy
         /// </summary>
         public static Output<GetManagedPolicyResult> Invoke(GetManagedPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedPolicyResult>("aws-native:iam:getManagedPolicy", args ?? new GetManagedPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

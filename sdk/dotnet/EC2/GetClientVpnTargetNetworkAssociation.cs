@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
         /// </summary>
         public static Task<GetClientVpnTargetNetworkAssociationResult> InvokeAsync(GetClientVpnTargetNetworkAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
         /// </summary>
         public static Output<GetClientVpnTargetNetworkAssociationResult> Invoke(GetClientVpnTargetNetworkAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientVpnTargetNetworkAssociationResult>("aws-native:ec2:getClientVpnTargetNetworkAssociation", args ?? new GetClientVpnTargetNetworkAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

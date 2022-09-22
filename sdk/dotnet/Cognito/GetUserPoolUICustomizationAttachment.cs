@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cognito
         /// Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
         /// </summary>
         public static Task<GetUserPoolUICustomizationAttachmentResult> InvokeAsync(GetUserPoolUICustomizationAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
         /// </summary>
         public static Output<GetUserPoolUICustomizationAttachmentResult> Invoke(GetUserPoolUICustomizationAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolUICustomizationAttachmentResult>("aws-native:cognito:getUserPoolUICustomizationAttachment", args ?? new GetUserPoolUICustomizationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

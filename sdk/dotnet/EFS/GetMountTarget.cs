@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EFS
         /// Resource Type definition for AWS::EFS::MountTarget
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EFS::MountTarget
         /// </summary>
         public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws-native:efs:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithDefaults());
     }
 
 

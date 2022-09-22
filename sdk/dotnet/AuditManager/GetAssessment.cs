@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AuditManager
         /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

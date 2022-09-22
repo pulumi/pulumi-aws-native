@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// Resource Type definition for AWS::ApiGateway::Method
         /// </summary>
         public static Task<GetMethodResult> InvokeAsync(GetMethodArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ApiGateway::Method
         /// </summary>
         public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
     }
 
 

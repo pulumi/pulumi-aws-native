@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Resource Type definition for AWS::CloudFormation::Stack
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::Stack
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
     }
 
 

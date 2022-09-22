@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECS
         /// Resource Type definition for AWS::ECS::CapacityProvider.
         /// </summary>
         public static Task<GetCapacityProviderResult> InvokeAsync(GetCapacityProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ECS::CapacityProvider.
         /// </summary>
         public static Output<GetCapacityProviderResult> Invoke(GetCapacityProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityProviderResult>("aws-native:ecs:getCapacityProvider", args ?? new GetCapacityProviderInvokeArgs(), options.WithDefaults());
     }
 
 

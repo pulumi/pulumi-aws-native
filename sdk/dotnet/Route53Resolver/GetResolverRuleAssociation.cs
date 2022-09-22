@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
         /// </summary>
         public static Task<GetResolverRuleAssociationResult> InvokeAsync(GetResolverRuleAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
         /// </summary>
         public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

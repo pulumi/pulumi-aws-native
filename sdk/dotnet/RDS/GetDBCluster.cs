@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
         /// </summary>
         public static Task<GetDBClusterResult> InvokeAsync(GetDBClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:rds:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBClusterResult>("aws-native:rds:getDBCluster", args ?? new GetDBClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
         /// </summary>
         public static Output<GetDBClusterResult> Invoke(GetDBClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:rds:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBClusterResult>("aws-native:rds:getDBCluster", args ?? new GetDBClusterInvokeArgs(), options.WithDefaults());
     }
 
 

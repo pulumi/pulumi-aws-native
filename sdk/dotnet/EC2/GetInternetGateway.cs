@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::InternetGateway
         /// </summary>
         public static Task<GetInternetGatewayResult> InvokeAsync(GetInternetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::InternetGateway
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

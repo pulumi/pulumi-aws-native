@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeBuild
         /// Resource Type definition for AWS::CodeBuild::ReportGroup
         /// </summary>
         public static Task<GetReportGroupResult> InvokeAsync(GetReportGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeBuild::ReportGroup
         /// </summary>
         public static Output<GetReportGroupResult> Invoke(GetReportGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportGroupResult>("aws-native:codebuild:getReportGroup", args ?? new GetReportGroupInvokeArgs(), options.WithDefaults());
     }
 
 

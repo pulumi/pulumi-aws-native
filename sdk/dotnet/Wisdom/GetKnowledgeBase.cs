@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Wisdom
         /// Definition of AWS::Wisdom::KnowledgeBase Resource Type
         /// </summary>
         public static Task<GetKnowledgeBaseResult> InvokeAsync(GetKnowledgeBaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::KnowledgeBase Resource Type
         /// </summary>
         public static Output<GetKnowledgeBaseResult> Invoke(GetKnowledgeBaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetKnowledgeBaseResult>("aws-native:wisdom:getKnowledgeBase", args ?? new GetKnowledgeBaseInvokeArgs(), options.WithDefaults());
     }
 
 

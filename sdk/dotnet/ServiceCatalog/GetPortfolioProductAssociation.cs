@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
         /// </summary>
         public static Task<GetPortfolioProductAssociationResult> InvokeAsync(GetPortfolioProductAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
         /// </summary>
         public static Output<GetPortfolioProductAssociationResult> Invoke(GetPortfolioProductAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioProductAssociationResult>("aws-native:servicecatalog:getPortfolioProductAssociation", args ?? new GetPortfolioProductAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

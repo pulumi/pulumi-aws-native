@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAF
         /// Resource Type definition for AWS::WAF::WebACL
         /// </summary>
         public static Task<GetWebACLResult> InvokeAsync(GetWebACLArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::WebACL
         /// </summary>
         public static Output<GetWebACLResult> Invoke(GetWebACLInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebACLResult>("aws-native:waf:getWebACL", args ?? new GetWebACLInvokeArgs(), options.WithDefaults());
     }
 
 

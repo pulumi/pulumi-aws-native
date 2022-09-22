@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MemoryDB
         /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:memorydb:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

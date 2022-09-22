@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppMesh
         /// Resource Type definition for AWS::AppMesh::VirtualNode
         /// </summary>
         public static Task<GetVirtualNodeResult> InvokeAsync(GetVirtualNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNodeResult>("aws-native:appmesh:getVirtualNode", args ?? new GetVirtualNodeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNodeResult>("aws-native:appmesh:getVirtualNode", args ?? new GetVirtualNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppMesh::VirtualNode
         /// </summary>
         public static Output<GetVirtualNodeResult> Invoke(GetVirtualNodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws-native:appmesh:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws-native:appmesh:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());
     }
 
 

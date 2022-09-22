@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPC
         /// </summary>
         public static Task<GetVPCResult> InvokeAsync(GetVPCArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPC
         /// </summary>
         public static Output<GetVPCResult> Invoke(GetVPCInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCResult>("aws-native:ec2:getVPC", args ?? new GetVPCInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECS
         /// Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
         /// </summary>
         public static Task<GetTaskSetResult> InvokeAsync(GetTaskSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskSetResult>("aws-native:ecs:getTaskSet", args ?? new GetTaskSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskSetResult>("aws-native:ecs:getTaskSet", args ?? new GetTaskSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
         /// </summary>
         public static Output<GetTaskSetResult> Invoke(GetTaskSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskSetResult>("aws-native:ecs:getTaskSet", args ?? new GetTaskSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskSetResult>("aws-native:ecs:getTaskSet", args ?? new GetTaskSetInvokeArgs(), options.WithDefaults());
     }
 
 

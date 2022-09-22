@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::ClientVpnRoute
         /// </summary>
         public static Task<GetClientVpnRouteResult> InvokeAsync(GetClientVpnRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnRouteResult>("aws-native:ec2:getClientVpnRoute", args ?? new GetClientVpnRouteArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnRouteResult>("aws-native:ec2:getClientVpnRoute", args ?? new GetClientVpnRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnRoute
         /// </summary>
         public static Output<GetClientVpnRouteResult> Invoke(GetClientVpnRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClientVpnRouteResult>("aws-native:ec2:getClientVpnRoute", args ?? new GetClientVpnRouteInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientVpnRouteResult>("aws-native:ec2:getClientVpnRoute", args ?? new GetClientVpnRouteInvokeArgs(), options.WithDefaults());
     }
 
 

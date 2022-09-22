@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AutoScaling
         /// Resource Type definition for AWS::AutoScaling::AutoScalingGroup
         /// </summary>
         public static Task<GetAutoScalingGroupResult> InvokeAsync(GetAutoScalingGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AutoScaling::AutoScalingGroup
         /// </summary>
         public static Output<GetAutoScalingGroupResult> Invoke(GetAutoScalingGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingGroupResult>("aws-native:autoscaling:getAutoScalingGroup", args ?? new GetAutoScalingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

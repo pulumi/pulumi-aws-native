@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::VirtualMFADevice
         /// </summary>
         public static Task<GetVirtualMFADeviceResult> InvokeAsync(GetVirtualMFADeviceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::VirtualMFADevice
         /// </summary>
         public static Output<GetVirtualMFADeviceResult> Invoke(GetVirtualMFADeviceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMFADeviceResult>("aws-native:iam:getVirtualMFADevice", args ?? new GetVirtualMFADeviceInvokeArgs(), options.WithDefaults());
     }
 
 

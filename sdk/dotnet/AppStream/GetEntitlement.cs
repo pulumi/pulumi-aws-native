@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::Entitlement
         /// </summary>
         public static Task<GetEntitlementResult> InvokeAsync(GetEntitlementArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::Entitlement
         /// </summary>
         public static Output<GetEntitlementResult> Invoke(GetEntitlementInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementInvokeArgs(), options.WithDefaults());
     }
 
 

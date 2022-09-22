@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// Resource Type definition for AWS::RDS::DBSecurityGroupIngress
         /// </summary>
         public static Task<GetDBSecurityGroupIngressResult> InvokeAsync(GetDBSecurityGroupIngressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::RDS::DBSecurityGroupIngress
         /// </summary>
         public static Output<GetDBSecurityGroupIngressResult> Invoke(GetDBSecurityGroupIngressInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBSecurityGroupIngressResult>("aws-native:rds:getDBSecurityGroupIngress", args ?? new GetDBSecurityGroupIngressInvokeArgs(), options.WithDefaults());
     }
 
 

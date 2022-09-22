@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAF
         /// Resource Type definition for AWS::WAF::XssMatchSet
         /// </summary>
         public static Task<GetXssMatchSetResult> InvokeAsync(GetXssMatchSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAF::XssMatchSet
         /// </summary>
         public static Output<GetXssMatchSetResult> Invoke(GetXssMatchSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetXssMatchSetResult>("aws-native:waf:getXssMatchSet", args ?? new GetXssMatchSetInvokeArgs(), options.WithDefaults());
     }
 
 

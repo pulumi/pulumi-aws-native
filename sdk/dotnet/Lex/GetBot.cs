@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Lex
         /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
     }
 
 

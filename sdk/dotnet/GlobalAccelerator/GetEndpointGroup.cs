@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
         /// </summary>
         public static Task<GetEndpointGroupResult> InvokeAsync(GetEndpointGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
         /// </summary>
         public static Output<GetEndpointGroupResult> Invoke(GetEndpointGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointGroupResult>("aws-native:globalaccelerator:getEndpointGroup", args ?? new GetEndpointGroupInvokeArgs(), options.WithDefaults());
     }
 
 

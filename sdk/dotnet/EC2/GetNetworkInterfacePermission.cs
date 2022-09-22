@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::NetworkInterfacePermission
         /// </summary>
         public static Task<GetNetworkInterfacePermissionResult> InvokeAsync(GetNetworkInterfacePermissionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkInterfacePermission
         /// </summary>
         public static Output<GetNetworkInterfacePermissionResult> Invoke(GetNetworkInterfacePermissionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfacePermissionResult>("aws-native:ec2:getNetworkInterfacePermission", args ?? new GetNetworkInterfacePermissionInvokeArgs(), options.WithDefaults());
     }
 
 

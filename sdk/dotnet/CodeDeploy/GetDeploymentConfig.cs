@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// Resource Type definition for AWS::CodeDeploy::DeploymentConfig
         /// </summary>
         public static Task<GetDeploymentConfigResult> InvokeAsync(GetDeploymentConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodeDeploy::DeploymentConfig
         /// </summary>
         public static Output<GetDeploymentConfigResult> Invoke(GetDeploymentConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentConfigResult>("aws-native:codedeploy:getDeploymentConfig", args ?? new GetDeploymentConfigInvokeArgs(), options.WithDefaults());
     }
 
 

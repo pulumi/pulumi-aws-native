@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
         /// </summary>
         public static Task<GetVPCEndpointServicePermissionsResult> InvokeAsync(GetVPCEndpointServicePermissionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
         /// </summary>
         public static Output<GetVPCEndpointServicePermissionsResult> Invoke(GetVPCEndpointServicePermissionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPCEndpointServicePermissionsResult>("aws-native:ec2:getVPCEndpointServicePermissions", args ?? new GetVPCEndpointServicePermissionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
         /// </summary>
         public static Task<GetConfigurationTemplateResult> InvokeAsync(GetConfigurationTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
         /// </summary>
         public static Output<GetConfigurationTemplateResult> Invoke(GetConfigurationTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationTemplateResult>("aws-native:elasticbeanstalk:getConfigurationTemplate", args ?? new GetConfigurationTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

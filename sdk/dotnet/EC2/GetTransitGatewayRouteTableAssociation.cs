@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
         /// </summary>
         public static Task<GetTransitGatewayRouteTableAssociationResult> InvokeAsync(GetTransitGatewayRouteTableAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
         /// </summary>
         public static Output<GetTransitGatewayRouteTableAssociationResult> Invoke(GetTransitGatewayRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTableAssociationResult>("aws-native:ec2:getTransitGatewayRouteTableAssociation", args ?? new GetTransitGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

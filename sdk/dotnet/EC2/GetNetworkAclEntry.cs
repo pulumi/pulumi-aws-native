@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::NetworkAclEntry
         /// </summary>
         public static Task<GetNetworkAclEntryResult> InvokeAsync(GetNetworkAclEntryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::NetworkAclEntry
         /// </summary>
         public static Output<GetNetworkAclEntryResult> Invoke(GetNetworkAclEntryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclEntryResult>("aws-native:ec2:getNetworkAclEntry", args ?? new GetNetworkAclEntryInvokeArgs(), options.WithDefaults());
     }
 
 

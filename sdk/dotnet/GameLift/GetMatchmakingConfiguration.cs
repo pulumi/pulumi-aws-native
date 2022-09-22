@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
         /// </summary>
         public static Task<GetMatchmakingConfigurationResult> InvokeAsync(GetMatchmakingConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
         /// </summary>
         public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

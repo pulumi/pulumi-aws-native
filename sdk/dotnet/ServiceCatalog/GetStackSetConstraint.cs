@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
         /// </summary>
         public static Task<GetStackSetConstraintResult> InvokeAsync(GetStackSetConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
         /// </summary>
         public static Output<GetStackSetConstraintResult> Invoke(GetStackSetConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackSetConstraintResult>("aws-native:servicecatalog:getStackSetConstraint", args ?? new GetStackSetConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

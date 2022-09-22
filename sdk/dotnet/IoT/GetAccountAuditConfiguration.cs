@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
         /// </summary>
         public static Task<GetAccountAuditConfigurationResult> InvokeAsync(GetAccountAuditConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
         /// </summary>
         public static Output<GetAccountAuditConfigurationResult> Invoke(GetAccountAuditConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

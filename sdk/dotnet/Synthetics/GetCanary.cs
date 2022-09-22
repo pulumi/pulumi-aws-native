@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Synthetics
         /// Resource Type definition for AWS::Synthetics::Canary
         /// </summary>
         public static Task<GetCanaryResult> InvokeAsync(GetCanaryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Synthetics::Canary
         /// </summary>
         public static Output<GetCanaryResult> Invoke(GetCanaryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCanaryResult>("aws-native:synthetics:getCanary", args ?? new GetCanaryInvokeArgs(), options.WithDefaults());
     }
 
 

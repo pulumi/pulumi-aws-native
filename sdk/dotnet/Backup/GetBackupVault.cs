@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Backup
         /// Resource Type definition for AWS::Backup::BackupVault
         /// </summary>
         public static Task<GetBackupVaultResult> InvokeAsync(GetBackupVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Backup::BackupVault
         /// </summary>
         public static Output<GetBackupVaultResult> Invoke(GetBackupVaultInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupVaultResult>("aws-native:backup:getBackupVault", args ?? new GetBackupVaultInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// Resource schema for AWS::RDS::DBProxyEndpoint.
         /// </summary>
         public static Task<GetDBProxyEndpointResult> InvokeAsync(GetDBProxyEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::RDS::DBProxyEndpoint.
         /// </summary>
         public static Output<GetDBProxyEndpointResult> Invoke(GetDBProxyEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBProxyEndpointResult>("aws-native:rds:getDBProxyEndpoint", args ?? new GetDBProxyEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

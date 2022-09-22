@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

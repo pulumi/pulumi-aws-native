@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GreengrassV2
         /// Resource for Greengrass component version.
         /// </summary>
         public static Task<GetComponentVersionResult> InvokeAsync(GetComponentVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource for Greengrass component version.
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
     }
 
 

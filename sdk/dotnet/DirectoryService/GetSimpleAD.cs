@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DirectoryService
         /// Resource Type definition for AWS::DirectoryService::SimpleAD
         /// </summary>
         public static Task<GetSimpleADResult> InvokeAsync(GetSimpleADArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DirectoryService::SimpleAD
         /// </summary>
         public static Output<GetSimpleADResult> Invoke(GetSimpleADInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimpleADResult>("aws-native:directoryservice:getSimpleAD", args ?? new GetSimpleADInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceDiscovery
         /// Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
         /// </summary>
         public static Task<GetPrivateDnsNamespaceResult> InvokeAsync(GetPrivateDnsNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
         /// </summary>
         public static Output<GetPrivateDnsNamespaceResult> Invoke(GetPrivateDnsNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateDnsNamespaceResult>("aws-native:servicediscovery:getPrivateDnsNamespace", args ?? new GetPrivateDnsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

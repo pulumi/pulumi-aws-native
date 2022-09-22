@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GameLift
         /// Resource Type definition for AWS::GameLift::Build
         /// </summary>
         public static Task<GetBuildResult> InvokeAsync(GetBuildArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GameLift::Build
         /// </summary>
         public static Output<GetBuildResult> Invoke(GetBuildInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildResult>("aws-native:gamelift:getBuild", args ?? new GetBuildInvokeArgs(), options.WithDefaults());
     }
 
 

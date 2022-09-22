@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScope
         /// </summary>
         public static Task<GetNetworkInsightsAccessScopeResult> InvokeAsync(GetNetworkInsightsAccessScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAccessScope
         /// </summary>
         public static Output<GetNetworkInsightsAccessScopeResult> Invoke(GetNetworkInsightsAccessScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeResult>("aws-native:ec2:getNetworkInsightsAccessScope", args ?? new GetNetworkInsightsAccessScopeInvokeArgs(), options.WithDefaults());
     }
 
 

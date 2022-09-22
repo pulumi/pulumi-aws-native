@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
         /// </summary>
         public static Task<GetTransitGatewayMulticastGroupSourceResult> InvokeAsync(GetTransitGatewayMulticastGroupSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastGroupSourceResult>("aws-native:ec2:getTransitGatewayMulticastGroupSource", args ?? new GetTransitGatewayMulticastGroupSourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastGroupSourceResult>("aws-native:ec2:getTransitGatewayMulticastGroupSource", args ?? new GetTransitGatewayMulticastGroupSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
         /// </summary>
         public static Output<GetTransitGatewayMulticastGroupSourceResult> Invoke(GetTransitGatewayMulticastGroupSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastGroupSourceResult>("aws-native:ec2:getTransitGatewayMulticastGroupSource", args ?? new GetTransitGatewayMulticastGroupSourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastGroupSourceResult>("aws-native:ec2:getTransitGatewayMulticastGroupSource", args ?? new GetTransitGatewayMulticastGroupSourceInvokeArgs(), options.WithDefaults());
     }
 
 

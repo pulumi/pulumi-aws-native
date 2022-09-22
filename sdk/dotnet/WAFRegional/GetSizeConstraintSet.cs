@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFRegional
         /// Resource Type definition for AWS::WAFRegional::SizeConstraintSet
         /// </summary>
         public static Task<GetSizeConstraintSetResult> InvokeAsync(GetSizeConstraintSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSizeConstraintSetResult>("aws-native:wafregional:getSizeConstraintSet", args ?? new GetSizeConstraintSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSizeConstraintSetResult>("aws-native:wafregional:getSizeConstraintSet", args ?? new GetSizeConstraintSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::SizeConstraintSet
         /// </summary>
         public static Output<GetSizeConstraintSetResult> Invoke(GetSizeConstraintSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSizeConstraintSetResult>("aws-native:wafregional:getSizeConstraintSet", args ?? new GetSizeConstraintSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSizeConstraintSetResult>("aws-native:wafregional:getSizeConstraintSet", args ?? new GetSizeConstraintSetInvokeArgs(), options.WithDefaults());
     }
 
 

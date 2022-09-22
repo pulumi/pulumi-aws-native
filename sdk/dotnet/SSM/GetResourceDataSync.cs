@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSM
         /// Resource Type definition for AWS::SSM::ResourceDataSync
         /// </summary>
         public static Task<GetResourceDataSyncResult> InvokeAsync(GetResourceDataSyncArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::ResourceDataSync
         /// </summary>
         public static Output<GetResourceDataSyncResult> Invoke(GetResourceDataSyncInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceDataSyncResult>("aws-native:ssm:getResourceDataSync", args ?? new GetResourceDataSyncInvokeArgs(), options.WithDefaults());
     }
 
 

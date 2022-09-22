@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
         public static Task<GetEIPAssociationResult> InvokeAsync(GetEIPAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::EIPAssociation
         /// </summary>
         public static Output<GetEIPAssociationResult> Invoke(GetEIPAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEIPAssociationResult>("aws-native:ec2:getEIPAssociation", args ?? new GetEIPAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

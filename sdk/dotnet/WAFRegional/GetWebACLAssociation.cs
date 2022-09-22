@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WAFRegional
         /// Resource Type definition for AWS::WAFRegional::WebACLAssociation
         /// </summary>
         public static Task<GetWebACLAssociationResult> InvokeAsync(GetWebACLAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WAFRegional::WebACLAssociation
         /// </summary>
         public static Output<GetWebACLAssociationResult> Invoke(GetWebACLAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebACLAssociationResult>("aws-native:wafregional:getWebACLAssociation", args ?? new GetWebACLAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

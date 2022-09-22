@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AmazonMQ
         /// Resource Type definition for AWS::AmazonMQ::Broker
         /// </summary>
         public static Task<GetBrokerResult> InvokeAsync(GetBrokerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AmazonMQ::Broker
         /// </summary>
         public static Output<GetBrokerResult> Invoke(GetBrokerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerResult>("aws-native:amazonmq:getBroker", args ?? new GetBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

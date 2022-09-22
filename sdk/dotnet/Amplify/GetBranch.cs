@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Amplify
         /// The AWS::Amplify::Branch resource creates a new branch within an app.
         /// </summary>
         public static Task<GetBranchResult> InvokeAsync(GetBranchArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::Branch resource creates a new branch within an app.
         /// </summary>
         public static Output<GetBranchResult> Invoke(GetBranchInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBranchResult>("aws-native:amplify:getBranch", args ?? new GetBranchInvokeArgs(), options.WithDefaults());
     }
 
 

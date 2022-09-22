@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Inspector
         /// Resource Type definition for AWS::Inspector::AssessmentTemplate
         /// </summary>
         public static Task<GetAssessmentTemplateResult> InvokeAsync(GetAssessmentTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Inspector::AssessmentTemplate
         /// </summary>
         public static Output<GetAssessmentTemplateResult> Invoke(GetAssessmentTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

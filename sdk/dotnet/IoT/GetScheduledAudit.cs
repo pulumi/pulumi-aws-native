@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoT
         /// Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
         /// </summary>
         public static Task<GetScheduledAuditResult> InvokeAsync(GetScheduledAuditArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditArgs(), options.WithDefaults());
 
         /// <summary>
         /// Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
         /// </summary>
         public static Output<GetScheduledAuditResult> Invoke(GetScheduledAuditInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledAuditResult>("aws-native:iot:getScheduledAudit", args ?? new GetScheduledAuditInvokeArgs(), options.WithDefaults());
     }
 
 

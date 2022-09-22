@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// Resource Type Definition for AWS::KinesisVideo::Stream
         /// </summary>
         public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type Definition for AWS::KinesisVideo::Stream
         /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Wisdom
         /// Definition of AWS::Wisdom::AssistantAssociation Resource Type
         /// </summary>
         public static Task<GetAssistantAssociationResult> InvokeAsync(GetAssistantAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::AssistantAssociation Resource Type
         /// </summary>
         public static Output<GetAssistantAssociationResult> Invoke(GetAssistantAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssistantAssociationResult>("aws-native:wisdom:getAssistantAssociation", args ?? new GetAssistantAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

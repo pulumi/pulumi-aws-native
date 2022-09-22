@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
         /// </summary>
         public static Task<GetLaunchRoleConstraintResult> InvokeAsync(GetLaunchRoleConstraintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
         /// </summary>
         public static Output<GetLaunchRoleConstraintResult> Invoke(GetLaunchRoleConstraintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchRoleConstraintResult>("aws-native:servicecatalog:getLaunchRoleConstraint", args ?? new GetLaunchRoleConstraintInvokeArgs(), options.WithDefaults());
     }
 
 

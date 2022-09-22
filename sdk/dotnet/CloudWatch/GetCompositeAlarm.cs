@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
         /// </summary>
         public static Task<GetCompositeAlarmResult> InvokeAsync(GetCompositeAlarmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
         /// </summary>
         public static Output<GetCompositeAlarmResult> Invoke(GetCompositeAlarmInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCompositeAlarmResult>("aws-native:cloudwatch:getCompositeAlarm", args ?? new GetCompositeAlarmInvokeArgs(), options.WithDefaults());
     }
 
 

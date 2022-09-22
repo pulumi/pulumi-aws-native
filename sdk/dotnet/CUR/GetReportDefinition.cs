@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CUR
         /// The AWS::CUR::ReportDefinition resource creates a Cost &amp; Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
         /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::CUR::ReportDefinition resource creates a Cost &amp; Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
         /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws-native:cur:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

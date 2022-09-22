@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudTrail
         /// Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
         /// </summary>
         public static Task<GetTrailResult> InvokeAsync(GetTrailArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTrailResult>("aws-native:cloudtrail:getTrail", args ?? new GetTrailArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrailResult>("aws-native:cloudtrail:getTrail", args ?? new GetTrailArgs(), options.WithDefaults());
 
         /// <summary>
         /// Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
         /// </summary>
         public static Output<GetTrailResult> Invoke(GetTrailInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTrailResult>("aws-native:cloudtrail:getTrail", args ?? new GetTrailInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrailResult>("aws-native:cloudtrail:getTrail", args ?? new GetTrailInvokeArgs(), options.WithDefaults());
     }
 
 

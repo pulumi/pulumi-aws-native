@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SecretsManager
         /// Resource Type definition for AWS::SecretsManager::ResourcePolicy
         /// </summary>
         public static Task<GetResourcePolicyResult> InvokeAsync(GetResourcePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SecretsManager::ResourcePolicy
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:secretsmanager:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

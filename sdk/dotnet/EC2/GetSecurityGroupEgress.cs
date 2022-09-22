@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::SecurityGroupEgress
         /// </summary>
         public static Task<GetSecurityGroupEgressResult> InvokeAsync(GetSecurityGroupEgressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SecurityGroupEgress
         /// </summary>
         public static Output<GetSecurityGroupEgressResult> Invoke(GetSecurityGroupEgressInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupEgressResult>("aws-native:ec2:getSecurityGroupEgress", args ?? new GetSecurityGroupEgressInvokeArgs(), options.WithDefaults());
     }
 
 

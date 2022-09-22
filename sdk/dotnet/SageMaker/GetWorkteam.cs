@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::Workteam
         /// </summary>
         public static Task<GetWorkteamResult> InvokeAsync(GetWorkteamArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::Workteam
         /// </summary>
         public static Output<GetWorkteamResult> Invoke(GetWorkteamInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkteamResult>("aws-native:sagemaker:getWorkteam", args ?? new GetWorkteamInvokeArgs(), options.WithDefaults());
     }
 
 

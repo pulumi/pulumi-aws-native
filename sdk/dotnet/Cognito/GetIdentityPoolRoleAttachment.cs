@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cognito
         /// Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
         /// </summary>
         public static Task<GetIdentityPoolRoleAttachmentResult> InvokeAsync(GetIdentityPoolRoleAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
         /// </summary>
         public static Output<GetIdentityPoolRoleAttachmentResult> Invoke(GetIdentityPoolRoleAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodePipeline
         /// Resource Type definition for AWS::CodePipeline::Webhook
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodePipeline::Webhook
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("aws-native:codepipeline:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

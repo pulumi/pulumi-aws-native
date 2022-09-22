@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Location
         /// Definition of AWS::Location::Map Resource Type
         /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("aws-native:location:getMap", args ?? new GetMapArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("aws-native:location:getMap", args ?? new GetMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Location::Map Resource Type
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws-native:location:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws-native:location:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 

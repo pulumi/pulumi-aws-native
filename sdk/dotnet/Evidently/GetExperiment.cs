@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Evidently
         /// Resource Type definition for AWS::Evidently::Experiment.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Evidently::Experiment.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("aws-native:evidently:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
     }
 
 

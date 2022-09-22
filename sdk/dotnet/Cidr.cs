@@ -12,10 +12,10 @@ namespace Pulumi.AwsNative
     public static class Cidr
     {
         public static Task<CidrResult> InvokeAsync(CidrArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<CidrResult>("aws-native:index:cidr", args ?? new CidrArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<CidrResult>("aws-native:index:cidr", args ?? new CidrArgs(), options.WithDefaults());
 
         public static Output<CidrResult> Invoke(CidrInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<CidrResult>("aws-native:index:cidr", args ?? new CidrInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<CidrResult>("aws-native:index:cidr", args ?? new CidrInvokeArgs(), options.WithDefaults());
     }
 
 

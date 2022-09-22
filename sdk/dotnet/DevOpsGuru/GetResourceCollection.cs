@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
         /// </summary>
         public static Task<GetResourceCollectionResult> InvokeAsync(GetResourceCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
         /// </summary>
         public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

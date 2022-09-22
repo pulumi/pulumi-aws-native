@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// The AWS::EC2::TransitGatewayMulticastDomain type
         /// </summary>
         public static Task<GetTransitGatewayMulticastDomainResult> InvokeAsync(GetTransitGatewayMulticastDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::EC2::TransitGatewayMulticastDomain type
         /// </summary>
         public static Output<GetTransitGatewayMulticastDomainResult> Invoke(GetTransitGatewayMulticastDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainInvokeArgs(), options.WithDefaults());
     }
 
 

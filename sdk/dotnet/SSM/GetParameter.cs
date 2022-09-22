@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SSM
         /// Resource Type definition for AWS::SSM::Parameter
         /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SSM::Parameter
         /// </summary>
         public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws-native:ssm:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());
     }
 
 

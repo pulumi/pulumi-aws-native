@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.BillingConductor
         /// A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
         /// </summary>
         public static Task<GetBillingGroupResult> InvokeAsync(GetBillingGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingGroupResult>("aws-native:billingconductor:getBillingGroup", args ?? new GetBillingGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingGroupResult>("aws-native:billingconductor:getBillingGroup", args ?? new GetBillingGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
         /// </summary>
         public static Output<GetBillingGroupResult> Invoke(GetBillingGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBillingGroupResult>("aws-native:billingconductor:getBillingGroup", args ?? new GetBillingGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingGroupResult>("aws-native:billingconductor:getBillingGroup", args ?? new GetBillingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cognito
         /// Resource Type definition for AWS::Cognito::IdentityPool
         /// </summary>
         public static Task<GetIdentityPoolResult> InvokeAsync(GetIdentityPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::IdentityPool
         /// </summary>
         public static Output<GetIdentityPoolResult> Invoke(GetIdentityPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolResult>("aws-native:cognito:getIdentityPool", args ?? new GetIdentityPoolInvokeArgs(), options.WithDefaults());
     }
 
 

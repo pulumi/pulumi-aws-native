@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppStream
         /// Resource Type definition for AWS::AppStream::StackUserAssociation
         /// </summary>
         public static Task<GetStackUserAssociationResult> InvokeAsync(GetStackUserAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackUserAssociationResult>("aws-native:appstream:getStackUserAssociation", args ?? new GetStackUserAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackUserAssociationResult>("aws-native:appstream:getStackUserAssociation", args ?? new GetStackUserAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppStream::StackUserAssociation
         /// </summary>
         public static Output<GetStackUserAssociationResult> Invoke(GetStackUserAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackUserAssociationResult>("aws-native:appstream:getStackUserAssociation", args ?? new GetStackUserAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackUserAssociationResult>("aws-native:appstream:getStackUserAssociation", args ?? new GetStackUserAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KinesisAnalyticsV2
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationOutput
         /// </summary>
         public static Task<GetApplicationOutputResourceResult> InvokeAsync(GetApplicationOutputResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationOutputResourceResult>("aws-native:kinesisanalyticsv2:getApplicationOutputResource", args ?? new GetApplicationOutputResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationOutputResourceResult>("aws-native:kinesisanalyticsv2:getApplicationOutputResource", args ?? new GetApplicationOutputResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationOutput
         /// </summary>
         public static Output<GetApplicationOutputResourceResult> Invoke(GetApplicationOutputResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationOutputResourceResult>("aws-native:kinesisanalyticsv2:getApplicationOutputResource", args ?? new GetApplicationOutputResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationOutputResourceResult>("aws-native:kinesisanalyticsv2:getApplicationOutputResource", args ?? new GetApplicationOutputResourceInvokeArgs(), options.WithDefaults());
     }
 
 

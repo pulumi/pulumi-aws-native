@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
         /// </summary>
         public static Task<GetDBParameterGroupResult> InvokeAsync(GetDBParameterGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
         /// </summary>
         public static Output<GetDBParameterGroupResult> Invoke(GetDBParameterGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBParameterGroupResult>("aws-native:rds:getDBParameterGroup", args ?? new GetDBParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::ApiCache
         /// </summary>
         public static Task<GetApiCacheResult> InvokeAsync(GetApiCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::ApiCache
         /// </summary>
         public static Output<GetApiCacheResult> Invoke(GetApiCacheInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiCacheResult>("aws-native:appsync:getApiCache", args ?? new GetApiCacheInvokeArgs(), options.WithDefaults());
     }
 
 

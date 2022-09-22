@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SQS
         /// Resource Type definition for AWS::SQS::QueuePolicy
         /// </summary>
         public static Task<GetQueuePolicyResult> InvokeAsync(GetQueuePolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SQS::QueuePolicy
         /// </summary>
         public static Output<GetQueuePolicyResult> Invoke(GetQueuePolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueuePolicyResult>("aws-native:sqs:getQueuePolicy", args ?? new GetQueuePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

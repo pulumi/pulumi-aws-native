@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaTailor
         /// Resource schema for AWS::MediaTailor::PlaybackConfiguration
         /// </summary>
         public static Task<GetPlaybackConfigurationResult> InvokeAsync(GetPlaybackConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlaybackConfigurationResult>("aws-native:mediatailor:getPlaybackConfiguration", args ?? new GetPlaybackConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlaybackConfigurationResult>("aws-native:mediatailor:getPlaybackConfiguration", args ?? new GetPlaybackConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaTailor::PlaybackConfiguration
         /// </summary>
         public static Output<GetPlaybackConfigurationResult> Invoke(GetPlaybackConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlaybackConfigurationResult>("aws-native:mediatailor:getPlaybackConfiguration", args ?? new GetPlaybackConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaybackConfigurationResult>("aws-native:mediatailor:getPlaybackConfiguration", args ?? new GetPlaybackConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

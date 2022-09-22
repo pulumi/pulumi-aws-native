@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// The resource schema to create a CodeArtifact repository.
         /// </summary>
         public static Task<GetRepositoryResult> InvokeAsync(GetRepositoryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource schema to create a CodeArtifact repository.
         /// </summary>
         public static Output<GetRepositoryResult> Invoke(GetRepositoryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryResult>("aws-native:codeartifact:getRepository", args ?? new GetRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

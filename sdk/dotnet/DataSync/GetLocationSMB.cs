@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::LocationSMB.
         /// </summary>
         public static Task<GetLocationSMBResult> InvokeAsync(GetLocationSMBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::LocationSMB.
         /// </summary>
         public static Output<GetLocationSMBResult> Invoke(GetLocationSMBInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationSMBResult>("aws-native:datasync:getLocationSMB", args ?? new GetLocationSMBInvokeArgs(), options.WithDefaults());
     }
 
 

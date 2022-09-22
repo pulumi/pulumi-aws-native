@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Wisdom
         /// Definition of AWS::Wisdom::Assistant Resource Type
         /// </summary>
         public static Task<GetAssistantResult> InvokeAsync(GetAssistantArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of AWS::Wisdom::Assistant Resource Type
         /// </summary>
         public static Output<GetAssistantResult> Invoke(GetAssistantInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssistantResult>("aws-native:wisdom:getAssistant", args ?? new GetAssistantInvokeArgs(), options.WithDefaults());
     }
 
 

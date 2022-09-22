@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Batch
         /// Resource Type definition for AWS::Batch::ComputeEnvironment
         /// </summary>
         public static Task<GetComputeEnvironmentResult> InvokeAsync(GetComputeEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Batch::ComputeEnvironment
         /// </summary>
         public static Output<GetComputeEnvironmentResult> Invoke(GetComputeEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputeEnvironmentResult>("aws-native:batch:getComputeEnvironment", args ?? new GetComputeEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

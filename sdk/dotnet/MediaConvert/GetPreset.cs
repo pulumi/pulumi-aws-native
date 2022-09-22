@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaConvert
         /// Resource Type definition for AWS::MediaConvert::Preset
         /// </summary>
         public static Task<GetPresetResult> InvokeAsync(GetPresetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaConvert::Preset
         /// </summary>
         public static Output<GetPresetResult> Invoke(GetPresetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPresetResult>("aws-native:mediaconvert:getPreset", args ?? new GetPresetInvokeArgs(), options.WithDefaults());
     }
 
 

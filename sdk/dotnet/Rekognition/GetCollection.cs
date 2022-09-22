@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Rekognition
         /// The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
         /// </summary>
         public static Task<GetCollectionResult> InvokeAsync(GetCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
         /// </summary>
         public static Output<GetCollectionResult> Invoke(GetCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCollectionResult>("aws-native:rekognition:getCollection", args ?? new GetCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

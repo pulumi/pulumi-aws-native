@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CodePipeline
         /// Resource Type definition for AWS::CodePipeline::CustomActionType
         /// </summary>
         public static Task<GetCustomActionTypeResult> InvokeAsync(GetCustomActionTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CodePipeline::CustomActionType
         /// </summary>
         public static Output<GetCustomActionTypeResult> Invoke(GetCustomActionTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppFlow
         /// Resource schema for AWS::AppFlow::Flow.
         /// </summary>
         public static Task<GetFlowResult> InvokeAsync(GetFlowArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::AppFlow::Flow.
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
 

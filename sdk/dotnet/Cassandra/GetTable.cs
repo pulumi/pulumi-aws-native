@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cassandra
         /// Resource schema for AWS::Cassandra::Table
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Cassandra::Table
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:cassandra:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

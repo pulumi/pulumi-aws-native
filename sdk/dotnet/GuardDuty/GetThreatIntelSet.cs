@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GuardDuty
         /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
         /// </summary>
         public static Task<GetThreatIntelSetResult> InvokeAsync(GetThreatIntelSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
         /// </summary>
         public static Output<GetThreatIntelSetResult> Invoke(GetThreatIntelSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetInvokeArgs(), options.WithDefaults());
     }
 
 

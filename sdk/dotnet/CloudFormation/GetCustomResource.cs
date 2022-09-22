@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Resource Type definition for AWS::CloudFormation::CustomResource
         /// </summary>
         public static Task<GetCustomResourceResult> InvokeAsync(GetCustomResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::CustomResource
         /// </summary>
         public static Output<GetCustomResourceResult> Invoke(GetCustomResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomResourceResult>("aws-native:cloudformation:getCustomResource", args ?? new GetCustomResourceInvokeArgs(), options.WithDefaults());
     }
 
 

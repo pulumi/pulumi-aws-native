@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53
         /// Resource Type definition for AWS::Route53::RecordSetGroup
         /// </summary>
         public static Task<GetRecordSetGroupResult> InvokeAsync(GetRecordSetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetGroupResult>("aws-native:route53:getRecordSetGroup", args ?? new GetRecordSetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetGroupResult>("aws-native:route53:getRecordSetGroup", args ?? new GetRecordSetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Route53::RecordSetGroup
         /// </summary>
         public static Output<GetRecordSetGroupResult> Invoke(GetRecordSetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecordSetGroupResult>("aws-native:route53:getRecordSetGroup", args ?? new GetRecordSetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetGroupResult>("aws-native:route53:getRecordSetGroup", args ?? new GetRecordSetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

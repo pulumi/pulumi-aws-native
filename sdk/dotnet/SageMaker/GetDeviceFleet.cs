@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource schema for AWS::SageMaker::DeviceFleet
         /// </summary>
         public static Task<GetDeviceFleetResult> InvokeAsync(GetDeviceFleetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::SageMaker::DeviceFleet
         /// </summary>
         public static Output<GetDeviceFleetResult> Invoke(GetDeviceFleetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceFleetResult>("aws-native:sagemaker:getDeviceFleet", args ?? new GetDeviceFleetInvokeArgs(), options.WithDefaults());
     }
 
 

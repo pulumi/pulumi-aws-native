@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GroundStation
         /// AWS Ground Station Mission Profile resource type for CloudFormation.
         /// </summary>
         public static Task<GetMissionProfileResult> InvokeAsync(GetMissionProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Ground Station Mission Profile resource type for CloudFormation.
         /// </summary>
         public static Output<GetMissionProfileResult> Invoke(GetMissionProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileInvokeArgs(), options.WithDefaults());
     }
 
 

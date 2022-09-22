@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
         /// </summary>
         public static Task<GetFlowLogResult> InvokeAsync(GetFlowLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("aws-native:ec2:getFlowLog", args ?? new GetFlowLogArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowLogResult>("aws-native:ec2:getFlowLog", args ?? new GetFlowLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
         /// </summary>
         public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("aws-native:ec2:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("aws-native:ec2:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());
     }
 
 

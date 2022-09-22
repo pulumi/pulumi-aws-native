@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
         /// </summary>
         public static Task<GetNetworkInsightsAnalysisResult> InvokeAsync(GetNetworkInsightsAnalysisArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
         /// </summary>
         public static Output<GetNetworkInsightsAnalysisResult> Invoke(GetNetworkInsightsAnalysisInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAnalysisResult>("aws-native:ec2:getNetworkInsightsAnalysis", args ?? new GetNetworkInsightsAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

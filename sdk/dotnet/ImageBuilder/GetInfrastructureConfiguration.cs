@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
         public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

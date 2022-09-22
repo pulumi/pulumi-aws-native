@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
         /// </summary>
         public static Task<GetSubnetRouteTableAssociationResult> InvokeAsync(GetSubnetRouteTableAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
         /// </summary>
         public static Output<GetSubnetRouteTableAssociationResult> Invoke(GetSubnetRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetRouteTableAssociationResult>("aws-native:ec2:getSubnetRouteTableAssociation", args ?? new GetSubnetRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

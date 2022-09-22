@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.SageMaker
         /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
         /// </summary>
         public static Task<GetModelExplainabilityJobDefinitionResult> InvokeAsync(GetModelExplainabilityJobDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
         /// </summary>
         public static Output<GetModelExplainabilityJobDefinitionResult> Invoke(GetModelExplainabilityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

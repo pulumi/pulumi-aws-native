@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// Represents a streaming session machine image that can be used to launch a streaming session
         /// </summary>
         public static Task<GetStreamingImageResult> InvokeAsync(GetStreamingImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a streaming session machine image that can be used to launch a streaming session
         /// </summary>
         public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
     }
 
 

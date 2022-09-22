@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IoTWireless
         /// Create and manage partner account
         /// </summary>
         public static Task<GetPartnerAccountResult> InvokeAsync(GetPartnerAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Create and manage partner account
         /// </summary>
         public static Output<GetPartnerAccountResult> Invoke(GetPartnerAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerAccountResult>("aws-native:iotwireless:getPartnerAccount", args ?? new GetPartnerAccountInvokeArgs(), options.WithDefaults());
     }
 
 

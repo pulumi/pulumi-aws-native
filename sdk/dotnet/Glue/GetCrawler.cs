@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Glue
         /// Resource Type definition for AWS::Glue::Crawler
         /// </summary>
         public static Task<GetCrawlerResult> InvokeAsync(GetCrawlerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Glue::Crawler
         /// </summary>
         public static Output<GetCrawlerResult> Invoke(GetCrawlerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCrawlerResult>("aws-native:glue:getCrawler", args ?? new GetCrawlerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EMR
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetStudioSessionMappingResult> InvokeAsync(GetStudioSessionMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetStudioSessionMappingResult> Invoke(GetStudioSessionMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingInvokeArgs(), options.WithDefaults());
     }
 
 

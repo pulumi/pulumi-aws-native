@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
         /// </summary>
         public static Task<GetRecoveryGroupResult> InvokeAsync(GetRecoveryGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
         /// </summary>
         public static Output<GetRecoveryGroupResult> Invoke(GetRecoveryGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryGroupResult>("aws-native:route53recoveryreadiness:getRecoveryGroup", args ?? new GetRecoveryGroupInvokeArgs(), options.WithDefaults());
     }
 
 

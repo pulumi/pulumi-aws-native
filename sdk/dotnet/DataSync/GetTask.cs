@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DataSync
         /// Resource schema for AWS::DataSync::Task.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::DataSync::Task.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
 

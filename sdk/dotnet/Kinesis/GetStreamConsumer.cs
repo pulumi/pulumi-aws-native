@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Kinesis
         /// Resource Type definition for AWS::Kinesis::StreamConsumer
         /// </summary>
         public static Task<GetStreamConsumerResult> InvokeAsync(GetStreamConsumerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Kinesis::StreamConsumer
         /// </summary>
         public static Output<GetStreamConsumerResult> Invoke(GetStreamConsumerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamConsumerResult>("aws-native:kinesis:getStreamConsumer", args ?? new GetStreamConsumerInvokeArgs(), options.WithDefaults());
     }
 
 

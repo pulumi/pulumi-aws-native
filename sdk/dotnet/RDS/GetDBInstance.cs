@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.RDS
         /// The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
         /// </summary>
         public static Task<GetDBInstanceResult> InvokeAsync(GetDBInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
         /// </summary>
         public static Output<GetDBInstanceResult> Invoke(GetDBInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:rds:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

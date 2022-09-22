@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Connect
         /// Resource Type definition for AWS::Connect::HoursOfOperation
         /// </summary>
         public static Task<GetHoursOfOperationResult> InvokeAsync(GetHoursOfOperationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Connect::HoursOfOperation
         /// </summary>
         public static Output<GetHoursOfOperationResult> Invoke(GetHoursOfOperationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetHoursOfOperationResult>("aws-native:connect:getHoursOfOperation", args ?? new GetHoursOfOperationInvokeArgs(), options.WithDefaults());
     }
 
 

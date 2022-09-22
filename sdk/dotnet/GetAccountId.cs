@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative
     public static class GetAccountId
     {
         public static Task<GetAccountIdResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountIdResult>("aws-native:index:getAccountId", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountIdResult>("aws-native:index:getAccountId", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

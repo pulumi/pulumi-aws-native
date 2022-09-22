@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.LakeFormation
         /// A resource schema representing a Lake Formation Tag.
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagArgs(), options.WithDefaults());
 
         /// <summary>
         /// A resource schema representing a Lake Formation Tag.
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 

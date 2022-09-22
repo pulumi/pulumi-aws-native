@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KMS
         /// The AWS::KMS::Alias resource specifies a display name for an AWS KMS key in AWS Key Management Service (AWS KMS). You can use an alias to identify an AWS KMS key in cryptographic operations.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::KMS::Alias resource specifies a display name for an AWS KMS key in AWS Key Management Service (AWS KMS). You can use an alias to identify an AWS KMS key in cryptographic operations.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:kms:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

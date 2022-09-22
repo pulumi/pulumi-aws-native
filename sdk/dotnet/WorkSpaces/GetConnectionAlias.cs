@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
         /// </summary>
         public static Task<GetConnectionAliasResult> InvokeAsync(GetConnectionAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
         /// </summary>
         public static Output<GetConnectionAliasResult> Invoke(GetConnectionAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionAliasResult>("aws-native:workspaces:getConnectionAlias", args ?? new GetConnectionAliasInvokeArgs(), options.WithDefaults());
     }
 
 

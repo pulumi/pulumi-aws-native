@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("aws-native:devicefarm:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
     }
 
 

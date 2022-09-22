@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.DocDB
         /// Resource Type definition for AWS::DocDB::DBInstance
         /// </summary>
         public static Task<GetDBInstanceResult> InvokeAsync(GetDBInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:docdb:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDBInstanceResult>("aws-native:docdb:getDBInstance", args ?? new GetDBInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::DocDB::DBInstance
         /// </summary>
         public static Output<GetDBInstanceResult> Invoke(GetDBInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:docdb:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDBInstanceResult>("aws-native:docdb:getDBInstance", args ?? new GetDBInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

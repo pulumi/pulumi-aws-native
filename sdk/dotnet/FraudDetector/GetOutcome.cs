@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.FraudDetector
         /// An outcome for rule evaluation.
         /// </summary>
         public static Task<GetOutcomeResult> InvokeAsync(GetOutcomeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeArgs(), options.WithDefaults());
 
         /// <summary>
         /// An outcome for rule evaluation.
         /// </summary>
         public static Output<GetOutcomeResult> Invoke(GetOutcomeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeInvokeArgs(), options.WithDefaults());
     }
 
 

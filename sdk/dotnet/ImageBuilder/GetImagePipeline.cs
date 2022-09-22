@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// Resource schema for AWS::ImageBuilder::ImagePipeline
         /// </summary>
         public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::ImageBuilder::ImagePipeline
         /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws-native:imagebuilder:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());
     }
 
 

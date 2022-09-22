@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Schema of AWS::EC2::IPAMAllocation Type
         /// </summary>
         public static Task<GetIPAMAllocationResult> InvokeAsync(GetIPAMAllocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Schema of AWS::EC2::IPAMAllocation Type
         /// </summary>
         public static Output<GetIPAMAllocationResult> Invoke(GetIPAMAllocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPAMAllocationResult>("aws-native:ec2:getIPAMAllocation", args ?? new GetIPAMAllocationInvokeArgs(), options.WithDefaults());
     }
 
 

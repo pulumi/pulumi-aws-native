@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.InspectorV2
         /// Inspector Filter resource schema
         /// </summary>
         public static Task<GetFilterResult> InvokeAsync(GetFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Inspector Filter resource schema
         /// </summary>
         public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
     }
 
 

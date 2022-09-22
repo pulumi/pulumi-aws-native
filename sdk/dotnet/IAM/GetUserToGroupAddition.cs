@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.IAM
         /// Resource Type definition for AWS::IAM::UserToGroupAddition
         /// </summary>
         public static Task<GetUserToGroupAdditionResult> InvokeAsync(GetUserToGroupAdditionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::IAM::UserToGroupAddition
         /// </summary>
         public static Output<GetUserToGroupAdditionResult> Invoke(GetUserToGroupAdditionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserToGroupAdditionResult>("aws-native:iam:getUserToGroupAddition", args ?? new GetUserToGroupAdditionInvokeArgs(), options.WithDefaults());
     }
 
 

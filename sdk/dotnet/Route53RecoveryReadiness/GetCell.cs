@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// The API Schema for AWS Route53 Recovery Readiness Cells.
         /// </summary>
         public static Task<GetCellResult> InvokeAsync(GetCellArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellArgs(), options.WithDefaults());
 
         /// <summary>
         /// The API Schema for AWS Route53 Recovery Readiness Cells.
         /// </summary>
         public static Output<GetCellResult> Invoke(GetCellInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCellResult>("aws-native:route53recoveryreadiness:getCell", args ?? new GetCellInvokeArgs(), options.WithDefaults());
     }
 
 

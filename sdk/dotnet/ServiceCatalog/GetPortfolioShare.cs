@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioShare
         /// </summary>
         public static Task<GetPortfolioShareResult> InvokeAsync(GetPortfolioShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::ServiceCatalog::PortfolioShare
         /// </summary>
         public static Output<GetPortfolioShareResult> Invoke(GetPortfolioShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioShareResult>("aws-native:servicecatalog:getPortfolioShare", args ?? new GetPortfolioShareInvokeArgs(), options.WithDefaults());
     }
 
 

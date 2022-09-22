@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.AppSync
         /// Resource Type definition for AWS::AppSync::FunctionConfiguration
         /// </summary>
         public static Task<GetFunctionConfigurationResult> InvokeAsync(GetFunctionConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::AppSync::FunctionConfiguration
         /// </summary>
         public static Output<GetFunctionConfigurationResult> Invoke(GetFunctionConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

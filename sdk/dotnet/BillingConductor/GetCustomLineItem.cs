@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.BillingConductor
         /// A custom line item is an one time charge that is applied to a specific billing group's bill.
         /// </summary>
         public static Task<GetCustomLineItemResult> InvokeAsync(GetCustomLineItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomLineItemResult>("aws-native:billingconductor:getCustomLineItem", args ?? new GetCustomLineItemArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomLineItemResult>("aws-native:billingconductor:getCustomLineItem", args ?? new GetCustomLineItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// A custom line item is an one time charge that is applied to a specific billing group's bill.
         /// </summary>
         public static Output<GetCustomLineItemResult> Invoke(GetCustomLineItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomLineItemResult>("aws-native:billingconductor:getCustomLineItem", args ?? new GetCustomLineItemInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomLineItemResult>("aws-native:billingconductor:getCustomLineItem", args ?? new GetCustomLineItemInvokeArgs(), options.WithDefaults());
     }
 
 

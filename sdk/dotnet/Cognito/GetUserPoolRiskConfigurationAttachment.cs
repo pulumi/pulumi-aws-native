@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Cognito
         /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
         /// </summary>
         public static Task<GetUserPoolRiskConfigurationAttachmentResult> InvokeAsync(GetUserPoolRiskConfigurationAttachmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
         /// </summary>
         public static Output<GetUserPoolRiskConfigurationAttachmentResult> Invoke(GetUserPoolRiskConfigurationAttachmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

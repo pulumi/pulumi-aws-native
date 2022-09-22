@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Amplify
         /// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:amplify:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

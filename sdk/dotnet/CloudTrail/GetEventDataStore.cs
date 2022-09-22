@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudTrail
         /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
         /// </summary>
         public static Task<GetEventDataStoreResult> InvokeAsync(GetEventDataStoreArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
         /// </summary>
         public static Output<GetEventDataStoreResult> Invoke(GetEventDataStoreInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreInvokeArgs(), options.WithDefaults());
     }
 
 

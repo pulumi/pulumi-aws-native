@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Greengrass
         /// Resource Type definition for AWS::Greengrass::FunctionDefinition
         /// </summary>
         public static Task<GetFunctionDefinitionResult> InvokeAsync(GetFunctionDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionDefinitionResult>("aws-native:greengrass:getFunctionDefinition", args ?? new GetFunctionDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionDefinitionResult>("aws-native:greengrass:getFunctionDefinition", args ?? new GetFunctionDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Greengrass::FunctionDefinition
         /// </summary>
         public static Output<GetFunctionDefinitionResult> Invoke(GetFunctionDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFunctionDefinitionResult>("aws-native:greengrass:getFunctionDefinition", args ?? new GetFunctionDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionDefinitionResult>("aws-native:greengrass:getFunctionDefinition", args ?? new GetFunctionDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

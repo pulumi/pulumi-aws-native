@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.OpsWorks
         /// Resource Type definition for AWS::OpsWorks::Stack
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:opsworks:getStack", args ?? new GetStackArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws-native:opsworks:getStack", args ?? new GetStackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::OpsWorks::Stack
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:opsworks:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:opsworks:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
     }
 
 

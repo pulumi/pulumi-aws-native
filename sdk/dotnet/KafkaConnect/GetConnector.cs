@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// Resource Type definition for AWS::KafkaConnect::Connector
         /// </summary>
         public static Task<GetConnectorResult> InvokeAsync(GetConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::KafkaConnect::Connector
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:kafkaconnect:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

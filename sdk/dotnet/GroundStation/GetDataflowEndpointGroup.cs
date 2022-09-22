@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.GroundStation
         /// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
         /// </summary>
         public static Task<GetDataflowEndpointGroupResult> InvokeAsync(GetDataflowEndpointGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
         /// </summary>
         public static Output<GetDataflowEndpointGroupResult> Invoke(GetDataflowEndpointGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointGroupResult>("aws-native:groundstation:getDataflowEndpointGroup", args ?? new GetDataflowEndpointGroupInvokeArgs(), options.WithDefaults());
     }
 
 

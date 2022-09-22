@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaConnect
         /// Resource schema for AWS::MediaConnect::FlowVpcInterface
         /// </summary>
         public static Task<GetFlowVpcInterfaceResult> InvokeAsync(GetFlowVpcInterfaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::MediaConnect::FlowVpcInterface
         /// </summary>
         public static Output<GetFlowVpcInterfaceResult> Invoke(GetFlowVpcInterfaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::SmsTemplate
         /// </summary>
         public static Task<GetSmsTemplateResult> InvokeAsync(GetSmsTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::SmsTemplate
         /// </summary>
         public static Output<GetSmsTemplateResult> Invoke(GetSmsTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSmsTemplateResult>("aws-native:pinpoint:getSmsTemplate", args ?? new GetSmsTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

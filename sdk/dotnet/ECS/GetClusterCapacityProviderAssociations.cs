@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ECS
         /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
         /// </summary>
         public static Task<GetClusterCapacityProviderAssociationsResult> InvokeAsync(GetClusterCapacityProviderAssociationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
         /// </summary>
         public static Output<GetClusterCapacityProviderAssociationsResult> Invoke(GetClusterCapacityProviderAssociationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 

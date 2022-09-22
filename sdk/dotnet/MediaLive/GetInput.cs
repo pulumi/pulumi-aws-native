@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.MediaLive
         /// Resource Type definition for AWS::MediaLive::Input
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::MediaLive::Input
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:medialive:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
 

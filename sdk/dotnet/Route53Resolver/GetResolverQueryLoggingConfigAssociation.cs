@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
         /// </summary>
         public static Task<GetResolverQueryLoggingConfigAssociationResult> InvokeAsync(GetResolverQueryLoggingConfigAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
         /// </summary>
         public static Output<GetResolverQueryLoggingConfigAssociationResult> Invoke(GetResolverQueryLoggingConfigAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverQueryLoggingConfigAssociationResult>("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", args ?? new GetResolverQueryLoggingConfigAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

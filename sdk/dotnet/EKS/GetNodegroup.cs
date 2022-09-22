@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EKS
         /// Resource schema for AWS::EKS::Nodegroup
         /// </summary>
         public static Task<GetNodegroupResult> InvokeAsync(GetNodegroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource schema for AWS::EKS::Nodegroup
         /// </summary>
         public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
     }
 
 

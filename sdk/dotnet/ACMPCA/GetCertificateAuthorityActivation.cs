@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.ACMPCA
         /// Used to install the certificate authority certificate and update the certificate authority status.
         /// </summary>
         public static Task<GetCertificateAuthorityActivationResult> InvokeAsync(GetCertificateAuthorityActivationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Used to install the certificate authority certificate and update the certificate authority status.
         /// </summary>
         public static Output<GetCertificateAuthorityActivationResult> Invoke(GetCertificateAuthorityActivationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Redshift
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroup
         /// </summary>
         public static Task<GetClusterSecurityGroupResult> InvokeAsync(GetClusterSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Redshift::ClusterSecurityGroup
         /// </summary>
         public static Output<GetClusterSecurityGroupResult> Invoke(GetClusterSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterSecurityGroupResult>("aws-native:redshift:getClusterSecurityGroup", args ?? new GetClusterSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

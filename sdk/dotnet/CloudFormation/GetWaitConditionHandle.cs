@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// Resource Type definition for AWS::CloudFormation::WaitConditionHandle
         /// </summary>
         public static Task<GetWaitConditionHandleResult> InvokeAsync(GetWaitConditionHandleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWaitConditionHandleResult>("aws-native:cloudformation:getWaitConditionHandle", args ?? new GetWaitConditionHandleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWaitConditionHandleResult>("aws-native:cloudformation:getWaitConditionHandle", args ?? new GetWaitConditionHandleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::CloudFormation::WaitConditionHandle
         /// </summary>
         public static Output<GetWaitConditionHandleResult> Invoke(GetWaitConditionHandleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWaitConditionHandleResult>("aws-native:cloudformation:getWaitConditionHandle", args ?? new GetWaitConditionHandleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWaitConditionHandleResult>("aws-native:cloudformation:getWaitConditionHandle", args ?? new GetWaitConditionHandleInvokeArgs(), options.WithDefaults());
     }
 
 

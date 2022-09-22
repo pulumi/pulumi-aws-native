@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.Pinpoint
         /// Resource Type definition for AWS::Pinpoint::APNSVoipChannel
         /// </summary>
         public static Task<GetAPNSVoipChannelResult> InvokeAsync(GetAPNSVoipChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAPNSVoipChannelResult>("aws-native:pinpoint:getAPNSVoipChannel", args ?? new GetAPNSVoipChannelArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAPNSVoipChannelResult>("aws-native:pinpoint:getAPNSVoipChannel", args ?? new GetAPNSVoipChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::Pinpoint::APNSVoipChannel
         /// </summary>
         public static Output<GetAPNSVoipChannelResult> Invoke(GetAPNSVoipChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAPNSVoipChannelResult>("aws-native:pinpoint:getAPNSVoipChannel", args ?? new GetAPNSVoipChannelInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAPNSVoipChannelResult>("aws-native:pinpoint:getAPNSVoipChannel", args ?? new GetAPNSVoipChannelInvokeArgs(), options.WithDefaults());
     }
 
 

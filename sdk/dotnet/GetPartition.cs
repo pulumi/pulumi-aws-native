@@ -12,7 +12,7 @@ namespace Pulumi.AwsNative
     public static class GetPartition
     {
         public static Task<GetPartitionResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws-native:index:getPartition", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartitionResult>("aws-native:index:getPartition", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

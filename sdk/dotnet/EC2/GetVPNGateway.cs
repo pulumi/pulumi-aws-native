@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Schema for EC2 VPN Gateway
         /// </summary>
         public static Task<GetVPNGatewayResult> InvokeAsync(GetVPNGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schema for EC2 VPN Gateway
         /// </summary>
         public static Output<GetVPNGatewayResult> Invoke(GetVPNGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVPNGatewayResult>("aws-native:ec2:getVPNGateway", args ?? new GetVPNGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

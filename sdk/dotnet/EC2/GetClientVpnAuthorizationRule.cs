@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.EC2
         /// Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
         /// </summary>
         public static Task<GetClientVpnAuthorizationRuleResult> InvokeAsync(GetClientVpnAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
         /// </summary>
         public static Output<GetClientVpnAuthorizationRuleResult> Invoke(GetClientVpnAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientVpnAuthorizationRuleResult>("aws-native:ec2:getClientVpnAuthorizationRule", args ?? new GetClientVpnAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

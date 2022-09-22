@@ -15,13 +15,13 @@ namespace Pulumi.AwsNative.S3
         /// Resource Type definition for AWS::S3::Bucket
         /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource Type definition for AWS::S3::Bucket
         /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
 
