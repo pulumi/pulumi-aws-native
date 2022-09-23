@@ -90,5 +90,11 @@
     "list" : {
       "permissions" : [ "iam:ListServerCertificates", "iam:GetServerCertificate" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
   }
 }

@@ -62,13 +62,15 @@
   "primaryIdentifier" : [ "/properties/DBClusterParameterGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "rds:CreateDBClusterParameterGroup", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ModifyDBClusterParameterGroup" ]
+      "permissions" : [ "rds:CreateDBClusterParameterGroup", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ModifyDBClusterParameterGroup" ],
+      "timeoutInMinutes" : 180
     },
     "read" : {
       "permissions" : [ "rds:DescribeDBClusterParameterGroups", "rds:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "rds:DescribeDBClusters", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ResetDBClusterParameterGroup", "rds:ModifyDBClusterParameterGroup" ]
+      "permissions" : [ "rds:DescribeDBClusters", "rds:DescribeDBClusterParameters", "rds:DescribeEngineDefaultClusterParameters", "rds:ListTagsForResource", "rds:AddTagsToResource", "rds:RemoveTagsFromResource", "rds:ResetDBClusterParameterGroup", "rds:ModifyDBClusterParameterGroup" ],
+      "timeoutInMinutes" : 180
     },
     "delete" : {
       "permissions" : [ "rds:DeleteDBClusterParameterGroup" ]
