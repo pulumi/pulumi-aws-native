@@ -76,6 +76,9 @@
       "type" : "string",
       "enum" : [ "ENABLE", "DISABLE" ]
     },
+    "RemoveAutoRegistration" : {
+      "type" : "boolean"
+    },
     "RegistrationConfig" : {
       "$ref" : "#/definitions/RegistrationConfig"
     },
