@@ -94,6 +94,7 @@ AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
 AWS::CodeArtifact::Domain
 AWS::CodeArtifact::Repository
+AWS::CodeDeploy::DeploymentConfig
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
 AWS::CodeStarConnections::Connection
@@ -193,6 +194,7 @@ AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCPeeringConnection
+AWS::EC2::VPNConnection
 AWS::EC2::VPNGateway
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
@@ -213,14 +215,17 @@ AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EKS::IdentityProviderConfig
 AWS::EKS::Nodegroup
+AWS::EMR::SecurityConfiguration
 AWS::EMR::Studio
 AWS::EMR::StudioSessionMapping
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
+AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
 AWS::ElasticBeanstalk::Application
+AWS::ElasticBeanstalk::ApplicationVersion
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::EventSchemas::RegistryPolicy
@@ -270,6 +275,8 @@ AWS::IVS::Channel
 AWS::IVS::PlaybackKeyPair
 AWS::IVS::RecordingConfiguration
 AWS::IVS::StreamKey
+AWS::IdentityStore::Group
+AWS::IdentityStore::GroupMembership
 AWS::ImageBuilder::Component
 AWS::ImageBuilder::ContainerRecipe
 AWS::ImageBuilder::DistributionConfiguration
@@ -371,6 +378,7 @@ AWS::Location::PlaceIndex
 AWS::Location::RouteCalculator
 AWS::Location::Tracker
 AWS::Location::TrackerConsumer
+AWS::Logs::Destination
 AWS::Logs::LogGroup
 AWS::Logs::LogStream
 AWS::Logs::MetricFilter
