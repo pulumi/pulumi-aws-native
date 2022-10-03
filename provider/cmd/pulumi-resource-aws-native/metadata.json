@@ -5881,6 +5881,42 @@
                 "keyGroupConfig"
             ]
         },
+        "aws-native:cloudfront:MonitoringSubscription": {
+            "cf": "AWS::CloudFront::MonitoringSubscription",
+            "inputs": {
+                "distributionId": {
+                    "type": "string"
+                },
+                "monitoringSubscription": {
+                    "$ref": "#/types/aws-native:cloudfront:MonitoringSubscription",
+                    "language": {
+                        "csharp": {
+                            "name": "MonitoringSubscriptionValue"
+                        }
+                    }
+                }
+            },
+            "outputs": {
+                "distributionId": {
+                    "type": "string"
+                },
+                "monitoringSubscription": {
+                    "$ref": "#/types/aws-native:cloudfront:MonitoringSubscription",
+                    "language": {
+                        "csharp": {
+                            "name": "MonitoringSubscriptionValue"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "distributionId",
+                "monitoringSubscription"
+            ],
+            "createOnly": [
+                "distributionId"
+            ]
+        },
         "aws-native:cloudfront:OriginAccessControl": {
             "cf": "AWS::CloudFront::OriginAccessControl",
             "inputs": {
@@ -6676,6 +6712,54 @@
                 "domainName",
                 "domainOwner",
                 "repositoryName"
+            ]
+        },
+        "aws-native:codedeploy:DeploymentConfig": {
+            "cf": "AWS::CodeDeploy::DeploymentConfig",
+            "inputs": {
+                "computePlatform": {
+                    "type": "string",
+                    "description": "The destination platform type for the deployment (Lambda, Server, or ECS)."
+                },
+                "deploymentConfigName": {
+                    "type": "string",
+                    "description": "A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type."
+                },
+                "minimumHealthyHosts": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigMinimumHealthyHosts",
+                    "description": "The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value."
+                },
+                "trafficRoutingConfig": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigTrafficRoutingConfig",
+                    "description": "The configuration that specifies how the deployment traffic is routed."
+                }
+            },
+            "outputs": {
+                "computePlatform": {
+                    "type": "string",
+                    "description": "The destination platform type for the deployment (Lambda, Server, or ECS)."
+                },
+                "deploymentConfigName": {
+                    "type": "string",
+                    "description": "A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type."
+                },
+                "minimumHealthyHosts": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigMinimumHealthyHosts",
+                    "description": "The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value."
+                },
+                "trafficRoutingConfig": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigTrafficRoutingConfig",
+                    "description": "The configuration that specifies how the deployment traffic is routed."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "deploymentConfigName"
+            },
+            "createOnly": [
+                "computePlatform",
+                "deploymentConfigName",
+                "minimumHealthyHosts",
+                "trafficRoutingConfig"
             ]
         },
         "aws-native:codeguruprofiler:ProfilingGroup": {
@@ -7711,7 +7795,7 @@
                 },
                 "targetArn": {
                     "type": "string",
-                    "description": "The ARN of the Amazon Connect instance the phone number is claimed to."
+                    "description": "The ARN of the target the phone number is claimed to."
                 },
                 "type": {
                     "type": "string",
@@ -7748,7 +7832,7 @@
                 },
                 "targetArn": {
                     "type": "string",
-                    "description": "The ARN of the Amazon Connect instance the phone number is claimed to."
+                    "description": "The ARN of the target the phone number is claimed to."
                 },
                 "type": {
                     "type": "string",
@@ -12226,9 +12310,6 @@
                 "connectivityType": {
                     "type": "string"
                 },
-                "privateIpAddress": {
-                    "type": "string"
-                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12249,9 +12330,6 @@
                 "natGatewayId": {
                     "type": "string"
                 },
-                "privateIpAddress": {
-                    "type": "string"
-                },
                 "subnetId": {
                     "type": "string"
                 },
@@ -12268,7 +12346,6 @@
             "createOnly": [
                 "allocationId",
                 "connectivityType",
-                "privateIpAddress",
                 "subnetId"
             ]
         },
@@ -13922,6 +13999,97 @@
                 "vpcId"
             ]
         },
+        "aws-native:ec2:VPNConnection": {
+            "cf": "AWS::EC2::VPNConnection",
+            "inputs": {
+                "customerGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the customer gateway at your end of the VPN connection."
+                },
+                "staticRoutesOnly": {
+                    "type": "boolean",
+                    "description": "Indicates whether the VPN connection uses static routes only."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionTag"
+                    },
+                    "description": "Any tags assigned to the VPN connection."
+                },
+                "transitGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway associated with the VPN connection."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection."
+                },
+                "vpnGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the virtual private gateway at the AWS side of the VPN connection."
+                },
+                "vpnTunnelOptionsSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification"
+                    },
+                    "description": "The tunnel options for the VPN connection."
+                }
+            },
+            "outputs": {
+                "customerGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the customer gateway at your end of the VPN connection."
+                },
+                "staticRoutesOnly": {
+                    "type": "boolean",
+                    "description": "Indicates whether the VPN connection uses static routes only."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionTag"
+                    },
+                    "description": "Any tags assigned to the VPN connection."
+                },
+                "transitGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the transit gateway associated with the VPN connection."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of VPN connection."
+                },
+                "vpnConnectionId": {
+                    "type": "string",
+                    "description": "The provider-assigned unique ID for this managed resource"
+                },
+                "vpnGatewayId": {
+                    "type": "string",
+                    "description": "The ID of the virtual private gateway at the AWS side of the VPN connection."
+                },
+                "vpnTunnelOptionsSpecifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification"
+                    },
+                    "description": "The tunnel options for the VPN connection."
+                }
+            },
+            "required": [
+                "customerGatewayId",
+                "type"
+            ],
+            "createOnly": [
+                "customerGatewayId",
+                "staticRoutesOnly",
+                "transitGatewayId",
+                "type",
+                "vpnGatewayId",
+                "vpnTunnelOptionsSpecifications"
+            ]
+        },
         "aws-native:ec2:VPNGateway": {
             "cf": "AWS::EC2::VPNGateway",
             "inputs": {
@@ -15127,6 +15295,9 @@
                     "type": "string",
                     "description": "The unique name to give to your cluster."
                 },
+                "outpostConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterOutpostConfig"
+                },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
@@ -15187,6 +15358,9 @@
                     "type": "string",
                     "description": "The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template."
                 },
+                "outpostConfig": {
+                    "$ref": "#/types/aws-native:eks:ClusterOutpostConfig"
+                },
                 "resourcesVpcConfig": {
                     "$ref": "#/types/aws-native:eks:ClusterResourcesVpcConfig"
                 },
@@ -15219,6 +15393,7 @@
                 "encryptionConfig",
                 "kubernetesNetworkConfig",
                 "name",
+                "outpostConfig",
                 "resourcesVpcConfig/SecurityGroupIds",
                 "resourcesVpcConfig/SubnetIds",
                 "roleArn"
@@ -15674,6 +15849,62 @@
                 "members"
             ]
         },
+        "aws-native:elasticache:SubnetGroup": {
+            "cf": "AWS::ElastiCache::SubnetGroup",
+            "inputs": {
+                "cacheSubnetGroupName": {
+                    "type": "string",
+                    "description": "The name for the cache subnet group. This value is stored as a lowercase string."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description for the cache subnet group."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The EC2 subnet IDs for the cache subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticache:SubnetGroupTag"
+                    }
+                }
+            },
+            "outputs": {
+                "cacheSubnetGroupName": {
+                    "type": "string",
+                    "description": "The name for the cache subnet group. This value is stored as a lowercase string."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description for the cache subnet group."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The EC2 subnet IDs for the cache subnet group."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticache:SubnetGroupTag"
+                    }
+                }
+            },
+            "required": [
+                "description",
+                "subnetIds"
+            ],
+            "createOnly": [
+                "cacheSubnetGroupName"
+            ]
+        },
         "aws-native:elasticache:User": {
             "cf": "AWS::ElastiCache::User",
             "inputs": {
@@ -15845,6 +16076,45 @@
                 "applicationName"
             ]
         },
+        "aws-native:elasticbeanstalk:ApplicationVersion": {
+            "cf": "AWS::ElasticBeanstalk::ApplicationVersion",
+            "inputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk application that is associated with this application version. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of this application version."
+                },
+                "sourceBundle": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationVersionSourceBundle",
+                    "description": "The Amazon S3 bucket and key that identify the location of the source bundle for this version. "
+                }
+            },
+            "outputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk application that is associated with this application version. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of this application version."
+                },
+                "sourceBundle": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationVersionSourceBundle",
+                    "description": "The Amazon S3 bucket and key that identify the location of the source bundle for this version. "
+                }
+            },
+            "required": [
+                "applicationName",
+                "sourceBundle"
+            ],
+            "createOnly": [
+                "applicationName",
+                "sourceBundle"
+            ]
+        },
         "aws-native:elasticloadbalancingv2:Listener": {
             "cf": "AWS::ElasticLoadBalancingV2::Listener",
             "inputs": {
@@ -15978,6 +16248,49 @@
             ],
             "createOnly": [
                 "listenerArn"
+            ]
+        },
+        "aws-native:emr:SecurityConfiguration": {
+            "cf": "AWS::EMR::SecurityConfiguration",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the security configuration."
+                },
+                "securityConfiguration": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The security configuration details in JSON format.",
+                    "language": {
+                        "csharp": {
+                            "name": "SecurityConfigurationValue"
+                        }
+                    }
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the security configuration."
+                },
+                "securityConfiguration": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The security configuration details in JSON format.",
+                    "language": {
+                        "csharp": {
+                            "name": "SecurityConfigurationValue"
+                        }
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "securityConfiguration"
+            ],
+            "createOnly": [
+                "name",
+                "securityConfiguration"
             ]
         },
         "aws-native:emr:Studio": {
@@ -16949,6 +17262,9 @@
         "aws-native:evidently:Project": {
             "cf": "AWS::Evidently::Project",
             "inputs": {
+                "appConfigResource": {
+                    "$ref": "#/types/aws-native:evidently:ProjectAppConfigResourceObject"
+                },
                 "dataDelivery": {
                     "$ref": "#/types/aws-native:evidently:ProjectDataDeliveryObject"
                 },
@@ -16967,6 +17283,9 @@
                 }
             },
             "outputs": {
+                "appConfigResource": {
+                    "$ref": "#/types/aws-native:evidently:ProjectAppConfigResourceObject"
+                },
                 "arn": {
                     "type": "string"
                 },
@@ -19500,6 +19819,82 @@
                 "virtualMfaDeviceName"
             ]
         },
+        "aws-native:identitystore:Group": {
+            "cf": "AWS::IdentityStore::Group",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A string containing the description of the group."
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A string containing the name of the group. This value is commonly displayed when the group is referenced."
+                },
+                "identityStoreId": {
+                    "type": "string",
+                    "description": "The globally unique identifier for the identity store."
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A string containing the description of the group."
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "A string containing the name of the group. This value is commonly displayed when the group is referenced."
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The unique identifier for a group in the identity store."
+                },
+                "identityStoreId": {
+                    "type": "string",
+                    "description": "The globally unique identifier for the identity store."
+                }
+            },
+            "createOnly": [
+                "identityStoreId"
+            ]
+        },
+        "aws-native:identitystore:GroupMembership": {
+            "cf": "AWS::IdentityStore::GroupMembership",
+            "inputs": {
+                "groupId": {
+                    "type": "string",
+                    "description": "The unique identifier for a group in the identity store."
+                },
+                "identityStoreId": {
+                    "type": "string",
+                    "description": "The globally unique identifier for the identity store."
+                },
+                "memberId": {
+                    "$ref": "#/types/aws-native:identitystore:GroupMembershipMemberId",
+                    "description": "An object containing the identifier of a group member."
+                }
+            },
+            "outputs": {
+                "groupId": {
+                    "type": "string",
+                    "description": "The unique identifier for a group in the identity store."
+                },
+                "identityStoreId": {
+                    "type": "string",
+                    "description": "The globally unique identifier for the identity store."
+                },
+                "memberId": {
+                    "$ref": "#/types/aws-native:identitystore:GroupMembershipMemberId",
+                    "description": "An object containing the identifier of a group member."
+                },
+                "membershipId": {
+                    "type": "string",
+                    "description": "The identifier for a GroupMembership in the identity store."
+                }
+            },
+            "createOnly": [
+                "identityStoreId"
+            ]
+        },
         "aws-native:imagebuilder:Component": {
             "cf": "AWS::ImageBuilder::Component",
             "inputs": {
@@ -20619,6 +21014,9 @@
                 "registrationConfig": {
                     "$ref": "#/types/aws-native:iot:CACertificateRegistrationConfig"
                 },
+                "removeAutoRegistration": {
+                    "type": "boolean"
+                },
                 "status": {
                     "$ref": "#/types/aws-native:iot:CACertificateStatus"
                 },
@@ -20649,6 +21047,9 @@
                 },
                 "registrationConfig": {
                     "$ref": "#/types/aws-native:iot:CACertificateRegistrationConfig"
+                },
+                "removeAutoRegistration": {
+                    "type": "boolean"
                 },
                 "status": {
                     "$ref": "#/types/aws-native:iot:CACertificateStatus"
@@ -27745,6 +28146,60 @@
                 "trackerName"
             ]
         },
+        "aws-native:logs:Destination": {
+            "cf": "AWS::Logs::Destination",
+            "inputs": {
+                "destinationName": {
+                    "type": "string",
+                    "description": "The name of the destination resource"
+                },
+                "destinationPolicy": {
+                    "type": "string",
+                    "description": "An IAM policy document that governs which AWS accounts can create subscription filters against this destination."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "destinationName": {
+                    "type": "string",
+                    "description": "The name of the destination resource"
+                },
+                "destinationPolicy": {
+                    "type": "string",
+                    "description": "An IAM policy document that governs which AWS accounts can create subscription filters against this destination."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource"
+                },
+                "targetArn": {
+                    "type": "string",
+                    "description": "The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "destinationName",
+                "minLength": 1,
+                "maxLength": 512
+            },
+            "required": [
+                "roleArn",
+                "targetArn"
+            ],
+            "createOnly": [
+                "destinationName"
+            ]
+        },
         "aws-native:logs:LogGroup": {
             "cf": "AWS::Logs::LogGroup",
             "inputs": {
@@ -28179,6 +28634,60 @@
             },
             "createOnly": [
                 "projectName"
+            ]
+        },
+        "aws-native:m2:Application": {
+            "cf": "AWS::M2::Application",
+            "inputs": {
+                "definition": {
+                    "$ref": "#/types/aws-native:m2:ApplicationDefinition"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:ApplicationEngineType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:ApplicationTagMap"
+                }
+            },
+            "outputs": {
+                "applicationArn": {
+                    "type": "string"
+                },
+                "applicationId": {
+                    "type": "string"
+                },
+                "definition": {
+                    "$ref": "#/types/aws-native:m2:ApplicationDefinition"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "engineType": {
+                    "$ref": "#/types/aws-native:m2:ApplicationEngineType"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:m2:ApplicationTagMap"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "definition",
+                "engineType"
+            ],
+            "createOnly": [
+                "engineType",
+                "name"
             ]
         },
         "aws-native:m2:Environment": {
@@ -33752,6 +34261,10 @@
                     "type": "string",
                     "description": "The name of the DB cluster parameter group to associate with this DB cluster."
                 },
+                "dBInstanceParameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the DB parameter group to apply to all instances of the DB cluster."
+                },
                 "dBSubnetGroupName": {
                     "type": "string",
                     "description": "A DB subnet group that you want to associate with this DB cluster."
@@ -33862,6 +34375,10 @@
                     "$ref": "#/types/aws-native:rds:DBClusterScalingConfiguration",
                     "description": "The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster."
                 },
+                "serverlessV2ScalingConfiguration": {
+                    "$ref": "#/types/aws-native:rds:DBClusterServerlessV2ScalingConfiguration",
+                    "description": "Contains the scaling configuration of an Aurora Serverless v2 DB cluster."
+                },
                 "snapshotIdentifier": {
                     "type": "string",
                     "description": "The identifier for the DB snapshot or DB cluster snapshot to restore from.\nYou can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.\nAfter you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted."
@@ -33947,6 +34464,14 @@
                 "dBClusterParameterGroupName": {
                     "type": "string",
                     "description": "The name of the DB cluster parameter group to associate with this DB cluster."
+                },
+                "dBClusterResourceId": {
+                    "type": "string",
+                    "description": "The AWS Region-unique, immutable identifier for the DB cluster."
+                },
+                "dBInstanceParameterGroupName": {
+                    "type": "string",
+                    "description": "The name of the DB parameter group to apply to all instances of the DB cluster."
                 },
                 "dBSubnetGroupName": {
                     "type": "string",
@@ -34060,6 +34585,10 @@
                 "scalingConfiguration": {
                     "$ref": "#/types/aws-native:rds:DBClusterScalingConfiguration",
                     "description": "The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster."
+                },
+                "serverlessV2ScalingConfiguration": {
+                    "$ref": "#/types/aws-native:rds:DBClusterServerlessV2ScalingConfiguration",
+                    "description": "Contains the scaling configuration of an Aurora Serverless v2 DB cluster."
                 },
                 "snapshotIdentifier": {
                     "type": "string",
@@ -34215,6 +34744,10 @@
                     "type": "boolean",
                     "description": "A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied."
                 },
+                "customIAMInstanceProfile": {
+                    "type": "string",
+                    "description": "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:\n * The profile must exist in your account.\n * The profile must have an IAM role that Amazon EC2 has permissions to assume.\n * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .\nFor the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .\n\nThis setting is required for RDS Custom."
+                },
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
@@ -34328,6 +34861,10 @@
                 "multiAZ": {
                     "type": "boolean",
                     "description": "Specifies whether the database instance is a multiple Availability Zone deployment."
+                },
+                "ncharCharacterSetName": {
+                    "type": "string",
+                    "description": "The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom."
                 },
                 "optionGroupName": {
                     "type": "string",
@@ -34455,6 +34992,10 @@
                     "type": "boolean",
                     "description": "A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied."
                 },
+                "customIAMInstanceProfile": {
+                    "type": "string",
+                    "description": "The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:\n * The profile must exist in your account.\n * The profile must have an IAM role that Amazon EC2 has permissions to assume.\n * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .\nFor the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .\n\nThis setting is required for RDS Custom."
+                },
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
@@ -34569,6 +35110,10 @@
                     "type": "boolean",
                     "description": "Specifies whether the database instance is a multiple Availability Zone deployment."
                 },
+                "ncharCharacterSetName": {
+                    "type": "string",
+                    "description": "The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom."
+                },
                 "optionGroupName": {
                     "type": "string",
                     "description": "Indicates that the DB instance should be associated with the specified option group."
@@ -34657,6 +35202,7 @@
             },
             "createOnly": [
                 "characterSetName",
+                "customIAMInstanceProfile",
                 "dBClusterIdentifier",
                 "dBInstanceIdentifier",
                 "dBName",
@@ -34664,6 +35210,7 @@
                 "dBSubnetGroupName",
                 "kmsKeyId",
                 "masterUsername",
+                "ncharCharacterSetName",
                 "port",
                 "publiclyAccessible",
                 "sourceDBInstanceIdentifier",
@@ -34831,6 +35378,10 @@
                         "$ref": "#/types/aws-native:rds:DBProxyTagFormat"
                     },
                     "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "VPC ID to associate with the new DB proxy."
                 },
                 "vpcSecurityGroupIds": {
                     "type": "array",
@@ -35742,46 +36293,54 @@
             "cf": "AWS::Redshift::ClusterParameterGroup",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the parameter group."
                 },
                 "parameterGroupFamily": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters."
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
-                    }
+                    },
+                    "description": "An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "outputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the parameter group."
                 },
                 "parameterGroupFamily": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters."
                 },
                 "parameterGroupName": {
                     "type": "string",
-                    "description": "Cloudformation will generate a unique group name."
+                    "description": "The name of the cluster parameter group."
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupParameter"
-                    }
+                    },
+                    "description": "An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterParameterGroupTag"
-                    }
+                    },
+                    "description": "An array of key-value pairs to apply to this resource."
                 }
             },
             "required": [
@@ -35797,36 +36356,46 @@
             "cf": "AWS::Redshift::ClusterSubnetGroup",
             "inputs": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter group."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The list of VPC subnet IDs"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
-                    }
+                    },
+                    "description": "The list of tags for the cluster parameter group."
                 }
             },
             "outputs": {
+                "clusterSubnetGroupName": {
+                    "type": "string",
+                    "description": "This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be \"Default\". "
+                },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter group."
                 },
                 "subnetIds": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The list of VPC subnet IDs"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshift:ClusterSubnetGroupTag"
-                    }
+                    },
+                    "description": "The list of tags for the cluster parameter group."
                 }
             },
             "required": [
@@ -50676,6 +51245,25 @@
                 }
             }
         },
+        "aws-native:cloudfront:MonitoringSubscription": {
+            "type": "object",
+            "properties": {
+                "realtimeMetricsSubscriptionConfig": {
+                    "$ref": "#/types/aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfig"
+                }
+            }
+        },
+        "aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfig": {
+            "type": "object",
+            "properties": {
+                "realtimeMetricsSubscriptionStatus": {
+                    "$ref": "#/types/aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus"
+                }
+            }
+        },
+        "aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus": {
+            "type": "string"
+        },
         "aws-native:cloudfront:OriginAccessControlConfig": {
             "type": "object",
             "properties": {
@@ -51248,6 +51836,53 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
+        "aws-native:codedeploy:DeploymentConfigMinimumHealthyHosts": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:codedeploy:DeploymentConfigTimeBasedCanary": {
+            "type": "object",
+            "properties": {
+                "canaryInterval": {
+                    "type": "integer"
+                },
+                "canaryPercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:codedeploy:DeploymentConfigTimeBasedLinear": {
+            "type": "object",
+            "properties": {
+                "linearInterval": {
+                    "type": "integer"
+                },
+                "linearPercentage": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:codedeploy:DeploymentConfigTrafficRoutingConfig": {
+            "type": "object",
+            "properties": {
+                "timeBasedCanary": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigTimeBasedCanary"
+                },
+                "timeBasedLinear": {
+                    "$ref": "#/types/aws-native:codedeploy:DeploymentConfigTimeBasedLinear"
+                },
+                "type": {
+                    "type": "string"
                 }
             }
         },
@@ -56734,6 +57369,28 @@
                 }
             }
         },
+        "aws-native:ec2:VPNConnectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:VPNConnectionVpnTunnelOptionsSpecification": {
+            "type": "object",
+            "properties": {
+                "preSharedKey": {
+                    "type": "string"
+                },
+                "tunnelInsideCidr": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ec2:VPNGatewayTag": {
             "type": "object",
             "properties": {
@@ -58025,6 +58682,22 @@
                 }
             }
         },
+        "aws-native:eks:ClusterOutpostConfig": {
+            "type": "object",
+            "properties": {
+                "controlPlaneInstanceType": {
+                    "type": "string",
+                    "description": "Specify the Instance type of the machines that should be used to create your cluster."
+                },
+                "outpostArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster."
+                }
+            }
+        },
         "aws-native:eks:ClusterProvider": {
             "type": "object",
             "properties": {
@@ -58310,6 +58983,17 @@
                 }
             }
         },
+        "aws-native:elasticache:SubnetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:elasticache:UserEngine": {
             "type": "string"
         },
@@ -58373,6 +59057,19 @@
                 "maxCountRule": {
                     "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationMaxCountRule",
                     "description": "Specify a max count rule to restrict the number of application versions that are retained for an application."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:ApplicationVersionSourceBundle": {
+            "type": "object",
+            "properties": {
+                "s3Bucket": {
+                    "type": "string",
+                    "description": "The Amazon S3 bucket where the data is located."
+                },
+                "s3Key": {
+                    "type": "string",
+                    "description": "The Amazon S3 key where the data is located."
                 }
             }
         },
@@ -59453,6 +60150,17 @@
                 "value": {
                     "type": "string",
                     "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                }
+            }
+        },
+        "aws-native:evidently:ProjectAppConfigResourceObject": {
+            "type": "object",
+            "properties": {
+                "applicationId": {
+                    "type": "string"
+                },
+                "environmentId": {
+                    "type": "string"
                 }
             }
         },
@@ -61183,6 +61891,9 @@
                 }
             }
         },
+        "aws-native:identitystore:GroupMembershipMemberId": {
+            "type": "object"
+        },
         "aws-native:imagebuilder:ComponentPlatform": {
             "type": "string"
         },
@@ -61195,6 +61906,29 @@
                 "componentArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the component."
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:imagebuilder:ContainerRecipeComponentParameter"
+                    },
+                    "description": "A group of parameter settings that are used to configure the component for a specific recipe."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ContainerRecipeComponentParameter": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the component parameter to set."
+                },
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Sets the value for the named component parameter."
                 }
             }
         },
@@ -65199,6 +65933,10 @@
                 "notificationState": {
                     "$ref": "#/types/aws-native:iotsitewise:AssetPropertyNotificationState",
                     "description": "The MQTT notification state (ENABLED or DISABLED) for this asset property."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model."
                 }
             }
         },
@@ -65381,6 +66119,12 @@
                 "classCTimeout": {
                     "type": "integer"
                 },
+                "factoryPresetFreqsList": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
                 "macVersion": {
                     "type": "string"
                 },
@@ -65404,6 +66148,18 @@
                 },
                 "rfRegion": {
                     "type": "string"
+                },
+                "rxDataRate2": {
+                    "type": "integer"
+                },
+                "rxDelay1": {
+                    "type": "integer"
+                },
+                "rxDrOffset1": {
+                    "type": "integer"
+                },
+                "rxFreq2": {
+                    "type": "integer"
                 },
                 "supports32BitFCnt": {
                     "type": "boolean"
@@ -71440,6 +72196,15 @@
                 }
             }
         },
+        "aws-native:m2:ApplicationDefinition": {
+            "type": "object"
+        },
+        "aws-native:m2:ApplicationEngineType": {
+            "type": "string"
+        },
+        "aws-native:m2:ApplicationTagMap": {
+            "type": "object"
+        },
         "aws-native:m2:EnvironmentEngineType": {
             "type": "string"
         },
@@ -71873,6 +72638,10 @@
                     "type": "string",
                     "description": "An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV)."
                 },
+                "encryptionMethod": {
+                    "$ref": "#/types/aws-native:mediapackage:OriginEndpointCmafEncryptionEncryptionMethod",
+                    "description": "The encryption method used"
+                },
                 "keyRotationIntervalSeconds": {
                     "type": "integer",
                     "description": "Time (in seconds) between each encryption key rotation."
@@ -71881,6 +72650,9 @@
                     "$ref": "#/types/aws-native:mediapackage:OriginEndpointSpekeKeyProvider"
                 }
             }
+        },
+        "aws-native:mediapackage:OriginEndpointCmafEncryptionEncryptionMethod": {
+            "type": "string"
         },
         "aws-native:mediapackage:OriginEndpointCmafPackage": {
             "type": "object",
@@ -76423,6 +77195,19 @@
                 }
             }
         },
+        "aws-native:rds:DBClusterServerlessV2ScalingConfiguration": {
+            "type": "object",
+            "properties": {
+                "maxCapacity": {
+                    "type": "number",
+                    "description": "The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128."
+                },
+                "minCapacity": {
+                    "type": "number",
+                    "description": "The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5."
+                }
+            }
+        },
         "aws-native:rds:DBClusterTag": {
             "type": "object",
             "properties": {
@@ -76521,7 +77306,7 @@
                 },
                 "iAMAuth": {
                     "$ref": "#/types/aws-native:rds:DBProxyAuthFormatIAMAuth",
-                    "description": "Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. "
+                    "description": "Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server."
                 },
                 "secretArn": {
                     "type": "string",
@@ -76717,10 +77502,12 @@
             "type": "object",
             "properties": {
                 "parameterName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the parameter."
                 },
                 "parameterValue": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters."
                 }
             }
         },
@@ -76728,10 +77515,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -76739,10 +77528,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
         },
@@ -77896,10 +78687,7 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 }
             }
         },
@@ -77910,10 +78698,7 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 }
             }
         },
@@ -77924,10 +78709,7 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 }
             }
         },
@@ -78007,10 +78789,7 @@
                     "type": "string"
                 },
                 "value": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
+                    "type": "string"
                 }
             }
         },
@@ -86140,6 +86919,12 @@
                 "id"
             ]
         },
+        "aws-native:cloudfront:getMonitoringSubscription": {
+            "cf": "AWS::CloudFront::MonitoringSubscription",
+            "ids": [
+                "distributionId"
+            ]
+        },
         "aws-native:cloudfront:getOriginAccessControl": {
             "cf": "AWS::CloudFront::OriginAccessControl",
             "ids": [
@@ -86810,6 +87595,12 @@
                 "id"
             ]
         },
+        "aws-native:ec2:getVPNConnection": {
+            "cf": "AWS::EC2::VPNConnection",
+            "ids": [
+                "vpnConnectionId"
+            ]
+        },
         "aws-native:ec2:getVPNGateway": {
             "cf": "AWS::EC2::VPNGateway",
             "ids": [
@@ -86938,6 +87729,12 @@
                 "globalReplicationGroupId"
             ]
         },
+        "aws-native:elasticache:getSubnetGroup": {
+            "cf": "AWS::ElastiCache::SubnetGroup",
+            "ids": [
+                "cacheSubnetGroupName"
+            ]
+        },
         "aws-native:elasticache:getUser": {
             "cf": "AWS::ElastiCache::User",
             "ids": [
@@ -86954,6 +87751,13 @@
             "cf": "AWS::ElasticBeanstalk::Application",
             "ids": [
                 "applicationName"
+            ]
+        },
+        "aws-native:elasticbeanstalk:getApplicationVersion": {
+            "cf": "AWS::ElasticBeanstalk::ApplicationVersion",
+            "ids": [
+                "applicationName",
+                "id"
             ]
         },
         "aws-native:elasticloadbalancingv2:getListener": {
@@ -87245,6 +88049,20 @@
             "cf": "AWS::IAM::VirtualMFADevice",
             "ids": [
                 "serialNumber"
+            ]
+        },
+        "aws-native:identitystore:getGroup": {
+            "cf": "AWS::IdentityStore::Group",
+            "ids": [
+                "groupId",
+                "identityStoreId"
+            ]
+        },
+        "aws-native:identitystore:getGroupMembership": {
+            "cf": "AWS::IdentityStore::GroupMembership",
+            "ids": [
+                "membershipId",
+                "identityStoreId"
             ]
         },
         "aws-native:imagebuilder:getComponent": {
@@ -87875,6 +88693,12 @@
                 "trackerName"
             ]
         },
+        "aws-native:logs:getDestination": {
+            "cf": "AWS::Logs::Destination",
+            "ids": [
+                "destinationName"
+            ]
+        },
         "aws-native:logs:getLogGroup": {
             "cf": "AWS::Logs::LogGroup",
             "ids": [
@@ -87923,6 +88747,12 @@
             "cf": "AWS::LookoutVision::Project",
             "ids": [
                 "projectName"
+            ]
+        },
+        "aws-native:m2:getApplication": {
+            "cf": "AWS::M2::Application",
+            "ids": [
+                "applicationArn"
             ]
         },
         "aws-native:m2:getEnvironment": {
@@ -88376,7 +89206,7 @@
         "aws-native:redshift:getClusterSubnetGroup": {
             "cf": "AWS::Redshift::ClusterSubnetGroup",
             "ids": [
-                "id"
+                "clusterSubnetGroupName"
             ]
         },
         "aws-native:redshift:getEndpointAccess": {

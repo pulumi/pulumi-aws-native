@@ -17,7 +17,7 @@
     }
   },
   "typeName" : "AWS::Lambda::Function",
-  "readOnlyProperties" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus" ],
   "description" : "Resource Type definition for AWS::Lambda::Function",
   "writeOnlyProperties" : [ "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile" ],
   "createOnlyProperties" : [ "/properties/FunctionName" ],
@@ -206,14 +206,6 @@
   },
   "required" : [ "Code", "Role" ],
   "properties" : {
-    "ImageConfig" : {
-      "description" : "ImageConfig",
-      "$ref" : "#/definitions/ImageConfig"
-    },
-    "MemorySize" : {
-      "description" : "The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.",
-      "type" : "integer"
-    },
     "Description" : {
       "description" : "A description of the function.",
       "type" : "string",
@@ -227,34 +219,10 @@
       "description" : "For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.",
       "$ref" : "#/definitions/VpcConfig"
     },
-    "DeadLetterConfig" : {
-      "description" : "A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.",
-      "$ref" : "#/definitions/DeadLetterConfig"
-    },
-    "Timeout" : {
-      "description" : "The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.",
-      "type" : "integer",
-      "minimum" : 1
-    },
-    "Handler" : {
-      "pattern" : "^[^\\s]+$",
-      "description" : "The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime",
-      "type" : "string",
-      "maxLength" : 128
-    },
     "ReservedConcurrentExecutions" : {
       "description" : "The number of simultaneous executions to reserve for the function.",
       "type" : "integer",
       "minimum" : 0
-    },
-    "Code" : {
-      "description" : "The code for the function.",
-      "$ref" : "#/definitions/Code"
-    },
-    "Role" : {
-      "pattern" : "^arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
-      "description" : "The Amazon Resource Name (ARN) of the function's execution role.",
-      "type" : "string"
     },
     "FileSystemConfigs" : {
       "maxItems" : 1,
@@ -288,18 +256,6 @@
       "description" : "A unique Arn for CodeSigningConfig resource",
       "type" : "string"
     },
-    "Environment" : {
-      "description" : "Environment variables that are accessible from function code during execution.",
-      "$ref" : "#/definitions/Environment"
-    },
-    "Arn" : {
-      "description" : "Unique identifier for function resources",
-      "type" : "string"
-    },
-    "EphemeralStorage" : {
-      "description" : "A function's ephemeral storage settings.",
-      "$ref" : "#/definitions/EphemeralStorage"
-    },
     "Layers" : {
       "uniqueItems" : false,
       "description" : "A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.",
@@ -316,6 +272,50 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "ImageConfig" : {
+      "description" : "ImageConfig",
+      "$ref" : "#/definitions/ImageConfig"
+    },
+    "MemorySize" : {
+      "description" : "The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.",
+      "type" : "integer"
+    },
+    "DeadLetterConfig" : {
+      "description" : "A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.",
+      "$ref" : "#/definitions/DeadLetterConfig"
+    },
+    "Timeout" : {
+      "description" : "The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.",
+      "type" : "integer",
+      "minimum" : 1
+    },
+    "Handler" : {
+      "pattern" : "^[^\\s]+$",
+      "description" : "The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime",
+      "type" : "string",
+      "maxLength" : 128
+    },
+    "Code" : {
+      "description" : "The code for the function.",
+      "$ref" : "#/definitions/Code"
+    },
+    "Role" : {
+      "pattern" : "^arn:(aws[a-zA-Z-]*)?:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+      "description" : "The Amazon Resource Name (ARN) of the function's execution role.",
+      "type" : "string"
+    },
+    "Environment" : {
+      "description" : "Environment variables that are accessible from function code during execution.",
+      "$ref" : "#/definitions/Environment"
+    },
+    "Arn" : {
+      "description" : "Unique identifier for function resources",
+      "type" : "string"
+    },
+    "EphemeralStorage" : {
+      "description" : "A function's ephemeral storage settings.",
+      "$ref" : "#/definitions/EphemeralStorage"
     },
     "Architectures" : {
       "minItems" : 1,
