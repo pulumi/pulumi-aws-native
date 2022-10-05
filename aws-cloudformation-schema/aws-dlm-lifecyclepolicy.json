@@ -120,6 +120,16 @@
       },
       "required" : [ "IntervalUnit", "Interval" ]
     },
+    "ArchiveRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RetainRule" : {
+          "$ref" : "#/definitions/ArchiveRetainRule"
+        }
+      },
+      "required" : [ "RetainRule" ]
+    },
     "EventParameters" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -212,6 +222,16 @@
       },
       "required" : [ "IntervalUnit", "Interval" ]
     },
+    "ArchiveRetainRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RetentionArchiveTier" : {
+          "$ref" : "#/definitions/RetentionArchiveTier"
+        }
+      },
+      "required" : [ "RetentionArchiveTier" ]
+    },
     "CreateRule" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -270,6 +290,9 @@
         },
         "FastRestoreRule" : {
           "$ref" : "#/definitions/FastRestoreRule"
+        },
+        "ArchiveRule" : {
+          "$ref" : "#/definitions/ArchiveRule"
         },
         "RetainRule" : {
           "$ref" : "#/definitions/RetainRule"
@@ -358,6 +381,21 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "RetentionArchiveTier" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IntervalUnit" : {
+          "type" : "string"
+        },
+        "Count" : {
+          "type" : "integer"
+        },
+        "Interval" : {
+          "type" : "integer"
         }
       }
     },

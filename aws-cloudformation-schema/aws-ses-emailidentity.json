@@ -117,7 +117,7 @@
   "readOnlyProperties" : [ "/properties/DkimDNSTokenName1", "/properties/DkimDNSTokenName2", "/properties/DkimDNSTokenName3", "/properties/DkimDNSTokenValue1", "/properties/DkimDNSTokenValue2", "/properties/DkimDNSTokenValue3" ],
   "createOnlyProperties" : [ "/properties/EmailIdentity" ],
   "primaryIdentifier" : [ "/properties/EmailIdentity" ],
-  "writeOnlyProperties" : [ "/properties/DkimSigningAttributes" ],
+  "writeOnlyProperties" : [ "/properties/DkimSigningAttributes/DomainSigningSelector", "/properties/DkimSigningAttributes/DomainSigningPrivateKey" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ses:CreateEmailIdentity", "ses:PutEmailIdentityMailFromAttributes", "ses:PutEmailIdentityFeedbackAttributes", "ses:PutEmailIdentityDkimAttributes" ]

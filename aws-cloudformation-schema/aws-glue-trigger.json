@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::Glue::Trigger",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "Type" : {
       "type" : "string"
     },
@@ -22,10 +19,16 @@
         "$ref" : "#/definitions/Action"
       }
     },
+    "EventBatchingCondition" : {
+      "$ref" : "#/definitions/EventBatchingCondition"
+    },
     "WorkflowName" : {
       "type" : "string"
     },
     "Schedule" : {
+      "type" : "string"
+    },
+    "Id" : {
       "type" : "string"
     },
     "Tags" : {
@@ -39,6 +42,36 @@
     }
   },
   "definitions" : {
+    "Condition" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "JobName" : {
+          "type" : "string"
+        },
+        "CrawlerName" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "CrawlState" : {
+          "type" : "string"
+        },
+        "LogicalOperator" : {
+          "type" : "string"
+        }
+      }
+    },
+    "NotificationProperty" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "NotifyDelayAfter" : {
+          "type" : "integer"
+        }
+      }
+    },
     "Action" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -63,6 +96,19 @@
         }
       }
     },
+    "EventBatchingCondition" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "BatchSize" : {
+          "type" : "integer"
+        },
+        "BatchWindow" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "BatchSize" ]
+    },
     "Predicate" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -78,40 +124,10 @@
           }
         }
       }
-    },
-    "NotificationProperty" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "NotifyDelayAfter" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "Condition" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "CrawlerName" : {
-          "type" : "string"
-        },
-        "State" : {
-          "type" : "string"
-        },
-        "CrawlState" : {
-          "type" : "string"
-        },
-        "LogicalOperator" : {
-          "type" : "string"
-        },
-        "JobName" : {
-          "type" : "string"
-        }
-      }
     }
   },
   "required" : [ "Type", "Actions" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/WorkflowName" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/WorkflowName", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

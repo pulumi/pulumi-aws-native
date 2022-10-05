@@ -347,6 +347,11 @@
           "pattern" : "\\A[0-9a-fA-F]+\\Z",
           "minLength" : 32,
           "maxLength" : 32
+        },
+        "EncryptionMethod" : {
+          "description" : "The encryption method used",
+          "type" : "string",
+          "enum" : [ "SAMPLE_AES", "AES_CTR" ]
         }
       }
     },
