@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { ACLArgs } from "./acl";
 export type ACL = import("./acl").ACL;
 export const ACL: typeof import("./acl").ACL = null as any;
+utilities.lazyLoad(exports, ["ACL"], () => require("./acl"));
 
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { GetACLArgs, GetACLResult, GetACLOutputArgs } from "./getACL";
 export const getACL: typeof import("./getACL").getACL = null as any;
 export const getACLOutput: typeof import("./getACL").getACLOutput = null as any;
+utilities.lazyLoad(exports, ["getACL","getACLOutput"], () => require("./getACL"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetParameterGroupArgs, GetParameterGroupResult, GetParameterGroupOutputArgs } from "./getParameterGroup";
 export const getParameterGroup: typeof import("./getParameterGroup").getParameterGroup = null as any;
 export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
 
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
 
 export { ParameterGroupArgs } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
+utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
-
-utilities.lazyLoad(exports, ["ACL"], () => require("./acl"));
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["getACL","getACLOutput"], () => require("./getACL"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
-utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
-utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
-utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
-utilities.lazyLoad(exports, ["SubnetGroup"], () => require("./subnetGroup"));
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
 
 // Export enums:
 export * from "../types/enums/memorydb";

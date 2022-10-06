@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { CollectionArgs } from "./collection";
 export type Collection = import("./collection").Collection;
 export const Collection: typeof import("./collection").Collection = null as any;
+utilities.lazyLoad(exports, ["Collection"], () => require("./collection"));
 
 export { GetCollectionArgs, GetCollectionResult, GetCollectionOutputArgs } from "./getCollection";
 export const getCollection: typeof import("./getCollection").getCollection = null as any;
 export const getCollectionOutput: typeof import("./getCollection").getCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getCollection","getCollectionOutput"], () => require("./getCollection"));
 
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
 export { GetStreamProcessorArgs, GetStreamProcessorResult, GetStreamProcessorOutputArgs } from "./getStreamProcessor";
 export const getStreamProcessor: typeof import("./getStreamProcessor").getStreamProcessor = null as any;
 export const getStreamProcessorOutput: typeof import("./getStreamProcessor").getStreamProcessorOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamProcessor","getStreamProcessorOutput"], () => require("./getStreamProcessor"));
 
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 
 export { StreamProcessorArgs } from "./streamProcessor";
 export type StreamProcessor = import("./streamProcessor").StreamProcessor;
 export const StreamProcessor: typeof import("./streamProcessor").StreamProcessor = null as any;
-
-utilities.lazyLoad(exports, ["Collection"], () => require("./collection"));
-utilities.lazyLoad(exports, ["getCollection","getCollectionOutput"], () => require("./getCollection"));
-utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
-utilities.lazyLoad(exports, ["getStreamProcessor","getStreamProcessorOutput"], () => require("./getStreamProcessor"));
-utilities.lazyLoad(exports, ["Project"], () => require("./project"));
 utilities.lazyLoad(exports, ["StreamProcessor"], () => require("./streamProcessor"));
+
 
 const _module = {
     version: utilities.getVersion(),

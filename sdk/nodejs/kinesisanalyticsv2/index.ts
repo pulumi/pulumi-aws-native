@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ApplicationCloudWatchLoggingOptionArgs } from "./applicationCloudWatchLoggingOption";
 export type ApplicationCloudWatchLoggingOption = import("./applicationCloudWatchLoggingOption").ApplicationCloudWatchLoggingOption;
 export const ApplicationCloudWatchLoggingOption: typeof import("./applicationCloudWatchLoggingOption").ApplicationCloudWatchLoggingOption = null as any;
+utilities.lazyLoad(exports, ["ApplicationCloudWatchLoggingOption"], () => require("./applicationCloudWatchLoggingOption"));
 
 export { ApplicationOutputResourceArgs } from "./applicationOutputResource";
 export type ApplicationOutputResource = import("./applicationOutputResource").ApplicationOutputResource;
 export const ApplicationOutputResource: typeof import("./applicationOutputResource").ApplicationOutputResource = null as any;
+utilities.lazyLoad(exports, ["ApplicationOutputResource"], () => require("./applicationOutputResource"));
 
 export { ApplicationReferenceDataSourceArgs } from "./applicationReferenceDataSource";
 export type ApplicationReferenceDataSource = import("./applicationReferenceDataSource").ApplicationReferenceDataSource;
 export const ApplicationReferenceDataSource: typeof import("./applicationReferenceDataSource").ApplicationReferenceDataSource = null as any;
+utilities.lazyLoad(exports, ["ApplicationReferenceDataSource"], () => require("./applicationReferenceDataSource"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetApplicationCloudWatchLoggingOptionArgs, GetApplicationCloudWatchLoggingOptionResult, GetApplicationCloudWatchLoggingOptionOutputArgs } from "./getApplicationCloudWatchLoggingOption";
 export const getApplicationCloudWatchLoggingOption: typeof import("./getApplicationCloudWatchLoggingOption").getApplicationCloudWatchLoggingOption = null as any;
 export const getApplicationCloudWatchLoggingOptionOutput: typeof import("./getApplicationCloudWatchLoggingOption").getApplicationCloudWatchLoggingOptionOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationCloudWatchLoggingOption","getApplicationCloudWatchLoggingOptionOutput"], () => require("./getApplicationCloudWatchLoggingOption"));
 
 export { GetApplicationOutputResourceArgs, GetApplicationOutputResourceResult, GetApplicationOutputResourceOutputArgs } from "./getApplicationOutputResource";
 export const getApplicationOutputResource: typeof import("./getApplicationOutputResource").getApplicationOutputResource = null as any;
 export const getApplicationOutputResourceOutput: typeof import("./getApplicationOutputResource").getApplicationOutputResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationOutputResource","getApplicationOutputResourceOutput"], () => require("./getApplicationOutputResource"));
 
 export { GetApplicationReferenceDataSourceArgs, GetApplicationReferenceDataSourceResult, GetApplicationReferenceDataSourceOutputArgs } from "./getApplicationReferenceDataSource";
 export const getApplicationReferenceDataSource: typeof import("./getApplicationReferenceDataSource").getApplicationReferenceDataSource = null as any;
 export const getApplicationReferenceDataSourceOutput: typeof import("./getApplicationReferenceDataSource").getApplicationReferenceDataSourceOutput = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["ApplicationCloudWatchLoggingOption"], () => require("./applicationCloudWatchLoggingOption"));
-utilities.lazyLoad(exports, ["ApplicationOutputResource"], () => require("./applicationOutputResource"));
-utilities.lazyLoad(exports, ["ApplicationReferenceDataSource"], () => require("./applicationReferenceDataSource"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getApplicationCloudWatchLoggingOption","getApplicationCloudWatchLoggingOptionOutput"], () => require("./getApplicationCloudWatchLoggingOption"));
-utilities.lazyLoad(exports, ["getApplicationOutputResource","getApplicationOutputResourceOutput"], () => require("./getApplicationOutputResource"));
 utilities.lazyLoad(exports, ["getApplicationReferenceDataSource","getApplicationReferenceDataSourceOutput"], () => require("./getApplicationReferenceDataSource"));
+
 
 // Export enums:
 export * from "../types/enums/kinesisanalyticsv2";

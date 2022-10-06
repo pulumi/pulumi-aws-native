@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
 export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
 export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
 
 export { GetResourceCollectionArgs, GetResourceCollectionResult, GetResourceCollectionOutputArgs } from "./getResourceCollection";
 export const getResourceCollection: typeof import("./getResourceCollection").getResourceCollection = null as any;
 export const getResourceCollectionOutput: typeof import("./getResourceCollection").getResourceCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceCollection","getResourceCollectionOutput"], () => require("./getResourceCollection"));
 
 export { NotificationChannelArgs } from "./notificationChannel";
 export type NotificationChannel = import("./notificationChannel").NotificationChannel;
 export const NotificationChannel: typeof import("./notificationChannel").NotificationChannel = null as any;
+utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
 
 export { ResourceCollectionArgs } from "./resourceCollection";
 export type ResourceCollection = import("./resourceCollection").ResourceCollection;
 export const ResourceCollection: typeof import("./resourceCollection").ResourceCollection = null as any;
-
-utilities.lazyLoad(exports, ["getNotificationChannel","getNotificationChannelOutput"], () => require("./getNotificationChannel"));
-utilities.lazyLoad(exports, ["getResourceCollection","getResourceCollectionOutput"], () => require("./getResourceCollection"));
-utilities.lazyLoad(exports, ["NotificationChannel"], () => require("./notificationChannel"));
 utilities.lazyLoad(exports, ["ResourceCollection"], () => require("./resourceCollection"));
+
 
 // Export enums:
 export * from "../types/enums/devopsguru";

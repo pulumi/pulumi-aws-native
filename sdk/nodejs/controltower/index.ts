@@ -8,8 +8,8 @@ import * as utilities from "../utilities";
 export { EnabledControlArgs } from "./enabledControl";
 export type EnabledControl = import("./enabledControl").EnabledControl;
 export const EnabledControl: typeof import("./enabledControl").EnabledControl = null as any;
-
 utilities.lazyLoad(exports, ["EnabledControl"], () => require("./enabledControl"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AccessPointArgs } from "./accessPoint";
 export type AccessPoint = import("./accessPoint").AccessPoint;
 export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
 
 export { FileSystemArgs } from "./fileSystem";
 export type FileSystem = import("./fileSystem").FileSystem;
 export const FileSystem: typeof import("./fileSystem").FileSystem = null as any;
+utilities.lazyLoad(exports, ["FileSystem"], () => require("./fileSystem"));
 
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
 export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
 
 export { GetFileSystemArgs, GetFileSystemResult, GetFileSystemOutputArgs } from "./getFileSystem";
 export const getFileSystem: typeof import("./getFileSystem").getFileSystem = null as any;
 export const getFileSystemOutput: typeof import("./getFileSystem").getFileSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getFileSystem","getFileSystemOutput"], () => require("./getFileSystem"));
 
 export { GetMountTargetArgs, GetMountTargetResult, GetMountTargetOutputArgs } from "./getMountTarget";
 export const getMountTarget: typeof import("./getMountTarget").getMountTarget = null as any;
 export const getMountTargetOutput: typeof import("./getMountTarget").getMountTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getMountTarget","getMountTargetOutput"], () => require("./getMountTarget"));
 
 export { MountTargetArgs } from "./mountTarget";
 export type MountTarget = import("./mountTarget").MountTarget;
 export const MountTarget: typeof import("./mountTarget").MountTarget = null as any;
-
-utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
-utilities.lazyLoad(exports, ["FileSystem"], () => require("./fileSystem"));
-utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
-utilities.lazyLoad(exports, ["getFileSystem","getFileSystemOutput"], () => require("./getFileSystem"));
-utilities.lazyLoad(exports, ["getMountTarget","getMountTargetOutput"], () => require("./getMountTarget"));
 utilities.lazyLoad(exports, ["MountTarget"], () => require("./mountTarget"));
+
 
 const _module = {
     version: utilities.getVersion(),

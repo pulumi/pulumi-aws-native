@@ -8,108 +8,108 @@ import * as utilities from "../utilities";
 export { ConnectAttachmentArgs } from "./connectAttachment";
 export type ConnectAttachment = import("./connectAttachment").ConnectAttachment;
 export const ConnectAttachment: typeof import("./connectAttachment").ConnectAttachment = null as any;
+utilities.lazyLoad(exports, ["ConnectAttachment"], () => require("./connectAttachment"));
 
 export { ConnectPeerArgs } from "./connectPeer";
 export type ConnectPeer = import("./connectPeer").ConnectPeer;
 export const ConnectPeer: typeof import("./connectPeer").ConnectPeer = null as any;
+utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
 
 export { CoreNetworkArgs } from "./coreNetwork";
 export type CoreNetwork = import("./coreNetwork").CoreNetwork;
 export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
+utilities.lazyLoad(exports, ["CoreNetwork"], () => require("./coreNetwork"));
 
 export { CustomerGatewayAssociationArgs } from "./customerGatewayAssociation";
 export type CustomerGatewayAssociation = import("./customerGatewayAssociation").CustomerGatewayAssociation;
 export const CustomerGatewayAssociation: typeof import("./customerGatewayAssociation").CustomerGatewayAssociation = null as any;
+utilities.lazyLoad(exports, ["CustomerGatewayAssociation"], () => require("./customerGatewayAssociation"));
 
 export { DeviceArgs } from "./device";
 export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
 export { GetConnectAttachmentArgs, GetConnectAttachmentResult, GetConnectAttachmentOutputArgs } from "./getConnectAttachment";
 export const getConnectAttachment: typeof import("./getConnectAttachment").getConnectAttachment = null as any;
 export const getConnectAttachmentOutput: typeof import("./getConnectAttachment").getConnectAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectAttachment","getConnectAttachmentOutput"], () => require("./getConnectAttachment"));
 
 export { GetConnectPeerArgs, GetConnectPeerResult, GetConnectPeerOutputArgs } from "./getConnectPeer";
 export const getConnectPeer: typeof import("./getConnectPeer").getConnectPeer = null as any;
 export const getConnectPeerOutput: typeof import("./getConnectPeer").getConnectPeerOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectPeer","getConnectPeerOutput"], () => require("./getConnectPeer"));
 
 export { GetCoreNetworkArgs, GetCoreNetworkResult, GetCoreNetworkOutputArgs } from "./getCoreNetwork";
 export const getCoreNetwork: typeof import("./getCoreNetwork").getCoreNetwork = null as any;
 export const getCoreNetworkOutput: typeof import("./getCoreNetwork").getCoreNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getCoreNetwork","getCoreNetworkOutput"], () => require("./getCoreNetwork"));
 
 export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice";
 export const getDevice: typeof import("./getDevice").getDevice = null as any;
 export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
 
 export { GetGlobalNetworkArgs, GetGlobalNetworkResult, GetGlobalNetworkOutputArgs } from "./getGlobalNetwork";
 export const getGlobalNetwork: typeof import("./getGlobalNetwork").getGlobalNetwork = null as any;
 export const getGlobalNetworkOutput: typeof import("./getGlobalNetwork").getGlobalNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalNetwork","getGlobalNetworkOutput"], () => require("./getGlobalNetwork"));
 
 export { GetLinkArgs, GetLinkResult, GetLinkOutputArgs } from "./getLink";
 export const getLink: typeof import("./getLink").getLink = null as any;
 export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
 
 export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
 export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 
 export { GetSiteToSiteVpnAttachmentArgs, GetSiteToSiteVpnAttachmentResult, GetSiteToSiteVpnAttachmentOutputArgs } from "./getSiteToSiteVpnAttachment";
 export const getSiteToSiteVpnAttachment: typeof import("./getSiteToSiteVpnAttachment").getSiteToSiteVpnAttachment = null as any;
 export const getSiteToSiteVpnAttachmentOutput: typeof import("./getSiteToSiteVpnAttachment").getSiteToSiteVpnAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getSiteToSiteVpnAttachment","getSiteToSiteVpnAttachmentOutput"], () => require("./getSiteToSiteVpnAttachment"));
 
 export { GetVpcAttachmentArgs, GetVpcAttachmentResult, GetVpcAttachmentOutputArgs } from "./getVpcAttachment";
 export const getVpcAttachment: typeof import("./getVpcAttachment").getVpcAttachment = null as any;
 export const getVpcAttachmentOutput: typeof import("./getVpcAttachment").getVpcAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcAttachment","getVpcAttachmentOutput"], () => require("./getVpcAttachment"));
 
 export { GlobalNetworkArgs } from "./globalNetwork";
 export type GlobalNetwork = import("./globalNetwork").GlobalNetwork;
 export const GlobalNetwork: typeof import("./globalNetwork").GlobalNetwork = null as any;
+utilities.lazyLoad(exports, ["GlobalNetwork"], () => require("./globalNetwork"));
 
 export { LinkArgs } from "./link";
 export type Link = import("./link").Link;
 export const Link: typeof import("./link").Link = null as any;
+utilities.lazyLoad(exports, ["Link"], () => require("./link"));
 
 export { LinkAssociationArgs } from "./linkAssociation";
 export type LinkAssociation = import("./linkAssociation").LinkAssociation;
 export const LinkAssociation: typeof import("./linkAssociation").LinkAssociation = null as any;
+utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
 
 export { SiteArgs } from "./site";
 export type Site = import("./site").Site;
 export const Site: typeof import("./site").Site = null as any;
+utilities.lazyLoad(exports, ["Site"], () => require("./site"));
 
 export { SiteToSiteVpnAttachmentArgs } from "./siteToSiteVpnAttachment";
 export type SiteToSiteVpnAttachment = import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment;
 export const SiteToSiteVpnAttachment: typeof import("./siteToSiteVpnAttachment").SiteToSiteVpnAttachment = null as any;
+utilities.lazyLoad(exports, ["SiteToSiteVpnAttachment"], () => require("./siteToSiteVpnAttachment"));
 
 export { TransitGatewayRegistrationArgs } from "./transitGatewayRegistration";
 export type TransitGatewayRegistration = import("./transitGatewayRegistration").TransitGatewayRegistration;
 export const TransitGatewayRegistration: typeof import("./transitGatewayRegistration").TransitGatewayRegistration = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
 
 export { VpcAttachmentArgs } from "./vpcAttachment";
 export type VpcAttachment = import("./vpcAttachment").VpcAttachment;
 export const VpcAttachment: typeof import("./vpcAttachment").VpcAttachment = null as any;
-
-utilities.lazyLoad(exports, ["ConnectAttachment"], () => require("./connectAttachment"));
-utilities.lazyLoad(exports, ["ConnectPeer"], () => require("./connectPeer"));
-utilities.lazyLoad(exports, ["CoreNetwork"], () => require("./coreNetwork"));
-utilities.lazyLoad(exports, ["CustomerGatewayAssociation"], () => require("./customerGatewayAssociation"));
-utilities.lazyLoad(exports, ["Device"], () => require("./device"));
-utilities.lazyLoad(exports, ["getConnectAttachment","getConnectAttachmentOutput"], () => require("./getConnectAttachment"));
-utilities.lazyLoad(exports, ["getConnectPeer","getConnectPeerOutput"], () => require("./getConnectPeer"));
-utilities.lazyLoad(exports, ["getCoreNetwork","getCoreNetworkOutput"], () => require("./getCoreNetwork"));
-utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
-utilities.lazyLoad(exports, ["getGlobalNetwork","getGlobalNetworkOutput"], () => require("./getGlobalNetwork"));
-utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
-utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
-utilities.lazyLoad(exports, ["getSiteToSiteVpnAttachment","getSiteToSiteVpnAttachmentOutput"], () => require("./getSiteToSiteVpnAttachment"));
-utilities.lazyLoad(exports, ["getVpcAttachment","getVpcAttachmentOutput"], () => require("./getVpcAttachment"));
-utilities.lazyLoad(exports, ["GlobalNetwork"], () => require("./globalNetwork"));
-utilities.lazyLoad(exports, ["Link"], () => require("./link"));
-utilities.lazyLoad(exports, ["LinkAssociation"], () => require("./linkAssociation"));
-utilities.lazyLoad(exports, ["Site"], () => require("./site"));
-utilities.lazyLoad(exports, ["SiteToSiteVpnAttachment"], () => require("./siteToSiteVpnAttachment"));
-utilities.lazyLoad(exports, ["TransitGatewayRegistration"], () => require("./transitGatewayRegistration"));
 utilities.lazyLoad(exports, ["VpcAttachment"], () => require("./vpcAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),

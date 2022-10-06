@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ContactArgs } from "./contact";
 export type Contact = import("./contact").Contact;
 export const Contact: typeof import("./contact").Contact = null as any;
+utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
 
 export { ContactChannelArgs } from "./contactChannel";
 export type ContactChannel = import("./contactChannel").ContactChannel;
 export const ContactChannel: typeof import("./contactChannel").ContactChannel = null as any;
+utilities.lazyLoad(exports, ["ContactChannel"], () => require("./contactChannel"));
 
 export { GetContactArgs, GetContactResult, GetContactOutputArgs } from "./getContact";
 export const getContact: typeof import("./getContact").getContact = null as any;
 export const getContactOutput: typeof import("./getContact").getContactOutput = null as any;
+utilities.lazyLoad(exports, ["getContact","getContactOutput"], () => require("./getContact"));
 
 export { GetContactChannelArgs, GetContactChannelResult, GetContactChannelOutputArgs } from "./getContactChannel";
 export const getContactChannel: typeof import("./getContactChannel").getContactChannel = null as any;
 export const getContactChannelOutput: typeof import("./getContactChannel").getContactChannelOutput = null as any;
-
-utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
-utilities.lazyLoad(exports, ["ContactChannel"], () => require("./contactChannel"));
-utilities.lazyLoad(exports, ["getContact","getContactOutput"], () => require("./getContact"));
 utilities.lazyLoad(exports, ["getContactChannel","getContactChannelOutput"], () => require("./getContactChannel"));
+
 
 // Export enums:
 export * from "../types/enums/ssmcontacts";

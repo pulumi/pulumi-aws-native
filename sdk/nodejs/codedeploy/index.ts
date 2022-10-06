@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { DeploymentConfigArgs } from "./deploymentConfig";
 export type DeploymentConfig = import("./deploymentConfig").DeploymentConfig;
 export const DeploymentConfig: typeof import("./deploymentConfig").DeploymentConfig = null as any;
+utilities.lazyLoad(exports, ["DeploymentConfig"], () => require("./deploymentConfig"));
 
 export { DeploymentGroupArgs } from "./deploymentGroup";
 export type DeploymentGroup = import("./deploymentGroup").DeploymentGroup;
 export const DeploymentGroup: typeof import("./deploymentGroup").DeploymentGroup = null as any;
+utilities.lazyLoad(exports, ["DeploymentGroup"], () => require("./deploymentGroup"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetDeploymentConfigArgs, GetDeploymentConfigResult, GetDeploymentConfigOutputArgs } from "./getDeploymentConfig";
 export const getDeploymentConfig: typeof import("./getDeploymentConfig").getDeploymentConfig = null as any;
 export const getDeploymentConfigOutput: typeof import("./getDeploymentConfig").getDeploymentConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentConfig","getDeploymentConfigOutput"], () => require("./getDeploymentConfig"));
 
 export { GetDeploymentGroupArgs, GetDeploymentGroupResult, GetDeploymentGroupOutputArgs } from "./getDeploymentGroup";
 export const getDeploymentGroup: typeof import("./getDeploymentGroup").getDeploymentGroup = null as any;
 export const getDeploymentGroupOutput: typeof import("./getDeploymentGroup").getDeploymentGroupOutput = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["DeploymentConfig"], () => require("./deploymentConfig"));
-utilities.lazyLoad(exports, ["DeploymentGroup"], () => require("./deploymentGroup"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getDeploymentConfig","getDeploymentConfigOutput"], () => require("./getDeploymentConfig"));
 utilities.lazyLoad(exports, ["getDeploymentGroup","getDeploymentGroupOutput"], () => require("./getDeploymentGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

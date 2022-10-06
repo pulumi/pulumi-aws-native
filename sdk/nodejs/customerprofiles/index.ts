@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { DomainArgs } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
 export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
 export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
 export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
 
 export { GetObjectTypeArgs, GetObjectTypeResult, GetObjectTypeOutputArgs } from "./getObjectType";
 export const getObjectType: typeof import("./getObjectType").getObjectType = null as any;
 export const getObjectTypeOutput: typeof import("./getObjectType").getObjectTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getObjectType","getObjectTypeOutput"], () => require("./getObjectType"));
 
 export { IntegrationArgs } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { ObjectTypeArgs } from "./objectType";
 export type ObjectType = import("./objectType").ObjectType;
 export const ObjectType: typeof import("./objectType").ObjectType = null as any;
-
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
-utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
-utilities.lazyLoad(exports, ["getObjectType","getObjectTypeOutput"], () => require("./getObjectType"));
-utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 utilities.lazyLoad(exports, ["ObjectType"], () => require("./objectType"));
+
 
 // Export enums:
 export * from "../types/enums/customerprofiles";

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { FlowTemplateArgs } from "./flowTemplate";
 export type FlowTemplate = import("./flowTemplate").FlowTemplate;
 export const FlowTemplate: typeof import("./flowTemplate").FlowTemplate = null as any;
+utilities.lazyLoad(exports, ["FlowTemplate"], () => require("./flowTemplate"));
 
 export { GetFlowTemplateArgs, GetFlowTemplateResult, GetFlowTemplateOutputArgs } from "./getFlowTemplate";
 export const getFlowTemplate: typeof import("./getFlowTemplate").getFlowTemplate = null as any;
 export const getFlowTemplateOutput: typeof import("./getFlowTemplate").getFlowTemplateOutput = null as any;
-
-utilities.lazyLoad(exports, ["FlowTemplate"], () => require("./flowTemplate"));
 utilities.lazyLoad(exports, ["getFlowTemplate","getFlowTemplateOutput"], () => require("./getFlowTemplate"));
+
 
 const _module = {
     version: utilities.getVersion(),

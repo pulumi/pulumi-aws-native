@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { BatchScramSecretArgs } from "./batchScramSecret";
 export type BatchScramSecret = import("./batchScramSecret").BatchScramSecret;
 export const BatchScramSecret: typeof import("./batchScramSecret").BatchScramSecret = null as any;
+utilities.lazyLoad(exports, ["BatchScramSecret"], () => require("./batchScramSecret"));
 
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
 export { GetBatchScramSecretArgs, GetBatchScramSecretResult, GetBatchScramSecretOutputArgs } from "./getBatchScramSecret";
 export const getBatchScramSecret: typeof import("./getBatchScramSecret").getBatchScramSecret = null as any;
 export const getBatchScramSecretOutput: typeof import("./getBatchScramSecret").getBatchScramSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getBatchScramSecret","getBatchScramSecretOutput"], () => require("./getBatchScramSecret"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
 export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
 
 export { GetServerlessClusterArgs, GetServerlessClusterResult, GetServerlessClusterOutputArgs } from "./getServerlessCluster";
 export const getServerlessCluster: typeof import("./getServerlessCluster").getServerlessCluster = null as any;
 export const getServerlessClusterOutput: typeof import("./getServerlessCluster").getServerlessClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCluster","getServerlessClusterOutput"], () => require("./getServerlessCluster"));
 
 export { ServerlessClusterArgs } from "./serverlessCluster";
 export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
 export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
-
-utilities.lazyLoad(exports, ["BatchScramSecret"], () => require("./batchScramSecret"));
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
-utilities.lazyLoad(exports, ["getBatchScramSecret","getBatchScramSecretOutput"], () => require("./getBatchScramSecret"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
-utilities.lazyLoad(exports, ["getServerlessCluster","getServerlessClusterOutput"], () => require("./getServerlessCluster"));
 utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
+
 
 // Export enums:
 export * from "../types/enums/msk";

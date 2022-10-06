@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { DatasetArgs } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
 
 export { DatasetGroupArgs } from "./datasetGroup";
 export type DatasetGroup = import("./datasetGroup").DatasetGroup;
 export const DatasetGroup: typeof import("./datasetGroup").DatasetGroup = null as any;
+utilities.lazyLoad(exports, ["DatasetGroup"], () => require("./datasetGroup"));
 
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
 export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
 
 export { GetDatasetGroupArgs, GetDatasetGroupResult, GetDatasetGroupOutputArgs } from "./getDatasetGroup";
 export const getDatasetGroup: typeof import("./getDatasetGroup").getDatasetGroup = null as any;
 export const getDatasetGroupOutput: typeof import("./getDatasetGroup").getDatasetGroupOutput = null as any;
-
-utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
-utilities.lazyLoad(exports, ["DatasetGroup"], () => require("./datasetGroup"));
-utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
 utilities.lazyLoad(exports, ["getDatasetGroup","getDatasetGroupOutput"], () => require("./getDatasetGroup"));
+
 
 // Export enums:
 export * from "../types/enums/forecast";

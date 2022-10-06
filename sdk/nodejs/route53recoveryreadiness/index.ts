@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { CellArgs } from "./cell";
 export type Cell = import("./cell").Cell;
 export const Cell: typeof import("./cell").Cell = null as any;
+utilities.lazyLoad(exports, ["Cell"], () => require("./cell"));
 
 export { GetCellArgs, GetCellResult, GetCellOutputArgs } from "./getCell";
 export const getCell: typeof import("./getCell").getCell = null as any;
 export const getCellOutput: typeof import("./getCell").getCellOutput = null as any;
+utilities.lazyLoad(exports, ["getCell","getCellOutput"], () => require("./getCell"));
 
 export { GetReadinessCheckArgs, GetReadinessCheckResult, GetReadinessCheckOutputArgs } from "./getReadinessCheck";
 export const getReadinessCheck: typeof import("./getReadinessCheck").getReadinessCheck = null as any;
 export const getReadinessCheckOutput: typeof import("./getReadinessCheck").getReadinessCheckOutput = null as any;
+utilities.lazyLoad(exports, ["getReadinessCheck","getReadinessCheckOutput"], () => require("./getReadinessCheck"));
 
 export { GetRecoveryGroupArgs, GetRecoveryGroupResult, GetRecoveryGroupOutputArgs } from "./getRecoveryGroup";
 export const getRecoveryGroup: typeof import("./getRecoveryGroup").getRecoveryGroup = null as any;
 export const getRecoveryGroupOutput: typeof import("./getRecoveryGroup").getRecoveryGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getRecoveryGroup","getRecoveryGroupOutput"], () => require("./getRecoveryGroup"));
 
 export { GetResourceSetArgs, GetResourceSetResult, GetResourceSetOutputArgs } from "./getResourceSet";
 export const getResourceSet: typeof import("./getResourceSet").getResourceSet = null as any;
 export const getResourceSetOutput: typeof import("./getResourceSet").getResourceSetOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceSet","getResourceSetOutput"], () => require("./getResourceSet"));
 
 export { ReadinessCheckArgs } from "./readinessCheck";
 export type ReadinessCheck = import("./readinessCheck").ReadinessCheck;
 export const ReadinessCheck: typeof import("./readinessCheck").ReadinessCheck = null as any;
+utilities.lazyLoad(exports, ["ReadinessCheck"], () => require("./readinessCheck"));
 
 export { RecoveryGroupArgs } from "./recoveryGroup";
 export type RecoveryGroup = import("./recoveryGroup").RecoveryGroup;
 export const RecoveryGroup: typeof import("./recoveryGroup").RecoveryGroup = null as any;
+utilities.lazyLoad(exports, ["RecoveryGroup"], () => require("./recoveryGroup"));
 
 export { ResourceSetArgs } from "./resourceSet";
 export type ResourceSet = import("./resourceSet").ResourceSet;
 export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
-
-utilities.lazyLoad(exports, ["Cell"], () => require("./cell"));
-utilities.lazyLoad(exports, ["getCell","getCellOutput"], () => require("./getCell"));
-utilities.lazyLoad(exports, ["getReadinessCheck","getReadinessCheckOutput"], () => require("./getReadinessCheck"));
-utilities.lazyLoad(exports, ["getRecoveryGroup","getRecoveryGroupOutput"], () => require("./getRecoveryGroup"));
-utilities.lazyLoad(exports, ["getResourceSet","getResourceSetOutput"], () => require("./getResourceSet"));
-utilities.lazyLoad(exports, ["ReadinessCheck"], () => require("./readinessCheck"));
-utilities.lazyLoad(exports, ["RecoveryGroup"], () => require("./recoveryGroup"));
 utilities.lazyLoad(exports, ["ResourceSet"], () => require("./resourceSet"));
+
 
 const _module = {
     version: utilities.getVersion(),

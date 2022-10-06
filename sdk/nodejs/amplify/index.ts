@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AppArgs } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
+utilities.lazyLoad(exports, ["App"], () => require("./app"));
 
 export { BranchArgs } from "./branch";
 export type Branch = import("./branch").Branch;
 export const Branch: typeof import("./branch").Branch = null as any;
+utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
 
 export { DomainArgs } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
+utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
 
 export { GetBranchArgs, GetBranchResult, GetBranchOutputArgs } from "./getBranch";
 export const getBranch: typeof import("./getBranch").getBranch = null as any;
 export const getBranchOutput: typeof import("./getBranch").getBranchOutput = null as any;
+utilities.lazyLoad(exports, ["getBranch","getBranchOutput"], () => require("./getBranch"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
-
-utilities.lazyLoad(exports, ["App"], () => require("./app"));
-utilities.lazyLoad(exports, ["Branch"], () => require("./branch"));
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["getApp","getAppOutput"], () => require("./getApp"));
-utilities.lazyLoad(exports, ["getBranch","getBranchOutput"], () => require("./getBranch"));
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
 
 // Export enums:
 export * from "../types/enums/amplify";

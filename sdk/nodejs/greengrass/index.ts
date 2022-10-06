@@ -8,163 +8,163 @@ import * as utilities from "../utilities";
 export { ConnectorDefinitionArgs } from "./connectorDefinition";
 export type ConnectorDefinition = import("./connectorDefinition").ConnectorDefinition;
 export const ConnectorDefinition: typeof import("./connectorDefinition").ConnectorDefinition = null as any;
+utilities.lazyLoad(exports, ["ConnectorDefinition"], () => require("./connectorDefinition"));
 
 export { ConnectorDefinitionVersionArgs } from "./connectorDefinitionVersion";
 export type ConnectorDefinitionVersion = import("./connectorDefinitionVersion").ConnectorDefinitionVersion;
 export const ConnectorDefinitionVersion: typeof import("./connectorDefinitionVersion").ConnectorDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["ConnectorDefinitionVersion"], () => require("./connectorDefinitionVersion"));
 
 export { CoreDefinitionArgs } from "./coreDefinition";
 export type CoreDefinition = import("./coreDefinition").CoreDefinition;
 export const CoreDefinition: typeof import("./coreDefinition").CoreDefinition = null as any;
+utilities.lazyLoad(exports, ["CoreDefinition"], () => require("./coreDefinition"));
 
 export { CoreDefinitionVersionArgs } from "./coreDefinitionVersion";
 export type CoreDefinitionVersion = import("./coreDefinitionVersion").CoreDefinitionVersion;
 export const CoreDefinitionVersion: typeof import("./coreDefinitionVersion").CoreDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["CoreDefinitionVersion"], () => require("./coreDefinitionVersion"));
 
 export { DeviceDefinitionArgs } from "./deviceDefinition";
 export type DeviceDefinition = import("./deviceDefinition").DeviceDefinition;
 export const DeviceDefinition: typeof import("./deviceDefinition").DeviceDefinition = null as any;
+utilities.lazyLoad(exports, ["DeviceDefinition"], () => require("./deviceDefinition"));
 
 export { DeviceDefinitionVersionArgs } from "./deviceDefinitionVersion";
 export type DeviceDefinitionVersion = import("./deviceDefinitionVersion").DeviceDefinitionVersion;
 export const DeviceDefinitionVersion: typeof import("./deviceDefinitionVersion").DeviceDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["DeviceDefinitionVersion"], () => require("./deviceDefinitionVersion"));
 
 export { FunctionDefinitionArgs } from "./functionDefinition";
 export type FunctionDefinition = import("./functionDefinition").FunctionDefinition;
 export const FunctionDefinition: typeof import("./functionDefinition").FunctionDefinition = null as any;
+utilities.lazyLoad(exports, ["FunctionDefinition"], () => require("./functionDefinition"));
 
 export { FunctionDefinitionVersionArgs } from "./functionDefinitionVersion";
 export type FunctionDefinitionVersion = import("./functionDefinitionVersion").FunctionDefinitionVersion;
 export const FunctionDefinitionVersion: typeof import("./functionDefinitionVersion").FunctionDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["FunctionDefinitionVersion"], () => require("./functionDefinitionVersion"));
 
 export { GetConnectorDefinitionArgs, GetConnectorDefinitionResult, GetConnectorDefinitionOutputArgs } from "./getConnectorDefinition";
 export const getConnectorDefinition: typeof import("./getConnectorDefinition").getConnectorDefinition = null as any;
 export const getConnectorDefinitionOutput: typeof import("./getConnectorDefinition").getConnectorDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectorDefinition","getConnectorDefinitionOutput"], () => require("./getConnectorDefinition"));
 
 export { GetConnectorDefinitionVersionArgs, GetConnectorDefinitionVersionResult, GetConnectorDefinitionVersionOutputArgs } from "./getConnectorDefinitionVersion";
 export const getConnectorDefinitionVersion: typeof import("./getConnectorDefinitionVersion").getConnectorDefinitionVersion = null as any;
 export const getConnectorDefinitionVersionOutput: typeof import("./getConnectorDefinitionVersion").getConnectorDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectorDefinitionVersion","getConnectorDefinitionVersionOutput"], () => require("./getConnectorDefinitionVersion"));
 
 export { GetCoreDefinitionArgs, GetCoreDefinitionResult, GetCoreDefinitionOutputArgs } from "./getCoreDefinition";
 export const getCoreDefinition: typeof import("./getCoreDefinition").getCoreDefinition = null as any;
 export const getCoreDefinitionOutput: typeof import("./getCoreDefinition").getCoreDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getCoreDefinition","getCoreDefinitionOutput"], () => require("./getCoreDefinition"));
 
 export { GetCoreDefinitionVersionArgs, GetCoreDefinitionVersionResult, GetCoreDefinitionVersionOutputArgs } from "./getCoreDefinitionVersion";
 export const getCoreDefinitionVersion: typeof import("./getCoreDefinitionVersion").getCoreDefinitionVersion = null as any;
 export const getCoreDefinitionVersionOutput: typeof import("./getCoreDefinitionVersion").getCoreDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getCoreDefinitionVersion","getCoreDefinitionVersionOutput"], () => require("./getCoreDefinitionVersion"));
 
 export { GetDeviceDefinitionArgs, GetDeviceDefinitionResult, GetDeviceDefinitionOutputArgs } from "./getDeviceDefinition";
 export const getDeviceDefinition: typeof import("./getDeviceDefinition").getDeviceDefinition = null as any;
 export const getDeviceDefinitionOutput: typeof import("./getDeviceDefinition").getDeviceDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getDeviceDefinition","getDeviceDefinitionOutput"], () => require("./getDeviceDefinition"));
 
 export { GetDeviceDefinitionVersionArgs, GetDeviceDefinitionVersionResult, GetDeviceDefinitionVersionOutputArgs } from "./getDeviceDefinitionVersion";
 export const getDeviceDefinitionVersion: typeof import("./getDeviceDefinitionVersion").getDeviceDefinitionVersion = null as any;
 export const getDeviceDefinitionVersionOutput: typeof import("./getDeviceDefinitionVersion").getDeviceDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getDeviceDefinitionVersion","getDeviceDefinitionVersionOutput"], () => require("./getDeviceDefinitionVersion"));
 
 export { GetFunctionDefinitionArgs, GetFunctionDefinitionResult, GetFunctionDefinitionOutputArgs } from "./getFunctionDefinition";
 export const getFunctionDefinition: typeof import("./getFunctionDefinition").getFunctionDefinition = null as any;
 export const getFunctionDefinitionOutput: typeof import("./getFunctionDefinition").getFunctionDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunctionDefinition","getFunctionDefinitionOutput"], () => require("./getFunctionDefinition"));
 
 export { GetFunctionDefinitionVersionArgs, GetFunctionDefinitionVersionResult, GetFunctionDefinitionVersionOutputArgs } from "./getFunctionDefinitionVersion";
 export const getFunctionDefinitionVersion: typeof import("./getFunctionDefinitionVersion").getFunctionDefinitionVersion = null as any;
 export const getFunctionDefinitionVersionOutput: typeof import("./getFunctionDefinitionVersion").getFunctionDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunctionDefinitionVersion","getFunctionDefinitionVersionOutput"], () => require("./getFunctionDefinitionVersion"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
 export { GetGroupVersionArgs, GetGroupVersionResult, GetGroupVersionOutputArgs } from "./getGroupVersion";
 export const getGroupVersion: typeof import("./getGroupVersion").getGroupVersion = null as any;
 export const getGroupVersionOutput: typeof import("./getGroupVersion").getGroupVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getGroupVersion","getGroupVersionOutput"], () => require("./getGroupVersion"));
 
 export { GetLoggerDefinitionArgs, GetLoggerDefinitionResult, GetLoggerDefinitionOutputArgs } from "./getLoggerDefinition";
 export const getLoggerDefinition: typeof import("./getLoggerDefinition").getLoggerDefinition = null as any;
 export const getLoggerDefinitionOutput: typeof import("./getLoggerDefinition").getLoggerDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getLoggerDefinition","getLoggerDefinitionOutput"], () => require("./getLoggerDefinition"));
 
 export { GetLoggerDefinitionVersionArgs, GetLoggerDefinitionVersionResult, GetLoggerDefinitionVersionOutputArgs } from "./getLoggerDefinitionVersion";
 export const getLoggerDefinitionVersion: typeof import("./getLoggerDefinitionVersion").getLoggerDefinitionVersion = null as any;
 export const getLoggerDefinitionVersionOutput: typeof import("./getLoggerDefinitionVersion").getLoggerDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getLoggerDefinitionVersion","getLoggerDefinitionVersionOutput"], () => require("./getLoggerDefinitionVersion"));
 
 export { GetResourceDefinitionArgs, GetResourceDefinitionResult, GetResourceDefinitionOutputArgs } from "./getResourceDefinition";
 export const getResourceDefinition: typeof import("./getResourceDefinition").getResourceDefinition = null as any;
 export const getResourceDefinitionOutput: typeof import("./getResourceDefinition").getResourceDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceDefinition","getResourceDefinitionOutput"], () => require("./getResourceDefinition"));
 
 export { GetResourceDefinitionVersionArgs, GetResourceDefinitionVersionResult, GetResourceDefinitionVersionOutputArgs } from "./getResourceDefinitionVersion";
 export const getResourceDefinitionVersion: typeof import("./getResourceDefinitionVersion").getResourceDefinitionVersion = null as any;
 export const getResourceDefinitionVersionOutput: typeof import("./getResourceDefinitionVersion").getResourceDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceDefinitionVersion","getResourceDefinitionVersionOutput"], () => require("./getResourceDefinitionVersion"));
 
 export { GetSubscriptionDefinitionArgs, GetSubscriptionDefinitionResult, GetSubscriptionDefinitionOutputArgs } from "./getSubscriptionDefinition";
 export const getSubscriptionDefinition: typeof import("./getSubscriptionDefinition").getSubscriptionDefinition = null as any;
 export const getSubscriptionDefinitionOutput: typeof import("./getSubscriptionDefinition").getSubscriptionDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionDefinition","getSubscriptionDefinitionOutput"], () => require("./getSubscriptionDefinition"));
 
 export { GetSubscriptionDefinitionVersionArgs, GetSubscriptionDefinitionVersionResult, GetSubscriptionDefinitionVersionOutputArgs } from "./getSubscriptionDefinitionVersion";
 export const getSubscriptionDefinitionVersion: typeof import("./getSubscriptionDefinitionVersion").getSubscriptionDefinitionVersion = null as any;
 export const getSubscriptionDefinitionVersionOutput: typeof import("./getSubscriptionDefinitionVersion").getSubscriptionDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionDefinitionVersion","getSubscriptionDefinitionVersionOutput"], () => require("./getSubscriptionDefinitionVersion"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { GroupVersionArgs } from "./groupVersion";
 export type GroupVersion = import("./groupVersion").GroupVersion;
 export const GroupVersion: typeof import("./groupVersion").GroupVersion = null as any;
+utilities.lazyLoad(exports, ["GroupVersion"], () => require("./groupVersion"));
 
 export { LoggerDefinitionArgs } from "./loggerDefinition";
 export type LoggerDefinition = import("./loggerDefinition").LoggerDefinition;
 export const LoggerDefinition: typeof import("./loggerDefinition").LoggerDefinition = null as any;
+utilities.lazyLoad(exports, ["LoggerDefinition"], () => require("./loggerDefinition"));
 
 export { LoggerDefinitionVersionArgs } from "./loggerDefinitionVersion";
 export type LoggerDefinitionVersion = import("./loggerDefinitionVersion").LoggerDefinitionVersion;
 export const LoggerDefinitionVersion: typeof import("./loggerDefinitionVersion").LoggerDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["LoggerDefinitionVersion"], () => require("./loggerDefinitionVersion"));
 
 export { ResourceDefinitionArgs } from "./resourceDefinition";
 export type ResourceDefinition = import("./resourceDefinition").ResourceDefinition;
 export const ResourceDefinition: typeof import("./resourceDefinition").ResourceDefinition = null as any;
+utilities.lazyLoad(exports, ["ResourceDefinition"], () => require("./resourceDefinition"));
 
 export { ResourceDefinitionVersionArgs } from "./resourceDefinitionVersion";
 export type ResourceDefinitionVersion = import("./resourceDefinitionVersion").ResourceDefinitionVersion;
 export const ResourceDefinitionVersion: typeof import("./resourceDefinitionVersion").ResourceDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["ResourceDefinitionVersion"], () => require("./resourceDefinitionVersion"));
 
 export { SubscriptionDefinitionArgs } from "./subscriptionDefinition";
 export type SubscriptionDefinition = import("./subscriptionDefinition").SubscriptionDefinition;
 export const SubscriptionDefinition: typeof import("./subscriptionDefinition").SubscriptionDefinition = null as any;
+utilities.lazyLoad(exports, ["SubscriptionDefinition"], () => require("./subscriptionDefinition"));
 
 export { SubscriptionDefinitionVersionArgs } from "./subscriptionDefinitionVersion";
 export type SubscriptionDefinitionVersion = import("./subscriptionDefinitionVersion").SubscriptionDefinitionVersion;
 export const SubscriptionDefinitionVersion: typeof import("./subscriptionDefinitionVersion").SubscriptionDefinitionVersion = null as any;
-
-utilities.lazyLoad(exports, ["ConnectorDefinition"], () => require("./connectorDefinition"));
-utilities.lazyLoad(exports, ["ConnectorDefinitionVersion"], () => require("./connectorDefinitionVersion"));
-utilities.lazyLoad(exports, ["CoreDefinition"], () => require("./coreDefinition"));
-utilities.lazyLoad(exports, ["CoreDefinitionVersion"], () => require("./coreDefinitionVersion"));
-utilities.lazyLoad(exports, ["DeviceDefinition"], () => require("./deviceDefinition"));
-utilities.lazyLoad(exports, ["DeviceDefinitionVersion"], () => require("./deviceDefinitionVersion"));
-utilities.lazyLoad(exports, ["FunctionDefinition"], () => require("./functionDefinition"));
-utilities.lazyLoad(exports, ["FunctionDefinitionVersion"], () => require("./functionDefinitionVersion"));
-utilities.lazyLoad(exports, ["getConnectorDefinition","getConnectorDefinitionOutput"], () => require("./getConnectorDefinition"));
-utilities.lazyLoad(exports, ["getConnectorDefinitionVersion","getConnectorDefinitionVersionOutput"], () => require("./getConnectorDefinitionVersion"));
-utilities.lazyLoad(exports, ["getCoreDefinition","getCoreDefinitionOutput"], () => require("./getCoreDefinition"));
-utilities.lazyLoad(exports, ["getCoreDefinitionVersion","getCoreDefinitionVersionOutput"], () => require("./getCoreDefinitionVersion"));
-utilities.lazyLoad(exports, ["getDeviceDefinition","getDeviceDefinitionOutput"], () => require("./getDeviceDefinition"));
-utilities.lazyLoad(exports, ["getDeviceDefinitionVersion","getDeviceDefinitionVersionOutput"], () => require("./getDeviceDefinitionVersion"));
-utilities.lazyLoad(exports, ["getFunctionDefinition","getFunctionDefinitionOutput"], () => require("./getFunctionDefinition"));
-utilities.lazyLoad(exports, ["getFunctionDefinitionVersion","getFunctionDefinitionVersionOutput"], () => require("./getFunctionDefinitionVersion"));
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["getGroupVersion","getGroupVersionOutput"], () => require("./getGroupVersion"));
-utilities.lazyLoad(exports, ["getLoggerDefinition","getLoggerDefinitionOutput"], () => require("./getLoggerDefinition"));
-utilities.lazyLoad(exports, ["getLoggerDefinitionVersion","getLoggerDefinitionVersionOutput"], () => require("./getLoggerDefinitionVersion"));
-utilities.lazyLoad(exports, ["getResourceDefinition","getResourceDefinitionOutput"], () => require("./getResourceDefinition"));
-utilities.lazyLoad(exports, ["getResourceDefinitionVersion","getResourceDefinitionVersionOutput"], () => require("./getResourceDefinitionVersion"));
-utilities.lazyLoad(exports, ["getSubscriptionDefinition","getSubscriptionDefinitionOutput"], () => require("./getSubscriptionDefinition"));
-utilities.lazyLoad(exports, ["getSubscriptionDefinitionVersion","getSubscriptionDefinitionVersionOutput"], () => require("./getSubscriptionDefinitionVersion"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["GroupVersion"], () => require("./groupVersion"));
-utilities.lazyLoad(exports, ["LoggerDefinition"], () => require("./loggerDefinition"));
-utilities.lazyLoad(exports, ["LoggerDefinitionVersion"], () => require("./loggerDefinitionVersion"));
-utilities.lazyLoad(exports, ["ResourceDefinition"], () => require("./resourceDefinition"));
-utilities.lazyLoad(exports, ["ResourceDefinitionVersion"], () => require("./resourceDefinitionVersion"));
-utilities.lazyLoad(exports, ["SubscriptionDefinition"], () => require("./subscriptionDefinition"));
 utilities.lazyLoad(exports, ["SubscriptionDefinitionVersion"], () => require("./subscriptionDefinitionVersion"));
+
 
 const _module = {
     version: utilities.getVersion(),

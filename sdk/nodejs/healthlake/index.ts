@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { FHIRDatastoreArgs } from "./fhirdatastore";
 export type FHIRDatastore = import("./fhirdatastore").FHIRDatastore;
 export const FHIRDatastore: typeof import("./fhirdatastore").FHIRDatastore = null as any;
+utilities.lazyLoad(exports, ["FHIRDatastore"], () => require("./fhirdatastore"));
 
 export { GetFHIRDatastoreArgs, GetFHIRDatastoreResult, GetFHIRDatastoreOutputArgs } from "./getFHIRDatastore";
 export const getFHIRDatastore: typeof import("./getFHIRDatastore").getFHIRDatastore = null as any;
 export const getFHIRDatastoreOutput: typeof import("./getFHIRDatastore").getFHIRDatastoreOutput = null as any;
-
-utilities.lazyLoad(exports, ["FHIRDatastore"], () => require("./fhirdatastore"));
 utilities.lazyLoad(exports, ["getFHIRDatastore","getFHIRDatastoreOutput"], () => require("./getFHIRDatastore"));
+
 
 // Export enums:
 export * from "../types/enums/healthlake";

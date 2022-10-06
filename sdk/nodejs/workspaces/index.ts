@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ConnectionAliasArgs } from "./connectionAlias";
 export type ConnectionAlias = import("./connectionAlias").ConnectionAlias;
 export const ConnectionAlias: typeof import("./connectionAlias").ConnectionAlias = null as any;
+utilities.lazyLoad(exports, ["ConnectionAlias"], () => require("./connectionAlias"));
 
 export { GetConnectionAliasArgs, GetConnectionAliasResult, GetConnectionAliasOutputArgs } from "./getConnectionAlias";
 export const getConnectionAlias: typeof import("./getConnectionAlias").getConnectionAlias = null as any;
 export const getConnectionAliasOutput: typeof import("./getConnectionAlias").getConnectionAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
 
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
-
-utilities.lazyLoad(exports, ["ConnectionAlias"], () => require("./connectionAlias"));
-utilities.lazyLoad(exports, ["getConnectionAlias","getConnectionAliasOutput"], () => require("./getConnectionAlias"));
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 // Export enums:
 export * from "../types/enums/workspaces";

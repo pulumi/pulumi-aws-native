@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { CampaignArgs } from "./campaign";
 export type Campaign = import("./campaign").Campaign;
 export const Campaign: typeof import("./campaign").Campaign = null as any;
+utilities.lazyLoad(exports, ["Campaign"], () => require("./campaign"));
 
 export { GetCampaignArgs, GetCampaignResult, GetCampaignOutputArgs } from "./getCampaign";
 export const getCampaign: typeof import("./getCampaign").getCampaign = null as any;
 export const getCampaignOutput: typeof import("./getCampaign").getCampaignOutput = null as any;
-
-utilities.lazyLoad(exports, ["Campaign"], () => require("./campaign"));
 utilities.lazyLoad(exports, ["getCampaign","getCampaignOutput"], () => require("./getCampaign"));
+
 
 const _module = {
     version: utilities.getVersion(),

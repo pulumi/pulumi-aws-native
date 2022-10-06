@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { CRLArgs } from "./crl";
 export type CRL = import("./crl").CRL;
 export const CRL: typeof import("./crl").CRL = null as any;
+utilities.lazyLoad(exports, ["CRL"], () => require("./crl"));
 
 export { GetCRLArgs, GetCRLResult, GetCRLOutputArgs } from "./getCRL";
 export const getCRL: typeof import("./getCRL").getCRL = null as any;
 export const getCRLOutput: typeof import("./getCRL").getCRLOutput = null as any;
+utilities.lazyLoad(exports, ["getCRL","getCRLOutput"], () => require("./getCRL"));
 
 export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
 
 export { GetTrustAnchorArgs, GetTrustAnchorResult, GetTrustAnchorOutputArgs } from "./getTrustAnchor";
 export const getTrustAnchor: typeof import("./getTrustAnchor").getTrustAnchor = null as any;
 export const getTrustAnchorOutput: typeof import("./getTrustAnchor").getTrustAnchorOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustAnchor","getTrustAnchorOutput"], () => require("./getTrustAnchor"));
 
 export { ProfileArgs } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 export { TrustAnchorArgs } from "./trustAnchor";
 export type TrustAnchor = import("./trustAnchor").TrustAnchor;
 export const TrustAnchor: typeof import("./trustAnchor").TrustAnchor = null as any;
-
-utilities.lazyLoad(exports, ["CRL"], () => require("./crl"));
-utilities.lazyLoad(exports, ["getCRL","getCRLOutput"], () => require("./getCRL"));
-utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
-utilities.lazyLoad(exports, ["getTrustAnchor","getTrustAnchorOutput"], () => require("./getTrustAnchor"));
-utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 utilities.lazyLoad(exports, ["TrustAnchor"], () => require("./trustAnchor"));
+
 
 // Export enums:
 export * from "../types/enums/rolesanywhere";

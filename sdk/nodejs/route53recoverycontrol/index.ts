@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
 export { ControlPanelArgs } from "./controlPanel";
 export type ControlPanel = import("./controlPanel").ControlPanel;
 export const ControlPanel: typeof import("./controlPanel").ControlPanel = null as any;
+utilities.lazyLoad(exports, ["ControlPanel"], () => require("./controlPanel"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
 export { GetControlPanelArgs, GetControlPanelResult, GetControlPanelOutputArgs } from "./getControlPanel";
 export const getControlPanel: typeof import("./getControlPanel").getControlPanel = null as any;
 export const getControlPanelOutput: typeof import("./getControlPanel").getControlPanelOutput = null as any;
+utilities.lazyLoad(exports, ["getControlPanel","getControlPanelOutput"], () => require("./getControlPanel"));
 
 export { GetRoutingControlArgs, GetRoutingControlResult, GetRoutingControlOutputArgs } from "./getRoutingControl";
 export const getRoutingControl: typeof import("./getRoutingControl").getRoutingControl = null as any;
 export const getRoutingControlOutput: typeof import("./getRoutingControl").getRoutingControlOutput = null as any;
+utilities.lazyLoad(exports, ["getRoutingControl","getRoutingControlOutput"], () => require("./getRoutingControl"));
 
 export { GetSafetyRuleArgs, GetSafetyRuleResult, GetSafetyRuleOutputArgs } from "./getSafetyRule";
 export const getSafetyRule: typeof import("./getSafetyRule").getSafetyRule = null as any;
 export const getSafetyRuleOutput: typeof import("./getSafetyRule").getSafetyRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSafetyRule","getSafetyRuleOutput"], () => require("./getSafetyRule"));
 
 export { RoutingControlArgs } from "./routingControl";
 export type RoutingControl = import("./routingControl").RoutingControl;
 export const RoutingControl: typeof import("./routingControl").RoutingControl = null as any;
+utilities.lazyLoad(exports, ["RoutingControl"], () => require("./routingControl"));
 
 export { SafetyRuleArgs } from "./safetyRule";
 export type SafetyRule = import("./safetyRule").SafetyRule;
 export const SafetyRule: typeof import("./safetyRule").SafetyRule = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ControlPanel"], () => require("./controlPanel"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getControlPanel","getControlPanelOutput"], () => require("./getControlPanel"));
-utilities.lazyLoad(exports, ["getRoutingControl","getRoutingControlOutput"], () => require("./getRoutingControl"));
-utilities.lazyLoad(exports, ["getSafetyRule","getSafetyRuleOutput"], () => require("./getSafetyRule"));
-utilities.lazyLoad(exports, ["RoutingControl"], () => require("./routingControl"));
 utilities.lazyLoad(exports, ["SafetyRule"], () => require("./safetyRule"));
+
 
 // Export enums:
 export * from "../types/enums/route53recoverycontrol";

@@ -8,63 +8,63 @@ import * as utilities from "../utilities";
 export { DetectorArgs } from "./detector";
 export type Detector = import("./detector").Detector;
 export const Detector: typeof import("./detector").Detector = null as any;
+utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
 
 export { EntityTypeArgs } from "./entityType";
 export type EntityType = import("./entityType").EntityType;
 export const EntityType: typeof import("./entityType").EntityType = null as any;
+utilities.lazyLoad(exports, ["EntityType"], () => require("./entityType"));
 
 export { EventTypeArgs } from "./eventType";
 export type EventType = import("./eventType").EventType;
 export const EventType: typeof import("./eventType").EventType = null as any;
+utilities.lazyLoad(exports, ["EventType"], () => require("./eventType"));
 
 export { GetDetectorArgs, GetDetectorResult, GetDetectorOutputArgs } from "./getDetector";
 export const getDetector: typeof import("./getDetector").getDetector = null as any;
 export const getDetectorOutput: typeof import("./getDetector").getDetectorOutput = null as any;
+utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
 
 export { GetEntityTypeArgs, GetEntityTypeResult, GetEntityTypeOutputArgs } from "./getEntityType";
 export const getEntityType: typeof import("./getEntityType").getEntityType = null as any;
 export const getEntityTypeOutput: typeof import("./getEntityType").getEntityTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityType","getEntityTypeOutput"], () => require("./getEntityType"));
 
 export { GetEventTypeArgs, GetEventTypeResult, GetEventTypeOutputArgs } from "./getEventType";
 export const getEventType: typeof import("./getEventType").getEventType = null as any;
 export const getEventTypeOutput: typeof import("./getEventType").getEventTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getEventType","getEventTypeOutput"], () => require("./getEventType"));
 
 export { GetLabelArgs, GetLabelResult, GetLabelOutputArgs } from "./getLabel";
 export const getLabel: typeof import("./getLabel").getLabel = null as any;
 export const getLabelOutput: typeof import("./getLabel").getLabelOutput = null as any;
+utilities.lazyLoad(exports, ["getLabel","getLabelOutput"], () => require("./getLabel"));
 
 export { GetOutcomeArgs, GetOutcomeResult, GetOutcomeOutputArgs } from "./getOutcome";
 export const getOutcome: typeof import("./getOutcome").getOutcome = null as any;
 export const getOutcomeOutput: typeof import("./getOutcome").getOutcomeOutput = null as any;
+utilities.lazyLoad(exports, ["getOutcome","getOutcomeOutput"], () => require("./getOutcome"));
 
 export { GetVariableArgs, GetVariableResult, GetVariableOutputArgs } from "./getVariable";
 export const getVariable: typeof import("./getVariable").getVariable = null as any;
 export const getVariableOutput: typeof import("./getVariable").getVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
 
 export { LabelArgs } from "./label";
 export type Label = import("./label").Label;
 export const Label: typeof import("./label").Label = null as any;
+utilities.lazyLoad(exports, ["Label"], () => require("./label"));
 
 export { OutcomeArgs } from "./outcome";
 export type Outcome = import("./outcome").Outcome;
 export const Outcome: typeof import("./outcome").Outcome = null as any;
+utilities.lazyLoad(exports, ["Outcome"], () => require("./outcome"));
 
 export { VariableArgs } from "./variable";
 export type Variable = import("./variable").Variable;
 export const Variable: typeof import("./variable").Variable = null as any;
-
-utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
-utilities.lazyLoad(exports, ["EntityType"], () => require("./entityType"));
-utilities.lazyLoad(exports, ["EventType"], () => require("./eventType"));
-utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
-utilities.lazyLoad(exports, ["getEntityType","getEntityTypeOutput"], () => require("./getEntityType"));
-utilities.lazyLoad(exports, ["getEventType","getEventTypeOutput"], () => require("./getEventType"));
-utilities.lazyLoad(exports, ["getLabel","getLabelOutput"], () => require("./getLabel"));
-utilities.lazyLoad(exports, ["getOutcome","getOutcomeOutput"], () => require("./getOutcome"));
-utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
-utilities.lazyLoad(exports, ["Label"], () => require("./label"));
-utilities.lazyLoad(exports, ["Outcome"], () => require("./outcome"));
 utilities.lazyLoad(exports, ["Variable"], () => require("./variable"));
+
 
 // Export enums:
 export * from "../types/enums/frauddetector";

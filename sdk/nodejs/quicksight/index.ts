@@ -8,63 +8,63 @@ import * as utilities from "../utilities";
 export { AnalysisArgs } from "./analysis";
 export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
+utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
 
 export { DashboardArgs } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
 export { DataSetArgs } from "./dataSet";
 export type DataSet = import("./dataSet").DataSet;
 export const DataSet: typeof import("./dataSet").DataSet = null as any;
+utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
 
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
 export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./getAnalysis";
 export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
 export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
+utilities.lazyLoad(exports, ["getAnalysis","getAnalysisOutput"], () => require("./getAnalysis"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
 export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
 
 export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
 export const getTheme: typeof import("./getTheme").getTheme = null as any;
 export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
+utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
+utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 
 export { ThemeArgs } from "./theme";
 export type Theme = import("./theme").Theme;
 export const Theme: typeof import("./theme").Theme = null as any;
-
-utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
-utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
-utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
-utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
-utilities.lazyLoad(exports, ["getAnalysis","getAnalysisOutput"], () => require("./getAnalysis"));
-utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
-utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
-utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
-utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
-utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
+
 
 // Export enums:
 export * from "../types/enums/quicksight";

@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { AccessPointArgs } from "./accessPoint";
 export type AccessPoint = import("./accessPoint").AccessPoint;
 export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
 
 export { AccessPointPolicyArgs } from "./accessPointPolicy";
 export type AccessPointPolicy = import("./accessPointPolicy").AccessPointPolicy;
 export const AccessPointPolicy: typeof import("./accessPointPolicy").AccessPointPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
 
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
 export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
 
 export { GetAccessPointPolicyArgs, GetAccessPointPolicyResult, GetAccessPointPolicyOutputArgs } from "./getAccessPointPolicy";
 export const getAccessPointPolicy: typeof import("./getAccessPointPolicy").getAccessPointPolicy = null as any;
 export const getAccessPointPolicyOutput: typeof import("./getAccessPointPolicy").getAccessPointPolicyOutput = null as any;
-
-utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
-utilities.lazyLoad(exports, ["AccessPointPolicy"], () => require("./accessPointPolicy"));
-utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
 utilities.lazyLoad(exports, ["getAccessPointPolicy","getAccessPointPolicyOutput"], () => require("./getAccessPointPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

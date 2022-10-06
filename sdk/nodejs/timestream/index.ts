@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetScheduledQueryArgs, GetScheduledQueryResult, GetScheduledQueryOutputArgs } from "./getScheduledQuery";
 export const getScheduledQuery: typeof import("./getScheduledQuery").getScheduledQuery = null as any;
 export const getScheduledQueryOutput: typeof import("./getScheduledQuery").getScheduledQueryOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledQuery","getScheduledQueryOutput"], () => require("./getScheduledQuery"));
 
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
 export { ScheduledQueryArgs } from "./scheduledQuery";
 export type ScheduledQuery = import("./scheduledQuery").ScheduledQuery;
 export const ScheduledQuery: typeof import("./scheduledQuery").ScheduledQuery = null as any;
+utilities.lazyLoad(exports, ["ScheduledQuery"], () => require("./scheduledQuery"));
 
 export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
-
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getScheduledQuery","getScheduledQueryOutput"], () => require("./getScheduledQuery"));
-utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
-utilities.lazyLoad(exports, ["ScheduledQuery"], () => require("./scheduledQuery"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 
 // Export enums:
 export * from "../types/enums/timestream";

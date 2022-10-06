@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetSuiteDefinitionArgs, GetSuiteDefinitionResult, GetSuiteDefinitionOutputArgs } from "./getSuiteDefinition";
 export const getSuiteDefinition: typeof import("./getSuiteDefinition").getSuiteDefinition = null as any;
 export const getSuiteDefinitionOutput: typeof import("./getSuiteDefinition").getSuiteDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSuiteDefinition","getSuiteDefinitionOutput"], () => require("./getSuiteDefinition"));
 
 export { SuiteDefinitionArgs } from "./suiteDefinition";
 export type SuiteDefinition = import("./suiteDefinition").SuiteDefinition;
 export const SuiteDefinition: typeof import("./suiteDefinition").SuiteDefinition = null as any;
-
-utilities.lazyLoad(exports, ["getSuiteDefinition","getSuiteDefinitionOutput"], () => require("./getSuiteDefinition"));
 utilities.lazyLoad(exports, ["SuiteDefinition"], () => require("./suiteDefinition"));
+
 
 const _module = {
     version: utilities.getVersion(),

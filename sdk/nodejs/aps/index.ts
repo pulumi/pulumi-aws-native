@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetRuleGroupsNamespaceArgs, GetRuleGroupsNamespaceResult, GetRuleGroupsNamespaceOutputArgs } from "./getRuleGroupsNamespace";
 export const getRuleGroupsNamespace: typeof import("./getRuleGroupsNamespace").getRuleGroupsNamespace = null as any;
 export const getRuleGroupsNamespaceOutput: typeof import("./getRuleGroupsNamespace").getRuleGroupsNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getRuleGroupsNamespace","getRuleGroupsNamespaceOutput"], () => require("./getRuleGroupsNamespace"));
 
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
 export { RuleGroupsNamespaceArgs } from "./ruleGroupsNamespace";
 export type RuleGroupsNamespace = import("./ruleGroupsNamespace").RuleGroupsNamespace;
 export const RuleGroupsNamespace: typeof import("./ruleGroupsNamespace").RuleGroupsNamespace = null as any;
+utilities.lazyLoad(exports, ["RuleGroupsNamespace"], () => require("./ruleGroupsNamespace"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
-
-utilities.lazyLoad(exports, ["getRuleGroupsNamespace","getRuleGroupsNamespaceOutput"], () => require("./getRuleGroupsNamespace"));
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-utilities.lazyLoad(exports, ["RuleGroupsNamespace"], () => require("./ruleGroupsNamespace"));
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
 
 export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
 export const getFilter: typeof import("./getFilter").getFilter = null as any;
 export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
-
-utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
 utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
+
 
 // Export enums:
 export * from "../types/enums/inspectorv2";

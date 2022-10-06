@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { AlertArgs } from "./alert";
 export type Alert = import("./alert").Alert;
 export const Alert: typeof import("./alert").Alert = null as any;
+utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
 
 export { AnomalyDetectorArgs } from "./anomalyDetector";
 export type AnomalyDetector = import("./anomalyDetector").AnomalyDetector;
 export const AnomalyDetector: typeof import("./anomalyDetector").AnomalyDetector = null as any;
+utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
 
 export { GetAlertArgs, GetAlertResult, GetAlertOutputArgs } from "./getAlert";
 export const getAlert: typeof import("./getAlert").getAlert = null as any;
 export const getAlertOutput: typeof import("./getAlert").getAlertOutput = null as any;
+utilities.lazyLoad(exports, ["getAlert","getAlertOutput"], () => require("./getAlert"));
 
 export { GetAnomalyDetectorArgs, GetAnomalyDetectorResult, GetAnomalyDetectorOutputArgs } from "./getAnomalyDetector";
 export const getAnomalyDetector: typeof import("./getAnomalyDetector").getAnomalyDetector = null as any;
 export const getAnomalyDetectorOutput: typeof import("./getAnomalyDetector").getAnomalyDetectorOutput = null as any;
-
-utilities.lazyLoad(exports, ["Alert"], () => require("./alert"));
-utilities.lazyLoad(exports, ["AnomalyDetector"], () => require("./anomalyDetector"));
-utilities.lazyLoad(exports, ["getAlert","getAlertOutput"], () => require("./getAlert"));
 utilities.lazyLoad(exports, ["getAnomalyDetector","getAnomalyDetectorOutput"], () => require("./getAnomalyDetector"));
+
 
 // Export enums:
 export * from "../types/enums/lookoutmetrics";

@@ -8,123 +8,123 @@ import * as utilities from "../utilities";
 export { AgentArgs } from "./agent";
 export type Agent = import("./agent").Agent;
 export const Agent: typeof import("./agent").Agent = null as any;
+utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
 
 export { GetAgentArgs, GetAgentResult, GetAgentOutputArgs } from "./getAgent";
 export const getAgent: typeof import("./getAgent").getAgent = null as any;
 export const getAgentOutput: typeof import("./getAgent").getAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
 
 export { GetLocationEFSArgs, GetLocationEFSResult, GetLocationEFSOutputArgs } from "./getLocationEFS";
 export const getLocationEFS: typeof import("./getLocationEFS").getLocationEFS = null as any;
 export const getLocationEFSOutput: typeof import("./getLocationEFS").getLocationEFSOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationEFS","getLocationEFSOutput"], () => require("./getLocationEFS"));
 
 export { GetLocationFSxLustreArgs, GetLocationFSxLustreResult, GetLocationFSxLustreOutputArgs } from "./getLocationFSxLustre";
 export const getLocationFSxLustre: typeof import("./getLocationFSxLustre").getLocationFSxLustre = null as any;
 export const getLocationFSxLustreOutput: typeof import("./getLocationFSxLustre").getLocationFSxLustreOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationFSxLustre","getLocationFSxLustreOutput"], () => require("./getLocationFSxLustre"));
 
 export { GetLocationFSxONTAPArgs, GetLocationFSxONTAPResult, GetLocationFSxONTAPOutputArgs } from "./getLocationFSxONTAP";
 export const getLocationFSxONTAP: typeof import("./getLocationFSxONTAP").getLocationFSxONTAP = null as any;
 export const getLocationFSxONTAPOutput: typeof import("./getLocationFSxONTAP").getLocationFSxONTAPOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationFSxONTAP","getLocationFSxONTAPOutput"], () => require("./getLocationFSxONTAP"));
 
 export { GetLocationFSxOpenZFSArgs, GetLocationFSxOpenZFSResult, GetLocationFSxOpenZFSOutputArgs } from "./getLocationFSxOpenZFS";
 export const getLocationFSxOpenZFS: typeof import("./getLocationFSxOpenZFS").getLocationFSxOpenZFS = null as any;
 export const getLocationFSxOpenZFSOutput: typeof import("./getLocationFSxOpenZFS").getLocationFSxOpenZFSOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationFSxOpenZFS","getLocationFSxOpenZFSOutput"], () => require("./getLocationFSxOpenZFS"));
 
 export { GetLocationFSxWindowsArgs, GetLocationFSxWindowsResult, GetLocationFSxWindowsOutputArgs } from "./getLocationFSxWindows";
 export const getLocationFSxWindows: typeof import("./getLocationFSxWindows").getLocationFSxWindows = null as any;
 export const getLocationFSxWindowsOutput: typeof import("./getLocationFSxWindows").getLocationFSxWindowsOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationFSxWindows","getLocationFSxWindowsOutput"], () => require("./getLocationFSxWindows"));
 
 export { GetLocationHDFSArgs, GetLocationHDFSResult, GetLocationHDFSOutputArgs } from "./getLocationHDFS";
 export const getLocationHDFS: typeof import("./getLocationHDFS").getLocationHDFS = null as any;
 export const getLocationHDFSOutput: typeof import("./getLocationHDFS").getLocationHDFSOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationHDFS","getLocationHDFSOutput"], () => require("./getLocationHDFS"));
 
 export { GetLocationNFSArgs, GetLocationNFSResult, GetLocationNFSOutputArgs } from "./getLocationNFS";
 export const getLocationNFS: typeof import("./getLocationNFS").getLocationNFS = null as any;
 export const getLocationNFSOutput: typeof import("./getLocationNFS").getLocationNFSOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationNFS","getLocationNFSOutput"], () => require("./getLocationNFS"));
 
 export { GetLocationObjectStorageArgs, GetLocationObjectStorageResult, GetLocationObjectStorageOutputArgs } from "./getLocationObjectStorage";
 export const getLocationObjectStorage: typeof import("./getLocationObjectStorage").getLocationObjectStorage = null as any;
 export const getLocationObjectStorageOutput: typeof import("./getLocationObjectStorage").getLocationObjectStorageOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationObjectStorage","getLocationObjectStorageOutput"], () => require("./getLocationObjectStorage"));
 
 export { GetLocationS3Args, GetLocationS3Result, GetLocationS3OutputArgs } from "./getLocationS3";
 export const getLocationS3: typeof import("./getLocationS3").getLocationS3 = null as any;
 export const getLocationS3Output: typeof import("./getLocationS3").getLocationS3Output = null as any;
+utilities.lazyLoad(exports, ["getLocationS3","getLocationS3Output"], () => require("./getLocationS3"));
 
 export { GetLocationSMBArgs, GetLocationSMBResult, GetLocationSMBOutputArgs } from "./getLocationSMB";
 export const getLocationSMB: typeof import("./getLocationSMB").getLocationSMB = null as any;
 export const getLocationSMBOutput: typeof import("./getLocationSMB").getLocationSMBOutput = null as any;
+utilities.lazyLoad(exports, ["getLocationSMB","getLocationSMBOutput"], () => require("./getLocationSMB"));
 
 export { GetTaskArgs, GetTaskResult, GetTaskOutputArgs } from "./getTask";
 export const getTask: typeof import("./getTask").getTask = null as any;
 export const getTaskOutput: typeof import("./getTask").getTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
 
 export { LocationEFSArgs } from "./locationEFS";
 export type LocationEFS = import("./locationEFS").LocationEFS;
 export const LocationEFS: typeof import("./locationEFS").LocationEFS = null as any;
+utilities.lazyLoad(exports, ["LocationEFS"], () => require("./locationEFS"));
 
 export { LocationFSxLustreArgs } from "./locationFSxLustre";
 export type LocationFSxLustre = import("./locationFSxLustre").LocationFSxLustre;
 export const LocationFSxLustre: typeof import("./locationFSxLustre").LocationFSxLustre = null as any;
+utilities.lazyLoad(exports, ["LocationFSxLustre"], () => require("./locationFSxLustre"));
 
 export { LocationFSxONTAPArgs } from "./locationFSxONTAP";
 export type LocationFSxONTAP = import("./locationFSxONTAP").LocationFSxONTAP;
 export const LocationFSxONTAP: typeof import("./locationFSxONTAP").LocationFSxONTAP = null as any;
+utilities.lazyLoad(exports, ["LocationFSxONTAP"], () => require("./locationFSxONTAP"));
 
 export { LocationFSxOpenZFSArgs } from "./locationFSxOpenZFS";
 export type LocationFSxOpenZFS = import("./locationFSxOpenZFS").LocationFSxOpenZFS;
 export const LocationFSxOpenZFS: typeof import("./locationFSxOpenZFS").LocationFSxOpenZFS = null as any;
+utilities.lazyLoad(exports, ["LocationFSxOpenZFS"], () => require("./locationFSxOpenZFS"));
 
 export { LocationFSxWindowsArgs } from "./locationFSxWindows";
 export type LocationFSxWindows = import("./locationFSxWindows").LocationFSxWindows;
 export const LocationFSxWindows: typeof import("./locationFSxWindows").LocationFSxWindows = null as any;
+utilities.lazyLoad(exports, ["LocationFSxWindows"], () => require("./locationFSxWindows"));
 
 export { LocationHDFSArgs } from "./locationHDFS";
 export type LocationHDFS = import("./locationHDFS").LocationHDFS;
 export const LocationHDFS: typeof import("./locationHDFS").LocationHDFS = null as any;
+utilities.lazyLoad(exports, ["LocationHDFS"], () => require("./locationHDFS"));
 
 export { LocationNFSArgs } from "./locationNFS";
 export type LocationNFS = import("./locationNFS").LocationNFS;
 export const LocationNFS: typeof import("./locationNFS").LocationNFS = null as any;
+utilities.lazyLoad(exports, ["LocationNFS"], () => require("./locationNFS"));
 
 export { LocationObjectStorageArgs } from "./locationObjectStorage";
 export type LocationObjectStorage = import("./locationObjectStorage").LocationObjectStorage;
 export const LocationObjectStorage: typeof import("./locationObjectStorage").LocationObjectStorage = null as any;
+utilities.lazyLoad(exports, ["LocationObjectStorage"], () => require("./locationObjectStorage"));
 
 export { LocationS3Args } from "./locationS3";
 export type LocationS3 = import("./locationS3").LocationS3;
 export const LocationS3: typeof import("./locationS3").LocationS3 = null as any;
+utilities.lazyLoad(exports, ["LocationS3"], () => require("./locationS3"));
 
 export { LocationSMBArgs } from "./locationSMB";
 export type LocationSMB = import("./locationSMB").LocationSMB;
 export const LocationSMB: typeof import("./locationSMB").LocationSMB = null as any;
+utilities.lazyLoad(exports, ["LocationSMB"], () => require("./locationSMB"));
 
 export { TaskArgs } from "./task";
 export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
-
-utilities.lazyLoad(exports, ["Agent"], () => require("./agent"));
-utilities.lazyLoad(exports, ["getAgent","getAgentOutput"], () => require("./getAgent"));
-utilities.lazyLoad(exports, ["getLocationEFS","getLocationEFSOutput"], () => require("./getLocationEFS"));
-utilities.lazyLoad(exports, ["getLocationFSxLustre","getLocationFSxLustreOutput"], () => require("./getLocationFSxLustre"));
-utilities.lazyLoad(exports, ["getLocationFSxONTAP","getLocationFSxONTAPOutput"], () => require("./getLocationFSxONTAP"));
-utilities.lazyLoad(exports, ["getLocationFSxOpenZFS","getLocationFSxOpenZFSOutput"], () => require("./getLocationFSxOpenZFS"));
-utilities.lazyLoad(exports, ["getLocationFSxWindows","getLocationFSxWindowsOutput"], () => require("./getLocationFSxWindows"));
-utilities.lazyLoad(exports, ["getLocationHDFS","getLocationHDFSOutput"], () => require("./getLocationHDFS"));
-utilities.lazyLoad(exports, ["getLocationNFS","getLocationNFSOutput"], () => require("./getLocationNFS"));
-utilities.lazyLoad(exports, ["getLocationObjectStorage","getLocationObjectStorageOutput"], () => require("./getLocationObjectStorage"));
-utilities.lazyLoad(exports, ["getLocationS3","getLocationS3Output"], () => require("./getLocationS3"));
-utilities.lazyLoad(exports, ["getLocationSMB","getLocationSMBOutput"], () => require("./getLocationSMB"));
-utilities.lazyLoad(exports, ["getTask","getTaskOutput"], () => require("./getTask"));
-utilities.lazyLoad(exports, ["LocationEFS"], () => require("./locationEFS"));
-utilities.lazyLoad(exports, ["LocationFSxLustre"], () => require("./locationFSxLustre"));
-utilities.lazyLoad(exports, ["LocationFSxONTAP"], () => require("./locationFSxONTAP"));
-utilities.lazyLoad(exports, ["LocationFSxOpenZFS"], () => require("./locationFSxOpenZFS"));
-utilities.lazyLoad(exports, ["LocationFSxWindows"], () => require("./locationFSxWindows"));
-utilities.lazyLoad(exports, ["LocationHDFS"], () => require("./locationHDFS"));
-utilities.lazyLoad(exports, ["LocationNFS"], () => require("./locationNFS"));
-utilities.lazyLoad(exports, ["LocationObjectStorage"], () => require("./locationObjectStorage"));
-utilities.lazyLoad(exports, ["LocationS3"], () => require("./locationS3"));
-utilities.lazyLoad(exports, ["LocationSMB"], () => require("./locationSMB"));
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
+
 
 // Export enums:
 export * from "../types/enums/datasync";

@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
 export const getQueue: typeof import("./getQueue").getQueue = null as any;
 export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
 
 export { GetQueuePolicyArgs, GetQueuePolicyResult, GetQueuePolicyOutputArgs } from "./getQueuePolicy";
 export const getQueuePolicy: typeof import("./getQueuePolicy").getQueuePolicy = null as any;
 export const getQueuePolicyOutput: typeof import("./getQueuePolicy").getQueuePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getQueuePolicy","getQueuePolicyOutput"], () => require("./getQueuePolicy"));
 
 export { QueueArgs } from "./queue";
 export type Queue = import("./queue").Queue;
 export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 export { QueuePolicyArgs } from "./queuePolicy";
 export type QueuePolicy = import("./queuePolicy").QueuePolicy;
 export const QueuePolicy: typeof import("./queuePolicy").QueuePolicy = null as any;
-
-utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
-utilities.lazyLoad(exports, ["getQueuePolicy","getQueuePolicyOutput"], () => require("./getQueuePolicy"));
-utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 utilities.lazyLoad(exports, ["QueuePolicy"], () => require("./queuePolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

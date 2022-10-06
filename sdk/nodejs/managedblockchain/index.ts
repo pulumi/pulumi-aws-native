@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
 export const getMember: typeof import("./getMember").getMember = null as any;
 export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
 
 export { GetNodeArgs, GetNodeResult, GetNodeOutputArgs } from "./getNode";
 export const getNode: typeof import("./getNode").getNode = null as any;
 export const getNodeOutput: typeof import("./getNode").getNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getNode","getNodeOutput"], () => require("./getNode"));
 
 export { MemberArgs } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
 export { NodeArgs } from "./node";
 export type Node = import("./node").Node;
 export const Node: typeof import("./node").Node = null as any;
-
-utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
-utilities.lazyLoad(exports, ["getNode","getNodeOutput"], () => require("./getNode"));
-utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 utilities.lazyLoad(exports, ["Node"], () => require("./node"));
+
 
 const _module = {
     version: utilities.getVersion(),

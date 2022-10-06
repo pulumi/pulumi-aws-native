@@ -8,123 +8,123 @@ import * as utilities from "../utilities";
 export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
 export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
 export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
 
 export { GetIdentityPoolRoleAttachmentArgs, GetIdentityPoolRoleAttachmentResult, GetIdentityPoolRoleAttachmentOutputArgs } from "./getIdentityPoolRoleAttachment";
 export const getIdentityPoolRoleAttachment: typeof import("./getIdentityPoolRoleAttachment").getIdentityPoolRoleAttachment = null as any;
 export const getIdentityPoolRoleAttachmentOutput: typeof import("./getIdentityPoolRoleAttachment").getIdentityPoolRoleAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityPoolRoleAttachment","getIdentityPoolRoleAttachmentOutput"], () => require("./getIdentityPoolRoleAttachment"));
 
 export { GetUserPoolArgs, GetUserPoolResult, GetUserPoolOutputArgs } from "./getUserPool";
 export const getUserPool: typeof import("./getUserPool").getUserPool = null as any;
 export const getUserPoolOutput: typeof import("./getUserPool").getUserPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPool","getUserPoolOutput"], () => require("./getUserPool"));
 
 export { GetUserPoolClientArgs, GetUserPoolClientResult, GetUserPoolClientOutputArgs } from "./getUserPoolClient";
 export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPoolClient = null as any;
 export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolClient","getUserPoolClientOutput"], () => require("./getUserPoolClient"));
 
 export { GetUserPoolDomainArgs, GetUserPoolDomainResult, GetUserPoolDomainOutputArgs } from "./getUserPoolDomain";
 export const getUserPoolDomain: typeof import("./getUserPoolDomain").getUserPoolDomain = null as any;
 export const getUserPoolDomainOutput: typeof import("./getUserPoolDomain").getUserPoolDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolDomain","getUserPoolDomainOutput"], () => require("./getUserPoolDomain"));
 
 export { GetUserPoolGroupArgs, GetUserPoolGroupResult, GetUserPoolGroupOutputArgs } from "./getUserPoolGroup";
 export const getUserPoolGroup: typeof import("./getUserPoolGroup").getUserPoolGroup = null as any;
 export const getUserPoolGroupOutput: typeof import("./getUserPoolGroup").getUserPoolGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolGroup","getUserPoolGroupOutput"], () => require("./getUserPoolGroup"));
 
 export { GetUserPoolIdentityProviderArgs, GetUserPoolIdentityProviderResult, GetUserPoolIdentityProviderOutputArgs } from "./getUserPoolIdentityProvider";
 export const getUserPoolIdentityProvider: typeof import("./getUserPoolIdentityProvider").getUserPoolIdentityProvider = null as any;
 export const getUserPoolIdentityProviderOutput: typeof import("./getUserPoolIdentityProvider").getUserPoolIdentityProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolIdentityProvider","getUserPoolIdentityProviderOutput"], () => require("./getUserPoolIdentityProvider"));
 
 export { GetUserPoolResourceServerArgs, GetUserPoolResourceServerResult, GetUserPoolResourceServerOutputArgs } from "./getUserPoolResourceServer";
 export const getUserPoolResourceServer: typeof import("./getUserPoolResourceServer").getUserPoolResourceServer = null as any;
 export const getUserPoolResourceServerOutput: typeof import("./getUserPoolResourceServer").getUserPoolResourceServerOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolResourceServer","getUserPoolResourceServerOutput"], () => require("./getUserPoolResourceServer"));
 
 export { GetUserPoolRiskConfigurationAttachmentArgs, GetUserPoolRiskConfigurationAttachmentResult, GetUserPoolRiskConfigurationAttachmentOutputArgs } from "./getUserPoolRiskConfigurationAttachment";
 export const getUserPoolRiskConfigurationAttachment: typeof import("./getUserPoolRiskConfigurationAttachment").getUserPoolRiskConfigurationAttachment = null as any;
 export const getUserPoolRiskConfigurationAttachmentOutput: typeof import("./getUserPoolRiskConfigurationAttachment").getUserPoolRiskConfigurationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolRiskConfigurationAttachment","getUserPoolRiskConfigurationAttachmentOutput"], () => require("./getUserPoolRiskConfigurationAttachment"));
 
 export { GetUserPoolUICustomizationAttachmentArgs, GetUserPoolUICustomizationAttachmentResult, GetUserPoolUICustomizationAttachmentOutputArgs } from "./getUserPoolUICustomizationAttachment";
 export const getUserPoolUICustomizationAttachment: typeof import("./getUserPoolUICustomizationAttachment").getUserPoolUICustomizationAttachment = null as any;
 export const getUserPoolUICustomizationAttachmentOutput: typeof import("./getUserPoolUICustomizationAttachment").getUserPoolUICustomizationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolUICustomizationAttachment","getUserPoolUICustomizationAttachmentOutput"], () => require("./getUserPoolUICustomizationAttachment"));
 
 export { GetUserPoolUserArgs, GetUserPoolUserResult, GetUserPoolUserOutputArgs } from "./getUserPoolUser";
 export const getUserPoolUser: typeof import("./getUserPoolUser").getUserPoolUser = null as any;
 export const getUserPoolUserOutput: typeof import("./getUserPoolUser").getUserPoolUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolUser","getUserPoolUserOutput"], () => require("./getUserPoolUser"));
 
 export { GetUserPoolUserToGroupAttachmentArgs, GetUserPoolUserToGroupAttachmentResult, GetUserPoolUserToGroupAttachmentOutputArgs } from "./getUserPoolUserToGroupAttachment";
 export const getUserPoolUserToGroupAttachment: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachment = null as any;
 export const getUserPoolUserToGroupAttachmentOutput: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolUserToGroupAttachment","getUserPoolUserToGroupAttachmentOutput"], () => require("./getUserPoolUserToGroupAttachment"));
 
 export { IdentityPoolArgs } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;
 export const IdentityPool: typeof import("./identityPool").IdentityPool = null as any;
+utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
 
 export { IdentityPoolRoleAttachmentArgs } from "./identityPoolRoleAttachment";
 export type IdentityPoolRoleAttachment = import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment;
 export const IdentityPoolRoleAttachment: typeof import("./identityPoolRoleAttachment").IdentityPoolRoleAttachment = null as any;
+utilities.lazyLoad(exports, ["IdentityPoolRoleAttachment"], () => require("./identityPoolRoleAttachment"));
 
 export { UserPoolArgs } from "./userPool";
 export type UserPool = import("./userPool").UserPool;
 export const UserPool: typeof import("./userPool").UserPool = null as any;
+utilities.lazyLoad(exports, ["UserPool"], () => require("./userPool"));
 
 export { UserPoolClientArgs } from "./userPoolClient";
 export type UserPoolClient = import("./userPoolClient").UserPoolClient;
 export const UserPoolClient: typeof import("./userPoolClient").UserPoolClient = null as any;
+utilities.lazyLoad(exports, ["UserPoolClient"], () => require("./userPoolClient"));
 
 export { UserPoolDomainArgs } from "./userPoolDomain";
 export type UserPoolDomain = import("./userPoolDomain").UserPoolDomain;
 export const UserPoolDomain: typeof import("./userPoolDomain").UserPoolDomain = null as any;
+utilities.lazyLoad(exports, ["UserPoolDomain"], () => require("./userPoolDomain"));
 
 export { UserPoolGroupArgs } from "./userPoolGroup";
 export type UserPoolGroup = import("./userPoolGroup").UserPoolGroup;
 export const UserPoolGroup: typeof import("./userPoolGroup").UserPoolGroup = null as any;
+utilities.lazyLoad(exports, ["UserPoolGroup"], () => require("./userPoolGroup"));
 
 export { UserPoolIdentityProviderArgs } from "./userPoolIdentityProvider";
 export type UserPoolIdentityProvider = import("./userPoolIdentityProvider").UserPoolIdentityProvider;
 export const UserPoolIdentityProvider: typeof import("./userPoolIdentityProvider").UserPoolIdentityProvider = null as any;
+utilities.lazyLoad(exports, ["UserPoolIdentityProvider"], () => require("./userPoolIdentityProvider"));
 
 export { UserPoolResourceServerArgs } from "./userPoolResourceServer";
 export type UserPoolResourceServer = import("./userPoolResourceServer").UserPoolResourceServer;
 export const UserPoolResourceServer: typeof import("./userPoolResourceServer").UserPoolResourceServer = null as any;
+utilities.lazyLoad(exports, ["UserPoolResourceServer"], () => require("./userPoolResourceServer"));
 
 export { UserPoolRiskConfigurationAttachmentArgs } from "./userPoolRiskConfigurationAttachment";
 export type UserPoolRiskConfigurationAttachment = import("./userPoolRiskConfigurationAttachment").UserPoolRiskConfigurationAttachment;
 export const UserPoolRiskConfigurationAttachment: typeof import("./userPoolRiskConfigurationAttachment").UserPoolRiskConfigurationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolRiskConfigurationAttachment"], () => require("./userPoolRiskConfigurationAttachment"));
 
 export { UserPoolUICustomizationAttachmentArgs } from "./userPoolUICustomizationAttachment";
 export type UserPoolUICustomizationAttachment = import("./userPoolUICustomizationAttachment").UserPoolUICustomizationAttachment;
 export const UserPoolUICustomizationAttachment: typeof import("./userPoolUICustomizationAttachment").UserPoolUICustomizationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolUICustomizationAttachment"], () => require("./userPoolUICustomizationAttachment"));
 
 export { UserPoolUserArgs } from "./userPoolUser";
 export type UserPoolUser = import("./userPoolUser").UserPoolUser;
 export const UserPoolUser: typeof import("./userPoolUser").UserPoolUser = null as any;
+utilities.lazyLoad(exports, ["UserPoolUser"], () => require("./userPoolUser"));
 
 export { UserPoolUserToGroupAttachmentArgs } from "./userPoolUserToGroupAttachment";
 export type UserPoolUserToGroupAttachment = import("./userPoolUserToGroupAttachment").UserPoolUserToGroupAttachment;
 export const UserPoolUserToGroupAttachment: typeof import("./userPoolUserToGroupAttachment").UserPoolUserToGroupAttachment = null as any;
-
-utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
-utilities.lazyLoad(exports, ["getIdentityPoolRoleAttachment","getIdentityPoolRoleAttachmentOutput"], () => require("./getIdentityPoolRoleAttachment"));
-utilities.lazyLoad(exports, ["getUserPool","getUserPoolOutput"], () => require("./getUserPool"));
-utilities.lazyLoad(exports, ["getUserPoolClient","getUserPoolClientOutput"], () => require("./getUserPoolClient"));
-utilities.lazyLoad(exports, ["getUserPoolDomain","getUserPoolDomainOutput"], () => require("./getUserPoolDomain"));
-utilities.lazyLoad(exports, ["getUserPoolGroup","getUserPoolGroupOutput"], () => require("./getUserPoolGroup"));
-utilities.lazyLoad(exports, ["getUserPoolIdentityProvider","getUserPoolIdentityProviderOutput"], () => require("./getUserPoolIdentityProvider"));
-utilities.lazyLoad(exports, ["getUserPoolResourceServer","getUserPoolResourceServerOutput"], () => require("./getUserPoolResourceServer"));
-utilities.lazyLoad(exports, ["getUserPoolRiskConfigurationAttachment","getUserPoolRiskConfigurationAttachmentOutput"], () => require("./getUserPoolRiskConfigurationAttachment"));
-utilities.lazyLoad(exports, ["getUserPoolUICustomizationAttachment","getUserPoolUICustomizationAttachmentOutput"], () => require("./getUserPoolUICustomizationAttachment"));
-utilities.lazyLoad(exports, ["getUserPoolUser","getUserPoolUserOutput"], () => require("./getUserPoolUser"));
-utilities.lazyLoad(exports, ["getUserPoolUserToGroupAttachment","getUserPoolUserToGroupAttachmentOutput"], () => require("./getUserPoolUserToGroupAttachment"));
-utilities.lazyLoad(exports, ["IdentityPool"], () => require("./identityPool"));
-utilities.lazyLoad(exports, ["IdentityPoolRoleAttachment"], () => require("./identityPoolRoleAttachment"));
-utilities.lazyLoad(exports, ["UserPool"], () => require("./userPool"));
-utilities.lazyLoad(exports, ["UserPoolClient"], () => require("./userPoolClient"));
-utilities.lazyLoad(exports, ["UserPoolDomain"], () => require("./userPoolDomain"));
-utilities.lazyLoad(exports, ["UserPoolGroup"], () => require("./userPoolGroup"));
-utilities.lazyLoad(exports, ["UserPoolIdentityProvider"], () => require("./userPoolIdentityProvider"));
-utilities.lazyLoad(exports, ["UserPoolResourceServer"], () => require("./userPoolResourceServer"));
-utilities.lazyLoad(exports, ["UserPoolRiskConfigurationAttachment"], () => require("./userPoolRiskConfigurationAttachment"));
-utilities.lazyLoad(exports, ["UserPoolUICustomizationAttachment"], () => require("./userPoolUICustomizationAttachment"));
-utilities.lazyLoad(exports, ["UserPoolUser"], () => require("./userPoolUser"));
 utilities.lazyLoad(exports, ["UserPoolUserToGroupAttachment"], () => require("./userPoolUserToGroupAttachment"));
+
 
 const _module = {
     version: utilities.getVersion(),

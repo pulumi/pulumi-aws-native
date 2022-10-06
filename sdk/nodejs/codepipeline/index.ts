@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { CustomActionTypeArgs } from "./customActionType";
 export type CustomActionType = import("./customActionType").CustomActionType;
 export const CustomActionType: typeof import("./customActionType").CustomActionType = null as any;
+utilities.lazyLoad(exports, ["CustomActionType"], () => require("./customActionType"));
 
 export { GetCustomActionTypeArgs, GetCustomActionTypeResult, GetCustomActionTypeOutputArgs } from "./getCustomActionType";
 export const getCustomActionType: typeof import("./getCustomActionType").getCustomActionType = null as any;
 export const getCustomActionTypeOutput: typeof import("./getCustomActionType").getCustomActionTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomActionType","getCustomActionTypeOutput"], () => require("./getCustomActionType"));
 
 export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
 export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
+utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
 
 export { GetWebhookArgs, GetWebhookResult, GetWebhookOutputArgs } from "./getWebhook";
 export const getWebhook: typeof import("./getWebhook").getWebhook = null as any;
 export const getWebhookOutput: typeof import("./getWebhook").getWebhookOutput = null as any;
+utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
 
 export { PipelineArgs } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 
 export { WebhookArgs } from "./webhook";
 export type Webhook = import("./webhook").Webhook;
 export const Webhook: typeof import("./webhook").Webhook = null as any;
-
-utilities.lazyLoad(exports, ["CustomActionType"], () => require("./customActionType"));
-utilities.lazyLoad(exports, ["getCustomActionType","getCustomActionTypeOutput"], () => require("./getCustomActionType"));
-utilities.lazyLoad(exports, ["getPipeline","getPipelineOutput"], () => require("./getPipeline"));
-utilities.lazyLoad(exports, ["getWebhook","getWebhookOutput"], () => require("./getWebhook"));
-utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
 utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
+
 
 const _module = {
     version: utilities.getVersion(),

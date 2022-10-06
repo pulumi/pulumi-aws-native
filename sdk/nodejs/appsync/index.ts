@@ -8,93 +8,93 @@ import * as utilities from "../utilities";
 export { ApiCacheArgs } from "./apiCache";
 export type ApiCache = import("./apiCache").ApiCache;
 export const ApiCache: typeof import("./apiCache").ApiCache = null as any;
+utilities.lazyLoad(exports, ["ApiCache"], () => require("./apiCache"));
 
 export { ApiKeyArgs } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
 
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
 export { DomainNameArgs } from "./domainName";
 export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
+utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
 
 export { DomainNameApiAssociationArgs } from "./domainNameApiAssociation";
 export type DomainNameApiAssociation = import("./domainNameApiAssociation").DomainNameApiAssociation;
 export const DomainNameApiAssociation: typeof import("./domainNameApiAssociation").DomainNameApiAssociation = null as any;
+utilities.lazyLoad(exports, ["DomainNameApiAssociation"], () => require("./domainNameApiAssociation"));
 
 export { FunctionConfigurationArgs } from "./functionConfiguration";
 export type FunctionConfiguration = import("./functionConfiguration").FunctionConfiguration;
 export const FunctionConfiguration: typeof import("./functionConfiguration").FunctionConfiguration = null as any;
+utilities.lazyLoad(exports, ["FunctionConfiguration"], () => require("./functionConfiguration"));
 
 export { GetApiCacheArgs, GetApiCacheResult, GetApiCacheOutputArgs } from "./getApiCache";
 export const getApiCache: typeof import("./getApiCache").getApiCache = null as any;
 export const getApiCacheOutput: typeof import("./getApiCache").getApiCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getApiCache","getApiCacheOutput"], () => require("./getApiCache"));
 
 export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
 export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
 export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
 export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from "./getDomainName";
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
 
 export { GetDomainNameApiAssociationArgs, GetDomainNameApiAssociationResult, GetDomainNameApiAssociationOutputArgs } from "./getDomainNameApiAssociation";
 export const getDomainNameApiAssociation: typeof import("./getDomainNameApiAssociation").getDomainNameApiAssociation = null as any;
 export const getDomainNameApiAssociationOutput: typeof import("./getDomainNameApiAssociation").getDomainNameApiAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainNameApiAssociation","getDomainNameApiAssociationOutput"], () => require("./getDomainNameApiAssociation"));
 
 export { GetFunctionConfigurationArgs, GetFunctionConfigurationResult, GetFunctionConfigurationOutputArgs } from "./getFunctionConfiguration";
 export const getFunctionConfiguration: typeof import("./getFunctionConfiguration").getFunctionConfiguration = null as any;
 export const getFunctionConfigurationOutput: typeof import("./getFunctionConfiguration").getFunctionConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getFunctionConfiguration","getFunctionConfigurationOutput"], () => require("./getFunctionConfiguration"));
 
 export { GetGraphQLApiArgs, GetGraphQLApiResult, GetGraphQLApiOutputArgs } from "./getGraphQLApi";
 export const getGraphQLApi: typeof import("./getGraphQLApi").getGraphQLApi = null as any;
 export const getGraphQLApiOutput: typeof import("./getGraphQLApi").getGraphQLApiOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLApi","getGraphQLApiOutput"], () => require("./getGraphQLApi"));
 
 export { GetGraphQLSchemaArgs, GetGraphQLSchemaResult, GetGraphQLSchemaOutputArgs } from "./getGraphQLSchema";
 export const getGraphQLSchema: typeof import("./getGraphQLSchema").getGraphQLSchema = null as any;
 export const getGraphQLSchemaOutput: typeof import("./getGraphQLSchema").getGraphQLSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLSchema","getGraphQLSchemaOutput"], () => require("./getGraphQLSchema"));
 
 export { GetResolverArgs, GetResolverResult, GetResolverOutputArgs } from "./getResolver";
 export const getResolver: typeof import("./getResolver").getResolver = null as any;
 export const getResolverOutput: typeof import("./getResolver").getResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getResolver","getResolverOutput"], () => require("./getResolver"));
 
 export { GraphQLApiArgs } from "./graphQLApi";
 export type GraphQLApi = import("./graphQLApi").GraphQLApi;
 export const GraphQLApi: typeof import("./graphQLApi").GraphQLApi = null as any;
+utilities.lazyLoad(exports, ["GraphQLApi"], () => require("./graphQLApi"));
 
 export { GraphQLSchemaArgs } from "./graphQLSchema";
 export type GraphQLSchema = import("./graphQLSchema").GraphQLSchema;
 export const GraphQLSchema: typeof import("./graphQLSchema").GraphQLSchema = null as any;
+utilities.lazyLoad(exports, ["GraphQLSchema"], () => require("./graphQLSchema"));
 
 export { ResolverArgs } from "./resolver";
 export type Resolver = import("./resolver").Resolver;
 export const Resolver: typeof import("./resolver").Resolver = null as any;
-
-utilities.lazyLoad(exports, ["ApiCache"], () => require("./apiCache"));
-utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
-utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
-utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
-utilities.lazyLoad(exports, ["DomainNameApiAssociation"], () => require("./domainNameApiAssociation"));
-utilities.lazyLoad(exports, ["FunctionConfiguration"], () => require("./functionConfiguration"));
-utilities.lazyLoad(exports, ["getApiCache","getApiCacheOutput"], () => require("./getApiCache"));
-utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
-utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
-utilities.lazyLoad(exports, ["getDomainNameApiAssociation","getDomainNameApiAssociationOutput"], () => require("./getDomainNameApiAssociation"));
-utilities.lazyLoad(exports, ["getFunctionConfiguration","getFunctionConfigurationOutput"], () => require("./getFunctionConfiguration"));
-utilities.lazyLoad(exports, ["getGraphQLApi","getGraphQLApiOutput"], () => require("./getGraphQLApi"));
-utilities.lazyLoad(exports, ["getGraphQLSchema","getGraphQLSchemaOutput"], () => require("./getGraphQLSchema"));
-utilities.lazyLoad(exports, ["getResolver","getResolverOutput"], () => require("./getResolver"));
-utilities.lazyLoad(exports, ["GraphQLApi"], () => require("./graphQLApi"));
-utilities.lazyLoad(exports, ["GraphQLSchema"], () => require("./graphQLSchema"));
 utilities.lazyLoad(exports, ["Resolver"], () => require("./resolver"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetInferenceSchedulerArgs, GetInferenceSchedulerResult, GetInferenceSchedulerOutputArgs } from "./getInferenceScheduler";
 export const getInferenceScheduler: typeof import("./getInferenceScheduler").getInferenceScheduler = null as any;
 export const getInferenceSchedulerOutput: typeof import("./getInferenceScheduler").getInferenceSchedulerOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceScheduler","getInferenceSchedulerOutput"], () => require("./getInferenceScheduler"));
 
 export { InferenceSchedulerArgs } from "./inferenceScheduler";
 export type InferenceScheduler = import("./inferenceScheduler").InferenceScheduler;
 export const InferenceScheduler: typeof import("./inferenceScheduler").InferenceScheduler = null as any;
-
-utilities.lazyLoad(exports, ["getInferenceScheduler","getInferenceSchedulerOutput"], () => require("./getInferenceScheduler"));
 utilities.lazyLoad(exports, ["InferenceScheduler"], () => require("./inferenceScheduler"));
+
 
 // Export enums:
 export * from "../types/enums/lookoutequipment";
