@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { DomainArgs } from "./domain";
 export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
-
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
 
 const _module = {
     version: utilities.getVersion(),

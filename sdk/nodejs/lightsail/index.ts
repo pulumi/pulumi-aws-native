@@ -8,113 +8,113 @@ import * as utilities from "../utilities";
 export { AlarmArgs } from "./alarm";
 export type Alarm = import("./alarm").Alarm;
 export const Alarm: typeof import("./alarm").Alarm = null as any;
+utilities.lazyLoad(exports, ["Alarm"], () => require("./alarm"));
 
 export { BucketArgs } from "./bucket";
 export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
 export { ContainerArgs } from "./container";
 export type Container = import("./container").Container;
 export const Container: typeof import("./container").Container = null as any;
+utilities.lazyLoad(exports, ["Container"], () => require("./container"));
 
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
 export { DiskArgs } from "./disk";
 export type Disk = import("./disk").Disk;
 export const Disk: typeof import("./disk").Disk = null as any;
+utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
 
 export { DistributionArgs } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
+utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
 
 export { GetAlarmArgs, GetAlarmResult, GetAlarmOutputArgs } from "./getAlarm";
 export const getAlarm: typeof import("./getAlarm").getAlarm = null as any;
 export const getAlarmOutput: typeof import("./getAlarm").getAlarmOutput = null as any;
+utilities.lazyLoad(exports, ["getAlarm","getAlarmOutput"], () => require("./getAlarm"));
 
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
+utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetContainerArgs, GetContainerResult, GetContainerOutputArgs } from "./getContainer";
 export const getContainer: typeof import("./getContainer").getContainer = null as any;
 export const getContainerOutput: typeof import("./getContainer").getContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getContainer","getContainerOutput"], () => require("./getContainer"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
 export { GetDiskArgs, GetDiskResult, GetDiskOutputArgs } from "./getDisk";
 export const getDisk: typeof import("./getDisk").getDisk = null as any;
 export const getDiskOutput: typeof import("./getDisk").getDiskOutput = null as any;
+utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
 
 export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs } from "./getDistribution";
 export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
 export const getDistributionOutput: typeof import("./getDistribution").getDistributionOutput = null as any;
+utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
 
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
 
 export { GetLoadBalancerTlsCertificateArgs, GetLoadBalancerTlsCertificateResult, GetLoadBalancerTlsCertificateOutputArgs } from "./getLoadBalancerTlsCertificate";
 export const getLoadBalancerTlsCertificate: typeof import("./getLoadBalancerTlsCertificate").getLoadBalancerTlsCertificate = null as any;
 export const getLoadBalancerTlsCertificateOutput: typeof import("./getLoadBalancerTlsCertificate").getLoadBalancerTlsCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getLoadBalancerTlsCertificate","getLoadBalancerTlsCertificateOutput"], () => require("./getLoadBalancerTlsCertificate"));
 
 export { GetStaticIpArgs, GetStaticIpResult, GetStaticIpOutputArgs } from "./getStaticIp";
 export const getStaticIp: typeof import("./getStaticIp").getStaticIp = null as any;
 export const getStaticIpOutput: typeof import("./getStaticIp").getStaticIpOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticIp","getStaticIpOutput"], () => require("./getStaticIp"));
 
 export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
 export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
 
 export { LoadBalancerTlsCertificateArgs } from "./loadBalancerTlsCertificate";
 export type LoadBalancerTlsCertificate = import("./loadBalancerTlsCertificate").LoadBalancerTlsCertificate;
 export const LoadBalancerTlsCertificate: typeof import("./loadBalancerTlsCertificate").LoadBalancerTlsCertificate = null as any;
+utilities.lazyLoad(exports, ["LoadBalancerTlsCertificate"], () => require("./loadBalancerTlsCertificate"));
 
 export { StaticIpArgs } from "./staticIp";
 export type StaticIp = import("./staticIp").StaticIp;
 export const StaticIp: typeof import("./staticIp").StaticIp = null as any;
-
-utilities.lazyLoad(exports, ["Alarm"], () => require("./alarm"));
-utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-utilities.lazyLoad(exports, ["Container"], () => require("./container"));
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["Disk"], () => require("./disk"));
-utilities.lazyLoad(exports, ["Distribution"], () => require("./distribution"));
-utilities.lazyLoad(exports, ["getAlarm","getAlarmOutput"], () => require("./getAlarm"));
-utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
-utilities.lazyLoad(exports, ["getContainer","getContainerOutput"], () => require("./getContainer"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getDisk","getDiskOutput"], () => require("./getDisk"));
-utilities.lazyLoad(exports, ["getDistribution","getDistributionOutput"], () => require("./getDistribution"));
-utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
-utilities.lazyLoad(exports, ["getLoadBalancer","getLoadBalancerOutput"], () => require("./getLoadBalancer"));
-utilities.lazyLoad(exports, ["getLoadBalancerTlsCertificate","getLoadBalancerTlsCertificateOutput"], () => require("./getLoadBalancerTlsCertificate"));
-utilities.lazyLoad(exports, ["getStaticIp","getStaticIpOutput"], () => require("./getStaticIp"));
-utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
-utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
-utilities.lazyLoad(exports, ["LoadBalancerTlsCertificate"], () => require("./loadBalancerTlsCertificate"));
 utilities.lazyLoad(exports, ["StaticIp"], () => require("./staticIp"));
+
 
 // Export enums:
 export * from "../types/enums/lightsail";

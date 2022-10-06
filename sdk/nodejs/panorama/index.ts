@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { ApplicationInstanceArgs } from "./applicationInstance";
 export type ApplicationInstance = import("./applicationInstance").ApplicationInstance;
 export const ApplicationInstance: typeof import("./applicationInstance").ApplicationInstance = null as any;
+utilities.lazyLoad(exports, ["ApplicationInstance"], () => require("./applicationInstance"));
 
 export { GetApplicationInstanceArgs, GetApplicationInstanceResult, GetApplicationInstanceOutputArgs } from "./getApplicationInstance";
 export const getApplicationInstance: typeof import("./getApplicationInstance").getApplicationInstance = null as any;
 export const getApplicationInstanceOutput: typeof import("./getApplicationInstance").getApplicationInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationInstance","getApplicationInstanceOutput"], () => require("./getApplicationInstance"));
 
 export { GetPackageArgs, GetPackageResult, GetPackageOutputArgs } from "./getPackage";
 export const getPackage: typeof import("./getPackage").getPackage = null as any;
 export const getPackageOutput: typeof import("./getPackage").getPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
 
 export { GetPackageVersionArgs, GetPackageVersionResult, GetPackageVersionOutputArgs } from "./getPackageVersion";
 export const getPackageVersion: typeof import("./getPackageVersion").getPackageVersion = null as any;
 export const getPackageVersionOutput: typeof import("./getPackageVersion").getPackageVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getPackageVersion","getPackageVersionOutput"], () => require("./getPackageVersion"));
 
 export { PackageArgs } from "./package";
 export type Package = import("./package").Package;
 export const Package: typeof import("./package").Package = null as any;
+utilities.lazyLoad(exports, ["Package"], () => require("./package"));
 
 export { PackageVersionArgs } from "./packageVersion";
 export type PackageVersion = import("./packageVersion").PackageVersion;
 export const PackageVersion: typeof import("./packageVersion").PackageVersion = null as any;
-
-utilities.lazyLoad(exports, ["ApplicationInstance"], () => require("./applicationInstance"));
-utilities.lazyLoad(exports, ["getApplicationInstance","getApplicationInstanceOutput"], () => require("./getApplicationInstance"));
-utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
-utilities.lazyLoad(exports, ["getPackageVersion","getPackageVersionOutput"], () => require("./getPackageVersion"));
-utilities.lazyLoad(exports, ["Package"], () => require("./package"));
 utilities.lazyLoad(exports, ["PackageVersion"], () => require("./packageVersion"));
+
 
 // Export enums:
 export * from "../types/enums/panorama";

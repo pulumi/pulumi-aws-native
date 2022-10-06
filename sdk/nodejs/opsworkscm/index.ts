@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
 export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
-
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
 
 const _module = {
     version: utilities.getVersion(),

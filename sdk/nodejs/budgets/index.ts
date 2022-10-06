@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { BudgetArgs } from "./budget";
 export type Budget = import("./budget").Budget;
 export const Budget: typeof import("./budget").Budget = null as any;
+utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
 
 export { BudgetsActionArgs } from "./budgetsAction";
 export type BudgetsAction = import("./budgetsAction").BudgetsAction;
 export const BudgetsAction: typeof import("./budgetsAction").BudgetsAction = null as any;
+utilities.lazyLoad(exports, ["BudgetsAction"], () => require("./budgetsAction"));
 
 export { GetBudgetArgs, GetBudgetResult, GetBudgetOutputArgs } from "./getBudget";
 export const getBudget: typeof import("./getBudget").getBudget = null as any;
 export const getBudgetOutput: typeof import("./getBudget").getBudgetOutput = null as any;
+utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
 
 export { GetBudgetsActionArgs, GetBudgetsActionResult, GetBudgetsActionOutputArgs } from "./getBudgetsAction";
 export const getBudgetsAction: typeof import("./getBudgetsAction").getBudgetsAction = null as any;
 export const getBudgetsActionOutput: typeof import("./getBudgetsAction").getBudgetsActionOutput = null as any;
-
-utilities.lazyLoad(exports, ["Budget"], () => require("./budget"));
-utilities.lazyLoad(exports, ["BudgetsAction"], () => require("./budgetsAction"));
-utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./getBudget"));
 utilities.lazyLoad(exports, ["getBudgetsAction","getBudgetsActionOutput"], () => require("./getBudgetsAction"));
+
 
 // Export enums:
 export * from "../types/enums/budgets";

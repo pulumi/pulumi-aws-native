@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetProfilingGroupArgs, GetProfilingGroupResult, GetProfilingGroupOutputArgs } from "./getProfilingGroup";
 export const getProfilingGroup: typeof import("./getProfilingGroup").getProfilingGroup = null as any;
 export const getProfilingGroupOutput: typeof import("./getProfilingGroup").getProfilingGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getProfilingGroup","getProfilingGroupOutput"], () => require("./getProfilingGroup"));
 
 export { ProfilingGroupArgs } from "./profilingGroup";
 export type ProfilingGroup = import("./profilingGroup").ProfilingGroup;
 export const ProfilingGroup: typeof import("./profilingGroup").ProfilingGroup = null as any;
-
-utilities.lazyLoad(exports, ["getProfilingGroup","getProfilingGroupOutput"], () => require("./getProfilingGroup"));
 utilities.lazyLoad(exports, ["ProfilingGroup"], () => require("./profilingGroup"));
+
 
 // Export enums:
 export * from "../types/enums/codeguruprofiler";

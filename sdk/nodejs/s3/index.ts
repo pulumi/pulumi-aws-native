@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { AccessPointArgs } from "./accessPoint";
 export type AccessPoint = import("./accessPoint").AccessPoint;
 export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
+utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
 
 export { BucketArgs } from "./bucket";
 export type Bucket = import("./bucket").Bucket;
 export const Bucket: typeof import("./bucket").Bucket = null as any;
+utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
 
 export { BucketPolicyArgs } from "./bucketPolicy";
 export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
+utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
 
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
 export const getAccessPointOutput: typeof import("./getAccessPoint").getAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
 
 export { GetBucketArgs, GetBucketResult, GetBucketOutputArgs } from "./getBucket";
 export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
+utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
 
 export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs } from "./getBucketPolicy";
 export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
 export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
 
 export { GetMultiRegionAccessPointArgs, GetMultiRegionAccessPointResult, GetMultiRegionAccessPointOutputArgs } from "./getMultiRegionAccessPoint";
 export const getMultiRegionAccessPoint: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPoint = null as any;
 export const getMultiRegionAccessPointOutput: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPointOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionAccessPoint","getMultiRegionAccessPointOutput"], () => require("./getMultiRegionAccessPoint"));
 
 export { GetMultiRegionAccessPointPolicyArgs, GetMultiRegionAccessPointPolicyResult, GetMultiRegionAccessPointPolicyOutputArgs } from "./getMultiRegionAccessPointPolicy";
 export const getMultiRegionAccessPointPolicy: typeof import("./getMultiRegionAccessPointPolicy").getMultiRegionAccessPointPolicy = null as any;
 export const getMultiRegionAccessPointPolicyOutput: typeof import("./getMultiRegionAccessPointPolicy").getMultiRegionAccessPointPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionAccessPointPolicy","getMultiRegionAccessPointPolicyOutput"], () => require("./getMultiRegionAccessPointPolicy"));
 
 export { MultiRegionAccessPointArgs } from "./multiRegionAccessPoint";
 export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;
 export const MultiRegionAccessPoint: typeof import("./multiRegionAccessPoint").MultiRegionAccessPoint = null as any;
+utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRegionAccessPoint"));
 
 export { MultiRegionAccessPointPolicyArgs } from "./multiRegionAccessPointPolicy";
 export type MultiRegionAccessPointPolicy = import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy;
 export const MultiRegionAccessPointPolicy: typeof import("./multiRegionAccessPointPolicy").MultiRegionAccessPointPolicy = null as any;
+utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
 
 export { StorageLensArgs } from "./storageLens";
 export type StorageLens = import("./storageLens").StorageLens;
 export const StorageLens: typeof import("./storageLens").StorageLens = null as any;
-
-utilities.lazyLoad(exports, ["AccessPoint"], () => require("./accessPoint"));
-utilities.lazyLoad(exports, ["Bucket"], () => require("./bucket"));
-utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
-utilities.lazyLoad(exports, ["getAccessPoint","getAccessPointOutput"], () => require("./getAccessPoint"));
-utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
-utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
-utilities.lazyLoad(exports, ["getMultiRegionAccessPoint","getMultiRegionAccessPointOutput"], () => require("./getMultiRegionAccessPoint"));
-utilities.lazyLoad(exports, ["getMultiRegionAccessPointPolicy","getMultiRegionAccessPointPolicyOutput"], () => require("./getMultiRegionAccessPointPolicy"));
-utilities.lazyLoad(exports, ["MultiRegionAccessPoint"], () => require("./multiRegionAccessPoint"));
-utilities.lazyLoad(exports, ["MultiRegionAccessPointPolicy"], () => require("./multiRegionAccessPointPolicy"));
 utilities.lazyLoad(exports, ["StorageLens"], () => require("./storageLens"));
+
 
 // Export enums:
 export * from "../types/enums/s3";

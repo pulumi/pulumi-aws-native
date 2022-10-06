@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetGlobalTableArgs, GetGlobalTableResult, GetGlobalTableOutputArgs } from "./getGlobalTable";
 export const getGlobalTable: typeof import("./getGlobalTable").getGlobalTable = null as any;
 export const getGlobalTableOutput: typeof import("./getGlobalTable").getGlobalTableOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalTable","getGlobalTableOutput"], () => require("./getGlobalTable"));
 
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
 export { GlobalTableArgs } from "./globalTable";
 export type GlobalTable = import("./globalTable").GlobalTable;
 export const GlobalTable: typeof import("./globalTable").GlobalTable = null as any;
+utilities.lazyLoad(exports, ["GlobalTable"], () => require("./globalTable"));
 
 export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
-
-utilities.lazyLoad(exports, ["getGlobalTable","getGlobalTableOutput"], () => require("./getGlobalTable"));
-utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
-utilities.lazyLoad(exports, ["GlobalTable"], () => require("./globalTable"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 
 const _module = {
     version: utilities.getVersion(),

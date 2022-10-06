@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { AutoScalingGroupArgs } from "./autoScalingGroup";
 export type AutoScalingGroup = import("./autoScalingGroup").AutoScalingGroup;
 export const AutoScalingGroup: typeof import("./autoScalingGroup").AutoScalingGroup = null as any;
+utilities.lazyLoad(exports, ["AutoScalingGroup"], () => require("./autoScalingGroup"));
 
 export { GetAutoScalingGroupArgs, GetAutoScalingGroupResult, GetAutoScalingGroupOutputArgs } from "./getAutoScalingGroup";
 export const getAutoScalingGroup: typeof import("./getAutoScalingGroup").getAutoScalingGroup = null as any;
 export const getAutoScalingGroupOutput: typeof import("./getAutoScalingGroup").getAutoScalingGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getAutoScalingGroup","getAutoScalingGroupOutput"], () => require("./getAutoScalingGroup"));
 
 export { GetLifecycleHookArgs, GetLifecycleHookResult, GetLifecycleHookOutputArgs } from "./getLifecycleHook";
 export const getLifecycleHook: typeof import("./getLifecycleHook").getLifecycleHook = null as any;
 export const getLifecycleHookOutput: typeof import("./getLifecycleHook").getLifecycleHookOutput = null as any;
+utilities.lazyLoad(exports, ["getLifecycleHook","getLifecycleHookOutput"], () => require("./getLifecycleHook"));
 
 export { GetScalingPolicyArgs, GetScalingPolicyResult, GetScalingPolicyOutputArgs } from "./getScalingPolicy";
 export const getScalingPolicy: typeof import("./getScalingPolicy").getScalingPolicy = null as any;
 export const getScalingPolicyOutput: typeof import("./getScalingPolicy").getScalingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getScalingPolicy","getScalingPolicyOutput"], () => require("./getScalingPolicy"));
 
 export { GetScheduledActionArgs, GetScheduledActionResult, GetScheduledActionOutputArgs } from "./getScheduledAction";
 export const getScheduledAction: typeof import("./getScheduledAction").getScheduledAction = null as any;
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
 
 export { GetWarmPoolArgs, GetWarmPoolResult, GetWarmPoolOutputArgs } from "./getWarmPool";
 export const getWarmPool: typeof import("./getWarmPool").getWarmPool = null as any;
 export const getWarmPoolOutput: typeof import("./getWarmPool").getWarmPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getWarmPool","getWarmPoolOutput"], () => require("./getWarmPool"));
 
 export { LaunchConfigurationArgs } from "./launchConfiguration";
 export type LaunchConfiguration = import("./launchConfiguration").LaunchConfiguration;
 export const LaunchConfiguration: typeof import("./launchConfiguration").LaunchConfiguration = null as any;
+utilities.lazyLoad(exports, ["LaunchConfiguration"], () => require("./launchConfiguration"));
 
 export { LifecycleHookArgs } from "./lifecycleHook";
 export type LifecycleHook = import("./lifecycleHook").LifecycleHook;
 export const LifecycleHook: typeof import("./lifecycleHook").LifecycleHook = null as any;
+utilities.lazyLoad(exports, ["LifecycleHook"], () => require("./lifecycleHook"));
 
 export { ScalingPolicyArgs } from "./scalingPolicy";
 export type ScalingPolicy = import("./scalingPolicy").ScalingPolicy;
 export const ScalingPolicy: typeof import("./scalingPolicy").ScalingPolicy = null as any;
+utilities.lazyLoad(exports, ["ScalingPolicy"], () => require("./scalingPolicy"));
 
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
+utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
 export { WarmPoolArgs } from "./warmPool";
 export type WarmPool = import("./warmPool").WarmPool;
 export const WarmPool: typeof import("./warmPool").WarmPool = null as any;
-
-utilities.lazyLoad(exports, ["AutoScalingGroup"], () => require("./autoScalingGroup"));
-utilities.lazyLoad(exports, ["getAutoScalingGroup","getAutoScalingGroupOutput"], () => require("./getAutoScalingGroup"));
-utilities.lazyLoad(exports, ["getLifecycleHook","getLifecycleHookOutput"], () => require("./getLifecycleHook"));
-utilities.lazyLoad(exports, ["getScalingPolicy","getScalingPolicyOutput"], () => require("./getScalingPolicy"));
-utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
-utilities.lazyLoad(exports, ["getWarmPool","getWarmPoolOutput"], () => require("./getWarmPool"));
-utilities.lazyLoad(exports, ["LaunchConfiguration"], () => require("./launchConfiguration"));
-utilities.lazyLoad(exports, ["LifecycleHook"], () => require("./lifecycleHook"));
-utilities.lazyLoad(exports, ["ScalingPolicy"], () => require("./scalingPolicy"));
-utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 utilities.lazyLoad(exports, ["WarmPool"], () => require("./warmPool"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
 export { GetWorkgroupArgs, GetWorkgroupResult, GetWorkgroupOutputArgs } from "./getWorkgroup";
 export const getWorkgroup: typeof import("./getWorkgroup").getWorkgroup = null as any;
 export const getWorkgroupOutput: typeof import("./getWorkgroup").getWorkgroupOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkgroup","getWorkgroupOutput"], () => require("./getWorkgroup"));
 
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { WorkgroupArgs } from "./workgroup";
 export type Workgroup = import("./workgroup").Workgroup;
 export const Workgroup: typeof import("./workgroup").Workgroup = null as any;
-
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["getWorkgroup","getWorkgroupOutput"], () => require("./getWorkgroup"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 utilities.lazyLoad(exports, ["Workgroup"], () => require("./workgroup"));
+
 
 // Export enums:
 export * from "../types/enums/redshiftserverless";

@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AssessmentTargetArgs } from "./assessmentTarget";
 export type AssessmentTarget = import("./assessmentTarget").AssessmentTarget;
 export const AssessmentTarget: typeof import("./assessmentTarget").AssessmentTarget = null as any;
+utilities.lazyLoad(exports, ["AssessmentTarget"], () => require("./assessmentTarget"));
 
 export { AssessmentTemplateArgs } from "./assessmentTemplate";
 export type AssessmentTemplate = import("./assessmentTemplate").AssessmentTemplate;
 export const AssessmentTemplate: typeof import("./assessmentTemplate").AssessmentTemplate = null as any;
+utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
 
 export { GetAssessmentTargetArgs, GetAssessmentTargetResult, GetAssessmentTargetOutputArgs } from "./getAssessmentTarget";
 export const getAssessmentTarget: typeof import("./getAssessmentTarget").getAssessmentTarget = null as any;
 export const getAssessmentTargetOutput: typeof import("./getAssessmentTarget").getAssessmentTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentTarget","getAssessmentTargetOutput"], () => require("./getAssessmentTarget"));
 
 export { GetAssessmentTemplateArgs, GetAssessmentTemplateResult, GetAssessmentTemplateOutputArgs } from "./getAssessmentTemplate";
 export const getAssessmentTemplate: typeof import("./getAssessmentTemplate").getAssessmentTemplate = null as any;
 export const getAssessmentTemplateOutput: typeof import("./getAssessmentTemplate").getAssessmentTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentTemplate","getAssessmentTemplateOutput"], () => require("./getAssessmentTemplate"));
 
 export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
 export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
 export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
 
 export { ResourceGroupArgs } from "./resourceGroup";
 export type ResourceGroup = import("./resourceGroup").ResourceGroup;
 export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
-
-utilities.lazyLoad(exports, ["AssessmentTarget"], () => require("./assessmentTarget"));
-utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
-utilities.lazyLoad(exports, ["getAssessmentTarget","getAssessmentTargetOutput"], () => require("./getAssessmentTarget"));
-utilities.lazyLoad(exports, ["getAssessmentTemplate","getAssessmentTemplateOutput"], () => require("./getAssessmentTemplate"));
-utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
 utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

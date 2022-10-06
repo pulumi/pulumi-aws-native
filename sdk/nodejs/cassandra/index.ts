@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetKeyspaceArgs, GetKeyspaceResult, GetKeyspaceOutputArgs } from "./getKeyspace";
 export const getKeyspace: typeof import("./getKeyspace").getKeyspace = null as any;
 export const getKeyspaceOutput: typeof import("./getKeyspace").getKeyspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyspace","getKeyspaceOutput"], () => require("./getKeyspace"));
 
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
+utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
 export { KeyspaceArgs } from "./keyspace";
 export type Keyspace = import("./keyspace").Keyspace;
 export const Keyspace: typeof import("./keyspace").Keyspace = null as any;
+utilities.lazyLoad(exports, ["Keyspace"], () => require("./keyspace"));
 
 export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
-
-utilities.lazyLoad(exports, ["getKeyspace","getKeyspaceOutput"], () => require("./getKeyspace"));
-utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
-utilities.lazyLoad(exports, ["Keyspace"], () => require("./keyspace"));
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
 
 // Export enums:
 export * from "../types/enums/cassandra";

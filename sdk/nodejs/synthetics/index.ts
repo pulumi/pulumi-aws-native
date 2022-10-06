@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { CanaryArgs } from "./canary";
 export type Canary = import("./canary").Canary;
 export const Canary: typeof import("./canary").Canary = null as any;
+utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
 
 export { GetCanaryArgs, GetCanaryResult, GetCanaryOutputArgs } from "./getCanary";
 export const getCanary: typeof import("./getCanary").getCanary = null as any;
 export const getCanaryOutput: typeof import("./getCanary").getCanaryOutput = null as any;
+utilities.lazyLoad(exports, ["getCanary","getCanaryOutput"], () => require("./getCanary"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
-
-utilities.lazyLoad(exports, ["Canary"], () => require("./canary"));
-utilities.lazyLoad(exports, ["getCanary","getCanaryOutput"], () => require("./getCanary"));
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
 
 const _module = {
     version: utilities.getVersion(),

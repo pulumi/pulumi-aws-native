@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ConnectorProfileArgs } from "./connectorProfile";
 export type ConnectorProfile = import("./connectorProfile").ConnectorProfile;
 export const ConnectorProfile: typeof import("./connectorProfile").ConnectorProfile = null as any;
+utilities.lazyLoad(exports, ["ConnectorProfile"], () => require("./connectorProfile"));
 
 export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
+utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
 
 export { GetConnectorProfileArgs, GetConnectorProfileResult, GetConnectorProfileOutputArgs } from "./getConnectorProfile";
 export const getConnectorProfile: typeof import("./getConnectorProfile").getConnectorProfile = null as any;
 export const getConnectorProfileOutput: typeof import("./getConnectorProfile").getConnectorProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectorProfile","getConnectorProfileOutput"], () => require("./getConnectorProfile"));
 
 export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
 export const getFlow: typeof import("./getFlow").getFlow = null as any;
 export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
-
-utilities.lazyLoad(exports, ["ConnectorProfile"], () => require("./connectorProfile"));
-utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
-utilities.lazyLoad(exports, ["getConnectorProfile","getConnectorProfileOutput"], () => require("./getConnectorProfile"));
 utilities.lazyLoad(exports, ["getFlow","getFlowOutput"], () => require("./getFlow"));
+
 
 // Export enums:
 export * from "../types/enums/appflow";

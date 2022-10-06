@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetNotificationRuleArgs, GetNotificationRuleResult, GetNotificationRuleOutputArgs } from "./getNotificationRule";
 export const getNotificationRule: typeof import("./getNotificationRule").getNotificationRule = null as any;
 export const getNotificationRuleOutput: typeof import("./getNotificationRule").getNotificationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNotificationRule","getNotificationRuleOutput"], () => require("./getNotificationRule"));
 
 export { NotificationRuleArgs } from "./notificationRule";
 export type NotificationRule = import("./notificationRule").NotificationRule;
 export const NotificationRule: typeof import("./notificationRule").NotificationRule = null as any;
-
-utilities.lazyLoad(exports, ["getNotificationRule","getNotificationRuleOutput"], () => require("./getNotificationRule"));
 utilities.lazyLoad(exports, ["NotificationRule"], () => require("./notificationRule"));
+
 
 // Export enums:
 export * from "../types/enums/codestarnotifications";

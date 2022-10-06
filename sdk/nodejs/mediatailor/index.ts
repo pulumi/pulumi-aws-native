@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetPlaybackConfigurationArgs, GetPlaybackConfigurationResult, GetPlaybackConfigurationOutputArgs } from "./getPlaybackConfiguration";
 export const getPlaybackConfiguration: typeof import("./getPlaybackConfiguration").getPlaybackConfiguration = null as any;
 export const getPlaybackConfigurationOutput: typeof import("./getPlaybackConfiguration").getPlaybackConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getPlaybackConfiguration","getPlaybackConfigurationOutput"], () => require("./getPlaybackConfiguration"));
 
 export { PlaybackConfigurationArgs } from "./playbackConfiguration";
 export type PlaybackConfiguration = import("./playbackConfiguration").PlaybackConfiguration;
 export const PlaybackConfiguration: typeof import("./playbackConfiguration").PlaybackConfiguration = null as any;
-
-utilities.lazyLoad(exports, ["getPlaybackConfiguration","getPlaybackConfigurationOutput"], () => require("./getPlaybackConfiguration"));
 utilities.lazyLoad(exports, ["PlaybackConfiguration"], () => require("./playbackConfiguration"));
+
 
 // Export enums:
 export * from "../types/enums/mediatailor";

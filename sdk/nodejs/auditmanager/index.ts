@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { AssessmentArgs } from "./assessment";
 export type Assessment = import("./assessment").Assessment;
 export const Assessment: typeof import("./assessment").Assessment = null as any;
+utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
 
 export { GetAssessmentArgs, GetAssessmentResult, GetAssessmentOutputArgs } from "./getAssessment";
 export const getAssessment: typeof import("./getAssessment").getAssessment = null as any;
 export const getAssessmentOutput: typeof import("./getAssessment").getAssessmentOutput = null as any;
-
-utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
 utilities.lazyLoad(exports, ["getAssessment","getAssessmentOutput"], () => require("./getAssessment"));
+
 
 // Export enums:
 export * from "../types/enums/auditmanager";

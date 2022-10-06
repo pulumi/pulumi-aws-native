@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetGitHubRepositoryArgs, GetGitHubRepositoryResult, GetGitHubRepositoryOutputArgs } from "./getGitHubRepository";
 export const getGitHubRepository: typeof import("./getGitHubRepository").getGitHubRepository = null as any;
 export const getGitHubRepositoryOutput: typeof import("./getGitHubRepository").getGitHubRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getGitHubRepository","getGitHubRepositoryOutput"], () => require("./getGitHubRepository"));
 
 export { GitHubRepositoryArgs } from "./gitHubRepository";
 export type GitHubRepository = import("./gitHubRepository").GitHubRepository;
 export const GitHubRepository: typeof import("./gitHubRepository").GitHubRepository = null as any;
-
-utilities.lazyLoad(exports, ["getGitHubRepository","getGitHubRepositoryOutput"], () => require("./getGitHubRepository"));
 utilities.lazyLoad(exports, ["GitHubRepository"], () => require("./gitHubRepository"));
+
 
 const _module = {
     version: utilities.getVersion(),

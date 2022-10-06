@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
 export { GetSamplingRuleArgs, GetSamplingRuleResult, GetSamplingRuleOutputArgs } from "./getSamplingRule";
 export const getSamplingRule: typeof import("./getSamplingRule").getSamplingRule = null as any;
 export const getSamplingRuleOutput: typeof import("./getSamplingRule").getSamplingRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getSamplingRule","getSamplingRuleOutput"], () => require("./getSamplingRule"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
 export { SamplingRuleArgs } from "./samplingRule";
 export type SamplingRule = import("./samplingRule").SamplingRule;
 export const SamplingRule: typeof import("./samplingRule").SamplingRule = null as any;
-
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["getSamplingRule","getSamplingRuleOutput"], () => require("./getSamplingRule"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 utilities.lazyLoad(exports, ["SamplingRule"], () => require("./samplingRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { DiscovererArgs } from "./discoverer";
 export type Discoverer = import("./discoverer").Discoverer;
 export const Discoverer: typeof import("./discoverer").Discoverer = null as any;
+utilities.lazyLoad(exports, ["Discoverer"], () => require("./discoverer"));
 
 export { GetDiscovererArgs, GetDiscovererResult, GetDiscovererOutputArgs } from "./getDiscoverer";
 export const getDiscoverer: typeof import("./getDiscoverer").getDiscoverer = null as any;
 export const getDiscovererOutput: typeof import("./getDiscoverer").getDiscovererOutput = null as any;
+utilities.lazyLoad(exports, ["getDiscoverer","getDiscovererOutput"], () => require("./getDiscoverer"));
 
 export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
 export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
 export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
 
 export { GetRegistryPolicyArgs, GetRegistryPolicyResult, GetRegistryPolicyOutputArgs } from "./getRegistryPolicy";
 export const getRegistryPolicy: typeof import("./getRegistryPolicy").getRegistryPolicy = null as any;
 export const getRegistryPolicyOutput: typeof import("./getRegistryPolicy").getRegistryPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
 
 export { RegistryArgs } from "./registry";
 export type Registry = import("./registry").Registry;
 export const Registry: typeof import("./registry").Registry = null as any;
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 export { RegistryPolicyArgs } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
 export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
+utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
-
-utilities.lazyLoad(exports, ["Discoverer"], () => require("./discoverer"));
-utilities.lazyLoad(exports, ["getDiscoverer","getDiscovererOutput"], () => require("./getDiscoverer"));
-utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
-utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
-utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
-utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
 utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+
 
 const _module = {
     version: utilities.getVersion(),

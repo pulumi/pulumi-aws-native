@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { DatasetArgs } from "./dataset";
 export type Dataset = import("./dataset").Dataset;
 export const Dataset: typeof import("./dataset").Dataset = null as any;
+utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
 
 export { DatasetGroupArgs } from "./datasetGroup";
 export type DatasetGroup = import("./datasetGroup").DatasetGroup;
 export const DatasetGroup: typeof import("./datasetGroup").DatasetGroup = null as any;
+utilities.lazyLoad(exports, ["DatasetGroup"], () => require("./datasetGroup"));
 
 export { GetDatasetArgs, GetDatasetResult, GetDatasetOutputArgs } from "./getDataset";
 export const getDataset: typeof import("./getDataset").getDataset = null as any;
 export const getDatasetOutput: typeof import("./getDataset").getDatasetOutput = null as any;
+utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
 
 export { GetDatasetGroupArgs, GetDatasetGroupResult, GetDatasetGroupOutputArgs } from "./getDatasetGroup";
 export const getDatasetGroup: typeof import("./getDatasetGroup").getDatasetGroup = null as any;
 export const getDatasetGroupOutput: typeof import("./getDatasetGroup").getDatasetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDatasetGroup","getDatasetGroupOutput"], () => require("./getDatasetGroup"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
 
 export { GetSolutionArgs, GetSolutionResult, GetSolutionOutputArgs } from "./getSolution";
 export const getSolution: typeof import("./getSolution").getSolution = null as any;
 export const getSolutionOutput: typeof import("./getSolution").getSolutionOutput = null as any;
+utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
+utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 
 export { SolutionArgs } from "./solution";
 export type Solution = import("./solution").Solution;
 export const Solution: typeof import("./solution").Solution = null as any;
-
-utilities.lazyLoad(exports, ["Dataset"], () => require("./dataset"));
-utilities.lazyLoad(exports, ["DatasetGroup"], () => require("./datasetGroup"));
-utilities.lazyLoad(exports, ["getDataset","getDatasetOutput"], () => require("./getDataset"));
-utilities.lazyLoad(exports, ["getDatasetGroup","getDatasetGroupOutput"], () => require("./getDatasetGroup"));
-utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
-utilities.lazyLoad(exports, ["getSolution","getSolutionOutput"], () => require("./getSolution"));
-utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
 utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
+
 
 // Export enums:
 export * from "../types/enums/personalize";

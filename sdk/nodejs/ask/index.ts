@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetSkillArgs, GetSkillResult, GetSkillOutputArgs } from "./getSkill";
 export const getSkill: typeof import("./getSkill").getSkill = null as any;
 export const getSkillOutput: typeof import("./getSkill").getSkillOutput = null as any;
+utilities.lazyLoad(exports, ["getSkill","getSkillOutput"], () => require("./getSkill"));
 
 export { SkillArgs } from "./skill";
 export type Skill = import("./skill").Skill;
 export const Skill: typeof import("./skill").Skill = null as any;
-
-utilities.lazyLoad(exports, ["getSkill","getSkillOutput"], () => require("./getSkill"));
 utilities.lazyLoad(exports, ["Skill"], () => require("./skill"));
+
 
 const _module = {
     version: utilities.getVersion(),

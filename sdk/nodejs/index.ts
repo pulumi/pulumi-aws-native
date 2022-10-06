@@ -8,54 +8,54 @@ import * as utilities from "./utilities";
 export { CidrArgs, CidrResult, CidrOutputArgs } from "./cidr";
 export const cidr: typeof import("./cidr").cidr = null as any;
 export const cidrOutput: typeof import("./cidr").cidrOutput = null as any;
+utilities.lazyLoad(exports, ["cidr","cidrOutput"], () => require("./cidr"));
 
 export { ExtensionResourceArgs } from "./extensionResource";
 export type ExtensionResource = import("./extensionResource").ExtensionResource;
 export const ExtensionResource: typeof import("./extensionResource").ExtensionResource = null as any;
+utilities.lazyLoad(exports, ["ExtensionResource"], () => require("./extensionResource"));
 
 export { GetAccountIdResult } from "./getAccountId";
 export const getAccountId: typeof import("./getAccountId").getAccountId = null as any;
+utilities.lazyLoad(exports, ["getAccountId"], () => require("./getAccountId"));
 
 export { GetAzsArgs, GetAzsResult, GetAzsOutputArgs } from "./getAzs";
 export const getAzs: typeof import("./getAzs").getAzs = null as any;
 export const getAzsOutput: typeof import("./getAzs").getAzsOutput = null as any;
+utilities.lazyLoad(exports, ["getAzs","getAzsOutput"], () => require("./getAzs"));
 
 export { GetPartitionResult } from "./getPartition";
 export const getPartition: typeof import("./getPartition").getPartition = null as any;
+utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
 
 export { GetRegionResult } from "./getRegion";
 export const getRegion: typeof import("./getRegion").getRegion = null as any;
+utilities.lazyLoad(exports, ["getRegion"], () => require("./getRegion"));
 
 export { GetSsmParameterListArgs, GetSsmParameterListResult, GetSsmParameterListOutputArgs } from "./getSsmParameterList";
 export const getSsmParameterList: typeof import("./getSsmParameterList").getSsmParameterList = null as any;
 export const getSsmParameterListOutput: typeof import("./getSsmParameterList").getSsmParameterListOutput = null as any;
+utilities.lazyLoad(exports, ["getSsmParameterList","getSsmParameterListOutput"], () => require("./getSsmParameterList"));
 
 export { GetSsmParameterStringArgs, GetSsmParameterStringResult, GetSsmParameterStringOutputArgs } from "./getSsmParameterString";
 export const getSsmParameterString: typeof import("./getSsmParameterString").getSsmParameterString = null as any;
 export const getSsmParameterStringOutput: typeof import("./getSsmParameterString").getSsmParameterStringOutput = null as any;
+utilities.lazyLoad(exports, ["getSsmParameterString","getSsmParameterStringOutput"], () => require("./getSsmParameterString"));
 
 export { GetUrlSuffixResult } from "./getUrlSuffix";
 export const getUrlSuffix: typeof import("./getUrlSuffix").getUrlSuffix = null as any;
+utilities.lazyLoad(exports, ["getUrlSuffix"], () => require("./getUrlSuffix"));
 
 export { ImportValueArgs, ImportValueResult, ImportValueOutputArgs } from "./importValue";
 export const importValue: typeof import("./importValue").importValue = null as any;
 export const importValueOutput: typeof import("./importValue").importValueOutput = null as any;
+utilities.lazyLoad(exports, ["importValue","importValueOutput"], () => require("./importValue"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
-
-utilities.lazyLoad(exports, ["cidr","cidrOutput"], () => require("./cidr"));
-utilities.lazyLoad(exports, ["ExtensionResource"], () => require("./extensionResource"));
-utilities.lazyLoad(exports, ["getAccountId"], () => require("./getAccountId"));
-utilities.lazyLoad(exports, ["getAzs","getAzsOutput"], () => require("./getAzs"));
-utilities.lazyLoad(exports, ["getPartition"], () => require("./getPartition"));
-utilities.lazyLoad(exports, ["getRegion"], () => require("./getRegion"));
-utilities.lazyLoad(exports, ["getSsmParameterList","getSsmParameterListOutput"], () => require("./getSsmParameterList"));
-utilities.lazyLoad(exports, ["getSsmParameterString","getSsmParameterStringOutput"], () => require("./getSsmParameterString"));
-utilities.lazyLoad(exports, ["getUrlSuffix"], () => require("./getUrlSuffix"));
-utilities.lazyLoad(exports, ["importValue","importValueOutput"], () => require("./importValue"));
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
 
 // Export enums:
 export * from "./types/enums";

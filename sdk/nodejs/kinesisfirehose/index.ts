@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { DeliveryStreamArgs } from "./deliveryStream";
 export type DeliveryStream = import("./deliveryStream").DeliveryStream;
 export const DeliveryStream: typeof import("./deliveryStream").DeliveryStream = null as any;
+utilities.lazyLoad(exports, ["DeliveryStream"], () => require("./deliveryStream"));
 
 export { GetDeliveryStreamArgs, GetDeliveryStreamResult, GetDeliveryStreamOutputArgs } from "./getDeliveryStream";
 export const getDeliveryStream: typeof import("./getDeliveryStream").getDeliveryStream = null as any;
 export const getDeliveryStreamOutput: typeof import("./getDeliveryStream").getDeliveryStreamOutput = null as any;
-
-utilities.lazyLoad(exports, ["DeliveryStream"], () => require("./deliveryStream"));
 utilities.lazyLoad(exports, ["getDeliveryStream","getDeliveryStreamOutput"], () => require("./getDeliveryStream"));
+
 
 // Export enums:
 export * from "../types/enums/kinesisfirehose";

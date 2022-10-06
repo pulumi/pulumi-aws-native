@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetLedgerArgs, GetLedgerResult, GetLedgerOutputArgs } from "./getLedger";
 export const getLedger: typeof import("./getLedger").getLedger = null as any;
 export const getLedgerOutput: typeof import("./getLedger").getLedgerOutput = null as any;
+utilities.lazyLoad(exports, ["getLedger","getLedgerOutput"], () => require("./getLedger"));
 
 export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
 export const getStream: typeof import("./getStream").getStream = null as any;
 export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
 
 export { LedgerArgs } from "./ledger";
 export type Ledger = import("./ledger").Ledger;
 export const Ledger: typeof import("./ledger").Ledger = null as any;
+utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
 
 export { StreamArgs } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
-
-utilities.lazyLoad(exports, ["getLedger","getLedgerOutput"], () => require("./getLedger"));
-utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
-utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
 
 const _module = {
     version: utilities.getVersion(),

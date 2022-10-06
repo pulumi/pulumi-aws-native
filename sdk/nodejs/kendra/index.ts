@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
 export { FaqArgs } from "./faq";
 export type Faq = import("./faq").Faq;
 export const Faq: typeof import("./faq").Faq = null as any;
+utilities.lazyLoad(exports, ["Faq"], () => require("./faq"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
 export { GetFaqArgs, GetFaqResult, GetFaqOutputArgs } from "./getFaq";
 export const getFaq: typeof import("./getFaq").getFaq = null as any;
 export const getFaqOutput: typeof import("./getFaq").getFaqOutput = null as any;
+utilities.lazyLoad(exports, ["getFaq","getFaqOutput"], () => require("./getFaq"));
 
 export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
 export const getIndex: typeof import("./getIndex").getIndex = null as any;
 export const getIndexOutput: typeof import("./getIndex").getIndexOutput = null as any;
+utilities.lazyLoad(exports, ["getIndex","getIndexOutput"], () => require("./getIndex"));
 
 export { IndexArgs } from "./index_";
 export type Index = import("./index_").Index;
 export const Index: typeof import("./index_").Index = null as any;
-
-utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
-utilities.lazyLoad(exports, ["Faq"], () => require("./faq"));
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
-utilities.lazyLoad(exports, ["getFaq","getFaqOutput"], () => require("./getFaq"));
-utilities.lazyLoad(exports, ["getIndex","getIndexOutput"], () => require("./getIndex"));
 utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
+
 
 // Export enums:
 export * from "../types/enums/kendra";

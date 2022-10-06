@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetSignalingChannelArgs, GetSignalingChannelResult, GetSignalingChannelOutputArgs } from "./getSignalingChannel";
 export const getSignalingChannel: typeof import("./getSignalingChannel").getSignalingChannel = null as any;
 export const getSignalingChannelOutput: typeof import("./getSignalingChannel").getSignalingChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalingChannel","getSignalingChannelOutput"], () => require("./getSignalingChannel"));
 
 export { GetStreamArgs, GetStreamResult, GetStreamOutputArgs } from "./getStream";
 export const getStream: typeof import("./getStream").getStream = null as any;
 export const getStreamOutput: typeof import("./getStream").getStreamOutput = null as any;
+utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
 
 export { SignalingChannelArgs } from "./signalingChannel";
 export type SignalingChannel = import("./signalingChannel").SignalingChannel;
 export const SignalingChannel: typeof import("./signalingChannel").SignalingChannel = null as any;
+utilities.lazyLoad(exports, ["SignalingChannel"], () => require("./signalingChannel"));
 
 export { StreamArgs } from "./stream";
 export type Stream = import("./stream").Stream;
 export const Stream: typeof import("./stream").Stream = null as any;
-
-utilities.lazyLoad(exports, ["getSignalingChannel","getSignalingChannelOutput"], () => require("./getSignalingChannel"));
-utilities.lazyLoad(exports, ["getStream","getStreamOutput"], () => require("./getStream"));
-utilities.lazyLoad(exports, ["SignalingChannel"], () => require("./signalingChannel"));
 utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
+
 
 // Export enums:
 export * from "../types/enums/kinesisvideo";

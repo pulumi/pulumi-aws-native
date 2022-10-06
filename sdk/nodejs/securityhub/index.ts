@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
 export const getHub: typeof import("./getHub").getHub = null as any;
 export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
+utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
 
 export { HubArgs } from "./hub";
 export type Hub = import("./hub").Hub;
 export const Hub: typeof import("./hub").Hub = null as any;
-
-utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
 utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
+
 
 const _module = {
     version: utilities.getVersion(),

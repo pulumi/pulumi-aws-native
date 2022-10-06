@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetScalingPlanArgs, GetScalingPlanResult, GetScalingPlanOutputArgs } from "./getScalingPlan";
 export const getScalingPlan: typeof import("./getScalingPlan").getScalingPlan = null as any;
 export const getScalingPlanOutput: typeof import("./getScalingPlan").getScalingPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
 
 export { ScalingPlanArgs } from "./scalingPlan";
 export type ScalingPlan = import("./scalingPlan").ScalingPlan;
 export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
-
-utilities.lazyLoad(exports, ["getScalingPlan","getScalingPlanOutput"], () => require("./getScalingPlan"));
 utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
+
 
 const _module = {
     version: utilities.getVersion(),

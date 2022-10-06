@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { GetLaunchProfileArgs, GetLaunchProfileResult, GetLaunchProfileOutputArgs } from "./getLaunchProfile";
 export const getLaunchProfile: typeof import("./getLaunchProfile").getLaunchProfile = null as any;
 export const getLaunchProfileOutput: typeof import("./getLaunchProfile").getLaunchProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getLaunchProfile","getLaunchProfileOutput"], () => require("./getLaunchProfile"));
 
 export { GetStreamingImageArgs, GetStreamingImageResult, GetStreamingImageOutputArgs } from "./getStreamingImage";
 export const getStreamingImage: typeof import("./getStreamingImage").getStreamingImage = null as any;
 export const getStreamingImageOutput: typeof import("./getStreamingImage").getStreamingImageOutput = null as any;
+utilities.lazyLoad(exports, ["getStreamingImage","getStreamingImageOutput"], () => require("./getStreamingImage"));
 
 export { GetStudioArgs, GetStudioResult, GetStudioOutputArgs } from "./getStudio";
 export const getStudio: typeof import("./getStudio").getStudio = null as any;
 export const getStudioOutput: typeof import("./getStudio").getStudioOutput = null as any;
+utilities.lazyLoad(exports, ["getStudio","getStudioOutput"], () => require("./getStudio"));
 
 export { GetStudioComponentArgs, GetStudioComponentResult, GetStudioComponentOutputArgs } from "./getStudioComponent";
 export const getStudioComponent: typeof import("./getStudioComponent").getStudioComponent = null as any;
 export const getStudioComponentOutput: typeof import("./getStudioComponent").getStudioComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getStudioComponent","getStudioComponentOutput"], () => require("./getStudioComponent"));
 
 export { LaunchProfileArgs } from "./launchProfile";
 export type LaunchProfile = import("./launchProfile").LaunchProfile;
 export const LaunchProfile: typeof import("./launchProfile").LaunchProfile = null as any;
+utilities.lazyLoad(exports, ["LaunchProfile"], () => require("./launchProfile"));
 
 export { StreamingImageArgs } from "./streamingImage";
 export type StreamingImage = import("./streamingImage").StreamingImage;
 export const StreamingImage: typeof import("./streamingImage").StreamingImage = null as any;
+utilities.lazyLoad(exports, ["StreamingImage"], () => require("./streamingImage"));
 
 export { StudioArgs } from "./studio";
 export type Studio = import("./studio").Studio;
 export const Studio: typeof import("./studio").Studio = null as any;
+utilities.lazyLoad(exports, ["Studio"], () => require("./studio"));
 
 export { StudioComponentArgs } from "./studioComponent";
 export type StudioComponent = import("./studioComponent").StudioComponent;
 export const StudioComponent: typeof import("./studioComponent").StudioComponent = null as any;
-
-utilities.lazyLoad(exports, ["getLaunchProfile","getLaunchProfileOutput"], () => require("./getLaunchProfile"));
-utilities.lazyLoad(exports, ["getStreamingImage","getStreamingImageOutput"], () => require("./getStreamingImage"));
-utilities.lazyLoad(exports, ["getStudio","getStudioOutput"], () => require("./getStudio"));
-utilities.lazyLoad(exports, ["getStudioComponent","getStudioComponentOutput"], () => require("./getStudioComponent"));
-utilities.lazyLoad(exports, ["LaunchProfile"], () => require("./launchProfile"));
-utilities.lazyLoad(exports, ["StreamingImage"], () => require("./streamingImage"));
-utilities.lazyLoad(exports, ["Studio"], () => require("./studio"));
 utilities.lazyLoad(exports, ["StudioComponent"], () => require("./studioComponent"));
+
 
 // Export enums:
 export * from "../types/enums/nimblestudio";

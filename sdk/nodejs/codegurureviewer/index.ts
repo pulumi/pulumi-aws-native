@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetRepositoryAssociationArgs, GetRepositoryAssociationResult, GetRepositoryAssociationOutputArgs } from "./getRepositoryAssociation";
 export const getRepositoryAssociation: typeof import("./getRepositoryAssociation").getRepositoryAssociation = null as any;
 export const getRepositoryAssociationOutput: typeof import("./getRepositoryAssociation").getRepositoryAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryAssociation","getRepositoryAssociationOutput"], () => require("./getRepositoryAssociation"));
 
 export { RepositoryAssociationArgs } from "./repositoryAssociation";
 export type RepositoryAssociation = import("./repositoryAssociation").RepositoryAssociation;
 export const RepositoryAssociation: typeof import("./repositoryAssociation").RepositoryAssociation = null as any;
-
-utilities.lazyLoad(exports, ["getRepositoryAssociation","getRepositoryAssociationOutput"], () => require("./getRepositoryAssociation"));
 utilities.lazyLoad(exports, ["RepositoryAssociation"], () => require("./repositoryAssociation"));
+
 
 // Export enums:
 export * from "../types/enums/codegurureviewer";

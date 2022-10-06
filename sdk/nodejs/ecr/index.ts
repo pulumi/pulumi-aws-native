@@ -8,48 +8,48 @@ import * as utilities from "../utilities";
 export { GetPublicRepositoryArgs, GetPublicRepositoryResult, GetPublicRepositoryOutputArgs } from "./getPublicRepository";
 export const getPublicRepository: typeof import("./getPublicRepository").getPublicRepository = null as any;
 export const getPublicRepositoryOutput: typeof import("./getPublicRepository").getPublicRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicRepository","getPublicRepositoryOutput"], () => require("./getPublicRepository"));
 
 export { GetRegistryPolicyArgs, GetRegistryPolicyResult, GetRegistryPolicyOutputArgs } from "./getRegistryPolicy";
 export const getRegistryPolicy: typeof import("./getRegistryPolicy").getRegistryPolicy = null as any;
 export const getRegistryPolicyOutput: typeof import("./getRegistryPolicy").getRegistryPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
 
 export { GetReplicationConfigurationArgs, GetReplicationConfigurationResult, GetReplicationConfigurationOutputArgs } from "./getReplicationConfiguration";
 export const getReplicationConfiguration: typeof import("./getReplicationConfiguration").getReplicationConfiguration = null as any;
 export const getReplicationConfigurationOutput: typeof import("./getReplicationConfiguration").getReplicationConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationConfiguration","getReplicationConfigurationOutput"], () => require("./getReplicationConfiguration"));
 
 export { GetRepositoryArgs, GetRepositoryResult, GetRepositoryOutputArgs } from "./getRepository";
 export const getRepository: typeof import("./getRepository").getRepository = null as any;
 export const getRepositoryOutput: typeof import("./getRepository").getRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
 
 export { PublicRepositoryArgs } from "./publicRepository";
 export type PublicRepository = import("./publicRepository").PublicRepository;
 export const PublicRepository: typeof import("./publicRepository").PublicRepository = null as any;
+utilities.lazyLoad(exports, ["PublicRepository"], () => require("./publicRepository"));
 
 export { PullThroughCacheRuleArgs } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
+utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
 
 export { RegistryPolicyArgs } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
 export const RegistryPolicy: typeof import("./registryPolicy").RegistryPolicy = null as any;
+utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
 
 export { ReplicationConfigurationArgs } from "./replicationConfiguration";
 export type ReplicationConfiguration = import("./replicationConfiguration").ReplicationConfiguration;
 export const ReplicationConfiguration: typeof import("./replicationConfiguration").ReplicationConfiguration = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfiguration"], () => require("./replicationConfiguration"));
 
 export { RepositoryArgs } from "./repository";
 export type Repository = import("./repository").Repository;
 export const Repository: typeof import("./repository").Repository = null as any;
-
-utilities.lazyLoad(exports, ["getPublicRepository","getPublicRepositoryOutput"], () => require("./getPublicRepository"));
-utilities.lazyLoad(exports, ["getRegistryPolicy","getRegistryPolicyOutput"], () => require("./getRegistryPolicy"));
-utilities.lazyLoad(exports, ["getReplicationConfiguration","getReplicationConfigurationOutput"], () => require("./getReplicationConfiguration"));
-utilities.lazyLoad(exports, ["getRepository","getRepositoryOutput"], () => require("./getRepository"));
-utilities.lazyLoad(exports, ["PublicRepository"], () => require("./publicRepository"));
-utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
-utilities.lazyLoad(exports, ["RegistryPolicy"], () => require("./registryPolicy"));
-utilities.lazyLoad(exports, ["ReplicationConfiguration"], () => require("./replicationConfiguration"));
 utilities.lazyLoad(exports, ["Repository"], () => require("./repository"));
+
 
 // Export enums:
 export * from "../types/enums/ecr";

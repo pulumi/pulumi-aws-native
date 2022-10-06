@@ -8,103 +8,103 @@ import * as utilities from "../utilities";
 export { AliasArgs } from "./alias";
 export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
+utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
 export { CodeSigningConfigArgs } from "./codeSigningConfig";
 export type CodeSigningConfig = import("./codeSigningConfig").CodeSigningConfig;
 export const CodeSigningConfig: typeof import("./codeSigningConfig").CodeSigningConfig = null as any;
+utilities.lazyLoad(exports, ["CodeSigningConfig"], () => require("./codeSigningConfig"));
 
 export { EventInvokeConfigArgs } from "./eventInvokeConfig";
 export type EventInvokeConfig = import("./eventInvokeConfig").EventInvokeConfig;
 export const EventInvokeConfig: typeof import("./eventInvokeConfig").EventInvokeConfig = null as any;
+utilities.lazyLoad(exports, ["EventInvokeConfig"], () => require("./eventInvokeConfig"));
 
 export { EventSourceMappingArgs } from "./eventSourceMapping";
 export type EventSourceMapping = import("./eventSourceMapping").EventSourceMapping;
 export const EventSourceMapping: typeof import("./eventSourceMapping").EventSourceMapping = null as any;
+utilities.lazyLoad(exports, ["EventSourceMapping"], () => require("./eventSourceMapping"));
 
 export { FunctionArgs } from "./function";
 export type Function = import("./function").Function;
 export const Function: typeof import("./function").Function = null as any;
+utilities.lazyLoad(exports, ["Function"], () => require("./function"));
 
 export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
 export const getAlias: typeof import("./getAlias").getAlias = null as any;
 export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
 
 export { GetCodeSigningConfigArgs, GetCodeSigningConfigResult, GetCodeSigningConfigOutputArgs } from "./getCodeSigningConfig";
 export const getCodeSigningConfig: typeof import("./getCodeSigningConfig").getCodeSigningConfig = null as any;
 export const getCodeSigningConfigOutput: typeof import("./getCodeSigningConfig").getCodeSigningConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getCodeSigningConfig","getCodeSigningConfigOutput"], () => require("./getCodeSigningConfig"));
 
 export { GetEventInvokeConfigArgs, GetEventInvokeConfigResult, GetEventInvokeConfigOutputArgs } from "./getEventInvokeConfig";
 export const getEventInvokeConfig: typeof import("./getEventInvokeConfig").getEventInvokeConfig = null as any;
 export const getEventInvokeConfigOutput: typeof import("./getEventInvokeConfig").getEventInvokeConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getEventInvokeConfig","getEventInvokeConfigOutput"], () => require("./getEventInvokeConfig"));
 
 export { GetEventSourceMappingArgs, GetEventSourceMappingResult, GetEventSourceMappingOutputArgs } from "./getEventSourceMapping";
 export const getEventSourceMapping: typeof import("./getEventSourceMapping").getEventSourceMapping = null as any;
 export const getEventSourceMappingOutput: typeof import("./getEventSourceMapping").getEventSourceMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getEventSourceMapping","getEventSourceMappingOutput"], () => require("./getEventSourceMapping"));
 
 export { GetFunctionArgs, GetFunctionResult, GetFunctionOutputArgs } from "./getFunction";
 export const getFunction: typeof import("./getFunction").getFunction = null as any;
 export const getFunctionOutput: typeof import("./getFunction").getFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
 
 export { GetLayerVersionArgs, GetLayerVersionResult, GetLayerVersionOutputArgs } from "./getLayerVersion";
 export const getLayerVersion: typeof import("./getLayerVersion").getLayerVersion = null as any;
 export const getLayerVersionOutput: typeof import("./getLayerVersion").getLayerVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getLayerVersion","getLayerVersionOutput"], () => require("./getLayerVersion"));
 
 export { GetLayerVersionPermissionArgs, GetLayerVersionPermissionResult, GetLayerVersionPermissionOutputArgs } from "./getLayerVersionPermission";
 export const getLayerVersionPermission: typeof import("./getLayerVersionPermission").getLayerVersionPermission = null as any;
 export const getLayerVersionPermissionOutput: typeof import("./getLayerVersionPermission").getLayerVersionPermissionOutput = null as any;
+utilities.lazyLoad(exports, ["getLayerVersionPermission","getLayerVersionPermissionOutput"], () => require("./getLayerVersionPermission"));
 
 export { GetPermissionArgs, GetPermissionResult, GetPermissionOutputArgs } from "./getPermission";
 export const getPermission: typeof import("./getPermission").getPermission = null as any;
 export const getPermissionOutput: typeof import("./getPermission").getPermissionOutput = null as any;
+utilities.lazyLoad(exports, ["getPermission","getPermissionOutput"], () => require("./getPermission"));
 
 export { GetUrlArgs, GetUrlResult, GetUrlOutputArgs } from "./getUrl";
 export const getUrl: typeof import("./getUrl").getUrl = null as any;
 export const getUrlOutput: typeof import("./getUrl").getUrlOutput = null as any;
+utilities.lazyLoad(exports, ["getUrl","getUrlOutput"], () => require("./getUrl"));
 
 export { GetVersionArgs, GetVersionResult, GetVersionOutputArgs } from "./getVersion";
 export const getVersion: typeof import("./getVersion").getVersion = null as any;
 export const getVersionOutput: typeof import("./getVersion").getVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getVersion","getVersionOutput"], () => require("./getVersion"));
 
 export { LayerVersionArgs } from "./layerVersion";
 export type LayerVersion = import("./layerVersion").LayerVersion;
 export const LayerVersion: typeof import("./layerVersion").LayerVersion = null as any;
+utilities.lazyLoad(exports, ["LayerVersion"], () => require("./layerVersion"));
 
 export { LayerVersionPermissionArgs } from "./layerVersionPermission";
 export type LayerVersionPermission = import("./layerVersionPermission").LayerVersionPermission;
 export const LayerVersionPermission: typeof import("./layerVersionPermission").LayerVersionPermission = null as any;
+utilities.lazyLoad(exports, ["LayerVersionPermission"], () => require("./layerVersionPermission"));
 
 export { PermissionArgs } from "./permission";
 export type Permission = import("./permission").Permission;
 export const Permission: typeof import("./permission").Permission = null as any;
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
 
 export { UrlArgs } from "./url";
 export type Url = import("./url").Url;
 export const Url: typeof import("./url").Url = null as any;
+utilities.lazyLoad(exports, ["Url"], () => require("./url"));
 
 export { VersionArgs } from "./version";
 export type Version = import("./version").Version;
 export const Version: typeof import("./version").Version = null as any;
-
-utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
-utilities.lazyLoad(exports, ["CodeSigningConfig"], () => require("./codeSigningConfig"));
-utilities.lazyLoad(exports, ["EventInvokeConfig"], () => require("./eventInvokeConfig"));
-utilities.lazyLoad(exports, ["EventSourceMapping"], () => require("./eventSourceMapping"));
-utilities.lazyLoad(exports, ["Function"], () => require("./function"));
-utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
-utilities.lazyLoad(exports, ["getCodeSigningConfig","getCodeSigningConfigOutput"], () => require("./getCodeSigningConfig"));
-utilities.lazyLoad(exports, ["getEventInvokeConfig","getEventInvokeConfigOutput"], () => require("./getEventInvokeConfig"));
-utilities.lazyLoad(exports, ["getEventSourceMapping","getEventSourceMappingOutput"], () => require("./getEventSourceMapping"));
-utilities.lazyLoad(exports, ["getFunction","getFunctionOutput"], () => require("./getFunction"));
-utilities.lazyLoad(exports, ["getLayerVersion","getLayerVersionOutput"], () => require("./getLayerVersion"));
-utilities.lazyLoad(exports, ["getLayerVersionPermission","getLayerVersionPermissionOutput"], () => require("./getLayerVersionPermission"));
-utilities.lazyLoad(exports, ["getPermission","getPermissionOutput"], () => require("./getPermission"));
-utilities.lazyLoad(exports, ["getUrl","getUrlOutput"], () => require("./getUrl"));
-utilities.lazyLoad(exports, ["getVersion","getVersionOutput"], () => require("./getVersion"));
-utilities.lazyLoad(exports, ["LayerVersion"], () => require("./layerVersion"));
-utilities.lazyLoad(exports, ["LayerVersionPermission"], () => require("./layerVersionPermission"));
-utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
-utilities.lazyLoad(exports, ["Url"], () => require("./url"));
 utilities.lazyLoad(exports, ["Version"], () => require("./version"));
+
 
 // Export enums:
 export * from "../types/enums/lambda";

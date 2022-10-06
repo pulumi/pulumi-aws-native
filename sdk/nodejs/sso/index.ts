@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 export { AssignmentArgs } from "./assignment";
 export type Assignment = import("./assignment").Assignment;
 export const Assignment: typeof import("./assignment").Assignment = null as any;
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
 
 export { GetInstanceAccessControlAttributeConfigurationArgs, GetInstanceAccessControlAttributeConfigurationResult, GetInstanceAccessControlAttributeConfigurationOutputArgs } from "./getInstanceAccessControlAttributeConfiguration";
 export const getInstanceAccessControlAttributeConfiguration: typeof import("./getInstanceAccessControlAttributeConfiguration").getInstanceAccessControlAttributeConfiguration = null as any;
 export const getInstanceAccessControlAttributeConfigurationOutput: typeof import("./getInstanceAccessControlAttributeConfiguration").getInstanceAccessControlAttributeConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceAccessControlAttributeConfiguration","getInstanceAccessControlAttributeConfigurationOutput"], () => require("./getInstanceAccessControlAttributeConfiguration"));
 
 export { GetPermissionSetArgs, GetPermissionSetResult, GetPermissionSetOutputArgs } from "./getPermissionSet";
 export const getPermissionSet: typeof import("./getPermissionSet").getPermissionSet = null as any;
 export const getPermissionSetOutput: typeof import("./getPermissionSet").getPermissionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
 
 export { InstanceAccessControlAttributeConfigurationArgs } from "./instanceAccessControlAttributeConfiguration";
 export type InstanceAccessControlAttributeConfiguration = import("./instanceAccessControlAttributeConfiguration").InstanceAccessControlAttributeConfiguration;
 export const InstanceAccessControlAttributeConfiguration: typeof import("./instanceAccessControlAttributeConfiguration").InstanceAccessControlAttributeConfiguration = null as any;
+utilities.lazyLoad(exports, ["InstanceAccessControlAttributeConfiguration"], () => require("./instanceAccessControlAttributeConfiguration"));
 
 export { PermissionSetArgs } from "./permissionSet";
 export type PermissionSet = import("./permissionSet").PermissionSet;
 export const PermissionSet: typeof import("./permissionSet").PermissionSet = null as any;
-
-utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
-utilities.lazyLoad(exports, ["getInstanceAccessControlAttributeConfiguration","getInstanceAccessControlAttributeConfigurationOutput"], () => require("./getInstanceAccessControlAttributeConfiguration"));
-utilities.lazyLoad(exports, ["getPermissionSet","getPermissionSetOutput"], () => require("./getPermissionSet"));
-utilities.lazyLoad(exports, ["InstanceAccessControlAttributeConfiguration"], () => require("./instanceAccessControlAttributeConfiguration"));
 utilities.lazyLoad(exports, ["PermissionSet"], () => require("./permissionSet"));
+
 
 // Export enums:
 export * from "../types/enums/sso";

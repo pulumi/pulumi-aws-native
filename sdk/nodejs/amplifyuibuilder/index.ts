@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { ComponentArgs } from "./component";
 export type Component = import("./component").Component;
 export const Component: typeof import("./component").Component = null as any;
+utilities.lazyLoad(exports, ["Component"], () => require("./component"));
 
 export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
 export const getComponent: typeof import("./getComponent").getComponent = null as any;
 export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
 
 export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
 export const getTheme: typeof import("./getTheme").getTheme = null as any;
 export const getThemeOutput: typeof import("./getTheme").getThemeOutput = null as any;
+utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 
 export { ThemeArgs } from "./theme";
 export type Theme = import("./theme").Theme;
 export const Theme: typeof import("./theme").Theme = null as any;
-
-utilities.lazyLoad(exports, ["Component"], () => require("./component"));
-utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
-utilities.lazyLoad(exports, ["getTheme","getThemeOutput"], () => require("./getTheme"));
 utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
+
 
 const _module = {
     version: utilities.getVersion(),

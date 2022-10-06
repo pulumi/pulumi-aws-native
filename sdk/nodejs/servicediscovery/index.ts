@@ -8,53 +8,53 @@ import * as utilities from "../utilities";
 export { GetHttpNamespaceArgs, GetHttpNamespaceResult, GetHttpNamespaceOutputArgs } from "./getHttpNamespace";
 export const getHttpNamespace: typeof import("./getHttpNamespace").getHttpNamespace = null as any;
 export const getHttpNamespaceOutput: typeof import("./getHttpNamespace").getHttpNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getHttpNamespace","getHttpNamespaceOutput"], () => require("./getHttpNamespace"));
 
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
 
 export { GetPrivateDnsNamespaceArgs, GetPrivateDnsNamespaceResult, GetPrivateDnsNamespaceOutputArgs } from "./getPrivateDnsNamespace";
 export const getPrivateDnsNamespace: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespace = null as any;
 export const getPrivateDnsNamespaceOutput: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateDnsNamespace","getPrivateDnsNamespaceOutput"], () => require("./getPrivateDnsNamespace"));
 
 export { GetPublicDnsNamespaceArgs, GetPublicDnsNamespaceResult, GetPublicDnsNamespaceOutputArgs } from "./getPublicDnsNamespace";
 export const getPublicDnsNamespace: typeof import("./getPublicDnsNamespace").getPublicDnsNamespace = null as any;
 export const getPublicDnsNamespaceOutput: typeof import("./getPublicDnsNamespace").getPublicDnsNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicDnsNamespace","getPublicDnsNamespaceOutput"], () => require("./getPublicDnsNamespace"));
 
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
 export { HttpNamespaceArgs } from "./httpNamespace";
 export type HttpNamespace = import("./httpNamespace").HttpNamespace;
 export const HttpNamespace: typeof import("./httpNamespace").HttpNamespace = null as any;
+utilities.lazyLoad(exports, ["HttpNamespace"], () => require("./httpNamespace"));
 
 export { InstanceArgs } from "./instance";
 export type Instance = import("./instance").Instance;
 export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 export { PrivateDnsNamespaceArgs } from "./privateDnsNamespace";
 export type PrivateDnsNamespace = import("./privateDnsNamespace").PrivateDnsNamespace;
 export const PrivateDnsNamespace: typeof import("./privateDnsNamespace").PrivateDnsNamespace = null as any;
+utilities.lazyLoad(exports, ["PrivateDnsNamespace"], () => require("./privateDnsNamespace"));
 
 export { PublicDnsNamespaceArgs } from "./publicDnsNamespace";
 export type PublicDnsNamespace = import("./publicDnsNamespace").PublicDnsNamespace;
 export const PublicDnsNamespace: typeof import("./publicDnsNamespace").PublicDnsNamespace = null as any;
+utilities.lazyLoad(exports, ["PublicDnsNamespace"], () => require("./publicDnsNamespace"));
 
 export { ServiceArgs } from "./service";
 export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
-
-utilities.lazyLoad(exports, ["getHttpNamespace","getHttpNamespaceOutput"], () => require("./getHttpNamespace"));
-utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
-utilities.lazyLoad(exports, ["getPrivateDnsNamespace","getPrivateDnsNamespaceOutput"], () => require("./getPrivateDnsNamespace"));
-utilities.lazyLoad(exports, ["getPublicDnsNamespace","getPublicDnsNamespaceOutput"], () => require("./getPublicDnsNamespace"));
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["HttpNamespace"], () => require("./httpNamespace"));
-utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
-utilities.lazyLoad(exports, ["PrivateDnsNamespace"], () => require("./privateDnsNamespace"));
-utilities.lazyLoad(exports, ["PublicDnsNamespace"], () => require("./publicDnsNamespace"));
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
 
 const _module = {
     version: utilities.getVersion(),

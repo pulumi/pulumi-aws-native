@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { ComponentVersionArgs } from "./componentVersion";
 export type ComponentVersion = import("./componentVersion").ComponentVersion;
 export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
+utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 
 export { GetComponentVersionArgs, GetComponentVersionResult, GetComponentVersionOutputArgs } from "./getComponentVersion";
 export const getComponentVersion: typeof import("./getComponentVersion").getComponentVersion = null as any;
 export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
-
-utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
+
 
 // Export enums:
 export * from "../types/enums/greengrassv2";

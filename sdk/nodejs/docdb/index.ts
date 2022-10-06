@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { DBClusterArgs } from "./dbcluster";
 export type DBCluster = import("./dbcluster").DBCluster;
 export const DBCluster: typeof import("./dbcluster").DBCluster = null as any;
+utilities.lazyLoad(exports, ["DBCluster"], () => require("./dbcluster"));
 
 export { DBClusterParameterGroupArgs } from "./dbclusterParameterGroup";
 export type DBClusterParameterGroup = import("./dbclusterParameterGroup").DBClusterParameterGroup;
 export const DBClusterParameterGroup: typeof import("./dbclusterParameterGroup").DBClusterParameterGroup = null as any;
+utilities.lazyLoad(exports, ["DBClusterParameterGroup"], () => require("./dbclusterParameterGroup"));
 
 export { DBInstanceArgs } from "./dbinstance";
 export type DBInstance = import("./dbinstance").DBInstance;
 export const DBInstance: typeof import("./dbinstance").DBInstance = null as any;
+utilities.lazyLoad(exports, ["DBInstance"], () => require("./dbinstance"));
 
 export { DBSubnetGroupArgs } from "./dbsubnetGroup";
 export type DBSubnetGroup = import("./dbsubnetGroup").DBSubnetGroup;
 export const DBSubnetGroup: typeof import("./dbsubnetGroup").DBSubnetGroup = null as any;
+utilities.lazyLoad(exports, ["DBSubnetGroup"], () => require("./dbsubnetGroup"));
 
 export { GetDBClusterArgs, GetDBClusterResult, GetDBClusterOutputArgs } from "./getDBCluster";
 export const getDBCluster: typeof import("./getDBCluster").getDBCluster = null as any;
 export const getDBClusterOutput: typeof import("./getDBCluster").getDBClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getDBCluster","getDBClusterOutput"], () => require("./getDBCluster"));
 
 export { GetDBClusterParameterGroupArgs, GetDBClusterParameterGroupResult, GetDBClusterParameterGroupOutputArgs } from "./getDBClusterParameterGroup";
 export const getDBClusterParameterGroup: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroup = null as any;
 export const getDBClusterParameterGroupOutput: typeof import("./getDBClusterParameterGroup").getDBClusterParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDBClusterParameterGroup","getDBClusterParameterGroupOutput"], () => require("./getDBClusterParameterGroup"));
 
 export { GetDBInstanceArgs, GetDBInstanceResult, GetDBInstanceOutputArgs } from "./getDBInstance";
 export const getDBInstance: typeof import("./getDBInstance").getDBInstance = null as any;
 export const getDBInstanceOutput: typeof import("./getDBInstance").getDBInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getDBInstance","getDBInstanceOutput"], () => require("./getDBInstance"));
 
 export { GetDBSubnetGroupArgs, GetDBSubnetGroupResult, GetDBSubnetGroupOutputArgs } from "./getDBSubnetGroup";
 export const getDBSubnetGroup: typeof import("./getDBSubnetGroup").getDBSubnetGroup = null as any;
 export const getDBSubnetGroupOutput: typeof import("./getDBSubnetGroup").getDBSubnetGroupOutput = null as any;
-
-utilities.lazyLoad(exports, ["DBCluster"], () => require("./dbcluster"));
-utilities.lazyLoad(exports, ["DBClusterParameterGroup"], () => require("./dbclusterParameterGroup"));
-utilities.lazyLoad(exports, ["DBInstance"], () => require("./dbinstance"));
-utilities.lazyLoad(exports, ["DBSubnetGroup"], () => require("./dbsubnetGroup"));
-utilities.lazyLoad(exports, ["getDBCluster","getDBClusterOutput"], () => require("./getDBCluster"));
-utilities.lazyLoad(exports, ["getDBClusterParameterGroup","getDBClusterParameterGroupOutput"], () => require("./getDBClusterParameterGroup"));
-utilities.lazyLoad(exports, ["getDBInstance","getDBInstanceOutput"], () => require("./getDBInstance"));
 utilities.lazyLoad(exports, ["getDBSubnetGroup","getDBSubnetGroupOutput"], () => require("./getDBSubnetGroup"));
+
 
 const _module = {
     version: utilities.getVersion(),

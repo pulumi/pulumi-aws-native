@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { DetectorArgs } from "./detector";
 export type Detector = import("./detector").Detector;
 export const Detector: typeof import("./detector").Detector = null as any;
+utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
 
 export { FilterArgs } from "./filter";
 export type Filter = import("./filter").Filter;
 export const Filter: typeof import("./filter").Filter = null as any;
+utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
 
 export { GetDetectorArgs, GetDetectorResult, GetDetectorOutputArgs } from "./getDetector";
 export const getDetector: typeof import("./getDetector").getDetector = null as any;
 export const getDetectorOutput: typeof import("./getDetector").getDetectorOutput = null as any;
+utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
 
 export { GetFilterArgs, GetFilterResult, GetFilterOutputArgs } from "./getFilter";
 export const getFilter: typeof import("./getFilter").getFilter = null as any;
 export const getFilterOutput: typeof import("./getFilter").getFilterOutput = null as any;
+utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
 
 export { GetIPSetArgs, GetIPSetResult, GetIPSetOutputArgs } from "./getIPSet";
 export const getIPSet: typeof import("./getIPSet").getIPSet = null as any;
 export const getIPSetOutput: typeof import("./getIPSet").getIPSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
 
 export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
 export const getMember: typeof import("./getMember").getMember = null as any;
 export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
 
 export { GetThreatIntelSetArgs, GetThreatIntelSetResult, GetThreatIntelSetOutputArgs } from "./getThreatIntelSet";
 export const getThreatIntelSet: typeof import("./getThreatIntelSet").getThreatIntelSet = null as any;
 export const getThreatIntelSetOutput: typeof import("./getThreatIntelSet").getThreatIntelSetOutput = null as any;
+utilities.lazyLoad(exports, ["getThreatIntelSet","getThreatIntelSetOutput"], () => require("./getThreatIntelSet"));
 
 export { IPSetArgs } from "./ipset";
 export type IPSet = import("./ipset").IPSet;
 export const IPSet: typeof import("./ipset").IPSet = null as any;
+utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
 
 export { MasterArgs } from "./master";
 export type Master = import("./master").Master;
 export const Master: typeof import("./master").Master = null as any;
+utilities.lazyLoad(exports, ["Master"], () => require("./master"));
 
 export { MemberArgs } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
 export { ThreatIntelSetArgs } from "./threatIntelSet";
 export type ThreatIntelSet = import("./threatIntelSet").ThreatIntelSet;
 export const ThreatIntelSet: typeof import("./threatIntelSet").ThreatIntelSet = null as any;
-
-utilities.lazyLoad(exports, ["Detector"], () => require("./detector"));
-utilities.lazyLoad(exports, ["Filter"], () => require("./filter"));
-utilities.lazyLoad(exports, ["getDetector","getDetectorOutput"], () => require("./getDetector"));
-utilities.lazyLoad(exports, ["getFilter","getFilterOutput"], () => require("./getFilter"));
-utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
-utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
-utilities.lazyLoad(exports, ["getThreatIntelSet","getThreatIntelSetOutput"], () => require("./getThreatIntelSet"));
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
-utilities.lazyLoad(exports, ["Master"], () => require("./master"));
-utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 utilities.lazyLoad(exports, ["ThreatIntelSet"], () => require("./threatIntelSet"));
+
 
 const _module = {
     version: utilities.getVersion(),

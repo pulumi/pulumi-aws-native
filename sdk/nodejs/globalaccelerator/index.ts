@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { AcceleratorArgs } from "./accelerator";
 export type Accelerator = import("./accelerator").Accelerator;
 export const Accelerator: typeof import("./accelerator").Accelerator = null as any;
+utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
 
 export { EndpointGroupArgs } from "./endpointGroup";
 export type EndpointGroup = import("./endpointGroup").EndpointGroup;
 export const EndpointGroup: typeof import("./endpointGroup").EndpointGroup = null as any;
+utilities.lazyLoad(exports, ["EndpointGroup"], () => require("./endpointGroup"));
 
 export { GetAcceleratorArgs, GetAcceleratorResult, GetAcceleratorOutputArgs } from "./getAccelerator";
 export const getAccelerator: typeof import("./getAccelerator").getAccelerator = null as any;
 export const getAcceleratorOutput: typeof import("./getAccelerator").getAcceleratorOutput = null as any;
+utilities.lazyLoad(exports, ["getAccelerator","getAcceleratorOutput"], () => require("./getAccelerator"));
 
 export { GetEndpointGroupArgs, GetEndpointGroupResult, GetEndpointGroupOutputArgs } from "./getEndpointGroup";
 export const getEndpointGroup: typeof import("./getEndpointGroup").getEndpointGroup = null as any;
 export const getEndpointGroupOutput: typeof import("./getEndpointGroup").getEndpointGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpointGroup","getEndpointGroupOutput"], () => require("./getEndpointGroup"));
 
 export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
 export const getListener: typeof import("./getListener").getListener = null as any;
 export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
+utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
 
 export { ListenerArgs } from "./listener";
 export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
-
-utilities.lazyLoad(exports, ["Accelerator"], () => require("./accelerator"));
-utilities.lazyLoad(exports, ["EndpointGroup"], () => require("./endpointGroup"));
-utilities.lazyLoad(exports, ["getAccelerator","getAcceleratorOutput"], () => require("./getAccelerator"));
-utilities.lazyLoad(exports, ["getEndpointGroup","getEndpointGroupOutput"], () => require("./getEndpointGroup"));
-utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
 utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
+
 
 // Export enums:
 export * from "../types/enums/globalaccelerator";

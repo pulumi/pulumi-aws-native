@@ -8,58 +8,58 @@ import * as utilities from "../utilities";
 export { GetIPSetArgs, GetIPSetResult, GetIPSetOutputArgs } from "./getIPSet";
 export const getIPSet: typeof import("./getIPSet").getIPSet = null as any;
 export const getIPSetOutput: typeof import("./getIPSet").getIPSetOutput = null as any;
+utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
 
 export { GetLoggingConfigurationArgs, GetLoggingConfigurationResult, GetLoggingConfigurationOutputArgs } from "./getLoggingConfiguration";
 export const getLoggingConfiguration: typeof import("./getLoggingConfiguration").getLoggingConfiguration = null as any;
 export const getLoggingConfigurationOutput: typeof import("./getLoggingConfiguration").getLoggingConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getLoggingConfiguration","getLoggingConfigurationOutput"], () => require("./getLoggingConfiguration"));
 
 export { GetRegexPatternSetArgs, GetRegexPatternSetResult, GetRegexPatternSetOutputArgs } from "./getRegexPatternSet";
 export const getRegexPatternSet: typeof import("./getRegexPatternSet").getRegexPatternSet = null as any;
 export const getRegexPatternSetOutput: typeof import("./getRegexPatternSet").getRegexPatternSetOutput = null as any;
+utilities.lazyLoad(exports, ["getRegexPatternSet","getRegexPatternSetOutput"], () => require("./getRegexPatternSet"));
 
 export { GetRuleGroupArgs, GetRuleGroupResult, GetRuleGroupOutputArgs } from "./getRuleGroup";
 export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null as any;
 export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
 
 export { GetWebACLArgs, GetWebACLResult, GetWebACLOutputArgs } from "./getWebACL";
 export const getWebACL: typeof import("./getWebACL").getWebACL = null as any;
 export const getWebACLOutput: typeof import("./getWebACL").getWebACLOutput = null as any;
+utilities.lazyLoad(exports, ["getWebACL","getWebACLOutput"], () => require("./getWebACL"));
 
 export { IPSetArgs } from "./ipset";
 export type IPSet = import("./ipset").IPSet;
 export const IPSet: typeof import("./ipset").IPSet = null as any;
+utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
 
 export { LoggingConfigurationArgs } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
 export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["LoggingConfiguration"], () => require("./loggingConfiguration"));
 
 export { RegexPatternSetArgs } from "./regexPatternSet";
 export type RegexPatternSet = import("./regexPatternSet").RegexPatternSet;
 export const RegexPatternSet: typeof import("./regexPatternSet").RegexPatternSet = null as any;
+utilities.lazyLoad(exports, ["RegexPatternSet"], () => require("./regexPatternSet"));
 
 export { RuleGroupArgs } from "./ruleGroup";
 export type RuleGroup = import("./ruleGroup").RuleGroup;
 export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
+utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
 
 export { WebACLArgs } from "./webACL";
 export type WebACL = import("./webACL").WebACL;
 export const WebACL: typeof import("./webACL").WebACL = null as any;
+utilities.lazyLoad(exports, ["WebACL"], () => require("./webACL"));
 
 export { WebACLAssociationArgs } from "./webACLAssociation";
 export type WebACLAssociation = import("./webACLAssociation").WebACLAssociation;
 export const WebACLAssociation: typeof import("./webACLAssociation").WebACLAssociation = null as any;
-
-utilities.lazyLoad(exports, ["getIPSet","getIPSetOutput"], () => require("./getIPSet"));
-utilities.lazyLoad(exports, ["getLoggingConfiguration","getLoggingConfigurationOutput"], () => require("./getLoggingConfiguration"));
-utilities.lazyLoad(exports, ["getRegexPatternSet","getRegexPatternSetOutput"], () => require("./getRegexPatternSet"));
-utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
-utilities.lazyLoad(exports, ["getWebACL","getWebACLOutput"], () => require("./getWebACL"));
-utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
-utilities.lazyLoad(exports, ["LoggingConfiguration"], () => require("./loggingConfiguration"));
-utilities.lazyLoad(exports, ["RegexPatternSet"], () => require("./regexPatternSet"));
-utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
-utilities.lazyLoad(exports, ["WebACL"], () => require("./webACL"));
 utilities.lazyLoad(exports, ["WebACLAssociation"], () => require("./webACLAssociation"));
+
 
 // Export enums:
 export * from "../types/enums/wafv2";

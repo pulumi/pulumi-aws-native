@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { EventDataStoreArgs } from "./eventDataStore";
 export type EventDataStore = import("./eventDataStore").EventDataStore;
 export const EventDataStore: typeof import("./eventDataStore").EventDataStore = null as any;
+utilities.lazyLoad(exports, ["EventDataStore"], () => require("./eventDataStore"));
 
 export { GetEventDataStoreArgs, GetEventDataStoreResult, GetEventDataStoreOutputArgs } from "./getEventDataStore";
 export const getEventDataStore: typeof import("./getEventDataStore").getEventDataStore = null as any;
 export const getEventDataStoreOutput: typeof import("./getEventDataStore").getEventDataStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getEventDataStore","getEventDataStoreOutput"], () => require("./getEventDataStore"));
 
 export { GetTrailArgs, GetTrailResult, GetTrailOutputArgs } from "./getTrail";
 export const getTrail: typeof import("./getTrail").getTrail = null as any;
 export const getTrailOutput: typeof import("./getTrail").getTrailOutput = null as any;
+utilities.lazyLoad(exports, ["getTrail","getTrailOutput"], () => require("./getTrail"));
 
 export { TrailArgs } from "./trail";
 export type Trail = import("./trail").Trail;
 export const Trail: typeof import("./trail").Trail = null as any;
-
-utilities.lazyLoad(exports, ["EventDataStore"], () => require("./eventDataStore"));
-utilities.lazyLoad(exports, ["getEventDataStore","getEventDataStoreOutput"], () => require("./getEventDataStore"));
-utilities.lazyLoad(exports, ["getTrail","getTrailOutput"], () => require("./getTrail"));
 utilities.lazyLoad(exports, ["Trail"], () => require("./trail"));
+
 
 // Export enums:
 export * from "../types/enums/cloudtrail";

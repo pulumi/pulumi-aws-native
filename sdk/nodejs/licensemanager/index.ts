@@ -8,23 +8,23 @@ import * as utilities from "../utilities";
 export { GetGrantArgs, GetGrantResult, GetGrantOutputArgs } from "./getGrant";
 export const getGrant: typeof import("./getGrant").getGrant = null as any;
 export const getGrantOutput: typeof import("./getGrant").getGrantOutput = null as any;
+utilities.lazyLoad(exports, ["getGrant","getGrantOutput"], () => require("./getGrant"));
 
 export { GetLicenseArgs, GetLicenseResult, GetLicenseOutputArgs } from "./getLicense";
 export const getLicense: typeof import("./getLicense").getLicense = null as any;
 export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
 
 export { GrantArgs } from "./grant";
 export type Grant = import("./grant").Grant;
 export const Grant: typeof import("./grant").Grant = null as any;
+utilities.lazyLoad(exports, ["Grant"], () => require("./grant"));
 
 export { LicenseArgs } from "./license";
 export type License = import("./license").License;
 export const License: typeof import("./license").License = null as any;
-
-utilities.lazyLoad(exports, ["getGrant","getGrantOutput"], () => require("./getGrant"));
-utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
-utilities.lazyLoad(exports, ["Grant"], () => require("./grant"));
 utilities.lazyLoad(exports, ["License"], () => require("./license"));
+
 
 const _module = {
     version: utilities.getVersion(),

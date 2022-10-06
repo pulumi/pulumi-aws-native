@@ -8,33 +8,33 @@ import * as utilities from "../utilities";
 export { ConfigArgs } from "./config";
 export type Config = import("./config").Config;
 export const Config: typeof import("./config").Config = null as any;
+utilities.lazyLoad(exports, ["Config"], () => require("./config"));
 
 export { DataflowEndpointGroupArgs } from "./dataflowEndpointGroup";
 export type DataflowEndpointGroup = import("./dataflowEndpointGroup").DataflowEndpointGroup;
 export const DataflowEndpointGroup: typeof import("./dataflowEndpointGroup").DataflowEndpointGroup = null as any;
+utilities.lazyLoad(exports, ["DataflowEndpointGroup"], () => require("./dataflowEndpointGroup"));
 
 export { GetConfigArgs, GetConfigResult, GetConfigOutputArgs } from "./getConfig";
 export const getConfig: typeof import("./getConfig").getConfig = null as any;
 export const getConfigOutput: typeof import("./getConfig").getConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getConfig","getConfigOutput"], () => require("./getConfig"));
 
 export { GetDataflowEndpointGroupArgs, GetDataflowEndpointGroupResult, GetDataflowEndpointGroupOutputArgs } from "./getDataflowEndpointGroup";
 export const getDataflowEndpointGroup: typeof import("./getDataflowEndpointGroup").getDataflowEndpointGroup = null as any;
 export const getDataflowEndpointGroupOutput: typeof import("./getDataflowEndpointGroup").getDataflowEndpointGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDataflowEndpointGroup","getDataflowEndpointGroupOutput"], () => require("./getDataflowEndpointGroup"));
 
 export { GetMissionProfileArgs, GetMissionProfileResult, GetMissionProfileOutputArgs } from "./getMissionProfile";
 export const getMissionProfile: typeof import("./getMissionProfile").getMissionProfile = null as any;
 export const getMissionProfileOutput: typeof import("./getMissionProfile").getMissionProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getMissionProfile","getMissionProfileOutput"], () => require("./getMissionProfile"));
 
 export { MissionProfileArgs } from "./missionProfile";
 export type MissionProfile = import("./missionProfile").MissionProfile;
 export const MissionProfile: typeof import("./missionProfile").MissionProfile = null as any;
-
-utilities.lazyLoad(exports, ["Config"], () => require("./config"));
-utilities.lazyLoad(exports, ["DataflowEndpointGroup"], () => require("./dataflowEndpointGroup"));
-utilities.lazyLoad(exports, ["getConfig","getConfigOutput"], () => require("./getConfig"));
-utilities.lazyLoad(exports, ["getDataflowEndpointGroup","getDataflowEndpointGroupOutput"], () => require("./getDataflowEndpointGroup"));
-utilities.lazyLoad(exports, ["getMissionProfile","getMissionProfileOutput"], () => require("./getMissionProfile"));
 utilities.lazyLoad(exports, ["MissionProfile"], () => require("./missionProfile"));
+
 
 // Export enums:
 export * from "../types/enums/groundstation";

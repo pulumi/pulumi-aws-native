@@ -8,68 +8,68 @@ import * as utilities from "../utilities";
 export { CidrCollectionArgs } from "./cidrCollection";
 export type CidrCollection = import("./cidrCollection").CidrCollection;
 export const CidrCollection: typeof import("./cidrCollection").CidrCollection = null as any;
+utilities.lazyLoad(exports, ["CidrCollection"], () => require("./cidrCollection"));
 
 export { DNSSECArgs } from "./dnssec";
 export type DNSSEC = import("./dnssec").DNSSEC;
 export const DNSSEC: typeof import("./dnssec").DNSSEC = null as any;
+utilities.lazyLoad(exports, ["DNSSEC"], () => require("./dnssec"));
 
 export { GetCidrCollectionArgs, GetCidrCollectionResult, GetCidrCollectionOutputArgs } from "./getCidrCollection";
 export const getCidrCollection: typeof import("./getCidrCollection").getCidrCollection = null as any;
 export const getCidrCollectionOutput: typeof import("./getCidrCollection").getCidrCollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getCidrCollection","getCidrCollectionOutput"], () => require("./getCidrCollection"));
 
 export { GetHealthCheckArgs, GetHealthCheckResult, GetHealthCheckOutputArgs } from "./getHealthCheck";
 export const getHealthCheck: typeof import("./getHealthCheck").getHealthCheck = null as any;
 export const getHealthCheckOutput: typeof import("./getHealthCheck").getHealthCheckOutput = null as any;
+utilities.lazyLoad(exports, ["getHealthCheck","getHealthCheckOutput"], () => require("./getHealthCheck"));
 
 export { GetHostedZoneArgs, GetHostedZoneResult, GetHostedZoneOutputArgs } from "./getHostedZone";
 export const getHostedZone: typeof import("./getHostedZone").getHostedZone = null as any;
 export const getHostedZoneOutput: typeof import("./getHostedZone").getHostedZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getHostedZone","getHostedZoneOutput"], () => require("./getHostedZone"));
 
 export { GetKeySigningKeyArgs, GetKeySigningKeyResult, GetKeySigningKeyOutputArgs } from "./getKeySigningKey";
 export const getKeySigningKey: typeof import("./getKeySigningKey").getKeySigningKey = null as any;
 export const getKeySigningKeyOutput: typeof import("./getKeySigningKey").getKeySigningKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKeySigningKey","getKeySigningKeyOutput"], () => require("./getKeySigningKey"));
 
 export { GetRecordSetArgs, GetRecordSetResult, GetRecordSetOutputArgs } from "./getRecordSet";
 export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null as any;
 export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
+utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
 
 export { GetRecordSetGroupArgs, GetRecordSetGroupResult, GetRecordSetGroupOutputArgs } from "./getRecordSetGroup";
 export const getRecordSetGroup: typeof import("./getRecordSetGroup").getRecordSetGroup = null as any;
 export const getRecordSetGroupOutput: typeof import("./getRecordSetGroup").getRecordSetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getRecordSetGroup","getRecordSetGroupOutput"], () => require("./getRecordSetGroup"));
 
 export { HealthCheckArgs } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
+utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
 
 export { HostedZoneArgs } from "./hostedZone";
 export type HostedZone = import("./hostedZone").HostedZone;
 export const HostedZone: typeof import("./hostedZone").HostedZone = null as any;
+utilities.lazyLoad(exports, ["HostedZone"], () => require("./hostedZone"));
 
 export { KeySigningKeyArgs } from "./keySigningKey";
 export type KeySigningKey = import("./keySigningKey").KeySigningKey;
 export const KeySigningKey: typeof import("./keySigningKey").KeySigningKey = null as any;
+utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
 
 export { RecordSetArgs } from "./recordSet";
 export type RecordSet = import("./recordSet").RecordSet;
 export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
+utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
 
 export { RecordSetGroupArgs } from "./recordSetGroup";
 export type RecordSetGroup = import("./recordSetGroup").RecordSetGroup;
 export const RecordSetGroup: typeof import("./recordSetGroup").RecordSetGroup = null as any;
-
-utilities.lazyLoad(exports, ["CidrCollection"], () => require("./cidrCollection"));
-utilities.lazyLoad(exports, ["DNSSEC"], () => require("./dnssec"));
-utilities.lazyLoad(exports, ["getCidrCollection","getCidrCollectionOutput"], () => require("./getCidrCollection"));
-utilities.lazyLoad(exports, ["getHealthCheck","getHealthCheckOutput"], () => require("./getHealthCheck"));
-utilities.lazyLoad(exports, ["getHostedZone","getHostedZoneOutput"], () => require("./getHostedZone"));
-utilities.lazyLoad(exports, ["getKeySigningKey","getKeySigningKeyOutput"], () => require("./getKeySigningKey"));
-utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
-utilities.lazyLoad(exports, ["getRecordSetGroup","getRecordSetGroupOutput"], () => require("./getRecordSetGroup"));
-utilities.lazyLoad(exports, ["HealthCheck"], () => require("./healthCheck"));
-utilities.lazyLoad(exports, ["HostedZone"], () => require("./hostedZone"));
-utilities.lazyLoad(exports, ["KeySigningKey"], () => require("./keySigningKey"));
-utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
 utilities.lazyLoad(exports, ["RecordSetGroup"], () => require("./recordSetGroup"));
+
 
 // Export enums:
 export * from "../types/enums/route53";

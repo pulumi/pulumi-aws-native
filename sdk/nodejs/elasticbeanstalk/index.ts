@@ -8,43 +8,43 @@ import * as utilities from "../utilities";
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
 export { ApplicationVersionArgs } from "./applicationVersion";
 export type ApplicationVersion = import("./applicationVersion").ApplicationVersion;
 export const ApplicationVersion: typeof import("./applicationVersion").ApplicationVersion = null as any;
+utilities.lazyLoad(exports, ["ApplicationVersion"], () => require("./applicationVersion"));
 
 export { ConfigurationTemplateArgs } from "./configurationTemplate";
 export type ConfigurationTemplate = import("./configurationTemplate").ConfigurationTemplate;
 export const ConfigurationTemplate: typeof import("./configurationTemplate").ConfigurationTemplate = null as any;
+utilities.lazyLoad(exports, ["ConfigurationTemplate"], () => require("./configurationTemplate"));
 
 export { EnvironmentArgs } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
 
 export { GetApplicationVersionArgs, GetApplicationVersionResult, GetApplicationVersionOutputArgs } from "./getApplicationVersion";
 export const getApplicationVersion: typeof import("./getApplicationVersion").getApplicationVersion = null as any;
 export const getApplicationVersionOutput: typeof import("./getApplicationVersion").getApplicationVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationVersion","getApplicationVersionOutput"], () => require("./getApplicationVersion"));
 
 export { GetConfigurationTemplateArgs, GetConfigurationTemplateResult, GetConfigurationTemplateOutputArgs } from "./getConfigurationTemplate";
 export const getConfigurationTemplate: typeof import("./getConfigurationTemplate").getConfigurationTemplate = null as any;
 export const getConfigurationTemplateOutput: typeof import("./getConfigurationTemplate").getConfigurationTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getConfigurationTemplate","getConfigurationTemplateOutput"], () => require("./getConfigurationTemplate"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
 export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
-
-utilities.lazyLoad(exports, ["Application"], () => require("./application"));
-utilities.lazyLoad(exports, ["ApplicationVersion"], () => require("./applicationVersion"));
-utilities.lazyLoad(exports, ["ConfigurationTemplate"], () => require("./configurationTemplate"));
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
-utilities.lazyLoad(exports, ["getApplicationVersion","getApplicationVersionOutput"], () => require("./getApplicationVersion"));
-utilities.lazyLoad(exports, ["getConfigurationTemplate","getConfigurationTemplateOutput"], () => require("./getConfigurationTemplate"));
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
+
 
 const _module = {
     version: utilities.getVersion(),

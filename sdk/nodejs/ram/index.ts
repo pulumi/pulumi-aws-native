@@ -8,13 +8,13 @@ import * as utilities from "../utilities";
 export { GetResourceShareArgs, GetResourceShareResult, GetResourceShareOutputArgs } from "./getResourceShare";
 export const getResourceShare: typeof import("./getResourceShare").getResourceShare = null as any;
 export const getResourceShareOutput: typeof import("./getResourceShare").getResourceShareOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
 
 export { ResourceShareArgs } from "./resourceShare";
 export type ResourceShare = import("./resourceShare").ResourceShare;
 export const ResourceShare: typeof import("./resourceShare").ResourceShare = null as any;
-
-utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
 utilities.lazyLoad(exports, ["ResourceShare"], () => require("./resourceShare"));
+
 
 const _module = {
     version: utilities.getVersion(),
