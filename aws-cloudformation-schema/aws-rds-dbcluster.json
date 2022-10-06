@@ -57,6 +57,14 @@
       "description" : "The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.",
       "type" : "string"
     },
+    "DBClusterResourceId" : {
+      "description" : "The AWS Region-unique, immutable identifier for the DB cluster.",
+      "type" : "string"
+    },
+    "DBInstanceParameterGroupName" : {
+      "description" : "The name of the DB parameter group to apply to all instances of the DB cluster.",
+      "type" : "string"
+    },
     "GlobalClusterIdentifier" : {
       "description" : "If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.\n\nIf you aren't configuring a global database cluster, don't specify this property.",
       "type" : "string",
@@ -176,6 +184,10 @@
       "type" : "string",
       "default" : "full-copy"
     },
+    "ServerlessV2ScalingConfiguration" : {
+      "description" : "Contains the scaling configuration of an Aurora Serverless v2 DB cluster.",
+      "$ref" : "#/definitions/ServerlessV2ScalingConfiguration"
+    },
     "ScalingConfiguration" : {
       "description" : "The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.",
       "$ref" : "#/definitions/ScalingConfiguration"
@@ -264,6 +276,25 @@
       },
       "required" : [ "RoleArn" ]
     },
+    "ServerlessV2ScalingConfiguration" : {
+      "description" : "Contains the scaling configuration of an Aurora Serverless v2 DB cluster.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinCapacity" : {
+          "description" : "The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.",
+          "type" : "number",
+          "minimum" : 0.5,
+          "maximum" : 128
+        },
+        "MaxCapacity" : {
+          "description" : "The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.",
+          "type" : "number",
+          "minimum" : 0.5,
+          "maximum" : 128
+        }
+      }
+    },
     "ScalingConfiguration" : {
       "description" : "The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.",
       "type" : "object",
@@ -316,11 +347,11 @@
     "/properties/SnapshotIdentifier" : "$lowercase(SnapshotIdentifier)",
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)"
   },
-  "readOnlyProperties" : [ "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address" ],
+  "readOnlyProperties" : [ "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
-  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
+  "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:CreateDBCluster", "rds:CreateDBInstance", "rds:DescribeDBClusters", "rds:ModifyDBCluster", "rds:RestoreDBClusterFromSnapshot", "rds:RestoreDBClusterToPointInTime" ],
@@ -330,11 +361,11 @@
       "permissions" : [ "rds:DescribeDBClusters" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBSubnetGroups", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource" ],
+      "permissions" : [ "ec2:DescribeSecurityGroups", "iam:PassRole", "rds:AddRoleToDBCluster", "rds:AddTagsToResource", "rds:DescribeDBClusters", "rds:DescribeDBSubnetGroups", "rds:DescribeGlobalClusters", "rds:ModifyDBCluster", "rds:ModifyDBInstance", "rds:RemoveFromGlobalCluster", "rds:RemoveRoleFromDBCluster", "rds:RemoveTagsFromResource" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:RemoveFromGlobalCluster" ]
+      "permissions" : [ "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:RemoveFromGlobalCluster" ]
     },
     "list" : {
       "permissions" : [ "rds:DescribeDBClusters" ]

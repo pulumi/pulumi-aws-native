@@ -126,16 +126,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "appstream:*", "iam:*" ]
+      "permissions" : [ "appstream:CreateImageBuilder", "appstream:CreateImageBuilderStreamingURL", "appstream:CreateStreamingURL", "appstream:DeleteImageBuilder", "appstream:DescribeImageBuilders", "appstream:StartImageBuilder", "appstream:StopImageBuilder", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "read" : {
-      "permissions" : [ "appstream:*", "iam:*" ]
+      "permissions" : [ "appstream:CreateImageBuilder", "appstream:CreateImageBuilderStreamingURL", "appstream:CreateStreamingURL", "appstream:DeleteImageBuilder", "appstream:DescribeImageBuilders", "appstream:StartImageBuilder", "appstream:StopImageBuilder", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "delete" : {
-      "permissions" : [ "appstream:*", "iam:*" ]
+      "permissions" : [ "appstream:CreateImageBuilder", "appstream:CreateImageBuilderStreamingURL", "appstream:CreateStreamingURL", "appstream:DeleteImageBuilder", "appstream:DescribeImageBuilders", "appstream:StartImageBuilder", "appstream:StopImageBuilder", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     },
     "list" : {
-      "permissions" : [ "appstream:*", "iam:*" ]
+      "permissions" : [ "appstream:CreateImageBuilder", "appstream:CreateImageBuilderStreamingURL", "appstream:CreateStreamingURL", "appstream:DeleteImageBuilder", "appstream:DescribeImageBuilders", "appstream:StartImageBuilder", "appstream:StopImageBuilder", "iam:CreateServiceLinkedRole", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     }
   }
 }

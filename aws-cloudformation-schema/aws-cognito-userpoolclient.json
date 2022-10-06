@@ -16,18 +16,8 @@
         "type" : "string"
       }
     },
-    "EnablePropagateAdditionalUserContextData" : {
-      "type" : "boolean"
-    },
     "IdTokenValidity" : {
       "type" : "integer"
-    },
-    "AllowedOAuthScopes" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
     },
     "TokenValidityUnits" : {
       "$ref" : "#/definitions/TokenValidityUnits"
@@ -45,18 +35,44 @@
     "DefaultRedirectURI" : {
       "type" : "string"
     },
-    "SupportedIdentityProviders" : {
+    "Name" : {
+      "type" : "string"
+    },
+    "ClientName" : {
+      "type" : "string"
+    },
+    "ExplicitAuthFlows" : {
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "type" : "string"
       }
     },
-    "Name" : {
-      "type" : "string"
+    "AccessTokenValidity" : {
+      "type" : "integer"
     },
-    "ClientName" : {
-      "type" : "string"
+    "EnableTokenRevocation" : {
+      "type" : "boolean"
+    },
+    "EnablePropagateAdditionalUserContextData" : {
+      "type" : "boolean"
+    },
+    "AuthSessionValidity" : {
+      "type" : "integer"
+    },
+    "AllowedOAuthScopes" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "SupportedIdentityProviders" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
     },
     "UserPoolId" : {
       "type" : "string"
@@ -71,22 +87,12 @@
     "ClientSecret" : {
       "type" : "string"
     },
-    "ExplicitAuthFlows" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "type" : "string"
-      }
-    },
     "LogoutURLs" : {
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "type" : "string"
       }
-    },
-    "AccessTokenValidity" : {
-      "type" : "integer"
     },
     "RefreshTokenValidity" : {
       "type" : "integer"
@@ -103,9 +109,6 @@
     },
     "PreventUserExistenceErrors" : {
       "type" : "string"
-    },
-    "EnableTokenRevocation" : {
-      "type" : "boolean"
     }
   },
   "definitions" : {
