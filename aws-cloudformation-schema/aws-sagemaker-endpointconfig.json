@@ -79,11 +79,20 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "ModelDataDownloadTimeoutInSeconds" : {
+          "type" : "integer"
+        },
         "ModelName" : {
           "type" : "string"
         },
+        "VolumeSizeInGB" : {
+          "type" : "integer"
+        },
         "VariantName" : {
           "type" : "string"
+        },
+        "ContainerStartupHealthCheckTimeoutInSeconds" : {
+          "type" : "integer"
         },
         "InitialInstanceCount" : {
           "type" : "integer"

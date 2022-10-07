@@ -60,6 +60,7 @@
       "maxLength" : 40
     }
   },
+  "taggable" : false,
   "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationArn" ],
   "readOnlyProperties" : [ "/properties/OwnerId", "/properties/Status", "/properties/ShareStatus", "/properties/AssociationCount", "/properties/Arn", "/properties/CreatorRequestId", "/properties/CreationTime", "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
