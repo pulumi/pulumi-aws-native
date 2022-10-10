@@ -32,6 +32,9 @@
     "SnapshotName" : {
       "type" : "string"
     },
+    "TransitEncryptionEnabled" : {
+      "type" : "boolean"
+    },
     "PreferredAvailabilityZones" : {
       "type" : "array",
       "uniqueItems" : true,
