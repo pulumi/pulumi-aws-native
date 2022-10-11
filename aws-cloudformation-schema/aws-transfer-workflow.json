@@ -255,10 +255,10 @@
   },
   "required" : [ "Steps" ],
   "additionalProperties" : false,
-  "taggable" : true,
   "readOnlyProperties" : [ "/properties/WorkflowId", "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Steps", "/properties/OnExceptionSteps", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/WorkflowId" ],
+  "taggable" : true,
   "handlers" : {
     "create" : {
       "permissions" : [ "transfer:CreateWorkflow", "transfer:TagResource" ]

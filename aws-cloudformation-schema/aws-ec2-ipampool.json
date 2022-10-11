@@ -154,7 +154,6 @@
   "required" : [ "IpamScopeId", "AddressFamily" ],
   "primaryIdentifier" : [ "/properties/IpamPoolId" ],
   "readOnlyProperties" : [ "/properties/IpamPoolId", "/properties/Arn", "/properties/IpamScopeArn", "/properties/IpamScopeType", "/properties/IpamArn", "/properties/PoolDepth", "/properties/State", "/properties/StateMessage" ],
-  "writeOnlyProperties" : [ "/properties/IpamScopeId" ],
   "createOnlyProperties" : [ "/properties/IpamScopeId", "/properties/SourceIpamPoolId", "/properties/Locale", "/properties/AddressFamily", "/properties/PubliclyAdvertisable", "/properties/AwsService" ],
   "handlers" : {
     "create" : {
