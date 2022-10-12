@@ -19,6 +19,9 @@
           "type" : "string",
           "enum" : [ "capacityOptimized", "capacityOptimizedPrioritized", "diversified", "lowestPrice" ]
         },
+        "Context" : {
+          "type" : "string"
+        },
         "ExcessCapacityTerminationPolicy" : {
           "type" : "string",
           "enum" : [ "Default", "NoTermination", "default", "noTermination" ]
@@ -87,8 +90,12 @@
         "ValidUntil" : {
           "type" : "string"
         },
-        "Context" : {
-          "type" : "string"
+        "TagSpecifications" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/SpotFleetTagSpecification"
+          }
         },
         "TargetCapacityUnitType" : {
           "type" : "string",
@@ -719,7 +726,7 @@
     }
   },
   "required" : [ "SpotFleetRequestConfigData" ],
-  "createOnlyProperties" : [ "/properties/SpotFleetRequestConfigData/AllocationStrategy", "/properties/SpotFleetRequestConfigData/IamFleetRole", "/properties/SpotFleetRequestConfigData/InstanceInterruptionBehavior", "/properties/SpotFleetRequestConfigData/InstancePoolsToUseCount", "/properties/SpotFleetRequestConfigData/LaunchSpecifications", "/properties/SpotFleetRequestConfigData/LaunchTemplateConfigs", "/properties/SpotFleetRequestConfigData/LoadBalancersConfig", "/properties/SpotFleetRequestConfigData/OnDemandAllocationStrategy", "/properties/SpotFleetRequestConfigData/OnDemandMaxTotalPrice", "/properties/SpotFleetRequestConfigData/OnDemandTargetCapacity", "/properties/SpotFleetRequestConfigData/ReplaceUnhealthyInstances", "/properties/SpotFleetRequestConfigData/SpotMaintenanceStrategies", "/properties/SpotFleetRequestConfigData/SpotMaxTotalPrice", "/properties/SpotFleetRequestConfigData/SpotPrice", "/properties/SpotFleetRequestConfigData/TerminateInstancesWithExpiration", "/properties/SpotFleetRequestConfigData/Type", "/properties/SpotFleetRequestConfigData/ValidFrom", "/properties/SpotFleetRequestConfigData/ValidUntil" ],
+  "createOnlyProperties" : [ "/properties/SpotFleetRequestConfigData/AllocationStrategy", "/properties/SpotFleetRequestConfigData/IamFleetRole", "/properties/SpotFleetRequestConfigData/InstanceInterruptionBehavior", "/properties/SpotFleetRequestConfigData/InstancePoolsToUseCount", "/properties/SpotFleetRequestConfigData/LaunchSpecifications", "/properties/SpotFleetRequestConfigData/LaunchTemplateConfigs", "/properties/SpotFleetRequestConfigData/LoadBalancersConfig", "/properties/SpotFleetRequestConfigData/OnDemandAllocationStrategy", "/properties/SpotFleetRequestConfigData/OnDemandMaxTotalPrice", "/properties/SpotFleetRequestConfigData/OnDemandTargetCapacity", "/properties/SpotFleetRequestConfigData/ReplaceUnhealthyInstances", "/properties/SpotFleetRequestConfigData/SpotMaintenanceStrategies", "/properties/SpotFleetRequestConfigData/SpotMaxTotalPrice", "/properties/SpotFleetRequestConfigData/SpotPrice", "/properties/SpotFleetRequestConfigData/TagSpecifications", "/properties/SpotFleetRequestConfigData/TerminateInstancesWithExpiration", "/properties/SpotFleetRequestConfigData/Type", "/properties/SpotFleetRequestConfigData/ValidFrom", "/properties/SpotFleetRequestConfigData/ValidUntil" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {

@@ -12,12 +12,7 @@
           "type" : "string"
         },
         "Value" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "maxItems" : 50
-          },
-          "insertionOrder" : false
+          "type" : "string"
         }
       },
       "required" : [ "Value", "Key" ]
@@ -64,7 +59,6 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "CellName" ],
   "readOnlyProperties" : [ "/properties/CellArn", "/properties/ParentReadinessScopes" ],
   "createOnlyProperties" : [ "/properties/CellName" ],
   "primaryIdentifier" : [ "/properties/CellName" ],

@@ -12,12 +12,7 @@
           "type" : "string"
         },
         "Value" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string",
-            "maxItems" : 50
-          },
-          "insertionOrder" : false
+          "type" : "string"
         }
       },
       "required" : [ "Value", "Key" ]
@@ -61,7 +56,6 @@
   "createOnlyProperties" : [ "/properties/RecoveryGroupName" ],
   "readOnlyProperties" : [ "/properties/RecoveryGroupArn" ],
   "primaryIdentifier" : [ "/properties/RecoveryGroupName" ],
-  "required" : [ "RecoveryGroupName" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "route53-recovery-readiness:CreateRecoveryGroup", "route53-recovery-readiness:GetRecoveryGroup", "route53-recovery-readiness:GetCell" ]
