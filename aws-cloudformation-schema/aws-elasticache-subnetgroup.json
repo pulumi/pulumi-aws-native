@@ -1,27 +1,28 @@
 {
   "typeName" : "AWS::ElastiCache::SubnetGroup",
   "description" : "Resource Type definition for AWS::ElastiCache::SubnetGroup",
-  "additionalProperties" : false,
   "properties" : {
     "Description" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The description for the cache subnet group."
     },
     "SubnetIds" : {
+      "description" : "The EC2 subnet IDs for the cache subnet group.",
       "type" : "array",
-      "uniqueItems" : false,
       "items" : {
         "type" : "string"
-      }
+      },
+      "insertionOrder" : false,
+      "uniqueItems" : false
     },
     "CacheSubnetGroupName" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The name for the cache subnet group. This value is stored as a lowercase string."
     },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -30,6 +31,7 @@
   "definitions" : {
     "Tag" : {
       "type" : "object",
+      "description" : "A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.",
       "additionalProperties" : false,
       "properties" : {
         "Value" : {
@@ -43,7 +45,31 @@
     }
   },
   "required" : [ "Description", "SubnetIds" ],
+  "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/CacheSubnetGroupName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/CacheSubnetGroupName" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "elasticache:CreateCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups" ]
+    },
+    "read" : {
+      "permissions" : [ "elasticache:DescribeCacheSubnetGroups", "elasticache:ListTagsForResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "elasticache:DeleteCacheSubnetGroup", "elasticache:DescribeCacheSubnetGroups" ]
+    },
+    "list" : {
+      "permissions" : [ "elasticache:DescribeCacheSubnetGroups" ]
+    },
+    "update" : {
+      "permissions" : [ "elasticache:ModifyCacheSubnetGroup", "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource" ]
+    }
+  }
 }

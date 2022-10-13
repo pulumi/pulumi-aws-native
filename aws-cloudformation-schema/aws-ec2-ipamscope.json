@@ -72,7 +72,6 @@
   "required" : [ "IpamId" ],
   "primaryIdentifier" : [ "/properties/IpamScopeId" ],
   "readOnlyProperties" : [ "/properties/IpamScopeId", "/properties/Arn", "/properties/IpamArn", "/properties/IsDefault", "/properties/PoolCount", "/properties/IpamScopeType" ],
-  "writeOnlyProperties" : [ "/properties/IpamId" ],
   "createOnlyProperties" : [ "/properties/IpamId" ],
   "handlers" : {
     "create" : {
