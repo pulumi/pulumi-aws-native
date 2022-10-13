@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBProxyResult:
-    def __init__(__self__, auth=None, d_b_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, auth=None, d_b_proxy_arn=None, debug_logging=None, endpoint=None, idle_client_timeout=None, require_tls=None, role_arn=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if auth and not isinstance(auth, list):
             raise TypeError("Expected argument 'auth' to be a list")
         pulumi.set(__self__, "auth", auth)
@@ -45,6 +45,9 @@ class GetDBProxyResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
@@ -114,6 +117,14 @@ class GetDBProxyResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        """
+        VPC ID to associate with the new DB proxy.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         """
@@ -136,6 +147,7 @@ class AwaitableGetDBProxyResult(GetDBProxyResult):
             require_tls=self.require_tls,
             role_arn=self.role_arn,
             tags=self.tags,
+            vpc_id=self.vpc_id,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
@@ -161,6 +173,7 @@ def get_db_proxy(d_b_proxy_name: Optional[str] = None,
         require_tls=__ret__.require_tls,
         role_arn=__ret__.role_arn,
         tags=__ret__.tags,
+        vpc_id=__ret__.vpc_id,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
 
 

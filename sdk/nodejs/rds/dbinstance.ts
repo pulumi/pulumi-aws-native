@@ -74,6 +74,16 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+     *  * The profile must exist in your account.
+     *  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+     *  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+     * For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+     *
+     * This setting is required for RDS Custom.
+     */
+    public readonly customIAMInstanceProfile!: pulumi.Output<string | undefined>;
+    /**
      * The identifier of the DB cluster that the instance will belong to.
      */
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
@@ -182,6 +192,14 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly multiAZ!: pulumi.Output<boolean | undefined>;
     /**
+     * The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+     */
+    public readonly ncharCharacterSetName!: pulumi.Output<string | undefined>;
+    /**
+     * The network type of the DB cluster.
+     */
+    public readonly networkType!: pulumi.Output<string | undefined>;
+    /**
      * Indicates that the DB instance should be associated with the specified option group.
      */
     public readonly optionGroupName!: pulumi.Output<string | undefined>;
@@ -278,6 +296,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["cACertificateIdentifier"] = args ? args.cACertificateIdentifier : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["customIAMInstanceProfile"] = args ? args.customIAMInstanceProfile : undefined;
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
             resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
             resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
@@ -305,6 +324,8 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             resourceInputs["multiAZ"] = args ? args.multiAZ : undefined;
+            resourceInputs["ncharCharacterSetName"] = args ? args.ncharCharacterSetName : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["performanceInsightsKMSKeyId"] = args ? args.performanceInsightsKMSKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
@@ -334,6 +355,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["cACertificateIdentifier"] = undefined /*out*/;
             resourceInputs["characterSetName"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
+            resourceInputs["customIAMInstanceProfile"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBInstanceClass"] = undefined /*out*/;
             resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
@@ -361,6 +383,8 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = undefined /*out*/;
             resourceInputs["monitoringRoleArn"] = undefined /*out*/;
             resourceInputs["multiAZ"] = undefined /*out*/;
+            resourceInputs["ncharCharacterSetName"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["optionGroupName"] = undefined /*out*/;
             resourceInputs["performanceInsightsKMSKeyId"] = undefined /*out*/;
             resourceInputs["performanceInsightsRetentionPeriod"] = undefined /*out*/;
@@ -426,6 +450,16 @@ export interface DBInstanceArgs {
      * A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+     *  * The profile must exist in your account.
+     *  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+     *  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+     * For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+     *
+     * This setting is required for RDS Custom.
+     */
+    customIAMInstanceProfile?: pulumi.Input<string>;
     /**
      * The identifier of the DB cluster that the instance will belong to.
      */
@@ -534,6 +568,14 @@ export interface DBInstanceArgs {
      * Specifies whether the database instance is a multiple Availability Zone deployment.
      */
     multiAZ?: pulumi.Input<boolean>;
+    /**
+     * The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+     */
+    ncharCharacterSetName?: pulumi.Input<string>;
+    /**
+     * The network type of the DB cluster.
+     */
+    networkType?: pulumi.Input<string>;
     /**
      * Indicates that the DB instance should be associated with the specified option group.
      */

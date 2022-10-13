@@ -26,9 +26,12 @@ class DBClusterArgs:
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +45,7 @@ class DBClusterArgs:
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -53,6 +57,7 @@ class DBClusterArgs:
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input['DBClusterScalingConfigurationArgs']] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -73,9 +78,12 @@ class DBClusterArgs:
         :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] d_b_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
+        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -91,6 +99,7 @@ class DBClusterArgs:
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] network_type: The network type of the DB cluster.
         :param pulumi.Input[bool] performance_insights_enabled: A value that indicates whether to turn on Performance Insights for the DB cluster.
         :param pulumi.Input[str] performance_insights_kms_key_id: The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
         :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data.
@@ -103,6 +112,7 @@ class DBClusterArgs:
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
         :param pulumi.Input['DBClusterScalingConfigurationArgs'] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+        :param pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         :param pulumi.Input[str] snapshot_identifier: The identifier for the DB snapshot or DB cluster snapshot to restore from.
                You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
                After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -135,12 +145,18 @@ class DBClusterArgs:
             pulumi.set(__self__, "d_b_cluster_instance_class", d_b_cluster_instance_class)
         if d_b_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
+        if d_b_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "d_b_instance_parameter_group_name", d_b_instance_parameter_group_name)
         if d_b_subnet_group_name is not None:
             pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name is not None:
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if enable_http_endpoint is not None:
@@ -167,6 +183,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "monitoring_interval", monitoring_interval)
         if monitoring_role_arn is not None:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if performance_insights_enabled is not None:
             pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
         if performance_insights_kms_key_id is not None:
@@ -189,6 +207,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "restore_type", restore_type)
         if scaling_configuration is not None:
             pulumi.set(__self__, "scaling_configuration", scaling_configuration)
+        if serverless_v2_scaling_configuration is not None:
+            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if source_db_cluster_identifier is not None:
@@ -327,6 +347,18 @@ class DBClusterArgs:
         pulumi.set(self, "d_b_cluster_parameter_group_name", value)
 
     @property
+    @pulumi.getter(name="dBInstanceParameterGroupName")
+    def d_b_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "d_b_instance_parameter_group_name")
+
+    @d_b_instance_parameter_group_name.setter
+    def d_b_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_instance_parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -361,6 +393,30 @@ class DBClusterArgs:
     @deletion_protection.setter
     def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Active Directory directory ID to create the DB cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="domainIAMRoleName")
+    def domain_iam_role_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
+
+    @domain_iam_role_name.setter
+    def domain_iam_role_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_iam_role_name", value)
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
@@ -521,6 +577,18 @@ class DBClusterArgs:
         pulumi.set(self, "monitoring_role_arn", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -652,6 +720,18 @@ class DBClusterArgs:
         pulumi.set(self, "scaling_configuration", value)
 
     @property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']]:
+        """
+        Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
+
+    @serverless_v2_scaling_configuration.setter
+    def serverless_v2_scaling_configuration(self, value: Optional[pulumi.Input['DBClusterServerlessV2ScalingConfigurationArgs']]):
+        pulumi.set(self, "serverless_v2_scaling_configuration", value)
+
+    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -766,9 +846,12 @@ class DBCluster(pulumi.CustomResource):
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
@@ -782,6 +865,7 @@ class DBCluster(pulumi.CustomResource):
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -793,6 +877,7 @@ class DBCluster(pulumi.CustomResource):
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -817,9 +902,12 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] d_b_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] d_b_cluster_instance_class: The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
+        :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
+        :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
+        :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
@@ -835,6 +923,7 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
+        :param pulumi.Input[str] network_type: The network type of the DB cluster.
         :param pulumi.Input[bool] performance_insights_enabled: A value that indicates whether to turn on Performance Insights for the DB cluster.
         :param pulumi.Input[str] performance_insights_kms_key_id: The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
         :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data.
@@ -847,6 +936,7 @@ class DBCluster(pulumi.CustomResource):
                full-copy - The new DB cluster is restored as a full copy of the source DB cluster.
                copy-on-write - The new DB cluster is restored as a clone of the source DB cluster.
         :param pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']] scaling_configuration: The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
+        :param pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']] serverless_v2_scaling_configuration: Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
         :param pulumi.Input[str] snapshot_identifier: The identifier for the DB snapshot or DB cluster snapshot to restore from.
                You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
                After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -893,9 +983,12 @@ class DBCluster(pulumi.CustomResource):
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
+                 domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
@@ -909,6 +1002,7 @@ class DBCluster(pulumi.CustomResource):
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -920,6 +1014,7 @@ class DBCluster(pulumi.CustomResource):
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
                  restore_type: Optional[pulumi.Input[str]] = None,
                  scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterScalingConfigurationArgs']]] = None,
+                 serverless_v2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['DBClusterServerlessV2ScalingConfigurationArgs']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -947,9 +1042,12 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
             __props__.__dict__["d_b_cluster_instance_class"] = d_b_cluster_instance_class
             __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
+            __props__.__dict__["d_b_instance_parameter_group_name"] = d_b_instance_parameter_group_name
             __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["deletion_protection"] = deletion_protection
+            __props__.__dict__["domain"] = domain
+            __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
@@ -963,6 +1061,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
             __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
@@ -974,6 +1073,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_type"] = restore_type
             __props__.__dict__["scaling_configuration"] = scaling_configuration
+            __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["source_region"] = source_region
@@ -982,6 +1082,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["d_b_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
         super(DBCluster, __self__).__init__(
             'aws-native:rds:DBCluster',
@@ -1015,9 +1116,13 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_cluster_instance_class"] = None
         __props__.__dict__["d_b_cluster_parameter_group_name"] = None
+        __props__.__dict__["d_b_cluster_resource_id"] = None
+        __props__.__dict__["d_b_instance_parameter_group_name"] = None
         __props__.__dict__["d_b_subnet_group_name"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["deletion_protection"] = None
+        __props__.__dict__["domain"] = None
+        __props__.__dict__["domain_iam_role_name"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
         __props__.__dict__["enable_http_endpoint"] = None
         __props__.__dict__["enable_iam_database_authentication"] = None
@@ -1032,6 +1137,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["master_username"] = None
         __props__.__dict__["monitoring_interval"] = None
         __props__.__dict__["monitoring_role_arn"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["performance_insights_enabled"] = None
         __props__.__dict__["performance_insights_kms_key_id"] = None
         __props__.__dict__["performance_insights_retention_period"] = None
@@ -1043,6 +1149,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["replication_source_identifier"] = None
         __props__.__dict__["restore_type"] = None
         __props__.__dict__["scaling_configuration"] = None
+        __props__.__dict__["serverless_v2_scaling_configuration"] = None
         __props__.__dict__["snapshot_identifier"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["source_region"] = None
@@ -1134,6 +1241,22 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
+    @pulumi.getter(name="dBClusterResourceId")
+    def d_b_cluster_resource_id(self) -> pulumi.Output[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB cluster.
+        """
+        return pulumi.get(self, "d_b_cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="dBInstanceParameterGroupName")
+    def d_b_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the DB parameter group to apply to all instances of the DB cluster.
+        """
+        return pulumi.get(self, "d_b_instance_parameter_group_name")
+
+    @property
     @pulumi.getter(name="dBSubnetGroupName")
     def d_b_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1156,6 +1279,22 @@ class DBCluster(pulumi.CustomResource):
         A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Active Directory directory ID to create the DB cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainIAMRoleName")
+    def domain_iam_role_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
@@ -1269,6 +1408,14 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -1354,6 +1501,14 @@ class DBCluster(pulumi.CustomResource):
         The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
         """
         return pulumi.get(self, "scaling_configuration")
+
+    @property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> pulumi.Output[Optional['outputs.DBClusterServerlessV2ScalingConfiguration']]:
+        """
+        Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
 
     @property
     @pulumi.getter(name="snapshotIdentifier")

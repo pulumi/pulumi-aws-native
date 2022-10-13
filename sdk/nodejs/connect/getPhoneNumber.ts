@@ -42,7 +42,7 @@ export interface GetPhoneNumberResult {
      */
     readonly tags?: outputs.connect.PhoneNumberTag[];
     /**
-     * The ARN of the Amazon Connect instance the phone number is claimed to.
+     * The ARN of the target the phone number is claimed to.
      */
     readonly targetArn?: string;
 }

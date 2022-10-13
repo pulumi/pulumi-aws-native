@@ -45,6 +45,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     public readonly allowedOAuthFlowsUserPoolClient!: pulumi.Output<boolean | undefined>;
     public readonly allowedOAuthScopes!: pulumi.Output<string[] | undefined>;
     public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
+    public readonly authSessionValidity!: pulumi.Output<number | undefined>;
     public readonly callbackURLs!: pulumi.Output<string[] | undefined>;
     public readonly clientName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
@@ -85,6 +86,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["allowedOAuthFlowsUserPoolClient"] = args ? args.allowedOAuthFlowsUserPoolClient : undefined;
             resourceInputs["allowedOAuthScopes"] = args ? args.allowedOAuthScopes : undefined;
             resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
+            resourceInputs["authSessionValidity"] = args ? args.authSessionValidity : undefined;
             resourceInputs["callbackURLs"] = args ? args.callbackURLs : undefined;
             resourceInputs["clientName"] = args ? args.clientName : undefined;
             resourceInputs["defaultRedirectURI"] = args ? args.defaultRedirectURI : undefined;
@@ -109,6 +111,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["allowedOAuthFlowsUserPoolClient"] = undefined /*out*/;
             resourceInputs["allowedOAuthScopes"] = undefined /*out*/;
             resourceInputs["analyticsConfiguration"] = undefined /*out*/;
+            resourceInputs["authSessionValidity"] = undefined /*out*/;
             resourceInputs["callbackURLs"] = undefined /*out*/;
             resourceInputs["clientName"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
@@ -142,6 +145,7 @@ export interface UserPoolClientArgs {
     allowedOAuthFlowsUserPoolClient?: pulumi.Input<boolean>;
     allowedOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfigurationArgs>;
+    authSessionValidity?: pulumi.Input<number>;
     callbackURLs?: pulumi.Input<pulumi.Input<string>[]>;
     clientName?: pulumi.Input<string>;
     defaultRedirectURI?: pulumi.Input<string>;

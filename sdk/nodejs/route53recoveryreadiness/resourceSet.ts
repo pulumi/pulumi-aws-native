@@ -44,7 +44,7 @@ export class ResourceSet extends pulumi.CustomResource {
     /**
      * The name of the resource set to create.
      */
-    public readonly resourceSetName!: pulumi.Output<string>;
+    public readonly resourceSetName!: pulumi.Output<string | undefined>;
     /**
      * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
      *

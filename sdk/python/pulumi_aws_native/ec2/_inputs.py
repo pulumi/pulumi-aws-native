@@ -7016,6 +7016,7 @@ class SpotFleetRequestConfigDataArgs:
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetSpotMaintenanceStrategiesArgs']] = None,
                  spot_max_total_price: Optional[pulumi.Input[str]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]]] = None,
                  target_capacity_unit_type: Optional[pulumi.Input['SpotFleetRequestConfigDataTargetCapacityUnitType']] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input['SpotFleetRequestConfigDataType']] = None,
@@ -7053,6 +7054,8 @@ class SpotFleetRequestConfigDataArgs:
             pulumi.set(__self__, "spot_max_total_price", spot_max_total_price)
         if spot_price is not None:
             pulumi.set(__self__, "spot_price", spot_price)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
         if target_capacity_unit_type is not None:
             pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
         if terminate_instances_with_expiration is not None:
@@ -7216,6 +7219,15 @@ class SpotFleetRequestConfigDataArgs:
     @spot_price.setter
     def spot_price(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "spot_price", value)
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]]]:
+        return pulumi.get(self, "tag_specifications")
+
+    @tag_specifications.setter
+    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]]]):
+        pulumi.set(self, "tag_specifications", value)
 
     @property
     @pulumi.getter(name="targetCapacityUnitType")

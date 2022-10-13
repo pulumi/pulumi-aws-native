@@ -25,24 +25,26 @@ type LookupJobArgs struct {
 }
 
 type LookupJobResult struct {
-	AllocatedCapacity     *float64                 `pulumi:"allocatedCapacity"`
-	Command               *JobCommand              `pulumi:"command"`
-	Connections           *JobConnectionsList      `pulumi:"connections"`
-	DefaultArguments      interface{}              `pulumi:"defaultArguments"`
-	Description           *string                  `pulumi:"description"`
-	ExecutionProperty     *JobExecutionProperty    `pulumi:"executionProperty"`
-	GlueVersion           *string                  `pulumi:"glueVersion"`
-	Id                    *string                  `pulumi:"id"`
-	LogUri                *string                  `pulumi:"logUri"`
-	MaxCapacity           *float64                 `pulumi:"maxCapacity"`
-	MaxRetries            *float64                 `pulumi:"maxRetries"`
-	NotificationProperty  *JobNotificationProperty `pulumi:"notificationProperty"`
-	NumberOfWorkers       *int                     `pulumi:"numberOfWorkers"`
-	Role                  *string                  `pulumi:"role"`
-	SecurityConfiguration *string                  `pulumi:"securityConfiguration"`
-	Tags                  interface{}              `pulumi:"tags"`
-	Timeout               *int                     `pulumi:"timeout"`
-	WorkerType            *string                  `pulumi:"workerType"`
+	AllocatedCapacity       *float64                 `pulumi:"allocatedCapacity"`
+	Command                 *JobCommand              `pulumi:"command"`
+	Connections             *JobConnectionsList      `pulumi:"connections"`
+	DefaultArguments        interface{}              `pulumi:"defaultArguments"`
+	Description             *string                  `pulumi:"description"`
+	ExecutionClass          *string                  `pulumi:"executionClass"`
+	ExecutionProperty       *JobExecutionProperty    `pulumi:"executionProperty"`
+	GlueVersion             *string                  `pulumi:"glueVersion"`
+	Id                      *string                  `pulumi:"id"`
+	LogUri                  *string                  `pulumi:"logUri"`
+	MaxCapacity             *float64                 `pulumi:"maxCapacity"`
+	MaxRetries              *float64                 `pulumi:"maxRetries"`
+	NonOverridableArguments interface{}              `pulumi:"nonOverridableArguments"`
+	NotificationProperty    *JobNotificationProperty `pulumi:"notificationProperty"`
+	NumberOfWorkers         *int                     `pulumi:"numberOfWorkers"`
+	Role                    *string                  `pulumi:"role"`
+	SecurityConfiguration   *string                  `pulumi:"securityConfiguration"`
+	Tags                    interface{}              `pulumi:"tags"`
+	Timeout                 *int                     `pulumi:"timeout"`
+	WorkerType              *string                  `pulumi:"workerType"`
 }
 
 func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulumi.InvokeOption) LookupJobResultOutput {
@@ -100,6 +102,10 @@ func (o LookupJobResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupJobResultOutput) ExecutionClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupJobResult) *string { return v.ExecutionClass }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupJobResultOutput) ExecutionProperty() JobExecutionPropertyPtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *JobExecutionProperty { return v.ExecutionProperty }).(JobExecutionPropertyPtrOutput)
 }
@@ -122,6 +128,10 @@ func (o LookupJobResultOutput) MaxCapacity() pulumi.Float64PtrOutput {
 
 func (o LookupJobResultOutput) MaxRetries() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupJobResult) *float64 { return v.MaxRetries }).(pulumi.Float64PtrOutput)
+}
+
+func (o LookupJobResultOutput) NonOverridableArguments() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobResult) interface{} { return v.NonOverridableArguments }).(pulumi.AnyOutput)
 }
 
 func (o LookupJobResultOutput) NotificationProperty() JobNotificationPropertyPtrOutput {

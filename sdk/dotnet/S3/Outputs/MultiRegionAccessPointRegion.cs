@@ -13,16 +13,11 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class MultiRegionAccessPointRegion
     {
-        public readonly string? AccountId;
         public readonly string Bucket;
 
         [OutputConstructor]
-        private MultiRegionAccessPointRegion(
-            string? accountId,
-
-            string bucket)
+        private MultiRegionAccessPointRegion(string bucket)
         {
-            AccountId = accountId;
             Bucket = bucket;
         }
     }

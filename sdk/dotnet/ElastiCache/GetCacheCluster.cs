@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly int? SnapshotRetentionLimit;
         public readonly string? SnapshotWindow;
         public readonly ImmutableArray<Outputs.CacheClusterTag> Tags;
+        public readonly bool? TransitEncryptionEnabled;
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
 
         [OutputConstructor]
@@ -115,6 +116,8 @@ namespace Pulumi.AwsNative.ElastiCache
 
             ImmutableArray<Outputs.CacheClusterTag> tags,
 
+            bool? transitEncryptionEnabled,
+
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             AZMode = aZMode;
@@ -137,6 +140,7 @@ namespace Pulumi.AwsNative.ElastiCache
             SnapshotRetentionLimit = snapshotRetentionLimit;
             SnapshotWindow = snapshotWindow;
             Tags = tags;
+            TransitEncryptionEnabled = transitEncryptionEnabled;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }
     }

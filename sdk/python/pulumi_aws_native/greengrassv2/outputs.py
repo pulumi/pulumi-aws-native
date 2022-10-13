@@ -20,6 +20,16 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSource',
     'ComponentVersionLambdaLinuxProcessParams',
     'ComponentVersionLambdaVolumeMount',
+    'DeploymentComponentUpdatePolicy',
+    'DeploymentConfigurationValidationPolicy',
+    'DeploymentIoTJobAbortConfig',
+    'DeploymentIoTJobAbortCriteria',
+    'DeploymentIoTJobConfiguration',
+    'DeploymentIoTJobExecutionsRolloutConfig',
+    'DeploymentIoTJobExponentialRolloutRate',
+    'DeploymentIoTJobRateIncreaseCriteria',
+    'DeploymentIoTJobTimeoutConfig',
+    'DeploymentPolicies',
 ]
 
 @pulumi.output_type
@@ -470,5 +480,379 @@ class ComponentVersionLambdaVolumeMount(dict):
     @pulumi.getter(name="sourcePath")
     def source_path(self) -> Optional[str]:
         return pulumi.get(self, "source_path")
+
+
+@pulumi.output_type
+class DeploymentComponentUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentComponentUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentComponentUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentComponentUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional['DeploymentComponentUpdatePolicyAction'] = None,
+                 timeout_in_seconds: Optional[int] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['DeploymentComponentUpdatePolicyAction']:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+
+@pulumi.output_type
+class DeploymentConfigurationValidationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutInSeconds":
+            suggest = "timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationValidationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfigurationValidationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfigurationValidationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timeout_in_seconds: Optional[int] = None):
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+
+@pulumi.output_type
+class DeploymentIoTJobAbortConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "criteriaList":
+            suggest = "criteria_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobAbortConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobAbortConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobAbortConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 criteria_list: Sequence['outputs.DeploymentIoTJobAbortCriteria']):
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> Sequence['outputs.DeploymentIoTJobAbortCriteria']:
+        return pulumi.get(self, "criteria_list")
+
+
+@pulumi.output_type
+class DeploymentIoTJobAbortCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureType":
+            suggest = "failure_type"
+        elif key == "minNumberOfExecutedThings":
+            suggest = "min_number_of_executed_things"
+        elif key == "thresholdPercentage":
+            suggest = "threshold_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobAbortCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobAbortCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobAbortCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'DeploymentIoTJobAbortCriteriaAction',
+                 failure_type: 'DeploymentIoTJobAbortCriteriaFailureType',
+                 min_number_of_executed_things: int,
+                 threshold_percentage: float):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'DeploymentIoTJobAbortCriteriaAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> 'DeploymentIoTJobAbortCriteriaFailureType':
+        return pulumi.get(self, "failure_type")
+
+    @property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> int:
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> float:
+        return pulumi.get(self, "threshold_percentage")
+
+
+@pulumi.output_type
+class DeploymentIoTJobConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "abortConfig":
+            suggest = "abort_config"
+        elif key == "jobExecutionsRolloutConfig":
+            suggest = "job_executions_rollout_config"
+        elif key == "timeoutConfig":
+            suggest = "timeout_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 abort_config: Optional['outputs.DeploymentIoTJobAbortConfig'] = None,
+                 job_executions_rollout_config: Optional['outputs.DeploymentIoTJobExecutionsRolloutConfig'] = None,
+                 timeout_config: Optional['outputs.DeploymentIoTJobTimeoutConfig'] = None):
+        if abort_config is not None:
+            pulumi.set(__self__, "abort_config", abort_config)
+        if job_executions_rollout_config is not None:
+            pulumi.set(__self__, "job_executions_rollout_config", job_executions_rollout_config)
+        if timeout_config is not None:
+            pulumi.set(__self__, "timeout_config", timeout_config)
+
+    @property
+    @pulumi.getter(name="abortConfig")
+    def abort_config(self) -> Optional['outputs.DeploymentIoTJobAbortConfig']:
+        return pulumi.get(self, "abort_config")
+
+    @property
+    @pulumi.getter(name="jobExecutionsRolloutConfig")
+    def job_executions_rollout_config(self) -> Optional['outputs.DeploymentIoTJobExecutionsRolloutConfig']:
+        return pulumi.get(self, "job_executions_rollout_config")
+
+    @property
+    @pulumi.getter(name="timeoutConfig")
+    def timeout_config(self) -> Optional['outputs.DeploymentIoTJobTimeoutConfig']:
+        return pulumi.get(self, "timeout_config")
+
+
+@pulumi.output_type
+class DeploymentIoTJobExecutionsRolloutConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exponentialRate":
+            suggest = "exponential_rate"
+        elif key == "maximumPerMinute":
+            suggest = "maximum_per_minute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobExecutionsRolloutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobExecutionsRolloutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobExecutionsRolloutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exponential_rate: Optional['outputs.DeploymentIoTJobExponentialRolloutRate'] = None,
+                 maximum_per_minute: Optional[int] = None):
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> Optional['outputs.DeploymentIoTJobExponentialRolloutRate']:
+        return pulumi.get(self, "exponential_rate")
+
+    @property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_per_minute")
+
+
+@pulumi.output_type
+class DeploymentIoTJobExponentialRolloutRate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseRatePerMinute":
+            suggest = "base_rate_per_minute"
+        elif key == "incrementFactor":
+            suggest = "increment_factor"
+        elif key == "rateIncreaseCriteria":
+            suggest = "rate_increase_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobExponentialRolloutRate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobExponentialRolloutRate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobExponentialRolloutRate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_rate_per_minute: int,
+                 increment_factor: float,
+                 rate_increase_criteria: 'outputs.DeploymentIoTJobRateIncreaseCriteria'):
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> int:
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> float:
+        return pulumi.get(self, "increment_factor")
+
+    @property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> 'outputs.DeploymentIoTJobRateIncreaseCriteria':
+        return pulumi.get(self, "rate_increase_criteria")
+
+
+@pulumi.output_type
+class DeploymentIoTJobRateIncreaseCriteria(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class DeploymentIoTJobTimeoutConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inProgressTimeoutInMinutes":
+            suggest = "in_progress_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentIoTJobTimeoutConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentIoTJobTimeoutConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentIoTJobTimeoutConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: Optional[int] = None):
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+
+@pulumi.output_type
+class DeploymentPolicies(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentUpdatePolicy":
+            suggest = "component_update_policy"
+        elif key == "configurationValidationPolicy":
+            suggest = "configuration_validation_policy"
+        elif key == "failureHandlingPolicy":
+            suggest = "failure_handling_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentPolicies. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentPolicies.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentPolicies.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_update_policy: Optional['outputs.DeploymentComponentUpdatePolicy'] = None,
+                 configuration_validation_policy: Optional['outputs.DeploymentConfigurationValidationPolicy'] = None,
+                 failure_handling_policy: Optional['DeploymentPoliciesFailureHandlingPolicy'] = None):
+        if component_update_policy is not None:
+            pulumi.set(__self__, "component_update_policy", component_update_policy)
+        if configuration_validation_policy is not None:
+            pulumi.set(__self__, "configuration_validation_policy", configuration_validation_policy)
+        if failure_handling_policy is not None:
+            pulumi.set(__self__, "failure_handling_policy", failure_handling_policy)
+
+    @property
+    @pulumi.getter(name="componentUpdatePolicy")
+    def component_update_policy(self) -> Optional['outputs.DeploymentComponentUpdatePolicy']:
+        return pulumi.get(self, "component_update_policy")
+
+    @property
+    @pulumi.getter(name="configurationValidationPolicy")
+    def configuration_validation_policy(self) -> Optional['outputs.DeploymentConfigurationValidationPolicy']:
+        return pulumi.get(self, "configuration_validation_policy")
+
+    @property
+    @pulumi.getter(name="failureHandlingPolicy")
+    def failure_handling_policy(self) -> Optional['DeploymentPoliciesFailureHandlingPolicy']:
+        return pulumi.get(self, "failure_handling_policy")
 
 

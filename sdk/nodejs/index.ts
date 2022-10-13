@@ -157,6 +157,7 @@ import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
 import * as healthlake from "./healthlake";
 import * as iam from "./iam";
+import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspectorv2 from "./inspectorv2";
@@ -166,6 +167,7 @@ import * as iotanalytics from "./iotanalytics";
 import * as iotcoredeviceadvisor from "./iotcoredeviceadvisor";
 import * as iotevents from "./iotevents";
 import * as iotfleethub from "./iotfleethub";
+import * as iotfleetwise from "./iotfleetwise";
 import * as iotsitewise from "./iotsitewise";
 import * as iotthingsgraph from "./iotthingsgraph";
 import * as iottwinmaker from "./iottwinmaker";
@@ -358,6 +360,7 @@ export {
     guardduty,
     healthlake,
     iam,
+    identitystore,
     imagebuilder,
     inspector,
     inspectorv2,
@@ -367,6 +370,7 @@ export {
     iotcoredeviceadvisor,
     iotevents,
     iotfleethub,
+    iotfleetwise,
     iotsitewise,
     iotthingsgraph,
     iottwinmaker,

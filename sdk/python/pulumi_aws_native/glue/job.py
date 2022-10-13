@@ -22,12 +22,14 @@ class JobArgs:
                  connections: Optional[pulumi.Input['JobConnectionsListArgs']] = None,
                  default_arguments: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_overridable_arguments: Optional[Any] = None,
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -47,6 +49,8 @@ class JobArgs:
             pulumi.set(__self__, "default_arguments", default_arguments)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if execution_class is not None:
+            pulumi.set(__self__, "execution_class", execution_class)
         if execution_property is not None:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
@@ -59,6 +63,8 @@ class JobArgs:
             pulumi.set(__self__, "max_retries", max_retries)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if non_overridable_arguments is not None:
+            pulumi.set(__self__, "non_overridable_arguments", non_overridable_arguments)
         if notification_property is not None:
             pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
@@ -127,6 +133,15 @@ class JobArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_class")
+
+    @execution_class.setter
+    def execution_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_class", value)
+
+    @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> Optional[pulumi.Input['JobExecutionPropertyArgs']]:
         return pulumi.get(self, "execution_property")
@@ -179,6 +194,15 @@ class JobArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nonOverridableArguments")
+    def non_overridable_arguments(self) -> Optional[Any]:
+        return pulumi.get(self, "non_overridable_arguments")
+
+    @non_overridable_arguments.setter
+    def non_overridable_arguments(self, value: Optional[Any]):
+        pulumi.set(self, "non_overridable_arguments", value)
 
     @property
     @pulumi.getter(name="notificationProperty")
@@ -250,12 +274,14 @@ class Job(pulumi.CustomResource):
                  connections: Optional[pulumi.Input[pulumi.InputType['JobConnectionsListArgs']]] = None,
                  default_arguments: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_overridable_arguments: Optional[Any] = None,
                  notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -299,12 +325,14 @@ class Job(pulumi.CustomResource):
                  connections: Optional[pulumi.Input[pulumi.InputType['JobConnectionsListArgs']]] = None,
                  default_arguments: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 non_overridable_arguments: Optional[Any] = None,
                  notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
@@ -329,12 +357,14 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["connections"] = connections
             __props__.__dict__["default_arguments"] = default_arguments
             __props__.__dict__["description"] = description
+            __props__.__dict__["execution_class"] = execution_class
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
             __props__.__dict__["log_uri"] = log_uri
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
+            __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
             __props__.__dict__["notification_property"] = notification_property
             __props__.__dict__["number_of_workers"] = number_of_workers
             if role is None and not opts.urn:
@@ -371,12 +401,14 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["connections"] = None
         __props__.__dict__["default_arguments"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["execution_class"] = None
         __props__.__dict__["execution_property"] = None
         __props__.__dict__["glue_version"] = None
         __props__.__dict__["log_uri"] = None
         __props__.__dict__["max_capacity"] = None
         __props__.__dict__["max_retries"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["non_overridable_arguments"] = None
         __props__.__dict__["notification_property"] = None
         __props__.__dict__["number_of_workers"] = None
         __props__.__dict__["role"] = None
@@ -412,6 +444,11 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "execution_class")
+
+    @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> pulumi.Output[Optional['outputs.JobExecutionProperty']]:
         return pulumi.get(self, "execution_property")
@@ -440,6 +477,11 @@ class Job(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nonOverridableArguments")
+    def non_overridable_arguments(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "non_overridable_arguments")
 
     @property
     @pulumi.getter(name="notificationProperty")

@@ -1263,6 +1263,1428 @@ func (o ComponentVersionLambdaVolumeMountArrayOutput) Index(i pulumi.IntInput) C
 	}).(ComponentVersionLambdaVolumeMountOutput)
 }
 
+type DeploymentComponentUpdatePolicy struct {
+	Action           *DeploymentComponentUpdatePolicyAction `pulumi:"action"`
+	TimeoutInSeconds *int                                   `pulumi:"timeoutInSeconds"`
+}
+
+// DeploymentComponentUpdatePolicyInput is an input type that accepts DeploymentComponentUpdatePolicyArgs and DeploymentComponentUpdatePolicyOutput values.
+// You can construct a concrete instance of `DeploymentComponentUpdatePolicyInput` via:
+//
+//	DeploymentComponentUpdatePolicyArgs{...}
+type DeploymentComponentUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentUpdatePolicyOutput() DeploymentComponentUpdatePolicyOutput
+	ToDeploymentComponentUpdatePolicyOutputWithContext(context.Context) DeploymentComponentUpdatePolicyOutput
+}
+
+type DeploymentComponentUpdatePolicyArgs struct {
+	Action           DeploymentComponentUpdatePolicyActionPtrInput `pulumi:"action"`
+	TimeoutInSeconds pulumi.IntPtrInput                            `pulumi:"timeoutInSeconds"`
+}
+
+func (DeploymentComponentUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentUpdatePolicy)(nil)).Elem()
+}
+
+func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyOutput() DeploymentComponentUpdatePolicyOutput {
+	return i.ToDeploymentComponentUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentUpdatePolicyOutput)
+}
+
+func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput {
+	return i.ToDeploymentComponentUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentUpdatePolicyOutput).ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// DeploymentComponentUpdatePolicyPtrInput is an input type that accepts DeploymentComponentUpdatePolicyArgs, DeploymentComponentUpdatePolicyPtr and DeploymentComponentUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `DeploymentComponentUpdatePolicyPtrInput` via:
+//
+//	        DeploymentComponentUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentComponentUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput
+	ToDeploymentComponentUpdatePolicyPtrOutputWithContext(context.Context) DeploymentComponentUpdatePolicyPtrOutput
+}
+
+type deploymentComponentUpdatePolicyPtrType DeploymentComponentUpdatePolicyArgs
+
+func DeploymentComponentUpdatePolicyPtr(v *DeploymentComponentUpdatePolicyArgs) DeploymentComponentUpdatePolicyPtrInput {
+	return (*deploymentComponentUpdatePolicyPtrType)(v)
+}
+
+func (*deploymentComponentUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentUpdatePolicy)(nil)).Elem()
+}
+
+func (i *deploymentComponentUpdatePolicyPtrType) ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput {
+	return i.ToDeploymentComponentUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentComponentUpdatePolicyPtrType) ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentUpdatePolicyPtrOutput)
+}
+
+type DeploymentComponentUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentUpdatePolicy)(nil)).Elem()
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) ToDeploymentComponentUpdatePolicyOutput() DeploymentComponentUpdatePolicyOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) ToDeploymentComponentUpdatePolicyOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput {
+	return o.ToDeploymentComponentUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentComponentUpdatePolicy) *DeploymentComponentUpdatePolicy {
+		return &v
+	}).(DeploymentComponentUpdatePolicyPtrOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) Action() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentUpdatePolicy) *DeploymentComponentUpdatePolicyAction { return v.Action }).(DeploymentComponentUpdatePolicyActionPtrOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentComponentUpdatePolicy) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentComponentUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentUpdatePolicy)(nil)).Elem()
+}
+
+func (o DeploymentComponentUpdatePolicyPtrOutput) ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyPtrOutput) ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyPtrOutput) Elem() DeploymentComponentUpdatePolicyOutput {
+	return o.ApplyT(func(v *DeploymentComponentUpdatePolicy) DeploymentComponentUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentComponentUpdatePolicy
+		return ret
+	}).(DeploymentComponentUpdatePolicyOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyPtrOutput) Action() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentUpdatePolicy) *DeploymentComponentUpdatePolicyAction {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(DeploymentComponentUpdatePolicyActionPtrOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentComponentUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigurationValidationPolicy struct {
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+}
+
+// DeploymentConfigurationValidationPolicyInput is an input type that accepts DeploymentConfigurationValidationPolicyArgs and DeploymentConfigurationValidationPolicyOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationValidationPolicyInput` via:
+//
+//	DeploymentConfigurationValidationPolicyArgs{...}
+type DeploymentConfigurationValidationPolicyInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationValidationPolicyOutput() DeploymentConfigurationValidationPolicyOutput
+	ToDeploymentConfigurationValidationPolicyOutputWithContext(context.Context) DeploymentConfigurationValidationPolicyOutput
+}
+
+type DeploymentConfigurationValidationPolicyArgs struct {
+	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+}
+
+func (DeploymentConfigurationValidationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationValidationPolicy)(nil)).Elem()
+}
+
+func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationValidationPolicyOutput() DeploymentConfigurationValidationPolicyOutput {
+	return i.ToDeploymentConfigurationValidationPolicyOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationValidationPolicyOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationValidationPolicyOutput)
+}
+
+func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput {
+	return i.ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationValidationPolicyOutput).ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigurationValidationPolicyPtrInput is an input type that accepts DeploymentConfigurationValidationPolicyArgs, DeploymentConfigurationValidationPolicyPtr and DeploymentConfigurationValidationPolicyPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigurationValidationPolicyPtrInput` via:
+//
+//	        DeploymentConfigurationValidationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigurationValidationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput
+	ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(context.Context) DeploymentConfigurationValidationPolicyPtrOutput
+}
+
+type deploymentConfigurationValidationPolicyPtrType DeploymentConfigurationValidationPolicyArgs
+
+func DeploymentConfigurationValidationPolicyPtr(v *DeploymentConfigurationValidationPolicyArgs) DeploymentConfigurationValidationPolicyPtrInput {
+	return (*deploymentConfigurationValidationPolicyPtrType)(v)
+}
+
+func (*deploymentConfigurationValidationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigurationValidationPolicy)(nil)).Elem()
+}
+
+func (i *deploymentConfigurationValidationPolicyPtrType) ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput {
+	return i.ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigurationValidationPolicyPtrType) ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationValidationPolicyPtrOutput)
+}
+
+type DeploymentConfigurationValidationPolicyOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationValidationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigurationValidationPolicy)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationValidationPolicyOutput) ToDeploymentConfigurationValidationPolicyOutput() DeploymentConfigurationValidationPolicyOutput {
+	return o
+}
+
+func (o DeploymentConfigurationValidationPolicyOutput) ToDeploymentConfigurationValidationPolicyOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyOutput {
+	return o
+}
+
+func (o DeploymentConfigurationValidationPolicyOutput) ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput {
+	return o.ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigurationValidationPolicyOutput) ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigurationValidationPolicy) *DeploymentConfigurationValidationPolicy {
+		return &v
+	}).(DeploymentConfigurationValidationPolicyPtrOutput)
+}
+
+func (o DeploymentConfigurationValidationPolicyOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigurationValidationPolicy) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigurationValidationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigurationValidationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigurationValidationPolicy)(nil)).Elem()
+}
+
+func (o DeploymentConfigurationValidationPolicyPtrOutput) ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationValidationPolicyPtrOutput) ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigurationValidationPolicyPtrOutput) Elem() DeploymentConfigurationValidationPolicyOutput {
+	return o.ApplyT(func(v *DeploymentConfigurationValidationPolicy) DeploymentConfigurationValidationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigurationValidationPolicy
+		return ret
+	}).(DeploymentConfigurationValidationPolicyOutput)
+}
+
+func (o DeploymentConfigurationValidationPolicyPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigurationValidationPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentIoTJobAbortConfig struct {
+	CriteriaList []DeploymentIoTJobAbortCriteria `pulumi:"criteriaList"`
+}
+
+// DeploymentIoTJobAbortConfigInput is an input type that accepts DeploymentIoTJobAbortConfigArgs and DeploymentIoTJobAbortConfigOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortConfigInput` via:
+//
+//	DeploymentIoTJobAbortConfigArgs{...}
+type DeploymentIoTJobAbortConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortConfigOutput() DeploymentIoTJobAbortConfigOutput
+	ToDeploymentIoTJobAbortConfigOutputWithContext(context.Context) DeploymentIoTJobAbortConfigOutput
+}
+
+type DeploymentIoTJobAbortConfigArgs struct {
+	CriteriaList DeploymentIoTJobAbortCriteriaArrayInput `pulumi:"criteriaList"`
+}
+
+func (DeploymentIoTJobAbortConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortConfig)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigOutput() DeploymentIoTJobAbortConfigOutput {
+	return i.ToDeploymentIoTJobAbortConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortConfigOutput)
+}
+
+func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput {
+	return i.ToDeploymentIoTJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortConfigOutput).ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobAbortConfigPtrInput is an input type that accepts DeploymentIoTJobAbortConfigArgs, DeploymentIoTJobAbortConfigPtr and DeploymentIoTJobAbortConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortConfigPtrInput` via:
+//
+//	        DeploymentIoTJobAbortConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobAbortConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput
+	ToDeploymentIoTJobAbortConfigPtrOutputWithContext(context.Context) DeploymentIoTJobAbortConfigPtrOutput
+}
+
+type deploymentIoTJobAbortConfigPtrType DeploymentIoTJobAbortConfigArgs
+
+func DeploymentIoTJobAbortConfigPtr(v *DeploymentIoTJobAbortConfigArgs) DeploymentIoTJobAbortConfigPtrInput {
+	return (*deploymentIoTJobAbortConfigPtrType)(v)
+}
+
+func (*deploymentIoTJobAbortConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobAbortConfig)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobAbortConfigPtrType) ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput {
+	return i.ToDeploymentIoTJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobAbortConfigPtrType) ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortConfigPtrOutput)
+}
+
+type DeploymentIoTJobAbortConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigOutput() DeploymentIoTJobAbortConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput {
+	return o.ToDeploymentIoTJobAbortConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobAbortConfig) *DeploymentIoTJobAbortConfig {
+		return &v
+	}).(DeploymentIoTJobAbortConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobAbortConfigOutput) CriteriaList() DeploymentIoTJobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v DeploymentIoTJobAbortConfig) []DeploymentIoTJobAbortCriteria { return v.CriteriaList }).(DeploymentIoTJobAbortCriteriaArrayOutput)
+}
+
+type DeploymentIoTJobAbortConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobAbortConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortConfigPtrOutput) ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortConfigPtrOutput) ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortConfigPtrOutput) Elem() DeploymentIoTJobAbortConfigOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobAbortConfig) DeploymentIoTJobAbortConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobAbortConfig
+		return ret
+	}).(DeploymentIoTJobAbortConfigOutput)
+}
+
+func (o DeploymentIoTJobAbortConfigPtrOutput) CriteriaList() DeploymentIoTJobAbortCriteriaArrayOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobAbortConfig) []DeploymentIoTJobAbortCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.CriteriaList
+	}).(DeploymentIoTJobAbortCriteriaArrayOutput)
+}
+
+type DeploymentIoTJobAbortCriteria struct {
+	Action                    DeploymentIoTJobAbortCriteriaAction      `pulumi:"action"`
+	FailureType               DeploymentIoTJobAbortCriteriaFailureType `pulumi:"failureType"`
+	MinNumberOfExecutedThings int                                      `pulumi:"minNumberOfExecutedThings"`
+	ThresholdPercentage       float64                                  `pulumi:"thresholdPercentage"`
+}
+
+// DeploymentIoTJobAbortCriteriaInput is an input type that accepts DeploymentIoTJobAbortCriteriaArgs and DeploymentIoTJobAbortCriteriaOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaInput` via:
+//
+//	DeploymentIoTJobAbortCriteriaArgs{...}
+type DeploymentIoTJobAbortCriteriaInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaOutput() DeploymentIoTJobAbortCriteriaOutput
+	ToDeploymentIoTJobAbortCriteriaOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaOutput
+}
+
+type DeploymentIoTJobAbortCriteriaArgs struct {
+	Action                    DeploymentIoTJobAbortCriteriaActionInput      `pulumi:"action"`
+	FailureType               DeploymentIoTJobAbortCriteriaFailureTypeInput `pulumi:"failureType"`
+	MinNumberOfExecutedThings pulumi.IntInput                               `pulumi:"minNumberOfExecutedThings"`
+	ThresholdPercentage       pulumi.Float64Input                           `pulumi:"thresholdPercentage"`
+}
+
+func (DeploymentIoTJobAbortCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteria)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobAbortCriteriaArgs) ToDeploymentIoTJobAbortCriteriaOutput() DeploymentIoTJobAbortCriteriaOutput {
+	return i.ToDeploymentIoTJobAbortCriteriaOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobAbortCriteriaArgs) ToDeploymentIoTJobAbortCriteriaOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortCriteriaOutput)
+}
+
+// DeploymentIoTJobAbortCriteriaArrayInput is an input type that accepts DeploymentIoTJobAbortCriteriaArray and DeploymentIoTJobAbortCriteriaArrayOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaArrayInput` via:
+//
+//	DeploymentIoTJobAbortCriteriaArray{ DeploymentIoTJobAbortCriteriaArgs{...} }
+type DeploymentIoTJobAbortCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaArrayOutput() DeploymentIoTJobAbortCriteriaArrayOutput
+	ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaArrayOutput
+}
+
+type DeploymentIoTJobAbortCriteriaArray []DeploymentIoTJobAbortCriteriaInput
+
+func (DeploymentIoTJobAbortCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentIoTJobAbortCriteria)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobAbortCriteriaArray) ToDeploymentIoTJobAbortCriteriaArrayOutput() DeploymentIoTJobAbortCriteriaArrayOutput {
+	return i.ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobAbortCriteriaArray) ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortCriteriaArrayOutput)
+}
+
+type DeploymentIoTJobAbortCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteria)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) ToDeploymentIoTJobAbortCriteriaOutput() DeploymentIoTJobAbortCriteriaOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) ToDeploymentIoTJobAbortCriteriaOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) Action() DeploymentIoTJobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v DeploymentIoTJobAbortCriteria) DeploymentIoTJobAbortCriteriaAction { return v.Action }).(DeploymentIoTJobAbortCriteriaActionOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) FailureType() DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v DeploymentIoTJobAbortCriteria) DeploymentIoTJobAbortCriteriaFailureType { return v.FailureType }).(DeploymentIoTJobAbortCriteriaFailureTypeOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) MinNumberOfExecutedThings() pulumi.IntOutput {
+	return o.ApplyT(func(v DeploymentIoTJobAbortCriteria) int { return v.MinNumberOfExecutedThings }).(pulumi.IntOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaOutput) ThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v DeploymentIoTJobAbortCriteria) float64 { return v.ThresholdPercentage }).(pulumi.Float64Output)
+}
+
+type DeploymentIoTJobAbortCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentIoTJobAbortCriteria)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaArrayOutput) ToDeploymentIoTJobAbortCriteriaArrayOutput() DeploymentIoTJobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaArrayOutput) ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaArrayOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaArrayOutput) Index(i pulumi.IntInput) DeploymentIoTJobAbortCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentIoTJobAbortCriteria {
+		return vs[0].([]DeploymentIoTJobAbortCriteria)[vs[1].(int)]
+	}).(DeploymentIoTJobAbortCriteriaOutput)
+}
+
+type DeploymentIoTJobConfiguration struct {
+	AbortConfig                *DeploymentIoTJobAbortConfig             `pulumi:"abortConfig"`
+	JobExecutionsRolloutConfig *DeploymentIoTJobExecutionsRolloutConfig `pulumi:"jobExecutionsRolloutConfig"`
+	TimeoutConfig              *DeploymentIoTJobTimeoutConfig           `pulumi:"timeoutConfig"`
+}
+
+// DeploymentIoTJobConfigurationInput is an input type that accepts DeploymentIoTJobConfigurationArgs and DeploymentIoTJobConfigurationOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobConfigurationInput` via:
+//
+//	DeploymentIoTJobConfigurationArgs{...}
+type DeploymentIoTJobConfigurationInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobConfigurationOutput() DeploymentIoTJobConfigurationOutput
+	ToDeploymentIoTJobConfigurationOutputWithContext(context.Context) DeploymentIoTJobConfigurationOutput
+}
+
+type DeploymentIoTJobConfigurationArgs struct {
+	AbortConfig                DeploymentIoTJobAbortConfigPtrInput             `pulumi:"abortConfig"`
+	JobExecutionsRolloutConfig DeploymentIoTJobExecutionsRolloutConfigPtrInput `pulumi:"jobExecutionsRolloutConfig"`
+	TimeoutConfig              DeploymentIoTJobTimeoutConfigPtrInput           `pulumi:"timeoutConfig"`
+}
+
+func (DeploymentIoTJobConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobConfiguration)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationOutput() DeploymentIoTJobConfigurationOutput {
+	return i.ToDeploymentIoTJobConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobConfigurationOutput)
+}
+
+func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput {
+	return i.ToDeploymentIoTJobConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobConfigurationOutput).ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobConfigurationPtrInput is an input type that accepts DeploymentIoTJobConfigurationArgs, DeploymentIoTJobConfigurationPtr and DeploymentIoTJobConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobConfigurationPtrInput` via:
+//
+//	        DeploymentIoTJobConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput
+	ToDeploymentIoTJobConfigurationPtrOutputWithContext(context.Context) DeploymentIoTJobConfigurationPtrOutput
+}
+
+type deploymentIoTJobConfigurationPtrType DeploymentIoTJobConfigurationArgs
+
+func DeploymentIoTJobConfigurationPtr(v *DeploymentIoTJobConfigurationArgs) DeploymentIoTJobConfigurationPtrInput {
+	return (*deploymentIoTJobConfigurationPtrType)(v)
+}
+
+func (*deploymentIoTJobConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobConfiguration)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobConfigurationPtrType) ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput {
+	return i.ToDeploymentIoTJobConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobConfigurationPtrType) ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobConfigurationPtrOutput)
+}
+
+type DeploymentIoTJobConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationOutput() DeploymentIoTJobConfigurationOutput {
+	return o
+}
+
+func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationOutput {
+	return o
+}
+
+func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput {
+	return o.ToDeploymentIoTJobConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobConfiguration) *DeploymentIoTJobConfiguration {
+		return &v
+	}).(DeploymentIoTJobConfigurationPtrOutput)
+}
+
+func (o DeploymentIoTJobConfigurationOutput) AbortConfig() DeploymentIoTJobAbortConfigPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobAbortConfig { return v.AbortConfig }).(DeploymentIoTJobAbortConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobConfigurationOutput) JobExecutionsRolloutConfig() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobExecutionsRolloutConfig {
+		return v.JobExecutionsRolloutConfig
+	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobConfigurationOutput) TimeoutConfig() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobTimeoutConfig { return v.TimeoutConfig }).(DeploymentIoTJobTimeoutConfigPtrOutput)
+}
+
+type DeploymentIoTJobConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobConfiguration)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) Elem() DeploymentIoTJobConfigurationOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) DeploymentIoTJobConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobConfiguration
+		return ret
+	}).(DeploymentIoTJobConfigurationOutput)
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) AbortConfig() DeploymentIoTJobAbortConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobAbortConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AbortConfig
+	}).(DeploymentIoTJobAbortConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) JobExecutionsRolloutConfig() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobExecutionsRolloutConfig {
+		if v == nil {
+			return nil
+		}
+		return v.JobExecutionsRolloutConfig
+	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobConfigurationPtrOutput) TimeoutConfig() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobTimeoutConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutConfig
+	}).(DeploymentIoTJobTimeoutConfigPtrOutput)
+}
+
+type DeploymentIoTJobExecutionsRolloutConfig struct {
+	ExponentialRate  *DeploymentIoTJobExponentialRolloutRate `pulumi:"exponentialRate"`
+	MaximumPerMinute *int                                    `pulumi:"maximumPerMinute"`
+}
+
+// DeploymentIoTJobExecutionsRolloutConfigInput is an input type that accepts DeploymentIoTJobExecutionsRolloutConfigArgs and DeploymentIoTJobExecutionsRolloutConfigOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobExecutionsRolloutConfigInput` via:
+//
+//	DeploymentIoTJobExecutionsRolloutConfigArgs{...}
+type DeploymentIoTJobExecutionsRolloutConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobExecutionsRolloutConfigOutput() DeploymentIoTJobExecutionsRolloutConfigOutput
+	ToDeploymentIoTJobExecutionsRolloutConfigOutputWithContext(context.Context) DeploymentIoTJobExecutionsRolloutConfigOutput
+}
+
+type DeploymentIoTJobExecutionsRolloutConfigArgs struct {
+	ExponentialRate  DeploymentIoTJobExponentialRolloutRatePtrInput `pulumi:"exponentialRate"`
+	MaximumPerMinute pulumi.IntPtrInput                             `pulumi:"maximumPerMinute"`
+}
+
+func (DeploymentIoTJobExecutionsRolloutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecutionsRolloutConfigOutput() DeploymentIoTJobExecutionsRolloutConfigOutput {
+	return i.ToDeploymentIoTJobExecutionsRolloutConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExecutionsRolloutConfigOutput)
+}
+
+func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return i.ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExecutionsRolloutConfigOutput).ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobExecutionsRolloutConfigPtrInput is an input type that accepts DeploymentIoTJobExecutionsRolloutConfigArgs, DeploymentIoTJobExecutionsRolloutConfigPtr and DeploymentIoTJobExecutionsRolloutConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobExecutionsRolloutConfigPtrInput` via:
+//
+//	        DeploymentIoTJobExecutionsRolloutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobExecutionsRolloutConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput
+	ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput
+}
+
+type deploymentIoTJobExecutionsRolloutConfigPtrType DeploymentIoTJobExecutionsRolloutConfigArgs
+
+func DeploymentIoTJobExecutionsRolloutConfigPtr(v *DeploymentIoTJobExecutionsRolloutConfigArgs) DeploymentIoTJobExecutionsRolloutConfigPtrInput {
+	return (*deploymentIoTJobExecutionsRolloutConfigPtrType)(v)
+}
+
+func (*deploymentIoTJobExecutionsRolloutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobExecutionsRolloutConfigPtrType) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return i.ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobExecutionsRolloutConfigPtrType) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
+}
+
+type DeploymentIoTJobExecutionsRolloutConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobExecutionsRolloutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecutionsRolloutConfigOutput() DeploymentIoTJobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecutionsRolloutConfigOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o.ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExecutionsRolloutConfig {
+		return &v
+	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ExponentialRate() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExponentialRolloutRate {
+		return v.ExponentialRate
+	}).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobExecutionsRolloutConfig) *int { return v.MaximumPerMinute }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentIoTJobExecutionsRolloutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobExecutionsRolloutConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) Elem() DeploymentIoTJobExecutionsRolloutConfigOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExecutionsRolloutConfig) DeploymentIoTJobExecutionsRolloutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobExecutionsRolloutConfig
+		return ret
+	}).(DeploymentIoTJobExecutionsRolloutConfigOutput)
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ExponentialRate() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExponentialRolloutRate {
+		if v == nil {
+			return nil
+		}
+		return v.ExponentialRate
+	}).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
+}
+
+func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) MaximumPerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExecutionsRolloutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumPerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentIoTJobExponentialRolloutRate struct {
+	BaseRatePerMinute    int                                  `pulumi:"baseRatePerMinute"`
+	IncrementFactor      float64                              `pulumi:"incrementFactor"`
+	RateIncreaseCriteria DeploymentIoTJobRateIncreaseCriteria `pulumi:"rateIncreaseCriteria"`
+}
+
+// DeploymentIoTJobExponentialRolloutRateInput is an input type that accepts DeploymentIoTJobExponentialRolloutRateArgs and DeploymentIoTJobExponentialRolloutRateOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobExponentialRolloutRateInput` via:
+//
+//	DeploymentIoTJobExponentialRolloutRateArgs{...}
+type DeploymentIoTJobExponentialRolloutRateInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobExponentialRolloutRateOutput() DeploymentIoTJobExponentialRolloutRateOutput
+	ToDeploymentIoTJobExponentialRolloutRateOutputWithContext(context.Context) DeploymentIoTJobExponentialRolloutRateOutput
+}
+
+type DeploymentIoTJobExponentialRolloutRateArgs struct {
+	BaseRatePerMinute    pulumi.IntInput                           `pulumi:"baseRatePerMinute"`
+	IncrementFactor      pulumi.Float64Input                       `pulumi:"incrementFactor"`
+	RateIncreaseCriteria DeploymentIoTJobRateIncreaseCriteriaInput `pulumi:"rateIncreaseCriteria"`
+}
+
+func (DeploymentIoTJobExponentialRolloutRateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentialRolloutRateOutput() DeploymentIoTJobExponentialRolloutRateOutput {
+	return i.ToDeploymentIoTJobExponentialRolloutRateOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentialRolloutRateOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExponentialRolloutRateOutput)
+}
+
+func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return i.ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExponentialRolloutRateOutput).ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobExponentialRolloutRatePtrInput is an input type that accepts DeploymentIoTJobExponentialRolloutRateArgs, DeploymentIoTJobExponentialRolloutRatePtr and DeploymentIoTJobExponentialRolloutRatePtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobExponentialRolloutRatePtrInput` via:
+//
+//	        DeploymentIoTJobExponentialRolloutRateArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobExponentialRolloutRatePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput
+	ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput
+}
+
+type deploymentIoTJobExponentialRolloutRatePtrType DeploymentIoTJobExponentialRolloutRateArgs
+
+func DeploymentIoTJobExponentialRolloutRatePtr(v *DeploymentIoTJobExponentialRolloutRateArgs) DeploymentIoTJobExponentialRolloutRatePtrInput {
+	return (*deploymentIoTJobExponentialRolloutRatePtrType)(v)
+}
+
+func (*deploymentIoTJobExponentialRolloutRatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobExponentialRolloutRatePtrType) ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return i.ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobExponentialRolloutRatePtrType) ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
+}
+
+type DeploymentIoTJobExponentialRolloutRateOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobExponentialRolloutRateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) ToDeploymentIoTJobExponentialRolloutRateOutput() DeploymentIoTJobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) ToDeploymentIoTJobExponentialRolloutRateOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRateOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o.ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobExponentialRolloutRate) *DeploymentIoTJobExponentialRolloutRate {
+		return &v
+	}).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) BaseRatePerMinute() pulumi.IntOutput {
+	return o.ApplyT(func(v DeploymentIoTJobExponentialRolloutRate) int { return v.BaseRatePerMinute }).(pulumi.IntOutput)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) IncrementFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v DeploymentIoTJobExponentialRolloutRate) float64 { return v.IncrementFactor }).(pulumi.Float64Output)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRateOutput) RateIncreaseCriteria() DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v DeploymentIoTJobExponentialRolloutRate) DeploymentIoTJobRateIncreaseCriteria {
+		return v.RateIncreaseCriteria
+	}).(DeploymentIoTJobRateIncreaseCriteriaOutput)
+}
+
+type DeploymentIoTJobExponentialRolloutRatePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobExponentialRolloutRatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobExponentialRolloutRate)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) Elem() DeploymentIoTJobExponentialRolloutRateOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExponentialRolloutRate) DeploymentIoTJobExponentialRolloutRate {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobExponentialRolloutRate
+		return ret
+	}).(DeploymentIoTJobExponentialRolloutRateOutput)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) BaseRatePerMinute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExponentialRolloutRate) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseRatePerMinute
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) IncrementFactor() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExponentialRolloutRate) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.IncrementFactor
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) RateIncreaseCriteria() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobExponentialRolloutRate) *DeploymentIoTJobRateIncreaseCriteria {
+		if v == nil {
+			return nil
+		}
+		return &v.RateIncreaseCriteria
+	}).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
+}
+
+type DeploymentIoTJobRateIncreaseCriteria struct {
+}
+
+// DeploymentIoTJobRateIncreaseCriteriaInput is an input type that accepts DeploymentIoTJobRateIncreaseCriteriaArgs and DeploymentIoTJobRateIncreaseCriteriaOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobRateIncreaseCriteriaInput` via:
+//
+//	DeploymentIoTJobRateIncreaseCriteriaArgs{...}
+type DeploymentIoTJobRateIncreaseCriteriaInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobRateIncreaseCriteriaOutput() DeploymentIoTJobRateIncreaseCriteriaOutput
+	ToDeploymentIoTJobRateIncreaseCriteriaOutputWithContext(context.Context) DeploymentIoTJobRateIncreaseCriteriaOutput
+}
+
+type DeploymentIoTJobRateIncreaseCriteriaArgs struct {
+}
+
+func (DeploymentIoTJobRateIncreaseCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncreaseCriteriaOutput() DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return i.ToDeploymentIoTJobRateIncreaseCriteriaOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobRateIncreaseCriteriaOutput)
+}
+
+func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return i.ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobRateIncreaseCriteriaOutput).ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobRateIncreaseCriteriaPtrInput is an input type that accepts DeploymentIoTJobRateIncreaseCriteriaArgs, DeploymentIoTJobRateIncreaseCriteriaPtr and DeploymentIoTJobRateIncreaseCriteriaPtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobRateIncreaseCriteriaPtrInput` via:
+//
+//	        DeploymentIoTJobRateIncreaseCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobRateIncreaseCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput
+	ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput
+}
+
+type deploymentIoTJobRateIncreaseCriteriaPtrType DeploymentIoTJobRateIncreaseCriteriaArgs
+
+func DeploymentIoTJobRateIncreaseCriteriaPtr(v *DeploymentIoTJobRateIncreaseCriteriaArgs) DeploymentIoTJobRateIncreaseCriteriaPtrInput {
+	return (*deploymentIoTJobRateIncreaseCriteriaPtrType)(v)
+}
+
+func (*deploymentIoTJobRateIncreaseCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobRateIncreaseCriteriaPtrType) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return i.ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobRateIncreaseCriteriaPtrType) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
+}
+
+type DeploymentIoTJobRateIncreaseCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobRateIncreaseCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncreaseCriteriaOutput() DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncreaseCriteriaOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return o
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return o.ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobRateIncreaseCriteria) *DeploymentIoTJobRateIncreaseCriteria {
+		return &v
+	}).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
+}
+
+type DeploymentIoTJobRateIncreaseCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobRateIncreaseCriteria)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) Elem() DeploymentIoTJobRateIncreaseCriteriaOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobRateIncreaseCriteria) DeploymentIoTJobRateIncreaseCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobRateIncreaseCriteria
+		return ret
+	}).(DeploymentIoTJobRateIncreaseCriteriaOutput)
+}
+
+type DeploymentIoTJobTimeoutConfig struct {
+	InProgressTimeoutInMinutes *int `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+// DeploymentIoTJobTimeoutConfigInput is an input type that accepts DeploymentIoTJobTimeoutConfigArgs and DeploymentIoTJobTimeoutConfigOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobTimeoutConfigInput` via:
+//
+//	DeploymentIoTJobTimeoutConfigArgs{...}
+type DeploymentIoTJobTimeoutConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobTimeoutConfigOutput() DeploymentIoTJobTimeoutConfigOutput
+	ToDeploymentIoTJobTimeoutConfigOutputWithContext(context.Context) DeploymentIoTJobTimeoutConfigOutput
+}
+
+type DeploymentIoTJobTimeoutConfigArgs struct {
+	InProgressTimeoutInMinutes pulumi.IntPtrInput `pulumi:"inProgressTimeoutInMinutes"`
+}
+
+func (DeploymentIoTJobTimeoutConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobTimeoutConfig)(nil)).Elem()
+}
+
+func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigOutput() DeploymentIoTJobTimeoutConfigOutput {
+	return i.ToDeploymentIoTJobTimeoutConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobTimeoutConfigOutput)
+}
+
+func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return i.ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobTimeoutConfigOutput).ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx)
+}
+
+// DeploymentIoTJobTimeoutConfigPtrInput is an input type that accepts DeploymentIoTJobTimeoutConfigArgs, DeploymentIoTJobTimeoutConfigPtr and DeploymentIoTJobTimeoutConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobTimeoutConfigPtrInput` via:
+//
+//	        DeploymentIoTJobTimeoutConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentIoTJobTimeoutConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput
+	ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(context.Context) DeploymentIoTJobTimeoutConfigPtrOutput
+}
+
+type deploymentIoTJobTimeoutConfigPtrType DeploymentIoTJobTimeoutConfigArgs
+
+func DeploymentIoTJobTimeoutConfigPtr(v *DeploymentIoTJobTimeoutConfigArgs) DeploymentIoTJobTimeoutConfigPtrInput {
+	return (*deploymentIoTJobTimeoutConfigPtrType)(v)
+}
+
+func (*deploymentIoTJobTimeoutConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobTimeoutConfig)(nil)).Elem()
+}
+
+func (i *deploymentIoTJobTimeoutConfigPtrType) ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return i.ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentIoTJobTimeoutConfigPtrType) ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobTimeoutConfigPtrOutput)
+}
+
+type DeploymentIoTJobTimeoutConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobTimeoutConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobTimeoutConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobTimeoutConfigOutput) ToDeploymentIoTJobTimeoutConfigOutput() DeploymentIoTJobTimeoutConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobTimeoutConfigOutput) ToDeploymentIoTJobTimeoutConfigOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigOutput {
+	return o
+}
+
+func (o DeploymentIoTJobTimeoutConfigOutput) ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o.ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobTimeoutConfigOutput) ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobTimeoutConfig) *DeploymentIoTJobTimeoutConfig {
+		return &v
+	}).(DeploymentIoTJobTimeoutConfigPtrOutput)
+}
+
+func (o DeploymentIoTJobTimeoutConfigOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentIoTJobTimeoutConfig) *int { return v.InProgressTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentIoTJobTimeoutConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobTimeoutConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobTimeoutConfig)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobTimeoutConfigPtrOutput) ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobTimeoutConfigPtrOutput) ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobTimeoutConfigPtrOutput) Elem() DeploymentIoTJobTimeoutConfigOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobTimeoutConfig) DeploymentIoTJobTimeoutConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobTimeoutConfig
+		return ret
+	}).(DeploymentIoTJobTimeoutConfigOutput)
+}
+
+func (o DeploymentIoTJobTimeoutConfigPtrOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobTimeoutConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InProgressTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeploymentPolicies struct {
+	ComponentUpdatePolicy         *DeploymentComponentUpdatePolicy         `pulumi:"componentUpdatePolicy"`
+	ConfigurationValidationPolicy *DeploymentConfigurationValidationPolicy `pulumi:"configurationValidationPolicy"`
+	FailureHandlingPolicy         *DeploymentPoliciesFailureHandlingPolicy `pulumi:"failureHandlingPolicy"`
+}
+
+// DeploymentPoliciesInput is an input type that accepts DeploymentPoliciesArgs and DeploymentPoliciesOutput values.
+// You can construct a concrete instance of `DeploymentPoliciesInput` via:
+//
+//	DeploymentPoliciesArgs{...}
+type DeploymentPoliciesInput interface {
+	pulumi.Input
+
+	ToDeploymentPoliciesOutput() DeploymentPoliciesOutput
+	ToDeploymentPoliciesOutputWithContext(context.Context) DeploymentPoliciesOutput
+}
+
+type DeploymentPoliciesArgs struct {
+	ComponentUpdatePolicy         DeploymentComponentUpdatePolicyPtrInput         `pulumi:"componentUpdatePolicy"`
+	ConfigurationValidationPolicy DeploymentConfigurationValidationPolicyPtrInput `pulumi:"configurationValidationPolicy"`
+	FailureHandlingPolicy         DeploymentPoliciesFailureHandlingPolicyPtrInput `pulumi:"failureHandlingPolicy"`
+}
+
+func (DeploymentPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPolicies)(nil)).Elem()
+}
+
+func (i DeploymentPoliciesArgs) ToDeploymentPoliciesOutput() DeploymentPoliciesOutput {
+	return i.ToDeploymentPoliciesOutputWithContext(context.Background())
+}
+
+func (i DeploymentPoliciesArgs) ToDeploymentPoliciesOutputWithContext(ctx context.Context) DeploymentPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPoliciesOutput)
+}
+
+func (i DeploymentPoliciesArgs) ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput {
+	return i.ToDeploymentPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentPoliciesArgs) ToDeploymentPoliciesPtrOutputWithContext(ctx context.Context) DeploymentPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPoliciesOutput).ToDeploymentPoliciesPtrOutputWithContext(ctx)
+}
+
+// DeploymentPoliciesPtrInput is an input type that accepts DeploymentPoliciesArgs, DeploymentPoliciesPtr and DeploymentPoliciesPtrOutput values.
+// You can construct a concrete instance of `DeploymentPoliciesPtrInput` via:
+//
+//	        DeploymentPoliciesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentPoliciesPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput
+	ToDeploymentPoliciesPtrOutputWithContext(context.Context) DeploymentPoliciesPtrOutput
+}
+
+type deploymentPoliciesPtrType DeploymentPoliciesArgs
+
+func DeploymentPoliciesPtr(v *DeploymentPoliciesArgs) DeploymentPoliciesPtrInput {
+	return (*deploymentPoliciesPtrType)(v)
+}
+
+func (*deploymentPoliciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentPolicies)(nil)).Elem()
+}
+
+func (i *deploymentPoliciesPtrType) ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput {
+	return i.ToDeploymentPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentPoliciesPtrType) ToDeploymentPoliciesPtrOutputWithContext(ctx context.Context) DeploymentPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPoliciesPtrOutput)
+}
+
+type DeploymentPoliciesOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPolicies)(nil)).Elem()
+}
+
+func (o DeploymentPoliciesOutput) ToDeploymentPoliciesOutput() DeploymentPoliciesOutput {
+	return o
+}
+
+func (o DeploymentPoliciesOutput) ToDeploymentPoliciesOutputWithContext(ctx context.Context) DeploymentPoliciesOutput {
+	return o
+}
+
+func (o DeploymentPoliciesOutput) ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput {
+	return o.ToDeploymentPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPoliciesOutput) ToDeploymentPoliciesPtrOutputWithContext(ctx context.Context) DeploymentPoliciesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPolicies) *DeploymentPolicies {
+		return &v
+	}).(DeploymentPoliciesPtrOutput)
+}
+
+func (o DeploymentPoliciesOutput) ComponentUpdatePolicy() DeploymentComponentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v DeploymentPolicies) *DeploymentComponentUpdatePolicy { return v.ComponentUpdatePolicy }).(DeploymentComponentUpdatePolicyPtrOutput)
+}
+
+func (o DeploymentPoliciesOutput) ConfigurationValidationPolicy() DeploymentConfigurationValidationPolicyPtrOutput {
+	return o.ApplyT(func(v DeploymentPolicies) *DeploymentConfigurationValidationPolicy {
+		return v.ConfigurationValidationPolicy
+	}).(DeploymentConfigurationValidationPolicyPtrOutput)
+}
+
+func (o DeploymentPoliciesOutput) FailureHandlingPolicy() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o.ApplyT(func(v DeploymentPolicies) *DeploymentPoliciesFailureHandlingPolicy { return v.FailureHandlingPolicy }).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
+}
+
+type DeploymentPoliciesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPoliciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentPolicies)(nil)).Elem()
+}
+
+func (o DeploymentPoliciesPtrOutput) ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput {
+	return o
+}
+
+func (o DeploymentPoliciesPtrOutput) ToDeploymentPoliciesPtrOutputWithContext(ctx context.Context) DeploymentPoliciesPtrOutput {
+	return o
+}
+
+func (o DeploymentPoliciesPtrOutput) Elem() DeploymentPoliciesOutput {
+	return o.ApplyT(func(v *DeploymentPolicies) DeploymentPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentPolicies
+		return ret
+	}).(DeploymentPoliciesOutput)
+}
+
+func (o DeploymentPoliciesPtrOutput) ComponentUpdatePolicy() DeploymentComponentUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *DeploymentPolicies) *DeploymentComponentUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ComponentUpdatePolicy
+	}).(DeploymentComponentUpdatePolicyPtrOutput)
+}
+
+func (o DeploymentPoliciesPtrOutput) ConfigurationValidationPolicy() DeploymentConfigurationValidationPolicyPtrOutput {
+	return o.ApplyT(func(v *DeploymentPolicies) *DeploymentConfigurationValidationPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationValidationPolicy
+	}).(DeploymentConfigurationValidationPolicyPtrOutput)
+}
+
+func (o DeploymentPoliciesPtrOutput) FailureHandlingPolicy() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o.ApplyT(func(v *DeploymentPolicies) *DeploymentPoliciesFailureHandlingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.FailureHandlingPolicy
+	}).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformInput)(nil)).Elem(), ComponentVersionComponentPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionComponentPlatformArrayInput)(nil)).Elem(), ComponentVersionComponentPlatformArray{})
@@ -1280,6 +2702,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsPtrInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaVolumeMountArrayInput)(nil)).Elem(), ComponentVersionLambdaVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyInput)(nil)).Elem(), DeploymentComponentUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyPtrInput)(nil)).Elem(), DeploymentComponentUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationValidationPolicyInput)(nil)).Elem(), DeploymentConfigurationValidationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigurationValidationPolicyPtrInput)(nil)).Elem(), DeploymentConfigurationValidationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortConfigInput)(nil)).Elem(), DeploymentIoTJobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortConfigPtrInput)(nil)).Elem(), DeploymentIoTJobAbortConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaArrayInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobConfigurationInput)(nil)).Elem(), DeploymentIoTJobConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobConfigurationPtrInput)(nil)).Elem(), DeploymentIoTJobConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobExecutionsRolloutConfigInput)(nil)).Elem(), DeploymentIoTJobExecutionsRolloutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobExecutionsRolloutConfigPtrInput)(nil)).Elem(), DeploymentIoTJobExecutionsRolloutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobExponentialRolloutRateInput)(nil)).Elem(), DeploymentIoTJobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobExponentialRolloutRatePtrInput)(nil)).Elem(), DeploymentIoTJobExponentialRolloutRateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobRateIncreaseCriteriaInput)(nil)).Elem(), DeploymentIoTJobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobRateIncreaseCriteriaPtrInput)(nil)).Elem(), DeploymentIoTJobRateIncreaseCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobTimeoutConfigInput)(nil)).Elem(), DeploymentIoTJobTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobTimeoutConfigPtrInput)(nil)).Elem(), DeploymentIoTJobTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesInput)(nil)).Elem(), DeploymentPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesPtrInput)(nil)).Elem(), DeploymentPoliciesArgs{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformArrayOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaContainerParamsOutput{})
@@ -1296,4 +2738,24 @@ func init() {
 	pulumi.RegisterOutputType(ComponentVersionLambdaLinuxProcessParamsPtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaVolumeMountOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationValidationPolicyOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigurationValidationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobConfigurationOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobExecutionsRolloutConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobExecutionsRolloutConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobExponentialRolloutRateOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobExponentialRolloutRatePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobRateIncreaseCriteriaOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobRateIncreaseCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobTimeoutConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobTimeoutConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentPoliciesOutput{})
+	pulumi.RegisterOutputType(DeploymentPoliciesPtrOutput{})
 }

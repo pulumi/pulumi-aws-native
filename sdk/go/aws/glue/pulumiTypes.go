@@ -8532,6 +8532,154 @@ func (o TriggerConditionArrayOutput) Index(i pulumi.IntInput) TriggerConditionOu
 	}).(TriggerConditionOutput)
 }
 
+type TriggerEventBatchingCondition struct {
+	BatchSize   int  `pulumi:"batchSize"`
+	BatchWindow *int `pulumi:"batchWindow"`
+}
+
+// TriggerEventBatchingConditionInput is an input type that accepts TriggerEventBatchingConditionArgs and TriggerEventBatchingConditionOutput values.
+// You can construct a concrete instance of `TriggerEventBatchingConditionInput` via:
+//
+//	TriggerEventBatchingConditionArgs{...}
+type TriggerEventBatchingConditionInput interface {
+	pulumi.Input
+
+	ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput
+	ToTriggerEventBatchingConditionOutputWithContext(context.Context) TriggerEventBatchingConditionOutput
+}
+
+type TriggerEventBatchingConditionArgs struct {
+	BatchSize   pulumi.IntInput    `pulumi:"batchSize"`
+	BatchWindow pulumi.IntPtrInput `pulumi:"batchWindow"`
+}
+
+func (TriggerEventBatchingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput {
+	return i.ToTriggerEventBatchingConditionOutputWithContext(context.Background())
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionOutputWithContext(ctx context.Context) TriggerEventBatchingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionOutput)
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionPtrOutput() TriggerEventBatchingConditionPtrOutput {
+	return i.ToTriggerEventBatchingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TriggerEventBatchingConditionArgs) ToTriggerEventBatchingConditionPtrOutputWithContext(ctx context.Context) TriggerEventBatchingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionOutput).ToTriggerEventBatchingConditionPtrOutputWithContext(ctx)
+}
+
+// TriggerEventBatchingConditionPtrInput is an input type that accepts TriggerEventBatchingConditionArgs, TriggerEventBatchingConditionPtr and TriggerEventBatchingConditionPtrOutput values.
+// You can construct a concrete instance of `TriggerEventBatchingConditionPtrInput` via:
+//
+//	        TriggerEventBatchingConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TriggerEventBatchingConditionPtrInput interface {
+	pulumi.Input
+
+	ToTriggerEventBatchingConditionPtrOutput() TriggerEventBatchingConditionPtrOutput
+	ToTriggerEventBatchingConditionPtrOutputWithContext(context.Context) TriggerEventBatchingConditionPtrOutput
+}
+
+type triggerEventBatchingConditionPtrType TriggerEventBatchingConditionArgs
+
+func TriggerEventBatchingConditionPtr(v *TriggerEventBatchingConditionArgs) TriggerEventBatchingConditionPtrInput {
+	return (*triggerEventBatchingConditionPtrType)(v)
+}
+
+func (*triggerEventBatchingConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (i *triggerEventBatchingConditionPtrType) ToTriggerEventBatchingConditionPtrOutput() TriggerEventBatchingConditionPtrOutput {
+	return i.ToTriggerEventBatchingConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *triggerEventBatchingConditionPtrType) ToTriggerEventBatchingConditionPtrOutputWithContext(ctx context.Context) TriggerEventBatchingConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TriggerEventBatchingConditionPtrOutput)
+}
+
+type TriggerEventBatchingConditionOutput struct{ *pulumi.OutputState }
+
+func (TriggerEventBatchingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionOutput() TriggerEventBatchingConditionOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionOutputWithContext(ctx context.Context) TriggerEventBatchingConditionOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionPtrOutput() TriggerEventBatchingConditionPtrOutput {
+	return o.ToTriggerEventBatchingConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TriggerEventBatchingConditionOutput) ToTriggerEventBatchingConditionPtrOutputWithContext(ctx context.Context) TriggerEventBatchingConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerEventBatchingCondition) *TriggerEventBatchingCondition {
+		return &v
+	}).(TriggerEventBatchingConditionPtrOutput)
+}
+
+func (o TriggerEventBatchingConditionOutput) BatchSize() pulumi.IntOutput {
+	return o.ApplyT(func(v TriggerEventBatchingCondition) int { return v.BatchSize }).(pulumi.IntOutput)
+}
+
+func (o TriggerEventBatchingConditionOutput) BatchWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TriggerEventBatchingCondition) *int { return v.BatchWindow }).(pulumi.IntPtrOutput)
+}
+
+type TriggerEventBatchingConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TriggerEventBatchingConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TriggerEventBatchingCondition)(nil)).Elem()
+}
+
+func (o TriggerEventBatchingConditionPtrOutput) ToTriggerEventBatchingConditionPtrOutput() TriggerEventBatchingConditionPtrOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionPtrOutput) ToTriggerEventBatchingConditionPtrOutputWithContext(ctx context.Context) TriggerEventBatchingConditionPtrOutput {
+	return o
+}
+
+func (o TriggerEventBatchingConditionPtrOutput) Elem() TriggerEventBatchingConditionOutput {
+	return o.ApplyT(func(v *TriggerEventBatchingCondition) TriggerEventBatchingCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerEventBatchingCondition
+		return ret
+	}).(TriggerEventBatchingConditionOutput)
+}
+
+func (o TriggerEventBatchingConditionPtrOutput) BatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerEventBatchingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.BatchSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TriggerEventBatchingConditionPtrOutput) BatchWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TriggerEventBatchingCondition) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BatchWindow
+	}).(pulumi.IntPtrOutput)
+}
+
 type TriggerNotificationProperty struct {
 	NotifyDelayAfter *int `pulumi:"notifyDelayAfter"`
 }
@@ -8923,6 +9071,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionArrayInput)(nil)).Elem(), TriggerActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerConditionInput)(nil)).Elem(), TriggerConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerConditionArrayInput)(nil)).Elem(), TriggerConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerEventBatchingConditionInput)(nil)).Elem(), TriggerEventBatchingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerEventBatchingConditionPtrInput)(nil)).Elem(), TriggerEventBatchingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerNotificationPropertyInput)(nil)).Elem(), TriggerNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerNotificationPropertyPtrInput)(nil)).Elem(), TriggerNotificationPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateInput)(nil)).Elem(), TriggerPredicateArgs{})
@@ -9045,6 +9195,8 @@ func init() {
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerConditionOutput{})
 	pulumi.RegisterOutputType(TriggerConditionArrayOutput{})
+	pulumi.RegisterOutputType(TriggerEventBatchingConditionOutput{})
+	pulumi.RegisterOutputType(TriggerEventBatchingConditionPtrOutput{})
 	pulumi.RegisterOutputType(TriggerNotificationPropertyOutput{})
 	pulumi.RegisterOutputType(TriggerNotificationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(TriggerPredicateOutput{})

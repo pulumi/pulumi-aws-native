@@ -32,6 +32,14 @@ type DBInstance struct {
 	CharacterSetName pulumi.StringPtrOutput `pulumi:"characterSetName"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
+	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+	//  * The profile must exist in your account.
+	//  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+	//  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+	//
+	// This setting is required for RDS Custom.
+	CustomIAMInstanceProfile pulumi.StringPtrOutput `pulumi:"customIAMInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -86,6 +94,10 @@ type DBInstance struct {
 	MonitoringRoleArn pulumi.StringPtrOutput `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
 	MultiAZ pulumi.BoolPtrOutput `pulumi:"multiAZ"`
+	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+	NcharCharacterSetName pulumi.StringPtrOutput `pulumi:"ncharCharacterSetName"`
+	// The network type of the DB cluster.
+	NetworkType pulumi.StringPtrOutput `pulumi:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -183,6 +195,14 @@ type dbinstanceArgs struct {
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+	//  * The profile must exist in your account.
+	//  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+	//  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+	//
+	// This setting is required for RDS Custom.
+	CustomIAMInstanceProfile *string `pulumi:"customIAMInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -237,6 +257,10 @@ type dbinstanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
 	MultiAZ *bool `pulumi:"multiAZ"`
+	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
+	// The network type of the DB cluster.
+	NetworkType *string `pulumi:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -297,6 +321,14 @@ type DBInstanceArgs struct {
 	CharacterSetName pulumi.StringPtrInput
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+	//  * The profile must exist in your account.
+	//  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+	//  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+	//    For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+	//
+	// This setting is required for RDS Custom.
+	CustomIAMInstanceProfile pulumi.StringPtrInput
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier pulumi.StringPtrInput
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -351,6 +383,10 @@ type DBInstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
 	MultiAZ pulumi.BoolPtrInput
+	// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+	NcharCharacterSetName pulumi.StringPtrInput
+	// The network type of the DB cluster.
+	NetworkType pulumi.StringPtrInput
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName pulumi.StringPtrInput
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -471,6 +507,17 @@ func (o DBInstanceOutput) CharacterSetName() pulumi.StringPtrOutput {
 // A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 func (o DBInstanceOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+//   - The profile must exist in your account.
+//   - The profile must have an IAM role that Amazon EC2 has permissions to assume.
+//   - The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+//     For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+//
+// This setting is required for RDS Custom.
+func (o DBInstanceOutput) CustomIAMInstanceProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CustomIAMInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
 // The identifier of the DB cluster that the instance will belong to.
@@ -606,6 +653,16 @@ func (o DBInstanceOutput) MonitoringRoleArn() pulumi.StringPtrOutput {
 // Specifies whether the database instance is a multiple Availability Zone deployment.
 func (o DBInstanceOutput) MultiAZ() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+func (o DBInstanceOutput) NcharCharacterSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.NcharCharacterSetName }).(pulumi.StringPtrOutput)
+}
+
+// The network type of the DB cluster.
+func (o DBInstanceOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 // Indicates that the DB instance should be associated with the specified option group.

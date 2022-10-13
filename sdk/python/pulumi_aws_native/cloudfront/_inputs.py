@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'CachePolicyConfigArgs',
@@ -45,6 +46,8 @@ __all__ = [
     'FunctionConfigArgs',
     'FunctionMetadataArgs',
     'KeyGroupConfigArgs',
+    'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
+    'MonitoringSubscriptionArgs',
     'OriginAccessControlConfigArgs',
     'OriginRequestPolicyConfigArgs',
     'OriginRequestPolicyCookiesConfigArgs',
@@ -1986,6 +1989,39 @@ class KeyGroupConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_status: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']):
+        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
+    def realtime_metrics_subscription_status(self) -> pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']:
+        return pulumi.get(self, "realtime_metrics_subscription_status")
+
+    @realtime_metrics_subscription_status.setter
+    def realtime_metrics_subscription_status(self, value: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']):
+        pulumi.set(self, "realtime_metrics_subscription_status", value)
+
+
+@pulumi.input_type
+class MonitoringSubscriptionArgs:
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None):
+        if realtime_metrics_subscription_config is not None:
+            pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
+    def realtime_metrics_subscription_config(self) -> Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']]:
+        return pulumi.get(self, "realtime_metrics_subscription_config")
+
+    @realtime_metrics_subscription_config.setter
+    def realtime_metrics_subscription_config(self, value: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']]):
+        pulumi.set(self, "realtime_metrics_subscription_config", value)
 
 
 @pulumi.input_type

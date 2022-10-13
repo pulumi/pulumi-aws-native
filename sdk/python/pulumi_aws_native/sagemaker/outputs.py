@@ -60,7 +60,15 @@ __all__ = [
     'EndpointConfigAsyncInferenceOutputConfig',
     'EndpointConfigCaptureContentTypeHeader',
     'EndpointConfigCaptureOption',
+    'EndpointConfigClarifyExplainerConfig',
+    'EndpointConfigClarifyFeatureType',
+    'EndpointConfigClarifyHeader',
+    'EndpointConfigClarifyInferenceConfig',
+    'EndpointConfigClarifyShapBaselineConfig',
+    'EndpointConfigClarifyShapConfig',
+    'EndpointConfigClarifyTextConfig',
     'EndpointConfigDataCaptureConfig',
+    'EndpointConfigExplainerConfig',
     'EndpointConfigProductionVariant',
     'EndpointConfigServerlessConfig',
     'EndpointConfigTag',
@@ -2533,6 +2541,333 @@ class EndpointConfigCaptureOption(dict):
 
 
 @pulumi.output_type
+class EndpointConfigClarifyExplainerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shapConfig":
+            suggest = "shap_config"
+        elif key == "enableExplanations":
+            suggest = "enable_explanations"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyExplainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyExplainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyExplainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shap_config: 'outputs.EndpointConfigClarifyShapConfig',
+                 enable_explanations: Optional[str] = None,
+                 inference_config: Optional['outputs.EndpointConfigClarifyInferenceConfig'] = None):
+        pulumi.set(__self__, "shap_config", shap_config)
+        if enable_explanations is not None:
+            pulumi.set(__self__, "enable_explanations", enable_explanations)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @property
+    @pulumi.getter(name="shapConfig")
+    def shap_config(self) -> 'outputs.EndpointConfigClarifyShapConfig':
+        return pulumi.get(self, "shap_config")
+
+    @property
+    @pulumi.getter(name="enableExplanations")
+    def enable_explanations(self) -> Optional[str]:
+        return pulumi.get(self, "enable_explanations")
+
+    @property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.EndpointConfigClarifyInferenceConfig']:
+        return pulumi.get(self, "inference_config")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyFeatureType(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class EndpointConfigClarifyHeader(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class EndpointConfigClarifyInferenceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentTemplate":
+            suggest = "content_template"
+        elif key == "featureHeaders":
+            suggest = "feature_headers"
+        elif key == "featureTypes":
+            suggest = "feature_types"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "labelAttribute":
+            suggest = "label_attribute"
+        elif key == "labelHeaders":
+            suggest = "label_headers"
+        elif key == "labelIndex":
+            suggest = "label_index"
+        elif key == "maxPayloadInMB":
+            suggest = "max_payload_in_mb"
+        elif key == "maxRecordCount":
+            suggest = "max_record_count"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityIndex":
+            suggest = "probability_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_template: Optional[str] = None,
+                 feature_headers: Optional[Sequence['outputs.EndpointConfigClarifyHeader']] = None,
+                 feature_types: Optional[Sequence['outputs.EndpointConfigClarifyFeatureType']] = None,
+                 features_attribute: Optional[str] = None,
+                 label_attribute: Optional[str] = None,
+                 label_headers: Optional[Sequence['outputs.EndpointConfigClarifyHeader']] = None,
+                 label_index: Optional[int] = None,
+                 max_payload_in_mb: Optional[int] = None,
+                 max_record_count: Optional[int] = None,
+                 probability_attribute: Optional[str] = None,
+                 probability_index: Optional[int] = None):
+        if content_template is not None:
+            pulumi.set(__self__, "content_template", content_template)
+        if feature_headers is not None:
+            pulumi.set(__self__, "feature_headers", feature_headers)
+        if feature_types is not None:
+            pulumi.set(__self__, "feature_types", feature_types)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if label_attribute is not None:
+            pulumi.set(__self__, "label_attribute", label_attribute)
+        if label_headers is not None:
+            pulumi.set(__self__, "label_headers", label_headers)
+        if label_index is not None:
+            pulumi.set(__self__, "label_index", label_index)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+        if max_record_count is not None:
+            pulumi.set(__self__, "max_record_count", max_record_count)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_index is not None:
+            pulumi.set(__self__, "probability_index", probability_index)
+
+    @property
+    @pulumi.getter(name="contentTemplate")
+    def content_template(self) -> Optional[str]:
+        return pulumi.get(self, "content_template")
+
+    @property
+    @pulumi.getter(name="featureHeaders")
+    def feature_headers(self) -> Optional[Sequence['outputs.EndpointConfigClarifyHeader']]:
+        return pulumi.get(self, "feature_headers")
+
+    @property
+    @pulumi.getter(name="featureTypes")
+    def feature_types(self) -> Optional[Sequence['outputs.EndpointConfigClarifyFeatureType']]:
+        return pulumi.get(self, "feature_types")
+
+    @property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "features_attribute")
+
+    @property
+    @pulumi.getter(name="labelAttribute")
+    def label_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "label_attribute")
+
+    @property
+    @pulumi.getter(name="labelHeaders")
+    def label_headers(self) -> Optional[Sequence['outputs.EndpointConfigClarifyHeader']]:
+        return pulumi.get(self, "label_headers")
+
+    @property
+    @pulumi.getter(name="labelIndex")
+    def label_index(self) -> Optional[int]:
+        return pulumi.get(self, "label_index")
+
+    @property
+    @pulumi.getter(name="maxPayloadInMB")
+    def max_payload_in_mb(self) -> Optional[int]:
+        return pulumi.get(self, "max_payload_in_mb")
+
+    @property
+    @pulumi.getter(name="maxRecordCount")
+    def max_record_count(self) -> Optional[int]:
+        return pulumi.get(self, "max_record_count")
+
+    @property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "probability_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityIndex")
+    def probability_index(self) -> Optional[int]:
+        return pulumi.get(self, "probability_index")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyShapBaselineConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mimeType":
+            suggest = "mime_type"
+        elif key == "shapBaseline":
+            suggest = "shap_baseline"
+        elif key == "shapBaselineUri":
+            suggest = "shap_baseline_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyShapBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyShapBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyShapBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mime_type: Optional[str] = None,
+                 shap_baseline: Optional[str] = None,
+                 shap_baseline_uri: Optional[str] = None):
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if shap_baseline is not None:
+            pulumi.set(__self__, "shap_baseline", shap_baseline)
+        if shap_baseline_uri is not None:
+            pulumi.set(__self__, "shap_baseline_uri", shap_baseline_uri)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[str]:
+        return pulumi.get(self, "mime_type")
+
+    @property
+    @pulumi.getter(name="shapBaseline")
+    def shap_baseline(self) -> Optional[str]:
+        return pulumi.get(self, "shap_baseline")
+
+    @property
+    @pulumi.getter(name="shapBaselineUri")
+    def shap_baseline_uri(self) -> Optional[str]:
+        return pulumi.get(self, "shap_baseline_uri")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyShapConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shapBaselineConfig":
+            suggest = "shap_baseline_config"
+        elif key == "numberOfSamples":
+            suggest = "number_of_samples"
+        elif key == "textConfig":
+            suggest = "text_config"
+        elif key == "useLogit":
+            suggest = "use_logit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyShapConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyShapConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyShapConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shap_baseline_config: 'outputs.EndpointConfigClarifyShapBaselineConfig',
+                 number_of_samples: Optional[int] = None,
+                 seed: Optional[int] = None,
+                 text_config: Optional['outputs.EndpointConfigClarifyTextConfig'] = None,
+                 use_logit: Optional[bool] = None):
+        pulumi.set(__self__, "shap_baseline_config", shap_baseline_config)
+        if number_of_samples is not None:
+            pulumi.set(__self__, "number_of_samples", number_of_samples)
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+        if text_config is not None:
+            pulumi.set(__self__, "text_config", text_config)
+        if use_logit is not None:
+            pulumi.set(__self__, "use_logit", use_logit)
+
+    @property
+    @pulumi.getter(name="shapBaselineConfig")
+    def shap_baseline_config(self) -> 'outputs.EndpointConfigClarifyShapBaselineConfig':
+        return pulumi.get(self, "shap_baseline_config")
+
+    @property
+    @pulumi.getter(name="numberOfSamples")
+    def number_of_samples(self) -> Optional[int]:
+        return pulumi.get(self, "number_of_samples")
+
+    @property
+    @pulumi.getter
+    def seed(self) -> Optional[int]:
+        return pulumi.get(self, "seed")
+
+    @property
+    @pulumi.getter(name="textConfig")
+    def text_config(self) -> Optional['outputs.EndpointConfigClarifyTextConfig']:
+        return pulumi.get(self, "text_config")
+
+    @property
+    @pulumi.getter(name="useLogit")
+    def use_logit(self) -> Optional[bool]:
+        return pulumi.get(self, "use_logit")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyTextConfig(dict):
+    def __init__(__self__, *,
+                 granularity: str,
+                 language: str):
+        pulumi.set(__self__, "granularity", granularity)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> str:
+        return pulumi.get(self, "granularity")
+
+    @property
+    @pulumi.getter
+    def language(self) -> str:
+        return pulumi.get(self, "language")
+
+
+@pulumi.output_type
 class EndpointConfigDataCaptureConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2610,6 +2945,36 @@ class EndpointConfigDataCaptureConfig(dict):
 
 
 @pulumi.output_type
+class EndpointConfigExplainerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clarifyExplainerConfig":
+            suggest = "clarify_explainer_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigExplainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigExplainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigExplainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clarify_explainer_config: Optional['outputs.EndpointConfigClarifyExplainerConfig'] = None):
+        if clarify_explainer_config is not None:
+            pulumi.set(__self__, "clarify_explainer_config", clarify_explainer_config)
+
+    @property
+    @pulumi.getter(name="clarifyExplainerConfig")
+    def clarify_explainer_config(self) -> Optional['outputs.EndpointConfigClarifyExplainerConfig']:
+        return pulumi.get(self, "clarify_explainer_config")
+
+
+@pulumi.output_type
 class EndpointConfigProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2622,12 +2987,18 @@ class EndpointConfigProductionVariant(dict):
             suggest = "variant_name"
         elif key == "acceleratorType":
             suggest = "accelerator_type"
+        elif key == "containerStartupHealthCheckTimeoutInSeconds":
+            suggest = "container_startup_health_check_timeout_in_seconds"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "modelDataDownloadTimeoutInSeconds":
+            suggest = "model_data_download_timeout_in_seconds"
         elif key == "serverlessConfig":
             suggest = "serverless_config"
+        elif key == "volumeSizeInGB":
+            suggest = "volume_size_in_gb"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EndpointConfigProductionVariant. Access the value via the '{suggest}' property getter instead.")
@@ -2645,20 +3016,29 @@ class EndpointConfigProductionVariant(dict):
                  model_name: str,
                  variant_name: str,
                  accelerator_type: Optional[str] = None,
+                 container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  initial_instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
-                 serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None):
+                 model_data_download_timeout_in_seconds: Optional[int] = None,
+                 serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None,
+                 volume_size_in_gb: Optional[int] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
@@ -2681,6 +3061,11 @@ class EndpointConfigProductionVariant(dict):
         return pulumi.get(self, "accelerator_type")
 
     @property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @property
     @pulumi.getter(name="initialInstanceCount")
     def initial_instance_count(self) -> Optional[int]:
         return pulumi.get(self, "initial_instance_count")
@@ -2691,9 +3076,19 @@ class EndpointConfigProductionVariant(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional['outputs.EndpointConfigServerlessConfig']:
         return pulumi.get(self, "serverless_config")
+
+    @property
+    @pulumi.getter(name="volumeSizeInGB")
+    def volume_size_in_gb(self) -> Optional[int]:
+        return pulumi.get(self, "volume_size_in_gb")
 
 
 @pulumi.output_type

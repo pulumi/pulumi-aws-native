@@ -14,16 +14,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class EndpointConfigProductionVariant
     {
         public readonly string? AcceleratorType;
+        public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
         public readonly int? InitialInstanceCount;
         public readonly double InitialVariantWeight;
         public readonly string? InstanceType;
+        public readonly int? ModelDataDownloadTimeoutInSeconds;
         public readonly string ModelName;
         public readonly Outputs.EndpointConfigServerlessConfig? ServerlessConfig;
         public readonly string VariantName;
+        public readonly int? VolumeSizeInGB;
 
         [OutputConstructor]
         private EndpointConfigProductionVariant(
             string? acceleratorType,
+
+            int? containerStartupHealthCheckTimeoutInSeconds,
 
             int? initialInstanceCount,
 
@@ -31,19 +36,26 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? instanceType,
 
+            int? modelDataDownloadTimeoutInSeconds,
+
             string modelName,
 
             Outputs.EndpointConfigServerlessConfig? serverlessConfig,
 
-            string variantName)
+            string variantName,
+
+            int? volumeSizeInGB)
         {
             AcceleratorType = acceleratorType;
+            ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;
+            ModelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             ModelName = modelName;
             ServerlessConfig = serverlessConfig;
             VariantName = variantName;
+            VolumeSizeInGB = volumeSizeInGB;
         }
     }
 }

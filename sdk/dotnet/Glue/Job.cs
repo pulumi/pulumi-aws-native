@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("executionClass")]
+        public Output<string?> ExecutionClass { get; private set; } = null!;
+
         [Output("executionProperty")]
         public Output<Outputs.JobExecutionProperty?> ExecutionProperty { get; private set; } = null!;
 
@@ -48,6 +51,9 @@ namespace Pulumi.AwsNative.Glue
 
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
+
+        [Output("nonOverridableArguments")]
+        public Output<object?> NonOverridableArguments { get; private set; } = null!;
 
         [Output("notificationProperty")]
         public Output<Outputs.JobNotificationProperty?> NotificationProperty { get; private set; } = null!;
@@ -130,6 +136,9 @@ namespace Pulumi.AwsNative.Glue
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("executionClass")]
+        public Input<string>? ExecutionClass { get; set; }
+
         [Input("executionProperty")]
         public Input<Inputs.JobExecutionPropertyArgs>? ExecutionProperty { get; set; }
 
@@ -147,6 +156,9 @@ namespace Pulumi.AwsNative.Glue
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("nonOverridableArguments")]
+        public Input<object>? NonOverridableArguments { get; set; }
 
         [Input("notificationProperty")]
         public Input<Inputs.JobNotificationPropertyArgs>? NotificationProperty { get; set; }

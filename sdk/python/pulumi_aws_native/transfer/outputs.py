@@ -12,6 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AgreementTag',
+    'As2ConfigProperties',
+    'CertificateTag',
+    'ConnectorTag',
+    'ProfileTag',
     'ServerAs2Transport',
     'ServerEndpointDetails',
     'ServerIdentityProviderDetails',
@@ -34,6 +39,274 @@ __all__ = [
     'WorkflowStepTagStepDetailsProperties',
     'WorkflowTag',
 ]
+
+@pulumi.output_type
+class AgreementTag(dict):
+    """
+    Creates a key-value pair for a specific resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Creates a key-value pair for a specific resource.
+        :param str key: The name assigned to the tag that you create.
+        :param str value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class As2ConfigProperties(dict):
+    """
+    Configuration for an AS2 connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "localProfileId":
+            suggest = "local_profile_id"
+        elif key == "mdnResponse":
+            suggest = "mdn_response"
+        elif key == "mdnSigningAlgorithm":
+            suggest = "mdn_signing_algorithm"
+        elif key == "messageSubject":
+            suggest = "message_subject"
+        elif key == "partnerProfileId":
+            suggest = "partner_profile_id"
+        elif key == "signingAlgorithm":
+            suggest = "signing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in As2ConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        As2ConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        As2ConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional['ConnectorAs2ConfigPropertiesCompression'] = None,
+                 encryption_algorithm: Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] = None,
+                 local_profile_id: Optional[str] = None,
+                 mdn_response: Optional['ConnectorAs2ConfigPropertiesMdnResponse'] = None,
+                 mdn_signing_algorithm: Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm'] = None,
+                 message_subject: Optional[str] = None,
+                 partner_profile_id: Optional[str] = None,
+                 signing_algorithm: Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm'] = None):
+        """
+        Configuration for an AS2 connector.
+        :param 'ConnectorAs2ConfigPropertiesCompression' compression: Compression setting for this AS2 connector configuration.
+        :param 'ConnectorAs2ConfigPropertiesEncryptionAlgorithm' encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
+        :param str local_profile_id: A unique identifier for the local profile.
+        :param 'ConnectorAs2ConfigPropertiesMdnResponse' mdn_response: MDN Response setting for this AS2 connector configuration.
+        :param 'ConnectorAs2ConfigPropertiesMdnSigningAlgorithm' mdn_signing_algorithm: MDN Signing algorithm for this AS2 connector configuration.
+        :param str message_subject: The message subject for this AS2 connector configuration.
+        :param str partner_profile_id: A unique identifier for the partner profile.
+        :param 'ConnectorAs2ConfigPropertiesSigningAlgorithm' signing_algorithm: Signing algorithm for this AS2 connector configuration.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if local_profile_id is not None:
+            pulumi.set(__self__, "local_profile_id", local_profile_id)
+        if mdn_response is not None:
+            pulumi.set(__self__, "mdn_response", mdn_response)
+        if mdn_signing_algorithm is not None:
+            pulumi.set(__self__, "mdn_signing_algorithm", mdn_signing_algorithm)
+        if message_subject is not None:
+            pulumi.set(__self__, "message_subject", message_subject)
+        if partner_profile_id is not None:
+            pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        if signing_algorithm is not None:
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @property
+    @pulumi.getter
+    def compression(self) -> Optional['ConnectorAs2ConfigPropertiesCompression']:
+        """
+        Compression setting for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "compression")
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']:
+        """
+        Encryption algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="localProfileId")
+    def local_profile_id(self) -> Optional[str]:
+        """
+        A unique identifier for the local profile.
+        """
+        return pulumi.get(self, "local_profile_id")
+
+    @property
+    @pulumi.getter(name="mdnResponse")
+    def mdn_response(self) -> Optional['ConnectorAs2ConfigPropertiesMdnResponse']:
+        """
+        MDN Response setting for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "mdn_response")
+
+    @property
+    @pulumi.getter(name="mdnSigningAlgorithm")
+    def mdn_signing_algorithm(self) -> Optional['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']:
+        """
+        MDN Signing algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "mdn_signing_algorithm")
+
+    @property
+    @pulumi.getter(name="messageSubject")
+    def message_subject(self) -> Optional[str]:
+        """
+        The message subject for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "message_subject")
+
+    @property
+    @pulumi.getter(name="partnerProfileId")
+    def partner_profile_id(self) -> Optional[str]:
+        """
+        A unique identifier for the partner profile.
+        """
+        return pulumi.get(self, "partner_profile_id")
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> Optional['ConnectorAs2ConfigPropertiesSigningAlgorithm']:
+        """
+        Signing algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+
+@pulumi.output_type
+class CertificateTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConnectorTag(dict):
+    """
+    Creates a key-value pair for a specific resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Creates a key-value pair for a specific resource.
+        :param str key: The name assigned to the tag that you create.
+        :param str value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProfileTag(dict):
+    """
+    Creates a key-value pair for a specific resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        Creates a key-value pair for a specific resource.
+        :param str key: The name assigned to the tag that you create.
+        :param str value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class ServerAs2Transport(dict):

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly ImmutableArray<Outputs.PhoneNumberTag> Tags;
         /// <summary>
-        /// The ARN of the Amazon Connect instance the phone number is claimed to.
+        /// The ARN of the target the phone number is claimed to.
         /// </summary>
         public readonly string? TargetArn;
 

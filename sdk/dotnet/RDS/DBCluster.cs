@@ -76,6 +76,18 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> DBClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB cluster.
+        /// </summary>
+        [Output("dBClusterResourceId")]
+        public Output<string> DBClusterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Output("dBInstanceParameterGroupName")]
+        public Output<string?> DBInstanceParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// A DB subnet group that you want to associate with this DB cluster.
         /// </summary>
         [Output("dBSubnetGroupName")]
@@ -92,6 +104,18 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// The Active Directory directory ID to create the DB cluster in.
+        /// </summary>
+        [Output("domain")]
+        public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Output("domainIAMRoleName")]
+        public Output<string?> DomainIAMRoleName { get; private set; } = null!;
 
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -177,6 +201,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> MonitoringRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string?> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether to turn on Performance Insights for the DB cluster.
         /// </summary>
         [Output("performanceInsightsEnabled")]
@@ -240,6 +270,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("scalingConfiguration")]
         public Output<Outputs.DBClusterScalingConfiguration?> ScalingConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        /// </summary>
+        [Output("serverlessV2ScalingConfiguration")]
+        public Output<Outputs.DBClusterServerlessV2ScalingConfiguration?> ServerlessV2ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The identifier for the DB snapshot or DB cluster snapshot to restore from.
@@ -410,6 +446,12 @@ namespace Pulumi.AwsNative.RDS
         public Input<string>? DBClusterParameterGroupName { get; set; }
 
         /// <summary>
+        /// The name of the DB parameter group to apply to all instances of the DB cluster.
+        /// </summary>
+        [Input("dBInstanceParameterGroupName")]
+        public Input<string>? DBInstanceParameterGroupName { get; set; }
+
+        /// <summary>
         /// A DB subnet group that you want to associate with this DB cluster.
         /// </summary>
         [Input("dBSubnetGroupName")]
@@ -426,6 +468,18 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
+        /// The Active Directory directory ID to create the DB cluster in.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
+        /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        [Input("domainIAMRoleName")]
+        public Input<string>? DomainIAMRoleName { get; set; }
 
         [Input("enableCloudwatchLogsExports")]
         private InputList<string>? _enableCloudwatchLogsExports;
@@ -514,6 +568,12 @@ namespace Pulumi.AwsNative.RDS
         public Input<string>? MonitoringRoleArn { get; set; }
 
         /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
+
+        /// <summary>
         /// A value that indicates whether to turn on Performance Insights for the DB cluster.
         /// </summary>
         [Input("performanceInsightsEnabled")]
@@ -577,6 +637,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.DBClusterScalingConfigurationArgs>? ScalingConfiguration { get; set; }
+
+        /// <summary>
+        /// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        /// </summary>
+        [Input("serverlessV2ScalingConfiguration")]
+        public Input<Inputs.DBClusterServerlessV2ScalingConfigurationArgs>? ServerlessV2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// The identifier for the DB snapshot or DB cluster snapshot to restore from.

@@ -10,6 +10,668 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Creates a key-value pair for a specific resource.
+type AgreementTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+// AgreementTagInput is an input type that accepts AgreementTagArgs and AgreementTagOutput values.
+// You can construct a concrete instance of `AgreementTagInput` via:
+//
+//	AgreementTagArgs{...}
+type AgreementTagInput interface {
+	pulumi.Input
+
+	ToAgreementTagOutput() AgreementTagOutput
+	ToAgreementTagOutputWithContext(context.Context) AgreementTagOutput
+}
+
+// Creates a key-value pair for a specific resource.
+type AgreementTagArgs struct {
+	// The name assigned to the tag that you create.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AgreementTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementTag)(nil)).Elem()
+}
+
+func (i AgreementTagArgs) ToAgreementTagOutput() AgreementTagOutput {
+	return i.ToAgreementTagOutputWithContext(context.Background())
+}
+
+func (i AgreementTagArgs) ToAgreementTagOutputWithContext(ctx context.Context) AgreementTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagOutput)
+}
+
+// AgreementTagArrayInput is an input type that accepts AgreementTagArray and AgreementTagArrayOutput values.
+// You can construct a concrete instance of `AgreementTagArrayInput` via:
+//
+//	AgreementTagArray{ AgreementTagArgs{...} }
+type AgreementTagArrayInput interface {
+	pulumi.Input
+
+	ToAgreementTagArrayOutput() AgreementTagArrayOutput
+	ToAgreementTagArrayOutputWithContext(context.Context) AgreementTagArrayOutput
+}
+
+type AgreementTagArray []AgreementTagInput
+
+func (AgreementTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgreementTag)(nil)).Elem()
+}
+
+func (i AgreementTagArray) ToAgreementTagArrayOutput() AgreementTagArrayOutput {
+	return i.ToAgreementTagArrayOutputWithContext(context.Background())
+}
+
+func (i AgreementTagArray) ToAgreementTagArrayOutputWithContext(ctx context.Context) AgreementTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagArrayOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type AgreementTagOutput struct{ *pulumi.OutputState }
+
+func (AgreementTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgreementTag)(nil)).Elem()
+}
+
+func (o AgreementTagOutput) ToAgreementTagOutput() AgreementTagOutput {
+	return o
+}
+
+func (o AgreementTagOutput) ToAgreementTagOutputWithContext(ctx context.Context) AgreementTagOutput {
+	return o
+}
+
+// The name assigned to the tag that you create.
+func (o AgreementTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AgreementTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Contains one or more values that you assigned to the key name you create.
+func (o AgreementTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AgreementTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AgreementTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AgreementTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgreementTag)(nil)).Elem()
+}
+
+func (o AgreementTagArrayOutput) ToAgreementTagArrayOutput() AgreementTagArrayOutput {
+	return o
+}
+
+func (o AgreementTagArrayOutput) ToAgreementTagArrayOutputWithContext(ctx context.Context) AgreementTagArrayOutput {
+	return o
+}
+
+func (o AgreementTagArrayOutput) Index(i pulumi.IntInput) AgreementTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgreementTag {
+		return vs[0].([]AgreementTag)[vs[1].(int)]
+	}).(AgreementTagOutput)
+}
+
+// Configuration for an AS2 connector.
+type As2ConfigProperties struct {
+	// Compression setting for this AS2 connector configuration.
+	Compression *ConnectorAs2ConfigPropertiesCompression `pulumi:"compression"`
+	// Encryption algorithm for this AS2 connector configuration.
+	EncryptionAlgorithm *ConnectorAs2ConfigPropertiesEncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	// A unique identifier for the local profile.
+	LocalProfileId *string `pulumi:"localProfileId"`
+	// MDN Response setting for this AS2 connector configuration.
+	MdnResponse *ConnectorAs2ConfigPropertiesMdnResponse `pulumi:"mdnResponse"`
+	// MDN Signing algorithm for this AS2 connector configuration.
+	MdnSigningAlgorithm *ConnectorAs2ConfigPropertiesMdnSigningAlgorithm `pulumi:"mdnSigningAlgorithm"`
+	// The message subject for this AS2 connector configuration.
+	MessageSubject *string `pulumi:"messageSubject"`
+	// A unique identifier for the partner profile.
+	PartnerProfileId *string `pulumi:"partnerProfileId"`
+	// Signing algorithm for this AS2 connector configuration.
+	SigningAlgorithm *ConnectorAs2ConfigPropertiesSigningAlgorithm `pulumi:"signingAlgorithm"`
+}
+
+// As2ConfigPropertiesInput is an input type that accepts As2ConfigPropertiesArgs and As2ConfigPropertiesOutput values.
+// You can construct a concrete instance of `As2ConfigPropertiesInput` via:
+//
+//	As2ConfigPropertiesArgs{...}
+type As2ConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToAs2ConfigPropertiesOutput() As2ConfigPropertiesOutput
+	ToAs2ConfigPropertiesOutputWithContext(context.Context) As2ConfigPropertiesOutput
+}
+
+// Configuration for an AS2 connector.
+type As2ConfigPropertiesArgs struct {
+	// Compression setting for this AS2 connector configuration.
+	Compression ConnectorAs2ConfigPropertiesCompressionPtrInput `pulumi:"compression"`
+	// Encryption algorithm for this AS2 connector configuration.
+	EncryptionAlgorithm ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrInput `pulumi:"encryptionAlgorithm"`
+	// A unique identifier for the local profile.
+	LocalProfileId pulumi.StringPtrInput `pulumi:"localProfileId"`
+	// MDN Response setting for this AS2 connector configuration.
+	MdnResponse ConnectorAs2ConfigPropertiesMdnResponsePtrInput `pulumi:"mdnResponse"`
+	// MDN Signing algorithm for this AS2 connector configuration.
+	MdnSigningAlgorithm ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrInput `pulumi:"mdnSigningAlgorithm"`
+	// The message subject for this AS2 connector configuration.
+	MessageSubject pulumi.StringPtrInput `pulumi:"messageSubject"`
+	// A unique identifier for the partner profile.
+	PartnerProfileId pulumi.StringPtrInput `pulumi:"partnerProfileId"`
+	// Signing algorithm for this AS2 connector configuration.
+	SigningAlgorithm ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput `pulumi:"signingAlgorithm"`
+}
+
+func (As2ConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*As2ConfigProperties)(nil)).Elem()
+}
+
+func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesOutput() As2ConfigPropertiesOutput {
+	return i.ToAs2ConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesOutputWithContext(ctx context.Context) As2ConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesOutput)
+}
+
+// Configuration for an AS2 connector.
+type As2ConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (As2ConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*As2ConfigProperties)(nil)).Elem()
+}
+
+func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesOutput() As2ConfigPropertiesOutput {
+	return o
+}
+
+func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesOutputWithContext(ctx context.Context) As2ConfigPropertiesOutput {
+	return o
+}
+
+// Compression setting for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) Compression() ConnectorAs2ConfigPropertiesCompressionPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesCompression { return v.Compression }).(ConnectorAs2ConfigPropertiesCompressionPtrOutput)
+}
+
+// Encryption algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) EncryptionAlgorithm() ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesEncryptionAlgorithm {
+		return v.EncryptionAlgorithm
+	}).(ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput)
+}
+
+// A unique identifier for the local profile.
+func (o As2ConfigPropertiesOutput) LocalProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *string { return v.LocalProfileId }).(pulumi.StringPtrOutput)
+}
+
+// MDN Response setting for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) MdnResponse() ConnectorAs2ConfigPropertiesMdnResponsePtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesMdnResponse { return v.MdnResponse }).(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput)
+}
+
+// MDN Signing algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) MdnSigningAlgorithm() ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesMdnSigningAlgorithm {
+		return v.MdnSigningAlgorithm
+	}).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
+}
+
+// The message subject for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *string { return v.MessageSubject }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the partner profile.
+func (o As2ConfigPropertiesOutput) PartnerProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *string { return v.PartnerProfileId }).(pulumi.StringPtrOutput)
+}
+
+// Signing algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesOutput) SigningAlgorithm() ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v As2ConfigProperties) *ConnectorAs2ConfigPropertiesSigningAlgorithm { return v.SigningAlgorithm }).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
+}
+
+type As2ConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (As2ConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**As2ConfigProperties)(nil)).Elem()
+}
+
+func (o As2ConfigPropertiesPtrOutput) ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o As2ConfigPropertiesPtrOutput) ToAs2ConfigPropertiesPtrOutputWithContext(ctx context.Context) As2ConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o As2ConfigPropertiesPtrOutput) Elem() As2ConfigPropertiesOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) As2ConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret As2ConfigProperties
+		return ret
+	}).(As2ConfigPropertiesOutput)
+}
+
+// Compression setting for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) Compression() ConnectorAs2ConfigPropertiesCompressionPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesCompression {
+		if v == nil {
+			return nil
+		}
+		return v.Compression
+	}).(ConnectorAs2ConfigPropertiesCompressionPtrOutput)
+}
+
+// Encryption algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) EncryptionAlgorithm() ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesEncryptionAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAlgorithm
+	}).(ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput)
+}
+
+// A unique identifier for the local profile.
+func (o As2ConfigPropertiesPtrOutput) LocalProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// MDN Response setting for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) MdnResponse() ConnectorAs2ConfigPropertiesMdnResponsePtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesMdnResponse {
+		if v == nil {
+			return nil
+		}
+		return v.MdnResponse
+	}).(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput)
+}
+
+// MDN Signing algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) MdnSigningAlgorithm() ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesMdnSigningAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.MdnSigningAlgorithm
+	}).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
+}
+
+// The message subject for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) MessageSubject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageSubject
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the partner profile.
+func (o As2ConfigPropertiesPtrOutput) PartnerProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Signing algorithm for this AS2 connector configuration.
+func (o As2ConfigPropertiesPtrOutput) SigningAlgorithm() ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput {
+	return o.ApplyT(func(v *As2ConfigProperties) *ConnectorAs2ConfigPropertiesSigningAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.SigningAlgorithm
+	}).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CertificateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CertificateTagInput is an input type that accepts CertificateTagArgs and CertificateTagOutput values.
+// You can construct a concrete instance of `CertificateTagInput` via:
+//
+//	CertificateTagArgs{...}
+type CertificateTagInput interface {
+	pulumi.Input
+
+	ToCertificateTagOutput() CertificateTagOutput
+	ToCertificateTagOutputWithContext(context.Context) CertificateTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CertificateTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutput() CertificateTagOutput {
+	return i.ToCertificateTagOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
+}
+
+// CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
+// You can construct a concrete instance of `CertificateTagArrayInput` via:
+//
+//	CertificateTagArray{ CertificateTagArgs{...} }
+type CertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToCertificateTagArrayOutput() CertificateTagArrayOutput
+	ToCertificateTagArrayOutputWithContext(context.Context) CertificateTagArrayOutput
+}
+
+type CertificateTagArray []CertificateTagInput
+
+func (CertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return i.ToCertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CertificateTagOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
+	return o
+}
+
+func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateTag)(nil)).Elem()
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
+	return o
+}
+
+func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateTag {
+		return vs[0].([]CertificateTag)[vs[1].(int)]
+	}).(CertificateTagOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type ConnectorTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+// ConnectorTagInput is an input type that accepts ConnectorTagArgs and ConnectorTagOutput values.
+// You can construct a concrete instance of `ConnectorTagInput` via:
+//
+//	ConnectorTagArgs{...}
+type ConnectorTagInput interface {
+	pulumi.Input
+
+	ToConnectorTagOutput() ConnectorTagOutput
+	ToConnectorTagOutputWithContext(context.Context) ConnectorTagOutput
+}
+
+// Creates a key-value pair for a specific resource.
+type ConnectorTagArgs struct {
+	// The name assigned to the tag that you create.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConnectorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorTag)(nil)).Elem()
+}
+
+func (i ConnectorTagArgs) ToConnectorTagOutput() ConnectorTagOutput {
+	return i.ToConnectorTagOutputWithContext(context.Background())
+}
+
+func (i ConnectorTagArgs) ToConnectorTagOutputWithContext(ctx context.Context) ConnectorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagOutput)
+}
+
+// ConnectorTagArrayInput is an input type that accepts ConnectorTagArray and ConnectorTagArrayOutput values.
+// You can construct a concrete instance of `ConnectorTagArrayInput` via:
+//
+//	ConnectorTagArray{ ConnectorTagArgs{...} }
+type ConnectorTagArrayInput interface {
+	pulumi.Input
+
+	ToConnectorTagArrayOutput() ConnectorTagArrayOutput
+	ToConnectorTagArrayOutputWithContext(context.Context) ConnectorTagArrayOutput
+}
+
+type ConnectorTagArray []ConnectorTagInput
+
+func (ConnectorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorTag)(nil)).Elem()
+}
+
+func (i ConnectorTagArray) ToConnectorTagArrayOutput() ConnectorTagArrayOutput {
+	return i.ToConnectorTagArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectorTagArray) ToConnectorTagArrayOutputWithContext(ctx context.Context) ConnectorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagArrayOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type ConnectorTagOutput struct{ *pulumi.OutputState }
+
+func (ConnectorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorTag)(nil)).Elem()
+}
+
+func (o ConnectorTagOutput) ToConnectorTagOutput() ConnectorTagOutput {
+	return o
+}
+
+func (o ConnectorTagOutput) ToConnectorTagOutputWithContext(ctx context.Context) ConnectorTagOutput {
+	return o
+}
+
+// The name assigned to the tag that you create.
+func (o ConnectorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Contains one or more values that you assigned to the key name you create.
+func (o ConnectorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConnectorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorTag)(nil)).Elem()
+}
+
+func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutput() ConnectorTagArrayOutput {
+	return o
+}
+
+func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutputWithContext(ctx context.Context) ConnectorTagArrayOutput {
+	return o
+}
+
+func (o ConnectorTagArrayOutput) Index(i pulumi.IntInput) ConnectorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorTag {
+		return vs[0].([]ConnectorTag)[vs[1].(int)]
+	}).(ConnectorTagOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type ProfileTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+// ProfileTagInput is an input type that accepts ProfileTagArgs and ProfileTagOutput values.
+// You can construct a concrete instance of `ProfileTagInput` via:
+//
+//	ProfileTagArgs{...}
+type ProfileTagInput interface {
+	pulumi.Input
+
+	ToProfileTagOutput() ProfileTagOutput
+	ToProfileTagOutputWithContext(context.Context) ProfileTagOutput
+}
+
+// Creates a key-value pair for a specific resource.
+type ProfileTagArgs struct {
+	// The name assigned to the tag that you create.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
+}
+
+func (i ProfileTagArgs) ToProfileTagOutput() ProfileTagOutput {
+	return i.ToProfileTagOutputWithContext(context.Background())
+}
+
+func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
+}
+
+// ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
+// You can construct a concrete instance of `ProfileTagArrayInput` via:
+//
+//	ProfileTagArray{ ProfileTagArgs{...} }
+type ProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToProfileTagArrayOutput() ProfileTagArrayOutput
+	ToProfileTagArrayOutputWithContext(context.Context) ProfileTagArrayOutput
+}
+
+type ProfileTagArray []ProfileTagInput
+
+func (ProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
+}
+
+func (i ProfileTagArray) ToProfileTagArrayOutput() ProfileTagArrayOutput {
+	return i.ToProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
+}
+
+// Creates a key-value pair for a specific resource.
+type ProfileTagOutput struct{ *pulumi.OutputState }
+
+func (ProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileTag)(nil)).Elem()
+}
+
+func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
+	return o
+}
+
+func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
+	return o
+}
+
+// The name assigned to the tag that you create.
+func (o ProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Contains one or more values that you assigned to the key name you create.
+func (o ProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileTag)(nil)).Elem()
+}
+
+func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
+	return o
+}
+
+func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
+	return o
+}
+
+func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileTag {
+		return vs[0].([]ProfileTag)[vs[1].(int)]
+	}).(ProfileTagOutput)
+}
+
 type ServerAs2Transport struct {
 }
 
@@ -2897,6 +3559,15 @@ func (o WorkflowTagArrayOutput) Index(i pulumi.IntInput) WorkflowTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagInput)(nil)).Elem(), AgreementTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgreementTagArrayInput)(nil)).Elem(), AgreementTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagInput)(nil)).Elem(), CertificateTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateTagArrayInput)(nil)).Elem(), CertificateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagInput)(nil)).Elem(), ConnectorTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorTagArrayInput)(nil)).Elem(), ConnectorTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagInput)(nil)).Elem(), ProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTagArrayInput)(nil)).Elem(), ProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2TransportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportArrayInput)(nil)).Elem(), ServerAs2TransportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
@@ -2939,6 +3610,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagInput)(nil)).Elem(), WorkflowTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTagArrayInput)(nil)).Elem(), WorkflowTagArray{})
+	pulumi.RegisterOutputType(AgreementTagOutput{})
+	pulumi.RegisterOutputType(AgreementTagArrayOutput{})
+	pulumi.RegisterOutputType(As2ConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(As2ConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CertificateTagOutput{})
+	pulumi.RegisterOutputType(CertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorTagOutput{})
+	pulumi.RegisterOutputType(ConnectorTagArrayOutput{})
+	pulumi.RegisterOutputType(ProfileTagOutput{})
+	pulumi.RegisterOutputType(ProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportOutput{})
 	pulumi.RegisterOutputType(ServerAs2TransportArrayOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})

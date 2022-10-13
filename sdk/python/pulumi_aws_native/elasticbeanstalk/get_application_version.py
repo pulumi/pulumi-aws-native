@@ -29,6 +29,9 @@ class GetApplicationVersionResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of this application version.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -47,12 +50,17 @@ class AwaitableGetApplicationVersionResult(GetApplicationVersionResult):
             id=self.id)
 
 
-def get_application_version(id: Optional[str] = None,
+def get_application_version(application_name: Optional[str] = None,
+                            id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationVersionResult:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
+
+
+    :param str application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
     """
     __args__ = dict()
+    __args__['applicationName'] = application_name
     __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getApplicationVersion', __args__, opts=opts, typ=GetApplicationVersionResult).value
@@ -63,9 +71,13 @@ def get_application_version(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_application_version)
-def get_application_version_output(id: Optional[pulumi.Input[str]] = None,
+def get_application_version_output(application_name: Optional[pulumi.Input[str]] = None,
+                                   id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationVersionResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
+
+
+    :param str application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
     """
     ...

@@ -18,6 +18,8 @@ class SecurityConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityConfiguration resource.
+        :param Any security_configuration: The security configuration details in JSON format.
+        :param pulumi.Input[str] name: The name of the security configuration.
         """
         pulumi.set(__self__, "security_configuration", security_configuration)
         if name is not None:
@@ -26,6 +28,9 @@ class SecurityConfigurationArgs:
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Any:
+        """
+        The security configuration details in JSON format.
+        """
         return pulumi.get(self, "security_configuration")
 
     @security_configuration.setter
@@ -35,6 +40,9 @@ class SecurityConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the security configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -42,12 +50,7 @@ class SecurityConfigurationArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SecurityConfiguration(pulumi.CustomResource):
-    warnings.warn("""SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -56,10 +59,12 @@ class SecurityConfiguration(pulumi.CustomResource):
                  security_configuration: Optional[Any] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EMR::SecurityConfiguration
+        Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the security configuration.
+        :param Any security_configuration: The security configuration details in JSON format.
         """
         ...
     @overload
@@ -68,7 +73,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                  args: SecurityConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EMR::SecurityConfiguration
+        Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
 
         :param str resource_name: The name of the resource.
         :param SecurityConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -88,7 +93,6 @@ class SecurityConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityConfiguration is deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -130,10 +134,16 @@ class SecurityConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the security configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> pulumi.Output[Any]:
+        """
+        The security configuration details in JSON format.
+        """
         return pulumi.get(self, "security_configuration")
 

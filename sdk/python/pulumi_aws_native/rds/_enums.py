@@ -32,10 +32,11 @@ class DBProxyAuthFormatAuthScheme(str, Enum):
 
 class DBProxyAuthFormatIAMAuth(str, Enum):
     """
-    Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+    Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
     """
     DISABLED = "DISABLED"
     REQUIRED = "REQUIRED"
+    ENABLED = "ENABLED"
 
 
 class DBProxyEndpointTargetRole(str, Enum):
@@ -52,6 +53,7 @@ class DBProxyEngineFamily(str, Enum):
     """
     MYSQL = "MYSQL"
     POSTGRESQL = "POSTGRESQL"
+    SQLSERVER = "SQLSERVER"
 
 
 class DBProxyTargetGroupTargetGroupName(str, Enum):

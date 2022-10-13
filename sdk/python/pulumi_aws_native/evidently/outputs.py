@@ -28,6 +28,7 @@ __all__ = [
     'LaunchSegmentOverride',
     'LaunchStepConfig',
     'LaunchTag',
+    'ProjectAppConfigResourceObject',
     'ProjectDataDeliveryObject',
     'ProjectS3Destination',
     'ProjectTag',
@@ -848,6 +849,44 @@ class LaunchTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectAppConfigResourceObject(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "environmentId":
+            suggest = "environment_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectAppConfigResourceObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectAppConfigResourceObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectAppConfigResourceObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: str,
+                 environment_id: str):
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "environment_id", environment_id)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> str:
+        return pulumi.get(self, "environment_id")
 
 
 @pulumi.output_type

@@ -10,15 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
-    /// Resource Type definition for AWS::EMR::SecurityConfiguration
+    /// Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
     /// </summary>
-    [Obsolete(@"SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:emr:SecurityConfiguration")]
     public partial class SecurityConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the security configuration.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The security configuration details in JSON format.
+        /// </summary>
         [Output("securityConfiguration")]
         public Output<object> SecurityConfigurationValue { get; private set; } = null!;
 
@@ -67,9 +72,15 @@ namespace Pulumi.AwsNative.EMR
 
     public sealed class SecurityConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the security configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The security configuration details in JSON format.
+        /// </summary>
         [Input("securityConfiguration", required: true)]
         public Input<object> SecurityConfigurationValue { get; set; } = null!;
 

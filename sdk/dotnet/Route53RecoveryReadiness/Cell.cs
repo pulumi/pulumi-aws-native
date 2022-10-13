@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// The name of the cell to create.
         /// </summary>
         [Output("cellName")]
-        public Output<string> CellName { get; private set; } = null!;
+        public Output<string?> CellName { get; private set; } = null!;
 
         /// <summary>
         /// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.

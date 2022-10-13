@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::Destination
+ * The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
  */
 export function getDestination(args: GetDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDestinationResult> {
     if (!opts) {
@@ -14,19 +14,30 @@ export function getDestination(args: GetDestinationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:logs:getDestination", {
-        "id": args.id,
+        "destinationName": args.destinationName,
     }, opts);
 }
 
 export interface GetDestinationArgs {
-    id: string;
+    /**
+     * The name of the destination resource
+     */
+    destinationName: string;
 }
 
 export interface GetDestinationResult {
     readonly arn?: string;
+    /**
+     * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+     */
     readonly destinationPolicy?: string;
-    readonly id?: string;
+    /**
+     * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+     */
     readonly roleArn?: string;
+    /**
+     * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+     */
     readonly targetArn?: string;
 }
 
@@ -35,5 +46,8 @@ export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulu
 }
 
 export interface GetDestinationOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the destination resource
+     */
+    destinationName: pulumi.Input<string>;
 }

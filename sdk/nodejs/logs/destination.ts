@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::Destination
- *
- * @deprecated Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
  */
 export class Destination extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Destination extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Destination {
-        pulumi.log.warn("Destination is deprecated: Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Destination(name, undefined as any, { ...opts, id: id });
     }
 
@@ -38,9 +35,21 @@ export class Destination extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The name of the destination resource
+     */
     public readonly destinationName!: pulumi.Output<string>;
-    public readonly destinationPolicy!: pulumi.Output<string>;
+    /**
+     * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+     */
+    public readonly destinationPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+     */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+     */
     public readonly targetArn!: pulumi.Output<string>;
 
     /**
@@ -50,15 +59,10 @@ export class Destination extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DestinationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Destination is deprecated: Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationPolicy === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinationPolicy'");
-            }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -86,8 +90,20 @@ export class Destination extends pulumi.CustomResource {
  * The set of arguments for constructing a Destination resource.
  */
 export interface DestinationArgs {
+    /**
+     * The name of the destination resource
+     */
     destinationName?: pulumi.Input<string>;
-    destinationPolicy: pulumi.Input<string>;
+    /**
+     * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+     */
+    destinationPolicy?: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+     */
     roleArn: pulumi.Input<string>;
+    /**
+     * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+     */
     targetArn: pulumi.Input<string>;
 }

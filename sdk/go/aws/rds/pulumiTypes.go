@@ -661,6 +661,165 @@ func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+type DBClusterServerlessV2ScalingConfiguration struct {
+	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+	MaxCapacity *float64 `pulumi:"maxCapacity"`
+	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+	MinCapacity *float64 `pulumi:"minCapacity"`
+}
+
+// DBClusterServerlessV2ScalingConfigurationInput is an input type that accepts DBClusterServerlessV2ScalingConfigurationArgs and DBClusterServerlessV2ScalingConfigurationOutput values.
+// You can construct a concrete instance of `DBClusterServerlessV2ScalingConfigurationInput` via:
+//
+//	DBClusterServerlessV2ScalingConfigurationArgs{...}
+type DBClusterServerlessV2ScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput
+	ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(context.Context) DBClusterServerlessV2ScalingConfigurationOutput
+}
+
+// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+type DBClusterServerlessV2ScalingConfigurationArgs struct {
+	// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+	MaxCapacity pulumi.Float64PtrInput `pulumi:"maxCapacity"`
+	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
+}
+
+func (DBClusterServerlessV2ScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput {
+	return i.ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationOutput)
+}
+
+func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DBClusterServerlessV2ScalingConfigurationArgs) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationOutput).ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// DBClusterServerlessV2ScalingConfigurationPtrInput is an input type that accepts DBClusterServerlessV2ScalingConfigurationArgs, DBClusterServerlessV2ScalingConfigurationPtr and DBClusterServerlessV2ScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `DBClusterServerlessV2ScalingConfigurationPtrInput` via:
+//
+//	        DBClusterServerlessV2ScalingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBClusterServerlessV2ScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput
+	ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput
+}
+
+type dbclusterServerlessV2ScalingConfigurationPtrType DBClusterServerlessV2ScalingConfigurationArgs
+
+func DBClusterServerlessV2ScalingConfigurationPtr(v *DBClusterServerlessV2ScalingConfigurationArgs) DBClusterServerlessV2ScalingConfigurationPtrInput {
+	return (*dbclusterServerlessV2ScalingConfigurationPtrType)(v)
+}
+
+func (*dbclusterServerlessV2ScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return i.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dbclusterServerlessV2ScalingConfigurationPtrType) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+type DBClusterServerlessV2ScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DBClusterServerlessV2ScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationOutput() DBClusterServerlessV2ScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationOutput {
+	return o
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterServerlessV2ScalingConfiguration) *DBClusterServerlessV2ScalingConfiguration {
+		return &v
+	}).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
+}
+
+// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+func (o DBClusterServerlessV2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DBClusterServerlessV2ScalingConfiguration) *float64 { return v.MaxCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+func (o DBClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DBClusterServerlessV2ScalingConfiguration) *float64 { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+}
+
+type DBClusterServerlessV2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterServerlessV2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterServerlessV2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutput() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) ToDBClusterServerlessV2ScalingConfigurationPtrOutputWithContext(ctx context.Context) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) Elem() DBClusterServerlessV2ScalingConfigurationOutput {
+	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) DBClusterServerlessV2ScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterServerlessV2ScalingConfiguration
+		return ret
+	}).(DBClusterServerlessV2ScalingConfigurationOutput)
+}
+
+// The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+func (o DBClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DBClusterServerlessV2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1380,7 +1539,7 @@ type DBProxyAuthFormat struct {
 	AuthScheme *DBProxyAuthFormatAuthScheme `pulumi:"authScheme"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
-	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
 	IAMAuth *DBProxyAuthFormatIAMAuth `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
@@ -1404,7 +1563,7 @@ type DBProxyAuthFormatArgs struct {
 	AuthScheme DBProxyAuthFormatAuthSchemePtrInput `pulumi:"authScheme"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
 	IAMAuth DBProxyAuthFormatIAMAuthPtrInput `pulumi:"iAMAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
@@ -1473,7 +1632,7 @@ func (o DBProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
 func (o DBProxyAuthFormatOutput) IAMAuth() DBProxyAuthFormatIAMAuthPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatIAMAuth { return v.IAMAuth }).(DBProxyAuthFormatIAMAuthPtrOutput)
 }
@@ -2727,6 +2886,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterRoleArrayInput)(nil)).Elem(), DBClusterRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterScalingConfigurationPtrInput)(nil)).Elem(), DBClusterScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessV2ScalingConfigurationInput)(nil)).Elem(), DBClusterServerlessV2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DBClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagInput)(nil)).Elem(), DBClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointInput)(nil)).Elem(), DBInstanceEndpointArgs{})
@@ -2771,6 +2932,8 @@ func init() {
 	pulumi.RegisterOutputType(DBClusterRoleArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(DBClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DBClusterServerlessV2ScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(DBClusterServerlessV2ScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterTagOutput{})
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceEndpointOutput{})

@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CodeDeploy::Application
- *
- * @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Application extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Application {
-        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Application(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,8 +37,17 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
     public readonly applicationName!: pulumi.Output<string | undefined>;
+    /**
+     * The compute platform that CodeDeploy deploys the application to.
+     */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+     */
     public readonly tags!: pulumi.Output<outputs.codedeploy.ApplicationTag[] | undefined>;
 
     /**
@@ -51,9 +57,7 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -74,7 +78,16 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    /**
+     * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
     applicationName?: pulumi.Input<string>;
+    /**
+     * The compute platform that CodeDeploy deploys the application to.
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.codedeploy.ApplicationTagArgs>[]>;
 }

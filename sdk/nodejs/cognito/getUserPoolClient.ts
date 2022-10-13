@@ -31,6 +31,7 @@ export interface GetUserPoolClientResult {
     readonly allowedOAuthFlowsUserPoolClient?: boolean;
     readonly allowedOAuthScopes?: string[];
     readonly analyticsConfiguration?: outputs.cognito.UserPoolClientAnalyticsConfiguration;
+    readonly authSessionValidity?: number;
     readonly callbackURLs?: string[];
     readonly clientName?: string;
     readonly clientSecret?: string;

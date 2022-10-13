@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ApplicationVersionSourceBundle
     {
+        /// <summary>
+        /// The Amazon S3 bucket where the data is located.
+        /// </summary>
         public readonly string S3Bucket;
+        /// <summary>
+        /// The Amazon S3 key where the data is located.
+        /// </summary>
         public readonly string S3Key;
 
         [OutputConstructor]

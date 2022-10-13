@@ -78,6 +78,14 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The AWS Region-unique, immutable identifier for the DB cluster.
+     */
+    public /*out*/ readonly dBClusterResourceId!: pulumi.Output<string>;
+    /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     */
+    public readonly dBInstanceParameterGroupName!: pulumi.Output<string | undefined>;
+    /**
      * A DB subnet group that you want to associate with this DB cluster.
      */
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
@@ -89,6 +97,14 @@ export class DBCluster extends pulumi.CustomResource {
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Active Directory directory ID to create the DB cluster in.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
+     * Specify the name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    public readonly domainIAMRoleName!: pulumi.Output<string | undefined>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
      */
@@ -145,6 +161,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly monitoringRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * The network type of the DB cluster.
+     */
+    public readonly networkType!: pulumi.Output<string | undefined>;
+    /**
      * A value that indicates whether to turn on Performance Insights for the DB cluster.
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean | undefined>;
@@ -187,6 +207,10 @@ export class DBCluster extends pulumi.CustomResource {
      * The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
      */
     public readonly scalingConfiguration!: pulumi.Output<outputs.rds.DBClusterScalingConfiguration | undefined>;
+    /**
+     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     */
+    public readonly serverlessV2ScalingConfiguration!: pulumi.Output<outputs.rds.DBClusterServerlessV2ScalingConfiguration | undefined>;
     /**
      * The identifier for the DB snapshot or DB cluster snapshot to restore from.
      * You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
@@ -244,9 +268,12 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
             resourceInputs["dBClusterInstanceClass"] = args ? args.dBClusterInstanceClass : undefined;
             resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
+            resourceInputs["dBInstanceParameterGroupName"] = args ? args.dBInstanceParameterGroupName : undefined;
             resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainIAMRoleName"] = args ? args.domainIAMRoleName : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             resourceInputs["enableIAMDatabaseAuthentication"] = args ? args.enableIAMDatabaseAuthentication : undefined;
@@ -260,6 +287,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
             resourceInputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
@@ -271,6 +299,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["replicationSourceIdentifier"] = args ? args.replicationSourceIdentifier : undefined;
             resourceInputs["restoreType"] = args ? args.restoreType : undefined;
             resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
+            resourceInputs["serverlessV2ScalingConfiguration"] = args ? args.serverlessV2ScalingConfiguration : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceDBClusterIdentifier"] = args ? args.sourceDBClusterIdentifier : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
@@ -279,6 +308,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["dBClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -291,9 +321,13 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBClusterInstanceClass"] = undefined /*out*/;
             resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
+            resourceInputs["dBClusterResourceId"] = undefined /*out*/;
+            resourceInputs["dBInstanceParameterGroupName"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["domainIAMRoleName"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
             resourceInputs["enableHttpEndpoint"] = undefined /*out*/;
             resourceInputs["enableIAMDatabaseAuthentication"] = undefined /*out*/;
@@ -308,6 +342,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["masterUsername"] = undefined /*out*/;
             resourceInputs["monitoringInterval"] = undefined /*out*/;
             resourceInputs["monitoringRoleArn"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["performanceInsightsEnabled"] = undefined /*out*/;
             resourceInputs["performanceInsightsKmsKeyId"] = undefined /*out*/;
             resourceInputs["performanceInsightsRetentionPeriod"] = undefined /*out*/;
@@ -319,6 +354,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["replicationSourceIdentifier"] = undefined /*out*/;
             resourceInputs["restoreType"] = undefined /*out*/;
             resourceInputs["scalingConfiguration"] = undefined /*out*/;
+            resourceInputs["serverlessV2ScalingConfiguration"] = undefined /*out*/;
             resourceInputs["snapshotIdentifier"] = undefined /*out*/;
             resourceInputs["sourceDBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
@@ -378,6 +414,10 @@ export interface DBClusterArgs {
      */
     dBClusterParameterGroupName?: pulumi.Input<string>;
     /**
+     * The name of the DB parameter group to apply to all instances of the DB cluster.
+     */
+    dBInstanceParameterGroupName?: pulumi.Input<string>;
+    /**
      * A DB subnet group that you want to associate with this DB cluster.
      */
     dBSubnetGroupName?: pulumi.Input<string>;
@@ -389,6 +429,14 @@ export interface DBClusterArgs {
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * The Active Directory directory ID to create the DB cluster in.
+     */
+    domain?: pulumi.Input<string>;
+    /**
+     * Specify the name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    domainIAMRoleName?: pulumi.Input<string>;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
      */
@@ -444,6 +492,10 @@ export interface DBClusterArgs {
      */
     monitoringRoleArn?: pulumi.Input<string>;
     /**
+     * The network type of the DB cluster.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
      * A value that indicates whether to turn on Performance Insights for the DB cluster.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
@@ -486,6 +538,10 @@ export interface DBClusterArgs {
      * The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
      */
     scalingConfiguration?: pulumi.Input<inputs.rds.DBClusterScalingConfigurationArgs>;
+    /**
+     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     */
+    serverlessV2ScalingConfiguration?: pulumi.Input<inputs.rds.DBClusterServerlessV2ScalingConfigurationArgs>;
     /**
      * The identifier for the DB snapshot or DB cluster snapshot to restore from.
      * You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.

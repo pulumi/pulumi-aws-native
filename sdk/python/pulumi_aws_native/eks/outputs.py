@@ -16,6 +16,7 @@ __all__ = [
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLogging',
+    'ClusterOutpostConfig',
     'ClusterProvider',
     'ClusterResourcesVpcConfig',
     'ClusterTag',
@@ -206,6 +207,58 @@ class ClusterLogging(dict):
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
+class ClusterOutpostConfig(dict):
+    """
+    An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "controlPlaneInstanceType":
+            suggest = "control_plane_instance_type"
+        elif key == "outpostArns":
+            suggest = "outpost_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterOutpostConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterOutpostConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterOutpostConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 control_plane_instance_type: str,
+                 outpost_arns: Sequence[str]):
+        """
+        An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+        :param str control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
+        :param Sequence[str] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        """
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
+
+    @property
+    @pulumi.getter(name="controlPlaneInstanceType")
+    def control_plane_instance_type(self) -> str:
+        """
+        Specify the Instance type of the machines that should be used to create your cluster.
+        """
+        return pulumi.get(self, "control_plane_instance_type")
+
+    @property
+    @pulumi.getter(name="outpostArns")
+    def outpost_arns(self) -> Sequence[str]:
+        """
+        Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        """
+        return pulumi.get(self, "outpost_arns")
 
 
 @pulumi.output_type

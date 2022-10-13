@@ -21,6 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:transfer:Agreement":
+		r = &Agreement{}
+	case "aws-native:transfer:Certificate":
+		r = &Certificate{}
+	case "aws-native:transfer:Connector":
+		r = &Connector{}
+	case "aws-native:transfer:Profile":
+		r = &Profile{}
 	case "aws-native:transfer:Server":
 		r = &Server{}
 	case "aws-native:transfer:User":

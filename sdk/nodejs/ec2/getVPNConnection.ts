@@ -17,17 +17,26 @@ export function getVPNConnection(args: GetVPNConnectionArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:ec2:getVPNConnection", {
-        "id": args.id,
+        "vpnConnectionId": args.vpnConnectionId,
     }, opts);
 }
 
 export interface GetVPNConnectionArgs {
-    id: string;
+    /**
+     * The provider-assigned unique ID for this managed resource
+     */
+    vpnConnectionId: string;
 }
 
 export interface GetVPNConnectionResult {
-    readonly id?: string;
+    /**
+     * Any tags assigned to the VPN connection.
+     */
     readonly tags?: outputs.ec2.VPNConnectionTag[];
+    /**
+     * The provider-assigned unique ID for this managed resource
+     */
+    readonly vpnConnectionId?: string;
 }
 
 export function getVPNConnectionOutput(args: GetVPNConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNConnectionResult> {
@@ -35,5 +44,8 @@ export function getVPNConnectionOutput(args: GetVPNConnectionOutputArgs, opts?: 
 }
 
 export interface GetVPNConnectionOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The provider-assigned unique ID for this managed resource
+     */
+    vpnConnectionId: pulumi.Input<string>;
 }

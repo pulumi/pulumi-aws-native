@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'ContainerRecipeComponentConfiguration',
+    'ContainerRecipeComponentParameter',
     'ContainerRecipeEbsInstanceBlockDeviceSpecification',
     'ContainerRecipeInstanceBlockDeviceMapping',
     'ContainerRecipeInstanceConfiguration',
@@ -63,13 +64,17 @@ class ContainerRecipeComponentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 component_arn: Optional[str] = None):
+                 component_arn: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None):
         """
         Configuration details of the component.
         :param str component_arn: The Amazon Resource Name (ARN) of the component.
+        :param Sequence['ContainerRecipeComponentParameter'] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
         if component_arn is not None:
             pulumi.set(__self__, "component_arn", component_arn)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -78,6 +83,47 @@ class ContainerRecipeComponentConfiguration(dict):
         The Amazon Resource Name (ARN) of the component.
         """
         return pulumi.get(self, "component_arn")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ContainerRecipeComponentParameter']]:
+        """
+        A group of parameter settings that are used to configure the component for a specific recipe.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ContainerRecipeComponentParameter(dict):
+    """
+    Contains a key/value pair that sets the named component parameter.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: Sequence[str]):
+        """
+        Contains a key/value pair that sets the named component parameter.
+        :param str name: The name of the component parameter to set.
+        :param Sequence[str] value: Sets the value for the named component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the component parameter to set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        """
+        Sets the value for the named component parameter.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

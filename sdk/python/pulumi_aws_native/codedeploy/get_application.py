@@ -19,22 +19,17 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, id=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, tags=None):
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ApplicationTag']]:
+        """
+        The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        """
         return pulumi.get(self, "tags")
 
 
@@ -44,29 +39,33 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
-            id=self.id,
             tags=self.tags)
 
 
-def get_application(id: Optional[str] = None,
+def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Resource Type definition for AWS::CodeDeploy::Application
+    The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
+
+
+    :param str application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['applicationName'] = application_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:codedeploy:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        id=__ret__.id,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_application)
-def get_application_output(id: Optional[pulumi.Input[str]] = None,
+def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Resource Type definition for AWS::CodeDeploy::Application
+    The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
+
+
+    :param str application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     ...

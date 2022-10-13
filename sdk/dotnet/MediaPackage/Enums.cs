@@ -40,6 +40,37 @@ namespace Pulumi.AwsNative.MediaPackage
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The encryption method used
+    /// </summary>
+    [EnumType]
+    public readonly struct OriginEndpointCmafEncryptionEncryptionMethod : IEquatable<OriginEndpointCmafEncryptionEncryptionMethod>
+    {
+        private readonly string _value;
+
+        private OriginEndpointCmafEncryptionEncryptionMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointCmafEncryptionEncryptionMethod SampleAes { get; } = new OriginEndpointCmafEncryptionEncryptionMethod("SAMPLE_AES");
+        public static OriginEndpointCmafEncryptionEncryptionMethod AesCtr { get; } = new OriginEndpointCmafEncryptionEncryptionMethod("AES_CTR");
+
+        public static bool operator ==(OriginEndpointCmafEncryptionEncryptionMethod left, OriginEndpointCmafEncryptionEncryptionMethod right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointCmafEncryptionEncryptionMethod left, OriginEndpointCmafEncryptionEncryptionMethod right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointCmafEncryptionEncryptionMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointCmafEncryptionEncryptionMethod other && Equals(other);
+        public bool Equals(OriginEndpointCmafEncryptionEncryptionMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct OriginEndpointDashPackageAdTriggersItem : IEquatable<OriginEndpointDashPackageAdTriggersItem>
     {

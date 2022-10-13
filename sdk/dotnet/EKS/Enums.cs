@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.EKS
 
         public static AddonResolveConflicts None { get; } = new AddonResolveConflicts("NONE");
         public static AddonResolveConflicts Overwrite { get; } = new AddonResolveConflicts("OVERWRITE");
+        public static AddonResolveConflicts Preserve { get; } = new AddonResolveConflicts("PRESERVE");
 
         public static bool operator ==(AddonResolveConflicts left, AddonResolveConflicts right) => left.Equals(right);
         public static bool operator !=(AddonResolveConflicts left, AddonResolveConflicts right) => !left.Equals(right);

@@ -17,7 +17,7 @@ type Cell struct {
 	// The Amazon Resource Name (ARN) of the cell.
 	CellArn pulumi.StringOutput `pulumi:"cellArn"`
 	// The name of the cell to create.
-	CellName pulumi.StringOutput `pulumi:"cellName"`
+	CellName pulumi.StringPtrOutput `pulumi:"cellName"`
 	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells pulumi.StringArrayOutput `pulumi:"cells"`
 	// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
@@ -126,8 +126,8 @@ func (o CellOutput) CellArn() pulumi.StringOutput {
 }
 
 // The name of the cell to create.
-func (o CellOutput) CellName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cell) pulumi.StringOutput { return v.CellName }).(pulumi.StringOutput)
+func (o CellOutput) CellName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cell) pulumi.StringPtrOutput { return v.CellName }).(pulumi.StringPtrOutput)
 }
 
 // A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.

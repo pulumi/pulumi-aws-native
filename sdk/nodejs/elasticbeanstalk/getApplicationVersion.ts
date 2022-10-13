@@ -14,15 +14,23 @@ export function getApplicationVersion(args: GetApplicationVersionArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getApplicationVersion", {
+        "applicationName": args.applicationName,
         "id": args.id,
     }, opts);
 }
 
 export interface GetApplicationVersionArgs {
+    /**
+     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     */
+    applicationName: string;
     id: string;
 }
 
 export interface GetApplicationVersionResult {
+    /**
+     * A description of this application version.
+     */
     readonly description?: string;
     readonly id?: string;
 }
@@ -32,5 +40,9 @@ export function getApplicationVersionOutput(args: GetApplicationVersionOutputArg
 }
 
 export interface GetApplicationVersionOutputArgs {
+    /**
+     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     */
+    applicationName: pulumi.Input<string>;
     id: pulumi.Input<string>;
 }

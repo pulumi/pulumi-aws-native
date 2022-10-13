@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EMR::SecurityConfiguration
- *
- * @deprecated SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
  */
 export class SecurityConfiguration extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityConfiguration {
-        pulumi.log.warn("SecurityConfiguration is deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SecurityConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class SecurityConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityConfiguration.__pulumiType;
     }
 
+    /**
+     * The name of the security configuration.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The security configuration details in JSON format.
+     */
     public readonly securityConfiguration!: pulumi.Output<any>;
 
     /**
@@ -47,9 +50,7 @@ export class SecurityConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SecurityConfiguration is deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -71,6 +72,12 @@ export class SecurityConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityConfiguration resource.
  */
 export interface SecurityConfigurationArgs {
+    /**
+     * The name of the security configuration.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The security configuration details in JSON format.
+     */
     securityConfiguration: any;
 }

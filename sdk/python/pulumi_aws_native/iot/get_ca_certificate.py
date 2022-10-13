@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCACertificateResult:
-    def __init__(__self__, arn=None, auto_registration_status=None, id=None, registration_config=None, status=None, tags=None):
+    def __init__(__self__, arn=None, auto_registration_status=None, id=None, registration_config=None, remove_auto_registration=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,6 +33,9 @@ class GetCACertificateResult:
         if registration_config and not isinstance(registration_config, dict):
             raise TypeError("Expected argument 'registration_config' to be a dict")
         pulumi.set(__self__, "registration_config", registration_config)
+        if remove_auto_registration and not isinstance(remove_auto_registration, bool):
+            raise TypeError("Expected argument 'remove_auto_registration' to be a bool")
+        pulumi.set(__self__, "remove_auto_registration", remove_auto_registration)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -61,6 +64,11 @@ class GetCACertificateResult:
         return pulumi.get(self, "registration_config")
 
     @property
+    @pulumi.getter(name="removeAutoRegistration")
+    def remove_auto_registration(self) -> Optional[bool]:
+        return pulumi.get(self, "remove_auto_registration")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional['CACertificateStatus']:
         return pulumi.get(self, "status")
@@ -84,6 +92,7 @@ class AwaitableGetCACertificateResult(GetCACertificateResult):
             auto_registration_status=self.auto_registration_status,
             id=self.id,
             registration_config=self.registration_config,
+            remove_auto_registration=self.remove_auto_registration,
             status=self.status,
             tags=self.tags)
 
@@ -103,6 +112,7 @@ def get_ca_certificate(id: Optional[str] = None,
         auto_registration_status=__ret__.auto_registration_status,
         id=__ret__.id,
         registration_config=__ret__.registration_config,
+        remove_auto_registration=__ret__.remove_auto_registration,
         status=__ret__.status,
         tags=__ret__.tags)
 

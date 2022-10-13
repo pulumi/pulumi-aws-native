@@ -675,8 +675,10 @@ func (o ApplicationVersionLifecycleConfigPtrOutput) MaxCountRule() ApplicationMa
 }
 
 type ApplicationVersionSourceBundle struct {
+	// The Amazon S3 bucket where the data is located.
 	S3Bucket string `pulumi:"s3Bucket"`
-	S3Key    string `pulumi:"s3Key"`
+	// The Amazon S3 key where the data is located.
+	S3Key string `pulumi:"s3Key"`
 }
 
 // ApplicationVersionSourceBundleInput is an input type that accepts ApplicationVersionSourceBundleArgs and ApplicationVersionSourceBundleOutput values.
@@ -691,8 +693,10 @@ type ApplicationVersionSourceBundleInput interface {
 }
 
 type ApplicationVersionSourceBundleArgs struct {
+	// The Amazon S3 bucket where the data is located.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	S3Key    pulumi.StringInput `pulumi:"s3Key"`
+	// The Amazon S3 key where the data is located.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
 func (ApplicationVersionSourceBundleArgs) ElementType() reflect.Type {
@@ -721,10 +725,12 @@ func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundleOu
 	return o
 }
 
+// The Amazon S3 bucket where the data is located.
 func (o ApplicationVersionSourceBundleOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
+// The Amazon S3 key where the data is located.
 func (o ApplicationVersionSourceBundleOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Key }).(pulumi.StringOutput)
 }

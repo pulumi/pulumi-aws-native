@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("acceleratorType")]
         public Input<string>? AcceleratorType { get; set; }
 
+        [Input("containerStartupHealthCheckTimeoutInSeconds")]
+        public Input<int>? ContainerStartupHealthCheckTimeoutInSeconds { get; set; }
+
         [Input("initialInstanceCount")]
         public Input<int>? InitialInstanceCount { get; set; }
 
@@ -24,6 +27,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        [Input("modelDataDownloadTimeoutInSeconds")]
+        public Input<int>? ModelDataDownloadTimeoutInSeconds { get; set; }
+
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
@@ -32,6 +38,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("variantName", required: true)]
         public Input<string> VariantName { get; set; } = null!;
+
+        [Input("volumeSizeInGB")]
+        public Input<int>? VolumeSizeInGB { get; set; }
 
         public EndpointConfigProductionVariantArgs()
         {

@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly string? ConstantInitializationVector;
         /// <summary>
+        /// The encryption method used
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointCmafEncryptionEncryptionMethod? EncryptionMethod;
+        /// <summary>
         /// Time (in seconds) between each encryption key rotation.
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         private OriginEndpointCmafEncryption(
             string? constantInitializationVector,
 
+            Pulumi.AwsNative.MediaPackage.OriginEndpointCmafEncryptionEncryptionMethod? encryptionMethod,
+
             int? keyRotationIntervalSeconds,
 
             Outputs.OriginEndpointSpekeKeyProvider spekeKeyProvider)
         {
             ConstantInitializationVector = constantInitializationVector;
+            EncryptionMethod = encryptionMethod;
             KeyRotationIntervalSeconds = keyRotationIntervalSeconds;
             SpekeKeyProvider = spekeKeyProvider;
         }

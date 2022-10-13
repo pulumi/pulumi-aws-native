@@ -9,6 +9,10 @@ __all__ = [
     'ComponentVersionLambdaExecutionParametersInputPayloadEncodingType',
     'ComponentVersionLambdaFilesystemPermission',
     'ComponentVersionLambdaLinuxProcessParamsIsolationMode',
+    'DeploymentComponentUpdatePolicyAction',
+    'DeploymentIoTJobAbortCriteriaAction',
+    'DeploymentIoTJobAbortCriteriaFailureType',
+    'DeploymentPoliciesFailureHandlingPolicy',
 ]
 
 
@@ -30,3 +34,24 @@ class ComponentVersionLambdaFilesystemPermission(str, Enum):
 class ComponentVersionLambdaLinuxProcessParamsIsolationMode(str, Enum):
     GREENGRASS_CONTAINER = "GreengrassContainer"
     NO_CONTAINER = "NoContainer"
+
+
+class DeploymentComponentUpdatePolicyAction(str, Enum):
+    NOTIFY_COMPONENTS = "NOTIFY_COMPONENTS"
+    SKIP_NOTIFY_COMPONENTS = "SKIP_NOTIFY_COMPONENTS"
+
+
+class DeploymentIoTJobAbortCriteriaAction(str, Enum):
+    CANCEL = "CANCEL"
+
+
+class DeploymentIoTJobAbortCriteriaFailureType(str, Enum):
+    FAILED = "FAILED"
+    REJECTED = "REJECTED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
+class DeploymentPoliciesFailureHandlingPolicy(str, Enum):
+    ROLLBACK = "ROLLBACK"
+    DO_NOTHING = "DO_NOTHING"

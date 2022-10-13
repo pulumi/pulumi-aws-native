@@ -5,6 +5,7 @@
 export const AddonResolveConflicts = {
     None: "NONE",
     Overwrite: "OVERWRITE",
+    Preserve: "PRESERVE",
 } as const;
 
 /**

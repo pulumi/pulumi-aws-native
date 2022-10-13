@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationEngineType = {
+    Microfocus: "microfocus",
+    Bluage: "bluage",
+} as const;
+
+export type ApplicationEngineType = (typeof ApplicationEngineType)[keyof typeof ApplicationEngineType];
+
 export const EnvironmentEngineType = {
     Microfocus: "microfocus",
     Bluage: "bluage",

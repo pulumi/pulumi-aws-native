@@ -61,7 +61,7 @@ class GetPhoneNumberResult:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[str]:
         """
-        The ARN of the Amazon Connect instance the phone number is claimed to.
+        The ARN of the target the phone number is claimed to.
         """
         return pulumi.get(self, "target_arn")
 

@@ -39,6 +39,7 @@ class ServiceCodeConfigurationValuesRuntime(str, Enum):
     NODEJS14 = "NODEJS_14"
     CORRETTO8 = "CORRETTO_8"
     CORRETTO11 = "CORRETTO_11"
+    NODEJS16 = "NODEJS_16"
 
 
 class ServiceEgressConfigurationEgressType(str, Enum):

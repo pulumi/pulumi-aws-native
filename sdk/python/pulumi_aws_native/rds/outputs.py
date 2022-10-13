@@ -17,6 +17,7 @@ __all__ = [
     'DBClusterReadEndpoint',
     'DBClusterRole',
     'DBClusterScalingConfiguration',
+    'DBClusterServerlessV2ScalingConfiguration',
     'DBClusterTag',
     'DBInstanceEndpoint',
     'DBInstanceProcessorFeature',
@@ -265,6 +266,60 @@ class DBClusterScalingConfiguration(dict):
         The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
+
+
+@pulumi.output_type
+class DBClusterServerlessV2ScalingConfiguration(dict):
+    """
+    Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxCapacity":
+            suggest = "max_capacity"
+        elif key == "minCapacity":
+            suggest = "min_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBClusterServerlessV2ScalingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBClusterServerlessV2ScalingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_capacity: Optional[float] = None,
+                 min_capacity: Optional[float] = None):
+        """
+        Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        :param float max_capacity: The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+        :param float min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+        """
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if min_capacity is not None:
+            pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[float]:
+        """
+        The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> Optional[float]:
+        """
+        The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+        """
+        return pulumi.get(self, "min_capacity")
 
 
 @pulumi.output_type
@@ -542,7 +597,7 @@ class DBProxyAuthFormat(dict):
         """
         :param 'DBProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param 'DBProxyAuthFormatIAMAuth' i_am_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+        :param 'DBProxyAuthFormatIAMAuth' i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         :param str user_name: The name of the database user to which the proxy connects.
         """
@@ -577,7 +632,7 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter(name="iAMAuth")
     def i_am_auth(self) -> Optional['DBProxyAuthFormatIAMAuth']:
         """
-        Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+        Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         """
         return pulumi.get(self, "i_am_auth")
 

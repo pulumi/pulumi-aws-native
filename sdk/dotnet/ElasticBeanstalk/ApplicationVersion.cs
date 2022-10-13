@@ -12,16 +12,24 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// <summary>
     /// Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
     /// </summary>
-    [Obsolete(@"ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:ApplicationVersion")]
     public partial class ApplicationVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of this application version.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        /// </summary>
         [Output("sourceBundle")]
         public Output<Outputs.ApplicationVersionSourceBundle> SourceBundle { get; private set; } = null!;
 
@@ -70,12 +78,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class ApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Elastic Beanstalk application that is associated with this application version. 
+        /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
 
+        /// <summary>
+        /// A description of this application version.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        /// </summary>
         [Input("sourceBundle", required: true)]
         public Input<Inputs.ApplicationVersionSourceBundleArgs> SourceBundle { get; set; } = null!;
 

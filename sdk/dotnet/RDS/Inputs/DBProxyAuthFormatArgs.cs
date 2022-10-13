@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+        /// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         /// </summary>
         [Input("iAMAuth")]
         public Input<Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth>? IAMAuth { get; set; }

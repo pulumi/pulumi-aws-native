@@ -16,6 +16,7 @@ type AddonResolveConflicts string
 const (
 	AddonResolveConflictsNone      = AddonResolveConflicts("NONE")
 	AddonResolveConflictsOverwrite = AddonResolveConflicts("OVERWRITE")
+	AddonResolveConflictsPreserve  = AddonResolveConflicts("PRESERVE")
 )
 
 func (AddonResolveConflicts) ElementType() reflect.Type {

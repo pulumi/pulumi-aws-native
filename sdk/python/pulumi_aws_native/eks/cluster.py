@@ -23,6 +23,7 @@ class ClusterArgs:
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -42,6 +43,8 @@ class ClusterArgs:
             pulumi.set(__self__, "logging", logging)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outpost_config is not None:
+            pulumi.set(__self__, "outpost_config", outpost_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -108,6 +111,15 @@ class ClusterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outpostConfig")
+    def outpost_config(self) -> Optional[pulumi.Input['ClusterOutpostConfigArgs']]:
+        return pulumi.get(self, "outpost_config")
+
+    @outpost_config.setter
+    def outpost_config(self, value: Optional[pulumi.Input['ClusterOutpostConfigArgs']]):
+        pulumi.set(self, "outpost_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
         """
@@ -141,6 +153,7 @@ class Cluster(pulumi.CustomResource):
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
@@ -184,6 +197,7 @@ class Cluster(pulumi.CustomResource):
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_config: Optional[pulumi.Input[pulumi.InputType['ClusterOutpostConfigArgs']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[pulumi.InputType['ClusterResourcesVpcConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
@@ -201,6 +215,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
+            __props__.__dict__["outpost_config"] = outpost_config
             if resources_vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'resources_vpc_config'")
             __props__.__dict__["resources_vpc_config"] = resources_vpc_config
@@ -247,6 +262,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_issuer_url"] = None
+        __props__.__dict__["outpost_config"] = None
         __props__.__dict__["resources_vpc_config"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
@@ -323,6 +339,11 @@ class Cluster(pulumi.CustomResource):
         The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
         """
         return pulumi.get(self, "open_id_connect_issuer_url")
+
+    @property
+    @pulumi.getter(name="outpostConfig")
+    def outpost_config(self) -> pulumi.Output[Optional['outputs.ClusterOutpostConfig']]:
+        return pulumi.get(self, "outpost_config")
 
     @property
     @pulumi.getter(name="resourcesVpcConfig")

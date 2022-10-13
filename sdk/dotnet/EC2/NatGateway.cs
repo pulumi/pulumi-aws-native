@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
-        [Output("privateIpAddress")]
-        public Output<string?> PrivateIpAddress { get; private set; } = null!;
-
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
@@ -83,9 +80,6 @@ namespace Pulumi.AwsNative.EC2
 
         [Input("connectivityType")]
         public Input<string>? ConnectivityType { get; set; }
-
-        [Input("privateIpAddress")]
-        public Input<string>? PrivateIpAddress { get; set; }
 
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

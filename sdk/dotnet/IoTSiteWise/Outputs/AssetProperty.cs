@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// The asset property's definition, alias, and notification state.
+    /// The asset property's definition, alias, unit, and notification state.
     /// </summary>
     [OutputType]
     public sealed class AssetProperty
@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
         /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
         /// </summary>
         public readonly Pulumi.AwsNative.IoTSiteWise.AssetPropertyNotificationState? NotificationState;
+        /// <summary>
+        /// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+        /// </summary>
+        public readonly string? Unit;
 
         [OutputConstructor]
         private AssetProperty(
@@ -35,11 +39,14 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 
             string logicalId,
 
-            Pulumi.AwsNative.IoTSiteWise.AssetPropertyNotificationState? notificationState)
+            Pulumi.AwsNative.IoTSiteWise.AssetPropertyNotificationState? notificationState,
+
+            string? unit)
         {
             Alias = alias;
             LogicalId = logicalId;
             NotificationState = notificationState;
+            Unit = unit;
         }
     }
 }

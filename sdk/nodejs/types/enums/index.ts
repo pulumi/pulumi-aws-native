@@ -15,6 +15,7 @@ import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as cloudformation from "./cloudformation";
+import * as cloudfront from "./cloudfront";
 import * as cloudtrail from "./cloudtrail";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
@@ -49,6 +50,7 @@ import * as inspectorv2 from "./inspectorv2";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
+import * as iotfleetwise from "./iotfleetwise";
 import * as iotsitewise from "./iotsitewise";
 import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
@@ -126,6 +128,7 @@ export {
     cassandra,
     ce,
     cloudformation,
+    cloudfront,
     cloudtrail,
     codeguruprofiler,
     codegurureviewer,
@@ -160,6 +163,7 @@ export {
     iot,
     iotanalytics,
     iotevents,
+    iotfleetwise,
     iotsitewise,
     iottwinmaker,
     iotwireless,

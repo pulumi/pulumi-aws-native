@@ -12,14 +12,13 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Model
-//
-// Deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Model struct {
 	pulumi.CustomResourceState
 
 	ApiId       pulumi.StringOutput    `pulumi:"apiId"`
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	ModelId     pulumi.StringOutput    `pulumi:"modelId"`
 	Name        pulumi.StringOutput    `pulumi:"name"`
 	Schema      pulumi.AnyOutput       `pulumi:"schema"`
 }
@@ -132,6 +131,10 @@ func (o ModelOutput) ContentType() pulumi.StringPtrOutput {
 
 func (o ModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ModelId }).(pulumi.StringOutput)
 }
 
 func (o ModelOutput) Name() pulumi.StringOutput {

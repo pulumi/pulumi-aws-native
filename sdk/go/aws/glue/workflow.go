@@ -18,6 +18,7 @@ type Workflow struct {
 
 	DefaultRunProperties pulumi.AnyOutput       `pulumi:"defaultRunProperties"`
 	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	MaxConcurrentRuns    pulumi.IntPtrOutput    `pulumi:"maxConcurrentRuns"`
 	Name                 pulumi.StringPtrOutput `pulumi:"name"`
 	Tags                 pulumi.AnyOutput       `pulumi:"tags"`
 }
@@ -63,6 +64,7 @@ func (WorkflowState) ElementType() reflect.Type {
 type workflowArgs struct {
 	DefaultRunProperties interface{} `pulumi:"defaultRunProperties"`
 	Description          *string     `pulumi:"description"`
+	MaxConcurrentRuns    *int        `pulumi:"maxConcurrentRuns"`
 	Name                 *string     `pulumi:"name"`
 	Tags                 interface{} `pulumi:"tags"`
 }
@@ -71,6 +73,7 @@ type workflowArgs struct {
 type WorkflowArgs struct {
 	DefaultRunProperties pulumi.Input
 	Description          pulumi.StringPtrInput
+	MaxConcurrentRuns    pulumi.IntPtrInput
 	Name                 pulumi.StringPtrInput
 	Tags                 pulumi.Input
 }
@@ -118,6 +121,10 @@ func (o WorkflowOutput) DefaultRunProperties() pulumi.AnyOutput {
 
 func (o WorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.IntPtrOutput { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
 func (o WorkflowOutput) Name() pulumi.StringPtrOutput {

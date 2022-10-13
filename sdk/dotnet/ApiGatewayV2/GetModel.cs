@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetModelArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
+
+        [Input("modelId", required: true)]
+        public string ModelId { get; set; } = null!;
 
         public GetModelArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetModelInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("modelId", required: true)]
+        public Input<string> ModelId { get; set; } = null!;
 
         public GetModelInvokeArgs()
         {
@@ -53,7 +59,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     {
         public readonly string? ContentType;
         public readonly string? Description;
-        public readonly string? Id;
+        public readonly string? ModelId;
         public readonly string? Name;
         public readonly object? Schema;
 
@@ -63,7 +69,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             string? description,
 
-            string? id,
+            string? modelId,
 
             string? name,
 
@@ -71,7 +77,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         {
             ContentType = contentType;
             Description = description;
-            Id = id;
+            ModelId = modelId;
             Name = name;
             Schema = schema;
         }

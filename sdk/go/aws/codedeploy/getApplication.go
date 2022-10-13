@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CodeDeploy::Application
+// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("aws-native:codedeploy:getApplication", args, &rv, opts...)
@@ -21,11 +21,12 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 }
 
 type LookupApplicationArgs struct {
-	Id string `pulumi:"id"`
+	// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName string `pulumi:"applicationName"`
 }
 
 type LookupApplicationResult struct {
-	Id   *string          `pulumi:"id"`
+	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 	Tags []ApplicationTag `pulumi:"tags"`
 }
 
@@ -43,7 +44,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 }
 
 type LookupApplicationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -64,10 +66,7 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-func (o LookupApplicationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApplicationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
 }

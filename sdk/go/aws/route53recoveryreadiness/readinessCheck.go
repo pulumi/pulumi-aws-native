@@ -17,7 +17,7 @@ type ReadinessCheck struct {
 	// The Amazon Resource Name (ARN) of the readiness check.
 	ReadinessCheckArn pulumi.StringOutput `pulumi:"readinessCheckArn"`
 	// Name of the ReadinessCheck to create.
-	ReadinessCheckName pulumi.StringOutput `pulumi:"readinessCheckName"`
+	ReadinessCheckName pulumi.StringPtrOutput `pulumi:"readinessCheckName"`
 	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrOutput `pulumi:"resourceSetName"`
 	// A collection of tags associated with a resource.
@@ -124,8 +124,8 @@ func (o ReadinessCheckOutput) ReadinessCheckArn() pulumi.StringOutput {
 }
 
 // Name of the ReadinessCheck to create.
-func (o ReadinessCheckOutput) ReadinessCheckName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringOutput { return v.ReadinessCheckName }).(pulumi.StringOutput)
+func (o ReadinessCheckOutput) ReadinessCheckName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadinessCheck) pulumi.StringPtrOutput { return v.ReadinessCheckName }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource set to check.

@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, arn=None, data_delivery=None, description=None, tags=None):
+    def __init__(__self__, app_config_resource=None, arn=None, data_delivery=None, description=None, tags=None):
+        if app_config_resource and not isinstance(app_config_resource, dict):
+            raise TypeError("Expected argument 'app_config_resource' to be a dict")
+        pulumi.set(__self__, "app_config_resource", app_config_resource)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +35,11 @@ class GetProjectResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="appConfigResource")
+    def app_config_resource(self) -> Optional['outputs.ProjectAppConfigResourceObject']:
+        return pulumi.get(self, "app_config_resource")
 
     @property
     @pulumi.getter
@@ -63,6 +71,7 @@ class AwaitableGetProjectResult(GetProjectResult):
         if False:
             yield self
         return GetProjectResult(
+            app_config_resource=self.app_config_resource,
             arn=self.arn,
             data_delivery=self.data_delivery,
             description=self.description,
@@ -80,6 +89,7 @@ def get_project(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:evidently:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
+        app_config_resource=__ret__.app_config_resource,
         arn=__ret__.arn,
         data_delivery=__ret__.data_delivery,
         description=__ret__.description,

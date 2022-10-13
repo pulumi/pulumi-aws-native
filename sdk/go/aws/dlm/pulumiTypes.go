@@ -110,6 +110,274 @@ func (o LifecyclePolicyActionArrayOutput) Index(i pulumi.IntInput) LifecyclePoli
 	}).(LifecyclePolicyActionOutput)
 }
 
+type LifecyclePolicyArchiveRetainRule struct {
+	RetentionArchiveTier LifecyclePolicyRetentionArchiveTier `pulumi:"retentionArchiveTier"`
+}
+
+// LifecyclePolicyArchiveRetainRuleInput is an input type that accepts LifecyclePolicyArchiveRetainRuleArgs and LifecyclePolicyArchiveRetainRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyArchiveRetainRuleInput` via:
+//
+//	LifecyclePolicyArchiveRetainRuleArgs{...}
+type LifecyclePolicyArchiveRetainRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyArchiveRetainRuleOutput() LifecyclePolicyArchiveRetainRuleOutput
+	ToLifecyclePolicyArchiveRetainRuleOutputWithContext(context.Context) LifecyclePolicyArchiveRetainRuleOutput
+}
+
+type LifecyclePolicyArchiveRetainRuleArgs struct {
+	RetentionArchiveTier LifecyclePolicyRetentionArchiveTierInput `pulumi:"retentionArchiveTier"`
+}
+
+func (LifecyclePolicyArchiveRetainRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyArchiveRetainRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRuleOutput() LifecyclePolicyArchiveRetainRuleOutput {
+	return i.ToLifecyclePolicyArchiveRetainRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRetainRuleOutput)
+}
+
+func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput {
+	return i.ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyArchiveRetainRuleArgs) ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRetainRuleOutput).ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyArchiveRetainRulePtrInput is an input type that accepts LifecyclePolicyArchiveRetainRuleArgs, LifecyclePolicyArchiveRetainRulePtr and LifecyclePolicyArchiveRetainRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyArchiveRetainRulePtrInput` via:
+//
+//	        LifecyclePolicyArchiveRetainRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyArchiveRetainRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput
+	ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(context.Context) LifecyclePolicyArchiveRetainRulePtrOutput
+}
+
+type lifecyclePolicyArchiveRetainRulePtrType LifecyclePolicyArchiveRetainRuleArgs
+
+func LifecyclePolicyArchiveRetainRulePtr(v *LifecyclePolicyArchiveRetainRuleArgs) LifecyclePolicyArchiveRetainRulePtrInput {
+	return (*lifecyclePolicyArchiveRetainRulePtrType)(v)
+}
+
+func (*lifecyclePolicyArchiveRetainRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyArchiveRetainRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyArchiveRetainRulePtrType) ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput {
+	return i.ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyArchiveRetainRulePtrType) ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRetainRulePtrOutput)
+}
+
+type LifecyclePolicyArchiveRetainRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyArchiveRetainRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyArchiveRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyArchiveRetainRuleOutput) ToLifecyclePolicyArchiveRetainRuleOutput() LifecyclePolicyArchiveRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRetainRuleOutput) ToLifecyclePolicyArchiveRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRetainRuleOutput) ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput {
+	return o.ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyArchiveRetainRuleOutput) ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyArchiveRetainRule) *LifecyclePolicyArchiveRetainRule {
+		return &v
+	}).(LifecyclePolicyArchiveRetainRulePtrOutput)
+}
+
+func (o LifecyclePolicyArchiveRetainRuleOutput) RetentionArchiveTier() LifecyclePolicyRetentionArchiveTierOutput {
+	return o.ApplyT(func(v LifecyclePolicyArchiveRetainRule) LifecyclePolicyRetentionArchiveTier {
+		return v.RetentionArchiveTier
+	}).(LifecyclePolicyRetentionArchiveTierOutput)
+}
+
+type LifecyclePolicyArchiveRetainRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyArchiveRetainRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyArchiveRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyArchiveRetainRulePtrOutput) ToLifecyclePolicyArchiveRetainRulePtrOutput() LifecyclePolicyArchiveRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRetainRulePtrOutput) ToLifecyclePolicyArchiveRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRetainRulePtrOutput) Elem() LifecyclePolicyArchiveRetainRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyArchiveRetainRule) LifecyclePolicyArchiveRetainRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyArchiveRetainRule
+		return ret
+	}).(LifecyclePolicyArchiveRetainRuleOutput)
+}
+
+func (o LifecyclePolicyArchiveRetainRulePtrOutput) RetentionArchiveTier() LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyArchiveRetainRule) *LifecyclePolicyRetentionArchiveTier {
+		if v == nil {
+			return nil
+		}
+		return &v.RetentionArchiveTier
+	}).(LifecyclePolicyRetentionArchiveTierPtrOutput)
+}
+
+type LifecyclePolicyArchiveRule struct {
+	RetainRule LifecyclePolicyArchiveRetainRule `pulumi:"retainRule"`
+}
+
+// LifecyclePolicyArchiveRuleInput is an input type that accepts LifecyclePolicyArchiveRuleArgs and LifecyclePolicyArchiveRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyArchiveRuleInput` via:
+//
+//	LifecyclePolicyArchiveRuleArgs{...}
+type LifecyclePolicyArchiveRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyArchiveRuleOutput() LifecyclePolicyArchiveRuleOutput
+	ToLifecyclePolicyArchiveRuleOutputWithContext(context.Context) LifecyclePolicyArchiveRuleOutput
+}
+
+type LifecyclePolicyArchiveRuleArgs struct {
+	RetainRule LifecyclePolicyArchiveRetainRuleInput `pulumi:"retainRule"`
+}
+
+func (LifecyclePolicyArchiveRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyArchiveRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRuleOutput() LifecyclePolicyArchiveRuleOutput {
+	return i.ToLifecyclePolicyArchiveRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRuleOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRuleOutput)
+}
+
+func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput {
+	return i.ToLifecyclePolicyArchiveRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyArchiveRuleArgs) ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRuleOutput).ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyArchiveRulePtrInput is an input type that accepts LifecyclePolicyArchiveRuleArgs, LifecyclePolicyArchiveRulePtr and LifecyclePolicyArchiveRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyArchiveRulePtrInput` via:
+//
+//	        LifecyclePolicyArchiveRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyArchiveRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput
+	ToLifecyclePolicyArchiveRulePtrOutputWithContext(context.Context) LifecyclePolicyArchiveRulePtrOutput
+}
+
+type lifecyclePolicyArchiveRulePtrType LifecyclePolicyArchiveRuleArgs
+
+func LifecyclePolicyArchiveRulePtr(v *LifecyclePolicyArchiveRuleArgs) LifecyclePolicyArchiveRulePtrInput {
+	return (*lifecyclePolicyArchiveRulePtrType)(v)
+}
+
+func (*lifecyclePolicyArchiveRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyArchiveRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyArchiveRulePtrType) ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput {
+	return i.ToLifecyclePolicyArchiveRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyArchiveRulePtrType) ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyArchiveRulePtrOutput)
+}
+
+type LifecyclePolicyArchiveRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyArchiveRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyArchiveRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyArchiveRuleOutput) ToLifecyclePolicyArchiveRuleOutput() LifecyclePolicyArchiveRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRuleOutput) ToLifecyclePolicyArchiveRuleOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRuleOutput) ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput {
+	return o.ToLifecyclePolicyArchiveRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyArchiveRuleOutput) ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyArchiveRule) *LifecyclePolicyArchiveRule {
+		return &v
+	}).(LifecyclePolicyArchiveRulePtrOutput)
+}
+
+func (o LifecyclePolicyArchiveRuleOutput) RetainRule() LifecyclePolicyArchiveRetainRuleOutput {
+	return o.ApplyT(func(v LifecyclePolicyArchiveRule) LifecyclePolicyArchiveRetainRule { return v.RetainRule }).(LifecyclePolicyArchiveRetainRuleOutput)
+}
+
+type LifecyclePolicyArchiveRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyArchiveRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyArchiveRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyArchiveRulePtrOutput) ToLifecyclePolicyArchiveRulePtrOutput() LifecyclePolicyArchiveRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRulePtrOutput) ToLifecyclePolicyArchiveRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyArchiveRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyArchiveRulePtrOutput) Elem() LifecyclePolicyArchiveRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyArchiveRule) LifecyclePolicyArchiveRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyArchiveRule
+		return ret
+	}).(LifecyclePolicyArchiveRuleOutput)
+}
+
+func (o LifecyclePolicyArchiveRulePtrOutput) RetainRule() LifecyclePolicyArchiveRetainRulePtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyArchiveRule) *LifecyclePolicyArchiveRetainRule {
+		if v == nil {
+			return nil
+		}
+		return &v.RetainRule
+	}).(LifecyclePolicyArchiveRetainRulePtrOutput)
+}
+
 type LifecyclePolicyCreateRule struct {
 	CronExpression *string  `pulumi:"cronExpression"`
 	Interval       *int     `pulumi:"interval"`
@@ -2114,7 +2382,171 @@ func (o LifecyclePolicyRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LifecyclePolicyRetentionArchiveTier struct {
+	Count        *int    `pulumi:"count"`
+	Interval     *int    `pulumi:"interval"`
+	IntervalUnit *string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyRetentionArchiveTierInput is an input type that accepts LifecyclePolicyRetentionArchiveTierArgs and LifecyclePolicyRetentionArchiveTierOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRetentionArchiveTierInput` via:
+//
+//	LifecyclePolicyRetentionArchiveTierArgs{...}
+type LifecyclePolicyRetentionArchiveTierInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRetentionArchiveTierOutput() LifecyclePolicyRetentionArchiveTierOutput
+	ToLifecyclePolicyRetentionArchiveTierOutputWithContext(context.Context) LifecyclePolicyRetentionArchiveTierOutput
+}
+
+type LifecyclePolicyRetentionArchiveTierArgs struct {
+	Count        pulumi.IntPtrInput    `pulumi:"count"`
+	Interval     pulumi.IntPtrInput    `pulumi:"interval"`
+	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyRetentionArchiveTierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRetentionArchiveTier)(nil)).Elem()
+}
+
+func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchiveTierOutput() LifecyclePolicyRetentionArchiveTierOutput {
+	return i.ToLifecyclePolicyRetentionArchiveTierOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchiveTierOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetentionArchiveTierOutput)
+}
+
+func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return i.ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRetentionArchiveTierArgs) ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetentionArchiveTierOutput).ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyRetentionArchiveTierPtrInput is an input type that accepts LifecyclePolicyRetentionArchiveTierArgs, LifecyclePolicyRetentionArchiveTierPtr and LifecyclePolicyRetentionArchiveTierPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRetentionArchiveTierPtrInput` via:
+//
+//	        LifecyclePolicyRetentionArchiveTierArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyRetentionArchiveTierPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput
+	ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput
+}
+
+type lifecyclePolicyRetentionArchiveTierPtrType LifecyclePolicyRetentionArchiveTierArgs
+
+func LifecyclePolicyRetentionArchiveTierPtr(v *LifecyclePolicyRetentionArchiveTierArgs) LifecyclePolicyRetentionArchiveTierPtrInput {
+	return (*lifecyclePolicyRetentionArchiveTierPtrType)(v)
+}
+
+func (*lifecyclePolicyRetentionArchiveTierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyRetentionArchiveTier)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyRetentionArchiveTierPtrType) ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return i.ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyRetentionArchiveTierPtrType) ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRetentionArchiveTierPtrOutput)
+}
+
+type LifecyclePolicyRetentionArchiveTierOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRetentionArchiveTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRetentionArchiveTier)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) ToLifecyclePolicyRetentionArchiveTierOutput() LifecyclePolicyRetentionArchiveTierOutput {
+	return o
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) ToLifecyclePolicyRetentionArchiveTierOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierOutput {
+	return o
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return o.ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyRetentionArchiveTier) *LifecyclePolicyRetentionArchiveTier {
+		return &v
+	}).(LifecyclePolicyRetentionArchiveTierPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyRetentionArchiveTier) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyRetentionArchiveTier) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyRetentionArchiveTier) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyRetentionArchiveTierPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRetentionArchiveTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyRetentionArchiveTier)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) ToLifecyclePolicyRetentionArchiveTierPtrOutput() LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) ToLifecyclePolicyRetentionArchiveTierPtrOutputWithContext(ctx context.Context) LifecyclePolicyRetentionArchiveTierPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) Elem() LifecyclePolicyRetentionArchiveTierOutput {
+	return o.ApplyT(func(v *LifecyclePolicyRetentionArchiveTier) LifecyclePolicyRetentionArchiveTier {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyRetentionArchiveTier
+		return ret
+	}).(LifecyclePolicyRetentionArchiveTierOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyRetentionArchiveTier) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyRetentionArchiveTier) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyRetentionArchiveTierPtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyRetentionArchiveTier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
 type LifecyclePolicySchedule struct {
+	ArchiveRule          *LifecyclePolicyArchiveRule          `pulumi:"archiveRule"`
 	CopyTags             *bool                                `pulumi:"copyTags"`
 	CreateRule           *LifecyclePolicyCreateRule           `pulumi:"createRule"`
 	CrossRegionCopyRules []LifecyclePolicyCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
@@ -2139,6 +2571,7 @@ type LifecyclePolicyScheduleInput interface {
 }
 
 type LifecyclePolicyScheduleArgs struct {
+	ArchiveRule          LifecyclePolicyArchiveRulePtrInput           `pulumi:"archiveRule"`
 	CopyTags             pulumi.BoolPtrInput                          `pulumi:"copyTags"`
 	CreateRule           LifecyclePolicyCreateRulePtrInput            `pulumi:"createRule"`
 	CrossRegionCopyRules LifecyclePolicyCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
@@ -2200,6 +2633,10 @@ func (o LifecyclePolicyScheduleOutput) ToLifecyclePolicyScheduleOutput() Lifecyc
 
 func (o LifecyclePolicyScheduleOutput) ToLifecyclePolicyScheduleOutputWithContext(ctx context.Context) LifecyclePolicyScheduleOutput {
 	return o
+}
+
+func (o LifecyclePolicyScheduleOutput) ArchiveRule() LifecyclePolicyArchiveRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicySchedule) *LifecyclePolicyArchiveRule { return v.ArchiveRule }).(LifecyclePolicyArchiveRulePtrOutput)
 }
 
 func (o LifecyclePolicyScheduleOutput) CopyTags() pulumi.BoolPtrOutput {
@@ -2471,6 +2908,10 @@ func (o LifecyclePolicyTagArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyT
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionInput)(nil)).Elem(), LifecyclePolicyActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionArrayInput)(nil)).Elem(), LifecyclePolicyActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArchiveRetainRuleInput)(nil)).Elem(), LifecyclePolicyArchiveRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArchiveRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyArchiveRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArchiveRuleInput)(nil)).Elem(), LifecyclePolicyArchiveRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArchiveRulePtrInput)(nil)).Elem(), LifecyclePolicyArchiveRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCreateRuleInput)(nil)).Elem(), LifecyclePolicyCreateRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCreateRulePtrInput)(nil)).Elem(), LifecyclePolicyCreateRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyActionInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyActionArgs{})
@@ -2496,6 +2937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRetainRuleInput)(nil)).Elem(), LifecyclePolicyRetainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRetentionArchiveTierInput)(nil)).Elem(), LifecyclePolicyRetentionArchiveTierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRetentionArchiveTierPtrInput)(nil)).Elem(), LifecyclePolicyRetentionArchiveTierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScheduleInput)(nil)).Elem(), LifecyclePolicyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScheduleArrayInput)(nil)).Elem(), LifecyclePolicyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyShareRuleInput)(nil)).Elem(), LifecyclePolicyShareRuleArgs{})
@@ -2504,6 +2947,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTagArrayInput)(nil)).Elem(), LifecyclePolicyTagArray{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyArchiveRetainRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyArchiveRetainRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyArchiveRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyArchiveRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCreateRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCreateRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyActionOutput{})
@@ -2529,6 +2976,8 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyRetainRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyRetainRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRetentionArchiveTierOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRetentionArchiveTierPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyShareRuleOutput{})

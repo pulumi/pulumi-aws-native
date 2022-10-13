@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, deletion_protection=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -44,9 +44,18 @@ class GetDBClusterResult:
         if d_b_cluster_parameter_group_name and not isinstance(d_b_cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'd_b_cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
+        if d_b_cluster_resource_id and not isinstance(d_b_cluster_resource_id, str):
+            raise TypeError("Expected argument 'd_b_cluster_resource_id' to be a str")
+        pulumi.set(__self__, "d_b_cluster_resource_id", d_b_cluster_resource_id)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
+        if domain_iam_role_name and not isinstance(domain_iam_role_name, str):
+            raise TypeError("Expected argument 'domain_iam_role_name' to be a str")
+        pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_cloudwatch_logs_exports and not isinstance(enable_cloudwatch_logs_exports, list):
             raise TypeError("Expected argument 'enable_cloudwatch_logs_exports' to be a list")
         pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
@@ -80,6 +89,9 @@ class GetDBClusterResult:
         if monitoring_role_arn and not isinstance(monitoring_role_arn, str):
             raise TypeError("Expected argument 'monitoring_role_arn' to be a str")
         pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if performance_insights_enabled and not isinstance(performance_insights_enabled, bool):
             raise TypeError("Expected argument 'performance_insights_enabled' to be a bool")
         pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
@@ -107,6 +119,9 @@ class GetDBClusterResult:
         if scaling_configuration and not isinstance(scaling_configuration, dict):
             raise TypeError("Expected argument 'scaling_configuration' to be a dict")
         pulumi.set(__self__, "scaling_configuration", scaling_configuration)
+        if serverless_v2_scaling_configuration and not isinstance(serverless_v2_scaling_configuration, dict):
+            raise TypeError("Expected argument 'serverless_v2_scaling_configuration' to be a dict")
+        pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -182,12 +197,36 @@ class GetDBClusterResult:
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
+    @pulumi.getter(name="dBClusterResourceId")
+    def d_b_cluster_resource_id(self) -> Optional[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB cluster.
+        """
+        return pulumi.get(self, "d_b_cluster_resource_id")
+
+    @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> Optional[bool]:
         """
         A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         """
         return pulumi.get(self, "deletion_protection")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        The Active Directory directory ID to create the DB cluster in.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="domainIAMRoleName")
+    def domain_iam_role_name(self) -> Optional[str]:
+        """
+        Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        """
+        return pulumi.get(self, "domain_iam_role_name")
 
     @property
     @pulumi.getter(name="enableCloudwatchLogsExports")
@@ -277,6 +316,14 @@ class GetDBClusterResult:
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[str]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> Optional[bool]:
         """
@@ -346,6 +393,14 @@ class GetDBClusterResult:
         return pulumi.get(self, "scaling_configuration")
 
     @property
+    @pulumi.getter(name="serverlessV2ScalingConfiguration")
+    def serverless_v2_scaling_configuration(self) -> Optional['outputs.DBClusterServerlessV2ScalingConfiguration']:
+        """
+        Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        """
+        return pulumi.get(self, "serverless_v2_scaling_configuration")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[str]:
         """
@@ -384,7 +439,10 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
             d_b_cluster_instance_class=self.d_b_cluster_instance_class,
             d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
+            d_b_cluster_resource_id=self.d_b_cluster_resource_id,
             deletion_protection=self.deletion_protection,
+            domain=self.domain,
+            domain_iam_role_name=self.domain_iam_role_name,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
             enable_http_endpoint=self.enable_http_endpoint,
             enable_iam_database_authentication=self.enable_iam_database_authentication,
@@ -396,6 +454,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             master_username=self.master_username,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
+            network_type=self.network_type,
             performance_insights_enabled=self.performance_insights_enabled,
             performance_insights_kms_key_id=self.performance_insights_kms_key_id,
             performance_insights_retention_period=self.performance_insights_retention_period,
@@ -405,6 +464,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             read_endpoint=self.read_endpoint,
             replication_source_identifier=self.replication_source_identifier,
             scaling_configuration=self.scaling_configuration,
+            serverless_v2_scaling_configuration=self.serverless_v2_scaling_configuration,
             storage_type=self.storage_type,
             tags=self.tags,
             vpc_security_group_ids=self.vpc_security_group_ids)
@@ -432,7 +492,10 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
         d_b_cluster_instance_class=__ret__.d_b_cluster_instance_class,
         d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
+        d_b_cluster_resource_id=__ret__.d_b_cluster_resource_id,
         deletion_protection=__ret__.deletion_protection,
+        domain=__ret__.domain,
+        domain_iam_role_name=__ret__.domain_iam_role_name,
         enable_cloudwatch_logs_exports=__ret__.enable_cloudwatch_logs_exports,
         enable_http_endpoint=__ret__.enable_http_endpoint,
         enable_iam_database_authentication=__ret__.enable_iam_database_authentication,
@@ -444,6 +507,7 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         master_username=__ret__.master_username,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,
+        network_type=__ret__.network_type,
         performance_insights_enabled=__ret__.performance_insights_enabled,
         performance_insights_kms_key_id=__ret__.performance_insights_kms_key_id,
         performance_insights_retention_period=__ret__.performance_insights_retention_period,
@@ -453,6 +517,7 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         read_endpoint=__ret__.read_endpoint,
         replication_source_identifier=__ret__.replication_source_identifier,
         scaling_configuration=__ret__.scaling_configuration,
+        serverless_v2_scaling_configuration=__ret__.serverless_v2_scaling_configuration,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)

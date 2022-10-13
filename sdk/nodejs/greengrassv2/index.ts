@@ -10,10 +10,20 @@ export type ComponentVersion = import("./componentVersion").ComponentVersion;
 export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
 utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
 export { GetComponentVersionArgs, GetComponentVersionResult, GetComponentVersionOutputArgs } from "./getComponentVersion";
 export const getComponentVersion: typeof import("./getComponentVersion").getComponentVersion = null as any;
 export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:greengrassv2:ComponentVersion":
                 return new ComponentVersion(name, <any>undefined, { urn })
+            case "aws-native:greengrassv2:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

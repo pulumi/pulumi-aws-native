@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterParameterGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cloudformation will generate a unique group name.
+        /// The name of the cluster parameter group.
         /// </summary>
         [Input("parameterGroupName", required: true)]
         public string ParameterGroupName { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterParameterGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cloudformation will generate a unique group name.
+        /// The name of the cluster parameter group.
         /// </summary>
         [Input("parameterGroupName", required: true)]
         public Input<string> ParameterGroupName { get; set; } = null!;
@@ -58,18 +58,28 @@ namespace Pulumi.AwsNative.Redshift
     public sealed class GetClusterParameterGroupResult
     {
         /// <summary>
-        /// Cloudformation will generate a unique group name.
+        /// The name of the cluster parameter group.
         /// </summary>
         public readonly string? ParameterGroupName;
+        /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ClusterParameterGroupParameter> Parameters;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
         private GetClusterParameterGroupResult(
             string? parameterGroupName,
 
+            ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters,
+
             ImmutableArray<Outputs.ClusterParameterGroupTag> tags)
         {
             ParameterGroupName = parameterGroupName;
+            Parameters = parameters;
             Tags = tags;
         }
     }

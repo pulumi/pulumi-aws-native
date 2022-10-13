@@ -8291,6 +8291,8 @@ class SpotFleetRequestConfigData(dict):
             suggest = "spot_max_total_price"
         elif key == "spotPrice":
             suggest = "spot_price"
+        elif key == "tagSpecifications":
+            suggest = "tag_specifications"
         elif key == "targetCapacityUnitType":
             suggest = "target_capacity_unit_type"
         elif key == "terminateInstancesWithExpiration":
@@ -8329,6 +8331,7 @@ class SpotFleetRequestConfigData(dict):
                  spot_maintenance_strategies: Optional['outputs.SpotFleetSpotMaintenanceStrategies'] = None,
                  spot_max_total_price: Optional[str] = None,
                  spot_price: Optional[str] = None,
+                 tag_specifications: Optional[Sequence['outputs.SpotFleetTagSpecification']] = None,
                  target_capacity_unit_type: Optional['SpotFleetRequestConfigDataTargetCapacityUnitType'] = None,
                  terminate_instances_with_expiration: Optional[bool] = None,
                  type: Optional['SpotFleetRequestConfigDataType'] = None,
@@ -8366,6 +8369,8 @@ class SpotFleetRequestConfigData(dict):
             pulumi.set(__self__, "spot_max_total_price", spot_max_total_price)
         if spot_price is not None:
             pulumi.set(__self__, "spot_price", spot_price)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
         if target_capacity_unit_type is not None:
             pulumi.set(__self__, "target_capacity_unit_type", target_capacity_unit_type)
         if terminate_instances_with_expiration is not None:
@@ -8461,6 +8466,11 @@ class SpotFleetRequestConfigData(dict):
     @pulumi.getter(name="spotPrice")
     def spot_price(self) -> Optional[str]:
         return pulumi.get(self, "spot_price")
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[Sequence['outputs.SpotFleetTagSpecification']]:
+        return pulumi.get(self, "tag_specifications")
 
     @property
     @pulumi.getter(name="targetCapacityUnitType")

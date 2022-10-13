@@ -14,6 +14,16 @@ export const OriginEndpointAdsOnDeliveryRestrictions = {
  */
 export type OriginEndpointAdsOnDeliveryRestrictions = (typeof OriginEndpointAdsOnDeliveryRestrictions)[keyof typeof OriginEndpointAdsOnDeliveryRestrictions];
 
+export const OriginEndpointCmafEncryptionEncryptionMethod = {
+    SampleAes: "SAMPLE_AES",
+    AesCtr: "AES_CTR",
+} as const;
+
+/**
+ * The encryption method used
+ */
+export type OriginEndpointCmafEncryptionEncryptionMethod = (typeof OriginEndpointCmafEncryptionEncryptionMethod)[keyof typeof OriginEndpointCmafEncryptionEncryptionMethod];
+
 export const OriginEndpointDashPackageAdTriggersItem = {
     SpliceInsert: "SPLICE_INSERT",
     Break: "BREAK",

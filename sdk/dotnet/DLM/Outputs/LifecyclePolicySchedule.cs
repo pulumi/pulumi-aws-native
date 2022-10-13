@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.DLM.Outputs
     [OutputType]
     public sealed class LifecyclePolicySchedule
     {
+        public readonly Outputs.LifecyclePolicyArchiveRule? ArchiveRule;
         public readonly bool? CopyTags;
         public readonly Outputs.LifecyclePolicyCreateRule? CreateRule;
         public readonly ImmutableArray<Outputs.LifecyclePolicyCrossRegionCopyRule> CrossRegionCopyRules;
@@ -26,6 +27,8 @@ namespace Pulumi.AwsNative.DLM.Outputs
 
         [OutputConstructor]
         private LifecyclePolicySchedule(
+            Outputs.LifecyclePolicyArchiveRule? archiveRule,
+
             bool? copyTags,
 
             Outputs.LifecyclePolicyCreateRule? createRule,
@@ -46,6 +49,7 @@ namespace Pulumi.AwsNative.DLM.Outputs
 
             ImmutableArray<Outputs.LifecyclePolicyTag> variableTags)
         {
+            ArchiveRule = archiveRule;
             CopyTags = copyTags;
             CreateRule = createRule;
             CrossRegionCopyRules = crossRegionCopyRules;

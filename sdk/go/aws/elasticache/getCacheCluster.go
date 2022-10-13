@@ -45,6 +45,7 @@ type LookupCacheClusterResult struct {
 	SnapshotRetentionLimit       *int                                          `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                       `pulumi:"snapshotWindow"`
 	Tags                         []CacheClusterTag                             `pulumi:"tags"`
+	TransitEncryptionEnabled     *bool                                         `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          []string                                      `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -163,6 +164,10 @@ func (o LookupCacheClusterResultOutput) SnapshotWindow() pulumi.StringPtrOutput 
 
 func (o LookupCacheClusterResultOutput) Tags() CacheClusterTagArrayOutput {
 	return o.ApplyT(func(v LookupCacheClusterResult) []CacheClusterTag { return v.Tags }).(CacheClusterTagArrayOutput)
+}
+
+func (o LookupCacheClusterResultOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCacheClusterResult) *bool { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupCacheClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

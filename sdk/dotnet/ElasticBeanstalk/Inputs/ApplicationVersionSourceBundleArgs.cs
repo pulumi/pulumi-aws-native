@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 
     public sealed class ApplicationVersionSourceBundleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon S3 bucket where the data is located.
+        /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon S3 key where the data is located.
+        /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;
 

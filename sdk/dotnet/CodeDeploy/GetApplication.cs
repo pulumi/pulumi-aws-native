@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CodeDeploy
     public static class GetApplication
     {
         /// <summary>
-        /// Resource Type definition for AWS::CodeDeploy::Application
+        /// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws-native:codedeploy:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CodeDeploy::Application
+        /// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:codedeploy:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
 
         public GetApplicationArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
 
         public GetApplicationInvokeArgs()
         {
@@ -51,16 +57,14 @@ namespace Pulumi.AwsNative.CodeDeploy
     [OutputType]
     public sealed class GetApplicationResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
 
         [OutputConstructor]
-        private GetApplicationResult(
-            string? id,
-
-            ImmutableArray<Outputs.ApplicationTag> tags)
+        private GetApplicationResult(ImmutableArray<Outputs.ApplicationTag> tags)
         {
-            Id = id;
             Tags = tags;
         }
     }

@@ -690,6 +690,8 @@ func (o OriginEndpointAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrO
 type OriginEndpointCmafEncryption struct {
 	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
+	// The encryption method used
+	EncryptionMethod *OriginEndpointCmafEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
 	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
@@ -710,6 +712,8 @@ type OriginEndpointCmafEncryptionInput interface {
 type OriginEndpointCmafEncryptionArgs struct {
 	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
+	// The encryption method used
+	EncryptionMethod OriginEndpointCmafEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
 	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
@@ -798,6 +802,13 @@ func (o OriginEndpointCmafEncryptionOutput) ConstantInitializationVector() pulum
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
 }
 
+// The encryption method used
+func (o OriginEndpointCmafEncryptionOutput) EncryptionMethod() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v OriginEndpointCmafEncryption) *OriginEndpointCmafEncryptionEncryptionMethod {
+		return v.EncryptionMethod
+	}).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
+}
+
 // Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointCmafEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
@@ -839,6 +850,16 @@ func (o OriginEndpointCmafEncryptionPtrOutput) ConstantInitializationVector() pu
 		}
 		return v.ConstantInitializationVector
 	}).(pulumi.StringPtrOutput)
+}
+
+// The encryption method used
+func (o OriginEndpointCmafEncryptionPtrOutput) EncryptionMethod() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *OriginEndpointCmafEncryptionEncryptionMethod {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMethod
+	}).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
 }
 
 // Time (in seconds) between each encryption key rotation.

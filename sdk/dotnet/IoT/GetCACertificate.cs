@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.IoT
         public readonly Pulumi.AwsNative.IoT.CACertificateAutoRegistrationStatus? AutoRegistrationStatus;
         public readonly string? Id;
         public readonly Outputs.CACertificateRegistrationConfig? RegistrationConfig;
+        public readonly bool? RemoveAutoRegistration;
         public readonly Pulumi.AwsNative.IoT.CACertificateStatus? Status;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.IoT
 
             Outputs.CACertificateRegistrationConfig? registrationConfig,
 
+            bool? removeAutoRegistration,
+
             Pulumi.AwsNative.IoT.CACertificateStatus? status,
 
             ImmutableArray<Outputs.CACertificateTag> tags)
@@ -79,6 +82,7 @@ namespace Pulumi.AwsNative.IoT
             AutoRegistrationStatus = autoRegistrationStatus;
             Id = id;
             RegistrationConfig = registrationConfig;
+            RemoveAutoRegistration = removeAutoRegistration;
             Status = status;
             Tags = tags;
         }

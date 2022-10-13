@@ -37,6 +37,7 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    public readonly appConfigResource!: pulumi.Output<outputs.evidently.ProjectAppConfigResourceObject | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly dataDelivery!: pulumi.Output<outputs.evidently.ProjectDataDeliveryObject | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -57,12 +58,14 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["appConfigResource"] = args ? args.appConfigResource : undefined;
             resourceInputs["dataDelivery"] = args ? args.dataDelivery : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["appConfigResource"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataDelivery"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -78,6 +81,7 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
+    appConfigResource?: pulumi.Input<inputs.evidently.ProjectAppConfigResourceObjectArgs>;
     dataDelivery?: pulumi.Input<inputs.evidently.ProjectDataDeliveryObjectArgs>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

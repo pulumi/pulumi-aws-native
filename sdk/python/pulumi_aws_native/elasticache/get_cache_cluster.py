@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCacheClusterResult:
-    def __init__(__self__, a_z_mode=None, auto_minor_version_upgrade=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, a_z_mode=None, auto_minor_version_upgrade=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, transit_encryption_enabled=None, vpc_security_group_ids=None):
         if a_z_mode and not isinstance(a_z_mode, str):
             raise TypeError("Expected argument 'a_z_mode' to be a str")
         pulumi.set(__self__, "a_z_mode", a_z_mode)
@@ -80,6 +80,9 @@ class GetCacheClusterResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if transit_encryption_enabled and not isinstance(transit_encryption_enabled, bool):
+            raise TypeError("Expected argument 'transit_encryption_enabled' to be a bool")
+        pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if vpc_security_group_ids and not isinstance(vpc_security_group_ids, list):
             raise TypeError("Expected argument 'vpc_security_group_ids' to be a list")
         pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
@@ -185,6 +188,11 @@ class GetCacheClusterResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "vpc_security_group_ids")
@@ -216,6 +224,7 @@ class AwaitableGetCacheClusterResult(GetCacheClusterResult):
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window,
             tags=self.tags,
+            transit_encryption_enabled=self.transit_encryption_enabled,
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
@@ -250,6 +259,7 @@ def get_cache_cluster(id: Optional[str] = None,
         snapshot_retention_limit=__ret__.snapshot_retention_limit,
         snapshot_window=__ret__.snapshot_window,
         tags=__ret__.tags,
+        transit_encryption_enabled=__ret__.transit_encryption_enabled,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
 
 

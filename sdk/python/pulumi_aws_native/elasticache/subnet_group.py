@@ -22,6 +22,9 @@ class SubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a SubnetGroup resource.
+        :param pulumi.Input[str] description: The description for the cache subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 subnet IDs for the cache subnet group.
+        :param pulumi.Input[str] cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -33,6 +36,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        The description for the cache subnet group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -42,6 +48,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The EC2 subnet IDs for the cache subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -51,6 +60,9 @@ class SubnetGroupArgs:
     @property
     @pulumi.getter(name="cacheSubnetGroupName")
     def cache_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the cache subnet group. This value is stored as a lowercase string.
+        """
         return pulumi.get(self, "cache_subnet_group_name")
 
     @cache_subnet_group_name.setter
@@ -67,12 +79,7 @@ class SubnetGroupArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SubnetGroup(pulumi.CustomResource):
-    warnings.warn("""SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -87,6 +94,9 @@ class SubnetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
+        :param pulumi.Input[str] description: The description for the cache subnet group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The EC2 subnet IDs for the cache subnet group.
         """
         ...
     @overload
@@ -117,7 +127,6 @@ class SubnetGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetGroupTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubnetGroup is deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -165,16 +174,25 @@ class SubnetGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cacheSubnetGroupName")
     def cache_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name for the cache subnet group. This value is stored as a lowercase string.
+        """
         return pulumi.get(self, "cache_subnet_group_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description for the cache subnet group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The EC2 subnet IDs for the cache subnet group.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property

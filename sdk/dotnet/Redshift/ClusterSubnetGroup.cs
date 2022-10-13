@@ -10,17 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift
 {
     /// <summary>
-    /// Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+    /// Specifies an Amazon Redshift subnet group.
     /// </summary>
     [AwsNativeResourceType("aws-native:redshift:ClusterSubnetGroup")]
     public partial class ClusterSubnetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        /// </summary>
+        [Output("clusterSubnetGroupName")]
+        public Output<string> ClusterSubnetGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the parameter group.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of VPC subnet IDs
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ClusterSubnetGroupTag>> Tags { get; private set; } = null!;
 
@@ -69,11 +84,18 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class ClusterSubnetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the parameter group.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The list of VPC subnet IDs
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
@@ -82,6 +104,10 @@ namespace Pulumi.AwsNative.Redshift
 
         [Input("tags")]
         private InputList<Inputs.ClusterSubnetGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// The list of tags for the cluster parameter group.
+        /// </summary>
         public InputList<Inputs.ClusterSubnetGroupTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ClusterSubnetGroupTagArgs>());

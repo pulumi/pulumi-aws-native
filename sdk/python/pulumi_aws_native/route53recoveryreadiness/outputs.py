@@ -26,7 +26,7 @@ __all__ = [
 class CellTag(dict):
     def __init__(__self__, *,
                  key: str,
-                 value: Sequence[str]):
+                 value: str):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -37,7 +37,7 @@ class CellTag(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -45,7 +45,7 @@ class CellTag(dict):
 class ReadinessCheckTag(dict):
     def __init__(__self__, *,
                  key: str,
-                 value: Sequence[str]):
+                 value: str):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -56,7 +56,7 @@ class ReadinessCheckTag(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -64,7 +64,7 @@ class ReadinessCheckTag(dict):
 class RecoveryGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
-                 value: Sequence[str]):
+                 value: str):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -75,7 +75,7 @@ class RecoveryGroupTag(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 
@@ -330,7 +330,7 @@ class ResourceSetResource(dict):
 class ResourceSetTag(dict):
     def __init__(__self__, *,
                  key: str,
-                 value: Sequence[str]):
+                 value: str):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -341,7 +341,7 @@ class ResourceSetTag(dict):
 
     @property
     @pulumi.getter
-    def value(self) -> Sequence[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

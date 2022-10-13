@@ -20,6 +20,7 @@ class EndpointConfigArgs:
                  async_inference_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceConfigArgs']] = None,
                  data_capture_config: Optional[pulumi.Input['EndpointConfigDataCaptureConfigArgs']] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
+                 explainer_config: Optional[pulumi.Input['EndpointConfigExplainerConfigArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]] = None):
         """
@@ -32,6 +33,8 @@ class EndpointConfigArgs:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
         if endpoint_config_name is not None:
             pulumi.set(__self__, "endpoint_config_name", endpoint_config_name)
+        if explainer_config is not None:
+            pulumi.set(__self__, "explainer_config", explainer_config)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
@@ -74,6 +77,15 @@ class EndpointConfigArgs:
         pulumi.set(self, "endpoint_config_name", value)
 
     @property
+    @pulumi.getter(name="explainerConfig")
+    def explainer_config(self) -> Optional[pulumi.Input['EndpointConfigExplainerConfigArgs']]:
+        return pulumi.get(self, "explainer_config")
+
+    @explainer_config.setter
+    def explainer_config(self, value: Optional[pulumi.Input['EndpointConfigExplainerConfigArgs']]):
+        pulumi.set(self, "explainer_config", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -105,6 +117,7 @@ class EndpointConfig(pulumi.CustomResource):
                  async_inference_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigAsyncInferenceConfigArgs']]] = None,
                  data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigDataCaptureConfigArgs']]] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
+                 explainer_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigExplainerConfigArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
@@ -142,6 +155,7 @@ class EndpointConfig(pulumi.CustomResource):
                  async_inference_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigAsyncInferenceConfigArgs']]] = None,
                  data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigDataCaptureConfigArgs']]] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
+                 explainer_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigExplainerConfigArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
@@ -158,6 +172,7 @@ class EndpointConfig(pulumi.CustomResource):
             __props__.__dict__["async_inference_config"] = async_inference_config
             __props__.__dict__["data_capture_config"] = data_capture_config
             __props__.__dict__["endpoint_config_name"] = endpoint_config_name
+            __props__.__dict__["explainer_config"] = explainer_config
             __props__.__dict__["kms_key_id"] = kms_key_id
             if production_variants is None and not opts.urn:
                 raise TypeError("Missing required property 'production_variants'")
@@ -188,6 +203,7 @@ class EndpointConfig(pulumi.CustomResource):
         __props__.__dict__["async_inference_config"] = None
         __props__.__dict__["data_capture_config"] = None
         __props__.__dict__["endpoint_config_name"] = None
+        __props__.__dict__["explainer_config"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["production_variants"] = None
         __props__.__dict__["tags"] = None
@@ -207,6 +223,11 @@ class EndpointConfig(pulumi.CustomResource):
     @pulumi.getter(name="endpointConfigName")
     def endpoint_config_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "endpoint_config_name")
+
+    @property
+    @pulumi.getter(name="explainerConfig")
+    def explainer_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigExplainerConfig']]:
+        return pulumi.get(self, "explainer_config")
 
     @property
     @pulumi.getter(name="kmsKeyId")

@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
     public sealed class RecoveryGroupTag
     {
         public readonly string Key;
-        public readonly ImmutableArray<string> Value;
+        public readonly string Value;
 
         [OutputConstructor]
         private RecoveryGroupTag(
             string key,
 
-            ImmutableArray<string> value)
+            string value)
         {
             Key = key;
             Value = value;

@@ -62,6 +62,10 @@ export interface GetDBProxyResult {
      */
     readonly tags?: outputs.rds.DBProxyTagFormat[];
     /**
+     * VPC ID to associate with the new DB proxy.
+     */
+    readonly vpcId?: string;
+    /**
      * VPC security group IDs to associate with the new proxy.
      */
     readonly vpcSecurityGroupIds?: string[];

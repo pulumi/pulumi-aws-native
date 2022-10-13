@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("eventBatchingCondition")]
+        public Output<Outputs.TriggerEventBatchingCondition?> EventBatchingCondition { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.Glue
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("eventBatchingCondition")]
+        public Input<Inputs.TriggerEventBatchingConditionArgs>? EventBatchingCondition { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

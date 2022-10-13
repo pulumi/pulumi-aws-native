@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Redshift.Outputs
     [OutputType]
     public sealed class ClusterParameterGroupParameter
     {
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
         public readonly string ParameterName;
+        /// <summary>
+        /// The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

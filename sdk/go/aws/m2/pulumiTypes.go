@@ -10,6 +10,167 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ApplicationDefinition struct {
+}
+
+// ApplicationDefinitionInput is an input type that accepts ApplicationDefinitionArgs and ApplicationDefinitionOutput values.
+// You can construct a concrete instance of `ApplicationDefinitionInput` via:
+//
+//	ApplicationDefinitionArgs{...}
+type ApplicationDefinitionInput interface {
+	pulumi.Input
+
+	ToApplicationDefinitionOutput() ApplicationDefinitionOutput
+	ToApplicationDefinitionOutputWithContext(context.Context) ApplicationDefinitionOutput
+}
+
+type ApplicationDefinitionArgs struct {
+}
+
+func (ApplicationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinition)(nil)).Elem()
+}
+
+func (i ApplicationDefinitionArgs) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
+	return i.ToApplicationDefinitionOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinitionArgs) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
+}
+
+type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDefinition)(nil)).Elem()
+}
+
+func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
+	return o
+}
+
+func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutputWithContext(ctx context.Context) ApplicationDefinitionOutput {
+	return o
+}
+
+type ApplicationTagMap struct {
+}
+
+// ApplicationTagMapInput is an input type that accepts ApplicationTagMap and ApplicationTagMapOutput values.
+// You can construct a concrete instance of `ApplicationTagMapInput` via:
+//
+//	ApplicationTagMap{ "key": ApplicationTagArgs{...} }
+type ApplicationTagMapInput interface {
+	pulumi.Input
+
+	ToApplicationTagMapOutput() ApplicationTagMapOutput
+	ToApplicationTagMapOutputWithContext(context.Context) ApplicationTagMapOutput
+}
+
+type ApplicationTagMapArgs struct {
+}
+
+func (ApplicationTagMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTagMap)(nil)).Elem()
+}
+
+func (i ApplicationTagMapArgs) ToApplicationTagMapOutput() ApplicationTagMapOutput {
+	return i.ToApplicationTagMapOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagMapArgs) ToApplicationTagMapOutputWithContext(ctx context.Context) ApplicationTagMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagMapOutput)
+}
+
+func (i ApplicationTagMapArgs) ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput {
+	return i.ToApplicationTagMapPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagMapArgs) ToApplicationTagMapPtrOutputWithContext(ctx context.Context) ApplicationTagMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagMapOutput).ToApplicationTagMapPtrOutputWithContext(ctx)
+}
+
+// ApplicationTagMapPtrInput is an input type that accepts ApplicationTagMapArgs, ApplicationTagMapPtr and ApplicationTagMapPtrOutput values.
+// You can construct a concrete instance of `ApplicationTagMapPtrInput` via:
+//
+//	        ApplicationTagMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationTagMapPtrInput interface {
+	pulumi.Input
+
+	ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput
+	ToApplicationTagMapPtrOutputWithContext(context.Context) ApplicationTagMapPtrOutput
+}
+
+type applicationTagMapPtrType ApplicationTagMapArgs
+
+func ApplicationTagMapPtr(v *ApplicationTagMapArgs) ApplicationTagMapPtrInput {
+	return (*applicationTagMapPtrType)(v)
+}
+
+func (*applicationTagMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationTagMap)(nil)).Elem()
+}
+
+func (i *applicationTagMapPtrType) ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput {
+	return i.ToApplicationTagMapPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationTagMapPtrType) ToApplicationTagMapPtrOutputWithContext(ctx context.Context) ApplicationTagMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagMapPtrOutput)
+}
+
+type ApplicationTagMapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTagMap)(nil)).Elem()
+}
+
+func (o ApplicationTagMapOutput) ToApplicationTagMapOutput() ApplicationTagMapOutput {
+	return o
+}
+
+func (o ApplicationTagMapOutput) ToApplicationTagMapOutputWithContext(ctx context.Context) ApplicationTagMapOutput {
+	return o
+}
+
+func (o ApplicationTagMapOutput) ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput {
+	return o.ToApplicationTagMapPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTagMapOutput) ToApplicationTagMapPtrOutputWithContext(ctx context.Context) ApplicationTagMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationTagMap) *ApplicationTagMap {
+		return &v
+	}).(ApplicationTagMapPtrOutput)
+}
+
+type ApplicationTagMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationTagMap)(nil)).Elem()
+}
+
+func (o ApplicationTagMapPtrOutput) ToApplicationTagMapPtrOutput() ApplicationTagMapPtrOutput {
+	return o
+}
+
+func (o ApplicationTagMapPtrOutput) ToApplicationTagMapPtrOutputWithContext(ctx context.Context) ApplicationTagMapPtrOutput {
+	return o
+}
+
+func (o ApplicationTagMapPtrOutput) Elem() ApplicationTagMapOutput {
+	return o.ApplyT(func(v *ApplicationTagMap) ApplicationTagMap {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationTagMap
+		return ret
+	}).(ApplicationTagMapOutput)
+}
+
 // Defines the details of a high availability configuration.
 type EnvironmentHighAvailabilityConfig struct {
 	DesiredCapacity int `pulumi:"desiredCapacity"`
@@ -359,12 +520,18 @@ func (o EnvironmentTagMapPtrOutput) Elem() EnvironmentTagMapOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinitionInput)(nil)).Elem(), ApplicationDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagMapInput)(nil)).Elem(), ApplicationTagMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagMapPtrInput)(nil)).Elem(), ApplicationTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigPtrInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationInput)(nil)).Elem(), EnvironmentStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationArrayInput)(nil)).Elem(), EnvironmentStorageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagMapInput)(nil)).Elem(), EnvironmentTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentTagMapPtrInput)(nil)).Elem(), EnvironmentTagMapArgs{})
+	pulumi.RegisterOutputType(ApplicationDefinitionOutput{})
+	pulumi.RegisterOutputType(ApplicationTagMapOutput{})
+	pulumi.RegisterOutputType(ApplicationTagMapPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStorageConfigurationOutput{})

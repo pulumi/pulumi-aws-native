@@ -19,6 +19,16 @@ __all__ = [
     'ComponentVersionLambdaFunctionRecipeSourceArgs',
     'ComponentVersionLambdaLinuxProcessParamsArgs',
     'ComponentVersionLambdaVolumeMountArgs',
+    'DeploymentComponentUpdatePolicyArgs',
+    'DeploymentConfigurationValidationPolicyArgs',
+    'DeploymentIoTJobAbortConfigArgs',
+    'DeploymentIoTJobAbortCriteriaArgs',
+    'DeploymentIoTJobConfigurationArgs',
+    'DeploymentIoTJobExecutionsRolloutConfigArgs',
+    'DeploymentIoTJobExponentialRolloutRateArgs',
+    'DeploymentIoTJobRateIncreaseCriteriaArgs',
+    'DeploymentIoTJobTimeoutConfigArgs',
+    'DeploymentPoliciesArgs',
 ]
 
 @pulumi.input_type
@@ -467,5 +477,288 @@ class ComponentVersionLambdaVolumeMountArgs:
     @source_path.setter
     def source_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_path", value)
+
+
+@pulumi.input_type
+class DeploymentComponentUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']] = None,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class DeploymentConfigurationValidationPolicyArgs:
+    def __init__(__self__, *,
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        if timeout_in_seconds is not None:
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="timeoutInSeconds")
+    def timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "timeout_in_seconds")
+
+    @timeout_in_seconds.setter
+    def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobAbortConfigArgs:
+    def __init__(__self__, *,
+                 criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]]):
+        pulumi.set(__self__, "criteria_list", criteria_list)
+
+    @property
+    @pulumi.getter(name="criteriaList")
+    def criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]]:
+        return pulumi.get(self, "criteria_list")
+
+    @criteria_list.setter
+    def criteria_list(self, value: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]]):
+        pulumi.set(self, "criteria_list", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobAbortCriteriaArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['DeploymentIoTJobAbortCriteriaAction'],
+                 failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType'],
+                 min_number_of_executed_things: pulumi.Input[int],
+                 threshold_percentage: pulumi.Input[float]):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "failure_type", failure_type)
+        pulumi.set(__self__, "min_number_of_executed_things", min_number_of_executed_things)
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['DeploymentIoTJobAbortCriteriaAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['DeploymentIoTJobAbortCriteriaAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType']:
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType']):
+        pulumi.set(self, "failure_type", value)
+
+    @property
+    @pulumi.getter(name="minNumberOfExecutedThings")
+    def min_number_of_executed_things(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "min_number_of_executed_things")
+
+    @min_number_of_executed_things.setter
+    def min_number_of_executed_things(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min_number_of_executed_things", value)
+
+    @property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "threshold_percentage")
+
+    @threshold_percentage.setter
+    def threshold_percentage(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold_percentage", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobConfigurationArgs:
+    def __init__(__self__, *,
+                 abort_config: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']] = None,
+                 job_executions_rollout_config: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
+                 timeout_config: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']] = None):
+        if abort_config is not None:
+            pulumi.set(__self__, "abort_config", abort_config)
+        if job_executions_rollout_config is not None:
+            pulumi.set(__self__, "job_executions_rollout_config", job_executions_rollout_config)
+        if timeout_config is not None:
+            pulumi.set(__self__, "timeout_config", timeout_config)
+
+    @property
+    @pulumi.getter(name="abortConfig")
+    def abort_config(self) -> Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']]:
+        return pulumi.get(self, "abort_config")
+
+    @abort_config.setter
+    def abort_config(self, value: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']]):
+        pulumi.set(self, "abort_config", value)
+
+    @property
+    @pulumi.getter(name="jobExecutionsRolloutConfig")
+    def job_executions_rollout_config(self) -> Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']]:
+        return pulumi.get(self, "job_executions_rollout_config")
+
+    @job_executions_rollout_config.setter
+    def job_executions_rollout_config(self, value: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']]):
+        pulumi.set(self, "job_executions_rollout_config", value)
+
+    @property
+    @pulumi.getter(name="timeoutConfig")
+    def timeout_config(self) -> Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']]:
+        return pulumi.get(self, "timeout_config")
+
+    @timeout_config.setter
+    def timeout_config(self, value: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']]):
+        pulumi.set(self, "timeout_config", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobExecutionsRolloutConfigArgs:
+    def __init__(__self__, *,
+                 exponential_rate: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
+                 maximum_per_minute: Optional[pulumi.Input[int]] = None):
+        if exponential_rate is not None:
+            pulumi.set(__self__, "exponential_rate", exponential_rate)
+        if maximum_per_minute is not None:
+            pulumi.set(__self__, "maximum_per_minute", maximum_per_minute)
+
+    @property
+    @pulumi.getter(name="exponentialRate")
+    def exponential_rate(self) -> Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']]:
+        return pulumi.get(self, "exponential_rate")
+
+    @exponential_rate.setter
+    def exponential_rate(self, value: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']]):
+        pulumi.set(self, "exponential_rate", value)
+
+    @property
+    @pulumi.getter(name="maximumPerMinute")
+    def maximum_per_minute(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_per_minute")
+
+    @maximum_per_minute.setter
+    def maximum_per_minute(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_per_minute", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobExponentialRolloutRateArgs:
+    def __init__(__self__, *,
+                 base_rate_per_minute: pulumi.Input[int],
+                 increment_factor: pulumi.Input[float],
+                 rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs']):
+        pulumi.set(__self__, "base_rate_per_minute", base_rate_per_minute)
+        pulumi.set(__self__, "increment_factor", increment_factor)
+        pulumi.set(__self__, "rate_increase_criteria", rate_increase_criteria)
+
+    @property
+    @pulumi.getter(name="baseRatePerMinute")
+    def base_rate_per_minute(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "base_rate_per_minute")
+
+    @base_rate_per_minute.setter
+    def base_rate_per_minute(self, value: pulumi.Input[int]):
+        pulumi.set(self, "base_rate_per_minute", value)
+
+    @property
+    @pulumi.getter(name="incrementFactor")
+    def increment_factor(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "increment_factor")
+
+    @increment_factor.setter
+    def increment_factor(self, value: pulumi.Input[float]):
+        pulumi.set(self, "increment_factor", value)
+
+    @property
+    @pulumi.getter(name="rateIncreaseCriteria")
+    def rate_increase_criteria(self) -> pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs']:
+        return pulumi.get(self, "rate_increase_criteria")
+
+    @rate_increase_criteria.setter
+    def rate_increase_criteria(self, value: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs']):
+        pulumi.set(self, "rate_increase_criteria", value)
+
+
+@pulumi.input_type
+class DeploymentIoTJobRateIncreaseCriteriaArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class DeploymentIoTJobTimeoutConfigArgs:
+    def __init__(__self__, *,
+                 in_progress_timeout_in_minutes: Optional[pulumi.Input[int]] = None):
+        if in_progress_timeout_in_minutes is not None:
+            pulumi.set(__self__, "in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
+
+    @property
+    @pulumi.getter(name="inProgressTimeoutInMinutes")
+    def in_progress_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "in_progress_timeout_in_minutes")
+
+    @in_progress_timeout_in_minutes.setter
+    def in_progress_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "in_progress_timeout_in_minutes", value)
+
+
+@pulumi.input_type
+class DeploymentPoliciesArgs:
+    def __init__(__self__, *,
+                 component_update_policy: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']] = None,
+                 configuration_validation_policy: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']] = None,
+                 failure_handling_policy: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']] = None):
+        if component_update_policy is not None:
+            pulumi.set(__self__, "component_update_policy", component_update_policy)
+        if configuration_validation_policy is not None:
+            pulumi.set(__self__, "configuration_validation_policy", configuration_validation_policy)
+        if failure_handling_policy is not None:
+            pulumi.set(__self__, "failure_handling_policy", failure_handling_policy)
+
+    @property
+    @pulumi.getter(name="componentUpdatePolicy")
+    def component_update_policy(self) -> Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']]:
+        return pulumi.get(self, "component_update_policy")
+
+    @component_update_policy.setter
+    def component_update_policy(self, value: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']]):
+        pulumi.set(self, "component_update_policy", value)
+
+    @property
+    @pulumi.getter(name="configurationValidationPolicy")
+    def configuration_validation_policy(self) -> Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']]:
+        return pulumi.get(self, "configuration_validation_policy")
+
+    @configuration_validation_policy.setter
+    def configuration_validation_policy(self, value: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']]):
+        pulumi.set(self, "configuration_validation_policy", value)
+
+    @property
+    @pulumi.getter(name="failureHandlingPolicy")
+    def failure_handling_policy(self) -> Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]:
+        return pulumi.get(self, "failure_handling_policy")
+
+    @failure_handling_policy.setter
+    def failure_handling_policy(self, value: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']]):
+        pulumi.set(self, "failure_handling_policy", value)
 
 

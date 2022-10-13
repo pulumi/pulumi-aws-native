@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Redshift.Inputs
 
     public sealed class ClusterParameterGroupParameterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

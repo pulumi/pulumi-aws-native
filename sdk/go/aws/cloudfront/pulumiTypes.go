@@ -4967,6 +4967,225 @@ func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MonitoringSubscriptionType struct {
+	RealtimeMetricsSubscriptionConfig *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig `pulumi:"realtimeMetricsSubscriptionConfig"`
+}
+
+// MonitoringSubscriptionTypeInput is an input type that accepts MonitoringSubscriptionTypeArgs and MonitoringSubscriptionTypeOutput values.
+// You can construct a concrete instance of `MonitoringSubscriptionTypeInput` via:
+//
+//	MonitoringSubscriptionTypeArgs{...}
+type MonitoringSubscriptionTypeInput interface {
+	pulumi.Input
+
+	ToMonitoringSubscriptionTypeOutput() MonitoringSubscriptionTypeOutput
+	ToMonitoringSubscriptionTypeOutputWithContext(context.Context) MonitoringSubscriptionTypeOutput
+}
+
+type MonitoringSubscriptionTypeArgs struct {
+	RealtimeMetricsSubscriptionConfig MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput `pulumi:"realtimeMetricsSubscriptionConfig"`
+}
+
+func (MonitoringSubscriptionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSubscriptionType)(nil)).Elem()
+}
+
+func (i MonitoringSubscriptionTypeArgs) ToMonitoringSubscriptionTypeOutput() MonitoringSubscriptionTypeOutput {
+	return i.ToMonitoringSubscriptionTypeOutputWithContext(context.Background())
+}
+
+func (i MonitoringSubscriptionTypeArgs) ToMonitoringSubscriptionTypeOutputWithContext(ctx context.Context) MonitoringSubscriptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionTypeOutput)
+}
+
+type MonitoringSubscriptionTypeOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSubscriptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSubscriptionType)(nil)).Elem()
+}
+
+func (o MonitoringSubscriptionTypeOutput) ToMonitoringSubscriptionTypeOutput() MonitoringSubscriptionTypeOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionTypeOutput) ToMonitoringSubscriptionTypeOutputWithContext(ctx context.Context) MonitoringSubscriptionTypeOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionTypeOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o.ApplyT(func(v MonitoringSubscriptionType) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+		return v.RealtimeMetricsSubscriptionConfig
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
+}
+
+type MonitoringSubscriptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSubscriptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSubscriptionType)(nil)).Elem()
+}
+
+func (o MonitoringSubscriptionTypePtrOutput) ToMonitoringSubscriptionTypePtrOutput() MonitoringSubscriptionTypePtrOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionTypePtrOutput) ToMonitoringSubscriptionTypePtrOutputWithContext(ctx context.Context) MonitoringSubscriptionTypePtrOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionTypePtrOutput) Elem() MonitoringSubscriptionTypeOutput {
+	return o.ApplyT(func(v *MonitoringSubscriptionType) MonitoringSubscriptionType {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSubscriptionType
+		return ret
+	}).(MonitoringSubscriptionTypeOutput)
+}
+
+func (o MonitoringSubscriptionTypePtrOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringSubscriptionType) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RealtimeMetricsSubscriptionConfig
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
+}
+
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfig struct {
+	RealtimeMetricsSubscriptionStatus MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus `pulumi:"realtimeMetricsSubscriptionStatus"`
+}
+
+// MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput is an input type that accepts MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs and MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput values.
+// You can construct a concrete instance of `MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput` via:
+//
+//	MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{...}
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput
+	ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutputWithContext(context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput
+}
+
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs struct {
+	RealtimeMetricsSubscriptionStatus MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput `pulumi:"realtimeMetricsSubscriptionStatus"`
+}
+
+func (MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
+}
+
+func (i MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
+	return i.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
+}
+
+func (i MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return i.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput).ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput is an input type that accepts MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs, MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtr and MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput` via:
+//
+//	        MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput
+	ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput
+}
+
+type monitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
+
+func MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtr(v *MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput {
+	return (*monitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType)(v)
+}
+
+func (*monitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
+}
+
+func (i *monitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return i.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
+}
+
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o.ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+		return &v
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) RealtimeMetricsSubscriptionStatus() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput {
+	return o.ApplyT(func(v MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus {
+		return v.RealtimeMetricsSubscriptionStatus
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput)
+}
+
+type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) Elem() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
+	return o.ApplyT(func(v *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSubscriptionRealtimeMetricsSubscriptionConfig
+		return ret
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
+}
+
+func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) RealtimeMetricsSubscriptionStatus() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
+	return o.ApplyT(func(v *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.RealtimeMetricsSubscriptionStatus
+	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
+}
+
 type OriginAccessControlConfig struct {
 	Description                   *string `pulumi:"description"`
 	Name                          string  `pulumi:"name"`
@@ -8978,6 +9197,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataPtrInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupConfigInput)(nil)).Elem(), KeyGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionTypeInput)(nil)).Elem(), MonitoringSubscriptionTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessControlConfigInput)(nil)).Elem(), OriginAccessControlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyConfigInput)(nil)).Elem(), OriginRequestPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
@@ -9092,6 +9314,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringSubscriptionTypeOutput{})
+	pulumi.RegisterOutputType(MonitoringSubscriptionTypePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginAccessControlConfigOutput{})
 	pulumi.RegisterOutputType(OriginAccessControlConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyConfigOutput{})

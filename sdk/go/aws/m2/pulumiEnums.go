@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ApplicationEngineType string
+
+const (
+	ApplicationEngineTypeMicrofocus = ApplicationEngineType("microfocus")
+	ApplicationEngineTypeBluage     = ApplicationEngineType("bluage")
+)
+
+func (ApplicationEngineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEngineType)(nil)).Elem()
+}
+
+func (e ApplicationEngineType) ToApplicationEngineTypeOutput() ApplicationEngineTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationEngineTypeOutput)
+}
+
+func (e ApplicationEngineType) ToApplicationEngineTypeOutputWithContext(ctx context.Context) ApplicationEngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationEngineTypeOutput)
+}
+
+func (e ApplicationEngineType) ToApplicationEngineTypePtrOutput() ApplicationEngineTypePtrOutput {
+	return e.ToApplicationEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationEngineType) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
+	return ApplicationEngineType(e).ToApplicationEngineTypeOutputWithContext(ctx).ToApplicationEngineTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationEngineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationEngineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationEngineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationEngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationEngineType)(nil)).Elem()
+}
+
+func (o ApplicationEngineTypeOutput) ToApplicationEngineTypeOutput() ApplicationEngineTypeOutput {
+	return o
+}
+
+func (o ApplicationEngineTypeOutput) ToApplicationEngineTypeOutputWithContext(ctx context.Context) ApplicationEngineTypeOutput {
+	return o
+}
+
+func (o ApplicationEngineTypeOutput) ToApplicationEngineTypePtrOutput() ApplicationEngineTypePtrOutput {
+	return o.ToApplicationEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEngineTypeOutput) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationEngineType) *ApplicationEngineType {
+		return &v
+	}).(ApplicationEngineTypePtrOutput)
+}
+
+func (o ApplicationEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationEngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationEngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationEngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationEngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationEngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationEngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationEngineType)(nil)).Elem()
+}
+
+func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutput() ApplicationEngineTypePtrOutput {
+	return o
+}
+
+func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
+	return o
+}
+
+func (o ApplicationEngineTypePtrOutput) Elem() ApplicationEngineTypeOutput {
+	return o.ApplyT(func(v *ApplicationEngineType) ApplicationEngineType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationEngineType
+		return ret
+	}).(ApplicationEngineTypeOutput)
+}
+
+func (o ApplicationEngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationEngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationEngineTypeInput is an input type that accepts ApplicationEngineTypeArgs and ApplicationEngineTypeOutput values.
+// You can construct a concrete instance of `ApplicationEngineTypeInput` via:
+//
+//	ApplicationEngineTypeArgs{...}
+type ApplicationEngineTypeInput interface {
+	pulumi.Input
+
+	ToApplicationEngineTypeOutput() ApplicationEngineTypeOutput
+	ToApplicationEngineTypeOutputWithContext(context.Context) ApplicationEngineTypeOutput
+}
+
+var applicationEngineTypePtrType = reflect.TypeOf((**ApplicationEngineType)(nil)).Elem()
+
+type ApplicationEngineTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationEngineTypePtrOutput() ApplicationEngineTypePtrOutput
+	ToApplicationEngineTypePtrOutputWithContext(context.Context) ApplicationEngineTypePtrOutput
+}
+
+type applicationEngineTypePtr string
+
+func ApplicationEngineTypePtr(v string) ApplicationEngineTypePtrInput {
+	return (*applicationEngineTypePtr)(&v)
+}
+
+func (*applicationEngineTypePtr) ElementType() reflect.Type {
+	return applicationEngineTypePtrType
+}
+
+func (in *applicationEngineTypePtr) ToApplicationEngineTypePtrOutput() ApplicationEngineTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationEngineTypePtrOutput)
+}
+
+func (in *applicationEngineTypePtr) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationEngineTypePtrOutput)
+}
+
 // The target platform for the environment.
 type EnvironmentEngineType string
 
@@ -176,8 +340,12 @@ func (in *environmentEngineTypePtr) ToEnvironmentEngineTypePtrOutputWithContext(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEngineTypeInput)(nil)).Elem(), ApplicationEngineType("microfocus"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEngineTypePtrInput)(nil)).Elem(), ApplicationEngineType("microfocus"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEngineTypeInput)(nil)).Elem(), EnvironmentEngineType("microfocus"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEngineTypePtrInput)(nil)).Elem(), EnvironmentEngineType("microfocus"))
+	pulumi.RegisterOutputType(ApplicationEngineTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationEngineTypePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentEngineTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentEngineTypePtrOutput{})
 }

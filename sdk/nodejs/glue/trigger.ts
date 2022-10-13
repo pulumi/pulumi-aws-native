@@ -42,6 +42,7 @@ export class Trigger extends pulumi.CustomResource {
 
     public readonly actions!: pulumi.Output<outputs.glue.TriggerAction[]>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly eventBatchingCondition!: pulumi.Output<outputs.glue.TriggerEventBatchingCondition | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly predicate!: pulumi.Output<outputs.glue.TriggerPredicate | undefined>;
     public readonly schedule!: pulumi.Output<string | undefined>;
@@ -71,6 +72,7 @@ export class Trigger extends pulumi.CustomResource {
             }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventBatchingCondition"] = args ? args.eventBatchingCondition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["predicate"] = args ? args.predicate : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -81,6 +83,7 @@ export class Trigger extends pulumi.CustomResource {
         } else {
             resourceInputs["actions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventBatchingCondition"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["predicate"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class Trigger extends pulumi.CustomResource {
 export interface TriggerArgs {
     actions: pulumi.Input<pulumi.Input<inputs.glue.TriggerActionArgs>[]>;
     description?: pulumi.Input<string>;
+    eventBatchingCondition?: pulumi.Input<inputs.glue.TriggerEventBatchingConditionArgs>;
     name?: pulumi.Input<string>;
     predicate?: pulumi.Input<inputs.glue.TriggerPredicateArgs>;
     schedule?: pulumi.Input<string>;

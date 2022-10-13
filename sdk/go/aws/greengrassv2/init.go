@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:greengrassv2:ComponentVersion":
 		r = &ComponentVersion{}
+	case "aws-native:greengrassv2:Deployment":
+		r = &Deployment{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -18,7 +18,7 @@ type ResourceSet struct {
 	// The Amazon Resource Name (ARN) of the resource set.
 	ResourceSetArn pulumi.StringOutput `pulumi:"resourceSetArn"`
 	// The name of the resource set to create.
-	ResourceSetName pulumi.StringOutput `pulumi:"resourceSetName"`
+	ResourceSetName pulumi.StringPtrOutput `pulumi:"resourceSetName"`
 	// The resource type of the resources in the resource set. Enter one of the following values for resource type:
 	//
 	// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
@@ -143,8 +143,8 @@ func (o ResourceSetOutput) ResourceSetArn() pulumi.StringOutput {
 }
 
 // The name of the resource set to create.
-func (o ResourceSetOutput) ResourceSetName() pulumi.StringOutput {
-	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.ResourceSetName }).(pulumi.StringOutput)
+func (o ResourceSetOutput) ResourceSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringPtrOutput { return v.ResourceSetName }).(pulumi.StringPtrOutput)
 }
 
 // The resource type of the resources in the resource set. Enter one of the following values for resource type:

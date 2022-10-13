@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.DLM.Inputs
 
     public sealed class LifecyclePolicyScheduleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("archiveRule")]
+        public Input<Inputs.LifecyclePolicyArchiveRuleArgs>? ArchiveRule { get; set; }
+
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
 

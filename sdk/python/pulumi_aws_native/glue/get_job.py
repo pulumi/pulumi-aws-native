@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobResult:
-    def __init__(__self__, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_property=None, glue_version=None, id=None, log_uri=None, max_capacity=None, max_retries=None, notification_property=None, number_of_workers=None, role=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
+    def __init__(__self__, allocated_capacity=None, command=None, connections=None, default_arguments=None, description=None, execution_class=None, execution_property=None, glue_version=None, id=None, log_uri=None, max_capacity=None, max_retries=None, non_overridable_arguments=None, notification_property=None, number_of_workers=None, role=None, security_configuration=None, tags=None, timeout=None, worker_type=None):
         if allocated_capacity and not isinstance(allocated_capacity, float):
             raise TypeError("Expected argument 'allocated_capacity' to be a float")
         pulumi.set(__self__, "allocated_capacity", allocated_capacity)
@@ -35,6 +35,9 @@ class GetJobResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if execution_class and not isinstance(execution_class, str):
+            raise TypeError("Expected argument 'execution_class' to be a str")
+        pulumi.set(__self__, "execution_class", execution_class)
         if execution_property and not isinstance(execution_property, dict):
             raise TypeError("Expected argument 'execution_property' to be a dict")
         pulumi.set(__self__, "execution_property", execution_property)
@@ -53,6 +56,9 @@ class GetJobResult:
         if max_retries and not isinstance(max_retries, float):
             raise TypeError("Expected argument 'max_retries' to be a float")
         pulumi.set(__self__, "max_retries", max_retries)
+        if non_overridable_arguments and not isinstance(non_overridable_arguments, dict):
+            raise TypeError("Expected argument 'non_overridable_arguments' to be a dict")
+        pulumi.set(__self__, "non_overridable_arguments", non_overridable_arguments)
         if notification_property and not isinstance(notification_property, dict):
             raise TypeError("Expected argument 'notification_property' to be a dict")
         pulumi.set(__self__, "notification_property", notification_property)
@@ -101,6 +107,11 @@ class GetJobResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="executionClass")
+    def execution_class(self) -> Optional[str]:
+        return pulumi.get(self, "execution_class")
+
+    @property
     @pulumi.getter(name="executionProperty")
     def execution_property(self) -> Optional['outputs.JobExecutionProperty']:
         return pulumi.get(self, "execution_property")
@@ -129,6 +140,11 @@ class GetJobResult:
     @pulumi.getter(name="maxRetries")
     def max_retries(self) -> Optional[float]:
         return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="nonOverridableArguments")
+    def non_overridable_arguments(self) -> Optional[Any]:
+        return pulumi.get(self, "non_overridable_arguments")
 
     @property
     @pulumi.getter(name="notificationProperty")
@@ -177,12 +193,14 @@ class AwaitableGetJobResult(GetJobResult):
             connections=self.connections,
             default_arguments=self.default_arguments,
             description=self.description,
+            execution_class=self.execution_class,
             execution_property=self.execution_property,
             glue_version=self.glue_version,
             id=self.id,
             log_uri=self.log_uri,
             max_capacity=self.max_capacity,
             max_retries=self.max_retries,
+            non_overridable_arguments=self.non_overridable_arguments,
             notification_property=self.notification_property,
             number_of_workers=self.number_of_workers,
             role=self.role,
@@ -208,12 +226,14 @@ def get_job(id: Optional[str] = None,
         connections=__ret__.connections,
         default_arguments=__ret__.default_arguments,
         description=__ret__.description,
+        execution_class=__ret__.execution_class,
         execution_property=__ret__.execution_property,
         glue_version=__ret__.glue_version,
         id=__ret__.id,
         log_uri=__ret__.log_uri,
         max_capacity=__ret__.max_capacity,
         max_retries=__ret__.max_retries,
+        non_overridable_arguments=__ret__.non_overridable_arguments,
         notification_property=__ret__.notification_property,
         number_of_workers=__ret__.number_of_workers,
         role=__ret__.role,

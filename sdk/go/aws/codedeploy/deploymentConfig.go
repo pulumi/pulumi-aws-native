@@ -11,14 +11,16 @@ import (
 )
 
 // Resource Type definition for AWS::CodeDeploy::DeploymentConfig
-//
-// Deprecated: DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type DeploymentConfig struct {
 	pulumi.CustomResourceState
 
-	ComputePlatform      pulumi.StringPtrOutput                        `pulumi:"computePlatform"`
-	DeploymentConfigName pulumi.StringPtrOutput                        `pulumi:"deploymentConfigName"`
-	MinimumHealthyHosts  DeploymentConfigMinimumHealthyHostsPtrOutput  `pulumi:"minimumHealthyHosts"`
+	// The destination platform type for the deployment (Lambda, Server, or ECS).
+	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
+	// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+	DeploymentConfigName pulumi.StringPtrOutput `pulumi:"deploymentConfigName"`
+	// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
+	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
 }
 
@@ -61,17 +63,25 @@ func (DeploymentConfigState) ElementType() reflect.Type {
 }
 
 type deploymentConfigArgs struct {
-	ComputePlatform      *string                               `pulumi:"computePlatform"`
-	DeploymentConfigName *string                               `pulumi:"deploymentConfigName"`
-	MinimumHealthyHosts  *DeploymentConfigMinimumHealthyHosts  `pulumi:"minimumHealthyHosts"`
+	// The destination platform type for the deployment (Lambda, Server, or ECS).
+	ComputePlatform *string `pulumi:"computePlatform"`
+	// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
+	// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
+	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
 }
 
 // The set of arguments for constructing a DeploymentConfig resource.
 type DeploymentConfigArgs struct {
-	ComputePlatform      pulumi.StringPtrInput
+	// The destination platform type for the deployment (Lambda, Server, or ECS).
+	ComputePlatform pulumi.StringPtrInput
+	// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
 	DeploymentConfigName pulumi.StringPtrInput
-	MinimumHealthyHosts  DeploymentConfigMinimumHealthyHostsPtrInput
+	// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
+	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
 }
 
@@ -112,18 +122,22 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.
 	return o
 }
 
+// The destination platform type for the deployment (Lambda, Server, or ECS).
 func (o DeploymentConfigOutput) ComputePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
+// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
 func (o DeploymentConfigOutput) DeploymentConfigName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringPtrOutput { return v.DeploymentConfigName }).(pulumi.StringPtrOutput)
 }
 
+// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
 func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHealthyHostsPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigMinimumHealthyHostsPtrOutput { return v.MinimumHealthyHosts }).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
 
+// The configuration that specifies how the deployment traffic is routed.
 func (o DeploymentConfigOutput) TrafficRoutingConfig() DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigTrafficRoutingConfigPtrOutput { return v.TrafficRoutingConfig }).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }

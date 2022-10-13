@@ -44,7 +44,7 @@ export class ReadinessCheck extends pulumi.CustomResource {
     /**
      * Name of the ReadinessCheck to create.
      */
-    public readonly readinessCheckName!: pulumi.Output<string>;
+    public readonly readinessCheckName!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource set to check.
      */

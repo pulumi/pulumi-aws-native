@@ -22,6 +22,7 @@ type UserPoolClient struct {
 	AllowedOAuthFlowsUserPoolClient          pulumi.BoolPtrOutput                          `pulumi:"allowedOAuthFlowsUserPoolClient"`
 	AllowedOAuthScopes                       pulumi.StringArrayOutput                      `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
+	AuthSessionValidity                      pulumi.IntPtrOutput                           `pulumi:"authSessionValidity"`
 	CallbackURLs                             pulumi.StringArrayOutput                      `pulumi:"callbackURLs"`
 	ClientName                               pulumi.StringPtrOutput                        `pulumi:"clientName"`
 	ClientSecret                             pulumi.StringOutput                           `pulumi:"clientSecret"`
@@ -89,6 +90,7 @@ type userPoolClientArgs struct {
 	AllowedOAuthFlowsUserPoolClient          *bool                                 `pulumi:"allowedOAuthFlowsUserPoolClient"`
 	AllowedOAuthScopes                       []string                              `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	AuthSessionValidity                      *int                                  `pulumi:"authSessionValidity"`
 	CallbackURLs                             []string                              `pulumi:"callbackURLs"`
 	ClientName                               *string                               `pulumi:"clientName"`
 	DefaultRedirectURI                       *string                               `pulumi:"defaultRedirectURI"`
@@ -114,6 +116,7 @@ type UserPoolClientArgs struct {
 	AllowedOAuthFlowsUserPoolClient          pulumi.BoolPtrInput
 	AllowedOAuthScopes                       pulumi.StringArrayInput
 	AnalyticsConfiguration                   UserPoolClientAnalyticsConfigurationPtrInput
+	AuthSessionValidity                      pulumi.IntPtrInput
 	CallbackURLs                             pulumi.StringArrayInput
 	ClientName                               pulumi.StringPtrInput
 	DefaultRedirectURI                       pulumi.StringPtrInput
@@ -187,6 +190,10 @@ func (o UserPoolClientOutput) AllowedOAuthScopes() pulumi.StringArrayOutput {
 
 func (o UserPoolClientOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) UserPoolClientAnalyticsConfigurationPtrOutput { return v.AnalyticsConfiguration }).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.IntPtrOutput { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
 func (o UserPoolClientOutput) CallbackURLs() pulumi.StringArrayOutput {

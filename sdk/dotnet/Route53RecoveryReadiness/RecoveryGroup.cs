@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// The name of the recovery group to create.
         /// </summary>
         [Output("recoveryGroupName")]
-        public Output<string> RecoveryGroupName { get; private set; } = null!;
+        public Output<string?> RecoveryGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A collection of tags associated with a resource.

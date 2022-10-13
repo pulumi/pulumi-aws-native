@@ -666,6 +666,663 @@ func (in *componentVersionLambdaLinuxProcessParamsIsolationModePtr) ToComponentV
 	return pulumi.ToOutputWithContext(ctx, in).(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput)
 }
 
+type DeploymentComponentUpdatePolicyAction string
+
+const (
+	DeploymentComponentUpdatePolicyActionNotifyComponents     = DeploymentComponentUpdatePolicyAction("NOTIFY_COMPONENTS")
+	DeploymentComponentUpdatePolicyActionSkipNotifyComponents = DeploymentComponentUpdatePolicyAction("SKIP_NOTIFY_COMPONENTS")
+)
+
+func (DeploymentComponentUpdatePolicyAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentUpdatePolicyAction)(nil)).Elem()
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToDeploymentComponentUpdatePolicyActionOutput() DeploymentComponentUpdatePolicyActionOutput {
+	return pulumi.ToOutput(e).(DeploymentComponentUpdatePolicyActionOutput)
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToDeploymentComponentUpdatePolicyActionOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeploymentComponentUpdatePolicyActionOutput)
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToDeploymentComponentUpdatePolicyActionPtrOutput() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return e.ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionPtrOutput {
+	return DeploymentComponentUpdatePolicyAction(e).ToDeploymentComponentUpdatePolicyActionOutputWithContext(ctx).ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx)
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentComponentUpdatePolicyAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeploymentComponentUpdatePolicyActionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentUpdatePolicyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentComponentUpdatePolicyAction)(nil)).Elem()
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToDeploymentComponentUpdatePolicyActionOutput() DeploymentComponentUpdatePolicyActionOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToDeploymentComponentUpdatePolicyActionOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToDeploymentComponentUpdatePolicyActionPtrOutput() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o.ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentComponentUpdatePolicyAction) *DeploymentComponentUpdatePolicyAction {
+		return &v
+	}).(DeploymentComponentUpdatePolicyActionPtrOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentComponentUpdatePolicyAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentUpdatePolicyActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentComponentUpdatePolicyAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentComponentUpdatePolicyActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentComponentUpdatePolicyActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentComponentUpdatePolicyAction)(nil)).Elem()
+}
+
+func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToDeploymentComponentUpdatePolicyActionPtrOutput() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionPtrOutput {
+	return o
+}
+
+func (o DeploymentComponentUpdatePolicyActionPtrOutput) Elem() DeploymentComponentUpdatePolicyActionOutput {
+	return o.ApplyT(func(v *DeploymentComponentUpdatePolicyAction) DeploymentComponentUpdatePolicyAction {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentComponentUpdatePolicyAction
+		return ret
+	}).(DeploymentComponentUpdatePolicyActionOutput)
+}
+
+func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentComponentUpdatePolicyActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentComponentUpdatePolicyAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeploymentComponentUpdatePolicyActionInput is an input type that accepts DeploymentComponentUpdatePolicyActionArgs and DeploymentComponentUpdatePolicyActionOutput values.
+// You can construct a concrete instance of `DeploymentComponentUpdatePolicyActionInput` via:
+//
+//	DeploymentComponentUpdatePolicyActionArgs{...}
+type DeploymentComponentUpdatePolicyActionInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentUpdatePolicyActionOutput() DeploymentComponentUpdatePolicyActionOutput
+	ToDeploymentComponentUpdatePolicyActionOutputWithContext(context.Context) DeploymentComponentUpdatePolicyActionOutput
+}
+
+var deploymentComponentUpdatePolicyActionPtrType = reflect.TypeOf((**DeploymentComponentUpdatePolicyAction)(nil)).Elem()
+
+type DeploymentComponentUpdatePolicyActionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentComponentUpdatePolicyActionPtrOutput() DeploymentComponentUpdatePolicyActionPtrOutput
+	ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(context.Context) DeploymentComponentUpdatePolicyActionPtrOutput
+}
+
+type deploymentComponentUpdatePolicyActionPtr string
+
+func DeploymentComponentUpdatePolicyActionPtr(v string) DeploymentComponentUpdatePolicyActionPtrInput {
+	return (*deploymentComponentUpdatePolicyActionPtr)(&v)
+}
+
+func (*deploymentComponentUpdatePolicyActionPtr) ElementType() reflect.Type {
+	return deploymentComponentUpdatePolicyActionPtrType
+}
+
+func (in *deploymentComponentUpdatePolicyActionPtr) ToDeploymentComponentUpdatePolicyActionPtrOutput() DeploymentComponentUpdatePolicyActionPtrOutput {
+	return pulumi.ToOutput(in).(DeploymentComponentUpdatePolicyActionPtrOutput)
+}
+
+func (in *deploymentComponentUpdatePolicyActionPtr) ToDeploymentComponentUpdatePolicyActionPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeploymentComponentUpdatePolicyActionPtrOutput)
+}
+
+type DeploymentIoTJobAbortCriteriaAction string
+
+const (
+	DeploymentIoTJobAbortCriteriaActionCancel = DeploymentIoTJobAbortCriteriaAction("CANCEL")
+)
+
+func (DeploymentIoTJobAbortCriteriaAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToDeploymentIoTJobAbortCriteriaActionOutput() DeploymentIoTJobAbortCriteriaActionOutput {
+	return pulumi.ToOutput(e).(DeploymentIoTJobAbortCriteriaActionOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToDeploymentIoTJobAbortCriteriaActionOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeploymentIoTJobAbortCriteriaActionOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToDeploymentIoTJobAbortCriteriaActionPtrOutput() DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return e.ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return DeploymentIoTJobAbortCriteriaAction(e).ToDeploymentIoTJobAbortCriteriaActionOutputWithContext(ctx).ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx)
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentIoTJobAbortCriteriaAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeploymentIoTJobAbortCriteriaActionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToDeploymentIoTJobAbortCriteriaActionOutput() DeploymentIoTJobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToDeploymentIoTJobAbortCriteriaActionOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToDeploymentIoTJobAbortCriteriaActionPtrOutput() DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return o.ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobAbortCriteriaAction) *DeploymentIoTJobAbortCriteriaAction {
+		return &v
+	}).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentIoTJobAbortCriteriaAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentIoTJobAbortCriteriaAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentIoTJobAbortCriteriaActionPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobAbortCriteriaAction)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToDeploymentIoTJobAbortCriteriaActionPtrOutput() DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) Elem() DeploymentIoTJobAbortCriteriaActionOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobAbortCriteriaAction) DeploymentIoTJobAbortCriteriaAction {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobAbortCriteriaAction
+		return ret
+	}).(DeploymentIoTJobAbortCriteriaActionOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentIoTJobAbortCriteriaAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeploymentIoTJobAbortCriteriaActionInput is an input type that accepts DeploymentIoTJobAbortCriteriaActionArgs and DeploymentIoTJobAbortCriteriaActionOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaActionInput` via:
+//
+//	DeploymentIoTJobAbortCriteriaActionArgs{...}
+type DeploymentIoTJobAbortCriteriaActionInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaActionOutput() DeploymentIoTJobAbortCriteriaActionOutput
+	ToDeploymentIoTJobAbortCriteriaActionOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaActionOutput
+}
+
+var deploymentIoTJobAbortCriteriaActionPtrType = reflect.TypeOf((**DeploymentIoTJobAbortCriteriaAction)(nil)).Elem()
+
+type DeploymentIoTJobAbortCriteriaActionPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaActionPtrOutput() DeploymentIoTJobAbortCriteriaActionPtrOutput
+	ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput
+}
+
+type deploymentIoTJobAbortCriteriaActionPtr string
+
+func DeploymentIoTJobAbortCriteriaActionPtr(v string) DeploymentIoTJobAbortCriteriaActionPtrInput {
+	return (*deploymentIoTJobAbortCriteriaActionPtr)(&v)
+}
+
+func (*deploymentIoTJobAbortCriteriaActionPtr) ElementType() reflect.Type {
+	return deploymentIoTJobAbortCriteriaActionPtrType
+}
+
+func (in *deploymentIoTJobAbortCriteriaActionPtr) ToDeploymentIoTJobAbortCriteriaActionPtrOutput() DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutput(in).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
+}
+
+func (in *deploymentIoTJobAbortCriteriaActionPtr) ToDeploymentIoTJobAbortCriteriaActionPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaActionPtrOutput)
+}
+
+type DeploymentIoTJobAbortCriteriaFailureType string
+
+const (
+	DeploymentIoTJobAbortCriteriaFailureTypeFailed   = DeploymentIoTJobAbortCriteriaFailureType("FAILED")
+	DeploymentIoTJobAbortCriteriaFailureTypeRejected = DeploymentIoTJobAbortCriteriaFailureType("REJECTED")
+	DeploymentIoTJobAbortCriteriaFailureTypeTimedOut = DeploymentIoTJobAbortCriteriaFailureType("TIMED_OUT")
+	DeploymentIoTJobAbortCriteriaFailureTypeAll      = DeploymentIoTJobAbortCriteriaFailureType("ALL")
+)
+
+func (DeploymentIoTJobAbortCriteriaFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToDeploymentIoTJobAbortCriteriaFailureTypeOutput() DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutput(e).(DeploymentIoTJobAbortCriteriaFailureTypeOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToDeploymentIoTJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeploymentIoTJobAbortCriteriaFailureTypeOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutput() DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return e.ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return DeploymentIoTJobAbortCriteriaFailureType(e).ToDeploymentIoTJobAbortCriteriaFailureTypeOutputWithContext(ctx).ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentIoTJobAbortCriteriaFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeploymentIoTJobAbortCriteriaFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentIoTJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToDeploymentIoTJobAbortCriteriaFailureTypeOutput() DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToDeploymentIoTJobAbortCriteriaFailureTypeOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutput() DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return o.ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobAbortCriteriaFailureType) *DeploymentIoTJobAbortCriteriaFailureType {
+		return &v
+	}).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentIoTJobAbortCriteriaFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentIoTJobAbortCriteriaFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentIoTJobAbortCriteriaFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentIoTJobAbortCriteriaFailureType)(nil)).Elem()
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutput() DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return o
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) Elem() DeploymentIoTJobAbortCriteriaFailureTypeOutput {
+	return o.ApplyT(func(v *DeploymentIoTJobAbortCriteriaFailureType) DeploymentIoTJobAbortCriteriaFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentIoTJobAbortCriteriaFailureType
+		return ret
+	}).(DeploymentIoTJobAbortCriteriaFailureTypeOutput)
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentIoTJobAbortCriteriaFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentIoTJobAbortCriteriaFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeploymentIoTJobAbortCriteriaFailureTypeInput is an input type that accepts DeploymentIoTJobAbortCriteriaFailureTypeArgs and DeploymentIoTJobAbortCriteriaFailureTypeOutput values.
+// You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaFailureTypeInput` via:
+//
+//	DeploymentIoTJobAbortCriteriaFailureTypeArgs{...}
+type DeploymentIoTJobAbortCriteriaFailureTypeInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaFailureTypeOutput() DeploymentIoTJobAbortCriteriaFailureTypeOutput
+	ToDeploymentIoTJobAbortCriteriaFailureTypeOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaFailureTypeOutput
+}
+
+var deploymentIoTJobAbortCriteriaFailureTypePtrType = reflect.TypeOf((**DeploymentIoTJobAbortCriteriaFailureType)(nil)).Elem()
+
+type DeploymentIoTJobAbortCriteriaFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutput() DeploymentIoTJobAbortCriteriaFailureTypePtrOutput
+	ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput
+}
+
+type deploymentIoTJobAbortCriteriaFailureTypePtr string
+
+func DeploymentIoTJobAbortCriteriaFailureTypePtr(v string) DeploymentIoTJobAbortCriteriaFailureTypePtrInput {
+	return (*deploymentIoTJobAbortCriteriaFailureTypePtr)(&v)
+}
+
+func (*deploymentIoTJobAbortCriteriaFailureTypePtr) ElementType() reflect.Type {
+	return deploymentIoTJobAbortCriteriaFailureTypePtrType
+}
+
+func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutput() DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
+}
+
+func (in *deploymentIoTJobAbortCriteriaFailureTypePtr) ToDeploymentIoTJobAbortCriteriaFailureTypePtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput)
+}
+
+type DeploymentPoliciesFailureHandlingPolicy string
+
+const (
+	DeploymentPoliciesFailureHandlingPolicyRollback  = DeploymentPoliciesFailureHandlingPolicy("ROLLBACK")
+	DeploymentPoliciesFailureHandlingPolicyDoNothing = DeploymentPoliciesFailureHandlingPolicy("DO_NOTHING")
+)
+
+func (DeploymentPoliciesFailureHandlingPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicy)(nil)).Elem()
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToDeploymentPoliciesFailureHandlingPolicyOutput() DeploymentPoliciesFailureHandlingPolicyOutput {
+	return pulumi.ToOutput(e).(DeploymentPoliciesFailureHandlingPolicyOutput)
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToDeploymentPoliciesFailureHandlingPolicyOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeploymentPoliciesFailureHandlingPolicyOutput)
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToDeploymentPoliciesFailureHandlingPolicyPtrOutput() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return e.ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return DeploymentPoliciesFailureHandlingPolicy(e).ToDeploymentPoliciesFailureHandlingPolicyOutputWithContext(ctx).ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx)
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentPoliciesFailureHandlingPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeploymentPoliciesFailureHandlingPolicyOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPoliciesFailureHandlingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicy)(nil)).Elem()
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToDeploymentPoliciesFailureHandlingPolicyOutput() DeploymentPoliciesFailureHandlingPolicyOutput {
+	return o
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToDeploymentPoliciesFailureHandlingPolicyOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyOutput {
+	return o
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToDeploymentPoliciesFailureHandlingPolicyPtrOutput() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o.ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPoliciesFailureHandlingPolicy) *DeploymentPoliciesFailureHandlingPolicy {
+		return &v
+	}).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentPoliciesFailureHandlingPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentPoliciesFailureHandlingPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentPoliciesFailureHandlingPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPoliciesFailureHandlingPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentPoliciesFailureHandlingPolicy)(nil)).Elem()
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToDeploymentPoliciesFailureHandlingPolicyPtrOutput() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return o
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) Elem() DeploymentPoliciesFailureHandlingPolicyOutput {
+	return o.ApplyT(func(v *DeploymentPoliciesFailureHandlingPolicy) DeploymentPoliciesFailureHandlingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentPoliciesFailureHandlingPolicy
+		return ret
+	}).(DeploymentPoliciesFailureHandlingPolicyOutput)
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPoliciesFailureHandlingPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentPoliciesFailureHandlingPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeploymentPoliciesFailureHandlingPolicyInput is an input type that accepts DeploymentPoliciesFailureHandlingPolicyArgs and DeploymentPoliciesFailureHandlingPolicyOutput values.
+// You can construct a concrete instance of `DeploymentPoliciesFailureHandlingPolicyInput` via:
+//
+//	DeploymentPoliciesFailureHandlingPolicyArgs{...}
+type DeploymentPoliciesFailureHandlingPolicyInput interface {
+	pulumi.Input
+
+	ToDeploymentPoliciesFailureHandlingPolicyOutput() DeploymentPoliciesFailureHandlingPolicyOutput
+	ToDeploymentPoliciesFailureHandlingPolicyOutputWithContext(context.Context) DeploymentPoliciesFailureHandlingPolicyOutput
+}
+
+var deploymentPoliciesFailureHandlingPolicyPtrType = reflect.TypeOf((**DeploymentPoliciesFailureHandlingPolicy)(nil)).Elem()
+
+type DeploymentPoliciesFailureHandlingPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentPoliciesFailureHandlingPolicyPtrOutput() DeploymentPoliciesFailureHandlingPolicyPtrOutput
+	ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput
+}
+
+type deploymentPoliciesFailureHandlingPolicyPtr string
+
+func DeploymentPoliciesFailureHandlingPolicyPtr(v string) DeploymentPoliciesFailureHandlingPolicyPtrInput {
+	return (*deploymentPoliciesFailureHandlingPolicyPtr)(&v)
+}
+
+func (*deploymentPoliciesFailureHandlingPolicyPtr) ElementType() reflect.Type {
+	return deploymentPoliciesFailureHandlingPolicyPtrType
+}
+
+func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToDeploymentPoliciesFailureHandlingPolicyPtrOutput() DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return pulumi.ToOutput(in).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
+}
+
+func (in *deploymentPoliciesFailureHandlingPolicyPtr) ToDeploymentPoliciesFailureHandlingPolicyPtrOutputWithContext(ctx context.Context) DeploymentPoliciesFailureHandlingPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeploymentPoliciesFailureHandlingPolicyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypeInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaEventSourceTypePtrInput)(nil)).Elem(), ComponentVersionLambdaEventSourceType("PUB_SUB"))
@@ -675,6 +1332,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaFilesystemPermissionPtrInput)(nil)).Elem(), ComponentVersionLambdaFilesystemPermission("ro"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsIsolationModeInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentVersionLambdaLinuxProcessParamsIsolationModePtrInput)(nil)).Elem(), ComponentVersionLambdaLinuxProcessParamsIsolationMode("GreengrassContainer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyActionInput)(nil)).Elem(), DeploymentComponentUpdatePolicyAction("NOTIFY_COMPONENTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentComponentUpdatePolicyActionPtrInput)(nil)).Elem(), DeploymentComponentUpdatePolicyAction("NOTIFY_COMPONENTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaActionInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaActionPtrInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaAction("CANCEL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaFailureTypeInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIoTJobAbortCriteriaFailureTypePtrInput)(nil)).Elem(), DeploymentIoTJobAbortCriteriaFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicyInput)(nil)).Elem(), DeploymentPoliciesFailureHandlingPolicy("ROLLBACK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPoliciesFailureHandlingPolicyPtrInput)(nil)).Elem(), DeploymentPoliciesFailureHandlingPolicy("ROLLBACK"))
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypeOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaEventSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypeOutput{})
@@ -683,4 +1348,12 @@ func init() {
 	pulumi.RegisterOutputType(ComponentVersionLambdaFilesystemPermissionPtrOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaLinuxProcessParamsIsolationModeOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaLinuxProcessParamsIsolationModePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyActionOutput{})
+	pulumi.RegisterOutputType(DeploymentComponentUpdatePolicyActionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaActionOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaActionPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaFailureTypeOutput{})
+	pulumi.RegisterOutputType(DeploymentIoTJobAbortCriteriaFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentPoliciesFailureHandlingPolicyOutput{})
+	pulumi.RegisterOutputType(DeploymentPoliciesFailureHandlingPolicyPtrOutput{})
 }

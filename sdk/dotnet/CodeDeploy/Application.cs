@@ -10,18 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeDeploy
 {
     /// <summary>
-    /// Resource Type definition for AWS::CodeDeploy::Application
+    /// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
     /// </summary>
-    [Obsolete(@"Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codedeploy:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
         [Output("applicationName")]
         public Output<string?> ApplicationName { get; private set; } = null!;
 
+        /// <summary>
+        /// The compute platform that CodeDeploy deploys the application to.
+        /// </summary>
         [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
+        /// <summary>
+        /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
 
@@ -70,14 +78,24 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
 
+        /// <summary>
+        /// The compute platform that CodeDeploy deploys the application to.
+        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ApplicationTagArgs>? _tags;
+
+        /// <summary>
+        /// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        /// </summary>
         public InputList<Inputs.ApplicationTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());

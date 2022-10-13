@@ -42,6 +42,7 @@ export class CACertificate extends pulumi.CustomResource {
     public readonly cACertificatePem!: pulumi.Output<string>;
     public readonly certificateMode!: pulumi.Output<enums.iot.CACertificateCertificateMode | undefined>;
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CACertificateRegistrationConfig | undefined>;
+    public readonly removeAutoRegistration!: pulumi.Output<boolean | undefined>;
     public readonly status!: pulumi.Output<enums.iot.CACertificateStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -73,6 +74,7 @@ export class CACertificate extends pulumi.CustomResource {
             resourceInputs["cACertificatePem"] = args ? args.cACertificatePem : undefined;
             resourceInputs["certificateMode"] = args ? args.certificateMode : undefined;
             resourceInputs["registrationConfig"] = args ? args.registrationConfig : undefined;
+            resourceInputs["removeAutoRegistration"] = args ? args.removeAutoRegistration : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verificationCertificatePem"] = args ? args.verificationCertificatePem : undefined;
@@ -83,6 +85,7 @@ export class CACertificate extends pulumi.CustomResource {
             resourceInputs["cACertificatePem"] = undefined /*out*/;
             resourceInputs["certificateMode"] = undefined /*out*/;
             resourceInputs["registrationConfig"] = undefined /*out*/;
+            resourceInputs["removeAutoRegistration"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["verificationCertificatePem"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export interface CACertificateArgs {
     cACertificatePem: pulumi.Input<string>;
     certificateMode?: pulumi.Input<enums.iot.CACertificateCertificateMode>;
     registrationConfig?: pulumi.Input<inputs.iot.CACertificateRegistrationConfigArgs>;
+    removeAutoRegistration?: pulumi.Input<boolean>;
     status: pulumi.Input<enums.iot.CACertificateStatus>;
     /**
      * An array of key-value pairs to apply to this resource.

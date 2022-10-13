@@ -29,3 +29,32 @@ export const ComponentVersionLambdaLinuxProcessParamsIsolationMode = {
 } as const;
 
 export type ComponentVersionLambdaLinuxProcessParamsIsolationMode = (typeof ComponentVersionLambdaLinuxProcessParamsIsolationMode)[keyof typeof ComponentVersionLambdaLinuxProcessParamsIsolationMode];
+
+export const DeploymentComponentUpdatePolicyAction = {
+    NotifyComponents: "NOTIFY_COMPONENTS",
+    SkipNotifyComponents: "SKIP_NOTIFY_COMPONENTS",
+} as const;
+
+export type DeploymentComponentUpdatePolicyAction = (typeof DeploymentComponentUpdatePolicyAction)[keyof typeof DeploymentComponentUpdatePolicyAction];
+
+export const DeploymentIoTJobAbortCriteriaAction = {
+    Cancel: "CANCEL",
+} as const;
+
+export type DeploymentIoTJobAbortCriteriaAction = (typeof DeploymentIoTJobAbortCriteriaAction)[keyof typeof DeploymentIoTJobAbortCriteriaAction];
+
+export const DeploymentIoTJobAbortCriteriaFailureType = {
+    Failed: "FAILED",
+    Rejected: "REJECTED",
+    TimedOut: "TIMED_OUT",
+    All: "ALL",
+} as const;
+
+export type DeploymentIoTJobAbortCriteriaFailureType = (typeof DeploymentIoTJobAbortCriteriaFailureType)[keyof typeof DeploymentIoTJobAbortCriteriaFailureType];
+
+export const DeploymentPoliciesFailureHandlingPolicy = {
+    Rollback: "ROLLBACK",
+    DoNothing: "DO_NOTHING",
+} as const;
+
+export type DeploymentPoliciesFailureHandlingPolicy = (typeof DeploymentPoliciesFailureHandlingPolicy)[keyof typeof DeploymentPoliciesFailureHandlingPolicy];

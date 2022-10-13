@@ -41,6 +41,7 @@ class CacheClusterArgs:
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CacheCluster resource.
@@ -92,6 +93,8 @@ class CacheClusterArgs:
             pulumi.set(__self__, "snapshot_window", snapshot_window)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transit_encryption_enabled is not None:
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if vpc_security_group_ids is not None:
             pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
@@ -321,6 +324,15 @@ class CacheClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @transit_encryption_enabled.setter
+    def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transit_encryption_enabled", value)
+
+    @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "vpc_security_group_ids")
@@ -365,6 +377,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterTagArgs']]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -422,6 +435,7 @@ class CacheCluster(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterTagArgs']]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         pulumi.log.warn("""CacheCluster is deprecated: CacheCluster is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -464,6 +478,7 @@ class CacheCluster(pulumi.CustomResource):
             __props__.__dict__["snapshot_retention_limit"] = snapshot_retention_limit
             __props__.__dict__["snapshot_window"] = snapshot_window
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         super(CacheCluster, __self__).__init__(
             'aws-native:elasticache:CacheCluster',
@@ -512,6 +527,7 @@ class CacheCluster(pulumi.CustomResource):
         __props__.__dict__["snapshot_retention_limit"] = None
         __props__.__dict__["snapshot_window"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["transit_encryption_enabled"] = None
         __props__.__dict__["vpc_security_group_ids"] = None
         return CacheCluster(resource_name, opts=opts, __props__=__props__)
 
@@ -639,6 +655,11 @@ class CacheCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CacheClusterTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "transit_encryption_enabled")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")

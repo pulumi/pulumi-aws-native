@@ -11,8 +11,8 @@ import (
 )
 
 type CellTag struct {
-	Key   string   `pulumi:"key"`
-	Value []string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // CellTagInput is an input type that accepts CellTagArgs and CellTagOutput values.
@@ -27,8 +27,8 @@ type CellTagInput interface {
 }
 
 type CellTagArgs struct {
-	Key   pulumi.StringInput      `pulumi:"key"`
-	Value pulumi.StringArrayInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (CellTagArgs) ElementType() reflect.Type {
@@ -86,8 +86,8 @@ func (o CellTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CellTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o CellTagOutput) Value() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CellTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+func (o CellTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CellTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type CellTagArrayOutput struct{ *pulumi.OutputState }
@@ -111,8 +111,8 @@ func (o CellTagArrayOutput) Index(i pulumi.IntInput) CellTagOutput {
 }
 
 type ReadinessCheckTag struct {
-	Key   string   `pulumi:"key"`
-	Value []string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // ReadinessCheckTagInput is an input type that accepts ReadinessCheckTagArgs and ReadinessCheckTagOutput values.
@@ -127,8 +127,8 @@ type ReadinessCheckTagInput interface {
 }
 
 type ReadinessCheckTagArgs struct {
-	Key   pulumi.StringInput      `pulumi:"key"`
-	Value pulumi.StringArrayInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ReadinessCheckTagArgs) ElementType() reflect.Type {
@@ -186,8 +186,8 @@ func (o ReadinessCheckTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ReadinessCheckTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o ReadinessCheckTagOutput) Value() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ReadinessCheckTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+func (o ReadinessCheckTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ReadinessCheckTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type ReadinessCheckTagArrayOutput struct{ *pulumi.OutputState }
@@ -211,8 +211,8 @@ func (o ReadinessCheckTagArrayOutput) Index(i pulumi.IntInput) ReadinessCheckTag
 }
 
 type RecoveryGroupTag struct {
-	Key   string   `pulumi:"key"`
-	Value []string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // RecoveryGroupTagInput is an input type that accepts RecoveryGroupTagArgs and RecoveryGroupTagOutput values.
@@ -227,8 +227,8 @@ type RecoveryGroupTagInput interface {
 }
 
 type RecoveryGroupTagArgs struct {
-	Key   pulumi.StringInput      `pulumi:"key"`
-	Value pulumi.StringArrayInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (RecoveryGroupTagArgs) ElementType() reflect.Type {
@@ -286,8 +286,8 @@ func (o RecoveryGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RecoveryGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o RecoveryGroupTagOutput) Value() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecoveryGroupTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+func (o RecoveryGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type RecoveryGroupTagArrayOutput struct{ *pulumi.OutputState }
@@ -946,8 +946,8 @@ func (o ResourceSetResourceArrayOutput) Index(i pulumi.IntInput) ResourceSetReso
 }
 
 type ResourceSetTag struct {
-	Key   string   `pulumi:"key"`
-	Value []string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
@@ -962,8 +962,8 @@ type ResourceSetTagInput interface {
 }
 
 type ResourceSetTagArgs struct {
-	Key   pulumi.StringInput      `pulumi:"key"`
-	Value pulumi.StringArrayInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ResourceSetTagArgs) ElementType() reflect.Type {
@@ -1021,8 +1021,8 @@ func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o ResourceSetTagOutput) Value() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ResourceSetTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+func (o ResourceSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSetTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type ResourceSetTagArrayOutput struct{ *pulumi.OutputState }

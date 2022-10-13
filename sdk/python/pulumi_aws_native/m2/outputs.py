@@ -11,10 +11,24 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationDefinition',
+    'ApplicationTagMap',
     'EnvironmentHighAvailabilityConfig',
     'EnvironmentStorageConfiguration',
     'EnvironmentTagMap',
 ]
+
+@pulumi.output_type
+class ApplicationDefinition(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ApplicationTagMap(dict):
+    def __init__(__self__):
+        pass
+
 
 @pulumi.output_type
 class EnvironmentHighAvailabilityConfig(dict):

@@ -22,6 +22,7 @@ class UserPoolClientArgs:
                  allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "allowed_o_auth_scopes", allowed_o_auth_scopes)
         if analytics_configuration is not None:
             pulumi.set(__self__, "analytics_configuration", analytics_configuration)
+        if auth_session_validity is not None:
+            pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls is not None:
             pulumi.set(__self__, "callback_urls", callback_urls)
         if client_name is not None:
@@ -135,6 +138,15 @@ class UserPoolClientArgs:
     @analytics_configuration.setter
     def analytics_configuration(self, value: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']]):
         pulumi.set(self, "analytics_configuration", value)
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "auth_session_validity")
+
+    @auth_session_validity.setter
+    def auth_session_validity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auth_session_validity", value)
 
     @property
     @pulumi.getter(name="callbackURLs")
@@ -287,6 +299,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -339,6 +352,7 @@ class UserPoolClient(pulumi.CustomResource):
                  allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
                  allowed_o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
+                 auth_session_validity: Optional[pulumi.Input[int]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_name: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
@@ -370,6 +384,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["allowed_o_auth_flows_user_pool_client"] = allowed_o_auth_flows_user_pool_client
             __props__.__dict__["allowed_o_auth_scopes"] = allowed_o_auth_scopes
             __props__.__dict__["analytics_configuration"] = analytics_configuration
+            __props__.__dict__["auth_session_validity"] = auth_session_validity
             __props__.__dict__["callback_urls"] = callback_urls
             __props__.__dict__["client_name"] = client_name
             __props__.__dict__["default_redirect_uri"] = default_redirect_uri
@@ -417,6 +432,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["allowed_o_auth_flows_user_pool_client"] = None
         __props__.__dict__["allowed_o_auth_scopes"] = None
         __props__.__dict__["analytics_configuration"] = None
+        __props__.__dict__["auth_session_validity"] = None
         __props__.__dict__["callback_urls"] = None
         __props__.__dict__["client_name"] = None
         __props__.__dict__["client_secret"] = None
@@ -461,6 +477,11 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolClientAnalyticsConfiguration']]:
         return pulumi.get(self, "analytics_configuration")
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "auth_session_validity")
 
     @property
     @pulumi.getter(name="callbackURLs")

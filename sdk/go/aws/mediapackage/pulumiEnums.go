@@ -177,6 +177,171 @@ func (in *originEndpointAdsOnDeliveryRestrictionsPtr) ToOriginEndpointAdsOnDeliv
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
+// The encryption method used
+type OriginEndpointCmafEncryptionEncryptionMethod string
+
+const (
+	OriginEndpointCmafEncryptionEncryptionMethodSampleAes = OriginEndpointCmafEncryptionEncryptionMethod("SAMPLE_AES")
+	OriginEndpointCmafEncryptionEncryptionMethodAesCtr    = OriginEndpointCmafEncryptionEncryptionMethod("AES_CTR")
+)
+
+func (OriginEndpointCmafEncryptionEncryptionMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointCmafEncryptionEncryptionMethod)(nil)).Elem()
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToOriginEndpointCmafEncryptionEncryptionMethodOutput() OriginEndpointCmafEncryptionEncryptionMethodOutput {
+	return pulumi.ToOutput(e).(OriginEndpointCmafEncryptionEncryptionMethodOutput)
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToOriginEndpointCmafEncryptionEncryptionMethodOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointCmafEncryptionEncryptionMethodOutput)
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutput() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return e.ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return OriginEndpointCmafEncryptionEncryptionMethod(e).ToOriginEndpointCmafEncryptionEncryptionMethodOutputWithContext(ctx).ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointCmafEncryptionEncryptionMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointCmafEncryptionEncryptionMethodOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointCmafEncryptionEncryptionMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointCmafEncryptionEncryptionMethod)(nil)).Elem()
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmafEncryptionEncryptionMethodOutput() OriginEndpointCmafEncryptionEncryptionMethodOutput {
+	return o
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmafEncryptionEncryptionMethodOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodOutput {
+	return o
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutput() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o.ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointCmafEncryptionEncryptionMethod) *OriginEndpointCmafEncryptionEncryptionMethod {
+		return &v
+	}).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointCmafEncryptionEncryptionMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointCmafEncryptionEncryptionMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointCmafEncryptionEncryptionMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointCmafEncryptionEncryptionMethod)(nil)).Elem()
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutput() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return o
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) Elem() OriginEndpointCmafEncryptionEncryptionMethodOutput {
+	return o.ApplyT(func(v *OriginEndpointCmafEncryptionEncryptionMethod) OriginEndpointCmafEncryptionEncryptionMethod {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointCmafEncryptionEncryptionMethod
+		return ret
+	}).(OriginEndpointCmafEncryptionEncryptionMethodOutput)
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointCmafEncryptionEncryptionMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointCmafEncryptionEncryptionMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointCmafEncryptionEncryptionMethodInput is an input type that accepts OriginEndpointCmafEncryptionEncryptionMethodArgs and OriginEndpointCmafEncryptionEncryptionMethodOutput values.
+// You can construct a concrete instance of `OriginEndpointCmafEncryptionEncryptionMethodInput` via:
+//
+//	OriginEndpointCmafEncryptionEncryptionMethodArgs{...}
+type OriginEndpointCmafEncryptionEncryptionMethodInput interface {
+	pulumi.Input
+
+	ToOriginEndpointCmafEncryptionEncryptionMethodOutput() OriginEndpointCmafEncryptionEncryptionMethodOutput
+	ToOriginEndpointCmafEncryptionEncryptionMethodOutputWithContext(context.Context) OriginEndpointCmafEncryptionEncryptionMethodOutput
+}
+
+var originEndpointCmafEncryptionEncryptionMethodPtrType = reflect.TypeOf((**OriginEndpointCmafEncryptionEncryptionMethod)(nil)).Elem()
+
+type OriginEndpointCmafEncryptionEncryptionMethodPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutput() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput
+	ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput
+}
+
+type originEndpointCmafEncryptionEncryptionMethodPtr string
+
+func OriginEndpointCmafEncryptionEncryptionMethodPtr(v string) OriginEndpointCmafEncryptionEncryptionMethodPtrInput {
+	return (*originEndpointCmafEncryptionEncryptionMethodPtr)(&v)
+}
+
+func (*originEndpointCmafEncryptionEncryptionMethodPtr) ElementType() reflect.Type {
+	return originEndpointCmafEncryptionEncryptionMethodPtrType
+}
+
+func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutput() OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
+}
+
+func (in *originEndpointCmafEncryptionEncryptionMethodPtr) ToOriginEndpointCmafEncryptionEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionEncryptionMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput)
+}
+
 type OriginEndpointDashPackageAdTriggersItem string
 
 const (
@@ -4567,6 +4732,8 @@ func (in *packagingConfigurationStreamSelectionStreamOrderPtr) ToPackagingConfig
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdsOnDeliveryRestrictionsInput)(nil)).Elem(), OriginEndpointAdsOnDeliveryRestrictions("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdsOnDeliveryRestrictionsPtrInput)(nil)).Elem(), OriginEndpointAdsOnDeliveryRestrictions("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCmafEncryptionEncryptionMethodInput)(nil)).Elem(), OriginEndpointCmafEncryptionEncryptionMethod("SAMPLE_AES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointCmafEncryptionEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointCmafEncryptionEncryptionMethod("SAMPLE_AES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageAdTriggersItemInput)(nil)).Elem(), OriginEndpointDashPackageAdTriggersItem("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageAdTriggersItemPtrInput)(nil)).Elem(), OriginEndpointDashPackageAdTriggersItem("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashPackageAdTriggersItemArrayInput)(nil)).Elem(), OriginEndpointDashPackageAdTriggersItemArray{})
@@ -4624,6 +4791,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationStreamSelectionStreamOrderPtrInput)(nil)).Elem(), PackagingConfigurationStreamSelectionStreamOrder("ORIGINAL"))
 	pulumi.RegisterOutputType(OriginEndpointAdsOnDeliveryRestrictionsOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionEncryptionMethodOutput{})
+	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPackageAdTriggersItemOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPackageAdTriggersItemPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashPackageAdTriggersItemArrayOutput{})

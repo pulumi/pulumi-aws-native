@@ -546,6 +546,165 @@ func (o ClusterLoggingPtrOutput) ClusterLogging() ClusterLoggingPtrOutput {
 	}).(ClusterLoggingPtrOutput)
 }
 
+// An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+type ClusterOutpostConfig struct {
+	// Specify the Instance type of the machines that should be used to create your cluster.
+	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
+	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+	OutpostArns []string `pulumi:"outpostArns"`
+}
+
+// ClusterOutpostConfigInput is an input type that accepts ClusterOutpostConfigArgs and ClusterOutpostConfigOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigInput` via:
+//
+//	ClusterOutpostConfigArgs{...}
+type ClusterOutpostConfigInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput
+	ToClusterOutpostConfigOutputWithContext(context.Context) ClusterOutpostConfigOutput
+}
+
+// An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+type ClusterOutpostConfigArgs struct {
+	// Specify the Instance type of the machines that should be used to create your cluster.
+	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
+	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
+}
+
+func (ClusterOutpostConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput {
+	return i.ToClusterOutpostConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigOutputWithContext(ctx context.Context) ClusterOutpostConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigOutput)
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return i.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigArgs) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigOutput).ToClusterOutpostConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterOutpostConfigPtrInput is an input type that accepts ClusterOutpostConfigArgs, ClusterOutpostConfigPtr and ClusterOutpostConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigPtrInput` via:
+//
+//	        ClusterOutpostConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOutpostConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput
+	ToClusterOutpostConfigPtrOutputWithContext(context.Context) ClusterOutpostConfigPtrOutput
+}
+
+type clusterOutpostConfigPtrType ClusterOutpostConfigArgs
+
+func ClusterOutpostConfigPtr(v *ClusterOutpostConfigArgs) ClusterOutpostConfigPtrInput {
+	return (*clusterOutpostConfigPtrType)(v)
+}
+
+func (*clusterOutpostConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (i *clusterOutpostConfigPtrType) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return i.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOutpostConfigPtrType) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigPtrOutput)
+}
+
+// An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+type ClusterOutpostConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigOutput() ClusterOutpostConfigOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigOutputWithContext(ctx context.Context) ClusterOutpostConfigOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return o.ToClusterOutpostConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOutpostConfigOutput) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOutpostConfig) *ClusterOutpostConfig {
+		return &v
+	}).(ClusterOutpostConfigPtrOutput)
+}
+
+// Specify the Instance type of the machines that should be used to create your cluster.
+func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
+}
+
+// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
+}
+
+type ClusterOutpostConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfig)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutput() ClusterOutpostConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigPtrOutput) ToClusterOutpostConfigPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigPtrOutput) Elem() ClusterOutpostConfigOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) ClusterOutpostConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOutpostConfig
+		return ret
+	}).(ClusterOutpostConfigOutput)
+}
+
+// Specify the Instance type of the machines that should be used to create your cluster.
+func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ControlPlaneInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OutpostArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type ClusterProvider struct {
 	// Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
 	KeyArn *string `pulumi:"keyArn"`
@@ -2505,6 +2664,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingInput)(nil)).Elem(), ClusterLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPtrInput)(nil)).Elem(), ClusterLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderInput)(nil)).Elem(), ClusterProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderPtrInput)(nil)).Elem(), ClusterProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
@@ -2540,6 +2701,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterProviderOutput{})
 	pulumi.RegisterOutputType(ClusterProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})

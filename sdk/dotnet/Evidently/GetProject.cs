@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.Evidently
     [OutputType]
     public sealed class GetProjectResult
     {
+        public readonly Outputs.ProjectAppConfigResourceObject? AppConfigResource;
         public readonly string? Arn;
         public readonly Outputs.ProjectDataDeliveryObject? DataDelivery;
         public readonly string? Description;
@@ -61,6 +62,8 @@ namespace Pulumi.AwsNative.Evidently
 
         [OutputConstructor]
         private GetProjectResult(
+            Outputs.ProjectAppConfigResourceObject? appConfigResource,
+
             string? arn,
 
             Outputs.ProjectDataDeliveryObject? dataDelivery,
@@ -69,6 +72,7 @@ namespace Pulumi.AwsNative.Evidently
 
             ImmutableArray<Outputs.ProjectTag> tags)
         {
+            AppConfigResource = appConfigResource;
             Arn = arn;
             DataDelivery = dataDelivery;
             Description = description;

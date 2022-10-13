@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }
 
+        [Input("parameters")]
+        private InputList<Inputs.ContainerRecipeComponentParameterArgs>? _parameters;
+
+        /// <summary>
+        /// A group of parameter settings that are used to configure the component for a specific recipe.
+        /// </summary>
+        public InputList<Inputs.ContainerRecipeComponentParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ContainerRecipeComponentParameterArgs>());
+            set => _parameters = value;
+        }
+
         public ContainerRecipeComponentConfigurationArgs()
         {
         }

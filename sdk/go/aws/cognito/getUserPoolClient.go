@@ -30,6 +30,7 @@ type LookupUserPoolClientResult struct {
 	AllowedOAuthFlowsUserPoolClient          *bool                                 `pulumi:"allowedOAuthFlowsUserPoolClient"`
 	AllowedOAuthScopes                       []string                              `pulumi:"allowedOAuthScopes"`
 	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
+	AuthSessionValidity                      *int                                  `pulumi:"authSessionValidity"`
 	CallbackURLs                             []string                              `pulumi:"callbackURLs"`
 	ClientName                               *string                               `pulumi:"clientName"`
 	ClientSecret                             *string                               `pulumi:"clientSecret"`
@@ -104,6 +105,10 @@ func (o LookupUserPoolClientResultOutput) AnalyticsConfiguration() UserPoolClien
 	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientAnalyticsConfiguration {
 		return v.AnalyticsConfiguration
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
+}
+
+func (o LookupUserPoolClientResultOutput) AuthSessionValidity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.AuthSessionValidity }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) CallbackURLs() pulumi.StringArrayOutput {

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'OriginEndpointAdsOnDeliveryRestrictions',
+    'OriginEndpointCmafEncryptionEncryptionMethod',
     'OriginEndpointDashPackageAdTriggersItem',
     'OriginEndpointDashPackageManifestLayout',
     'OriginEndpointDashPackagePeriodTriggersItem',
@@ -42,6 +43,14 @@ class OriginEndpointAdsOnDeliveryRestrictions(str, Enum):
     RESTRICTED = "RESTRICTED"
     UNRESTRICTED = "UNRESTRICTED"
     BOTH = "BOTH"
+
+
+class OriginEndpointCmafEncryptionEncryptionMethod(str, Enum):
+    """
+    The encryption method used
+    """
+    SAMPLE_AES = "SAMPLE_AES"
+    AES_CTR = "AES_CTR"
 
 
 class OriginEndpointDashPackageAdTriggersItem(str, Enum):

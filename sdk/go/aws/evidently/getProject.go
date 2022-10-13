@@ -25,9 +25,10 @@ type LookupProjectArgs struct {
 }
 
 type LookupProjectResult struct {
-	Arn          *string                    `pulumi:"arn"`
-	DataDelivery *ProjectDataDeliveryObject `pulumi:"dataDelivery"`
-	Description  *string                    `pulumi:"description"`
+	AppConfigResource *ProjectAppConfigResourceObject `pulumi:"appConfigResource"`
+	Arn               *string                         `pulumi:"arn"`
+	DataDelivery      *ProjectDataDeliveryObject      `pulumi:"dataDelivery"`
+	Description       *string                         `pulumi:"description"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ProjectTag `pulumi:"tags"`
 }
@@ -65,6 +66,10 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectRe
 
 func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
 	return o
+}
+
+func (o LookupProjectResultOutput) AppConfigResource() ProjectAppConfigResourceObjectPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *ProjectAppConfigResourceObject { return v.AppConfigResource }).(ProjectAppConfigResourceObjectPtrOutput)
 }
 
 func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {

@@ -31,12 +31,14 @@ export interface GetJobResult {
     readonly connections?: outputs.glue.JobConnectionsList;
     readonly defaultArguments?: any;
     readonly description?: string;
+    readonly executionClass?: string;
     readonly executionProperty?: outputs.glue.JobExecutionProperty;
     readonly glueVersion?: string;
     readonly id?: string;
     readonly logUri?: string;
     readonly maxCapacity?: number;
     readonly maxRetries?: number;
+    readonly nonOverridableArguments?: any;
     readonly notificationProperty?: outputs.glue.JobNotificationProperty;
     readonly numberOfWorkers?: number;
     readonly role?: string;

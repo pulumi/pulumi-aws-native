@@ -14,6 +14,8 @@ import (
 type ContainerRecipeComponentConfiguration struct {
 	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `pulumi:"componentArn"`
+	// A group of parameter settings that are used to configure the component for a specific recipe.
+	Parameters []ContainerRecipeComponentParameter `pulumi:"parameters"`
 }
 
 // ContainerRecipeComponentConfigurationInput is an input type that accepts ContainerRecipeComponentConfigurationArgs and ContainerRecipeComponentConfigurationOutput values.
@@ -31,6 +33,8 @@ type ContainerRecipeComponentConfigurationInput interface {
 type ContainerRecipeComponentConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
+	// A group of parameter settings that are used to configure the component for a specific recipe.
+	Parameters ContainerRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
 func (ContainerRecipeComponentConfigurationArgs) ElementType() reflect.Type {
@@ -90,6 +94,11 @@ func (o ContainerRecipeComponentConfigurationOutput) ComponentArn() pulumi.Strin
 	return o.ApplyT(func(v ContainerRecipeComponentConfiguration) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
 
+// A group of parameter settings that are used to configure the component for a specific recipe.
+func (o ContainerRecipeComponentConfigurationOutput) Parameters() ContainerRecipeComponentParameterArrayOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentConfiguration) []ContainerRecipeComponentParameter { return v.Parameters }).(ContainerRecipeComponentParameterArrayOutput)
+}
+
 type ContainerRecipeComponentConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeComponentConfigurationArrayOutput) ElementType() reflect.Type {
@@ -108,6 +117,115 @@ func (o ContainerRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeComponentConfiguration {
 		return vs[0].([]ContainerRecipeComponentConfiguration)[vs[1].(int)]
 	}).(ContainerRecipeComponentConfigurationOutput)
+}
+
+// Contains a key/value pair that sets the named component parameter.
+type ContainerRecipeComponentParameter struct {
+	// The name of the component parameter to set.
+	Name string `pulumi:"name"`
+	// Sets the value for the named component parameter.
+	Value []string `pulumi:"value"`
+}
+
+// ContainerRecipeComponentParameterInput is an input type that accepts ContainerRecipeComponentParameterArgs and ContainerRecipeComponentParameterOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentParameterInput` via:
+//
+//	ContainerRecipeComponentParameterArgs{...}
+type ContainerRecipeComponentParameterInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput
+	ToContainerRecipeComponentParameterOutputWithContext(context.Context) ContainerRecipeComponentParameterOutput
+}
+
+// Contains a key/value pair that sets the named component parameter.
+type ContainerRecipeComponentParameterArgs struct {
+	// The name of the component parameter to set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Sets the value for the named component parameter.
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ContainerRecipeComponentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput {
+	return i.ToContainerRecipeComponentParameterOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterOutput)
+}
+
+// ContainerRecipeComponentParameterArrayInput is an input type that accepts ContainerRecipeComponentParameterArray and ContainerRecipeComponentParameterArrayOutput values.
+// You can construct a concrete instance of `ContainerRecipeComponentParameterArrayInput` via:
+//
+//	ContainerRecipeComponentParameterArray{ ContainerRecipeComponentParameterArgs{...} }
+type ContainerRecipeComponentParameterArrayInput interface {
+	pulumi.Input
+
+	ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput
+	ToContainerRecipeComponentParameterArrayOutputWithContext(context.Context) ContainerRecipeComponentParameterArrayOutput
+}
+
+type ContainerRecipeComponentParameterArray []ContainerRecipeComponentParameterInput
+
+func (ContainerRecipeComponentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput {
+	return i.ToContainerRecipeComponentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterArrayOutput)
+}
+
+// Contains a key/value pair that sets the named component parameter.
+type ContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutput() ContainerRecipeComponentParameterOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
+	return o
+}
+
+// The name of the component parameter to set.
+func (o ContainerRecipeComponentParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sets the value for the named component parameter.
+func (o ContainerRecipeComponentParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerRecipeComponentParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ContainerRecipeComponentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeComponentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerRecipeComponentParameter)(nil)).Elem()
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutput() ContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
+	return o
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerRecipeComponentParameter {
+		return vs[0].([]ContainerRecipeComponentParameter)[vs[1].(int)]
+	}).(ContainerRecipeComponentParameterOutput)
 }
 
 // Amazon EBS-specific block device mapping specifications.
@@ -4199,6 +4317,8 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) S3KeyPrefix() pulumi.StringP
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationArrayInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentParameterInput)(nil)).Elem(), ContainerRecipeComponentParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentParameterArrayInput)(nil)).Elem(), ContainerRecipeComponentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeEbsInstanceBlockDeviceSpecificationInput)(nil)).Elem(), ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput)(nil)).Elem(), ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeInstanceBlockDeviceMappingInput)(nil)).Elem(), ContainerRecipeInstanceBlockDeviceMappingArgs{})
@@ -4251,6 +4371,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentParameterOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeComponentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeInstanceBlockDeviceMappingOutput{})

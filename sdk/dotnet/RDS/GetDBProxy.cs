@@ -90,6 +90,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly ImmutableArray<Outputs.DBProxyTagFormat> Tags;
         /// <summary>
+        /// VPC ID to associate with the new DB proxy.
+        /// </summary>
+        public readonly string? VpcId;
+        /// <summary>
         /// VPC security group IDs to associate with the new proxy.
         /// </summary>
         public readonly ImmutableArray<string> VpcSecurityGroupIds;
@@ -112,6 +116,8 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<Outputs.DBProxyTagFormat> tags,
 
+            string? vpcId,
+
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             Auth = auth;
@@ -122,6 +128,7 @@ namespace Pulumi.AwsNative.RDS
             RequireTLS = requireTLS;
             RoleArn = roleArn;
             Tags = tags;
+            VpcId = vpcId;
             VpcSecurityGroupIds = vpcSecurityGroupIds;
         }
     }

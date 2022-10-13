@@ -10,7 +10,6 @@ from .cluster import *
 from .get_cluster import *
 from .get_instance_fleet_config import *
 from .get_instance_group_config import *
-from .get_security_configuration import *
 from .get_step import *
 from .get_studio import *
 from .get_studio_session_mapping import *

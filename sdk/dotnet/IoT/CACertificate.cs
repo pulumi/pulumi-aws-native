@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("registrationConfig")]
         public Output<Outputs.CACertificateRegistrationConfig?> RegistrationConfig { get; private set; } = null!;
 
+        [Output("removeAutoRegistration")]
+        public Output<bool?> RemoveAutoRegistration { get; private set; } = null!;
+
         [Output("status")]
         public Output<Pulumi.AwsNative.IoT.CACertificateStatus> Status { get; private set; } = null!;
 
@@ -101,6 +104,9 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("registrationConfig")]
         public Input<Inputs.CACertificateRegistrationConfigArgs>? RegistrationConfig { get; set; }
+
+        [Input("removeAutoRegistration")]
+        public Input<bool>? RemoveAutoRegistration { get; set; }
 
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.IoT.CACertificateStatus> Status { get; set; } = null!;

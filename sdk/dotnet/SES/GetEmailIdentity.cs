@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.SES
         public readonly string? DkimDNSTokenValue1;
         public readonly string? DkimDNSTokenValue2;
         public readonly string? DkimDNSTokenValue3;
+        public readonly Outputs.EmailIdentityDkimSigningAttributes? DkimSigningAttributes;
         public readonly Outputs.EmailIdentityFeedbackAttributes? FeedbackAttributes;
         public readonly Outputs.EmailIdentityMailFromAttributes? MailFromAttributes;
 
@@ -86,6 +87,8 @@ namespace Pulumi.AwsNative.SES
 
             string? dkimDNSTokenValue3,
 
+            Outputs.EmailIdentityDkimSigningAttributes? dkimSigningAttributes,
+
             Outputs.EmailIdentityFeedbackAttributes? feedbackAttributes,
 
             Outputs.EmailIdentityMailFromAttributes? mailFromAttributes)
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.SES
             DkimDNSTokenValue1 = dkimDNSTokenValue1;
             DkimDNSTokenValue2 = dkimDNSTokenValue2;
             DkimDNSTokenValue3 = dkimDNSTokenValue3;
+            DkimSigningAttributes = dkimSigningAttributes;
             FeedbackAttributes = feedbackAttributes;
             MailFromAttributes = mailFromAttributes;
         }

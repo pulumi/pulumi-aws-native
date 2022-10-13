@@ -53,18 +53,20 @@ namespace Pulumi.AwsNative.Glue
     {
         public readonly ImmutableArray<Outputs.TriggerAction> Actions;
         public readonly string? Description;
+        public readonly Outputs.TriggerEventBatchingCondition? EventBatchingCondition;
         public readonly string? Id;
         public readonly Outputs.TriggerPredicate? Predicate;
         public readonly string? Schedule;
         public readonly bool? StartOnCreation;
         public readonly object? Tags;
-        public readonly string? Type;
 
         [OutputConstructor]
         private GetTriggerResult(
             ImmutableArray<Outputs.TriggerAction> actions,
 
             string? description,
+
+            Outputs.TriggerEventBatchingCondition? eventBatchingCondition,
 
             string? id,
 
@@ -74,18 +76,16 @@ namespace Pulumi.AwsNative.Glue
 
             bool? startOnCreation,
 
-            object? tags,
-
-            string? type)
+            object? tags)
         {
             Actions = actions;
             Description = description;
+            EventBatchingCondition = eventBatchingCondition;
             Id = id;
             Predicate = predicate;
             Schedule = schedule;
             StartOnCreation = startOnCreation;
             Tags = tags;
-            Type = type;
         }
     }
 }

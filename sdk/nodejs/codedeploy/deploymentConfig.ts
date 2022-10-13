@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::CodeDeploy::DeploymentConfig
- *
- * @deprecated DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class DeploymentConfig extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentConfig {
-        pulumi.log.warn("DeploymentConfig is deprecated: DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new DeploymentConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,9 +37,21 @@ export class DeploymentConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeploymentConfig.__pulumiType;
     }
 
+    /**
+     * The destination platform type for the deployment (Lambda, Server, or ECS).
+     */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
+    /**
+     * A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+     */
     public readonly deploymentConfigName!: pulumi.Output<string | undefined>;
+    /**
+     * The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+     */
     public readonly minimumHealthyHosts!: pulumi.Output<outputs.codedeploy.DeploymentConfigMinimumHealthyHosts | undefined>;
+    /**
+     * The configuration that specifies how the deployment traffic is routed.
+     */
     public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
 
     /**
@@ -52,9 +61,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: DeploymentConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DeploymentConfig is deprecated: DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,8 +84,20 @@ export class DeploymentConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a DeploymentConfig resource.
  */
 export interface DeploymentConfigArgs {
+    /**
+     * The destination platform type for the deployment (Lambda, Server, or ECS).
+     */
     computePlatform?: pulumi.Input<string>;
+    /**
+     * A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+     */
     deploymentConfigName?: pulumi.Input<string>;
+    /**
+     * The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+     */
     minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHostsArgs>;
+    /**
+     * The configuration that specifies how the deployment traffic is routed.
+     */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfigArgs>;
 }

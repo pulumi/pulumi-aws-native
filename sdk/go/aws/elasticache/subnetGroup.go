@@ -12,15 +12,16 @@ import (
 )
 
 // Resource Type definition for AWS::ElastiCache::SubnetGroup
-//
-// Deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
-	CacheSubnetGroupName pulumi.StringPtrOutput    `pulumi:"cacheSubnetGroupName"`
-	Description          pulumi.StringOutput       `pulumi:"description"`
-	SubnetIds            pulumi.StringArrayOutput  `pulumi:"subnetIds"`
-	Tags                 SubnetGroupTagArrayOutput `pulumi:"tags"`
+	// The name for the cache subnet group. This value is stored as a lowercase string.
+	CacheSubnetGroupName pulumi.StringPtrOutput `pulumi:"cacheSubnetGroupName"`
+	// The description for the cache subnet group.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The EC2 subnet IDs for the cache subnet group.
+	SubnetIds pulumi.StringArrayOutput  `pulumi:"subnetIds"`
+	Tags      SubnetGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -68,18 +69,24 @@ func (SubnetGroupState) ElementType() reflect.Type {
 }
 
 type subnetGroupArgs struct {
-	CacheSubnetGroupName *string          `pulumi:"cacheSubnetGroupName"`
-	Description          string           `pulumi:"description"`
-	SubnetIds            []string         `pulumi:"subnetIds"`
-	Tags                 []SubnetGroupTag `pulumi:"tags"`
+	// The name for the cache subnet group. This value is stored as a lowercase string.
+	CacheSubnetGroupName *string `pulumi:"cacheSubnetGroupName"`
+	// The description for the cache subnet group.
+	Description string `pulumi:"description"`
+	// The EC2 subnet IDs for the cache subnet group.
+	SubnetIds []string         `pulumi:"subnetIds"`
+	Tags      []SubnetGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SubnetGroup resource.
 type SubnetGroupArgs struct {
+	// The name for the cache subnet group. This value is stored as a lowercase string.
 	CacheSubnetGroupName pulumi.StringPtrInput
-	Description          pulumi.StringInput
-	SubnetIds            pulumi.StringArrayInput
-	Tags                 SubnetGroupTagArrayInput
+	// The description for the cache subnet group.
+	Description pulumi.StringInput
+	// The EC2 subnet IDs for the cache subnet group.
+	SubnetIds pulumi.StringArrayInput
+	Tags      SubnetGroupTagArrayInput
 }
 
 func (SubnetGroupArgs) ElementType() reflect.Type {
@@ -119,14 +126,17 @@ func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The name for the cache subnet group. This value is stored as a lowercase string.
 func (o SubnetGroupOutput) CacheSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringPtrOutput { return v.CacheSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The description for the cache subnet group.
 func (o SubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The EC2 subnet IDs for the cache subnet group.
 func (o SubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

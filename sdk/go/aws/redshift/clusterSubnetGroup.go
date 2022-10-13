@@ -11,13 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+// Specifies an Amazon Redshift subnet group.
 type ClusterSubnetGroup struct {
 	pulumi.CustomResourceState
 
-	Description pulumi.StringOutput              `pulumi:"description"`
-	SubnetIds   pulumi.StringArrayOutput         `pulumi:"subnetIds"`
-	Tags        ClusterSubnetGroupTagArrayOutput `pulumi:"tags"`
+	// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+	ClusterSubnetGroupName pulumi.StringOutput `pulumi:"clusterSubnetGroupName"`
+	// The description of the parameter group.
+	Description pulumi.StringOutput `pulumi:"description"`
+	// The list of VPC subnet IDs
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The list of tags for the cluster parameter group.
+	Tags ClusterSubnetGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewClusterSubnetGroup registers a new resource with the given unique name, arguments, and options.
@@ -65,16 +70,22 @@ func (ClusterSubnetGroupState) ElementType() reflect.Type {
 }
 
 type clusterSubnetGroupArgs struct {
-	Description string                  `pulumi:"description"`
-	SubnetIds   []string                `pulumi:"subnetIds"`
-	Tags        []ClusterSubnetGroupTag `pulumi:"tags"`
+	// The description of the parameter group.
+	Description string `pulumi:"description"`
+	// The list of VPC subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The list of tags for the cluster parameter group.
+	Tags []ClusterSubnetGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSubnetGroup resource.
 type ClusterSubnetGroupArgs struct {
+	// The description of the parameter group.
 	Description pulumi.StringInput
-	SubnetIds   pulumi.StringArrayInput
-	Tags        ClusterSubnetGroupTagArrayInput
+	// The list of VPC subnet IDs
+	SubnetIds pulumi.StringArrayInput
+	// The list of tags for the cluster parameter group.
+	Tags ClusterSubnetGroupTagArrayInput
 }
 
 func (ClusterSubnetGroupArgs) ElementType() reflect.Type {
@@ -114,14 +125,22 @@ func (o ClusterSubnetGroupOutput) ToClusterSubnetGroupOutputWithContext(ctx cont
 	return o
 }
 
+// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+func (o ClusterSubnetGroupOutput) ClusterSubnetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSubnetGroup) pulumi.StringOutput { return v.ClusterSubnetGroupName }).(pulumi.StringOutput)
+}
+
+// The description of the parameter group.
 func (o ClusterSubnetGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSubnetGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
+// The list of VPC subnet IDs
 func (o ClusterSubnetGroupOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSubnetGroup) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The list of tags for the cluster parameter group.
 func (o ClusterSubnetGroupOutput) Tags() ClusterSubnetGroupTagArrayOutput {
 	return o.ApplyT(func(v *ClusterSubnetGroup) ClusterSubnetGroupTagArrayOutput { return v.Tags }).(ClusterSubnetGroupTagArrayOutput)
 }

@@ -26,6 +26,7 @@ class DBInstanceArgs:
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
@@ -53,6 +54,8 @@ class DBInstanceArgs:
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -83,6 +86,13 @@ class DBInstanceArgs:
         :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
         :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+                * The profile must exist in your account.
+                * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+                * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+               For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+               
+               This setting is required for RDS Custom.
         :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
         :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
@@ -110,6 +120,8 @@ class DBInstanceArgs:
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
         :param pulumi.Input[bool] multi_az: Specifies whether the database instance is a multiple Availability Zone deployment.
+        :param pulumi.Input[str] nchar_character_set_name: The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        :param pulumi.Input[str] network_type: The network type of the DB cluster.
         :param pulumi.Input[str] option_group_name: Indicates that the DB instance should be associated with the specified option group.
         :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
         :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -148,6 +160,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if custom_iam_instance_profile is not None:
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if d_b_cluster_identifier is not None:
             pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
         if d_b_instance_class is not None:
@@ -202,6 +216,10 @@ class DBInstanceArgs:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if nchar_character_set_name is not None:
+            pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if option_group_name is not None:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if performance_insights_kms_key_id is not None:
@@ -348,6 +366,24 @@ class DBInstanceArgs:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customIAMInstanceProfile")
+    def custom_iam_instance_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+         * The profile must exist in your account.
+         * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+         * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+        For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+
+        This setting is required for RDS Custom.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
+
+    @custom_iam_instance_profile.setter
+    def custom_iam_instance_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_iam_instance_profile", value)
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")
@@ -674,6 +710,30 @@ class DBInstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @property
+    @pulumi.getter(name="ncharCharacterSetName")
+    def nchar_character_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        """
+        return pulumi.get(self, "nchar_character_set_name")
+
+    @nchar_character_set_name.setter
+    def nchar_character_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nchar_character_set_name", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -916,6 +976,7 @@ class DBInstance(pulumi.CustomResource):
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
@@ -943,6 +1004,8 @@ class DBInstance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -977,6 +1040,13 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
         :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
+        :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+                * The profile must exist in your account.
+                * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+                * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+               For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+               
+               This setting is required for RDS Custom.
         :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
         :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
@@ -1004,6 +1074,8 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs.
         :param pulumi.Input[bool] multi_az: Specifies whether the database instance is a multiple Availability Zone deployment.
+        :param pulumi.Input[str] nchar_character_set_name: The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        :param pulumi.Input[str] network_type: The network type of the DB cluster.
         :param pulumi.Input[str] option_group_name: Indicates that the DB instance should be associated with the specified option group.
         :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
         :param pulumi.Input[int] performance_insights_retention_period: The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).
@@ -1057,6 +1129,7 @@ class DBInstance(pulumi.CustomResource):
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
@@ -1084,6 +1157,8 @@ class DBInstance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
@@ -1121,6 +1196,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["c_a_certificate_identifier"] = c_a_certificate_identifier
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
             __props__.__dict__["d_b_instance_class"] = d_b_instance_class
             __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
@@ -1148,6 +1224,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
+            __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
@@ -1198,6 +1276,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["c_a_certificate_identifier"] = None
         __props__.__dict__["character_set_name"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
+        __props__.__dict__["custom_iam_instance_profile"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_instance_class"] = None
         __props__.__dict__["d_b_instance_identifier"] = None
@@ -1225,6 +1304,8 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["monitoring_interval"] = None
         __props__.__dict__["monitoring_role_arn"] = None
         __props__.__dict__["multi_az"] = None
+        __props__.__dict__["nchar_character_set_name"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["option_group_name"] = None
         __props__.__dict__["performance_insights_kms_key_id"] = None
         __props__.__dict__["performance_insights_retention_period"] = None
@@ -1317,6 +1398,20 @@ class DBInstance(pulumi.CustomResource):
         A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="customIAMInstanceProfile")
+    def custom_iam_instance_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+         * The profile must exist in your account.
+         * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+         * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+        For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+
+        This setting is required for RDS Custom.
+        """
+        return pulumi.get(self, "custom_iam_instance_profile")
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")
@@ -1533,6 +1628,22 @@ class DBInstance(pulumi.CustomResource):
         Specifies whether the database instance is a multiple Availability Zone deployment.
         """
         return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="ncharCharacterSetName")
+    def nchar_character_set_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        """
+        return pulumi.get(self, "nchar_character_set_name")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="optionGroupName")

@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterSubnetGroupResult:
-    def __init__(__self__, description=None, id=None, subnet_ids=None, tags=None):
+    def __init__(__self__, cluster_subnet_group_name=None, description=None, subnet_ids=None, tags=None):
+        if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
+            raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")
+        pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -34,23 +34,35 @@ class GetClusterSubnetGroupResult:
         pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        return pulumi.get(self, "description")
+    @pulumi.getter(name="clusterSubnetGroupName")
+    def cluster_subnet_group_name(self) -> Optional[str]:
+        """
+        This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        """
+        return pulumi.get(self, "cluster_subnet_group_name")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    def description(self) -> Optional[str]:
+        """
+        The description of the parameter group.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of VPC subnet IDs
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ClusterSubnetGroupTag']]:
+        """
+        The list of tags for the cluster parameter group.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -60,33 +72,39 @@ class AwaitableGetClusterSubnetGroupResult(GetClusterSubnetGroupResult):
         if False:
             yield self
         return GetClusterSubnetGroupResult(
+            cluster_subnet_group_name=self.cluster_subnet_group_name,
             description=self.description,
-            id=self.id,
             subnet_ids=self.subnet_ids,
             tags=self.tags)
 
 
-def get_cluster_subnet_group(id: Optional[str] = None,
+def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterSubnetGroupResult:
     """
-    Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+    Specifies an Amazon Redshift subnet group.
+
+
+    :param str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['clusterSubnetGroupName'] = cluster_subnet_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:redshift:getClusterSubnetGroup', __args__, opts=opts, typ=GetClusterSubnetGroupResult).value
 
     return AwaitableGetClusterSubnetGroupResult(
+        cluster_subnet_group_name=__ret__.cluster_subnet_group_name,
         description=__ret__.description,
-        id=__ret__.id,
         subnet_ids=__ret__.subnet_ids,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_cluster_subnet_group)
-def get_cluster_subnet_group_output(id: Optional[pulumi.Input[str]] = None,
+def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
-    Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+    Specifies an Amazon Redshift subnet group.
+
+
+    :param str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
     """
     ...

@@ -173,7 +173,7 @@ class RecoveryGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="recoveryGroupName")
-    def recovery_group_name(self) -> pulumi.Output[str]:
+    def recovery_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the recovery group to create.
         """

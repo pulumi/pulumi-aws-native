@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+// Specifies an Amazon Redshift subnet group.
 func LookupClusterSubnetGroup(ctx *pulumi.Context, args *LookupClusterSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupClusterSubnetGroupResult, error) {
 	var rv LookupClusterSubnetGroupResult
 	err := ctx.Invoke("aws-native:redshift:getClusterSubnetGroup", args, &rv, opts...)
@@ -21,14 +21,19 @@ func LookupClusterSubnetGroup(ctx *pulumi.Context, args *LookupClusterSubnetGrou
 }
 
 type LookupClusterSubnetGroupArgs struct {
-	Id string `pulumi:"id"`
+	// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+	ClusterSubnetGroupName string `pulumi:"clusterSubnetGroupName"`
 }
 
 type LookupClusterSubnetGroupResult struct {
-	Description *string                 `pulumi:"description"`
-	Id          *string                 `pulumi:"id"`
-	SubnetIds   []string                `pulumi:"subnetIds"`
-	Tags        []ClusterSubnetGroupTag `pulumi:"tags"`
+	// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
+	// The description of the parameter group.
+	Description *string `pulumi:"description"`
+	// The list of VPC subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The list of tags for the cluster parameter group.
+	Tags []ClusterSubnetGroupTag `pulumi:"tags"`
 }
 
 func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSubnetGroupResultOutput {
@@ -45,7 +50,8 @@ func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubne
 }
 
 type LookupClusterSubnetGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+	ClusterSubnetGroupName pulumi.StringInput `pulumi:"clusterSubnetGroupName"`
 }
 
 func (LookupClusterSubnetGroupOutputArgs) ElementType() reflect.Type {
@@ -66,18 +72,22 @@ func (o LookupClusterSubnetGroupResultOutput) ToLookupClusterSubnetGroupResultOu
 	return o
 }
 
+// This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
+func (o LookupClusterSubnetGroupResultOutput) ClusterSubnetGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterSubnetGroupResult) *string { return v.ClusterSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The description of the parameter group.
 func (o LookupClusterSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupClusterSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The list of VPC subnet IDs
 func (o LookupClusterSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The list of tags for the cluster parameter group.
 func (o LookupClusterSubnetGroupResultOutput) Tags() ClusterSubnetGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []ClusterSubnetGroupTag { return v.Tags }).(ClusterSubnetGroupTagArrayOutput)
 }

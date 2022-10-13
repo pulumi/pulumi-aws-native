@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.RDS
     }
 
     /// <summary>
-    /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+    /// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
     /// </summary>
     [EnumType]
     public readonly struct DBProxyAuthFormatIAMAuth : IEquatable<DBProxyAuthFormatIAMAuth>
@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.RDS
 
         public static DBProxyAuthFormatIAMAuth Disabled { get; } = new DBProxyAuthFormatIAMAuth("DISABLED");
         public static DBProxyAuthFormatIAMAuth Required { get; } = new DBProxyAuthFormatIAMAuth("REQUIRED");
+        public static DBProxyAuthFormatIAMAuth Enabled { get; } = new DBProxyAuthFormatIAMAuth("ENABLED");
 
         public static bool operator ==(DBProxyAuthFormatIAMAuth left, DBProxyAuthFormatIAMAuth right) => left.Equals(right);
         public static bool operator !=(DBProxyAuthFormatIAMAuth left, DBProxyAuthFormatIAMAuth right) => !left.Equals(right);
@@ -145,6 +146,7 @@ namespace Pulumi.AwsNative.RDS
 
         public static DBProxyEngineFamily Mysql { get; } = new DBProxyEngineFamily("MYSQL");
         public static DBProxyEngineFamily Postgresql { get; } = new DBProxyEngineFamily("POSTGRESQL");
+        public static DBProxyEngineFamily Sqlserver { get; } = new DBProxyEngineFamily("SQLSERVER");
 
         public static bool operator ==(DBProxyEngineFamily left, DBProxyEngineFamily right) => left.Equals(right);
         public static bool operator !=(DBProxyEngineFamily left, DBProxyEngineFamily right) => !left.Equals(right);

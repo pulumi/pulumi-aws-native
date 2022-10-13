@@ -21,14 +21,17 @@ func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParamet
 }
 
 type LookupClusterParameterGroupArgs struct {
-	// Cloudformation will generate a unique group name.
+	// The name of the cluster parameter group.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
 }
 
 type LookupClusterParameterGroupResult struct {
-	// Cloudformation will generate a unique group name.
-	ParameterGroupName *string                    `pulumi:"parameterGroupName"`
-	Tags               []ClusterParameterGroupTag `pulumi:"tags"`
+	// The name of the cluster parameter group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+	Parameters []ClusterParameterGroupParameter `pulumi:"parameters"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []ClusterParameterGroupTag `pulumi:"tags"`
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
@@ -45,7 +48,7 @@ func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterPa
 }
 
 type LookupClusterParameterGroupOutputArgs struct {
-	// Cloudformation will generate a unique group name.
+	// The name of the cluster parameter group.
 	ParameterGroupName pulumi.StringInput `pulumi:"parameterGroupName"`
 }
 
@@ -67,11 +70,17 @@ func (o LookupClusterParameterGroupResultOutput) ToLookupClusterParameterGroupRe
 	return o
 }
 
-// Cloudformation will generate a unique group name.
+// The name of the cluster parameter group.
 func (o LookupClusterParameterGroupResultOutput) ParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) *string { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+func (o LookupClusterParameterGroupResultOutput) Parameters() ClusterParameterGroupParameterArrayOutput {
+	return o.ApplyT(func(v LookupClusterParameterGroupResult) []ClusterParameterGroupParameter { return v.Parameters }).(ClusterParameterGroupParameterArrayOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
 func (o LookupClusterParameterGroupResultOutput) Tags() ClusterParameterGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) []ClusterParameterGroupTag { return v.Tags }).(ClusterParameterGroupTagArrayOutput)
 }

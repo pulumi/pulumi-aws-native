@@ -12,28 +12,54 @@ namespace Pulumi.AwsNative.EC2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPNConnection
     /// </summary>
-    [Obsolete(@"VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VPNConnection")]
     public partial class VPNConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the customer gateway at your end of the VPN connection.
+        /// </summary>
         [Output("customerGatewayId")]
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the VPN connection uses static routes only.
+        /// </summary>
         [Output("staticRoutesOnly")]
         public Output<bool?> StaticRoutesOnly { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the VPN connection.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.VPNConnectionTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway associated with the VPN connection.
+        /// </summary>
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of VPN connection.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource
+        /// </summary>
+        [Output("vpnConnectionId")]
+        public Output<string> VpnConnectionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the virtual private gateway at the AWS side of the VPN connection.
+        /// </summary>
         [Output("vpnGatewayId")]
         public Output<string?> VpnGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tunnel options for the VPN connection.
+        /// </summary>
         [Output("vpnTunnelOptionsSpecifications")]
         public Output<ImmutableArray<Outputs.VPNConnectionVpnTunnelOptionsSpecification>> VpnTunnelOptionsSpecifications { get; private set; } = null!;
 
@@ -82,31 +108,54 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class VPNConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the customer gateway at your end of the VPN connection.
+        /// </summary>
         [Input("customerGatewayId", required: true)]
         public Input<string> CustomerGatewayId { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the VPN connection uses static routes only.
+        /// </summary>
         [Input("staticRoutesOnly")]
         public Input<bool>? StaticRoutesOnly { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.VPNConnectionTagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the VPN connection.
+        /// </summary>
         public InputList<Inputs.VPNConnectionTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.VPNConnectionTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the transit gateway associated with the VPN connection.
+        /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
 
+        /// <summary>
+        /// The type of VPN connection.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private gateway at the AWS side of the VPN connection.
+        /// </summary>
         [Input("vpnGatewayId")]
         public Input<string>? VpnGatewayId { get; set; }
 
         [Input("vpnTunnelOptionsSpecifications")]
         private InputList<Inputs.VPNConnectionVpnTunnelOptionsSpecificationArgs>? _vpnTunnelOptionsSpecifications;
+
+        /// <summary>
+        /// The tunnel options for the VPN connection.
+        /// </summary>
         public InputList<Inputs.VPNConnectionVpnTunnelOptionsSpecificationArgs> VpnTunnelOptionsSpecifications
         {
             get => _vpnTunnelOptionsSpecifications ?? (_vpnTunnelOptionsSpecifications = new InputList<Inputs.VPNConnectionVpnTunnelOptionsSpecificationArgs>());

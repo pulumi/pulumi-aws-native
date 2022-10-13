@@ -18,16 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelResult:
-    def __init__(__self__, content_type=None, description=None, id=None, name=None, schema=None):
+    def __init__(__self__, content_type=None, description=None, model_id=None, name=None, schema=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if model_id and not isinstance(model_id, str):
+            raise TypeError("Expected argument 'model_id' to be a str")
+        pulumi.set(__self__, "model_id", model_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,9 +46,9 @@ class GetModelResult:
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        return pulumi.get(self, "model_id")
 
     @property
     @pulumi.getter
@@ -69,31 +69,34 @@ class AwaitableGetModelResult(GetModelResult):
         return GetModelResult(
             content_type=self.content_type,
             description=self.description,
-            id=self.id,
+            model_id=self.model_id,
             name=self.name,
             schema=self.schema)
 
 
-def get_model(id: Optional[str] = None,
+def get_model(api_id: Optional[str] = None,
+              model_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::Model
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['modelId'] = model_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getModel', __args__, opts=opts, typ=GetModelResult).value
 
     return AwaitableGetModelResult(
         content_type=__ret__.content_type,
         description=__ret__.description,
-        id=__ret__.id,
+        model_id=__ret__.model_id,
         name=__ret__.name,
         schema=__ret__.schema)
 
 
 @_utilities.lift_output_func(get_model)
-def get_model_output(id: Optional[pulumi.Input[str]] = None,
+def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
+                     model_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Model

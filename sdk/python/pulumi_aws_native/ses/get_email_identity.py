@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEmailIdentityResult:
-    def __init__(__self__, configuration_set_attributes=None, dkim_attributes=None, dkim_dns_token_name1=None, dkim_dns_token_name2=None, dkim_dns_token_name3=None, dkim_dns_token_value1=None, dkim_dns_token_value2=None, dkim_dns_token_value3=None, feedback_attributes=None, mail_from_attributes=None):
+    def __init__(__self__, configuration_set_attributes=None, dkim_attributes=None, dkim_dns_token_name1=None, dkim_dns_token_name2=None, dkim_dns_token_name3=None, dkim_dns_token_value1=None, dkim_dns_token_value2=None, dkim_dns_token_value3=None, dkim_signing_attributes=None, feedback_attributes=None, mail_from_attributes=None):
         if configuration_set_attributes and not isinstance(configuration_set_attributes, dict):
             raise TypeError("Expected argument 'configuration_set_attributes' to be a dict")
         pulumi.set(__self__, "configuration_set_attributes", configuration_set_attributes)
@@ -44,6 +44,9 @@ class GetEmailIdentityResult:
         if dkim_dns_token_value3 and not isinstance(dkim_dns_token_value3, str):
             raise TypeError("Expected argument 'dkim_dns_token_value3' to be a str")
         pulumi.set(__self__, "dkim_dns_token_value3", dkim_dns_token_value3)
+        if dkim_signing_attributes and not isinstance(dkim_signing_attributes, dict):
+            raise TypeError("Expected argument 'dkim_signing_attributes' to be a dict")
+        pulumi.set(__self__, "dkim_signing_attributes", dkim_signing_attributes)
         if feedback_attributes and not isinstance(feedback_attributes, dict):
             raise TypeError("Expected argument 'feedback_attributes' to be a dict")
         pulumi.set(__self__, "feedback_attributes", feedback_attributes)
@@ -92,6 +95,11 @@ class GetEmailIdentityResult:
         return pulumi.get(self, "dkim_dns_token_value3")
 
     @property
+    @pulumi.getter(name="dkimSigningAttributes")
+    def dkim_signing_attributes(self) -> Optional['outputs.EmailIdentityDkimSigningAttributes']:
+        return pulumi.get(self, "dkim_signing_attributes")
+
+    @property
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> Optional['outputs.EmailIdentityFeedbackAttributes']:
         return pulumi.get(self, "feedback_attributes")
@@ -116,6 +124,7 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
             dkim_dns_token_value1=self.dkim_dns_token_value1,
             dkim_dns_token_value2=self.dkim_dns_token_value2,
             dkim_dns_token_value3=self.dkim_dns_token_value3,
+            dkim_signing_attributes=self.dkim_signing_attributes,
             feedback_attributes=self.feedback_attributes,
             mail_from_attributes=self.mail_from_attributes)
 
@@ -142,6 +151,7 @@ def get_email_identity(email_identity: Optional[str] = None,
         dkim_dns_token_value1=__ret__.dkim_dns_token_value1,
         dkim_dns_token_value2=__ret__.dkim_dns_token_value2,
         dkim_dns_token_value3=__ret__.dkim_dns_token_value3,
+        dkim_signing_attributes=__ret__.dkim_signing_attributes,
         feedback_attributes=__ret__.feedback_attributes,
         mail_from_attributes=__ret__.mail_from_attributes)
 

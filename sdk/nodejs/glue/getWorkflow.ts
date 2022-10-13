@@ -26,6 +26,7 @@ export interface GetWorkflowResult {
     readonly defaultRunProperties?: any;
     readonly description?: string;
     readonly id?: string;
+    readonly maxConcurrentRuns?: number;
     readonly tags?: any;
 }
 

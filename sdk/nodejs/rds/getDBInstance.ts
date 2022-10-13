@@ -138,6 +138,10 @@ export interface GetDBInstanceResult {
      */
     readonly multiAZ?: boolean;
     /**
+     * The network type of the DB cluster.
+     */
+    readonly networkType?: string;
+    /**
      * Indicates that the DB instance should be associated with the specified option group.
      */
     readonly optionGroupName?: string;

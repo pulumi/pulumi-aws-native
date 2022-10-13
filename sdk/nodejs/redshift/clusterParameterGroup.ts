@@ -37,13 +37,25 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterParameterGroup.__pulumiType;
     }
 
+    /**
+     * A description of the parameter group.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+     */
     public readonly parameterGroupFamily!: pulumi.Output<string>;
     /**
-     * Cloudformation will generate a unique group name.
+     * The name of the cluster parameter group.
      */
     public /*out*/ readonly parameterGroupName!: pulumi.Output<string>;
+    /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
     public readonly parameters!: pulumi.Output<outputs.redshift.ClusterParameterGroupParameter[] | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.redshift.ClusterParameterGroupTag[] | undefined>;
 
     /**
@@ -84,8 +96,20 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterParameterGroup resource.
  */
 export interface ClusterParameterGroupArgs {
+    /**
+     * A description of the parameter group.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+     */
     parameterGroupFamily: pulumi.Input<string>;
+    /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
     parameters?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterParameterGroupParameterArgs>[]>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterParameterGroupTagArgs>[]>;
 }

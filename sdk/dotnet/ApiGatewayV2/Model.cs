@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::Model
     /// </summary>
-    [Obsolete(@"Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Model")]
     public partial class Model : global::Pulumi.CustomResource
     {
@@ -24,6 +23,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("modelId")]
+        public Output<string> ModelId { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;

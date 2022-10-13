@@ -165,7 +165,7 @@ class ReadinessCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readinessCheckName")
-    def readiness_check_name(self) -> pulumi.Output[str]:
+    def readiness_check_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the ReadinessCheck to create.
         """

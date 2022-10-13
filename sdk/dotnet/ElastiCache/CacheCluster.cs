@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("tags")]
         public Output<ImmutableArray<Outputs.CacheClusterTag>> Tags { get; private set; } = null!;
 
+        [Output("transitEncryptionEnabled")]
+        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
+
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
 
@@ -238,6 +241,9 @@ namespace Pulumi.AwsNative.ElastiCache
             get => _tags ?? (_tags = new InputList<Inputs.CacheClusterTagArgs>());
             set => _tags = value;
         }
+
+        [Input("transitEncryptionEnabled")]
+        public Input<bool>? TransitEncryptionEnabled { get; set; }
 
         [Input("vpcSecurityGroupIds")]
         private InputList<string>? _vpcSecurityGroupIds;

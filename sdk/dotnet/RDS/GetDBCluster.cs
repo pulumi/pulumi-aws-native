@@ -90,9 +90,21 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? DBClusterParameterGroupName;
         /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB cluster.
+        /// </summary>
+        public readonly string? DBClusterResourceId;
+        /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         public readonly bool? DeletionProtection;
+        /// <summary>
+        /// The Active Directory directory ID to create the DB cluster in.
+        /// </summary>
+        public readonly string? Domain;
+        /// <summary>
+        /// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+        /// </summary>
+        public readonly string? DomainIAMRoleName;
         /// <summary>
         /// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         /// </summary>
@@ -137,6 +149,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? MonitoringRoleArn;
         /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        public readonly string? NetworkType;
+        /// <summary>
         /// A value that indicates whether to turn on Performance Insights for the DB cluster.
         /// </summary>
         public readonly bool? PerformanceInsightsEnabled;
@@ -170,6 +186,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly Outputs.DBClusterScalingConfiguration? ScalingConfiguration;
         /// <summary>
+        /// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+        /// </summary>
+        public readonly Outputs.DBClusterServerlessV2ScalingConfiguration? ServerlessV2ScalingConfiguration;
+        /// <summary>
         /// Specifies the storage type to be associated with the DB cluster.
         /// </summary>
         public readonly string? StorageType;
@@ -200,7 +220,13 @@ namespace Pulumi.AwsNative.RDS
 
             string? dBClusterParameterGroupName,
 
+            string? dBClusterResourceId,
+
             bool? deletionProtection,
+
+            string? domain,
+
+            string? domainIAMRoleName,
 
             ImmutableArray<string> enableCloudwatchLogsExports,
 
@@ -224,6 +250,8 @@ namespace Pulumi.AwsNative.RDS
 
             string? monitoringRoleArn,
 
+            string? networkType,
+
             bool? performanceInsightsEnabled,
 
             string? performanceInsightsKmsKeyId,
@@ -242,6 +270,8 @@ namespace Pulumi.AwsNative.RDS
 
             Outputs.DBClusterScalingConfiguration? scalingConfiguration,
 
+            Outputs.DBClusterServerlessV2ScalingConfiguration? serverlessV2ScalingConfiguration,
+
             string? storageType,
 
             ImmutableArray<Outputs.DBClusterTag> tags,
@@ -256,7 +286,10 @@ namespace Pulumi.AwsNative.RDS
             CopyTagsToSnapshot = copyTagsToSnapshot;
             DBClusterInstanceClass = dBClusterInstanceClass;
             DBClusterParameterGroupName = dBClusterParameterGroupName;
+            DBClusterResourceId = dBClusterResourceId;
             DeletionProtection = deletionProtection;
+            Domain = domain;
+            DomainIAMRoleName = domainIAMRoleName;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
             EnableHttpEndpoint = enableHttpEndpoint;
             EnableIAMDatabaseAuthentication = enableIAMDatabaseAuthentication;
@@ -268,6 +301,7 @@ namespace Pulumi.AwsNative.RDS
             MasterUsername = masterUsername;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
+            NetworkType = networkType;
             PerformanceInsightsEnabled = performanceInsightsEnabled;
             PerformanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
             PerformanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
@@ -277,6 +311,7 @@ namespace Pulumi.AwsNative.RDS
             ReadEndpoint = readEndpoint;
             ReplicationSourceIdentifier = replicationSourceIdentifier;
             ScalingConfiguration = scalingConfiguration;
+            ServerlessV2ScalingConfiguration = serverlessV2ScalingConfiguration;
             StorageType = storageType;
             Tags = tags;
             VpcSecurityGroupIds = vpcSecurityGroupIds;

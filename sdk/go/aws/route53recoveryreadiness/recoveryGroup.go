@@ -19,7 +19,7 @@ type RecoveryGroup struct {
 	// A collection of tags associated with a resource.
 	RecoveryGroupArn pulumi.StringOutput `pulumi:"recoveryGroupArn"`
 	// The name of the recovery group to create.
-	RecoveryGroupName pulumi.StringOutput `pulumi:"recoveryGroupName"`
+	RecoveryGroupName pulumi.StringPtrOutput `pulumi:"recoveryGroupName"`
 	// A collection of tags associated with a resource.
 	Tags RecoveryGroupTagArrayOutput `pulumi:"tags"`
 }
@@ -129,8 +129,8 @@ func (o RecoveryGroupOutput) RecoveryGroupArn() pulumi.StringOutput {
 }
 
 // The name of the recovery group to create.
-func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringOutput { return v.RecoveryGroupName }).(pulumi.StringOutput)
+func (o RecoveryGroupOutput) RecoveryGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecoveryGroup) pulumi.StringPtrOutput { return v.RecoveryGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A collection of tags associated with a resource.

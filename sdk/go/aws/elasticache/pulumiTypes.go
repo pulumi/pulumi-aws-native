@@ -1744,6 +1744,7 @@ func (o SecurityGroupTagArrayOutput) Index(i pulumi.IntInput) SecurityGroupTagOu
 	}).(SecurityGroupTagOutput)
 }
 
+// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1760,6 +1761,7 @@ type SubnetGroupTagInput interface {
 	ToSubnetGroupTagOutputWithContext(context.Context) SubnetGroupTagOutput
 }
 
+// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTagArgs struct {
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
@@ -1802,6 +1804,7 @@ func (i SubnetGroupTagArray) ToSubnetGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagArrayOutput)
 }
 
+// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (SubnetGroupTagOutput) ElementType() reflect.Type {

@@ -22,6 +22,10 @@ class DeploymentConfigArgs:
                  traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
+        :param pulumi.Input[str] compute_platform: The destination platform type for the deployment (Lambda, Server, or ECS).
+        :param pulumi.Input[str] deployment_config_name: A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: The configuration that specifies how the deployment traffic is routed.
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
@@ -35,6 +39,9 @@ class DeploymentConfigArgs:
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination platform type for the deployment (Lambda, Server, or ECS).
+        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -44,6 +51,9 @@ class DeploymentConfigArgs:
     @property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        """
         return pulumi.get(self, "deployment_config_name")
 
     @deployment_config_name.setter
@@ -53,6 +63,9 @@ class DeploymentConfigArgs:
     @property
     @pulumi.getter(name="minimumHealthyHosts")
     def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
+        """
+        The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
@@ -62,6 +75,9 @@ class DeploymentConfigArgs:
     @property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
+        """
+        The configuration that specifies how the deployment traffic is routed.
+        """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
@@ -69,12 +85,7 @@ class DeploymentConfigArgs:
         pulumi.set(self, "traffic_routing_config", value)
 
 
-warnings.warn("""DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class DeploymentConfig(pulumi.CustomResource):
-    warnings.warn("""DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -89,6 +100,10 @@ class DeploymentConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] compute_platform: The destination platform type for the deployment (Lambda, Server, or ECS).
+        :param pulumi.Input[str] deployment_config_name: A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']] minimum_healthy_hosts: The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']] traffic_routing_config: The configuration that specifies how the deployment traffic is routed.
         """
         ...
     @overload
@@ -119,7 +134,6 @@ class DeploymentConfig(pulumi.CustomResource):
                  minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']]] = None,
                  traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""DeploymentConfig is deprecated: DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -163,20 +177,32 @@ class DeploymentConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[Optional[str]]:
+        """
+        The destination platform type for the deployment (Lambda, Server, or ECS).
+        """
         return pulumi.get(self, "compute_platform")
 
     @property
     @pulumi.getter(name="deploymentConfigName")
     def deployment_config_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        """
         return pulumi.get(self, "deployment_config_name")
 
     @property
     @pulumi.getter(name="minimumHealthyHosts")
     def minimum_healthy_hosts(self) -> pulumi.Output[Optional['outputs.DeploymentConfigMinimumHealthyHosts']]:
+        """
+        The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> pulumi.Output[Optional['outputs.DeploymentConfigTrafficRoutingConfig']]:
+        """
+        The configuration that specifies how the deployment traffic is routed.
+        """
         return pulumi.get(self, "traffic_routing_config")
 

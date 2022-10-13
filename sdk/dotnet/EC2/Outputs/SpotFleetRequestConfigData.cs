@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly Outputs.SpotFleetSpotMaintenanceStrategies? SpotMaintenanceStrategies;
         public readonly string? SpotMaxTotalPrice;
         public readonly string? SpotPrice;
+        public readonly ImmutableArray<Outputs.SpotFleetTagSpecification> TagSpecifications;
         public readonly int TargetCapacity;
         public readonly Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataTargetCapacityUnitType? TargetCapacityUnitType;
         public readonly bool? TerminateInstancesWithExpiration;
@@ -70,6 +71,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? spotPrice,
 
+            ImmutableArray<Outputs.SpotFleetTagSpecification> tagSpecifications,
+
             int targetCapacity,
 
             Pulumi.AwsNative.EC2.SpotFleetRequestConfigDataTargetCapacityUnitType? targetCapacityUnitType,
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             SpotMaintenanceStrategies = spotMaintenanceStrategies;
             SpotMaxTotalPrice = spotMaxTotalPrice;
             SpotPrice = spotPrice;
+            TagSpecifications = tagSpecifications;
             TargetCapacity = targetCapacity;
             TargetCapacityUnitType = targetCapacityUnitType;
             TerminateInstancesWithExpiration = terminateInstancesWithExpiration;

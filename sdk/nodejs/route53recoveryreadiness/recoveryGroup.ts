@@ -48,7 +48,7 @@ export class RecoveryGroup extends pulumi.CustomResource {
     /**
      * The name of the recovery group to create.
      */
-    public readonly recoveryGroupName!: pulumi.Output<string>;
+    public readonly recoveryGroupName!: pulumi.Output<string | undefined>;
     /**
      * A collection of tags associated with a resource.
      */

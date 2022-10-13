@@ -16,12 +16,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public Input<string> Key { get; set; } = null!;
 
         [Input("value", required: true)]
-        private InputList<string>? _value;
-        public InputList<string> Value
-        {
-            get => _value ?? (_value = new InputList<string>());
-            set => _value = value;
-        }
+        public Input<string> Value { get; set; } = null!;
 
         public CellTagArgs()
         {

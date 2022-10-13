@@ -21,14 +21,16 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 }
 
 type LookupSubnetGroupArgs struct {
-	Id string `pulumi:"id"`
+	// The name for the cache subnet group. This value is stored as a lowercase string.
+	CacheSubnetGroupName string `pulumi:"cacheSubnetGroupName"`
 }
 
 type LookupSubnetGroupResult struct {
-	Description *string          `pulumi:"description"`
-	Id          *string          `pulumi:"id"`
-	SubnetIds   []string         `pulumi:"subnetIds"`
-	Tags        []SubnetGroupTag `pulumi:"tags"`
+	// The description for the cache subnet group.
+	Description *string `pulumi:"description"`
+	// The EC2 subnet IDs for the cache subnet group.
+	SubnetIds []string         `pulumi:"subnetIds"`
+	Tags      []SubnetGroupTag `pulumi:"tags"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
@@ -45,7 +47,8 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 }
 
 type LookupSubnetGroupOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name for the cache subnet group. This value is stored as a lowercase string.
+	CacheSubnetGroupName pulumi.StringInput `pulumi:"cacheSubnetGroupName"`
 }
 
 func (LookupSubnetGroupOutputArgs) ElementType() reflect.Type {
@@ -66,14 +69,12 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 	return o
 }
 
+// The description for the cache subnet group.
 func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The EC2 subnet IDs for the cache subnet group.
 func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

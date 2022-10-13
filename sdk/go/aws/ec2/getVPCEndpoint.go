@@ -25,15 +25,20 @@ type LookupVPCEndpointArgs struct {
 }
 
 type LookupVPCEndpointResult struct {
-	CreationTimestamp   *string     `pulumi:"creationTimestamp"`
-	DnsEntries          []string    `pulumi:"dnsEntries"`
-	Id                  *string     `pulumi:"id"`
-	NetworkInterfaceIds []string    `pulumi:"networkInterfaceIds"`
-	PolicyDocument      interface{} `pulumi:"policyDocument"`
-	PrivateDnsEnabled   *bool       `pulumi:"privateDnsEnabled"`
-	RouteTableIds       []string    `pulumi:"routeTableIds"`
-	SecurityGroupIds    []string    `pulumi:"securityGroupIds"`
-	SubnetIds           []string    `pulumi:"subnetIds"`
+	CreationTimestamp   *string  `pulumi:"creationTimestamp"`
+	DnsEntries          []string `pulumi:"dnsEntries"`
+	Id                  *string  `pulumi:"id"`
+	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
+	// A policy to attach to the endpoint that controls access to the service.
+	PolicyDocument *string `pulumi:"policyDocument"`
+	// Indicate whether to associate a private hosted zone with the specified VPC.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
+	// One or more route table IDs.
+	RouteTableIds []string `pulumi:"routeTableIds"`
+	// The ID of one or more security groups to associate with the endpoint network interface.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of one or more subnets in which to create an endpoint network interface.
+	SubnetIds []string `pulumi:"subnetIds"`
 }
 
 func LookupVPCEndpointOutput(ctx *pulumi.Context, args LookupVPCEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVPCEndpointResultOutput {
@@ -87,22 +92,27 @@ func (o LookupVPCEndpointResultOutput) NetworkInterfaceIds() pulumi.StringArrayO
 	return o.ApplyT(func(v LookupVPCEndpointResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupVPCEndpointResultOutput) PolicyDocument() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupVPCEndpointResult) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
+// A policy to attach to the endpoint that controls access to the service.
+func (o LookupVPCEndpointResultOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVPCEndpointResult) *string { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
+// Indicate whether to associate a private hosted zone with the specified VPC.
 func (o LookupVPCEndpointResultOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVPCEndpointResult) *bool { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// One or more route table IDs.
 func (o LookupVPCEndpointResultOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPCEndpointResult) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of one or more security groups to associate with the endpoint network interface.
 func (o LookupVPCEndpointResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPCEndpointResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of one or more subnets in which to create an endpoint network interface.
 func (o LookupVPCEndpointResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVPCEndpointResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }

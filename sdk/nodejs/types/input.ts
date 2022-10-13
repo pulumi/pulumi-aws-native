@@ -5879,6 +5879,14 @@ export namespace cloudfront {
         name: pulumi.Input<string>;
     }
 
+    export interface MonitoringSubscriptionArgs {
+        realtimeMetricsSubscriptionConfig?: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs>;
+    }
+
+    export interface MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs {
+        realtimeMetricsSubscriptionStatus: pulumi.Input<enums.cloudfront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus>;
+    }
+
     export interface OriginAccessControlConfigArgs {
         description?: pulumi.Input<string>;
         name: pulumi.Input<string>;
@@ -8912,6 +8920,14 @@ export namespace dlm {
         name: pulumi.Input<string>;
     }
 
+    export interface LifecyclePolicyArchiveRetainRuleArgs {
+        retentionArchiveTier: pulumi.Input<inputs.dlm.LifecyclePolicyRetentionArchiveTierArgs>;
+    }
+
+    export interface LifecyclePolicyArchiveRuleArgs {
+        retainRule: pulumi.Input<inputs.dlm.LifecyclePolicyArchiveRetainRuleArgs>;
+    }
+
     export interface LifecyclePolicyCreateRuleArgs {
         cronExpression?: pulumi.Input<string>;
         interval?: pulumi.Input<number>;
@@ -8998,7 +9014,14 @@ export namespace dlm {
         intervalUnit?: pulumi.Input<string>;
     }
 
+    export interface LifecyclePolicyRetentionArchiveTierArgs {
+        count?: pulumi.Input<number>;
+        interval?: pulumi.Input<number>;
+        intervalUnit?: pulumi.Input<string>;
+    }
+
     export interface LifecyclePolicyScheduleArgs {
+        archiveRule?: pulumi.Input<inputs.dlm.LifecyclePolicyArchiveRuleArgs>;
         copyTags?: pulumi.Input<boolean>;
         createRule?: pulumi.Input<inputs.dlm.LifecyclePolicyCreateRuleArgs>;
         crossRegionCopyRules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyCrossRegionCopyRuleArgs>[]>;
@@ -10557,6 +10580,7 @@ export namespace ec2 {
         spotMaintenanceStrategies?: pulumi.Input<inputs.ec2.SpotFleetSpotMaintenanceStrategiesArgs>;
         spotMaxTotalPrice?: pulumi.Input<string>;
         spotPrice?: pulumi.Input<string>;
+        tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetTagSpecificationArgs>[]>;
         targetCapacity: pulumi.Input<number>;
         targetCapacityUnitType?: pulumi.Input<enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType>;
         terminateInstancesWithExpiration?: pulumi.Input<boolean>;
@@ -11430,6 +11454,20 @@ export namespace eks {
         clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
     }
 
+    /**
+     * An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+     */
+    export interface ClusterOutpostConfigArgs {
+        /**
+         * Specify the Instance type of the machines that should be used to create your cluster.
+         */
+        controlPlaneInstanceType: pulumi.Input<string>;
+        /**
+         * Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+         */
+        outpostArns: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ClusterProviderArgs {
         /**
          * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
@@ -11729,6 +11767,9 @@ export namespace elasticache {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+     */
     export interface SubnetGroupTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -11789,7 +11830,13 @@ export namespace elasticbeanstalk {
     }
 
     export interface ApplicationVersionSourceBundleArgs {
+        /**
+         * The Amazon S3 bucket where the data is located.
+         */
         s3Bucket: pulumi.Input<string>;
+        /**
+         * The Amazon S3 key where the data is located.
+         */
         s3Key: pulumi.Input<string>;
     }
 
@@ -13070,6 +13117,11 @@ export namespace evidently {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ProjectAppConfigResourceObjectArgs {
+        applicationId: pulumi.Input<string>;
+        environmentId: pulumi.Input<string>;
     }
 
     /**
@@ -14437,6 +14489,11 @@ export namespace glue {
         state?: pulumi.Input<string>;
     }
 
+    export interface TriggerEventBatchingConditionArgs {
+        batchSize: pulumi.Input<number>;
+        batchWindow?: pulumi.Input<number>;
+    }
+
     export interface TriggerNotificationPropertyArgs {
         notifyDelayAfter?: pulumi.Input<number>;
     }
@@ -14804,6 +14861,56 @@ export namespace greengrassv2 {
         permission?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaFilesystemPermission>;
         sourcePath?: pulumi.Input<string>;
     }
+
+    export interface DeploymentComponentUpdatePolicyArgs {
+        action?: pulumi.Input<enums.greengrassv2.DeploymentComponentUpdatePolicyAction>;
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface DeploymentConfigurationValidationPolicyArgs {
+        timeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface DeploymentIoTJobAbortConfigArgs {
+        criteriaList: pulumi.Input<pulumi.Input<inputs.greengrassv2.DeploymentIoTJobAbortCriteriaArgs>[]>;
+    }
+
+    export interface DeploymentIoTJobAbortCriteriaArgs {
+        action: pulumi.Input<enums.greengrassv2.DeploymentIoTJobAbortCriteriaAction>;
+        failureType: pulumi.Input<enums.greengrassv2.DeploymentIoTJobAbortCriteriaFailureType>;
+        minNumberOfExecutedThings: pulumi.Input<number>;
+        thresholdPercentage: pulumi.Input<number>;
+    }
+
+    export interface DeploymentIoTJobConfigurationArgs {
+        abortConfig?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobAbortConfigArgs>;
+        jobExecutionsRolloutConfig?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobExecutionsRolloutConfigArgs>;
+        timeoutConfig?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobTimeoutConfigArgs>;
+    }
+
+    export interface DeploymentIoTJobExecutionsRolloutConfigArgs {
+        exponentialRate?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobExponentialRolloutRateArgs>;
+        maximumPerMinute?: pulumi.Input<number>;
+    }
+
+    export interface DeploymentIoTJobExponentialRolloutRateArgs {
+        baseRatePerMinute: pulumi.Input<number>;
+        incrementFactor: pulumi.Input<number>;
+        rateIncreaseCriteria: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobRateIncreaseCriteriaArgs>;
+    }
+
+    export interface DeploymentIoTJobRateIncreaseCriteriaArgs {
+    }
+
+    export interface DeploymentIoTJobTimeoutConfigArgs {
+        inProgressTimeoutInMinutes?: pulumi.Input<number>;
+    }
+
+    export interface DeploymentPoliciesArgs {
+        componentUpdatePolicy?: pulumi.Input<inputs.greengrassv2.DeploymentComponentUpdatePolicyArgs>;
+        configurationValidationPolicy?: pulumi.Input<inputs.greengrassv2.DeploymentConfigurationValidationPolicyArgs>;
+        failureHandlingPolicy?: pulumi.Input<enums.greengrassv2.DeploymentPoliciesFailureHandlingPolicy>;
+    }
 }
 
 export namespace groundstation {
@@ -15151,6 +15258,11 @@ export namespace iam {
     }
 }
 
+export namespace identitystore {
+    export interface GroupMembershipMemberIdArgs {
+    }
+}
+
 export namespace imagebuilder {
     /**
      * Configuration details of the component.
@@ -15160,6 +15272,24 @@ export namespace imagebuilder {
          * The Amazon Resource Name (ARN) of the component.
          */
         componentArn?: pulumi.Input<string>;
+        /**
+         * A group of parameter settings that are used to configure the component for a specific recipe.
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentParameterArgs>[]>;
+    }
+
+    /**
+     * Contains a key/value pair that sets the named component parameter.
+     */
+    export interface ContainerRecipeComponentParameterArgs {
+        /**
+         * The name of the component parameter to set.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Sets the value for the named component parameter.
+         */
+        value: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -17582,6 +17712,126 @@ export namespace iotfleethub {
     }
 }
 
+export namespace iotfleetwise {
+    export interface CampaignCollectionSchemeArgs {
+    }
+
+    export interface CampaignSignalInformationArgs {
+        maxSampleCount?: pulumi.Input<number>;
+        minimumSamplingIntervalMs?: pulumi.Input<number>;
+        name: pulumi.Input<string>;
+    }
+
+    export interface CampaignTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface DecoderManifestCanInterfaceArgs {
+        name: pulumi.Input<string>;
+        protocolName?: pulumi.Input<string>;
+        protocolVersion?: pulumi.Input<string>;
+    }
+
+    export interface DecoderManifestCanNetworkInterfaceArgs {
+        canInterface: pulumi.Input<inputs.iotfleetwise.DecoderManifestCanInterfaceArgs>;
+        interfaceId: pulumi.Input<string>;
+        type: pulumi.Input<enums.iotfleetwise.DecoderManifestCanNetworkInterfaceType>;
+    }
+
+    export interface DecoderManifestCanSignalArgs {
+        factor: pulumi.Input<number>;
+        isBigEndian: pulumi.Input<boolean>;
+        isSigned: pulumi.Input<boolean>;
+        length: pulumi.Input<number>;
+        messageId: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        offset: pulumi.Input<number>;
+        startBit: pulumi.Input<number>;
+    }
+
+    export interface DecoderManifestCanSignalDecoderArgs {
+        canSignal: pulumi.Input<inputs.iotfleetwise.DecoderManifestCanSignalArgs>;
+        fullyQualifiedName: pulumi.Input<string>;
+        interfaceId: pulumi.Input<string>;
+        type: pulumi.Input<enums.iotfleetwise.DecoderManifestCanSignalDecoderType>;
+    }
+
+    export interface DecoderManifestObdInterfaceArgs {
+        dtcRequestIntervalSeconds?: pulumi.Input<number>;
+        hasTransmissionEcu?: pulumi.Input<boolean>;
+        name: pulumi.Input<string>;
+        obdStandard?: pulumi.Input<string>;
+        pidRequestIntervalSeconds?: pulumi.Input<number>;
+        requestMessageId: pulumi.Input<number>;
+        useExtendedIds?: pulumi.Input<boolean>;
+    }
+
+    export interface DecoderManifestObdNetworkInterfaceArgs {
+        interfaceId: pulumi.Input<string>;
+        obdInterface: pulumi.Input<inputs.iotfleetwise.DecoderManifestObdInterfaceArgs>;
+        type: pulumi.Input<enums.iotfleetwise.DecoderManifestObdNetworkInterfaceType>;
+    }
+
+    export interface DecoderManifestObdSignalArgs {
+        bitMaskLength?: pulumi.Input<number>;
+        bitRightShift?: pulumi.Input<number>;
+        byteLength: pulumi.Input<number>;
+        offset: pulumi.Input<number>;
+        pid: pulumi.Input<number>;
+        pidResponseLength: pulumi.Input<number>;
+        scaling: pulumi.Input<number>;
+        serviceMode: pulumi.Input<number>;
+        startByte: pulumi.Input<number>;
+    }
+
+    export interface DecoderManifestObdSignalDecoderArgs {
+        fullyQualifiedName: pulumi.Input<string>;
+        interfaceId: pulumi.Input<string>;
+        obdSignal: pulumi.Input<inputs.iotfleetwise.DecoderManifestObdSignalArgs>;
+        type: pulumi.Input<enums.iotfleetwise.DecoderManifestObdSignalDecoderType>;
+    }
+
+    export interface DecoderManifestTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface FleetTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ModelManifestTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface SignalCatalogNodeArgs {
+    }
+
+    export interface SignalCatalogNodeCountsArgs {
+        totalActuators?: pulumi.Input<number>;
+        totalAttributes?: pulumi.Input<number>;
+        totalBranches?: pulumi.Input<number>;
+        totalNodes?: pulumi.Input<number>;
+        totalSensors?: pulumi.Input<number>;
+    }
+
+    export interface SignalCatalogTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface VehicleTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface VehicleattributesMapArgs {
+    }
+}
+
 export namespace iotsitewise {
     /**
      * Contains information for an IAM role identity in an access policy.
@@ -17825,7 +18075,7 @@ export namespace iotsitewise {
     }
 
     /**
-     * The asset property's definition, alias, and notification state.
+     * The asset property's definition, alias, unit, and notification state.
      */
     export interface AssetPropertyArgs {
         /**
@@ -17840,6 +18090,10 @@ export namespace iotsitewise {
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
         notificationState?: pulumi.Input<enums.iotsitewise.AssetPropertyNotificationState>;
+        /**
+         * The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+         */
+        unit?: pulumi.Input<string>;
     }
 
     export interface AssetTagArgs {
@@ -17941,6 +18195,7 @@ export namespace iotwireless {
     export interface DeviceProfileLoRaWANDeviceProfileArgs {
         classBTimeout?: pulumi.Input<number>;
         classCTimeout?: pulumi.Input<number>;
+        factoryPresetFreqsList?: pulumi.Input<pulumi.Input<number>[]>;
         macVersion?: pulumi.Input<string>;
         maxDutyCycle?: pulumi.Input<number>;
         maxEirp?: pulumi.Input<number>;
@@ -17949,6 +18204,10 @@ export namespace iotwireless {
         pingSlotPeriod?: pulumi.Input<number>;
         regParamsRevision?: pulumi.Input<string>;
         rfRegion?: pulumi.Input<string>;
+        rxDataRate2?: pulumi.Input<number>;
+        rxDelay1?: pulumi.Input<number>;
+        rxDrOffset1?: pulumi.Input<number>;
+        rxFreq2?: pulumi.Input<number>;
         supports32BitFCnt?: pulumi.Input<boolean>;
         supportsClassB?: pulumi.Input<boolean>;
         supportsClassC?: pulumi.Input<boolean>;
@@ -22221,6 +22480,12 @@ export namespace lookoutmetrics {
 }
 
 export namespace m2 {
+    export interface ApplicationDefinitionArgs {
+    }
+
+    export interface ApplicationTagMapArgs {
+    }
+
     /**
      * Defines the details of a high availability configuration.
      */
@@ -23742,6 +24007,10 @@ export namespace mediapackage {
          * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
          */
         constantInitializationVector?: pulumi.Input<string>;
+        /**
+         * The encryption method used
+         */
+        encryptionMethod?: pulumi.Input<enums.mediapackage.OriginEndpointCmafEncryptionEncryptionMethod>;
         /**
          * Time (in seconds) between each encryption key rotation.
          */
@@ -27322,6 +27591,20 @@ export namespace rds {
     }
 
     /**
+     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     */
+    export interface DBClusterServerlessV2ScalingConfigurationArgs {
+        /**
+         * The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+         */
+        maxCapacity?: pulumi.Input<number>;
+        /**
+         * The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+         */
+        minCapacity?: pulumi.Input<number>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface DBClusterTagArgs {
@@ -27410,7 +27693,7 @@ export namespace rds {
          */
         description?: pulumi.Input<string>;
         /**
-         * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+         * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
          */
         iAMAuth?: pulumi.Input<enums.rds.DBProxyAuthFormatIAMAuth>;
         /**
@@ -27567,12 +27850,27 @@ export namespace redshift {
     }
 
     export interface ClusterParameterGroupParameterArgs {
+        /**
+         * The name of the parameter.
+         */
         parameterName: pulumi.Input<string>;
+        /**
+         * The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+         */
         parameterValue: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ClusterParameterGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -27581,8 +27879,17 @@ export namespace redshift {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ClusterSubnetGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -27598,6 +27905,42 @@ export namespace redshift {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes a network interface.
+     */
+    export interface EndpointAccessNetworkInterfaceArgs {
+        /**
+         * The Availability Zone.
+         */
+        availabilityZone?: pulumi.Input<string>;
+        /**
+         * The network interface identifier.
+         */
+        networkInterfaceId?: pulumi.Input<string>;
+        /**
+         * The IPv4 address of the network interface within the subnet.
+         */
+        privateIpAddress?: pulumi.Input<string>;
+        /**
+         * The subnet identifier.
+         */
+        subnetId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the members of a VPC security group.
+     */
+    export interface EndpointAccessVpcSecurityGroupArgs {
+        /**
+         * The status of the VPC security group.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * The identifier of the VPC security group.
+         */
+        vpcSecurityGroupId?: pulumi.Input<string>;
     }
 
     /**
@@ -27617,6 +27960,23 @@ export namespace redshift {
     export interface ScheduledActionTypeArgs {
     }
 
+    /**
+     * The connection endpoint for connecting to an Amazon Redshift cluster through the proxy.
+     */
+    export interface VpcEndpointPropertiesArgs {
+        /**
+         * One or more network interfaces of the endpoint. Also known as an interface endpoint.
+         */
+        networkInterfaces?: pulumi.Input<pulumi.Input<inputs.redshift.EndpointAccessNetworkInterfaceArgs>[]>;
+        /**
+         * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+         */
+        vpcEndpointId?: pulumi.Input<string>;
+        /**
+         * The VPC identifier that the endpoint is associated.
+         */
+        vpcId?: pulumi.Input<string>;
+    }
 }
 
 export namespace redshiftserverless {
@@ -28289,17 +28649,17 @@ export namespace route53recoverycontrol {
 export namespace route53recoveryreadiness {
     export interface CellTagArgs {
         key: pulumi.Input<string>;
-        value: pulumi.Input<pulumi.Input<string>[]>;
+        value: pulumi.Input<string>;
     }
 
     export interface ReadinessCheckTagArgs {
         key: pulumi.Input<string>;
-        value: pulumi.Input<pulumi.Input<string>[]>;
+        value: pulumi.Input<string>;
     }
 
     export interface RecoveryGroupTagArgs {
         key: pulumi.Input<string>;
-        value: pulumi.Input<pulumi.Input<string>[]>;
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -28370,7 +28730,7 @@ export namespace route53recoveryreadiness {
 
     export interface ResourceSetTagArgs {
         key: pulumi.Input<string>;
-        value: pulumi.Input<pulumi.Input<string>[]>;
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -29286,7 +29646,6 @@ export namespace s3 {
     }
 
     export interface MultiRegionAccessPointRegionArgs {
-        accountId?: pulumi.Input<string>;
         bucket: pulumi.Input<string>;
     }
 
@@ -30121,6 +30480,51 @@ export namespace sagemaker {
         captureMode: pulumi.Input<string>;
     }
 
+    export interface EndpointConfigClarifyExplainerConfigArgs {
+        enableExplanations?: pulumi.Input<string>;
+        inferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyInferenceConfigArgs>;
+        shapConfig: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyShapConfigArgs>;
+    }
+
+    export interface EndpointConfigClarifyFeatureTypeArgs {
+    }
+
+    export interface EndpointConfigClarifyHeaderArgs {
+    }
+
+    export interface EndpointConfigClarifyInferenceConfigArgs {
+        contentTemplate?: pulumi.Input<string>;
+        featureHeaders?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigClarifyHeaderArgs>[]>;
+        featureTypes?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigClarifyFeatureTypeArgs>[]>;
+        featuresAttribute?: pulumi.Input<string>;
+        labelAttribute?: pulumi.Input<string>;
+        labelHeaders?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigClarifyHeaderArgs>[]>;
+        labelIndex?: pulumi.Input<number>;
+        maxPayloadInMB?: pulumi.Input<number>;
+        maxRecordCount?: pulumi.Input<number>;
+        probabilityAttribute?: pulumi.Input<string>;
+        probabilityIndex?: pulumi.Input<number>;
+    }
+
+    export interface EndpointConfigClarifyShapBaselineConfigArgs {
+        mimeType?: pulumi.Input<string>;
+        shapBaseline?: pulumi.Input<string>;
+        shapBaselineUri?: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigClarifyShapConfigArgs {
+        numberOfSamples?: pulumi.Input<number>;
+        seed?: pulumi.Input<number>;
+        shapBaselineConfig: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyShapBaselineConfigArgs>;
+        textConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyTextConfigArgs>;
+        useLogit?: pulumi.Input<boolean>;
+    }
+
+    export interface EndpointConfigClarifyTextConfigArgs {
+        granularity: pulumi.Input<string>;
+        language: pulumi.Input<string>;
+    }
+
     export interface EndpointConfigDataCaptureConfigArgs {
         captureContentTypeHeader?: pulumi.Input<inputs.sagemaker.EndpointConfigCaptureContentTypeHeaderArgs>;
         captureOptions: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigCaptureOptionArgs>[]>;
@@ -30130,14 +30534,21 @@ export namespace sagemaker {
         kmsKeyId?: pulumi.Input<string>;
     }
 
+    export interface EndpointConfigExplainerConfigArgs {
+        clarifyExplainerConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyExplainerConfigArgs>;
+    }
+
     export interface EndpointConfigProductionVariantArgs {
         acceleratorType?: pulumi.Input<string>;
+        containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
         initialInstanceCount?: pulumi.Input<number>;
         initialVariantWeight: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
+        modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
         modelName: pulumi.Input<string>;
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigServerlessConfigArgs>;
         variantName: pulumi.Input<string>;
+        volumeSizeInGB?: pulumi.Input<number>;
     }
 
     export interface EndpointConfigServerlessConfigArgs {
@@ -33118,6 +33529,100 @@ export namespace timestream {
 }
 
 export namespace transfer {
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface AgreementTagArgs {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for an AS2 connector.
+     */
+    export interface As2ConfigPropertiesArgs {
+        /**
+         * Compression setting for this AS2 connector configuration.
+         */
+        compression?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesCompression>;
+        /**
+         * Encryption algorithm for this AS2 connector configuration.
+         */
+        encryptionAlgorithm?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesEncryptionAlgorithm>;
+        /**
+         * A unique identifier for the local profile.
+         */
+        localProfileId?: pulumi.Input<string>;
+        /**
+         * MDN Response setting for this AS2 connector configuration.
+         */
+        mdnResponse?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesMdnResponse>;
+        /**
+         * MDN Signing algorithm for this AS2 connector configuration.
+         */
+        mdnSigningAlgorithm?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesMdnSigningAlgorithm>;
+        /**
+         * The message subject for this AS2 connector configuration.
+         */
+        messageSubject?: pulumi.Input<string>;
+        /**
+         * A unique identifier for the partner profile.
+         */
+        partnerProfileId?: pulumi.Input<string>;
+        /**
+         * Signing algorithm for this AS2 connector configuration.
+         */
+        signingAlgorithm?: pulumi.Input<enums.transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface ConnectorTagArgs {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface ProfileTagArgs {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface ServerAs2TransportArgs {
     }
 

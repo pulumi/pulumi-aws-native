@@ -44,7 +44,7 @@
       "description" : "Resolve parameter value conflicts",
       "type" : "string",
       "minLength" : 1,
-      "enum" : [ "NONE", "OVERWRITE" ]
+      "enum" : [ "NONE", "OVERWRITE", "PRESERVE" ]
     },
     "ServiceAccountRoleArn" : {
       "description" : "IAM role to bind to the add-on's service account",

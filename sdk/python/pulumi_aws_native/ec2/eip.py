@@ -23,6 +23,11 @@ class EIPArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EIPTagArgs']]]] = None):
         """
         The set of arguments for constructing a EIP resource.
+        :param pulumi.Input[str] domain: Indicates whether the Elastic IP address is for use with instances in a VPC or instance in EC2-Classic.
+        :param pulumi.Input[str] instance_id: The ID of the instance.
+        :param pulumi.Input[str] network_border_group: A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises IP addresses.
+        :param pulumi.Input[str] public_ipv4_pool: The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
+        :param pulumi.Input[Sequence[pulumi.Input['EIPTagArgs']]] tags: Any tags assigned to the EIP.
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
@@ -38,6 +43,9 @@ class EIPArgs:
     @property
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether the Elastic IP address is for use with instances in a VPC or instance in EC2-Classic.
+        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -47,6 +55,9 @@ class EIPArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -56,6 +67,9 @@ class EIPArgs:
     @property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises IP addresses.
+        """
         return pulumi.get(self, "network_border_group")
 
     @network_border_group.setter
@@ -65,6 +79,9 @@ class EIPArgs:
     @property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
+        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @public_ipv4_pool.setter
@@ -74,6 +91,9 @@ class EIPArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EIPTagArgs']]]]:
+        """
+        Any tags assigned to the EIP.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -81,12 +101,7 @@ class EIPArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class EIP(pulumi.CustomResource):
-    warnings.warn("""EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -102,6 +117,11 @@ class EIP(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain: Indicates whether the Elastic IP address is for use with instances in a VPC or instance in EC2-Classic.
+        :param pulumi.Input[str] instance_id: The ID of the instance.
+        :param pulumi.Input[str] network_border_group: A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises IP addresses.
+        :param pulumi.Input[str] public_ipv4_pool: The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EIPTagArgs']]]] tags: Any tags assigned to the EIP.
         """
         ...
     @overload
@@ -133,7 +153,6 @@ class EIP(pulumi.CustomResource):
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EIPTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""EIP is deprecated: EIP is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -148,6 +167,7 @@ class EIP(pulumi.CustomResource):
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocation_id"] = None
+            __props__.__dict__["public_ip"] = None
         super(EIP, __self__).__init__(
             'aws-native:ec2:EIP',
             resource_name,
@@ -174,6 +194,7 @@ class EIP(pulumi.CustomResource):
         __props__.__dict__["domain"] = None
         __props__.__dict__["instance_id"] = None
         __props__.__dict__["network_border_group"] = None
+        __props__.__dict__["public_ip"] = None
         __props__.__dict__["public_ipv4_pool"] = None
         __props__.__dict__["tags"] = None
         return EIP(resource_name, opts=opts, __props__=__props__)
@@ -181,30 +202,56 @@ class EIP(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> pulumi.Output[str]:
+        """
+        The Allocation ID of the EIP generated by resource.
+        """
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether the Elastic IP address is for use with instances in a VPC or instance in EC2-Classic.
+        """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the instance.
+        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises IP addresses.
+        """
         return pulumi.get(self, "network_border_group")
+
+    @property
+    @pulumi.getter(name="publicIp")
+    def public_ip(self) -> pulumi.Output[str]:
+        """
+        The PublicIP of the EIP generated by resource.
+        """
+        return pulumi.get(self, "public_ip")
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
+        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EIPTag']]]:
+        """
+        Any tags assigned to the EIP.
+        """
         return pulumi.get(self, "tags")
 

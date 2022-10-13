@@ -32,7 +32,7 @@ type LookupPhoneNumberResult struct {
 	PhoneNumberArn *string `pulumi:"phoneNumberArn"`
 	// One or more tags.
 	Tags []PhoneNumberTag `pulumi:"tags"`
-	// The ARN of the Amazon Connect instance the phone number is claimed to.
+	// The ARN of the target the phone number is claimed to.
 	TargetArn *string `pulumi:"targetArn"`
 }
 
@@ -87,7 +87,7 @@ func (o LookupPhoneNumberResultOutput) Tags() PhoneNumberTagArrayOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) []PhoneNumberTag { return v.Tags }).(PhoneNumberTagArrayOutput)
 }
 
-// The ARN of the Amazon Connect instance the phone number is claimed to.
+// The ARN of the target the phone number is claimed to.
 func (o LookupPhoneNumberResultOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPhoneNumberResult) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
 }

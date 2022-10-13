@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.Glue
         public readonly object? DefaultRunProperties;
         public readonly string? Description;
         public readonly string? Id;
+        public readonly int? MaxConcurrentRuns;
         public readonly object? Tags;
 
         [OutputConstructor]
@@ -64,11 +65,14 @@ namespace Pulumi.AwsNative.Glue
 
             string? id,
 
+            int? maxConcurrentRuns,
+
             object? tags)
         {
             DefaultRunProperties = defaultRunProperties;
             Description = description;
             Id = id;
+            MaxConcurrentRuns = maxConcurrentRuns;
             Tags = tags;
         }
     }

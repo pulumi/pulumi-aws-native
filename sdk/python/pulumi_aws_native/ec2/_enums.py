@@ -58,6 +58,7 @@ __all__ = [
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
+    'VPCEndpointVpcEndpointType',
 ]
 
 
@@ -492,3 +493,9 @@ class SpotFleetTagSpecificationResourceType(str, Enum):
     VPC_PEERING_CONNECTION = "vpc-peering-connection"
     VPN_CONNECTION = "vpn-connection"
     VPN_GATEWAY = "vpn-gateway"
+
+
+class VPCEndpointVpcEndpointType(str, Enum):
+    INTERFACE = "Interface"
+    GATEWAY = "Gateway"
+    GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"

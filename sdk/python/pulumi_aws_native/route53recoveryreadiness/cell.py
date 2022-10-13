@@ -167,7 +167,7 @@ class Cell(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cellName")
-    def cell_name(self) -> pulumi.Output[str]:
+    def cell_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the cell to create.
         """

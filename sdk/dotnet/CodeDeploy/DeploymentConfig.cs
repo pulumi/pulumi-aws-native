@@ -12,19 +12,30 @@ namespace Pulumi.AwsNative.CodeDeploy
     /// <summary>
     /// Resource Type definition for AWS::CodeDeploy::DeploymentConfig
     /// </summary>
-    [Obsolete(@"DeploymentConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codedeploy:DeploymentConfig")]
     public partial class DeploymentConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The destination platform type for the deployment (Lambda, Server, or ECS).
+        /// </summary>
         [Output("computePlatform")]
         public Output<string?> ComputePlatform { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        /// </summary>
         [Output("deploymentConfigName")]
         public Output<string?> DeploymentConfigName { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        /// </summary>
         [Output("minimumHealthyHosts")]
         public Output<Outputs.DeploymentConfigMinimumHealthyHosts?> MinimumHealthyHosts { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that specifies how the deployment traffic is routed.
+        /// </summary>
         [Output("trafficRoutingConfig")]
         public Output<Outputs.DeploymentConfigTrafficRoutingConfig?> TrafficRoutingConfig { get; private set; } = null!;
 
@@ -73,15 +84,27 @@ namespace Pulumi.AwsNative.CodeDeploy
 
     public sealed class DeploymentConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The destination platform type for the deployment (Lambda, Server, or ECS).
+        /// </summary>
         [Input("computePlatform")]
         public Input<string>? ComputePlatform { get; set; }
 
+        /// <summary>
+        /// A name for the deployment configuration. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment configuration name. For more information, see Name Type.
+        /// </summary>
         [Input("deploymentConfigName")]
         public Input<string>? DeploymentConfigName { get; set; }
 
+        /// <summary>
+        /// The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
+        /// </summary>
         [Input("minimumHealthyHosts")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsArgs>? MinimumHealthyHosts { get; set; }
 
+        /// <summary>
+        /// The configuration that specifies how the deployment traffic is routed.
+        /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigArgs>? TrafficRoutingConfig { get; set; }
 

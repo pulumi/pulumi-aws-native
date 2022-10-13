@@ -30,6 +30,7 @@ export interface GetCACertificateResult {
     readonly autoRegistrationStatus?: enums.iot.CACertificateAutoRegistrationStatus;
     readonly id?: string;
     readonly registrationConfig?: outputs.iot.CACertificateRegistrationConfig;
+    readonly removeAutoRegistration?: boolean;
     readonly status?: enums.iot.CACertificateStatus;
     /**
      * An array of key-value pairs to apply to this resource.

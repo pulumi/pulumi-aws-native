@@ -78,6 +78,10 @@ export class DBProxy extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.rds.DBProxyTagFormat[] | undefined>;
     /**
+     * VPC ID to associate with the new DB proxy.
+     */
+    public /*out*/ readonly vpcId!: pulumi.Output<string>;
+    /**
      * VPC security group IDs to associate with the new proxy.
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -121,6 +125,7 @@ export class DBProxy extends pulumi.CustomResource {
             resourceInputs["vpcSubnetIds"] = args ? args.vpcSubnetIds : undefined;
             resourceInputs["dBProxyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         } else {
             resourceInputs["auth"] = undefined /*out*/;
             resourceInputs["dBProxyArn"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class DBProxy extends pulumi.CustomResource {
             resourceInputs["requireTLS"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
             resourceInputs["vpcSubnetIds"] = undefined /*out*/;
         }

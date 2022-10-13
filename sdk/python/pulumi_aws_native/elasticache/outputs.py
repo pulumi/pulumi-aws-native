@@ -661,9 +661,15 @@ class SecurityGroupTag(dict):
 
 @pulumi.output_type
 class SubnetGroupTag(dict):
+    """
+    A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 

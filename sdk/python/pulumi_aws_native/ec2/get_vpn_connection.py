@@ -19,23 +19,29 @@ __all__ = [
 
 @pulumi.output_type
 class GetVPNConnectionResult:
-    def __init__(__self__, id=None, tags=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, tags=None, vpn_connection_id=None):
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+        if vpn_connection_id and not isinstance(vpn_connection_id, str):
+            raise TypeError("Expected argument 'vpn_connection_id' to be a str")
+        pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.VPNConnectionTag']]:
+        """
+        Any tags assigned to the VPN connection.
+        """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="vpnConnectionId")
+    def vpn_connection_id(self) -> Optional[str]:
+        """
+        The provider-assigned unique ID for this managed resource
+        """
+        return pulumi.get(self, "vpn_connection_id")
 
 
 class AwaitableGetVPNConnectionResult(GetVPNConnectionResult):
@@ -44,29 +50,35 @@ class AwaitableGetVPNConnectionResult(GetVPNConnectionResult):
         if False:
             yield self
         return GetVPNConnectionResult(
-            id=self.id,
-            tags=self.tags)
+            tags=self.tags,
+            vpn_connection_id=self.vpn_connection_id)
 
 
-def get_vpn_connection(id: Optional[str] = None,
+def get_vpn_connection(vpn_connection_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVPNConnectionResult:
     """
     Resource Type definition for AWS::EC2::VPNConnection
+
+
+    :param str vpn_connection_id: The provider-assigned unique ID for this managed resource
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['vpnConnectionId'] = vpn_connection_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVPNConnection', __args__, opts=opts, typ=GetVPNConnectionResult).value
 
     return AwaitableGetVPNConnectionResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        vpn_connection_id=__ret__.vpn_connection_id)
 
 
 @_utilities.lift_output_func(get_vpn_connection)
-def get_vpn_connection_output(id: Optional[pulumi.Input[str]] = None,
+def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVPNConnectionResult]:
     """
     Resource Type definition for AWS::EC2::VPNConnection
+
+
+    :param str vpn_connection_id: The provider-assigned unique ID for this managed resource
     """
     ...

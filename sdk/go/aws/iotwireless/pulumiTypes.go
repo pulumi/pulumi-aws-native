@@ -111,20 +111,25 @@ func (o DestinationTagArrayOutput) Index(i pulumi.IntInput) DestinationTagOutput
 }
 
 type DeviceProfileLoRaWANDeviceProfile struct {
-	ClassBTimeout     *int    `pulumi:"classBTimeout"`
-	ClassCTimeout     *int    `pulumi:"classCTimeout"`
-	MacVersion        *string `pulumi:"macVersion"`
-	MaxDutyCycle      *int    `pulumi:"maxDutyCycle"`
-	MaxEirp           *int    `pulumi:"maxEirp"`
-	PingSlotDr        *int    `pulumi:"pingSlotDr"`
-	PingSlotFreq      *int    `pulumi:"pingSlotFreq"`
-	PingSlotPeriod    *int    `pulumi:"pingSlotPeriod"`
-	RegParamsRevision *string `pulumi:"regParamsRevision"`
-	RfRegion          *string `pulumi:"rfRegion"`
-	Supports32BitFCnt *bool   `pulumi:"supports32BitFCnt"`
-	SupportsClassB    *bool   `pulumi:"supportsClassB"`
-	SupportsClassC    *bool   `pulumi:"supportsClassC"`
-	SupportsJoin      *bool   `pulumi:"supportsJoin"`
+	ClassBTimeout          *int    `pulumi:"classBTimeout"`
+	ClassCTimeout          *int    `pulumi:"classCTimeout"`
+	FactoryPresetFreqsList []int   `pulumi:"factoryPresetFreqsList"`
+	MacVersion             *string `pulumi:"macVersion"`
+	MaxDutyCycle           *int    `pulumi:"maxDutyCycle"`
+	MaxEirp                *int    `pulumi:"maxEirp"`
+	PingSlotDr             *int    `pulumi:"pingSlotDr"`
+	PingSlotFreq           *int    `pulumi:"pingSlotFreq"`
+	PingSlotPeriod         *int    `pulumi:"pingSlotPeriod"`
+	RegParamsRevision      *string `pulumi:"regParamsRevision"`
+	RfRegion               *string `pulumi:"rfRegion"`
+	RxDataRate2            *int    `pulumi:"rxDataRate2"`
+	RxDelay1               *int    `pulumi:"rxDelay1"`
+	RxDrOffset1            *int    `pulumi:"rxDrOffset1"`
+	RxFreq2                *int    `pulumi:"rxFreq2"`
+	Supports32BitFCnt      *bool   `pulumi:"supports32BitFCnt"`
+	SupportsClassB         *bool   `pulumi:"supportsClassB"`
+	SupportsClassC         *bool   `pulumi:"supportsClassC"`
+	SupportsJoin           *bool   `pulumi:"supportsJoin"`
 }
 
 // DeviceProfileLoRaWANDeviceProfileInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs and DeviceProfileLoRaWANDeviceProfileOutput values.
@@ -139,20 +144,25 @@ type DeviceProfileLoRaWANDeviceProfileInput interface {
 }
 
 type DeviceProfileLoRaWANDeviceProfileArgs struct {
-	ClassBTimeout     pulumi.IntPtrInput    `pulumi:"classBTimeout"`
-	ClassCTimeout     pulumi.IntPtrInput    `pulumi:"classCTimeout"`
-	MacVersion        pulumi.StringPtrInput `pulumi:"macVersion"`
-	MaxDutyCycle      pulumi.IntPtrInput    `pulumi:"maxDutyCycle"`
-	MaxEirp           pulumi.IntPtrInput    `pulumi:"maxEirp"`
-	PingSlotDr        pulumi.IntPtrInput    `pulumi:"pingSlotDr"`
-	PingSlotFreq      pulumi.IntPtrInput    `pulumi:"pingSlotFreq"`
-	PingSlotPeriod    pulumi.IntPtrInput    `pulumi:"pingSlotPeriod"`
-	RegParamsRevision pulumi.StringPtrInput `pulumi:"regParamsRevision"`
-	RfRegion          pulumi.StringPtrInput `pulumi:"rfRegion"`
-	Supports32BitFCnt pulumi.BoolPtrInput   `pulumi:"supports32BitFCnt"`
-	SupportsClassB    pulumi.BoolPtrInput   `pulumi:"supportsClassB"`
-	SupportsClassC    pulumi.BoolPtrInput   `pulumi:"supportsClassC"`
-	SupportsJoin      pulumi.BoolPtrInput   `pulumi:"supportsJoin"`
+	ClassBTimeout          pulumi.IntPtrInput    `pulumi:"classBTimeout"`
+	ClassCTimeout          pulumi.IntPtrInput    `pulumi:"classCTimeout"`
+	FactoryPresetFreqsList pulumi.IntArrayInput  `pulumi:"factoryPresetFreqsList"`
+	MacVersion             pulumi.StringPtrInput `pulumi:"macVersion"`
+	MaxDutyCycle           pulumi.IntPtrInput    `pulumi:"maxDutyCycle"`
+	MaxEirp                pulumi.IntPtrInput    `pulumi:"maxEirp"`
+	PingSlotDr             pulumi.IntPtrInput    `pulumi:"pingSlotDr"`
+	PingSlotFreq           pulumi.IntPtrInput    `pulumi:"pingSlotFreq"`
+	PingSlotPeriod         pulumi.IntPtrInput    `pulumi:"pingSlotPeriod"`
+	RegParamsRevision      pulumi.StringPtrInput `pulumi:"regParamsRevision"`
+	RfRegion               pulumi.StringPtrInput `pulumi:"rfRegion"`
+	RxDataRate2            pulumi.IntPtrInput    `pulumi:"rxDataRate2"`
+	RxDelay1               pulumi.IntPtrInput    `pulumi:"rxDelay1"`
+	RxDrOffset1            pulumi.IntPtrInput    `pulumi:"rxDrOffset1"`
+	RxFreq2                pulumi.IntPtrInput    `pulumi:"rxFreq2"`
+	Supports32BitFCnt      pulumi.BoolPtrInput   `pulumi:"supports32BitFCnt"`
+	SupportsClassB         pulumi.BoolPtrInput   `pulumi:"supportsClassB"`
+	SupportsClassC         pulumi.BoolPtrInput   `pulumi:"supportsClassC"`
+	SupportsJoin           pulumi.BoolPtrInput   `pulumi:"supportsJoin"`
 }
 
 func (DeviceProfileLoRaWANDeviceProfileArgs) ElementType() reflect.Type {
@@ -240,6 +250,10 @@ func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassCTimeout() pulumi.IntPtrOu
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.ClassCTimeout }).(pulumi.IntPtrOutput)
 }
 
+func (o DeviceProfileLoRaWANDeviceProfileOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) []int { return v.FactoryPresetFreqsList }).(pulumi.IntArrayOutput)
+}
+
 func (o DeviceProfileLoRaWANDeviceProfileOutput) MacVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.MacVersion }).(pulumi.StringPtrOutput)
 }
@@ -270,6 +284,22 @@ func (o DeviceProfileLoRaWANDeviceProfileOutput) RegParamsRevision() pulumi.Stri
 
 func (o DeviceProfileLoRaWANDeviceProfileOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.RfRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDataRate2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDataRate2 }).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDelay1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDelay1 }).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfileOutput) RxDrOffset1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxDrOffset1 }).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfileOutput) RxFreq2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.RxFreq2 }).(pulumi.IntPtrOutput)
 }
 
 func (o DeviceProfileLoRaWANDeviceProfileOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
@@ -328,6 +358,15 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPt
 		}
 		return v.ClassCTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) FactoryPresetFreqsList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) []int {
+		if v == nil {
+			return nil
+		}
+		return v.FactoryPresetFreqsList
+	}).(pulumi.IntArrayOutput)
 }
 
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MacVersion() pulumi.StringPtrOutput {
@@ -400,6 +439,42 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrO
 		}
 		return v.RfRegion
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDataRate2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RxDataRate2
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDelay1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RxDelay1
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxDrOffset1() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RxDrOffset1
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RxFreq2() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RxFreq2
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {

@@ -14,31 +14,30 @@ __all__ = ['DestinationArgs', 'Destination']
 @pulumi.input_type
 class DestinationArgs:
     def __init__(__self__, *,
-                 destination_policy: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
-                 destination_name: Optional[pulumi.Input[str]] = None):
+                 destination_name: Optional[pulumi.Input[str]] = None,
+                 destination_policy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Destination resource.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        :param pulumi.Input[str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        :param pulumi.Input[str] destination_name: The name of the destination resource
+        :param pulumi.Input[str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
         """
-        pulumi.set(__self__, "destination_policy", destination_policy)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_arn", target_arn)
         if destination_name is not None:
             pulumi.set(__self__, "destination_name", destination_name)
-
-    @property
-    @pulumi.getter(name="destinationPolicy")
-    def destination_policy(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "destination_policy")
-
-    @destination_policy.setter
-    def destination_policy(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination_policy", value)
+        if destination_policy is not None:
+            pulumi.set(__self__, "destination_policy", destination_policy)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -48,6 +47,9 @@ class DestinationArgs:
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -57,19 +59,29 @@ class DestinationArgs:
     @property
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the destination resource
+        """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
     def destination_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "destination_name", value)
 
+    @property
+    @pulumi.getter(name="destinationPolicy")
+    def destination_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        """
+        return pulumi.get(self, "destination_policy")
 
-warnings.warn("""Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
+    @destination_policy.setter
+    def destination_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_policy", value)
 
 
 class Destination(pulumi.CustomResource):
-    warnings.warn("""Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -80,10 +92,14 @@ class Destination(pulumi.CustomResource):
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::Destination
+        The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_name: The name of the destination resource
+        :param pulumi.Input[str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        :param pulumi.Input[str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        :param pulumi.Input[str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         """
         ...
     @overload
@@ -92,7 +108,7 @@ class Destination(pulumi.CustomResource):
                  args: DestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::Destination
+        The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 
         :param str resource_name: The name of the resource.
         :param DestinationArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +130,6 @@ class Destination(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Destination is deprecated: Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -124,8 +139,6 @@ class Destination(pulumi.CustomResource):
             __props__ = DestinationArgs.__new__(DestinationArgs)
 
             __props__.__dict__["destination_name"] = destination_name
-            if destination_policy is None and not opts.urn:
-                raise TypeError("Missing required property 'destination_policy'")
             __props__.__dict__["destination_policy"] = destination_policy
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -171,20 +184,32 @@ class Destination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationName")
     def destination_name(self) -> pulumi.Output[str]:
+        """
+        The name of the destination resource
+        """
         return pulumi.get(self, "destination_name")
 
     @property
     @pulumi.getter(name="destinationPolicy")
-    def destination_policy(self) -> pulumi.Output[str]:
+    def destination_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        """
         return pulumi.get(self, "destination_policy")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        """
         return pulumi.get(self, "target_arn")
 

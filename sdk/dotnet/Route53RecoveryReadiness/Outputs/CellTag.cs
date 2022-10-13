@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
     public sealed class CellTag
     {
         public readonly string Key;
-        public readonly ImmutableArray<string> Value;
+        public readonly string Value;
 
         [OutputConstructor]
         private CellTag(
             string key,
 
-            ImmutableArray<string> value)
+            string value)
         {
             Key = key;
             Value = value;

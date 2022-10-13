@@ -62,9 +62,21 @@ export interface GetDBClusterResult {
      */
     readonly dBClusterParameterGroupName?: string;
     /**
+     * The AWS Region-unique, immutable identifier for the DB cluster.
+     */
+    readonly dBClusterResourceId?: string;
+    /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
     readonly deletionProtection?: boolean;
+    /**
+     * The Active Directory directory ID to create the DB cluster in.
+     */
+    readonly domain?: string;
+    /**
+     * Specify the name of the IAM role to be used when making API calls to the Directory Service.
+     */
+    readonly domainIAMRoleName?: string;
     /**
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
      */
@@ -109,6 +121,10 @@ export interface GetDBClusterResult {
      */
     readonly monitoringRoleArn?: string;
     /**
+     * The network type of the DB cluster.
+     */
+    readonly networkType?: string;
+    /**
      * A value that indicates whether to turn on Performance Insights for the DB cluster.
      */
     readonly performanceInsightsEnabled?: boolean;
@@ -141,6 +157,10 @@ export interface GetDBClusterResult {
      * The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
      */
     readonly scalingConfiguration?: outputs.rds.DBClusterScalingConfiguration;
+    /**
+     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     */
+    readonly serverlessV2ScalingConfiguration?: outputs.rds.DBClusterServerlessV2ScalingConfiguration;
     /**
      * Specifies the storage type to be associated with the DB cluster.
      */

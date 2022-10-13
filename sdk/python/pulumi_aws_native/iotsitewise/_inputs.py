@@ -850,18 +850,22 @@ class AssetPropertyArgs:
     def __init__(__self__, *,
                  logical_id: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
-                 notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None):
+                 notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
         """
-        The asset property's definition, alias, and notification state.
+        The asset property's definition, alias, unit, and notification state.
         :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input[str] alias: The property alias that identifies the property.
         :param pulumi.Input['AssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        :param pulumi.Input[str] unit: The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
         pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
         if notification_state is not None:
             pulumi.set(__self__, "notification_state", notification_state)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="logicalId")
@@ -898,6 +902,18 @@ class AssetPropertyArgs:
     @notification_state.setter
     def notification_state(self, value: Optional[pulumi.Input['AssetPropertyNotificationState']]):
         pulumi.set(self, "notification_state", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
 
 
 @pulumi.input_type

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolClientResult:
-    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, callback_urls=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, auth_session_validity=None, callback_urls=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -35,6 +35,9 @@ class GetUserPoolClientResult:
         if analytics_configuration and not isinstance(analytics_configuration, dict):
             raise TypeError("Expected argument 'analytics_configuration' to be a dict")
         pulumi.set(__self__, "analytics_configuration", analytics_configuration)
+        if auth_session_validity and not isinstance(auth_session_validity, int):
+            raise TypeError("Expected argument 'auth_session_validity' to be a int")
+        pulumi.set(__self__, "auth_session_validity", auth_session_validity)
         if callback_urls and not isinstance(callback_urls, list):
             raise TypeError("Expected argument 'callback_urls' to be a list")
         pulumi.set(__self__, "callback_urls", callback_urls)
@@ -111,6 +114,11 @@ class GetUserPoolClientResult:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> Optional['outputs.UserPoolClientAnalyticsConfiguration']:
         return pulumi.get(self, "analytics_configuration")
+
+    @property
+    @pulumi.getter(name="authSessionValidity")
+    def auth_session_validity(self) -> Optional[int]:
+        return pulumi.get(self, "auth_session_validity")
 
     @property
     @pulumi.getter(name="callbackURLs")
@@ -209,6 +217,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             allowed_o_auth_flows_user_pool_client=self.allowed_o_auth_flows_user_pool_client,
             allowed_o_auth_scopes=self.allowed_o_auth_scopes,
             analytics_configuration=self.analytics_configuration,
+            auth_session_validity=self.auth_session_validity,
             callback_urls=self.callback_urls,
             client_name=self.client_name,
             client_secret=self.client_secret,
@@ -244,6 +253,7 @@ def get_user_pool_client(id: Optional[str] = None,
         allowed_o_auth_flows_user_pool_client=__ret__.allowed_o_auth_flows_user_pool_client,
         allowed_o_auth_scopes=__ret__.allowed_o_auth_scopes,
         analytics_configuration=__ret__.analytics_configuration,
+        auth_session_validity=__ret__.auth_session_validity,
         callback_urls=__ret__.callback_urls,
         client_name=__ret__.client_name,
         client_secret=__ret__.client_secret,

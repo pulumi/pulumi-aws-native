@@ -18,6 +18,14 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         [Input("classCTimeout")]
         public Input<int>? ClassCTimeout { get; set; }
 
+        [Input("factoryPresetFreqsList")]
+        private InputList<int>? _factoryPresetFreqsList;
+        public InputList<int> FactoryPresetFreqsList
+        {
+            get => _factoryPresetFreqsList ?? (_factoryPresetFreqsList = new InputList<int>());
+            set => _factoryPresetFreqsList = value;
+        }
+
         [Input("macVersion")]
         public Input<string>? MacVersion { get; set; }
 
@@ -41,6 +49,18 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
 
         [Input("rfRegion")]
         public Input<string>? RfRegion { get; set; }
+
+        [Input("rxDataRate2")]
+        public Input<int>? RxDataRate2 { get; set; }
+
+        [Input("rxDelay1")]
+        public Input<int>? RxDelay1 { get; set; }
+
+        [Input("rxDrOffset1")]
+        public Input<int>? RxDrOffset1 { get; set; }
+
+        [Input("rxFreq2")]
+        public Input<int>? RxFreq2 { get; set; }
 
         [Input("supports32BitFCnt")]
         public Input<bool>? Supports32BitFCnt { get; set; }

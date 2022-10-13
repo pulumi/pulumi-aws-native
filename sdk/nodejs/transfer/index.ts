@@ -5,6 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AgreementArgs } from "./agreement";
+export type Agreement = import("./agreement").Agreement;
+export const Agreement: typeof import("./agreement").Agreement = null as any;
+utilities.lazyLoad(exports, ["Agreement"], () => require("./agreement"));
+
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
+export { GetAgreementArgs, GetAgreementResult, GetAgreementOutputArgs } from "./getAgreement";
+export const getAgreement: typeof import("./getAgreement").getAgreement = null as any;
+export const getAgreementOutput: typeof import("./getAgreement").getAgreementOutput = null as any;
+utilities.lazyLoad(exports, ["getAgreement","getAgreementOutput"], () => require("./getAgreement"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
@@ -19,6 +54,11 @@ export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./get
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+
+export { ProfileArgs } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 export { ServerArgs } from "./server";
 export type Server = import("./server").Server;
@@ -43,6 +83,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:transfer:Agreement":
+                return new Agreement(name, <any>undefined, { urn })
+            case "aws-native:transfer:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:transfer:Connector":
+                return new Connector(name, <any>undefined, { urn })
+            case "aws-native:transfer:Profile":
+                return new Profile(name, <any>undefined, { urn })
             case "aws-native:transfer:Server":
                 return new Server(name, <any>undefined, { urn })
             case "aws-native:transfer:User":

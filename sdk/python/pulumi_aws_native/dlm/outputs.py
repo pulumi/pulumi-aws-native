@@ -12,6 +12,8 @@ from . import outputs
 
 __all__ = [
     'LifecyclePolicyAction',
+    'LifecyclePolicyArchiveRetainRule',
+    'LifecyclePolicyArchiveRule',
     'LifecyclePolicyCreateRule',
     'LifecyclePolicyCrossRegionCopyAction',
     'LifecyclePolicyCrossRegionCopyDeprecateRule',
@@ -25,6 +27,7 @@ __all__ = [
     'LifecyclePolicyParameters',
     'LifecyclePolicyPolicyDetails',
     'LifecyclePolicyRetainRule',
+    'LifecyclePolicyRetentionArchiveTier',
     'LifecyclePolicySchedule',
     'LifecyclePolicyShareRule',
     'LifecyclePolicyTag',
@@ -64,6 +67,64 @@ class LifecyclePolicyAction(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LifecyclePolicyArchiveRetainRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionArchiveTier":
+            suggest = "retention_archive_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyArchiveRetainRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyArchiveRetainRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyArchiveRetainRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_archive_tier: 'outputs.LifecyclePolicyRetentionArchiveTier'):
+        pulumi.set(__self__, "retention_archive_tier", retention_archive_tier)
+
+    @property
+    @pulumi.getter(name="retentionArchiveTier")
+    def retention_archive_tier(self) -> 'outputs.LifecyclePolicyRetentionArchiveTier':
+        return pulumi.get(self, "retention_archive_tier")
+
+
+@pulumi.output_type
+class LifecyclePolicyArchiveRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retainRule":
+            suggest = "retain_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyArchiveRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyArchiveRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyArchiveRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retain_rule: 'outputs.LifecyclePolicyArchiveRetainRule'):
+        pulumi.set(__self__, "retain_rule", retain_rule)
+
+    @property
+    @pulumi.getter(name="retainRule")
+    def retain_rule(self) -> 'outputs.LifecyclePolicyArchiveRetainRule':
+        return pulumi.get(self, "retain_rule")
 
 
 @pulumi.output_type
@@ -731,11 +792,59 @@ class LifecyclePolicyRetainRule(dict):
 
 
 @pulumi.output_type
+class LifecyclePolicyRetentionArchiveTier(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalUnit":
+            suggest = "interval_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyRetentionArchiveTier. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyRetentionArchiveTier.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyRetentionArchiveTier.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 interval: Optional[int] = None,
+                 interval_unit: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[str]:
+        return pulumi.get(self, "interval_unit")
+
+
+@pulumi.output_type
 class LifecyclePolicySchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "copyTags":
+        if key == "archiveRule":
+            suggest = "archive_rule"
+        elif key == "copyTags":
             suggest = "copy_tags"
         elif key == "createRule":
             suggest = "create_rule"
@@ -766,6 +875,7 @@ class LifecyclePolicySchedule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 archive_rule: Optional['outputs.LifecyclePolicyArchiveRule'] = None,
                  copy_tags: Optional[bool] = None,
                  create_rule: Optional['outputs.LifecyclePolicyCreateRule'] = None,
                  cross_region_copy_rules: Optional[Sequence['outputs.LifecyclePolicyCrossRegionCopyRule']] = None,
@@ -776,6 +886,8 @@ class LifecyclePolicySchedule(dict):
                  share_rules: Optional[Sequence['outputs.LifecyclePolicyShareRule']] = None,
                  tags_to_add: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
                  variable_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None):
+        if archive_rule is not None:
+            pulumi.set(__self__, "archive_rule", archive_rule)
         if copy_tags is not None:
             pulumi.set(__self__, "copy_tags", copy_tags)
         if create_rule is not None:
@@ -796,6 +908,11 @@ class LifecyclePolicySchedule(dict):
             pulumi.set(__self__, "tags_to_add", tags_to_add)
         if variable_tags is not None:
             pulumi.set(__self__, "variable_tags", variable_tags)
+
+    @property
+    @pulumi.getter(name="archiveRule")
+    def archive_rule(self) -> Optional['outputs.LifecyclePolicyArchiveRule']:
+        return pulumi.get(self, "archive_rule")
 
     @property
     @pulumi.getter(name="copyTags")

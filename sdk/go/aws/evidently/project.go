@@ -14,10 +14,11 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput                `pulumi:"arn"`
-	DataDelivery ProjectDataDeliveryObjectPtrOutput `pulumi:"dataDelivery"`
-	Description  pulumi.StringPtrOutput             `pulumi:"description"`
-	Name         pulumi.StringOutput                `pulumi:"name"`
+	AppConfigResource ProjectAppConfigResourceObjectPtrOutput `pulumi:"appConfigResource"`
+	Arn               pulumi.StringOutput                     `pulumi:"arn"`
+	DataDelivery      ProjectDataDeliveryObjectPtrOutput      `pulumi:"dataDelivery"`
+	Description       pulumi.StringPtrOutput                  `pulumi:"description"`
+	Name              pulumi.StringOutput                     `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags ProjectTagArrayOutput `pulumi:"tags"`
 }
@@ -61,18 +62,20 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	DataDelivery *ProjectDataDeliveryObject `pulumi:"dataDelivery"`
-	Description  *string                    `pulumi:"description"`
-	Name         *string                    `pulumi:"name"`
+	AppConfigResource *ProjectAppConfigResourceObject `pulumi:"appConfigResource"`
+	DataDelivery      *ProjectDataDeliveryObject      `pulumi:"dataDelivery"`
+	Description       *string                         `pulumi:"description"`
+	Name              *string                         `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ProjectTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	DataDelivery ProjectDataDeliveryObjectPtrInput
-	Description  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
+	AppConfigResource ProjectAppConfigResourceObjectPtrInput
+	DataDelivery      ProjectDataDeliveryObjectPtrInput
+	Description       pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ProjectTagArrayInput
 }
@@ -112,6 +115,10 @@ func (o ProjectOutput) ToProjectOutput() ProjectOutput {
 
 func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
 	return o
+}
+
+func (o ProjectOutput) AppConfigResource() ProjectAppConfigResourceObjectPtrOutput {
+	return o.ApplyT(func(v *Project) ProjectAppConfigResourceObjectPtrOutput { return v.AppConfigResource }).(ProjectAppConfigResourceObjectPtrOutput)
 }
 
 func (o ProjectOutput) Arn() pulumi.StringOutput {

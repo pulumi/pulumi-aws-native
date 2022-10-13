@@ -5,8 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationEngineType',
     'EnvironmentEngineType',
 ]
+
+
+class ApplicationEngineType(str, Enum):
+    MICROFOCUS = "microfocus"
+    BLUAGE = "bluage"
 
 
 class EnvironmentEngineType(str, Enum):

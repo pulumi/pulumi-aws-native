@@ -10,24 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// Resource Type definition for AWS::Logs::Destination
+    /// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
     /// </summary>
-    [Obsolete(@"Destination is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:logs:Destination")]
     public partial class Destination : global::Pulumi.CustomResource
     {
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the destination resource
+        /// </summary>
         [Output("destinationName")]
         public Output<string> DestinationName { get; private set; } = null!;
 
+        /// <summary>
+        /// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        /// </summary>
         [Output("destinationPolicy")]
-        public Output<string> DestinationPolicy { get; private set; } = null!;
+        public Output<string?> DestinationPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
@@ -76,15 +87,27 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class DestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the destination resource
+        /// </summary>
         [Input("destinationName")]
         public Input<string>? DestinationName { get; set; }
 
-        [Input("destinationPolicy", required: true)]
-        public Input<string> DestinationPolicy { get; set; } = null!;
+        /// <summary>
+        /// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        /// </summary>
+        [Input("destinationPolicy")]
+        public Input<string>? DestinationPolicy { get; set; }
 
+        /// <summary>
+        /// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;
 

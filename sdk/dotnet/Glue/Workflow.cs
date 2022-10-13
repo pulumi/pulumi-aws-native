@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Glue
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("maxConcurrentRuns")]
+        public Output<int?> MaxConcurrentRuns { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.Glue
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("maxConcurrentRuns")]
+        public Input<int>? MaxConcurrentRuns { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

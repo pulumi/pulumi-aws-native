@@ -17,15 +17,16 @@ import (
 type Trigger struct {
 	pulumi.CustomResourceState
 
-	Actions         TriggerActionArrayOutput  `pulumi:"actions"`
-	Description     pulumi.StringPtrOutput    `pulumi:"description"`
-	Name            pulumi.StringPtrOutput    `pulumi:"name"`
-	Predicate       TriggerPredicatePtrOutput `pulumi:"predicate"`
-	Schedule        pulumi.StringPtrOutput    `pulumi:"schedule"`
-	StartOnCreation pulumi.BoolPtrOutput      `pulumi:"startOnCreation"`
-	Tags            pulumi.AnyOutput          `pulumi:"tags"`
-	Type            pulumi.StringOutput       `pulumi:"type"`
-	WorkflowName    pulumi.StringPtrOutput    `pulumi:"workflowName"`
+	Actions                TriggerActionArrayOutput               `pulumi:"actions"`
+	Description            pulumi.StringPtrOutput                 `pulumi:"description"`
+	EventBatchingCondition TriggerEventBatchingConditionPtrOutput `pulumi:"eventBatchingCondition"`
+	Name                   pulumi.StringPtrOutput                 `pulumi:"name"`
+	Predicate              TriggerPredicatePtrOutput              `pulumi:"predicate"`
+	Schedule               pulumi.StringPtrOutput                 `pulumi:"schedule"`
+	StartOnCreation        pulumi.BoolPtrOutput                   `pulumi:"startOnCreation"`
+	Tags                   pulumi.AnyOutput                       `pulumi:"tags"`
+	Type                   pulumi.StringOutput                    `pulumi:"type"`
+	WorkflowName           pulumi.StringPtrOutput                 `pulumi:"workflowName"`
 }
 
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
@@ -73,28 +74,30 @@ func (TriggerState) ElementType() reflect.Type {
 }
 
 type triggerArgs struct {
-	Actions         []TriggerAction   `pulumi:"actions"`
-	Description     *string           `pulumi:"description"`
-	Name            *string           `pulumi:"name"`
-	Predicate       *TriggerPredicate `pulumi:"predicate"`
-	Schedule        *string           `pulumi:"schedule"`
-	StartOnCreation *bool             `pulumi:"startOnCreation"`
-	Tags            interface{}       `pulumi:"tags"`
-	Type            string            `pulumi:"type"`
-	WorkflowName    *string           `pulumi:"workflowName"`
+	Actions                []TriggerAction                `pulumi:"actions"`
+	Description            *string                        `pulumi:"description"`
+	EventBatchingCondition *TriggerEventBatchingCondition `pulumi:"eventBatchingCondition"`
+	Name                   *string                        `pulumi:"name"`
+	Predicate              *TriggerPredicate              `pulumi:"predicate"`
+	Schedule               *string                        `pulumi:"schedule"`
+	StartOnCreation        *bool                          `pulumi:"startOnCreation"`
+	Tags                   interface{}                    `pulumi:"tags"`
+	Type                   string                         `pulumi:"type"`
+	WorkflowName           *string                        `pulumi:"workflowName"`
 }
 
 // The set of arguments for constructing a Trigger resource.
 type TriggerArgs struct {
-	Actions         TriggerActionArrayInput
-	Description     pulumi.StringPtrInput
-	Name            pulumi.StringPtrInput
-	Predicate       TriggerPredicatePtrInput
-	Schedule        pulumi.StringPtrInput
-	StartOnCreation pulumi.BoolPtrInput
-	Tags            pulumi.Input
-	Type            pulumi.StringInput
-	WorkflowName    pulumi.StringPtrInput
+	Actions                TriggerActionArrayInput
+	Description            pulumi.StringPtrInput
+	EventBatchingCondition TriggerEventBatchingConditionPtrInput
+	Name                   pulumi.StringPtrInput
+	Predicate              TriggerPredicatePtrInput
+	Schedule               pulumi.StringPtrInput
+	StartOnCreation        pulumi.BoolPtrInput
+	Tags                   pulumi.Input
+	Type                   pulumi.StringInput
+	WorkflowName           pulumi.StringPtrInput
 }
 
 func (TriggerArgs) ElementType() reflect.Type {
@@ -140,6 +143,10 @@ func (o TriggerOutput) Actions() TriggerActionArrayOutput {
 
 func (o TriggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trigger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TriggerOutput) EventBatchingCondition() TriggerEventBatchingConditionPtrOutput {
+	return o.ApplyT(func(v *Trigger) TriggerEventBatchingConditionPtrOutput { return v.EventBatchingCondition }).(TriggerEventBatchingConditionPtrOutput)
 }
 
 func (o TriggerOutput) Name() pulumi.StringPtrOutput {

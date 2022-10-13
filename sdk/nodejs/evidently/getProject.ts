@@ -26,6 +26,7 @@ export interface GetProjectArgs {
 }
 
 export interface GetProjectResult {
+    readonly appConfigResource?: outputs.evidently.ProjectAppConfigResourceObject;
     readonly arn?: string;
     readonly dataDelivery?: outputs.evidently.ProjectDataDeliveryObject;
     readonly description?: string;

@@ -194,7 +194,7 @@ class ResourceSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceSetName")
-    def resource_set_name(self) -> pulumi.Output[str]:
+    def resource_set_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the resource set to create.
         """

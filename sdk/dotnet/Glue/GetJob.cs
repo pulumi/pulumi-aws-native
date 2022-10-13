@@ -56,12 +56,14 @@ namespace Pulumi.AwsNative.Glue
         public readonly Outputs.JobConnectionsList? Connections;
         public readonly object? DefaultArguments;
         public readonly string? Description;
+        public readonly string? ExecutionClass;
         public readonly Outputs.JobExecutionProperty? ExecutionProperty;
         public readonly string? GlueVersion;
         public readonly string? Id;
         public readonly string? LogUri;
         public readonly double? MaxCapacity;
         public readonly double? MaxRetries;
+        public readonly object? NonOverridableArguments;
         public readonly Outputs.JobNotificationProperty? NotificationProperty;
         public readonly int? NumberOfWorkers;
         public readonly string? Role;
@@ -82,6 +84,8 @@ namespace Pulumi.AwsNative.Glue
 
             string? description,
 
+            string? executionClass,
+
             Outputs.JobExecutionProperty? executionProperty,
 
             string? glueVersion,
@@ -93,6 +97,8 @@ namespace Pulumi.AwsNative.Glue
             double? maxCapacity,
 
             double? maxRetries,
+
+            object? nonOverridableArguments,
 
             Outputs.JobNotificationProperty? notificationProperty,
 
@@ -113,12 +119,14 @@ namespace Pulumi.AwsNative.Glue
             Connections = connections;
             DefaultArguments = defaultArguments;
             Description = description;
+            ExecutionClass = executionClass;
             ExecutionProperty = executionProperty;
             GlueVersion = glueVersion;
             Id = id;
             LogUri = logUri;
             MaxCapacity = maxCapacity;
             MaxRetries = maxRetries;
+            NonOverridableArguments = nonOverridableArguments;
             NotificationProperty = notificationProperty;
             NumberOfWorkers = numberOfWorkers;
             Role = role;

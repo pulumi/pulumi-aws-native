@@ -11,6 +11,11 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgreementTagArgs',
+    'As2ConfigPropertiesArgs',
+    'CertificateTagArgs',
+    'ConnectorTagArgs',
+    'ProfileTagArgs',
     'ServerAs2TransportArgs',
     'ServerEndpointDetailsArgs',
     'ServerIdentityProviderDetailsArgs',
@@ -33,6 +38,294 @@ __all__ = [
     'WorkflowStepArgs',
     'WorkflowTagArgs',
 ]
+
+@pulumi.input_type
+class AgreementTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Creates a key-value pair for a specific resource.
+        :param pulumi.Input[str] key: The name assigned to the tag that you create.
+        :param pulumi.Input[str] value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class As2ConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 compression: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']] = None,
+                 encryption_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']] = None,
+                 local_profile_id: Optional[pulumi.Input[str]] = None,
+                 mdn_response: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']] = None,
+                 mdn_signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']] = None,
+                 message_subject: Optional[pulumi.Input[str]] = None,
+                 partner_profile_id: Optional[pulumi.Input[str]] = None,
+                 signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None):
+        """
+        Configuration for an AS2 connector.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesCompression'] compression: Compression setting for this AS2 connector configuration.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm'] encryption_algorithm: Encryption algorithm for this AS2 connector configuration.
+        :param pulumi.Input[str] local_profile_id: A unique identifier for the local profile.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse'] mdn_response: MDN Response setting for this AS2 connector configuration.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm'] mdn_signing_algorithm: MDN Signing algorithm for this AS2 connector configuration.
+        :param pulumi.Input[str] message_subject: The message subject for this AS2 connector configuration.
+        :param pulumi.Input[str] partner_profile_id: A unique identifier for the partner profile.
+        :param pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm'] signing_algorithm: Signing algorithm for this AS2 connector configuration.
+        """
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if local_profile_id is not None:
+            pulumi.set(__self__, "local_profile_id", local_profile_id)
+        if mdn_response is not None:
+            pulumi.set(__self__, "mdn_response", mdn_response)
+        if mdn_signing_algorithm is not None:
+            pulumi.set(__self__, "mdn_signing_algorithm", mdn_signing_algorithm)
+        if message_subject is not None:
+            pulumi.set(__self__, "message_subject", message_subject)
+        if partner_profile_id is not None:
+            pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        if signing_algorithm is not None:
+            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+
+    @property
+    @pulumi.getter
+    def compression(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]:
+        """
+        Compression setting for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "compression")
+
+    @compression.setter
+    def compression(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesCompression']]):
+        pulumi.set(self, "compression", value)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]:
+        """
+        Encryption algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesEncryptionAlgorithm']]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="localProfileId")
+    def local_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the local profile.
+        """
+        return pulumi.get(self, "local_profile_id")
+
+    @local_profile_id.setter
+    def local_profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_profile_id", value)
+
+    @property
+    @pulumi.getter(name="mdnResponse")
+    def mdn_response(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]:
+        """
+        MDN Response setting for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "mdn_response")
+
+    @mdn_response.setter
+    def mdn_response(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnResponse']]):
+        pulumi.set(self, "mdn_response", value)
+
+    @property
+    @pulumi.getter(name="mdnSigningAlgorithm")
+    def mdn_signing_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]:
+        """
+        MDN Signing algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "mdn_signing_algorithm")
+
+    @mdn_signing_algorithm.setter
+    def mdn_signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesMdnSigningAlgorithm']]):
+        pulumi.set(self, "mdn_signing_algorithm", value)
+
+    @property
+    @pulumi.getter(name="messageSubject")
+    def message_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        The message subject for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "message_subject")
+
+    @message_subject.setter
+    def message_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_subject", value)
+
+    @property
+    @pulumi.getter(name="partnerProfileId")
+    def partner_profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the partner profile.
+        """
+        return pulumi.get(self, "partner_profile_id")
+
+    @partner_profile_id.setter
+    def partner_profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partner_profile_id", value)
+
+    @property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]:
+        """
+        Signing algorithm for this AS2 connector configuration.
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
+        pulumi.set(self, "signing_algorithm", value)
+
+
+@pulumi.input_type
+class CertificateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConnectorTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Creates a key-value pair for a specific resource.
+        :param pulumi.Input[str] key: The name assigned to the tag that you create.
+        :param pulumi.Input[str] value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProfileTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Creates a key-value pair for a specific resource.
+        :param pulumi.Input[str] key: The name assigned to the tag that you create.
+        :param pulumi.Input[str] value: Contains one or more values that you assigned to the key name you create.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name assigned to the tag that you create.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Contains one or more values that you assigned to the key name you create.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class ServerAs2TransportArgs:

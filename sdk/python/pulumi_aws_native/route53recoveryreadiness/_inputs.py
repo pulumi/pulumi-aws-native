@@ -25,7 +25,7 @@ __all__ = [
 class CellTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 value: pulumi.Input[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -40,11 +40,11 @@ class CellTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -52,7 +52,7 @@ class CellTagArgs:
 class ReadinessCheckTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 value: pulumi.Input[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -67,11 +67,11 @@ class ReadinessCheckTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -79,7 +79,7 @@ class ReadinessCheckTagArgs:
 class RecoveryGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 value: pulumi.Input[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -94,11 +94,11 @@ class RecoveryGroupTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 
@@ -322,7 +322,7 @@ class ResourceSetResourceArgs:
 class ResourceSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 value: pulumi.Input[str]):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
@@ -337,11 +337,11 @@ class ResourceSetTagArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
 

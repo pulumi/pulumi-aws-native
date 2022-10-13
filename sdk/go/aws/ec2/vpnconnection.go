@@ -12,17 +12,24 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPNConnection
-//
-// Deprecated: VPNConnection is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VPNConnection struct {
 	pulumi.CustomResourceState
 
-	CustomerGatewayId              pulumi.StringOutput                                   `pulumi:"customerGatewayId"`
-	StaticRoutesOnly               pulumi.BoolPtrOutput                                  `pulumi:"staticRoutesOnly"`
-	Tags                           VPNConnectionTagArrayOutput                           `pulumi:"tags"`
-	TransitGatewayId               pulumi.StringPtrOutput                                `pulumi:"transitGatewayId"`
-	Type                           pulumi.StringOutput                                   `pulumi:"type"`
-	VpnGatewayId                   pulumi.StringPtrOutput                                `pulumi:"vpnGatewayId"`
+	// The ID of the customer gateway at your end of the VPN connection.
+	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
+	// Indicates whether the VPN connection uses static routes only.
+	StaticRoutesOnly pulumi.BoolPtrOutput `pulumi:"staticRoutesOnly"`
+	// Any tags assigned to the VPN connection.
+	Tags VPNConnectionTagArrayOutput `pulumi:"tags"`
+	// The ID of the transit gateway associated with the VPN connection.
+	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
+	// The type of VPN connection.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// The provider-assigned unique ID for this managed resource
+	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
+	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
+	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications VPNConnectionVpnTunnelOptionsSpecificationArrayOutput `pulumi:"vpnTunnelOptionsSpecifications"`
 }
 
@@ -71,23 +78,37 @@ func (VPNConnectionState) ElementType() reflect.Type {
 }
 
 type vpnconnectionArgs struct {
-	CustomerGatewayId              string                                       `pulumi:"customerGatewayId"`
-	StaticRoutesOnly               *bool                                        `pulumi:"staticRoutesOnly"`
-	Tags                           []VPNConnectionTag                           `pulumi:"tags"`
-	TransitGatewayId               *string                                      `pulumi:"transitGatewayId"`
-	Type                           string                                       `pulumi:"type"`
-	VpnGatewayId                   *string                                      `pulumi:"vpnGatewayId"`
+	// The ID of the customer gateway at your end of the VPN connection.
+	CustomerGatewayId string `pulumi:"customerGatewayId"`
+	// Indicates whether the VPN connection uses static routes only.
+	StaticRoutesOnly *bool `pulumi:"staticRoutesOnly"`
+	// Any tags assigned to the VPN connection.
+	Tags []VPNConnectionTag `pulumi:"tags"`
+	// The ID of the transit gateway associated with the VPN connection.
+	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// The type of VPN connection.
+	Type string `pulumi:"type"`
+	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
+	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications []VPNConnectionVpnTunnelOptionsSpecification `pulumi:"vpnTunnelOptionsSpecifications"`
 }
 
 // The set of arguments for constructing a VPNConnection resource.
 type VPNConnectionArgs struct {
-	CustomerGatewayId              pulumi.StringInput
-	StaticRoutesOnly               pulumi.BoolPtrInput
-	Tags                           VPNConnectionTagArrayInput
-	TransitGatewayId               pulumi.StringPtrInput
-	Type                           pulumi.StringInput
-	VpnGatewayId                   pulumi.StringPtrInput
+	// The ID of the customer gateway at your end of the VPN connection.
+	CustomerGatewayId pulumi.StringInput
+	// Indicates whether the VPN connection uses static routes only.
+	StaticRoutesOnly pulumi.BoolPtrInput
+	// Any tags assigned to the VPN connection.
+	Tags VPNConnectionTagArrayInput
+	// The ID of the transit gateway associated with the VPN connection.
+	TransitGatewayId pulumi.StringPtrInput
+	// The type of VPN connection.
+	Type pulumi.StringInput
+	// The ID of the virtual private gateway at the AWS side of the VPN connection.
+	VpnGatewayId pulumi.StringPtrInput
+	// The tunnel options for the VPN connection.
 	VpnTunnelOptionsSpecifications VPNConnectionVpnTunnelOptionsSpecificationArrayInput
 }
 
@@ -128,30 +149,42 @@ func (o VPNConnectionOutput) ToVPNConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ID of the customer gateway at your end of the VPN connection.
 func (o VPNConnectionOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPNConnection) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
 }
 
+// Indicates whether the VPN connection uses static routes only.
 func (o VPNConnectionOutput) StaticRoutesOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VPNConnection) pulumi.BoolPtrOutput { return v.StaticRoutesOnly }).(pulumi.BoolPtrOutput)
 }
 
+// Any tags assigned to the VPN connection.
 func (o VPNConnectionOutput) Tags() VPNConnectionTagArrayOutput {
 	return o.ApplyT(func(v *VPNConnection) VPNConnectionTagArrayOutput { return v.Tags }).(VPNConnectionTagArrayOutput)
 }
 
+// The ID of the transit gateway associated with the VPN connection.
 func (o VPNConnectionOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPNConnection) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The type of VPN connection.
 func (o VPNConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPNConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
+// The provider-assigned unique ID for this managed resource
+func (o VPNConnectionOutput) VpnConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VPNConnection) pulumi.StringOutput { return v.VpnConnectionId }).(pulumi.StringOutput)
+}
+
+// The ID of the virtual private gateway at the AWS side of the VPN connection.
 func (o VPNConnectionOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VPNConnection) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The tunnel options for the VPN connection.
 func (o VPNConnectionOutput) VpnTunnelOptionsSpecifications() VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
 	return o.ApplyT(func(v *VPNConnection) VPNConnectionVpnTunnelOptionsSpecificationArrayOutput {
 		return v.VpnTunnelOptionsSpecifications

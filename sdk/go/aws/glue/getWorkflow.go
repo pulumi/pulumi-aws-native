@@ -28,6 +28,7 @@ type LookupWorkflowResult struct {
 	DefaultRunProperties interface{} `pulumi:"defaultRunProperties"`
 	Description          *string     `pulumi:"description"`
 	Id                   *string     `pulumi:"id"`
+	MaxConcurrentRuns    *int        `pulumi:"maxConcurrentRuns"`
 	Tags                 interface{} `pulumi:"tags"`
 }
 
@@ -76,6 +77,10 @@ func (o LookupWorkflowResultOutput) Description() pulumi.StringPtrOutput {
 
 func (o LookupWorkflowResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWorkflowResultOutput) MaxConcurrentRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *int { return v.MaxConcurrentRuns }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupWorkflowResultOutput) Tags() pulumi.AnyOutput {

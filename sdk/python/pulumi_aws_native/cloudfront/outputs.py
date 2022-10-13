@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'CachePolicyConfig',
@@ -46,6 +47,8 @@ __all__ = [
     'FunctionConfig',
     'FunctionMetadata',
     'KeyGroupConfig',
+    'MonitoringSubscription',
+    'MonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginAccessControlConfig',
     'OriginRequestPolicyConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -2037,6 +2040,65 @@ class KeyGroupConfig(dict):
     @pulumi.getter
     def comment(self) -> Optional[str]:
         return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class MonitoringSubscription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "realtimeMetricsSubscriptionConfig":
+            suggest = "realtime_metrics_subscription_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSubscription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_config: Optional['outputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig'] = None):
+        if realtime_metrics_subscription_config is not None:
+            pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
+    def realtime_metrics_subscription_config(self) -> Optional['outputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig']:
+        return pulumi.get(self, "realtime_metrics_subscription_config")
+
+
+@pulumi.output_type
+class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "realtimeMetricsSubscriptionStatus":
+            suggest = "realtime_metrics_subscription_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSubscriptionRealtimeMetricsSubscriptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSubscriptionRealtimeMetricsSubscriptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSubscriptionRealtimeMetricsSubscriptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_status: 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus'):
+        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
+    def realtime_metrics_subscription_status(self) -> 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus':
+        return pulumi.get(self, "realtime_metrics_subscription_status")
 
 
 @pulumi.output_type

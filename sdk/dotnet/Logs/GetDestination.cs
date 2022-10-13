@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Logs
     public static class GetDestination
     {
         /// <summary>
-        /// Resource Type definition for AWS::Logs::Destination
+        /// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
         /// </summary>
         public static Task<GetDestinationResult> InvokeAsync(GetDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Logs::Destination
+        /// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
         /// </summary>
         public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetDestinationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the destination resource
+        /// </summary>
+        [Input("destinationName", required: true)]
+        public string DestinationName { get; set; } = null!;
 
         public GetDestinationArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class GetDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the destination resource
+        /// </summary>
+        [Input("destinationName", required: true)]
+        public Input<string> DestinationName { get; set; } = null!;
 
         public GetDestinationInvokeArgs()
         {
@@ -52,9 +58,17 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDestinationResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+        /// </summary>
         public readonly string? DestinationPolicy;
-        public readonly string? Id;
+        /// <summary>
+        /// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+        /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+        /// </summary>
         public readonly string? TargetArn;
 
         [OutputConstructor]
@@ -63,15 +77,12 @@ namespace Pulumi.AwsNative.Logs
 
             string? destinationPolicy,
 
-            string? id,
-
             string? roleArn,
 
             string? targetArn)
         {
             Arn = arn;
             DestinationPolicy = destinationPolicy;
-            Id = id;
             RoleArn = roleArn;
             TargetArn = targetArn;
         }

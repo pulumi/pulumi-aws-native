@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::Logs::Destination
+// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ...pulumi.InvokeOption) (*LookupDestinationResult, error) {
 	var rv LookupDestinationResult
 	err := ctx.Invoke("aws-native:logs:getDestination", args, &rv, opts...)
@@ -21,15 +21,18 @@ func LookupDestination(ctx *pulumi.Context, args *LookupDestinationArgs, opts ..
 }
 
 type LookupDestinationArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the destination resource
+	DestinationName string `pulumi:"destinationName"`
 }
 
 type LookupDestinationResult struct {
-	Arn               *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 	DestinationPolicy *string `pulumi:"destinationPolicy"`
-	Id                *string `pulumi:"id"`
-	RoleArn           *string `pulumi:"roleArn"`
-	TargetArn         *string `pulumi:"targetArn"`
+	// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
+	TargetArn *string `pulumi:"targetArn"`
 }
 
 func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupDestinationResultOutput {
@@ -46,7 +49,8 @@ func LookupDestinationOutput(ctx *pulumi.Context, args LookupDestinationOutputAr
 }
 
 type LookupDestinationOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the destination resource
+	DestinationName pulumi.StringInput `pulumi:"destinationName"`
 }
 
 func (LookupDestinationOutputArgs) ElementType() reflect.Type {
@@ -71,18 +75,17 @@ func (o LookupDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 func (o LookupDestinationResultOutput) DestinationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.DestinationPolicy }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupDestinationResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDestinationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
 func (o LookupDestinationResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
 func (o LookupDestinationResultOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDestinationResult) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
 }

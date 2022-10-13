@@ -39,6 +39,7 @@ export class Workflow extends pulumi.CustomResource {
 
     public readonly defaultRunProperties!: pulumi.Output<any | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly maxConcurrentRuns!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<any | undefined>;
 
@@ -57,11 +58,13 @@ export class Workflow extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["defaultRunProperties"] = args ? args.defaultRunProperties : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["maxConcurrentRuns"] = args ? args.maxConcurrentRuns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["defaultRunProperties"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["maxConcurrentRuns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -76,6 +79,7 @@ export class Workflow extends pulumi.CustomResource {
 export interface WorkflowArgs {
     defaultRunProperties?: any;
     description?: pulumi.Input<string>;
+    maxConcurrentRuns?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     tags?: any;
 }

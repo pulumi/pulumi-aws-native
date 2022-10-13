@@ -27,6 +27,7 @@ __all__ = [
     'LaunchSegmentOverrideArgs',
     'LaunchStepConfigArgs',
     'LaunchTagArgs',
+    'ProjectAppConfigResourceObjectArgs',
     'ProjectDataDeliveryObjectArgs',
     'ProjectS3DestinationArgs',
     'ProjectTagArgs',
@@ -785,6 +786,33 @@ class LaunchTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProjectAppConfigResourceObjectArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[str],
+                 environment_id: pulumi.Input[str]):
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "environment_id", environment_id)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_id", value)
 
 
 @pulumi.input_type

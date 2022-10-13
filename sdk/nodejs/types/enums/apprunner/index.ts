@@ -27,6 +27,7 @@ export const ServiceCodeConfigurationValuesRuntime = {
     Nodejs14: "NODEJS_14",
     Corretto8: "CORRETTO_8",
     Corretto11: "CORRETTO_11",
+    Nodejs16: "NODEJS_16",
 } as const;
 
 /**

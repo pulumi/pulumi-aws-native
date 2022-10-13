@@ -167,15 +167,19 @@ class OriginEndpointCmafEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
+                 encryption_method: Optional[pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod']] = None,
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
         A Common Media Application Format (CMAF) encryption configuration.
         :param pulumi.Input[str] constant_initialization_vector: An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+        :param pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod'] encryption_method: The encryption method used
         :param pulumi.Input[int] key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
+        if encryption_method is not None:
+            pulumi.set(__self__, "encryption_method", encryption_method)
         if key_rotation_interval_seconds is not None:
             pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
@@ -199,6 +203,18 @@ class OriginEndpointCmafEncryptionArgs:
     @constant_initialization_vector.setter
     def constant_initialization_vector(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "constant_initialization_vector", value)
+
+    @property
+    @pulumi.getter(name="encryptionMethod")
+    def encryption_method(self) -> Optional[pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod']]:
+        """
+        The encryption method used
+        """
+        return pulumi.get(self, "encryption_method")
+
+    @encryption_method.setter
+    def encryption_method(self, value: Optional[pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod']]):
+        pulumi.set(self, "encryption_method", value)
 
     @property
     @pulumi.getter(name="keyRotationIntervalSeconds")

@@ -28,12 +28,12 @@ export interface GetTriggerArgs {
 export interface GetTriggerResult {
     readonly actions?: outputs.glue.TriggerAction[];
     readonly description?: string;
+    readonly eventBatchingCondition?: outputs.glue.TriggerEventBatchingCondition;
     readonly id?: string;
     readonly predicate?: outputs.glue.TriggerPredicate;
     readonly schedule?: string;
     readonly startOnCreation?: boolean;
     readonly tags?: any;
-    readonly type?: string;
 }
 
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {

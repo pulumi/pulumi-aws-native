@@ -19,6 +19,7 @@ class TriggerArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 event_batching_condition: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -32,6 +33,8 @@ class TriggerArgs:
         pulumi.set(__self__, "type", type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if event_batching_condition is not None:
+            pulumi.set(__self__, "event_batching_condition", event_batching_condition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if predicate is not None:
@@ -71,6 +74,15 @@ class TriggerArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="eventBatchingCondition")
+    def event_batching_condition(self) -> Optional[pulumi.Input['TriggerEventBatchingConditionArgs']]:
+        return pulumi.get(self, "event_batching_condition")
+
+    @event_batching_condition.setter
+    def event_batching_condition(self, value: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']]):
+        pulumi.set(self, "event_batching_condition", value)
 
     @property
     @pulumi.getter
@@ -139,6 +151,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_batching_condition: Optional[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -179,6 +192,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_batching_condition: Optional[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
@@ -200,6 +214,7 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
             __props__.__dict__["description"] = description
+            __props__.__dict__["event_batching_condition"] = event_batching_condition
             __props__.__dict__["name"] = name
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
@@ -233,6 +248,7 @@ class Trigger(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["event_batching_condition"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["predicate"] = None
         __props__.__dict__["schedule"] = None
@@ -251,6 +267,11 @@ class Trigger(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="eventBatchingCondition")
+    def event_batching_condition(self) -> pulumi.Output[Optional['outputs.TriggerEventBatchingCondition']]:
+        return pulumi.get(self, "event_batching_condition")
 
     @property
     @pulumi.getter

@@ -42,6 +42,7 @@ type CacheCluster struct {
 	SnapshotRetentionLimit       pulumi.IntPtrOutput                                    `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               pulumi.StringPtrOutput                                 `pulumi:"snapshotWindow"`
 	Tags                         CacheClusterTagArrayOutput                             `pulumi:"tags"`
+	TransitEncryptionEnabled     pulumi.BoolPtrOutput                                   `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          pulumi.StringArrayOutput                               `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -118,6 +119,7 @@ type cacheClusterArgs struct {
 	SnapshotRetentionLimit       *int                                          `pulumi:"snapshotRetentionLimit"`
 	SnapshotWindow               *string                                       `pulumi:"snapshotWindow"`
 	Tags                         []CacheClusterTag                             `pulumi:"tags"`
+	TransitEncryptionEnabled     *bool                                         `pulumi:"transitEncryptionEnabled"`
 	VpcSecurityGroupIds          []string                                      `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -148,6 +150,7 @@ type CacheClusterArgs struct {
 	SnapshotRetentionLimit       pulumi.IntPtrInput
 	SnapshotWindow               pulumi.StringPtrInput
 	Tags                         CacheClusterTagArrayInput
+	TransitEncryptionEnabled     pulumi.BoolPtrInput
 	VpcSecurityGroupIds          pulumi.StringArrayInput
 }
 
@@ -288,6 +291,10 @@ func (o CacheClusterOutput) SnapshotWindow() pulumi.StringPtrOutput {
 
 func (o CacheClusterOutput) Tags() CacheClusterTagArrayOutput {
 	return o.ApplyT(func(v *CacheCluster) CacheClusterTagArrayOutput { return v.Tags }).(CacheClusterTagArrayOutput)
+}
+
+func (o CacheClusterOutput) TransitEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.BoolPtrOutput { return v.TransitEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o CacheClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {

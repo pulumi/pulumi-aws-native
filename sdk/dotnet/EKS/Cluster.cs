@@ -66,6 +66,9 @@ namespace Pulumi.AwsNative.EKS
         [Output("openIdConnectIssuerUrl")]
         public Output<string> OpenIdConnectIssuerUrl { get; private set; } = null!;
 
+        [Output("outpostConfig")]
+        public Output<Outputs.ClusterOutpostConfig?> OutpostConfig { get; private set; } = null!;
+
         [Output("resourcesVpcConfig")]
         public Output<Outputs.ClusterResourcesVpcConfig> ResourcesVpcConfig { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.AwsNative.EKS
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("outpostConfig")]
+        public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
 
         [Input("resourcesVpcConfig", required: true)]
         public Input<Inputs.ClusterResourcesVpcConfigArgs> ResourcesVpcConfig { get; set; } = null!;

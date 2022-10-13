@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTriggerResult:
-    def __init__(__self__, actions=None, description=None, id=None, predicate=None, schedule=None, start_on_creation=None, tags=None, type=None):
+    def __init__(__self__, actions=None, description=None, event_batching_condition=None, id=None, predicate=None, schedule=None, start_on_creation=None, tags=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if event_batching_condition and not isinstance(event_batching_condition, dict):
+            raise TypeError("Expected argument 'event_batching_condition' to be a dict")
+        pulumi.set(__self__, "event_batching_condition", event_batching_condition)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,9 +44,6 @@ class GetTriggerResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
-        if type and not isinstance(type, str):
-            raise TypeError("Expected argument 'type' to be a str")
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -54,6 +54,11 @@ class GetTriggerResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="eventBatchingCondition")
+    def event_batching_condition(self) -> Optional['outputs.TriggerEventBatchingCondition']:
+        return pulumi.get(self, "event_batching_condition")
 
     @property
     @pulumi.getter
@@ -80,11 +85,6 @@ class GetTriggerResult:
     def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
 
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        return pulumi.get(self, "type")
-
 
 class AwaitableGetTriggerResult(GetTriggerResult):
     # pylint: disable=using-constant-test
@@ -94,12 +94,12 @@ class AwaitableGetTriggerResult(GetTriggerResult):
         return GetTriggerResult(
             actions=self.actions,
             description=self.description,
+            event_batching_condition=self.event_batching_condition,
             id=self.id,
             predicate=self.predicate,
             schedule=self.schedule,
             start_on_creation=self.start_on_creation,
-            tags=self.tags,
-            type=self.type)
+            tags=self.tags)
 
 
 def get_trigger(id: Optional[str] = None,
@@ -115,12 +115,12 @@ def get_trigger(id: Optional[str] = None,
     return AwaitableGetTriggerResult(
         actions=__ret__.actions,
         description=__ret__.description,
+        event_batching_condition=__ret__.event_batching_condition,
         id=__ret__.id,
         predicate=__ret__.predicate,
         schedule=__ret__.schedule,
         start_on_creation=__ret__.start_on_creation,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_trigger)

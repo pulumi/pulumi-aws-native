@@ -32,6 +32,7 @@ type Cluster struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
 	OpenIdConnectIssuerUrl pulumi.StringOutput             `pulumi:"openIdConnectIssuerUrl"`
+	OutpostConfig          ClusterOutpostConfigPtrOutput   `pulumi:"outpostConfig"`
 	ResourcesVpcConfig     ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -91,6 +92,7 @@ type clusterArgs struct {
 	Logging                 *ClusterLogging                 `pulumi:"logging"`
 	// The unique name to give to your cluster.
 	Name               *string                   `pulumi:"name"`
+	OutpostConfig      *ClusterOutpostConfig     `pulumi:"outpostConfig"`
 	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn string `pulumi:"roleArn"`
@@ -107,6 +109,7 @@ type ClusterArgs struct {
 	Logging                 ClusterLoggingPtrInput
 	// The unique name to give to your cluster.
 	Name               pulumi.StringPtrInput
+	OutpostConfig      ClusterOutpostConfigPtrInput
 	ResourcesVpcConfig ClusterResourcesVpcConfigInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 	RoleArn pulumi.StringInput
@@ -198,6 +201,10 @@ func (o ClusterOutput) Name() pulumi.StringPtrOutput {
 // The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
 func (o ClusterOutput) OpenIdConnectIssuerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.OpenIdConnectIssuerUrl }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterOutpostConfigPtrOutput { return v.OutpostConfig }).(ClusterOutpostConfigPtrOutput)
 }
 
 func (o ClusterOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigOutput {

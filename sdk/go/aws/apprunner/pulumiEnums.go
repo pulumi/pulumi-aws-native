@@ -348,6 +348,7 @@ const (
 	ServiceCodeConfigurationValuesRuntimeNodejs14   = ServiceCodeConfigurationValuesRuntime("NODEJS_14")
 	ServiceCodeConfigurationValuesRuntimeCorretto8  = ServiceCodeConfigurationValuesRuntime("CORRETTO_8")
 	ServiceCodeConfigurationValuesRuntimeCorretto11 = ServiceCodeConfigurationValuesRuntime("CORRETTO_11")
+	ServiceCodeConfigurationValuesRuntimeNodejs16   = ServiceCodeConfigurationValuesRuntime("NODEJS_16")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {

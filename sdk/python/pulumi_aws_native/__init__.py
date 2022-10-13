@@ -213,6 +213,8 @@ if typing.TYPE_CHECKING:
     healthlake = __healthlake
     import pulumi_aws_native.iam as __iam
     iam = __iam
+    import pulumi_aws_native.identitystore as __identitystore
+    identitystore = __identitystore
     import pulumi_aws_native.imagebuilder as __imagebuilder
     imagebuilder = __imagebuilder
     import pulumi_aws_native.inspector as __inspector
@@ -231,6 +233,8 @@ if typing.TYPE_CHECKING:
     iotevents = __iotevents
     import pulumi_aws_native.iotfleethub as __iotfleethub
     iotfleethub = __iotfleethub
+    import pulumi_aws_native.iotfleetwise as __iotfleetwise
+    iotfleetwise = __iotfleetwise
     import pulumi_aws_native.iotsitewise as __iotsitewise
     iotsitewise = __iotsitewise
     import pulumi_aws_native.iotthingsgraph as __iotthingsgraph
@@ -514,6 +518,7 @@ else:
     guardduty = _utilities.lazy_import('pulumi_aws_native.guardduty')
     healthlake = _utilities.lazy_import('pulumi_aws_native.healthlake')
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
+    identitystore = _utilities.lazy_import('pulumi_aws_native.identitystore')
     imagebuilder = _utilities.lazy_import('pulumi_aws_native.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
     inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
@@ -523,6 +528,7 @@ else:
     iotcoredeviceadvisor = _utilities.lazy_import('pulumi_aws_native.iotcoredeviceadvisor')
     iotevents = _utilities.lazy_import('pulumi_aws_native.iotevents')
     iotfleethub = _utilities.lazy_import('pulumi_aws_native.iotfleethub')
+    iotfleetwise = _utilities.lazy_import('pulumi_aws_native.iotfleetwise')
     iotsitewise = _utilities.lazy_import('pulumi_aws_native.iotsitewise')
     iotthingsgraph = _utilities.lazy_import('pulumi_aws_native.iotthingsgraph')
     iottwinmaker = _utilities.lazy_import('pulumi_aws_native.iottwinmaker')
@@ -998,6 +1004,7 @@ _utilities.register(
    "aws-native:cloudfront:Distribution": "Distribution",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",
+   "aws-native:cloudfront:MonitoringSubscription": "MonitoringSubscription",
    "aws-native:cloudfront:OriginAccessControl": "OriginAccessControl",
    "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
    "aws-native:cloudfront:PublicKey": "PublicKey",
@@ -1726,7 +1733,8 @@ _utilities.register(
   "mod": "greengrassv2",
   "fqn": "pulumi_aws_native.greengrassv2",
   "classes": {
-   "aws-native:greengrassv2:ComponentVersion": "ComponentVersion"
+   "aws-native:greengrassv2:ComponentVersion": "ComponentVersion",
+   "aws-native:greengrassv2:Deployment": "Deployment"
   }
  },
  {
@@ -1778,6 +1786,15 @@ _utilities.register(
    "aws-native:iam:User": "User",
    "aws-native:iam:UserToGroupAddition": "UserToGroupAddition",
    "aws-native:iam:VirtualMFADevice": "VirtualMFADevice"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "identitystore",
+  "fqn": "pulumi_aws_native.identitystore",
+  "classes": {
+   "aws-native:identitystore:Group": "Group",
+   "aws-native:identitystore:GroupMembership": "GroupMembership"
   }
  },
  {
@@ -1894,6 +1911,19 @@ _utilities.register(
   "fqn": "pulumi_aws_native.iotfleethub",
   "classes": {
    "aws-native:iotfleethub:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "iotfleetwise",
+  "fqn": "pulumi_aws_native.iotfleetwise",
+  "classes": {
+   "aws-native:iotfleetwise:Campaign": "Campaign",
+   "aws-native:iotfleetwise:DecoderManifest": "DecoderManifest",
+   "aws-native:iotfleetwise:Fleet": "Fleet",
+   "aws-native:iotfleetwise:ModelManifest": "ModelManifest",
+   "aws-native:iotfleetwise:SignalCatalog": "SignalCatalog",
+   "aws-native:iotfleetwise:Vehicle": "Vehicle"
   }
  },
  {
@@ -2158,6 +2188,7 @@ _utilities.register(
   "mod": "m2",
   "fqn": "pulumi_aws_native.m2",
   "classes": {
+   "aws-native:m2:Application": "Application",
    "aws-native:m2:Environment": "Environment"
   }
  },
@@ -2877,6 +2908,10 @@ _utilities.register(
   "mod": "transfer",
   "fqn": "pulumi_aws_native.transfer",
   "classes": {
+   "aws-native:transfer:Agreement": "Agreement",
+   "aws-native:transfer:Certificate": "Certificate",
+   "aws-native:transfer:Connector": "Connector",
+   "aws-native:transfer:Profile": "Profile",
    "aws-native:transfer:Server": "Server",
    "aws-native:transfer:User": "User",
    "aws-native:transfer:Workflow": "Workflow"

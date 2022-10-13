@@ -15,21 +15,33 @@ namespace Pulumi.AwsNative.Redshift
     [AwsNativeResourceType("aws-native:redshift:ClusterParameterGroup")]
     public partial class ClusterParameterGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description of the parameter group.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        /// </summary>
         [Output("parameterGroupFamily")]
         public Output<string> ParameterGroupFamily { get; private set; } = null!;
 
         /// <summary>
-        /// Cloudformation will generate a unique group name.
+        /// The name of the cluster parameter group.
         /// </summary>
         [Output("parameterGroupName")]
         public Output<string> ParameterGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ClusterParameterGroupParameter>> Parameters { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ClusterParameterGroupTag>> Tags { get; private set; } = null!;
 
@@ -78,14 +90,24 @@ namespace Pulumi.AwsNative.Redshift
 
     public sealed class ClusterParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the parameter group.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        /// </summary>
         [Input("parameterGroupFamily", required: true)]
         public Input<string> ParameterGroupFamily { get; set; } = null!;
 
         [Input("parameters")]
         private InputList<Inputs.ClusterParameterGroupParameterArgs>? _parameters;
+
+        /// <summary>
+        /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        /// </summary>
         public InputList<Inputs.ClusterParameterGroupParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.ClusterParameterGroupParameterArgs>());
@@ -94,6 +116,10 @@ namespace Pulumi.AwsNative.Redshift
 
         [Input("tags")]
         private InputList<Inputs.ClusterParameterGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.ClusterParameterGroupTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ClusterParameterGroupTagArgs>());

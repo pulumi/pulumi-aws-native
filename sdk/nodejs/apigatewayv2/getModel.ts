@@ -14,18 +14,20 @@ export function getModel(args: GetModelArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getModel", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "modelId": args.modelId,
     }, opts);
 }
 
 export interface GetModelArgs {
-    id: string;
+    apiId: string;
+    modelId: string;
 }
 
 export interface GetModelResult {
     readonly contentType?: string;
     readonly description?: string;
-    readonly id?: string;
+    readonly modelId?: string;
     readonly name?: string;
     readonly schema?: any;
 }
@@ -35,5 +37,6 @@ export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetModelOutputArgs {
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
+    modelId: pulumi.Input<string>;
 }

@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("analyticsConfiguration")]
         public Output<Outputs.UserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
 
+        [Output("authSessionValidity")]
+        public Output<int?> AuthSessionValidity { get; private set; } = null!;
+
         [Output("callbackURLs")]
         public Output<ImmutableArray<string>> CallbackURLs { get; private set; } = null!;
 
@@ -154,6 +157,9 @@ namespace Pulumi.AwsNative.Cognito
 
         [Input("analyticsConfiguration")]
         public Input<Inputs.UserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
+
+        [Input("authSessionValidity")]
+        public Input<int>? AuthSessionValidity { get; set; }
 
         [Input("callbackURLs")]
         private InputList<string>? _callbackURLs;

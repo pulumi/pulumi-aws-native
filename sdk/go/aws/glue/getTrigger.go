@@ -25,14 +25,14 @@ type LookupTriggerArgs struct {
 }
 
 type LookupTriggerResult struct {
-	Actions         []TriggerAction   `pulumi:"actions"`
-	Description     *string           `pulumi:"description"`
-	Id              *string           `pulumi:"id"`
-	Predicate       *TriggerPredicate `pulumi:"predicate"`
-	Schedule        *string           `pulumi:"schedule"`
-	StartOnCreation *bool             `pulumi:"startOnCreation"`
-	Tags            interface{}       `pulumi:"tags"`
-	Type            *string           `pulumi:"type"`
+	Actions                []TriggerAction                `pulumi:"actions"`
+	Description            *string                        `pulumi:"description"`
+	EventBatchingCondition *TriggerEventBatchingCondition `pulumi:"eventBatchingCondition"`
+	Id                     *string                        `pulumi:"id"`
+	Predicate              *TriggerPredicate              `pulumi:"predicate"`
+	Schedule               *string                        `pulumi:"schedule"`
+	StartOnCreation        *bool                          `pulumi:"startOnCreation"`
+	Tags                   interface{}                    `pulumi:"tags"`
 }
 
 func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerResultOutput {
@@ -78,6 +78,10 @@ func (o LookupTriggerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTriggerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupTriggerResultOutput) EventBatchingCondition() TriggerEventBatchingConditionPtrOutput {
+	return o.ApplyT(func(v LookupTriggerResult) *TriggerEventBatchingCondition { return v.EventBatchingCondition }).(TriggerEventBatchingConditionPtrOutput)
+}
+
 func (o LookupTriggerResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTriggerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -96,10 +100,6 @@ func (o LookupTriggerResultOutput) StartOnCreation() pulumi.BoolPtrOutput {
 
 func (o LookupTriggerResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTriggerResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
-}
-
-func (o LookupTriggerResultOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTriggerResult) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

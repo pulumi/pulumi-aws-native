@@ -71,6 +71,7 @@ __all__ = [
     'TableStorageDescriptorArgs',
     'TriggerActionArgs',
     'TriggerConditionArgs',
+    'TriggerEventBatchingConditionArgs',
     'TriggerNotificationPropertyArgs',
     'TriggerPredicateArgs',
 ]
@@ -2714,6 +2715,34 @@ class TriggerConditionArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class TriggerEventBatchingConditionArgs:
+    def __init__(__self__, *,
+                 batch_size: pulumi.Input[int],
+                 batch_window: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "batch_size", batch_size)
+        if batch_window is not None:
+            pulumi.set(__self__, "batch_window", batch_window)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "batch_size")
+
+    @batch_size.setter
+    def batch_size(self, value: pulumi.Input[int]):
+        pulumi.set(self, "batch_size", value)
+
+    @property
+    @pulumi.getter(name="batchWindow")
+    def batch_window(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "batch_window")
+
+    @batch_window.setter
+    def batch_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "batch_window", value)
 
 
 @pulumi.input_type

@@ -72,6 +72,7 @@ __all__ = [
     'TableStorageDescriptor',
     'TriggerAction',
     'TriggerCondition',
+    'TriggerEventBatchingCondition',
     'TriggerNotificationProperty',
     'TriggerPredicate',
 ]
@@ -2983,6 +2984,45 @@ class TriggerCondition(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TriggerEventBatchingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchSize":
+            suggest = "batch_size"
+        elif key == "batchWindow":
+            suggest = "batch_window"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggerEventBatchingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggerEventBatchingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_size: int,
+                 batch_window: Optional[int] = None):
+        pulumi.set(__self__, "batch_size", batch_size)
+        if batch_window is not None:
+            pulumi.set(__self__, "batch_window", batch_window)
+
+    @property
+    @pulumi.getter(name="batchSize")
+    def batch_size(self) -> int:
+        return pulumi.get(self, "batch_size")
+
+    @property
+    @pulumi.getter(name="batchWindow")
+    def batch_window(self) -> Optional[int]:
+        return pulumi.get(self, "batch_window")
 
 
 @pulumi.output_type

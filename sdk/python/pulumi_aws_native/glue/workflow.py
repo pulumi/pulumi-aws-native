@@ -16,6 +16,7 @@ class WorkflowArgs:
     def __init__(__self__, *,
                  default_run_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
         """
@@ -25,6 +26,8 @@ class WorkflowArgs:
             pulumi.set(__self__, "default_run_properties", default_run_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -47,6 +50,15 @@ class WorkflowArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_runs", value)
 
     @property
     @pulumi.getter
@@ -79,6 +91,7 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_run_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -114,6 +127,7 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_run_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 max_concurrent_runs: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
@@ -128,6 +142,7 @@ class Workflow(pulumi.CustomResource):
 
             __props__.__dict__["default_run_properties"] = default_run_properties
             __props__.__dict__["description"] = description
+            __props__.__dict__["max_concurrent_runs"] = max_concurrent_runs
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
         super(Workflow, __self__).__init__(
@@ -154,6 +169,7 @@ class Workflow(pulumi.CustomResource):
 
         __props__.__dict__["default_run_properties"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["max_concurrent_runs"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
@@ -167,6 +183,11 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "max_concurrent_runs")
 
     @property
     @pulumi.getter

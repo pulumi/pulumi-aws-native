@@ -77,12 +77,7 @@ class ModelArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Model(pulumi.CustomResource):
-    warnings.warn("""Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,7 +124,6 @@ class Model(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schema: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -147,6 +141,7 @@ class Model(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["model_id"] = None
         super(Model, __self__).__init__(
             'aws-native:apigatewayv2:Model',
             resource_name,
@@ -172,6 +167,7 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["api_id"] = None
         __props__.__dict__["content_type"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["model_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schema"] = None
         return Model(resource_name, opts=opts, __props__=__props__)
@@ -190,6 +186,11 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "model_id")
 
     @property
     @pulumi.getter

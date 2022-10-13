@@ -20,6 +20,7 @@ type CACertificate struct {
 	CACertificatePem       pulumi.StringOutput                          `pulumi:"cACertificatePem"`
 	CertificateMode        CACertificateCertificateModePtrOutput        `pulumi:"certificateMode"`
 	RegistrationConfig     CACertificateRegistrationConfigPtrOutput     `pulumi:"registrationConfig"`
+	RemoveAutoRegistration pulumi.BoolPtrOutput                         `pulumi:"removeAutoRegistration"`
 	Status                 CACertificateStatusOutput                    `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags CACertificateTagArrayOutput `pulumi:"tags"`
@@ -76,6 +77,7 @@ type cacertificateArgs struct {
 	CACertificatePem       string                               `pulumi:"cACertificatePem"`
 	CertificateMode        *CACertificateCertificateMode        `pulumi:"certificateMode"`
 	RegistrationConfig     *CACertificateRegistrationConfig     `pulumi:"registrationConfig"`
+	RemoveAutoRegistration *bool                                `pulumi:"removeAutoRegistration"`
 	Status                 CACertificateStatus                  `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []CACertificateTag `pulumi:"tags"`
@@ -89,6 +91,7 @@ type CACertificateArgs struct {
 	CACertificatePem       pulumi.StringInput
 	CertificateMode        CACertificateCertificateModePtrInput
 	RegistrationConfig     CACertificateRegistrationConfigPtrInput
+	RemoveAutoRegistration pulumi.BoolPtrInput
 	Status                 CACertificateStatusInput
 	// An array of key-value pairs to apply to this resource.
 	Tags CACertificateTagArrayInput
@@ -151,6 +154,10 @@ func (o CACertificateOutput) CertificateMode() CACertificateCertificateModePtrOu
 
 func (o CACertificateOutput) RegistrationConfig() CACertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v *CACertificate) CACertificateRegistrationConfigPtrOutput { return v.RegistrationConfig }).(CACertificateRegistrationConfigPtrOutput)
+}
+
+func (o CACertificateOutput) RemoveAutoRegistration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CACertificate) pulumi.BoolPtrOutput { return v.RemoveAutoRegistration }).(pulumi.BoolPtrOutput)
 }
 
 func (o CACertificateOutput) Status() CACertificateStatusOutput {

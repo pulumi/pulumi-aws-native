@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
- *
- * @deprecated ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationVersion {
-        pulumi.log.warn("ApplicationVersion is deprecated: ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ApplicationVersion(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,8 +37,17 @@ export class ApplicationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApplicationVersion.__pulumiType;
     }
 
+    /**
+     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     */
     public readonly applicationName!: pulumi.Output<string>;
+    /**
+     * A description of this application version.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+     */
     public readonly sourceBundle!: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle>;
 
     /**
@@ -51,9 +57,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApplicationVersion is deprecated: ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -80,7 +84,16 @@ export class ApplicationVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a ApplicationVersion resource.
  */
 export interface ApplicationVersionArgs {
+    /**
+     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     */
     applicationName: pulumi.Input<string>;
+    /**
+     * A description of this application version.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+     */
     sourceBundle: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionSourceBundleArgs>;
 }

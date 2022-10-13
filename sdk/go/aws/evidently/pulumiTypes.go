@@ -1917,6 +1917,154 @@ func (o LaunchTagArrayOutput) Index(i pulumi.IntInput) LaunchTagOutput {
 	}).(LaunchTagOutput)
 }
 
+type ProjectAppConfigResourceObject struct {
+	ApplicationId string `pulumi:"applicationId"`
+	EnvironmentId string `pulumi:"environmentId"`
+}
+
+// ProjectAppConfigResourceObjectInput is an input type that accepts ProjectAppConfigResourceObjectArgs and ProjectAppConfigResourceObjectOutput values.
+// You can construct a concrete instance of `ProjectAppConfigResourceObjectInput` via:
+//
+//	ProjectAppConfigResourceObjectArgs{...}
+type ProjectAppConfigResourceObjectInput interface {
+	pulumi.Input
+
+	ToProjectAppConfigResourceObjectOutput() ProjectAppConfigResourceObjectOutput
+	ToProjectAppConfigResourceObjectOutputWithContext(context.Context) ProjectAppConfigResourceObjectOutput
+}
+
+type ProjectAppConfigResourceObjectArgs struct {
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	EnvironmentId pulumi.StringInput `pulumi:"environmentId"`
+}
+
+func (ProjectAppConfigResourceObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectAppConfigResourceObject)(nil)).Elem()
+}
+
+func (i ProjectAppConfigResourceObjectArgs) ToProjectAppConfigResourceObjectOutput() ProjectAppConfigResourceObjectOutput {
+	return i.ToProjectAppConfigResourceObjectOutputWithContext(context.Background())
+}
+
+func (i ProjectAppConfigResourceObjectArgs) ToProjectAppConfigResourceObjectOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectAppConfigResourceObjectOutput)
+}
+
+func (i ProjectAppConfigResourceObjectArgs) ToProjectAppConfigResourceObjectPtrOutput() ProjectAppConfigResourceObjectPtrOutput {
+	return i.ToProjectAppConfigResourceObjectPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectAppConfigResourceObjectArgs) ToProjectAppConfigResourceObjectPtrOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectAppConfigResourceObjectOutput).ToProjectAppConfigResourceObjectPtrOutputWithContext(ctx)
+}
+
+// ProjectAppConfigResourceObjectPtrInput is an input type that accepts ProjectAppConfigResourceObjectArgs, ProjectAppConfigResourceObjectPtr and ProjectAppConfigResourceObjectPtrOutput values.
+// You can construct a concrete instance of `ProjectAppConfigResourceObjectPtrInput` via:
+//
+//	        ProjectAppConfigResourceObjectArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectAppConfigResourceObjectPtrInput interface {
+	pulumi.Input
+
+	ToProjectAppConfigResourceObjectPtrOutput() ProjectAppConfigResourceObjectPtrOutput
+	ToProjectAppConfigResourceObjectPtrOutputWithContext(context.Context) ProjectAppConfigResourceObjectPtrOutput
+}
+
+type projectAppConfigResourceObjectPtrType ProjectAppConfigResourceObjectArgs
+
+func ProjectAppConfigResourceObjectPtr(v *ProjectAppConfigResourceObjectArgs) ProjectAppConfigResourceObjectPtrInput {
+	return (*projectAppConfigResourceObjectPtrType)(v)
+}
+
+func (*projectAppConfigResourceObjectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectAppConfigResourceObject)(nil)).Elem()
+}
+
+func (i *projectAppConfigResourceObjectPtrType) ToProjectAppConfigResourceObjectPtrOutput() ProjectAppConfigResourceObjectPtrOutput {
+	return i.ToProjectAppConfigResourceObjectPtrOutputWithContext(context.Background())
+}
+
+func (i *projectAppConfigResourceObjectPtrType) ToProjectAppConfigResourceObjectPtrOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectAppConfigResourceObjectPtrOutput)
+}
+
+type ProjectAppConfigResourceObjectOutput struct{ *pulumi.OutputState }
+
+func (ProjectAppConfigResourceObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectAppConfigResourceObject)(nil)).Elem()
+}
+
+func (o ProjectAppConfigResourceObjectOutput) ToProjectAppConfigResourceObjectOutput() ProjectAppConfigResourceObjectOutput {
+	return o
+}
+
+func (o ProjectAppConfigResourceObjectOutput) ToProjectAppConfigResourceObjectOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectOutput {
+	return o
+}
+
+func (o ProjectAppConfigResourceObjectOutput) ToProjectAppConfigResourceObjectPtrOutput() ProjectAppConfigResourceObjectPtrOutput {
+	return o.ToProjectAppConfigResourceObjectPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectAppConfigResourceObjectOutput) ToProjectAppConfigResourceObjectPtrOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectAppConfigResourceObject) *ProjectAppConfigResourceObject {
+		return &v
+	}).(ProjectAppConfigResourceObjectPtrOutput)
+}
+
+func (o ProjectAppConfigResourceObjectOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectAppConfigResourceObject) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ProjectAppConfigResourceObjectOutput) EnvironmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectAppConfigResourceObject) string { return v.EnvironmentId }).(pulumi.StringOutput)
+}
+
+type ProjectAppConfigResourceObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectAppConfigResourceObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectAppConfigResourceObject)(nil)).Elem()
+}
+
+func (o ProjectAppConfigResourceObjectPtrOutput) ToProjectAppConfigResourceObjectPtrOutput() ProjectAppConfigResourceObjectPtrOutput {
+	return o
+}
+
+func (o ProjectAppConfigResourceObjectPtrOutput) ToProjectAppConfigResourceObjectPtrOutputWithContext(ctx context.Context) ProjectAppConfigResourceObjectPtrOutput {
+	return o
+}
+
+func (o ProjectAppConfigResourceObjectPtrOutput) Elem() ProjectAppConfigResourceObjectOutput {
+	return o.ApplyT(func(v *ProjectAppConfigResourceObject) ProjectAppConfigResourceObject {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectAppConfigResourceObject
+		return ret
+	}).(ProjectAppConfigResourceObjectOutput)
+}
+
+func (o ProjectAppConfigResourceObjectPtrOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectAppConfigResourceObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectAppConfigResourceObjectPtrOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectAppConfigResourceObject) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EnvironmentId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Destinations for data.
 type ProjectDataDeliveryObject struct {
 	LogGroup *string               `pulumi:"logGroup"`
@@ -2466,6 +2614,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchStepConfigArrayInput)(nil)).Elem(), LaunchStepConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTagInput)(nil)).Elem(), LaunchTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTagArrayInput)(nil)).Elem(), LaunchTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectAppConfigResourceObjectInput)(nil)).Elem(), ProjectAppConfigResourceObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectAppConfigResourceObjectPtrInput)(nil)).Elem(), ProjectAppConfigResourceObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryObjectInput)(nil)).Elem(), ProjectDataDeliveryObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectDataDeliveryObjectPtrInput)(nil)).Elem(), ProjectDataDeliveryObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectS3DestinationInput)(nil)).Elem(), ProjectS3DestinationArgs{})
@@ -2506,6 +2656,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchStepConfigArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTagOutput{})
 	pulumi.RegisterOutputType(LaunchTagArrayOutput{})
+	pulumi.RegisterOutputType(ProjectAppConfigResourceObjectOutput{})
+	pulumi.RegisterOutputType(ProjectAppConfigResourceObjectPtrOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryObjectOutput{})
 	pulumi.RegisterOutputType(ProjectDataDeliveryObjectPtrOutput{})
 	pulumi.RegisterOutputType(ProjectS3DestinationOutput{})

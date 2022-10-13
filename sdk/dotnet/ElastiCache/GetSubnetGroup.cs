@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name for the cache subnet group. This value is stored as a lowercase string.
+        /// </summary>
+        [Input("cacheSubnetGroupName", required: true)]
+        public string CacheSubnetGroupName { get; set; } = null!;
 
         public GetSubnetGroupArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name for the cache subnet group. This value is stored as a lowercase string.
+        /// </summary>
+        [Input("cacheSubnetGroupName", required: true)]
+        public Input<string> CacheSubnetGroupName { get; set; } = null!;
 
         public GetSubnetGroupInvokeArgs()
         {
@@ -51,8 +57,13 @@ namespace Pulumi.AwsNative.ElastiCache
     [OutputType]
     public sealed class GetSubnetGroupResult
     {
+        /// <summary>
+        /// The description for the cache subnet group.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// The EC2 subnet IDs for the cache subnet group.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         public readonly ImmutableArray<Outputs.SubnetGroupTag> Tags;
 
@@ -60,14 +71,11 @@ namespace Pulumi.AwsNative.ElastiCache
         private GetSubnetGroupResult(
             string? description,
 
-            string? id,
-
             ImmutableArray<string> subnetIds,
 
             ImmutableArray<Outputs.SubnetGroupTag> tags)
         {
             Description = description;
-            Id = id;
             SubnetIds = subnetIds;
             Tags = tags;
         }

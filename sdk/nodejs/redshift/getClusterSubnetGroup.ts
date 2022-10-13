@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+ * Specifies an Amazon Redshift subnet group.
  */
 export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSubnetGroupResult> {
     if (!opts) {
@@ -17,18 +17,33 @@ export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:redshift:getClusterSubnetGroup", {
-        "id": args.id,
+        "clusterSubnetGroupName": args.clusterSubnetGroupName,
     }, opts);
 }
 
 export interface GetClusterSubnetGroupArgs {
-    id: string;
+    /**
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     */
+    clusterSubnetGroupName: string;
 }
 
 export interface GetClusterSubnetGroupResult {
+    /**
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     */
+    readonly clusterSubnetGroupName?: string;
+    /**
+     * The description of the parameter group.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The list of VPC subnet IDs
+     */
     readonly subnetIds?: string[];
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     readonly tags?: outputs.redshift.ClusterSubnetGroupTag[];
 }
 
@@ -37,5 +52,8 @@ export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArg
 }
 
 export interface GetClusterSubnetGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     */
+    clusterSubnetGroupName: pulumi.Input<string>;
 }

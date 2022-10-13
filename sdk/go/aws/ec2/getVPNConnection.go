@@ -21,12 +21,15 @@ func LookupVPNConnection(ctx *pulumi.Context, args *LookupVPNConnectionArgs, opt
 }
 
 type LookupVPNConnectionArgs struct {
-	Id string `pulumi:"id"`
+	// The provider-assigned unique ID for this managed resource
+	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
 type LookupVPNConnectionResult struct {
-	Id   *string            `pulumi:"id"`
+	// Any tags assigned to the VPN connection.
 	Tags []VPNConnectionTag `pulumi:"tags"`
+	// The provider-assigned unique ID for this managed resource
+	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
 
 func LookupVPNConnectionOutput(ctx *pulumi.Context, args LookupVPNConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVPNConnectionResultOutput {
@@ -43,7 +46,8 @@ func LookupVPNConnectionOutput(ctx *pulumi.Context, args LookupVPNConnectionOutp
 }
 
 type LookupVPNConnectionOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The provider-assigned unique ID for this managed resource
+	VpnConnectionId pulumi.StringInput `pulumi:"vpnConnectionId"`
 }
 
 func (LookupVPNConnectionOutputArgs) ElementType() reflect.Type {
@@ -64,12 +68,14 @@ func (o LookupVPNConnectionResultOutput) ToLookupVPNConnectionResultOutputWithCo
 	return o
 }
 
-func (o LookupVPNConnectionResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVPNConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// Any tags assigned to the VPN connection.
 func (o LookupVPNConnectionResultOutput) Tags() VPNConnectionTagArrayOutput {
 	return o.ApplyT(func(v LookupVPNConnectionResult) []VPNConnectionTag { return v.Tags }).(VPNConnectionTagArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource
+func (o LookupVPNConnectionResultOutput) VpnConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVPNConnectionResult) *string { return v.VpnConnectionId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

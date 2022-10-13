@@ -21,6 +21,9 @@ class ClusterSubnetGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ClusterSubnetGroup resource.
+        :param pulumi.Input[str] description: The description of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of VPC subnet IDs
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]] tags: The list of tags for the cluster parameter group.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -30,6 +33,9 @@ class ClusterSubnetGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        The description of the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -39,6 +45,9 @@ class ClusterSubnetGroupArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of VPC subnet IDs
+        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -48,6 +57,9 @@ class ClusterSubnetGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSubnetGroupTagArgs']]]]:
+        """
+        The list of tags for the cluster parameter group.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -65,10 +77,13 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSubnetGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+        Specifies an Amazon Redshift subnet group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of VPC subnet IDs
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSubnetGroupTagArgs']]]] tags: The list of tags for the cluster parameter group.
         """
         ...
     @overload
@@ -77,7 +92,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                  args: ClusterSubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+        Specifies an Amazon Redshift subnet group.
 
         :param str resource_name: The name of the resource.
         :param ClusterSubnetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -113,6 +128,7 @@ class ClusterSubnetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["cluster_subnet_group_name"] = None
         super(ClusterSubnetGroup, __self__).__init__(
             'aws-native:redshift:ClusterSubnetGroup',
             resource_name,
@@ -135,23 +151,41 @@ class ClusterSubnetGroup(pulumi.CustomResource):
 
         __props__ = ClusterSubnetGroupArgs.__new__(ClusterSubnetGroupArgs)
 
+        __props__.__dict__["cluster_subnet_group_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
         return ClusterSubnetGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="clusterSubnetGroupName")
+    def cluster_subnet_group_name(self) -> pulumi.Output[str]:
+        """
+        This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        """
+        return pulumi.get(self, "cluster_subnet_group_name")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        The description of the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of VPC subnet IDs
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSubnetGroupTag']]]:
+        """
+        The list of tags for the cluster parameter group.
+        """
         return pulumi.get(self, "tags")
 

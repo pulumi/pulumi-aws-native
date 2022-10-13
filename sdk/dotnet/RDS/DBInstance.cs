@@ -70,6 +70,18 @@ namespace Pulumi.AwsNative.RDS
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+        ///  * The profile must exist in your account.
+        ///  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+        ///  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+        /// For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+        /// 
+        /// This setting is required for RDS Custom.
+        /// </summary>
+        [Output("customIAMInstanceProfile")]
+        public Output<string?> CustomIAMInstanceProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the DB cluster that the instance will belong to.
         /// </summary>
         [Output("dBClusterIdentifier")]
@@ -230,6 +242,18 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("multiAZ")]
         public Output<bool?> MultiAZ { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        /// </summary>
+        [Output("ncharCharacterSetName")]
+        public Output<string?> NcharCharacterSetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         /// <summary>
         /// Indicates that the DB instance should be associated with the specified option group.
@@ -451,6 +475,18 @@ namespace Pulumi.AwsNative.RDS
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
+        /// The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
+        ///  * The profile must exist in your account.
+        ///  * The profile must have an IAM role that Amazon EC2 has permissions to assume.
+        ///  * The instance profile name and the associated IAM role name must start with the prefix AWSRDSCustom .
+        /// For the list of permissions required for the IAM role, see Configure IAM and your VPC in the Amazon RDS User Guide .
+        /// 
+        /// This setting is required for RDS Custom.
+        /// </summary>
+        [Input("customIAMInstanceProfile")]
+        public Input<string>? CustomIAMInstanceProfile { get; set; }
+
+        /// <summary>
         /// The identifier of the DB cluster that the instance will belong to.
         /// </summary>
         [Input("dBClusterIdentifier")]
@@ -623,6 +659,18 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("multiAZ")]
         public Input<bool>? MultiAZ { get; set; }
+
+        /// <summary>
+        /// The name of the NCHAR character set for the Oracle DB instance. This parameter doesn't apply to RDS Custom.
+        /// </summary>
+        [Input("ncharCharacterSetName")]
+        public Input<string>? NcharCharacterSetName { get; set; }
+
+        /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// Indicates that the DB instance should be associated with the specified option group.

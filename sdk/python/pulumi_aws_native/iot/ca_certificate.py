@@ -22,6 +22,7 @@ class CACertificateArgs:
                  auto_registration_status: Optional[pulumi.Input['CACertificateAutoRegistrationStatus']] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
                  registration_config: Optional[pulumi.Input['CACertificateRegistrationConfigArgs']] = None,
+                 remove_auto_registration: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None):
         """
@@ -37,6 +38,8 @@ class CACertificateArgs:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
         if registration_config is not None:
             pulumi.set(__self__, "registration_config", registration_config)
+        if remove_auto_registration is not None:
+            pulumi.set(__self__, "remove_auto_registration", remove_auto_registration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if verification_certificate_pem is not None:
@@ -88,6 +91,15 @@ class CACertificateArgs:
         pulumi.set(self, "registration_config", value)
 
     @property
+    @pulumi.getter(name="removeAutoRegistration")
+    def remove_auto_registration(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remove_auto_registration")
+
+    @remove_auto_registration.setter
+    def remove_auto_registration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remove_auto_registration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CACertificateTagArgs']]]]:
         """
@@ -121,6 +133,7 @@ class CACertificate(pulumi.CustomResource):
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
                  registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
+                 remove_auto_registration: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['CACertificateStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CACertificateTagArgs']]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
@@ -161,6 +174,7 @@ class CACertificate(pulumi.CustomResource):
                  c_a_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input['CACertificateCertificateMode']] = None,
                  registration_config: Optional[pulumi.Input[pulumi.InputType['CACertificateRegistrationConfigArgs']]] = None,
+                 remove_auto_registration: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input['CACertificateStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CACertificateTagArgs']]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
@@ -179,6 +193,7 @@ class CACertificate(pulumi.CustomResource):
             __props__.__dict__["c_a_certificate_pem"] = c_a_certificate_pem
             __props__.__dict__["certificate_mode"] = certificate_mode
             __props__.__dict__["registration_config"] = registration_config
+            __props__.__dict__["remove_auto_registration"] = remove_auto_registration
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -212,6 +227,7 @@ class CACertificate(pulumi.CustomResource):
         __props__.__dict__["c_a_certificate_pem"] = None
         __props__.__dict__["certificate_mode"] = None
         __props__.__dict__["registration_config"] = None
+        __props__.__dict__["remove_auto_registration"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["verification_certificate_pem"] = None
@@ -241,6 +257,11 @@ class CACertificate(pulumi.CustomResource):
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> pulumi.Output[Optional['outputs.CACertificateRegistrationConfig']]:
         return pulumi.get(self, "registration_config")
+
+    @property
+    @pulumi.getter(name="removeAutoRegistration")
+    def remove_auto_registration(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "remove_auto_registration")
 
     @property
     @pulumi.getter

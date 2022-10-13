@@ -24,10 +24,11 @@ export type DBProxyAuthFormatAuthScheme = (typeof DBProxyAuthFormatAuthScheme)[k
 export const DBProxyAuthFormatIAMAuth = {
     Disabled: "DISABLED",
     Required: "REQUIRED",
+    Enabled: "ENABLED",
 } as const;
 
 /**
- * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+ * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
  */
 export type DBProxyAuthFormatIAMAuth = (typeof DBProxyAuthFormatIAMAuth)[keyof typeof DBProxyAuthFormatIAMAuth];
 
@@ -44,6 +45,7 @@ export type DBProxyEndpointTargetRole = (typeof DBProxyEndpointTargetRole)[keyof
 export const DBProxyEngineFamily = {
     Mysql: "MYSQL",
     Postgresql: "POSTGRESQL",
+    Sqlserver: "SQLSERVER",
 } as const;
 
 /**

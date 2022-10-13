@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPNConnectionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource
+        /// </summary>
+        [Input("vpnConnectionId", required: true)]
+        public string VpnConnectionId { get; set; } = null!;
 
         public GetVPNConnectionArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVPNConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource
+        /// </summary>
+        [Input("vpnConnectionId", required: true)]
+        public Input<string> VpnConnectionId { get; set; } = null!;
 
         public GetVPNConnectionInvokeArgs()
         {
@@ -51,17 +57,23 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetVPNConnectionResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// Any tags assigned to the VPN connection.
+        /// </summary>
         public readonly ImmutableArray<Outputs.VPNConnectionTag> Tags;
+        /// <summary>
+        /// The provider-assigned unique ID for this managed resource
+        /// </summary>
+        public readonly string? VpnConnectionId;
 
         [OutputConstructor]
         private GetVPNConnectionResult(
-            string? id,
+            ImmutableArray<Outputs.VPNConnectionTag> tags,
 
-            ImmutableArray<Outputs.VPNConnectionTag> tags)
+            string? vpnConnectionId)
         {
-            Id = id;
             Tags = tags;
+            VpnConnectionId = vpnConnectionId;
         }
     }
 }

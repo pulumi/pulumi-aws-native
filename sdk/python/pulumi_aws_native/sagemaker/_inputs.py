@@ -59,7 +59,15 @@ __all__ = [
     'EndpointConfigAsyncInferenceOutputConfigArgs',
     'EndpointConfigCaptureContentTypeHeaderArgs',
     'EndpointConfigCaptureOptionArgs',
+    'EndpointConfigClarifyExplainerConfigArgs',
+    'EndpointConfigClarifyFeatureTypeArgs',
+    'EndpointConfigClarifyHeaderArgs',
+    'EndpointConfigClarifyInferenceConfigArgs',
+    'EndpointConfigClarifyShapBaselineConfigArgs',
+    'EndpointConfigClarifyShapConfigArgs',
+    'EndpointConfigClarifyTextConfigArgs',
     'EndpointConfigDataCaptureConfigArgs',
+    'EndpointConfigExplainerConfigArgs',
     'EndpointConfigProductionVariantArgs',
     'EndpointConfigServerlessConfigArgs',
     'EndpointConfigTagArgs',
@@ -2132,6 +2140,327 @@ class EndpointConfigCaptureOptionArgs:
 
 
 @pulumi.input_type
+class EndpointConfigClarifyExplainerConfigArgs:
+    def __init__(__self__, *,
+                 shap_config: pulumi.Input['EndpointConfigClarifyShapConfigArgs'],
+                 enable_explanations: Optional[pulumi.Input[str]] = None,
+                 inference_config: Optional[pulumi.Input['EndpointConfigClarifyInferenceConfigArgs']] = None):
+        pulumi.set(__self__, "shap_config", shap_config)
+        if enable_explanations is not None:
+            pulumi.set(__self__, "enable_explanations", enable_explanations)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @property
+    @pulumi.getter(name="shapConfig")
+    def shap_config(self) -> pulumi.Input['EndpointConfigClarifyShapConfigArgs']:
+        return pulumi.get(self, "shap_config")
+
+    @shap_config.setter
+    def shap_config(self, value: pulumi.Input['EndpointConfigClarifyShapConfigArgs']):
+        pulumi.set(self, "shap_config", value)
+
+    @property
+    @pulumi.getter(name="enableExplanations")
+    def enable_explanations(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "enable_explanations")
+
+    @enable_explanations.setter
+    def enable_explanations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_explanations", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional[pulumi.Input['EndpointConfigClarifyInferenceConfigArgs']]:
+        return pulumi.get(self, "inference_config")
+
+    @inference_config.setter
+    def inference_config(self, value: Optional[pulumi.Input['EndpointConfigClarifyInferenceConfigArgs']]):
+        pulumi.set(self, "inference_config", value)
+
+
+@pulumi.input_type
+class EndpointConfigClarifyFeatureTypeArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class EndpointConfigClarifyHeaderArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class EndpointConfigClarifyInferenceConfigArgs:
+    def __init__(__self__, *,
+                 content_template: Optional[pulumi.Input[str]] = None,
+                 feature_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]] = None,
+                 feature_types: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyFeatureTypeArgs']]]] = None,
+                 features_attribute: Optional[pulumi.Input[str]] = None,
+                 label_attribute: Optional[pulumi.Input[str]] = None,
+                 label_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]] = None,
+                 label_index: Optional[pulumi.Input[int]] = None,
+                 max_payload_in_mb: Optional[pulumi.Input[int]] = None,
+                 max_record_count: Optional[pulumi.Input[int]] = None,
+                 probability_attribute: Optional[pulumi.Input[str]] = None,
+                 probability_index: Optional[pulumi.Input[int]] = None):
+        if content_template is not None:
+            pulumi.set(__self__, "content_template", content_template)
+        if feature_headers is not None:
+            pulumi.set(__self__, "feature_headers", feature_headers)
+        if feature_types is not None:
+            pulumi.set(__self__, "feature_types", feature_types)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if label_attribute is not None:
+            pulumi.set(__self__, "label_attribute", label_attribute)
+        if label_headers is not None:
+            pulumi.set(__self__, "label_headers", label_headers)
+        if label_index is not None:
+            pulumi.set(__self__, "label_index", label_index)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+        if max_record_count is not None:
+            pulumi.set(__self__, "max_record_count", max_record_count)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_index is not None:
+            pulumi.set(__self__, "probability_index", probability_index)
+
+    @property
+    @pulumi.getter(name="contentTemplate")
+    def content_template(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_template")
+
+    @content_template.setter
+    def content_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_template", value)
+
+    @property
+    @pulumi.getter(name="featureHeaders")
+    def feature_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]]:
+        return pulumi.get(self, "feature_headers")
+
+    @feature_headers.setter
+    def feature_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]]):
+        pulumi.set(self, "feature_headers", value)
+
+    @property
+    @pulumi.getter(name="featureTypes")
+    def feature_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyFeatureTypeArgs']]]]:
+        return pulumi.get(self, "feature_types")
+
+    @feature_types.setter
+    def feature_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyFeatureTypeArgs']]]]):
+        pulumi.set(self, "feature_types", value)
+
+    @property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "features_attribute")
+
+    @features_attribute.setter
+    def features_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "features_attribute", value)
+
+    @property
+    @pulumi.getter(name="labelAttribute")
+    def label_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "label_attribute")
+
+    @label_attribute.setter
+    def label_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label_attribute", value)
+
+    @property
+    @pulumi.getter(name="labelHeaders")
+    def label_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]]:
+        return pulumi.get(self, "label_headers")
+
+    @label_headers.setter
+    def label_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigClarifyHeaderArgs']]]]):
+        pulumi.set(self, "label_headers", value)
+
+    @property
+    @pulumi.getter(name="labelIndex")
+    def label_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "label_index")
+
+    @label_index.setter
+    def label_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "label_index", value)
+
+    @property
+    @pulumi.getter(name="maxPayloadInMB")
+    def max_payload_in_mb(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_payload_in_mb")
+
+    @max_payload_in_mb.setter
+    def max_payload_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_payload_in_mb", value)
+
+    @property
+    @pulumi.getter(name="maxRecordCount")
+    def max_record_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_record_count")
+
+    @max_record_count.setter
+    def max_record_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_record_count", value)
+
+    @property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "probability_attribute")
+
+    @probability_attribute.setter
+    def probability_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "probability_attribute", value)
+
+    @property
+    @pulumi.getter(name="probabilityIndex")
+    def probability_index(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "probability_index")
+
+    @probability_index.setter
+    def probability_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "probability_index", value)
+
+
+@pulumi.input_type
+class EndpointConfigClarifyShapBaselineConfigArgs:
+    def __init__(__self__, *,
+                 mime_type: Optional[pulumi.Input[str]] = None,
+                 shap_baseline: Optional[pulumi.Input[str]] = None,
+                 shap_baseline_uri: Optional[pulumi.Input[str]] = None):
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if shap_baseline is not None:
+            pulumi.set(__self__, "shap_baseline", shap_baseline)
+        if shap_baseline_uri is not None:
+            pulumi.set(__self__, "shap_baseline_uri", shap_baseline_uri)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mime_type", value)
+
+    @property
+    @pulumi.getter(name="shapBaseline")
+    def shap_baseline(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "shap_baseline")
+
+    @shap_baseline.setter
+    def shap_baseline(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shap_baseline", value)
+
+    @property
+    @pulumi.getter(name="shapBaselineUri")
+    def shap_baseline_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "shap_baseline_uri")
+
+    @shap_baseline_uri.setter
+    def shap_baseline_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shap_baseline_uri", value)
+
+
+@pulumi.input_type
+class EndpointConfigClarifyShapConfigArgs:
+    def __init__(__self__, *,
+                 shap_baseline_config: pulumi.Input['EndpointConfigClarifyShapBaselineConfigArgs'],
+                 number_of_samples: Optional[pulumi.Input[int]] = None,
+                 seed: Optional[pulumi.Input[int]] = None,
+                 text_config: Optional[pulumi.Input['EndpointConfigClarifyTextConfigArgs']] = None,
+                 use_logit: Optional[pulumi.Input[bool]] = None):
+        pulumi.set(__self__, "shap_baseline_config", shap_baseline_config)
+        if number_of_samples is not None:
+            pulumi.set(__self__, "number_of_samples", number_of_samples)
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+        if text_config is not None:
+            pulumi.set(__self__, "text_config", text_config)
+        if use_logit is not None:
+            pulumi.set(__self__, "use_logit", use_logit)
+
+    @property
+    @pulumi.getter(name="shapBaselineConfig")
+    def shap_baseline_config(self) -> pulumi.Input['EndpointConfigClarifyShapBaselineConfigArgs']:
+        return pulumi.get(self, "shap_baseline_config")
+
+    @shap_baseline_config.setter
+    def shap_baseline_config(self, value: pulumi.Input['EndpointConfigClarifyShapBaselineConfigArgs']):
+        pulumi.set(self, "shap_baseline_config", value)
+
+    @property
+    @pulumi.getter(name="numberOfSamples")
+    def number_of_samples(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_of_samples")
+
+    @number_of_samples.setter
+    def number_of_samples(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_samples", value)
+
+    @property
+    @pulumi.getter
+    def seed(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "seed")
+
+    @seed.setter
+    def seed(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "seed", value)
+
+    @property
+    @pulumi.getter(name="textConfig")
+    def text_config(self) -> Optional[pulumi.Input['EndpointConfigClarifyTextConfigArgs']]:
+        return pulumi.get(self, "text_config")
+
+    @text_config.setter
+    def text_config(self, value: Optional[pulumi.Input['EndpointConfigClarifyTextConfigArgs']]):
+        pulumi.set(self, "text_config", value)
+
+    @property
+    @pulumi.getter(name="useLogit")
+    def use_logit(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "use_logit")
+
+    @use_logit.setter
+    def use_logit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_logit", value)
+
+
+@pulumi.input_type
+class EndpointConfigClarifyTextConfigArgs:
+    def __init__(__self__, *,
+                 granularity: pulumi.Input[str],
+                 language: pulumi.Input[str]):
+        pulumi.set(__self__, "granularity", granularity)
+        pulumi.set(__self__, "language", language)
+
+    @property
+    @pulumi.getter
+    def granularity(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "granularity")
+
+    @granularity.setter
+    def granularity(self, value: pulumi.Input[str]):
+        pulumi.set(self, "granularity", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: pulumi.Input[str]):
+        pulumi.set(self, "language", value)
+
+
+@pulumi.input_type
 class EndpointConfigDataCaptureConfigArgs:
     def __init__(__self__, *,
                  capture_options: pulumi.Input[Sequence[pulumi.Input['EndpointConfigCaptureOptionArgs']]],
@@ -2206,26 +2535,52 @@ class EndpointConfigDataCaptureConfigArgs:
 
 
 @pulumi.input_type
+class EndpointConfigExplainerConfigArgs:
+    def __init__(__self__, *,
+                 clarify_explainer_config: Optional[pulumi.Input['EndpointConfigClarifyExplainerConfigArgs']] = None):
+        if clarify_explainer_config is not None:
+            pulumi.set(__self__, "clarify_explainer_config", clarify_explainer_config)
+
+    @property
+    @pulumi.getter(name="clarifyExplainerConfig")
+    def clarify_explainer_config(self) -> Optional[pulumi.Input['EndpointConfigClarifyExplainerConfigArgs']]:
+        return pulumi.get(self, "clarify_explainer_config")
+
+    @clarify_explainer_config.setter
+    def clarify_explainer_config(self, value: Optional[pulumi.Input['EndpointConfigClarifyExplainerConfigArgs']]):
+        pulumi.set(self, "clarify_explainer_config", value)
+
+
+@pulumi.input_type
 class EndpointConfigProductionVariantArgs:
     def __init__(__self__, *,
                  initial_variant_weight: pulumi.Input[float],
                  model_name: pulumi.Input[str],
                  variant_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
+                 container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 serverless_config: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']] = None):
+                 model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 serverless_config: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']] = None,
+                 volume_size_in_gb: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
 
     @property
     @pulumi.getter(name="initialVariantWeight")
@@ -2264,6 +2619,15 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "accelerator_type", value)
 
     @property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @container_startup_health_check_timeout_in_seconds.setter
+    def container_startup_health_check_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_startup_health_check_timeout_in_seconds", value)
+
+    @property
     @pulumi.getter(name="initialInstanceCount")
     def initial_instance_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "initial_instance_count")
@@ -2282,6 +2646,15 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @model_data_download_timeout_in_seconds.setter
+    def model_data_download_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "model_data_download_timeout_in_seconds", value)
+
+    @property
     @pulumi.getter(name="serverlessConfig")
     def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']]:
         return pulumi.get(self, "serverless_config")
@@ -2289,6 +2662,15 @@ class EndpointConfigProductionVariantArgs:
     @serverless_config.setter
     def serverless_config(self, value: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']]):
         pulumi.set(self, "serverless_config", value)
+
+    @property
+    @pulumi.getter(name="volumeSizeInGB")
+    def volume_size_in_gb(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @volume_size_in_gb.setter
+    def volume_size_in_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_size_in_gb", value)
 
 
 @pulumi.input_type

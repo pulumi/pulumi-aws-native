@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Model
- *
- * @deprecated Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Model extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Model extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Model {
-        pulumi.log.warn("Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Model(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,6 +37,7 @@ export class Model extends pulumi.CustomResource {
     public readonly apiId!: pulumi.Output<string>;
     public readonly contentType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modelId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly schema!: pulumi.Output<any>;
 
@@ -50,9 +48,7 @@ export class Model extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -67,10 +63,12 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["modelId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["modelId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schema"] = undefined /*out*/;
         }

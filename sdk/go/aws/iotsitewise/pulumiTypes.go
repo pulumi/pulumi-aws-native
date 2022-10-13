@@ -2665,7 +2665,7 @@ func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) string { return v.PropertyLogicalId }).(pulumi.StringOutput)
 }
 
-// The asset property's definition, alias, and notification state.
+// The asset property's definition, alias, unit, and notification state.
 type AssetProperty struct {
 	// The property alias that identifies the property.
 	Alias *string `pulumi:"alias"`
@@ -2673,6 +2673,8 @@ type AssetProperty struct {
 	LogicalId string `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState *AssetPropertyNotificationState `pulumi:"notificationState"`
+	// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+	Unit *string `pulumi:"unit"`
 }
 
 // AssetPropertyInput is an input type that accepts AssetPropertyArgs and AssetPropertyOutput values.
@@ -2686,7 +2688,7 @@ type AssetPropertyInput interface {
 	ToAssetPropertyOutputWithContext(context.Context) AssetPropertyOutput
 }
 
-// The asset property's definition, alias, and notification state.
+// The asset property's definition, alias, unit, and notification state.
 type AssetPropertyArgs struct {
 	// The property alias that identifies the property.
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
@@ -2694,6 +2696,8 @@ type AssetPropertyArgs struct {
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState AssetPropertyNotificationStatePtrInput `pulumi:"notificationState"`
+	// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (AssetPropertyArgs) ElementType() reflect.Type {
@@ -2733,7 +2737,7 @@ func (i AssetPropertyArray) ToAssetPropertyArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssetPropertyArrayOutput)
 }
 
-// The asset property's definition, alias, and notification state.
+// The asset property's definition, alias, unit, and notification state.
 type AssetPropertyOutput struct{ *pulumi.OutputState }
 
 func (AssetPropertyOutput) ElementType() reflect.Type {
@@ -2761,6 +2765,11 @@ func (o AssetPropertyOutput) LogicalId() pulumi.StringOutput {
 // The MQTT notification state (ENABLED or DISABLED) for this asset property.
 func (o AssetPropertyOutput) NotificationState() AssetPropertyNotificationStatePtrOutput {
 	return o.ApplyT(func(v AssetProperty) *AssetPropertyNotificationState { return v.NotificationState }).(AssetPropertyNotificationStatePtrOutput)
+}
+
+// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+func (o AssetPropertyOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssetProperty) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
 type AssetPropertyArrayOutput struct{ *pulumi.OutputState }

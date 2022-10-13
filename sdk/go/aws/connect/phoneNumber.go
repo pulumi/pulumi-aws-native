@@ -27,7 +27,7 @@ type PhoneNumber struct {
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
 	// One or more tags.
 	Tags PhoneNumberTagArrayOutput `pulumi:"tags"`
-	// The ARN of the Amazon Connect instance the phone number is claimed to.
+	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The phone number type, either TOLL_FREE or DID.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -89,7 +89,7 @@ type phoneNumberArgs struct {
 	Prefix *string `pulumi:"prefix"`
 	// One or more tags.
 	Tags []PhoneNumberTag `pulumi:"tags"`
-	// The ARN of the Amazon Connect instance the phone number is claimed to.
+	// The ARN of the target the phone number is claimed to.
 	TargetArn string `pulumi:"targetArn"`
 	// The phone number type, either TOLL_FREE or DID.
 	Type string `pulumi:"type"`
@@ -105,7 +105,7 @@ type PhoneNumberArgs struct {
 	Prefix pulumi.StringPtrInput
 	// One or more tags.
 	Tags PhoneNumberTagArrayInput
-	// The ARN of the Amazon Connect instance the phone number is claimed to.
+	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringInput
 	// The phone number type, either TOLL_FREE or DID.
 	Type pulumi.StringInput
@@ -178,7 +178,7 @@ func (o PhoneNumberOutput) Tags() PhoneNumberTagArrayOutput {
 	return o.ApplyT(func(v *PhoneNumber) PhoneNumberTagArrayOutput { return v.Tags }).(PhoneNumberTagArrayOutput)
 }
 
-// The ARN of the Amazon Connect instance the phone number is claimed to.
+// The ARN of the target the phone number is claimed to.
 func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

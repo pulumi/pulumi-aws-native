@@ -17,24 +17,26 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
-	AllocatedCapacity     pulumi.Float64PtrOutput          `pulumi:"allocatedCapacity"`
-	Command               JobCommandOutput                 `pulumi:"command"`
-	Connections           JobConnectionsListPtrOutput      `pulumi:"connections"`
-	DefaultArguments      pulumi.AnyOutput                 `pulumi:"defaultArguments"`
-	Description           pulumi.StringPtrOutput           `pulumi:"description"`
-	ExecutionProperty     JobExecutionPropertyPtrOutput    `pulumi:"executionProperty"`
-	GlueVersion           pulumi.StringPtrOutput           `pulumi:"glueVersion"`
-	LogUri                pulumi.StringPtrOutput           `pulumi:"logUri"`
-	MaxCapacity           pulumi.Float64PtrOutput          `pulumi:"maxCapacity"`
-	MaxRetries            pulumi.Float64PtrOutput          `pulumi:"maxRetries"`
-	Name                  pulumi.StringPtrOutput           `pulumi:"name"`
-	NotificationProperty  JobNotificationPropertyPtrOutput `pulumi:"notificationProperty"`
-	NumberOfWorkers       pulumi.IntPtrOutput              `pulumi:"numberOfWorkers"`
-	Role                  pulumi.StringOutput              `pulumi:"role"`
-	SecurityConfiguration pulumi.StringPtrOutput           `pulumi:"securityConfiguration"`
-	Tags                  pulumi.AnyOutput                 `pulumi:"tags"`
-	Timeout               pulumi.IntPtrOutput              `pulumi:"timeout"`
-	WorkerType            pulumi.StringPtrOutput           `pulumi:"workerType"`
+	AllocatedCapacity       pulumi.Float64PtrOutput          `pulumi:"allocatedCapacity"`
+	Command                 JobCommandOutput                 `pulumi:"command"`
+	Connections             JobConnectionsListPtrOutput      `pulumi:"connections"`
+	DefaultArguments        pulumi.AnyOutput                 `pulumi:"defaultArguments"`
+	Description             pulumi.StringPtrOutput           `pulumi:"description"`
+	ExecutionClass          pulumi.StringPtrOutput           `pulumi:"executionClass"`
+	ExecutionProperty       JobExecutionPropertyPtrOutput    `pulumi:"executionProperty"`
+	GlueVersion             pulumi.StringPtrOutput           `pulumi:"glueVersion"`
+	LogUri                  pulumi.StringPtrOutput           `pulumi:"logUri"`
+	MaxCapacity             pulumi.Float64PtrOutput          `pulumi:"maxCapacity"`
+	MaxRetries              pulumi.Float64PtrOutput          `pulumi:"maxRetries"`
+	Name                    pulumi.StringPtrOutput           `pulumi:"name"`
+	NonOverridableArguments pulumi.AnyOutput                 `pulumi:"nonOverridableArguments"`
+	NotificationProperty    JobNotificationPropertyPtrOutput `pulumi:"notificationProperty"`
+	NumberOfWorkers         pulumi.IntPtrOutput              `pulumi:"numberOfWorkers"`
+	Role                    pulumi.StringOutput              `pulumi:"role"`
+	SecurityConfiguration   pulumi.StringPtrOutput           `pulumi:"securityConfiguration"`
+	Tags                    pulumi.AnyOutput                 `pulumi:"tags"`
+	Timeout                 pulumi.IntPtrOutput              `pulumi:"timeout"`
+	WorkerType              pulumi.StringPtrOutput           `pulumi:"workerType"`
 }
 
 // NewJob registers a new resource with the given unique name, arguments, and options.
@@ -82,46 +84,50 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
-	AllocatedCapacity     *float64                 `pulumi:"allocatedCapacity"`
-	Command               JobCommand               `pulumi:"command"`
-	Connections           *JobConnectionsList      `pulumi:"connections"`
-	DefaultArguments      interface{}              `pulumi:"defaultArguments"`
-	Description           *string                  `pulumi:"description"`
-	ExecutionProperty     *JobExecutionProperty    `pulumi:"executionProperty"`
-	GlueVersion           *string                  `pulumi:"glueVersion"`
-	LogUri                *string                  `pulumi:"logUri"`
-	MaxCapacity           *float64                 `pulumi:"maxCapacity"`
-	MaxRetries            *float64                 `pulumi:"maxRetries"`
-	Name                  *string                  `pulumi:"name"`
-	NotificationProperty  *JobNotificationProperty `pulumi:"notificationProperty"`
-	NumberOfWorkers       *int                     `pulumi:"numberOfWorkers"`
-	Role                  string                   `pulumi:"role"`
-	SecurityConfiguration *string                  `pulumi:"securityConfiguration"`
-	Tags                  interface{}              `pulumi:"tags"`
-	Timeout               *int                     `pulumi:"timeout"`
-	WorkerType            *string                  `pulumi:"workerType"`
+	AllocatedCapacity       *float64                 `pulumi:"allocatedCapacity"`
+	Command                 JobCommand               `pulumi:"command"`
+	Connections             *JobConnectionsList      `pulumi:"connections"`
+	DefaultArguments        interface{}              `pulumi:"defaultArguments"`
+	Description             *string                  `pulumi:"description"`
+	ExecutionClass          *string                  `pulumi:"executionClass"`
+	ExecutionProperty       *JobExecutionProperty    `pulumi:"executionProperty"`
+	GlueVersion             *string                  `pulumi:"glueVersion"`
+	LogUri                  *string                  `pulumi:"logUri"`
+	MaxCapacity             *float64                 `pulumi:"maxCapacity"`
+	MaxRetries              *float64                 `pulumi:"maxRetries"`
+	Name                    *string                  `pulumi:"name"`
+	NonOverridableArguments interface{}              `pulumi:"nonOverridableArguments"`
+	NotificationProperty    *JobNotificationProperty `pulumi:"notificationProperty"`
+	NumberOfWorkers         *int                     `pulumi:"numberOfWorkers"`
+	Role                    string                   `pulumi:"role"`
+	SecurityConfiguration   *string                  `pulumi:"securityConfiguration"`
+	Tags                    interface{}              `pulumi:"tags"`
+	Timeout                 *int                     `pulumi:"timeout"`
+	WorkerType              *string                  `pulumi:"workerType"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	AllocatedCapacity     pulumi.Float64PtrInput
-	Command               JobCommandInput
-	Connections           JobConnectionsListPtrInput
-	DefaultArguments      pulumi.Input
-	Description           pulumi.StringPtrInput
-	ExecutionProperty     JobExecutionPropertyPtrInput
-	GlueVersion           pulumi.StringPtrInput
-	LogUri                pulumi.StringPtrInput
-	MaxCapacity           pulumi.Float64PtrInput
-	MaxRetries            pulumi.Float64PtrInput
-	Name                  pulumi.StringPtrInput
-	NotificationProperty  JobNotificationPropertyPtrInput
-	NumberOfWorkers       pulumi.IntPtrInput
-	Role                  pulumi.StringInput
-	SecurityConfiguration pulumi.StringPtrInput
-	Tags                  pulumi.Input
-	Timeout               pulumi.IntPtrInput
-	WorkerType            pulumi.StringPtrInput
+	AllocatedCapacity       pulumi.Float64PtrInput
+	Command                 JobCommandInput
+	Connections             JobConnectionsListPtrInput
+	DefaultArguments        pulumi.Input
+	Description             pulumi.StringPtrInput
+	ExecutionClass          pulumi.StringPtrInput
+	ExecutionProperty       JobExecutionPropertyPtrInput
+	GlueVersion             pulumi.StringPtrInput
+	LogUri                  pulumi.StringPtrInput
+	MaxCapacity             pulumi.Float64PtrInput
+	MaxRetries              pulumi.Float64PtrInput
+	Name                    pulumi.StringPtrInput
+	NonOverridableArguments pulumi.Input
+	NotificationProperty    JobNotificationPropertyPtrInput
+	NumberOfWorkers         pulumi.IntPtrInput
+	Role                    pulumi.StringInput
+	SecurityConfiguration   pulumi.StringPtrInput
+	Tags                    pulumi.Input
+	Timeout                 pulumi.IntPtrInput
+	WorkerType              pulumi.StringPtrInput
 }
 
 func (JobArgs) ElementType() reflect.Type {
@@ -181,6 +187,10 @@ func (o JobOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o JobOutput) ExecutionClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.ExecutionClass }).(pulumi.StringPtrOutput)
+}
+
 func (o JobOutput) ExecutionProperty() JobExecutionPropertyPtrOutput {
 	return o.ApplyT(func(v *Job) JobExecutionPropertyPtrOutput { return v.ExecutionProperty }).(JobExecutionPropertyPtrOutput)
 }
@@ -203,6 +213,10 @@ func (o JobOutput) MaxRetries() pulumi.Float64PtrOutput {
 
 func (o JobOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobOutput) NonOverridableArguments() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.NonOverridableArguments }).(pulumi.AnyOutput)
 }
 
 func (o JobOutput) NotificationProperty() JobNotificationPropertyPtrOutput {

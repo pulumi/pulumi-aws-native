@@ -34,12 +34,20 @@ type DBCluster struct {
 	DBClusterInstanceClass pulumi.StringPtrOutput `pulumi:"dBClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
+	// The AWS Region-unique, immutable identifier for the DB cluster.
+	DBClusterResourceId pulumi.StringOutput `pulumi:"dBClusterResourceId"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DBInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dBInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
+	// The Active Directory directory ID to create the DB cluster in.
+	Domain pulumi.StringPtrOutput `pulumi:"domain"`
+	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIAMRoleName pulumi.StringPtrOutput `pulumi:"domainIAMRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
@@ -69,6 +77,8 @@ type DBCluster struct {
 	MonitoringInterval pulumi.IntPtrOutput `pulumi:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn pulumi.StringPtrOutput `pulumi:"monitoringRoleArn"`
+	// The network type of the DB cluster.
+	NetworkType pulumi.StringPtrOutput `pulumi:"networkType"`
 	// A value that indicates whether to turn on Performance Insights for the DB cluster.
 	PerformanceInsightsEnabled pulumi.BoolPtrOutput `pulumi:"performanceInsightsEnabled"`
 	// The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
@@ -92,6 +102,8 @@ type DBCluster struct {
 	RestoreType pulumi.StringPtrOutput `pulumi:"restoreType"`
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	ScalingConfiguration DBClusterScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
+	// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+	ServerlessV2ScalingConfiguration DBClusterServerlessV2ScalingConfigurationPtrOutput `pulumi:"serverlessV2ScalingConfiguration"`
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -172,12 +184,18 @@ type dbclusterArgs struct {
 	DBClusterInstanceClass *string `pulumi:"dBClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DBInstanceParameterGroupName *string `pulumi:"dBInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName *string `pulumi:"databaseName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The Active Directory directory ID to create the DB cluster in.
+	Domain *string `pulumi:"domain"`
+	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
@@ -206,6 +224,8 @@ type dbclusterArgs struct {
 	MonitoringInterval *int `pulumi:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
+	// The network type of the DB cluster.
+	NetworkType *string `pulumi:"networkType"`
 	// A value that indicates whether to turn on Performance Insights for the DB cluster.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
@@ -229,6 +249,8 @@ type dbclusterArgs struct {
 	RestoreType *string `pulumi:"restoreType"`
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	ScalingConfiguration *DBClusterScalingConfiguration `pulumi:"scalingConfiguration"`
+	// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+	ServerlessV2ScalingConfiguration *DBClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -272,12 +294,18 @@ type DBClusterArgs struct {
 	DBClusterInstanceClass pulumi.StringPtrInput
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	DBClusterParameterGroupName pulumi.StringPtrInput
+	// The name of the DB parameter group to apply to all instances of the DB cluster.
+	DBInstanceParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName pulumi.StringPtrInput
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
+	// The Active Directory directory ID to create the DB cluster in.
+	Domain pulumi.StringPtrInput
+	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIAMRoleName pulumi.StringPtrInput
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports pulumi.StringArrayInput
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
@@ -306,6 +334,8 @@ type DBClusterArgs struct {
 	MonitoringInterval pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn pulumi.StringPtrInput
+	// The network type of the DB cluster.
+	NetworkType pulumi.StringPtrInput
 	// A value that indicates whether to turn on Performance Insights for the DB cluster.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
 	// The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
@@ -329,6 +359,8 @@ type DBClusterArgs struct {
 	RestoreType pulumi.StringPtrInput
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	ScalingConfiguration DBClusterScalingConfigurationPtrInput
+	// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+	ServerlessV2ScalingConfiguration DBClusterServerlessV2ScalingConfigurationPtrInput
 	// The identifier for the DB snapshot or DB cluster snapshot to restore from.
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot. However, you can use only the ARN to specify a DB snapshot.
 	// After you restore a DB cluster with a SnapshotIdentifier property, you must specify the same SnapshotIdentifier property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed. However, if you don't specify the SnapshotIdentifier property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, the DB cluster is restored from the specified SnapshotIdentifier property, and the original DB cluster is deleted.
@@ -437,6 +469,16 @@ func (o DBClusterOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region-unique, immutable identifier for the DB cluster.
+func (o DBClusterOutput) DBClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringOutput { return v.DBClusterResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the DB parameter group to apply to all instances of the DB cluster.
+func (o DBClusterOutput) DBInstanceParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBInstanceParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
 // A DB subnet group that you want to associate with this DB cluster.
 func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
@@ -450,6 +492,16 @@ func (o DBClusterOutput) DatabaseName() pulumi.StringPtrOutput {
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 func (o DBClusterOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The Active Directory directory ID to create the DB cluster in.
+func (o DBClusterOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+func (o DBClusterOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -523,6 +575,11 @@ func (o DBClusterOutput) MonitoringRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.MonitoringRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The network type of the DB cluster.
+func (o DBClusterOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
+}
+
 // A value that indicates whether to turn on Performance Insights for the DB cluster.
 func (o DBClusterOutput) PerformanceInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.PerformanceInsightsEnabled }).(pulumi.BoolPtrOutput)
@@ -577,6 +634,13 @@ func (o DBClusterOutput) RestoreType() pulumi.StringPtrOutput {
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 func (o DBClusterOutput) ScalingConfiguration() DBClusterScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DBCluster) DBClusterScalingConfigurationPtrOutput { return v.ScalingConfiguration }).(DBClusterScalingConfigurationPtrOutput)
+}
+
+// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+func (o DBClusterOutput) ServerlessV2ScalingConfiguration() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DBCluster) DBClusterServerlessV2ScalingConfigurationPtrOutput {
+		return v.ServerlessV2ScalingConfiguration
+	}).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
 // The identifier for the DB snapshot or DB cluster snapshot to restore from.

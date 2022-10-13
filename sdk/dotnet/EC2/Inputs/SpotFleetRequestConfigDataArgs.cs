@@ -70,6 +70,14 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
+        [Input("tagSpecifications")]
+        private InputList<Inputs.SpotFleetTagSpecificationArgs>? _tagSpecifications;
+        public InputList<Inputs.SpotFleetTagSpecificationArgs> TagSpecifications
+        {
+            get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.SpotFleetTagSpecificationArgs>());
+            set => _tagSpecifications = value;
+        }
+
         [Input("targetCapacity", required: true)]
         public Input<int> TargetCapacity { get; set; } = null!;
 

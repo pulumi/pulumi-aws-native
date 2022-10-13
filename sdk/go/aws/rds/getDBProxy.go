@@ -42,6 +42,8 @@ type LookupDBProxyResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags []DBProxyTagFormat `pulumi:"tags"`
+	// VPC ID to associate with the new DB proxy.
+	VpcId *string `pulumi:"vpcId"`
 	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
@@ -120,6 +122,11 @@ func (o LookupDBProxyResultOutput) RoleArn() pulumi.StringPtrOutput {
 // An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 func (o LookupDBProxyResultOutput) Tags() DBProxyTagFormatArrayOutput {
 	return o.ApplyT(func(v LookupDBProxyResult) []DBProxyTagFormat { return v.Tags }).(DBProxyTagFormatArrayOutput)
+}
+
+// VPC ID to associate with the new DB proxy.
+func (o LookupDBProxyResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBProxyResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 // VPC security group IDs to associate with the new proxy.

@@ -80,6 +80,8 @@ type LookupDBInstanceResult struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether the database instance is a multiple Availability Zone deployment.
 	MultiAZ *bool `pulumi:"multiAZ"`
+	// The network type of the DB cluster.
+	NetworkType *string `pulumi:"networkType"`
 	// Indicates that the DB instance should be associated with the specified option group.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.
@@ -275,6 +277,11 @@ func (o LookupDBInstanceResultOutput) MonitoringRoleArn() pulumi.StringPtrOutput
 // Specifies whether the database instance is a multiple Availability Zone deployment.
 func (o LookupDBInstanceResultOutput) MultiAZ() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.MultiAZ }).(pulumi.BoolPtrOutput)
+}
+
+// The network type of the DB cluster.
+func (o LookupDBInstanceResultOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 // Indicates that the DB instance should be associated with the specified option group.

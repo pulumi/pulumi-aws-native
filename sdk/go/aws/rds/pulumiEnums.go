@@ -339,12 +339,13 @@ func (in *dbproxyAuthFormatAuthSchemePtr) ToDBProxyAuthFormatAuthSchemePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatAuthSchemePtrOutput)
 }
 
-// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
 type DBProxyAuthFormatIAMAuth string
 
 const (
 	DBProxyAuthFormatIAMAuthDisabled = DBProxyAuthFormatIAMAuth("DISABLED")
 	DBProxyAuthFormatIAMAuthRequired = DBProxyAuthFormatIAMAuth("REQUIRED")
+	DBProxyAuthFormatIAMAuthEnabled  = DBProxyAuthFormatIAMAuth("ENABLED")
 )
 
 func (DBProxyAuthFormatIAMAuth) ElementType() reflect.Type {
@@ -675,6 +676,7 @@ type DBProxyEngineFamily string
 const (
 	DBProxyEngineFamilyMysql      = DBProxyEngineFamily("MYSQL")
 	DBProxyEngineFamilyPostgresql = DBProxyEngineFamily("POSTGRESQL")
+	DBProxyEngineFamilySqlserver  = DBProxyEngineFamily("SQLSERVER")
 )
 
 func (DBProxyEngineFamily) ElementType() reflect.Type {

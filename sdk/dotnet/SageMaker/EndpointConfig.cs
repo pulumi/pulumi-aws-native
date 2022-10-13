@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("endpointConfigName")]
         public Output<string?> EndpointConfigName { get; private set; } = null!;
 
+        [Output("explainerConfig")]
+        public Output<Outputs.EndpointConfigExplainerConfig?> ExplainerConfig { get; private set; } = null!;
+
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -87,6 +90,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("endpointConfigName")]
         public Input<string>? EndpointConfigName { get; set; }
+
+        [Input("explainerConfig")]
+        public Input<Inputs.EndpointConfigExplainerConfigArgs>? ExplainerConfig { get; set; }
 
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

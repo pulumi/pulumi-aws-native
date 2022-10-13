@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<string>? ConstantInitializationVector { get; set; }
 
         /// <summary>
+        /// The encryption method used
+        /// </summary>
+        [Input("encryptionMethod")]
+        public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointCmafEncryptionEncryptionMethod>? EncryptionMethod { get; set; }
+
+        /// <summary>
         /// Time (in seconds) between each encryption key rotation.
         /// </summary>
         [Input("keyRotationIntervalSeconds")]

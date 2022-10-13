@@ -35,8 +35,10 @@ type LookupClusterResult struct {
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 	EncryptionConfigKeyArn *string `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
-	Endpoint *string         `pulumi:"endpoint"`
-	Logging  *ClusterLogging `pulumi:"logging"`
+	Endpoint *string `pulumi:"endpoint"`
+	// The unique ID given to your cluster.
+	Id      *string         `pulumi:"id"`
+	Logging *ClusterLogging `pulumi:"logging"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
 	OpenIdConnectIssuerUrl *string                    `pulumi:"openIdConnectIssuerUrl"`
 	ResourcesVpcConfig     *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
@@ -105,6 +107,11 @@ func (o LookupClusterResultOutput) EncryptionConfigKeyArn() pulumi.StringPtrOutp
 // The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The unique ID given to your cluster.
+func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupClusterResultOutput) Logging() ClusterLoggingPtrOutput {

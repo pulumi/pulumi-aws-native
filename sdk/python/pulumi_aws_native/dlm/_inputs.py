@@ -11,6 +11,8 @@ from .. import _utilities
 
 __all__ = [
     'LifecyclePolicyActionArgs',
+    'LifecyclePolicyArchiveRetainRuleArgs',
+    'LifecyclePolicyArchiveRuleArgs',
     'LifecyclePolicyCreateRuleArgs',
     'LifecyclePolicyCrossRegionCopyActionArgs',
     'LifecyclePolicyCrossRegionCopyDeprecateRuleArgs',
@@ -24,6 +26,7 @@ __all__ = [
     'LifecyclePolicyParametersArgs',
     'LifecyclePolicyPolicyDetailsArgs',
     'LifecyclePolicyRetainRuleArgs',
+    'LifecyclePolicyRetentionArchiveTierArgs',
     'LifecyclePolicyScheduleArgs',
     'LifecyclePolicyShareRuleArgs',
     'LifecyclePolicyTagArgs',
@@ -54,6 +57,38 @@ class LifecyclePolicyActionArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyArchiveRetainRuleArgs:
+    def __init__(__self__, *,
+                 retention_archive_tier: pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs']):
+        pulumi.set(__self__, "retention_archive_tier", retention_archive_tier)
+
+    @property
+    @pulumi.getter(name="retentionArchiveTier")
+    def retention_archive_tier(self) -> pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs']:
+        return pulumi.get(self, "retention_archive_tier")
+
+    @retention_archive_tier.setter
+    def retention_archive_tier(self, value: pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs']):
+        pulumi.set(self, "retention_archive_tier", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyArchiveRuleArgs:
+    def __init__(__self__, *,
+                 retain_rule: pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs']):
+        pulumi.set(__self__, "retain_rule", retain_rule)
+
+    @property
+    @pulumi.getter(name="retainRule")
+    def retain_rule(self) -> pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs']:
+        return pulumi.get(self, "retain_rule")
+
+    @retain_rule.setter
+    def retain_rule(self, value: pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs']):
+        pulumi.set(self, "retain_rule", value)
 
 
 @pulumi.input_type
@@ -675,8 +710,50 @@ class LifecyclePolicyRetainRuleArgs:
 
 
 @pulumi.input_type
+class LifecyclePolicyRetentionArchiveTierArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input[str]] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval_unit", value)
+
+
+@pulumi.input_type
 class LifecyclePolicyScheduleArgs:
     def __init__(__self__, *,
+                 archive_rule: Optional[pulumi.Input['LifecyclePolicyArchiveRuleArgs']] = None,
                  copy_tags: Optional[pulumi.Input[bool]] = None,
                  create_rule: Optional[pulumi.Input['LifecyclePolicyCreateRuleArgs']] = None,
                  cross_region_copy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyCrossRegionCopyRuleArgs']]]] = None,
@@ -687,6 +764,8 @@ class LifecyclePolicyScheduleArgs:
                  share_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyShareRuleArgs']]]] = None,
                  tags_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
                  variable_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None):
+        if archive_rule is not None:
+            pulumi.set(__self__, "archive_rule", archive_rule)
         if copy_tags is not None:
             pulumi.set(__self__, "copy_tags", copy_tags)
         if create_rule is not None:
@@ -707,6 +786,15 @@ class LifecyclePolicyScheduleArgs:
             pulumi.set(__self__, "tags_to_add", tags_to_add)
         if variable_tags is not None:
             pulumi.set(__self__, "variable_tags", variable_tags)
+
+    @property
+    @pulumi.getter(name="archiveRule")
+    def archive_rule(self) -> Optional[pulumi.Input['LifecyclePolicyArchiveRuleArgs']]:
+        return pulumi.get(self, "archive_rule")
+
+    @archive_rule.setter
+    def archive_rule(self, value: Optional[pulumi.Input['LifecyclePolicyArchiveRuleArgs']]):
+        pulumi.set(self, "archive_rule", value)
 
     @property
     @pulumi.getter(name="copyTags")

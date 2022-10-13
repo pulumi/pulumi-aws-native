@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Redshift::ClusterSubnetGroup
+ * Specifies an Amazon Redshift subnet group.
  */
 export class ClusterSubnetGroup extends pulumi.CustomResource {
     /**
@@ -37,8 +37,21 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSubnetGroup.__pulumiType;
     }
 
+    /**
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     */
+    public /*out*/ readonly clusterSubnetGroupName!: pulumi.Output<string>;
+    /**
+     * The description of the parameter group.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The list of VPC subnet IDs
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     public readonly tags!: pulumi.Output<outputs.redshift.ClusterSubnetGroupTag[] | undefined>;
 
     /**
@@ -61,7 +74,9 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;
         } else {
+            resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -75,7 +90,16 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterSubnetGroup resource.
  */
 export interface ClusterSubnetGroupArgs {
+    /**
+     * The description of the parameter group.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The list of VPC subnet IDs
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of tags for the cluster parameter group.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterSubnetGroupTagArgs>[]>;
 }

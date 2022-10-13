@@ -11,14 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EMR::SecurityConfiguration
-//
-// Deprecated: SecurityConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 
-	Name                  pulumi.StringPtrOutput `pulumi:"name"`
-	SecurityConfiguration pulumi.AnyOutput       `pulumi:"securityConfiguration"`
+	// The name of the security configuration.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The security configuration details in JSON format.
+	SecurityConfiguration pulumi.AnyOutput `pulumi:"securityConfiguration"`
 }
 
 // NewSecurityConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -63,13 +63,17 @@ func (SecurityConfigurationState) ElementType() reflect.Type {
 }
 
 type securityConfigurationArgs struct {
-	Name                  *string     `pulumi:"name"`
+	// The name of the security configuration.
+	Name *string `pulumi:"name"`
+	// The security configuration details in JSON format.
 	SecurityConfiguration interface{} `pulumi:"securityConfiguration"`
 }
 
 // The set of arguments for constructing a SecurityConfiguration resource.
 type SecurityConfigurationArgs struct {
-	Name                  pulumi.StringPtrInput
+	// The name of the security configuration.
+	Name pulumi.StringPtrInput
+	// The security configuration details in JSON format.
 	SecurityConfiguration pulumi.Input
 }
 
@@ -110,10 +114,12 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ct
 	return o
 }
 
+// The name of the security configuration.
 func (o SecurityConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The security configuration details in JSON format.
 func (o SecurityConfigurationOutput) SecurityConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.AnyOutput { return v.SecurityConfiguration }).(pulumi.AnyOutput)
 }

@@ -65,6 +65,7 @@ export class CacheCluster extends pulumi.CustomResource {
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
     public readonly snapshotWindow!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticache.CacheClusterTag[] | undefined>;
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -114,6 +115,7 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
             resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
         } else {
             resourceInputs["aZMode"] = undefined /*out*/;
@@ -141,6 +143,7 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["snapshotRetentionLimit"] = undefined /*out*/;
             resourceInputs["snapshotWindow"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -177,5 +180,6 @@ export interface CacheClusterArgs {
     snapshotRetentionLimit?: pulumi.Input<number>;
     snapshotWindow?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticache.CacheClusterTagArgs>[]>;
+    transitEncryptionEnabled?: pulumi.Input<boolean>;
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

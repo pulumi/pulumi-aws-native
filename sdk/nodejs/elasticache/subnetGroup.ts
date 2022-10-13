@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ElastiCache::SubnetGroup
- *
- * @deprecated SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SubnetGroup {
-        pulumi.log.warn("SubnetGroup is deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SubnetGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,8 +37,17 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
+    /**
+     * The name for the cache subnet group. This value is stored as a lowercase string.
+     */
     public readonly cacheSubnetGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The description for the cache subnet group.
+     */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * The EC2 subnet IDs for the cache subnet group.
+     */
     public readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.elasticache.SubnetGroupTag[] | undefined>;
 
@@ -52,9 +58,7 @@ export class SubnetGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SubnetGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SubnetGroup is deprecated: SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -83,8 +87,17 @@ export class SubnetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a SubnetGroup resource.
  */
 export interface SubnetGroupArgs {
+    /**
+     * The name for the cache subnet group. This value is stored as a lowercase string.
+     */
     cacheSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The description for the cache subnet group.
+     */
     description: pulumi.Input<string>;
+    /**
+     * The EC2 subnet IDs for the cache subnet group.
+     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.elasticache.SubnetGroupTagArgs>[]>;
 }

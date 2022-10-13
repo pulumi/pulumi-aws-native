@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.M2
 {
+    [EnumType]
+    public readonly struct ApplicationEngineType : IEquatable<ApplicationEngineType>
+    {
+        private readonly string _value;
+
+        private ApplicationEngineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationEngineType Microfocus { get; } = new ApplicationEngineType("microfocus");
+        public static ApplicationEngineType Bluage { get; } = new ApplicationEngineType("bluage");
+
+        public static bool operator ==(ApplicationEngineType left, ApplicationEngineType right) => left.Equals(right);
+        public static bool operator !=(ApplicationEngineType left, ApplicationEngineType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationEngineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationEngineType other && Equals(other);
+        public bool Equals(ApplicationEngineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The target platform for the environment.
     /// </summary>

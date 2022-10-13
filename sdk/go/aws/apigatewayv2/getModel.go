@@ -21,13 +21,14 @@ func LookupModel(ctx *pulumi.Context, args *LookupModelArgs, opts ...pulumi.Invo
 }
 
 type LookupModelArgs struct {
-	Id string `pulumi:"id"`
+	ApiId   string `pulumi:"apiId"`
+	ModelId string `pulumi:"modelId"`
 }
 
 type LookupModelResult struct {
 	ContentType *string     `pulumi:"contentType"`
 	Description *string     `pulumi:"description"`
-	Id          *string     `pulumi:"id"`
+	ModelId     *string     `pulumi:"modelId"`
 	Name        *string     `pulumi:"name"`
 	Schema      interface{} `pulumi:"schema"`
 }
@@ -46,7 +47,8 @@ func LookupModelOutput(ctx *pulumi.Context, args LookupModelOutputArgs, opts ...
 }
 
 type LookupModelOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId   pulumi.StringInput `pulumi:"apiId"`
+	ModelId pulumi.StringInput `pulumi:"modelId"`
 }
 
 func (LookupModelOutputArgs) ElementType() reflect.Type {
@@ -75,8 +77,8 @@ func (o LookupModelResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupModelResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupModelResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupModelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupModelResultOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupModelResult) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupModelResultOutput) Name() pulumi.StringPtrOutput {

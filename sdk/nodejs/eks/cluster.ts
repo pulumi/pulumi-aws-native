@@ -68,6 +68,7 @@ export class Cluster extends pulumi.CustomResource {
      * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
      */
     public /*out*/ readonly openIdConnectIssuerUrl!: pulumi.Output<string>;
+    public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
     public readonly resourcesVpcConfig!: pulumi.Output<outputs.eks.ClusterResourcesVpcConfig>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
@@ -103,6 +104,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
             resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -124,6 +126,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIdConnectIssuerUrl"] = undefined /*out*/;
+            resourceInputs["outpostConfig"] = undefined /*out*/;
             resourceInputs["resourcesVpcConfig"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -145,6 +148,7 @@ export interface ClusterArgs {
      * The unique name to give to your cluster.
      */
     name?: pulumi.Input<string>;
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs>;
     resourcesVpcConfig: pulumi.Input<inputs.eks.ClusterResourcesVpcConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.

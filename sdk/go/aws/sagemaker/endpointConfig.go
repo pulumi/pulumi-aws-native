@@ -20,6 +20,7 @@ type EndpointConfig struct {
 	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
 	DataCaptureConfig    EndpointConfigDataCaptureConfigPtrOutput    `pulumi:"dataCaptureConfig"`
 	EndpointConfigName   pulumi.StringPtrOutput                      `pulumi:"endpointConfigName"`
+	ExplainerConfig      EndpointConfigExplainerConfigPtrOutput      `pulumi:"explainerConfig"`
 	KmsKeyId             pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
 	ProductionVariants   EndpointConfigProductionVariantArrayOutput  `pulumi:"productionVariants"`
 	Tags                 EndpointConfigTagArrayOutput                `pulumi:"tags"`
@@ -70,6 +71,7 @@ type endpointConfigArgs struct {
 	AsyncInferenceConfig *EndpointConfigAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
 	DataCaptureConfig    *EndpointConfigDataCaptureConfig    `pulumi:"dataCaptureConfig"`
 	EndpointConfigName   *string                             `pulumi:"endpointConfigName"`
+	ExplainerConfig      *EndpointConfigExplainerConfig      `pulumi:"explainerConfig"`
 	KmsKeyId             *string                             `pulumi:"kmsKeyId"`
 	ProductionVariants   []EndpointConfigProductionVariant   `pulumi:"productionVariants"`
 	Tags                 []EndpointConfigTag                 `pulumi:"tags"`
@@ -80,6 +82,7 @@ type EndpointConfigArgs struct {
 	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrInput
 	DataCaptureConfig    EndpointConfigDataCaptureConfigPtrInput
 	EndpointConfigName   pulumi.StringPtrInput
+	ExplainerConfig      EndpointConfigExplainerConfigPtrInput
 	KmsKeyId             pulumi.StringPtrInput
 	ProductionVariants   EndpointConfigProductionVariantArrayInput
 	Tags                 EndpointConfigTagArrayInput
@@ -132,6 +135,10 @@ func (o EndpointConfigOutput) DataCaptureConfig() EndpointConfigDataCaptureConfi
 
 func (o EndpointConfigOutput) EndpointConfigName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfig) pulumi.StringPtrOutput { return v.EndpointConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigOutput) ExplainerConfig() EndpointConfigExplainerConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigExplainerConfigPtrOutput { return v.ExplainerConfig }).(EndpointConfigExplainerConfigPtrOutput)
 }
 
 func (o EndpointConfigOutput) KmsKeyId() pulumi.StringPtrOutput {

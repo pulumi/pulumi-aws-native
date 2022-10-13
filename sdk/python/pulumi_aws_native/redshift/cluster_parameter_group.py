@@ -22,6 +22,10 @@ class ClusterParameterGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a ClusterParameterGroup resource.
+        :param pulumi.Input[str] description: A description of the parameter group.
+        :param pulumi.Input[str] parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "parameter_group_family", parameter_group_family)
@@ -33,6 +37,9 @@ class ClusterParameterGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
+        """
+        A description of the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -42,6 +49,9 @@ class ClusterParameterGroupArgs:
     @property
     @pulumi.getter(name="parameterGroupFamily")
     def parameter_group_family(self) -> pulumi.Input[str]:
+        """
+        The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        """
         return pulumi.get(self, "parameter_group_family")
 
     @parameter_group_family.setter
@@ -51,6 +61,9 @@ class ClusterParameterGroupArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]]:
+        """
+        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -60,6 +73,9 @@ class ClusterParameterGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -82,6 +98,10 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the parameter group.
+        :param pulumi.Input[str] parameter_group_family: The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -161,28 +181,40 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
+        """
+        A description of the parameter group.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="parameterGroupFamily")
     def parameter_group_family(self) -> pulumi.Output[str]:
+        """
+        The Amazon Redshift engine version to which the cluster parameter group applies. The cluster engine version determines the set of parameters.
+        """
         return pulumi.get(self, "parameter_group_family")
 
     @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> pulumi.Output[str]:
         """
-        Cloudformation will generate a unique group name.
+        The name of the cluster parameter group.
         """
         return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterParameterGroupParameter']]]:
+        """
+        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterParameterGroupTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

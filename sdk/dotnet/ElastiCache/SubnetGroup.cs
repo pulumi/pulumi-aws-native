@@ -12,16 +12,24 @@ namespace Pulumi.AwsNative.ElastiCache
     /// <summary>
     /// Resource Type definition for AWS::ElastiCache::SubnetGroup
     /// </summary>
-    [Obsolete(@"SubnetGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticache:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name for the cache subnet group. This value is stored as a lowercase string.
+        /// </summary>
         [Output("cacheSubnetGroupName")]
         public Output<string?> CacheSubnetGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The description for the cache subnet group.
+        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The EC2 subnet IDs for the cache subnet group.
+        /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
@@ -73,14 +81,24 @@ namespace Pulumi.AwsNative.ElastiCache
 
     public sealed class SubnetGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name for the cache subnet group. This value is stored as a lowercase string.
+        /// </summary>
         [Input("cacheSubnetGroupName")]
         public Input<string>? CacheSubnetGroupName { get; set; }
 
+        /// <summary>
+        /// The description for the cache subnet group.
+        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// The EC2 subnet IDs for the cache subnet group.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

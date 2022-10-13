@@ -6315,6 +6315,1136 @@ func (o EndpointConfigCaptureOptionArrayOutput) Index(i pulumi.IntInput) Endpoin
 	}).(EndpointConfigCaptureOptionOutput)
 }
 
+type EndpointConfigClarifyExplainerConfig struct {
+	EnableExplanations *string                               `pulumi:"enableExplanations"`
+	InferenceConfig    *EndpointConfigClarifyInferenceConfig `pulumi:"inferenceConfig"`
+	ShapConfig         EndpointConfigClarifyShapConfig       `pulumi:"shapConfig"`
+}
+
+// EndpointConfigClarifyExplainerConfigInput is an input type that accepts EndpointConfigClarifyExplainerConfigArgs and EndpointConfigClarifyExplainerConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyExplainerConfigInput` via:
+//
+//	EndpointConfigClarifyExplainerConfigArgs{...}
+type EndpointConfigClarifyExplainerConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput
+	ToEndpointConfigClarifyExplainerConfigOutputWithContext(context.Context) EndpointConfigClarifyExplainerConfigOutput
+}
+
+type EndpointConfigClarifyExplainerConfigArgs struct {
+	EnableExplanations pulumi.StringPtrInput                        `pulumi:"enableExplanations"`
+	InferenceConfig    EndpointConfigClarifyInferenceConfigPtrInput `pulumi:"inferenceConfig"`
+	ShapConfig         EndpointConfigClarifyShapConfigInput         `pulumi:"shapConfig"`
+}
+
+func (EndpointConfigClarifyExplainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigOutput)
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigOutput).ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyExplainerConfigPtrInput is an input type that accepts EndpointConfigClarifyExplainerConfigArgs, EndpointConfigClarifyExplainerConfigPtr and EndpointConfigClarifyExplainerConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyExplainerConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyExplainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyExplainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput
+	ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyExplainerConfigPtrOutput
+}
+
+type endpointConfigClarifyExplainerConfigPtrType EndpointConfigClarifyExplainerConfigArgs
+
+func EndpointConfigClarifyExplainerConfigPtr(v *EndpointConfigClarifyExplainerConfigArgs) EndpointConfigClarifyExplainerConfigPtrInput {
+	return (*endpointConfigClarifyExplainerConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyExplainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyExplainerConfigPtrType) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyExplainerConfigPtrType) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+type EndpointConfigClarifyExplainerConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyExplainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		return &v
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) EnableExplanations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) *string { return v.EnableExplanations }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) InferenceConfig() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyInferenceConfig {
+		return v.InferenceConfig
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ShapConfig() EndpointConfigClarifyShapConfigOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) EndpointConfigClarifyShapConfig { return v.ShapConfig }).(EndpointConfigClarifyShapConfigOutput)
+}
+
+type EndpointConfigClarifyExplainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyExplainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) Elem() EndpointConfigClarifyExplainerConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) EndpointConfigClarifyExplainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyExplainerConfig
+		return ret
+	}).(EndpointConfigClarifyExplainerConfigOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) EnableExplanations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnableExplanations
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) InferenceConfig() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyInferenceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfig
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ShapConfig() EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyShapConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ShapConfig
+	}).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+type EndpointConfigClarifyFeatureType struct {
+}
+
+// EndpointConfigClarifyFeatureTypeInput is an input type that accepts EndpointConfigClarifyFeatureTypeArgs and EndpointConfigClarifyFeatureTypeOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyFeatureTypeInput` via:
+//
+//	EndpointConfigClarifyFeatureTypeArgs{...}
+type EndpointConfigClarifyFeatureTypeInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyFeatureTypeOutput() EndpointConfigClarifyFeatureTypeOutput
+	ToEndpointConfigClarifyFeatureTypeOutputWithContext(context.Context) EndpointConfigClarifyFeatureTypeOutput
+}
+
+type EndpointConfigClarifyFeatureTypeArgs struct {
+}
+
+func (EndpointConfigClarifyFeatureTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyFeatureType)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyFeatureTypeArgs) ToEndpointConfigClarifyFeatureTypeOutput() EndpointConfigClarifyFeatureTypeOutput {
+	return i.ToEndpointConfigClarifyFeatureTypeOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyFeatureTypeArgs) ToEndpointConfigClarifyFeatureTypeOutputWithContext(ctx context.Context) EndpointConfigClarifyFeatureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyFeatureTypeOutput)
+}
+
+// EndpointConfigClarifyFeatureTypeArrayInput is an input type that accepts EndpointConfigClarifyFeatureTypeArray and EndpointConfigClarifyFeatureTypeArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyFeatureTypeArrayInput` via:
+//
+//	EndpointConfigClarifyFeatureTypeArray{ EndpointConfigClarifyFeatureTypeArgs{...} }
+type EndpointConfigClarifyFeatureTypeArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyFeatureTypeArrayOutput() EndpointConfigClarifyFeatureTypeArrayOutput
+	ToEndpointConfigClarifyFeatureTypeArrayOutputWithContext(context.Context) EndpointConfigClarifyFeatureTypeArrayOutput
+}
+
+type EndpointConfigClarifyFeatureTypeArray []EndpointConfigClarifyFeatureTypeInput
+
+func (EndpointConfigClarifyFeatureTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigClarifyFeatureType)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyFeatureTypeArray) ToEndpointConfigClarifyFeatureTypeArrayOutput() EndpointConfigClarifyFeatureTypeArrayOutput {
+	return i.ToEndpointConfigClarifyFeatureTypeArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyFeatureTypeArray) ToEndpointConfigClarifyFeatureTypeArrayOutputWithContext(ctx context.Context) EndpointConfigClarifyFeatureTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyFeatureTypeArrayOutput)
+}
+
+type EndpointConfigClarifyFeatureTypeOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyFeatureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyFeatureType)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyFeatureTypeOutput) ToEndpointConfigClarifyFeatureTypeOutput() EndpointConfigClarifyFeatureTypeOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyFeatureTypeOutput) ToEndpointConfigClarifyFeatureTypeOutputWithContext(ctx context.Context) EndpointConfigClarifyFeatureTypeOutput {
+	return o
+}
+
+type EndpointConfigClarifyFeatureTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyFeatureTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigClarifyFeatureType)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyFeatureTypeArrayOutput) ToEndpointConfigClarifyFeatureTypeArrayOutput() EndpointConfigClarifyFeatureTypeArrayOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyFeatureTypeArrayOutput) ToEndpointConfigClarifyFeatureTypeArrayOutputWithContext(ctx context.Context) EndpointConfigClarifyFeatureTypeArrayOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyFeatureTypeArrayOutput) Index(i pulumi.IntInput) EndpointConfigClarifyFeatureTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigClarifyFeatureType {
+		return vs[0].([]EndpointConfigClarifyFeatureType)[vs[1].(int)]
+	}).(EndpointConfigClarifyFeatureTypeOutput)
+}
+
+type EndpointConfigClarifyHeader struct {
+}
+
+// EndpointConfigClarifyHeaderInput is an input type that accepts EndpointConfigClarifyHeaderArgs and EndpointConfigClarifyHeaderOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyHeaderInput` via:
+//
+//	EndpointConfigClarifyHeaderArgs{...}
+type EndpointConfigClarifyHeaderInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyHeaderOutput() EndpointConfigClarifyHeaderOutput
+	ToEndpointConfigClarifyHeaderOutputWithContext(context.Context) EndpointConfigClarifyHeaderOutput
+}
+
+type EndpointConfigClarifyHeaderArgs struct {
+}
+
+func (EndpointConfigClarifyHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyHeader)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyHeaderArgs) ToEndpointConfigClarifyHeaderOutput() EndpointConfigClarifyHeaderOutput {
+	return i.ToEndpointConfigClarifyHeaderOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyHeaderArgs) ToEndpointConfigClarifyHeaderOutputWithContext(ctx context.Context) EndpointConfigClarifyHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyHeaderOutput)
+}
+
+// EndpointConfigClarifyHeaderArrayInput is an input type that accepts EndpointConfigClarifyHeaderArray and EndpointConfigClarifyHeaderArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyHeaderArrayInput` via:
+//
+//	EndpointConfigClarifyHeaderArray{ EndpointConfigClarifyHeaderArgs{...} }
+type EndpointConfigClarifyHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyHeaderArrayOutput() EndpointConfigClarifyHeaderArrayOutput
+	ToEndpointConfigClarifyHeaderArrayOutputWithContext(context.Context) EndpointConfigClarifyHeaderArrayOutput
+}
+
+type EndpointConfigClarifyHeaderArray []EndpointConfigClarifyHeaderInput
+
+func (EndpointConfigClarifyHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigClarifyHeader)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyHeaderArray) ToEndpointConfigClarifyHeaderArrayOutput() EndpointConfigClarifyHeaderArrayOutput {
+	return i.ToEndpointConfigClarifyHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyHeaderArray) ToEndpointConfigClarifyHeaderArrayOutputWithContext(ctx context.Context) EndpointConfigClarifyHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyHeaderArrayOutput)
+}
+
+type EndpointConfigClarifyHeaderOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyHeaderOutput) ToEndpointConfigClarifyHeaderOutput() EndpointConfigClarifyHeaderOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyHeaderOutput) ToEndpointConfigClarifyHeaderOutputWithContext(ctx context.Context) EndpointConfigClarifyHeaderOutput {
+	return o
+}
+
+type EndpointConfigClarifyHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigClarifyHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyHeaderArrayOutput) ToEndpointConfigClarifyHeaderArrayOutput() EndpointConfigClarifyHeaderArrayOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyHeaderArrayOutput) ToEndpointConfigClarifyHeaderArrayOutputWithContext(ctx context.Context) EndpointConfigClarifyHeaderArrayOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyHeaderArrayOutput) Index(i pulumi.IntInput) EndpointConfigClarifyHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigClarifyHeader {
+		return vs[0].([]EndpointConfigClarifyHeader)[vs[1].(int)]
+	}).(EndpointConfigClarifyHeaderOutput)
+}
+
+type EndpointConfigClarifyInferenceConfig struct {
+	ContentTemplate      *string                            `pulumi:"contentTemplate"`
+	FeatureHeaders       []EndpointConfigClarifyHeader      `pulumi:"featureHeaders"`
+	FeatureTypes         []EndpointConfigClarifyFeatureType `pulumi:"featureTypes"`
+	FeaturesAttribute    *string                            `pulumi:"featuresAttribute"`
+	LabelAttribute       *string                            `pulumi:"labelAttribute"`
+	LabelHeaders         []EndpointConfigClarifyHeader      `pulumi:"labelHeaders"`
+	LabelIndex           *int                               `pulumi:"labelIndex"`
+	MaxPayloadInMB       *int                               `pulumi:"maxPayloadInMB"`
+	MaxRecordCount       *int                               `pulumi:"maxRecordCount"`
+	ProbabilityAttribute *string                            `pulumi:"probabilityAttribute"`
+	ProbabilityIndex     *int                               `pulumi:"probabilityIndex"`
+}
+
+// EndpointConfigClarifyInferenceConfigInput is an input type that accepts EndpointConfigClarifyInferenceConfigArgs and EndpointConfigClarifyInferenceConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyInferenceConfigInput` via:
+//
+//	EndpointConfigClarifyInferenceConfigArgs{...}
+type EndpointConfigClarifyInferenceConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput
+	ToEndpointConfigClarifyInferenceConfigOutputWithContext(context.Context) EndpointConfigClarifyInferenceConfigOutput
+}
+
+type EndpointConfigClarifyInferenceConfigArgs struct {
+	ContentTemplate      pulumi.StringPtrInput                      `pulumi:"contentTemplate"`
+	FeatureHeaders       EndpointConfigClarifyHeaderArrayInput      `pulumi:"featureHeaders"`
+	FeatureTypes         EndpointConfigClarifyFeatureTypeArrayInput `pulumi:"featureTypes"`
+	FeaturesAttribute    pulumi.StringPtrInput                      `pulumi:"featuresAttribute"`
+	LabelAttribute       pulumi.StringPtrInput                      `pulumi:"labelAttribute"`
+	LabelHeaders         EndpointConfigClarifyHeaderArrayInput      `pulumi:"labelHeaders"`
+	LabelIndex           pulumi.IntPtrInput                         `pulumi:"labelIndex"`
+	MaxPayloadInMB       pulumi.IntPtrInput                         `pulumi:"maxPayloadInMB"`
+	MaxRecordCount       pulumi.IntPtrInput                         `pulumi:"maxRecordCount"`
+	ProbabilityAttribute pulumi.StringPtrInput                      `pulumi:"probabilityAttribute"`
+	ProbabilityIndex     pulumi.IntPtrInput                         `pulumi:"probabilityIndex"`
+}
+
+func (EndpointConfigClarifyInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigOutput)
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigOutput).ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyInferenceConfigPtrInput is an input type that accepts EndpointConfigClarifyInferenceConfigArgs, EndpointConfigClarifyInferenceConfigPtr and EndpointConfigClarifyInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyInferenceConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyInferenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput
+	ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyInferenceConfigPtrOutput
+}
+
+type endpointConfigClarifyInferenceConfigPtrType EndpointConfigClarifyInferenceConfigArgs
+
+func EndpointConfigClarifyInferenceConfigPtr(v *EndpointConfigClarifyInferenceConfigArgs) EndpointConfigClarifyInferenceConfigPtrInput {
+	return (*endpointConfigClarifyInferenceConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyInferenceConfigPtrType) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyInferenceConfigPtrType) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+type EndpointConfigClarifyInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyInferenceConfig) *EndpointConfigClarifyInferenceConfig {
+		return &v
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ContentTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.ContentTemplate }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) FeatureHeaders() EndpointConfigClarifyHeaderArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyHeader { return v.FeatureHeaders }).(EndpointConfigClarifyHeaderArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) FeatureTypes() EndpointConfigClarifyFeatureTypeArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyFeatureType { return v.FeatureTypes }).(EndpointConfigClarifyFeatureTypeArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.LabelAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelHeaders() EndpointConfigClarifyHeaderArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyHeader { return v.LabelHeaders }).(EndpointConfigClarifyHeaderArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.LabelIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxPayloadInMB }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) MaxRecordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxRecordCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ProbabilityIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.ProbabilityIndex }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigClarifyInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) Elem() EndpointConfigClarifyInferenceConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) EndpointConfigClarifyInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyInferenceConfig
+		return ret
+	}).(EndpointConfigClarifyInferenceConfigOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ContentTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeatureHeaders() EndpointConfigClarifyHeaderArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyHeader {
+		if v == nil {
+			return nil
+		}
+		return v.FeatureHeaders
+	}).(EndpointConfigClarifyHeaderArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeatureTypes() EndpointConfigClarifyFeatureTypeArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyFeatureType {
+		if v == nil {
+			return nil
+		}
+		return v.FeatureTypes
+	}).(EndpointConfigClarifyFeatureTypeArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelHeaders() EndpointConfigClarifyHeaderArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []EndpointConfigClarifyHeader {
+		if v == nil {
+			return nil
+		}
+		return v.LabelHeaders
+	}).(EndpointConfigClarifyHeaderArrayOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LabelIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxPayloadInMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPayloadInMB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxRecordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRecordCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ProbabilityIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigClarifyShapBaselineConfig struct {
+	MimeType        *string `pulumi:"mimeType"`
+	ShapBaseline    *string `pulumi:"shapBaseline"`
+	ShapBaselineUri *string `pulumi:"shapBaselineUri"`
+}
+
+// EndpointConfigClarifyShapBaselineConfigInput is an input type that accepts EndpointConfigClarifyShapBaselineConfigArgs and EndpointConfigClarifyShapBaselineConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapBaselineConfigInput` via:
+//
+//	EndpointConfigClarifyShapBaselineConfigArgs{...}
+type EndpointConfigClarifyShapBaselineConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput
+	ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(context.Context) EndpointConfigClarifyShapBaselineConfigOutput
+}
+
+type EndpointConfigClarifyShapBaselineConfigArgs struct {
+	MimeType        pulumi.StringPtrInput `pulumi:"mimeType"`
+	ShapBaseline    pulumi.StringPtrInput `pulumi:"shapBaseline"`
+	ShapBaselineUri pulumi.StringPtrInput `pulumi:"shapBaselineUri"`
+}
+
+func (EndpointConfigClarifyShapBaselineConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigOutput).ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyShapBaselineConfigPtrInput is an input type that accepts EndpointConfigClarifyShapBaselineConfigArgs, EndpointConfigClarifyShapBaselineConfigPtr and EndpointConfigClarifyShapBaselineConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapBaselineConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyShapBaselineConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyShapBaselineConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput
+	ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput
+}
+
+type endpointConfigClarifyShapBaselineConfigPtrType EndpointConfigClarifyShapBaselineConfigArgs
+
+func EndpointConfigClarifyShapBaselineConfigPtr(v *EndpointConfigClarifyShapBaselineConfigArgs) EndpointConfigClarifyShapBaselineConfigPtrInput {
+	return (*endpointConfigClarifyShapBaselineConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyShapBaselineConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyShapBaselineConfigPtrType) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyShapBaselineConfigPtrType) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+type EndpointConfigClarifyShapBaselineConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapBaselineConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyShapBaselineConfig) *EndpointConfigClarifyShapBaselineConfig {
+		return &v
+	}).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) MimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.MimeType }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ShapBaseline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.ShapBaseline }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ShapBaselineUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.ShapBaselineUri }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigClarifyShapBaselineConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapBaselineConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) Elem() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) EndpointConfigClarifyShapBaselineConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyShapBaselineConfig
+		return ret
+	}).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) MimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MimeType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ShapBaseline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShapBaseline
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ShapBaselineUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShapBaselineUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigClarifyShapConfig struct {
+	NumberOfSamples    *int                                    `pulumi:"numberOfSamples"`
+	Seed               *int                                    `pulumi:"seed"`
+	ShapBaselineConfig EndpointConfigClarifyShapBaselineConfig `pulumi:"shapBaselineConfig"`
+	TextConfig         *EndpointConfigClarifyTextConfig        `pulumi:"textConfig"`
+	UseLogit           *bool                                   `pulumi:"useLogit"`
+}
+
+// EndpointConfigClarifyShapConfigInput is an input type that accepts EndpointConfigClarifyShapConfigArgs and EndpointConfigClarifyShapConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapConfigInput` via:
+//
+//	EndpointConfigClarifyShapConfigArgs{...}
+type EndpointConfigClarifyShapConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput
+	ToEndpointConfigClarifyShapConfigOutputWithContext(context.Context) EndpointConfigClarifyShapConfigOutput
+}
+
+type EndpointConfigClarifyShapConfigArgs struct {
+	NumberOfSamples    pulumi.IntPtrInput                           `pulumi:"numberOfSamples"`
+	Seed               pulumi.IntPtrInput                           `pulumi:"seed"`
+	ShapBaselineConfig EndpointConfigClarifyShapBaselineConfigInput `pulumi:"shapBaselineConfig"`
+	TextConfig         EndpointConfigClarifyTextConfigPtrInput      `pulumi:"textConfig"`
+	UseLogit           pulumi.BoolPtrInput                          `pulumi:"useLogit"`
+}
+
+func (EndpointConfigClarifyShapConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput {
+	return i.ToEndpointConfigClarifyShapConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigOutput)
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigOutput).ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyShapConfigPtrInput is an input type that accepts EndpointConfigClarifyShapConfigArgs, EndpointConfigClarifyShapConfigPtr and EndpointConfigClarifyShapConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyShapConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyShapConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput
+	ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyShapConfigPtrOutput
+}
+
+type endpointConfigClarifyShapConfigPtrType EndpointConfigClarifyShapConfigArgs
+
+func EndpointConfigClarifyShapConfigPtr(v *EndpointConfigClarifyShapConfigArgs) EndpointConfigClarifyShapConfigPtrInput {
+	return (*endpointConfigClarifyShapConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyShapConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyShapConfigPtrType) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyShapConfigPtrType) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+type EndpointConfigClarifyShapConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyShapConfig) *EndpointConfigClarifyShapConfig {
+		return &v
+	}).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) NumberOfSamples() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *int { return v.NumberOfSamples }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *int { return v.Seed }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ShapBaselineConfig() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) EndpointConfigClarifyShapBaselineConfig {
+		return v.ShapBaselineConfig
+	}).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) TextConfig() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *EndpointConfigClarifyTextConfig { return v.TextConfig }).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) UseLogit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *bool { return v.UseLogit }).(pulumi.BoolPtrOutput)
+}
+
+type EndpointConfigClarifyShapConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) Elem() EndpointConfigClarifyShapConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) EndpointConfigClarifyShapConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyShapConfig
+		return ret
+	}).(EndpointConfigClarifyShapConfigOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) NumberOfSamples() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSamples
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Seed
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) ShapBaselineConfig() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *EndpointConfigClarifyShapBaselineConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ShapBaselineConfig
+	}).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) TextConfig() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *EndpointConfigClarifyTextConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TextConfig
+	}).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) UseLogit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLogit
+	}).(pulumi.BoolPtrOutput)
+}
+
+type EndpointConfigClarifyTextConfig struct {
+	Granularity string `pulumi:"granularity"`
+	Language    string `pulumi:"language"`
+}
+
+// EndpointConfigClarifyTextConfigInput is an input type that accepts EndpointConfigClarifyTextConfigArgs and EndpointConfigClarifyTextConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyTextConfigInput` via:
+//
+//	EndpointConfigClarifyTextConfigArgs{...}
+type EndpointConfigClarifyTextConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput
+	ToEndpointConfigClarifyTextConfigOutputWithContext(context.Context) EndpointConfigClarifyTextConfigOutput
+}
+
+type EndpointConfigClarifyTextConfigArgs struct {
+	Granularity pulumi.StringInput `pulumi:"granularity"`
+	Language    pulumi.StringInput `pulumi:"language"`
+}
+
+func (EndpointConfigClarifyTextConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput {
+	return i.ToEndpointConfigClarifyTextConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigOutput)
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return i.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigOutput).ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyTextConfigPtrInput is an input type that accepts EndpointConfigClarifyTextConfigArgs, EndpointConfigClarifyTextConfigPtr and EndpointConfigClarifyTextConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyTextConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyTextConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyTextConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput
+	ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyTextConfigPtrOutput
+}
+
+type endpointConfigClarifyTextConfigPtrType EndpointConfigClarifyTextConfigArgs
+
+func EndpointConfigClarifyTextConfigPtr(v *EndpointConfigClarifyTextConfigArgs) EndpointConfigClarifyTextConfigPtrInput {
+	return (*endpointConfigClarifyTextConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyTextConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyTextConfigPtrType) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return i.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyTextConfigPtrType) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+type EndpointConfigClarifyTextConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyTextConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyTextConfig) *EndpointConfigClarifyTextConfig {
+		return &v
+	}).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) Granularity() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyTextConfig) string { return v.Granularity }).(pulumi.StringOutput)
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyTextConfig) string { return v.Language }).(pulumi.StringOutput)
+}
+
+type EndpointConfigClarifyTextConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyTextConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) Elem() EndpointConfigClarifyTextConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) EndpointConfigClarifyTextConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyTextConfig
+		return ret
+	}).(EndpointConfigClarifyTextConfigOutput)
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigDataCaptureConfig struct {
 	CaptureContentTypeHeader  *EndpointConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
 	CaptureOptions            []EndpointConfigCaptureOption           `pulumi:"captureOptions"`
@@ -6525,14 +7655,152 @@ func (o EndpointConfigDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointConfigExplainerConfig struct {
+	ClarifyExplainerConfig *EndpointConfigClarifyExplainerConfig `pulumi:"clarifyExplainerConfig"`
+}
+
+// EndpointConfigExplainerConfigInput is an input type that accepts EndpointConfigExplainerConfigArgs and EndpointConfigExplainerConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigExplainerConfigInput` via:
+//
+//	EndpointConfigExplainerConfigArgs{...}
+type EndpointConfigExplainerConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput
+	ToEndpointConfigExplainerConfigOutputWithContext(context.Context) EndpointConfigExplainerConfigOutput
+}
+
+type EndpointConfigExplainerConfigArgs struct {
+	ClarifyExplainerConfig EndpointConfigClarifyExplainerConfigPtrInput `pulumi:"clarifyExplainerConfig"`
+}
+
+func (EndpointConfigExplainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput {
+	return i.ToEndpointConfigExplainerConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigOutput)
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return i.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigOutput).ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigExplainerConfigPtrInput is an input type that accepts EndpointConfigExplainerConfigArgs, EndpointConfigExplainerConfigPtr and EndpointConfigExplainerConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigExplainerConfigPtrInput` via:
+//
+//	        EndpointConfigExplainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigExplainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput
+	ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Context) EndpointConfigExplainerConfigPtrOutput
+}
+
+type endpointConfigExplainerConfigPtrType EndpointConfigExplainerConfigArgs
+
+func EndpointConfigExplainerConfigPtr(v *EndpointConfigExplainerConfigArgs) EndpointConfigExplainerConfigPtrInput {
+	return (*endpointConfigExplainerConfigPtrType)(v)
+}
+
+func (*endpointConfigExplainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigExplainerConfigPtrType) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return i.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigExplainerConfigPtrType) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigPtrOutput)
+}
+
+type EndpointConfigExplainerConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigExplainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return o.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigExplainerConfig) *EndpointConfigExplainerConfig {
+		return &v
+	}).(EndpointConfigExplainerConfigPtrOutput)
+}
+
+func (o EndpointConfigExplainerConfigOutput) ClarifyExplainerConfig() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		return v.ClarifyExplainerConfig
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+type EndpointConfigExplainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigExplainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) Elem() EndpointConfigExplainerConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigExplainerConfig) EndpointConfigExplainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigExplainerConfig
+		return ret
+	}).(EndpointConfigExplainerConfigOutput)
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) ClarifyExplainerConfig() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ClarifyExplainerConfig
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
 type EndpointConfigProductionVariant struct {
-	AcceleratorType      *string                         `pulumi:"acceleratorType"`
-	InitialInstanceCount *int                            `pulumi:"initialInstanceCount"`
-	InitialVariantWeight float64                         `pulumi:"initialVariantWeight"`
-	InstanceType         *string                         `pulumi:"instanceType"`
-	ModelName            string                          `pulumi:"modelName"`
-	ServerlessConfig     *EndpointConfigServerlessConfig `pulumi:"serverlessConfig"`
-	VariantName          string                          `pulumi:"variantName"`
+	AcceleratorType                             *string                         `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds *int                            `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	InitialInstanceCount                        *int                            `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        float64                         `pulumi:"initialVariantWeight"`
+	InstanceType                                *string                         `pulumi:"instanceType"`
+	ModelDataDownloadTimeoutInSeconds           *int                            `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   string                          `pulumi:"modelName"`
+	ServerlessConfig                            *EndpointConfigServerlessConfig `pulumi:"serverlessConfig"`
+	VariantName                                 string                          `pulumi:"variantName"`
+	VolumeSizeInGB                              *int                            `pulumi:"volumeSizeInGB"`
 }
 
 // EndpointConfigProductionVariantInput is an input type that accepts EndpointConfigProductionVariantArgs and EndpointConfigProductionVariantOutput values.
@@ -6547,13 +7815,16 @@ type EndpointConfigProductionVariantInput interface {
 }
 
 type EndpointConfigProductionVariantArgs struct {
-	AcceleratorType      pulumi.StringPtrInput                  `pulumi:"acceleratorType"`
-	InitialInstanceCount pulumi.IntPtrInput                     `pulumi:"initialInstanceCount"`
-	InitialVariantWeight pulumi.Float64Input                    `pulumi:"initialVariantWeight"`
-	InstanceType         pulumi.StringPtrInput                  `pulumi:"instanceType"`
-	ModelName            pulumi.StringInput                     `pulumi:"modelName"`
-	ServerlessConfig     EndpointConfigServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	VariantName          pulumi.StringInput                     `pulumi:"variantName"`
+	AcceleratorType                             pulumi.StringPtrInput                  `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                     `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	InitialInstanceCount                        pulumi.IntPtrInput                     `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        pulumi.Float64Input                    `pulumi:"initialVariantWeight"`
+	InstanceType                                pulumi.StringPtrInput                  `pulumi:"instanceType"`
+	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                     `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   pulumi.StringInput                     `pulumi:"modelName"`
+	ServerlessConfig                            EndpointConfigServerlessConfigPtrInput `pulumi:"serverlessConfig"`
+	VariantName                                 pulumi.StringInput                     `pulumi:"variantName"`
+	VolumeSizeInGB                              pulumi.IntPtrInput                     `pulumi:"volumeSizeInGB"`
 }
 
 func (EndpointConfigProductionVariantArgs) ElementType() reflect.Type {
@@ -6611,6 +7882,10 @@ func (o EndpointConfigProductionVariantOutput) AcceleratorType() pulumi.StringPt
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointConfigProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ContainerStartupHealthCheckTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
@@ -6623,6 +7898,10 @@ func (o EndpointConfigProductionVariantOutput) InstanceType() pulumi.StringPtrOu
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointConfigProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointConfigProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
 }
@@ -6633,6 +7912,10 @@ func (o EndpointConfigProductionVariantOutput) ServerlessConfig() EndpointConfig
 
 func (o EndpointConfigProductionVariantOutput) VariantName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.VariantName }).(pulumi.StringOutput)
+}
+
+func (o EndpointConfigProductionVariantOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.VolumeSizeInGB }).(pulumi.IntPtrOutput)
 }
 
 type EndpointConfigProductionVariantArrayOutput struct{ *pulumi.OutputState }
@@ -25200,8 +26483,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureContentTypeHeaderPtrInput)(nil)).Elem(), EndpointConfigCaptureContentTypeHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureOptionInput)(nil)).Elem(), EndpointConfigCaptureOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureOptionArrayInput)(nil)).Elem(), EndpointConfigCaptureOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyExplainerConfigInput)(nil)).Elem(), EndpointConfigClarifyExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyExplainerConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyFeatureTypeInput)(nil)).Elem(), EndpointConfigClarifyFeatureTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyFeatureTypeArrayInput)(nil)).Elem(), EndpointConfigClarifyFeatureTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyHeaderInput)(nil)).Elem(), EndpointConfigClarifyHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyHeaderArrayInput)(nil)).Elem(), EndpointConfigClarifyHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyInferenceConfigInput)(nil)).Elem(), EndpointConfigClarifyInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyInferenceConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfigInput)(nil)).Elem(), EndpointConfigClarifyShapBaselineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyShapBaselineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapConfigInput)(nil)).Elem(), EndpointConfigClarifyShapConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyShapConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyTextConfigInput)(nil)).Elem(), EndpointConfigClarifyTextConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyTextConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyTextConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigPtrInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigPtrInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantInput)(nil)).Elem(), EndpointConfigProductionVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantArrayInput)(nil)).Elem(), EndpointConfigProductionVariantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigServerlessConfigInput)(nil)).Elem(), EndpointConfigServerlessConfigArgs{})
@@ -25544,8 +26843,24 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigCaptureContentTypeHeaderPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigCaptureOptionOutput{})
 	pulumi.RegisterOutputType(EndpointConfigCaptureOptionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyExplainerConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyExplainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyFeatureTypeOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyFeatureTypeArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyHeaderOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyHeaderArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyInferenceConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapBaselineConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapBaselineConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyTextConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyTextConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigExplainerConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigExplainerConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigProductionVariantArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigServerlessConfigOutput{})

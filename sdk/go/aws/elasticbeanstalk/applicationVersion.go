@@ -12,14 +12,15 @@ import (
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
-//
-// Deprecated: ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	ApplicationName pulumi.StringOutput                  `pulumi:"applicationName"`
-	Description     pulumi.StringPtrOutput               `pulumi:"description"`
-	SourceBundle    ApplicationVersionSourceBundleOutput `pulumi:"sourceBundle"`
+	// The name of the Elastic Beanstalk application that is associated with this application version.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// A description of this application version.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+	SourceBundle ApplicationVersionSourceBundleOutput `pulumi:"sourceBundle"`
 }
 
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -67,16 +68,22 @@ func (ApplicationVersionState) ElementType() reflect.Type {
 }
 
 type applicationVersionArgs struct {
-	ApplicationName string                         `pulumi:"applicationName"`
-	Description     *string                        `pulumi:"description"`
-	SourceBundle    ApplicationVersionSourceBundle `pulumi:"sourceBundle"`
+	// The name of the Elastic Beanstalk application that is associated with this application version.
+	ApplicationName string `pulumi:"applicationName"`
+	// A description of this application version.
+	Description *string `pulumi:"description"`
+	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+	SourceBundle ApplicationVersionSourceBundle `pulumi:"sourceBundle"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
 type ApplicationVersionArgs struct {
+	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName pulumi.StringInput
-	Description     pulumi.StringPtrInput
-	SourceBundle    ApplicationVersionSourceBundleInput
+	// A description of this application version.
+	Description pulumi.StringPtrInput
+	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+	SourceBundle ApplicationVersionSourceBundleInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {
@@ -116,14 +123,17 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx cont
 	return o
 }
 
+// The name of the Elastic Beanstalk application that is associated with this application version.
 func (o ApplicationVersionOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
+// A description of this application version.
 func (o ApplicationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
 func (o ApplicationVersionOutput) SourceBundle() ApplicationVersionSourceBundleOutput {
 	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionSourceBundleOutput { return v.SourceBundle }).(ApplicationVersionSourceBundleOutput)
 }

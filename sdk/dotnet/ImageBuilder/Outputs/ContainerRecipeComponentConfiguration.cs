@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
         public readonly string? ComponentArn;
+        /// <summary>
+        /// A group of parameter settings that are used to configure the component for a specific recipe.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerRecipeComponentParameter> Parameters;
 
         [OutputConstructor]
-        private ContainerRecipeComponentConfiguration(string? componentArn)
+        private ContainerRecipeComponentConfiguration(
+            string? componentArn,
+
+            ImmutableArray<Outputs.ContainerRecipeComponentParameter> parameters)
         {
             ComponentArn = componentArn;
+            Parameters = parameters;
         }
     }
 }

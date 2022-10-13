@@ -25,11 +25,6 @@ export const getInstanceGroupConfig: typeof import("./getInstanceGroupConfig").g
 export const getInstanceGroupConfigOutput: typeof import("./getInstanceGroupConfig").getInstanceGroupConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceGroupConfig","getInstanceGroupConfigOutput"], () => require("./getInstanceGroupConfig"));
 
-export { GetSecurityConfigurationArgs, GetSecurityConfigurationResult, GetSecurityConfigurationOutputArgs } from "./getSecurityConfiguration";
-export const getSecurityConfiguration: typeof import("./getSecurityConfiguration").getSecurityConfiguration = null as any;
-export const getSecurityConfigurationOutput: typeof import("./getSecurityConfiguration").getSecurityConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getSecurityConfiguration","getSecurityConfigurationOutput"], () => require("./getSecurityConfiguration"));
-
 export { GetStepArgs, GetStepResult, GetStepOutputArgs } from "./getStep";
 export const getStep: typeof import("./getStep").getStep = null as any;
 export const getStepOutput: typeof import("./getStep").getStepOutput = null as any;

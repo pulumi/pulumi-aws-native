@@ -877,7 +877,7 @@ class AssetModelVariableValue(dict):
 @pulumi.output_type
 class AssetProperty(dict):
     """
-    The asset property's definition, alias, and notification state.
+    The asset property's definition, alias, unit, and notification state.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -901,18 +901,22 @@ class AssetProperty(dict):
     def __init__(__self__, *,
                  logical_id: str,
                  alias: Optional[str] = None,
-                 notification_state: Optional['AssetPropertyNotificationState'] = None):
+                 notification_state: Optional['AssetPropertyNotificationState'] = None,
+                 unit: Optional[str] = None):
         """
-        The asset property's definition, alias, and notification state.
+        The asset property's definition, alias, unit, and notification state.
         :param str logical_id: Customer provided ID for property.
         :param str alias: The property alias that identifies the property.
         :param 'AssetPropertyNotificationState' notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        :param str unit: The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
         pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
         if notification_state is not None:
             pulumi.set(__self__, "notification_state", notification_state)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="logicalId")
@@ -937,6 +941,14 @@ class AssetProperty(dict):
         The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
         return pulumi.get(self, "notification_state")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+        """
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

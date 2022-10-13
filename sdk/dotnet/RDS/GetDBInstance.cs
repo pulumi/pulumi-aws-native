@@ -166,6 +166,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly bool? MultiAZ;
         /// <summary>
+        /// The network type of the DB cluster.
+        /// </summary>
+        public readonly string? NetworkType;
+        /// <summary>
         /// Indicates that the DB instance should be associated with the specified option group.
         /// </summary>
         public readonly string? OptionGroupName;
@@ -270,6 +274,8 @@ namespace Pulumi.AwsNative.RDS
 
             bool? multiAZ,
 
+            string? networkType,
+
             string? optionGroupName,
 
             string? performanceInsightsKMSKeyId,
@@ -321,6 +327,7 @@ namespace Pulumi.AwsNative.RDS
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;
             MultiAZ = multiAZ;
+            NetworkType = networkType;
             OptionGroupName = optionGroupName;
             PerformanceInsightsKMSKeyId = performanceInsightsKMSKeyId;
             PerformanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;

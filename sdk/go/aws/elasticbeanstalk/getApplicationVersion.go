@@ -21,10 +21,13 @@ func LookupApplicationVersion(ctx *pulumi.Context, args *LookupApplicationVersio
 }
 
 type LookupApplicationVersionArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the Elastic Beanstalk application that is associated with this application version.
+	ApplicationName string `pulumi:"applicationName"`
+	Id              string `pulumi:"id"`
 }
 
 type LookupApplicationVersionResult struct {
+	// A description of this application version.
 	Description *string `pulumi:"description"`
 	Id          *string `pulumi:"id"`
 }
@@ -43,7 +46,9 @@ func LookupApplicationVersionOutput(ctx *pulumi.Context, args LookupApplicationV
 }
 
 type LookupApplicationVersionOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Elastic Beanstalk application that is associated with this application version.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	Id              pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupApplicationVersionOutputArgs) ElementType() reflect.Type {
@@ -64,6 +69,7 @@ func (o LookupApplicationVersionResultOutput) ToLookupApplicationVersionResultOu
 	return o
 }
 
+// A description of this application version.
 func (o LookupApplicationVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

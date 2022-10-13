@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     {
         public readonly int? ClassBTimeout;
         public readonly int? ClassCTimeout;
+        public readonly ImmutableArray<int> FactoryPresetFreqsList;
         public readonly string? MacVersion;
         public readonly int? MaxDutyCycle;
         public readonly int? MaxEirp;
@@ -23,6 +24,10 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
         public readonly int? PingSlotPeriod;
         public readonly string? RegParamsRevision;
         public readonly string? RfRegion;
+        public readonly int? RxDataRate2;
+        public readonly int? RxDelay1;
+        public readonly int? RxDrOffset1;
+        public readonly int? RxFreq2;
         public readonly bool? Supports32BitFCnt;
         public readonly bool? SupportsClassB;
         public readonly bool? SupportsClassC;
@@ -33,6 +38,8 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
             int? classBTimeout,
 
             int? classCTimeout,
+
+            ImmutableArray<int> factoryPresetFreqsList,
 
             string? macVersion,
 
@@ -50,6 +57,14 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
 
             string? rfRegion,
 
+            int? rxDataRate2,
+
+            int? rxDelay1,
+
+            int? rxDrOffset1,
+
+            int? rxFreq2,
+
             bool? supports32BitFCnt,
 
             bool? supportsClassB,
@@ -60,6 +75,7 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
         {
             ClassBTimeout = classBTimeout;
             ClassCTimeout = classCTimeout;
+            FactoryPresetFreqsList = factoryPresetFreqsList;
             MacVersion = macVersion;
             MaxDutyCycle = maxDutyCycle;
             MaxEirp = maxEirp;
@@ -68,6 +84,10 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
             PingSlotPeriod = pingSlotPeriod;
             RegParamsRevision = regParamsRevision;
             RfRegion = rfRegion;
+            RxDataRate2 = rxDataRate2;
+            RxDelay1 = rxDelay1;
+            RxDrOffset1 = rxDrOffset1;
+            RxFreq2 = rxFreq2;
             Supports32BitFCnt = supports32BitFCnt;
             SupportsClassB = supportsClassB;
             SupportsClassC = supportsClassC;

@@ -34,6 +34,7 @@ type LookupEmailIdentityResult struct {
 	DkimDNSTokenValue1         *string                                  `pulumi:"dkimDNSTokenValue1"`
 	DkimDNSTokenValue2         *string                                  `pulumi:"dkimDNSTokenValue2"`
 	DkimDNSTokenValue3         *string                                  `pulumi:"dkimDNSTokenValue3"`
+	DkimSigningAttributes      *EmailIdentityDkimSigningAttributes      `pulumi:"dkimSigningAttributes"`
 	FeedbackAttributes         *EmailIdentityFeedbackAttributes         `pulumi:"feedbackAttributes"`
 	MailFromAttributes         *EmailIdentityMailFromAttributes         `pulumi:"mailFromAttributes"`
 }
@@ -106,6 +107,10 @@ func (o LookupEmailIdentityResultOutput) DkimDNSTokenValue2() pulumi.StringPtrOu
 
 func (o LookupEmailIdentityResultOutput) DkimDNSTokenValue3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) *string { return v.DkimDNSTokenValue3 }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEmailIdentityResultOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) *EmailIdentityDkimSigningAttributes { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
 
 func (o LookupEmailIdentityResultOutput) FeedbackAttributes() EmailIdentityFeedbackAttributesPtrOutput {

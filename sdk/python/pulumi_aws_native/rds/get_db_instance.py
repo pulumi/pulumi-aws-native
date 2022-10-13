@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -102,6 +102,9 @@ class GetDBInstanceResult:
         if multi_az and not isinstance(multi_az, bool):
             raise TypeError("Expected argument 'multi_az' to be a bool")
         pulumi.set(__self__, "multi_az", multi_az)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if option_group_name and not isinstance(option_group_name, str):
             raise TypeError("Expected argument 'option_group_name' to be a str")
         pulumi.set(__self__, "option_group_name", option_group_name)
@@ -356,6 +359,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "multi_az")
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[str]:
+        """
+        The network type of the DB cluster.
+        """
+        return pulumi.get(self, "network_type")
+
+    @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[str]:
         """
@@ -485,6 +496,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
             multi_az=self.multi_az,
+            network_type=self.network_type,
             option_group_name=self.option_group_name,
             performance_insights_kms_key_id=self.performance_insights_kms_key_id,
             performance_insights_retention_period=self.performance_insights_retention_period,
@@ -540,6 +552,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,
         multi_az=__ret__.multi_az,
+        network_type=__ret__.network_type,
         option_group_name=__ret__.option_group_name,
         performance_insights_kms_key_id=__ret__.performance_insights_kms_key_id,
         performance_insights_retention_period=__ret__.performance_insights_retention_period,

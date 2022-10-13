@@ -338,6 +338,8 @@ class OriginEndpointCmafEncryption(dict):
             suggest = "speke_key_provider"
         elif key == "constantInitializationVector":
             suggest = "constant_initialization_vector"
+        elif key == "encryptionMethod":
+            suggest = "encryption_method"
         elif key == "keyRotationIntervalSeconds":
             suggest = "key_rotation_interval_seconds"
 
@@ -355,15 +357,19 @@ class OriginEndpointCmafEncryption(dict):
     def __init__(__self__, *,
                  speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
                  constant_initialization_vector: Optional[str] = None,
+                 encryption_method: Optional['OriginEndpointCmafEncryptionEncryptionMethod'] = None,
                  key_rotation_interval_seconds: Optional[int] = None):
         """
         A Common Media Application Format (CMAF) encryption configuration.
         :param str constant_initialization_vector: An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+        :param 'OriginEndpointCmafEncryptionEncryptionMethod' encryption_method: The encryption method used
         :param int key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
             pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
+        if encryption_method is not None:
+            pulumi.set(__self__, "encryption_method", encryption_method)
         if key_rotation_interval_seconds is not None:
             pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
@@ -379,6 +385,14 @@ class OriginEndpointCmafEncryption(dict):
         An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
         """
         return pulumi.get(self, "constant_initialization_vector")
+
+    @property
+    @pulumi.getter(name="encryptionMethod")
+    def encryption_method(self) -> Optional['OriginEndpointCmafEncryptionEncryptionMethod']:
+        """
+        The encryption method used
+        """
+        return pulumi.get(self, "encryption_method")
 
     @property
     @pulumi.getter(name="keyRotationIntervalSeconds")

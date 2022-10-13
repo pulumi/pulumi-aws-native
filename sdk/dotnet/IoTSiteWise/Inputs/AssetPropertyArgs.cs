@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// The asset property's definition, alias, and notification state.
+    /// The asset property's definition, alias, unit, and notification state.
     /// </summary>
     public sealed class AssetPropertyArgs : global::Pulumi.ResourceArgs
     {
@@ -32,6 +32,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         /// </summary>
         [Input("notificationState")]
         public Input<Pulumi.AwsNative.IoTSiteWise.AssetPropertyNotificationState>? NotificationState { get; set; }
+
+        /// <summary>
+        /// The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+        /// </summary>
+        [Input("unit")]
+        public Input<string>? Unit { get; set; }
 
         public AssetPropertyArgs()
         {

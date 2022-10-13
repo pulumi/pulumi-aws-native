@@ -23,16 +23,23 @@ export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opt
 
 export interface GetClusterParameterGroupArgs {
     /**
-     * Cloudformation will generate a unique group name.
+     * The name of the cluster parameter group.
      */
     parameterGroupName: string;
 }
 
 export interface GetClusterParameterGroupResult {
     /**
-     * Cloudformation will generate a unique group name.
+     * The name of the cluster parameter group.
      */
     readonly parameterGroupName?: string;
+    /**
+     * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+     */
+    readonly parameters?: outputs.redshift.ClusterParameterGroupParameter[];
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.redshift.ClusterParameterGroupTag[];
 }
 
@@ -42,7 +49,7 @@ export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOut
 
 export interface GetClusterParameterGroupOutputArgs {
     /**
-     * Cloudformation will generate a unique group name.
+     * The name of the cluster parameter group.
      */
     parameterGroupName: pulumi.Input<string>;
 }

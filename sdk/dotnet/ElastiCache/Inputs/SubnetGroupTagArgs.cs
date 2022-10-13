@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
+    /// <summary>
+    /// A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+    /// </summary>
     public sealed class SubnetGroupTagArgs : global::Pulumi.ResourceArgs
     {
         [Input("key", required: true)]

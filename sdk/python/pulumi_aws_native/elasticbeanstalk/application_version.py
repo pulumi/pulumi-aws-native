@@ -21,6 +21,9 @@ class ApplicationVersionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
+        :param pulumi.Input[str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
+        :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        :param pulumi.Input[str] description: A description of this application version.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "source_bundle", source_bundle)
@@ -30,6 +33,9 @@ class ApplicationVersionArgs:
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Elastic Beanstalk application that is associated with this application version. 
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -39,6 +45,9 @@ class ApplicationVersionArgs:
     @property
     @pulumi.getter(name="sourceBundle")
     def source_bundle(self) -> pulumi.Input['ApplicationVersionSourceBundleArgs']:
+        """
+        The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        """
         return pulumi.get(self, "source_bundle")
 
     @source_bundle.setter
@@ -48,6 +57,9 @@ class ApplicationVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of this application version.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -55,12 +67,7 @@ class ApplicationVersionArgs:
         pulumi.set(self, "description", value)
 
 
-warnings.warn("""ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class ApplicationVersion(pulumi.CustomResource):
-    warnings.warn("""ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -74,6 +81,9 @@ class ApplicationVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
+        :param pulumi.Input[str] description: A description of this application version.
+        :param pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         """
         ...
     @overload
@@ -103,7 +113,6 @@ class ApplicationVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  source_bundle: Optional[pulumi.Input[pulumi.InputType['ApplicationVersionSourceBundleArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApplicationVersion is deprecated: ApplicationVersion is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -149,15 +158,24 @@ class ApplicationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Elastic Beanstalk application that is associated with this application version. 
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of this application version.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="sourceBundle")
     def source_bundle(self) -> pulumi.Output['outputs.ApplicationVersionSourceBundle']:
+        """
+        The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        """
         return pulumi.get(self, "source_bundle")
 

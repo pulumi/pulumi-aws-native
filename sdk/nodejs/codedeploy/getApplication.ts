@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CodeDeploy::Application
+ * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -17,16 +17,21 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:codedeploy:getApplication", {
-        "id": args.id,
+        "applicationName": args.applicationName,
     }, opts);
 }
 
 export interface GetApplicationArgs {
-    id: string;
+    /**
+     * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
+    applicationName: string;
 }
 
 export interface GetApplicationResult {
-    readonly id?: string;
+    /**
+     * The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+     */
     readonly tags?: outputs.codedeploy.ApplicationTag[];
 }
 
@@ -35,5 +40,8 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
 }
 
 export interface GetApplicationOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+     */
+    applicationName: pulumi.Input<string>;
 }

@@ -21,6 +21,9 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        :param pulumi.Input[str] compute_platform: The compute platform that CodeDeploy deploys the application to.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
         """
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
@@ -32,6 +35,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -41,6 +47,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        The compute platform that CodeDeploy deploys the application to.
+        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -50,6 +59,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
+        """
+        The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -57,12 +69,7 @@ class ApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Application(pulumi.CustomResource):
-    warnings.warn("""Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -72,10 +79,13 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CodeDeploy::Application
+        The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        :param pulumi.Input[str] compute_platform: The compute platform that CodeDeploy deploys the application to.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
         """
         ...
     @overload
@@ -84,7 +94,7 @@ class Application(pulumi.CustomResource):
                  args: Optional[ApplicationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CodeDeploy::Application
+        The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -105,7 +115,6 @@ class Application(pulumi.CustomResource):
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -147,15 +156,24 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[Optional[str]]:
+        """
+        The compute platform that CodeDeploy deploys the application to.
+        """
         return pulumi.get(self, "compute_platform")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
+        """
+        The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define. 
+        """
         return pulumi.get(self, "tags")
 

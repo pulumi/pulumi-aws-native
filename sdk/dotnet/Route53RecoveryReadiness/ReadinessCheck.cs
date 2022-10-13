@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// Name of the ReadinessCheck to create.
         /// </summary>
         [Output("readinessCheckName")]
-        public Output<string> ReadinessCheckName { get; private set; } = null!;
+        public Output<string?> ReadinessCheckName { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource set to check.

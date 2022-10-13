@@ -44,7 +44,7 @@ export class Cell extends pulumi.CustomResource {
     /**
      * The name of the cell to create.
      */
-    public readonly cellName!: pulumi.Output<string>;
+    public readonly cellName!: pulumi.Output<string | undefined>;
     /**
      * A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
      */

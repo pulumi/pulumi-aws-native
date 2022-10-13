@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'ContainerRecipeComponentConfigurationArgs',
+    'ContainerRecipeComponentParameterArgs',
     'ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs',
     'ContainerRecipeInstanceBlockDeviceMappingArgs',
     'ContainerRecipeInstanceConfigurationArgs',
@@ -42,13 +43,17 @@ __all__ = [
 @pulumi.input_type
 class ContainerRecipeComponentConfigurationArgs:
     def __init__(__self__, *,
-                 component_arn: Optional[pulumi.Input[str]] = None):
+                 component_arn: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]] = None):
         """
         Configuration details of the component.
         :param pulumi.Input[str] component_arn: The Amazon Resource Name (ARN) of the component.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]] parameters: A group of parameter settings that are used to configure the component for a specific recipe.
         """
         if component_arn is not None:
             pulumi.set(__self__, "component_arn", component_arn)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="componentArn")
@@ -61,6 +66,56 @@ class ContainerRecipeComponentConfigurationArgs:
     @component_arn.setter
     def component_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "component_arn", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]]:
+        """
+        A group of parameter settings that are used to configure the component for a specific recipe.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class ContainerRecipeComponentParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Contains a key/value pair that sets the named component parameter.
+        :param pulumi.Input[str] name: The name of the component parameter to set.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] value: Sets the value for the named component parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the component parameter to set.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Sets the value for the named component parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

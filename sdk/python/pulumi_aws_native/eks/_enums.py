@@ -17,6 +17,7 @@ class AddonResolveConflicts(str, Enum):
     """
     NONE = "NONE"
     OVERWRITE = "OVERWRITE"
+    PRESERVE = "PRESERVE"
 
 
 class ClusterKubernetesNetworkConfigIpFamily(str, Enum):

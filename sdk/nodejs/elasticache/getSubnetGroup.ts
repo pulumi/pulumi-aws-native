@@ -17,17 +17,25 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:elasticache:getSubnetGroup", {
-        "id": args.id,
+        "cacheSubnetGroupName": args.cacheSubnetGroupName,
     }, opts);
 }
 
 export interface GetSubnetGroupArgs {
-    id: string;
+    /**
+     * The name for the cache subnet group. This value is stored as a lowercase string.
+     */
+    cacheSubnetGroupName: string;
 }
 
 export interface GetSubnetGroupResult {
+    /**
+     * The description for the cache subnet group.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The EC2 subnet IDs for the cache subnet group.
+     */
     readonly subnetIds?: string[];
     readonly tags?: outputs.elasticache.SubnetGroupTag[];
 }
@@ -37,5 +45,8 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
 }
 
 export interface GetSubnetGroupOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name for the cache subnet group. This value is stored as a lowercase string.
+     */
+    cacheSubnetGroupName: pulumi.Input<string>;
 }

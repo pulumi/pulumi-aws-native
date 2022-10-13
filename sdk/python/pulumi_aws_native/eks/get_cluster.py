@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, version=None):
+    def __init__(__self__, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetClusterResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if logging and not isinstance(logging, dict):
             raise TypeError("Expected argument 'logging' to be a dict")
         pulumi.set(__self__, "logging", logging)
@@ -93,6 +96,14 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The unique ID given to your cluster.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def logging(self) -> Optional['outputs.ClusterLogging']:
         return pulumi.get(self, "logging")
 
@@ -137,6 +148,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_security_group_id=self.cluster_security_group_id,
             encryption_config_key_arn=self.encryption_config_key_arn,
             endpoint=self.endpoint,
+            id=self.id,
             logging=self.logging,
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
             resources_vpc_config=self.resources_vpc_config,
@@ -163,6 +175,7 @@ def get_cluster(name: Optional[str] = None,
         cluster_security_group_id=__ret__.cluster_security_group_id,
         encryption_config_key_arn=__ret__.encryption_config_key_arn,
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         logging=__ret__.logging,
         open_id_connect_issuer_url=__ret__.open_id_connect_issuer_url,
         resources_vpc_config=__ret__.resources_vpc_config,

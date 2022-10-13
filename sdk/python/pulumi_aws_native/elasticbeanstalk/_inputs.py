@@ -215,12 +215,19 @@ class ApplicationVersionSourceBundleArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket where the data is located.
+        :param pulumi.Input[str] s3_key: The Amazon S3 key where the data is located.
+        """
         pulumi.set(__self__, "s3_bucket", s3_bucket)
         pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 bucket where the data is located.
+        """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
@@ -230,6 +237,9 @@ class ApplicationVersionSourceBundleArgs:
     @property
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> pulumi.Input[str]:
+        """
+        The Amazon S3 key where the data is located.
+        """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter

@@ -15,6 +15,7 @@ __all__ = [
     'ClusterEncryptionConfigArgs',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterLoggingArgs',
+    'ClusterOutpostConfigArgs',
     'ClusterProviderArgs',
     'ClusterResourcesVpcConfigArgs',
     'ClusterTagArgs',
@@ -187,6 +188,44 @@ class ClusterLoggingArgs:
     @cluster_logging.setter
     def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingArgs']]):
         pulumi.set(self, "cluster_logging", value)
+
+
+@pulumi.input_type
+class ClusterOutpostConfigArgs:
+    def __init__(__self__, *,
+                 control_plane_instance_type: pulumi.Input[str],
+                 outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+        :param pulumi.Input[str] control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        """
+        pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
+        pulumi.set(__self__, "outpost_arns", outpost_arns)
+
+    @property
+    @pulumi.getter(name="controlPlaneInstanceType")
+    def control_plane_instance_type(self) -> pulumi.Input[str]:
+        """
+        Specify the Instance type of the machines that should be used to create your cluster.
+        """
+        return pulumi.get(self, "control_plane_instance_type")
+
+    @control_plane_instance_type.setter
+    def control_plane_instance_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "control_plane_instance_type", value)
+
+    @property
+    @pulumi.getter(name="outpostArns")
+    def outpost_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        """
+        return pulumi.get(self, "outpost_arns")
+
+    @outpost_arns.setter
+    def outpost_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "outpost_arns", value)
 
 
 @pulumi.input_type

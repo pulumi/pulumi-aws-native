@@ -50,6 +50,11 @@ export const getKeyGroup: typeof import("./getKeyGroup").getKeyGroup = null as a
 export const getKeyGroupOutput: typeof import("./getKeyGroup").getKeyGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getKeyGroup","getKeyGroupOutput"], () => require("./getKeyGroup"));
 
+export { GetMonitoringSubscriptionArgs, GetMonitoringSubscriptionResult, GetMonitoringSubscriptionOutputArgs } from "./getMonitoringSubscription";
+export const getMonitoringSubscription: typeof import("./getMonitoringSubscription").getMonitoringSubscription = null as any;
+export const getMonitoringSubscriptionOutput: typeof import("./getMonitoringSubscription").getMonitoringSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitoringSubscription","getMonitoringSubscriptionOutput"], () => require("./getMonitoringSubscription"));
+
 export { GetOriginAccessControlArgs, GetOriginAccessControlResult, GetOriginAccessControlOutputArgs } from "./getOriginAccessControl";
 export const getOriginAccessControl: typeof import("./getOriginAccessControl").getOriginAccessControl = null as any;
 export const getOriginAccessControlOutput: typeof import("./getOriginAccessControl").getOriginAccessControlOutput = null as any;
@@ -85,6 +90,11 @@ export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
 utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
 
+export { MonitoringSubscriptionArgs } from "./monitoringSubscription";
+export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
+export const MonitoringSubscription: typeof import("./monitoringSubscription").MonitoringSubscription = null as any;
+utilities.lazyLoad(exports, ["MonitoringSubscription"], () => require("./monitoringSubscription"));
+
 export { OriginAccessControlArgs } from "./originAccessControl";
 export type OriginAccessControl = import("./originAccessControl").OriginAccessControl;
 export const OriginAccessControl: typeof import("./originAccessControl").OriginAccessControl = null as any;
@@ -116,6 +126,9 @@ export const StreamingDistribution: typeof import("./streamingDistribution").Str
 utilities.lazyLoad(exports, ["StreamingDistribution"], () => require("./streamingDistribution"));
 
 
+// Export enums:
+export * from "../types/enums/cloudfront";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -130,6 +143,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws-native:cloudfront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:MonitoringSubscription":
+                return new MonitoringSubscription(name, <any>undefined, { urn })
             case "aws-native:cloudfront:OriginAccessControl":
                 return new OriginAccessControl(name, <any>undefined, { urn })
             case "aws-native:cloudfront:OriginRequestPolicy":

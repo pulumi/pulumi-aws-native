@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly bool? AllowedOAuthFlowsUserPoolClient;
         public readonly ImmutableArray<string> AllowedOAuthScopes;
         public readonly Outputs.UserPoolClientAnalyticsConfiguration? AnalyticsConfiguration;
+        public readonly int? AuthSessionValidity;
         public readonly ImmutableArray<string> CallbackURLs;
         public readonly string? ClientName;
         public readonly string? ClientSecret;
@@ -85,6 +86,8 @@ namespace Pulumi.AwsNative.Cognito
             ImmutableArray<string> allowedOAuthScopes,
 
             Outputs.UserPoolClientAnalyticsConfiguration? analyticsConfiguration,
+
+            int? authSessionValidity,
 
             ImmutableArray<string> callbackURLs,
 
@@ -125,6 +128,7 @@ namespace Pulumi.AwsNative.Cognito
             AllowedOAuthFlowsUserPoolClient = allowedOAuthFlowsUserPoolClient;
             AllowedOAuthScopes = allowedOAuthScopes;
             AnalyticsConfiguration = analyticsConfiguration;
+            AuthSessionValidity = authSessionValidity;
             CallbackURLs = callbackURLs;
             ClientName = clientName;
             ClientSecret = clientSecret;

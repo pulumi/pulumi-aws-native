@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterParameterGroupResult:
-    def __init__(__self__, parameter_group_name=None, tags=None):
+    def __init__(__self__, parameter_group_name=None, parameters=None, tags=None):
         if parameter_group_name and not isinstance(parameter_group_name, str):
             raise TypeError("Expected argument 'parameter_group_name' to be a str")
         pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+        if parameters and not isinstance(parameters, list):
+            raise TypeError("Expected argument 'parameters' to be a list")
+        pulumi.set(__self__, "parameters", parameters)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -31,13 +34,24 @@ class GetClusterParameterGroupResult:
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> Optional[str]:
         """
-        Cloudformation will generate a unique group name.
+        The name of the cluster parameter group.
         """
         return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ClusterParameterGroupParameter']]:
+        """
+        An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ClusterParameterGroupTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -48,6 +62,7 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
             yield self
         return GetClusterParameterGroupResult(
             parameter_group_name=self.parameter_group_name,
+            parameters=self.parameters,
             tags=self.tags)
 
 
@@ -57,7 +72,7 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
     Resource Type definition for AWS::Redshift::ClusterParameterGroup
 
 
-    :param str parameter_group_name: Cloudformation will generate a unique group name.
+    :param str parameter_group_name: The name of the cluster parameter group.
     """
     __args__ = dict()
     __args__['parameterGroupName'] = parameter_group_name
@@ -66,6 +81,7 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
 
     return AwaitableGetClusterParameterGroupResult(
         parameter_group_name=__ret__.parameter_group_name,
+        parameters=__ret__.parameters,
         tags=__ret__.tags)
 
 
@@ -76,6 +92,6 @@ def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Inp
     Resource Type definition for AWS::Redshift::ClusterParameterGroup
 
 
-    :param str parameter_group_name: Cloudformation will generate a unique group name.
+    :param str parameter_group_name: The name of the cluster parameter group.
     """
     ...

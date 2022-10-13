@@ -10,15 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CodeDeploy::Application
-//
-// Deprecated: Application is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationName pulumi.StringPtrOutput    `pulumi:"applicationName"`
-	ComputePlatform pulumi.StringPtrOutput    `pulumi:"computePlatform"`
-	Tags            ApplicationTagArrayOutput `pulumi:"tags"`
+	// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName pulumi.StringPtrOutput `pulumi:"applicationName"`
+	// The compute platform that CodeDeploy deploys the application to.
+	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
+	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -60,16 +61,22 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	ApplicationName *string          `pulumi:"applicationName"`
-	ComputePlatform *string          `pulumi:"computePlatform"`
-	Tags            []ApplicationTag `pulumi:"tags"`
+	// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
+	ApplicationName *string `pulumi:"applicationName"`
+	// The compute platform that CodeDeploy deploys the application to.
+	ComputePlatform *string `pulumi:"computePlatform"`
+	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+	Tags []ApplicationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
 	ApplicationName pulumi.StringPtrInput
+	// The compute platform that CodeDeploy deploys the application to.
 	ComputePlatform pulumi.StringPtrInput
-	Tags            ApplicationTagArrayInput
+	// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
+	Tags ApplicationTagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -109,14 +116,17 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// A name for the application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
 func (o ApplicationOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationName }).(pulumi.StringPtrOutput)
 }
 
+// The compute platform that CodeDeploy deploys the application to.
 func (o ApplicationOutput) ComputePlatform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ComputePlatform }).(pulumi.StringPtrOutput)
 }
 
+// The metadata that you apply to CodeDeploy applications to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
 func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationTagArrayOutput { return v.Tags }).(ApplicationTagArrayOutput)
 }

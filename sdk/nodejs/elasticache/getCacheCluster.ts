@@ -46,6 +46,7 @@ export interface GetCacheClusterResult {
     readonly snapshotRetentionLimit?: number;
     readonly snapshotWindow?: string;
     readonly tags?: outputs.elasticache.CacheClusterTag[];
+    readonly transitEncryptionEnabled?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }
 

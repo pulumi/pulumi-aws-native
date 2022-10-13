@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<ImmutableArray<Outputs.PhoneNumberTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon Connect instance the phone number is claimed to.
+        /// The ARN of the target the phone number is claimed to.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.Connect
         }
 
         /// <summary>
-        /// The ARN of the Amazon Connect instance the phone number is claimed to.
+        /// The ARN of the target the phone number is claimed to.
         /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;

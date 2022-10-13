@@ -42,8 +42,14 @@ type LookupDBClusterResult struct {
 	DBClusterInstanceClass *string `pulumi:"dBClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
 	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
+	// The AWS Region-unique, immutable identifier for the DB cluster.
+	DBClusterResourceId *string `pulumi:"dBClusterResourceId"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
+	// The Active Directory directory ID to create the DB cluster in.
+	Domain *string `pulumi:"domain"`
+	// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+	DomainIAMRoleName *string `pulumi:"domainIAMRoleName"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
 	EnableCloudwatchLogsExports []string `pulumi:"enableCloudwatchLogsExports"`
 	// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
@@ -67,6 +73,8 @@ type LookupDBClusterResult struct {
 	MonitoringInterval *int `pulumi:"monitoringInterval"`
 	// The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
+	// The network type of the DB cluster.
+	NetworkType *string `pulumi:"networkType"`
 	// A value that indicates whether to turn on Performance Insights for the DB cluster.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
 	// The Amazon Web Services KMS key identifier for encryption of Performance Insights data.
@@ -84,6 +92,8 @@ type LookupDBClusterResult struct {
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
 	// The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 	ScalingConfiguration *DBClusterScalingConfiguration `pulumi:"scalingConfiguration"`
+	// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+	ServerlessV2ScalingConfiguration *DBClusterServerlessV2ScalingConfiguration `pulumi:"serverlessV2ScalingConfiguration"`
 	// Specifies the storage type to be associated with the DB cluster.
 	StorageType *string `pulumi:"storageType"`
 	// An array of key-value pairs to apply to this resource.
@@ -168,9 +178,24 @@ func (o LookupDBClusterResultOutput) DBClusterParameterGroupName() pulumi.String
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region-unique, immutable identifier for the DB cluster.
+func (o LookupDBClusterResultOutput) DBClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterResourceId }).(pulumi.StringPtrOutput)
+}
+
 // A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 func (o LookupDBClusterResultOutput) DeletionProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.DeletionProtection }).(pulumi.BoolPtrOutput)
+}
+
+// The Active Directory directory ID to create the DB cluster in.
+func (o LookupDBClusterResultOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
+// Specify the name of the IAM role to be used when making API calls to the Directory Service.
+func (o LookupDBClusterResultOutput) DomainIAMRoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DomainIAMRoleName }).(pulumi.StringPtrOutput)
 }
 
 // The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
@@ -229,6 +254,11 @@ func (o LookupDBClusterResultOutput) MonitoringRoleArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.MonitoringRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The network type of the DB cluster.
+func (o LookupDBClusterResultOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.NetworkType }).(pulumi.StringPtrOutput)
+}
+
 // A value that indicates whether to turn on Performance Insights for the DB cluster.
 func (o LookupDBClusterResultOutput) PerformanceInsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.PerformanceInsightsEnabled }).(pulumi.BoolPtrOutput)
@@ -271,6 +301,13 @@ func (o LookupDBClusterResultOutput) ReplicationSourceIdentifier() pulumi.String
 // The ScalingConfiguration property type specifies the scaling configuration of an Aurora Serverless DB cluster.
 func (o LookupDBClusterResultOutput) ScalingConfiguration() DBClusterScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *DBClusterScalingConfiguration { return v.ScalingConfiguration }).(DBClusterScalingConfigurationPtrOutput)
+}
+
+// Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+func (o LookupDBClusterResultOutput) ServerlessV2ScalingConfiguration() DBClusterServerlessV2ScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *DBClusterServerlessV2ScalingConfiguration {
+		return v.ServerlessV2ScalingConfiguration
+	}).(DBClusterServerlessV2ScalingConfigurationPtrOutput)
 }
 
 // Specifies the storage type to be associated with the DB cluster.

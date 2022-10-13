@@ -43,6 +43,7 @@ export class EndpointConfig extends pulumi.CustomResource {
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigAsyncInferenceConfig | undefined>;
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigDataCaptureConfig | undefined>;
     public readonly endpointConfigName!: pulumi.Output<string | undefined>;
+    public readonly explainerConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigExplainerConfig | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[]>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointConfigTag[] | undefined>;
@@ -66,6 +67,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
             resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
             resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
+            resourceInputs["explainerConfig"] = args ? args.explainerConfig : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -73,6 +75,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
             resourceInputs["dataCaptureConfig"] = undefined /*out*/;
             resourceInputs["endpointConfigName"] = undefined /*out*/;
+            resourceInputs["explainerConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["productionVariants"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -89,6 +92,7 @@ export interface EndpointConfigArgs {
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigAsyncInferenceConfigArgs>;
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigDataCaptureConfigArgs>;
     endpointConfigName?: pulumi.Input<string>;
+    explainerConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigExplainerConfigArgs>;
     kmsKeyId?: pulumi.Input<string>;
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigTagArgs>[]>;

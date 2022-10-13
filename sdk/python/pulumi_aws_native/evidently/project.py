@@ -16,6 +16,7 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
+                 app_config_resource: Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']] = None,
                  data_delivery: Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,8 @@ class ProjectArgs:
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if app_config_resource is not None:
+            pulumi.set(__self__, "app_config_resource", app_config_resource)
         if data_delivery is not None:
             pulumi.set(__self__, "data_delivery", data_delivery)
         if description is not None:
@@ -32,6 +35,15 @@ class ProjectArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="appConfigResource")
+    def app_config_resource(self) -> Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']]:
+        return pulumi.get(self, "app_config_resource")
+
+    @app_config_resource.setter
+    def app_config_resource(self, value: Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']]):
+        pulumi.set(self, "app_config_resource", value)
 
     @property
     @pulumi.getter(name="dataDelivery")
@@ -78,6 +90,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_config_resource: Optional[pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']]] = None,
                  data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -114,6 +127,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_config_resource: Optional[pulumi.Input[pulumi.InputType['ProjectAppConfigResourceObjectArgs']]] = None,
                  data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryObjectArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -127,6 +141,7 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
+            __props__.__dict__["app_config_resource"] = app_config_resource
             __props__.__dict__["data_delivery"] = data_delivery
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -154,12 +169,18 @@ class Project(pulumi.CustomResource):
 
         __props__ = ProjectArgs.__new__(ProjectArgs)
 
+        __props__.__dict__["app_config_resource"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["data_delivery"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appConfigResource")
+    def app_config_resource(self) -> pulumi.Output[Optional['outputs.ProjectAppConfigResourceObject']]:
+        return pulumi.get(self, "app_config_resource")
 
     @property
     @pulumi.getter

@@ -5258,6 +5258,14 @@ export namespace cloudfront {
         name: string;
     }
 
+    export interface MonitoringSubscription {
+        realtimeMetricsSubscriptionConfig?: outputs.cloudfront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig;
+    }
+
+    export interface MonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+        realtimeMetricsSubscriptionStatus: enums.cloudfront.MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus;
+    }
+
     export interface OriginAccessControlConfig {
         description?: string;
         name: string;
@@ -9021,6 +9029,14 @@ export namespace dlm {
         name: string;
     }
 
+    export interface LifecyclePolicyArchiveRetainRule {
+        retentionArchiveTier: outputs.dlm.LifecyclePolicyRetentionArchiveTier;
+    }
+
+    export interface LifecyclePolicyArchiveRule {
+        retainRule: outputs.dlm.LifecyclePolicyArchiveRetainRule;
+    }
+
     export interface LifecyclePolicyCreateRule {
         cronExpression?: string;
         interval?: number;
@@ -9107,7 +9123,14 @@ export namespace dlm {
         intervalUnit?: string;
     }
 
+    export interface LifecyclePolicyRetentionArchiveTier {
+        count?: number;
+        interval?: number;
+        intervalUnit?: string;
+    }
+
     export interface LifecyclePolicySchedule {
+        archiveRule?: outputs.dlm.LifecyclePolicyArchiveRule;
         copyTags?: boolean;
         createRule?: outputs.dlm.LifecyclePolicyCreateRule;
         crossRegionCopyRules?: outputs.dlm.LifecyclePolicyCrossRegionCopyRule[];
@@ -10825,6 +10848,7 @@ export namespace ec2 {
         spotMaintenanceStrategies?: outputs.ec2.SpotFleetSpotMaintenanceStrategies;
         spotMaxTotalPrice?: string;
         spotPrice?: string;
+        tagSpecifications?: outputs.ec2.SpotFleetTagSpecification[];
         targetCapacity: number;
         targetCapacityUnitType?: enums.ec2.SpotFleetRequestConfigDataTargetCapacityUnitType;
         terminateInstancesWithExpiration?: boolean;
@@ -11713,6 +11737,20 @@ export namespace eks {
         clusterLogging?: outputs.eks.ClusterLogging;
     }
 
+    /**
+     * An object representing the Outpost configuration to use for AWS EKS outpost cluster.
+     */
+    export interface ClusterOutpostConfig {
+        /**
+         * Specify the Instance type of the machines that should be used to create your cluster.
+         */
+        controlPlaneInstanceType: string;
+        /**
+         * Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+         */
+        outpostArns: string[];
+    }
+
     export interface ClusterProvider {
         /**
          * Amazon Resource Name (ARN) or alias of the KMS key. The KMS key must be symmetric, created in the same region as the cluster, and if the KMS key was created in a different account, the user must have access to the KMS key.
@@ -12013,6 +12051,9 @@ export namespace elasticache {
         value: string;
     }
 
+    /**
+     * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
+     */
     export interface SubnetGroupTag {
         key: string;
         value: string;
@@ -12074,7 +12115,13 @@ export namespace elasticbeanstalk {
     }
 
     export interface ApplicationVersionSourceBundle {
+        /**
+         * The Amazon S3 bucket where the data is located.
+         */
         s3Bucket: string;
+        /**
+         * The Amazon S3 key where the data is located.
+         */
         s3Key: string;
     }
 
@@ -13364,6 +13411,11 @@ export namespace evidently {
          * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
         value: string;
+    }
+
+    export interface ProjectAppConfigResourceObject {
+        applicationId: string;
+        environmentId: string;
     }
 
     /**
@@ -14740,6 +14792,11 @@ export namespace glue {
         state?: string;
     }
 
+    export interface TriggerEventBatchingCondition {
+        batchSize: number;
+        batchWindow?: number;
+    }
+
     export interface TriggerNotificationProperty {
         notifyDelayAfter?: number;
     }
@@ -15110,6 +15167,56 @@ export namespace greengrassv2 {
         sourcePath?: string;
     }
 
+    export interface DeploymentComponentUpdatePolicy {
+        action?: enums.greengrassv2.DeploymentComponentUpdatePolicyAction;
+        timeoutInSeconds?: number;
+    }
+
+    export interface DeploymentConfigurationValidationPolicy {
+        timeoutInSeconds?: number;
+    }
+
+    export interface DeploymentIoTJobAbortConfig {
+        criteriaList: outputs.greengrassv2.DeploymentIoTJobAbortCriteria[];
+    }
+
+    export interface DeploymentIoTJobAbortCriteria {
+        action: enums.greengrassv2.DeploymentIoTJobAbortCriteriaAction;
+        failureType: enums.greengrassv2.DeploymentIoTJobAbortCriteriaFailureType;
+        minNumberOfExecutedThings: number;
+        thresholdPercentage: number;
+    }
+
+    export interface DeploymentIoTJobConfiguration {
+        abortConfig?: outputs.greengrassv2.DeploymentIoTJobAbortConfig;
+        jobExecutionsRolloutConfig?: outputs.greengrassv2.DeploymentIoTJobExecutionsRolloutConfig;
+        timeoutConfig?: outputs.greengrassv2.DeploymentIoTJobTimeoutConfig;
+    }
+
+    export interface DeploymentIoTJobExecutionsRolloutConfig {
+        exponentialRate?: outputs.greengrassv2.DeploymentIoTJobExponentialRolloutRate;
+        maximumPerMinute?: number;
+    }
+
+    export interface DeploymentIoTJobExponentialRolloutRate {
+        baseRatePerMinute: number;
+        incrementFactor: number;
+        rateIncreaseCriteria: outputs.greengrassv2.DeploymentIoTJobRateIncreaseCriteria;
+    }
+
+    export interface DeploymentIoTJobRateIncreaseCriteria {
+    }
+
+    export interface DeploymentIoTJobTimeoutConfig {
+        inProgressTimeoutInMinutes?: number;
+    }
+
+    export interface DeploymentPolicies {
+        componentUpdatePolicy?: outputs.greengrassv2.DeploymentComponentUpdatePolicy;
+        configurationValidationPolicy?: outputs.greengrassv2.DeploymentConfigurationValidationPolicy;
+        failureHandlingPolicy?: enums.greengrassv2.DeploymentPoliciesFailureHandlingPolicy;
+    }
+
 }
 
 export namespace groundstation {
@@ -15475,6 +15582,12 @@ export namespace iam {
 
 }
 
+export namespace identitystore {
+    export interface GroupMembershipMemberId {
+    }
+
+}
+
 export namespace imagebuilder {
     /**
      * Configuration details of the component.
@@ -15484,6 +15597,24 @@ export namespace imagebuilder {
          * The Amazon Resource Name (ARN) of the component.
          */
         componentArn?: string;
+        /**
+         * A group of parameter settings that are used to configure the component for a specific recipe.
+         */
+        parameters?: outputs.imagebuilder.ContainerRecipeComponentParameter[];
+    }
+
+    /**
+     * Contains a key/value pair that sets the named component parameter.
+     */
+    export interface ContainerRecipeComponentParameter {
+        /**
+         * The name of the component parameter to set.
+         */
+        name: string;
+        /**
+         * Sets the value for the named component parameter.
+         */
+        value: string[];
     }
 
     /**
@@ -17921,6 +18052,127 @@ export namespace iotfleethub {
 
 }
 
+export namespace iotfleetwise {
+    export interface CampaignCollectionScheme {
+    }
+
+    export interface CampaignSignalInformation {
+        maxSampleCount?: number;
+        minimumSamplingIntervalMs?: number;
+        name: string;
+    }
+
+    export interface CampaignTag {
+        key: string;
+        value: string;
+    }
+
+    export interface DecoderManifestCanInterface {
+        name: string;
+        protocolName?: string;
+        protocolVersion?: string;
+    }
+
+    export interface DecoderManifestCanNetworkInterface {
+        canInterface: outputs.iotfleetwise.DecoderManifestCanInterface;
+        interfaceId: string;
+        type: enums.iotfleetwise.DecoderManifestCanNetworkInterfaceType;
+    }
+
+    export interface DecoderManifestCanSignal {
+        factor: number;
+        isBigEndian: boolean;
+        isSigned: boolean;
+        length: number;
+        messageId: number;
+        name?: string;
+        offset: number;
+        startBit: number;
+    }
+
+    export interface DecoderManifestCanSignalDecoder {
+        canSignal: outputs.iotfleetwise.DecoderManifestCanSignal;
+        fullyQualifiedName: string;
+        interfaceId: string;
+        type: enums.iotfleetwise.DecoderManifestCanSignalDecoderType;
+    }
+
+    export interface DecoderManifestObdInterface {
+        dtcRequestIntervalSeconds?: number;
+        hasTransmissionEcu?: boolean;
+        name: string;
+        obdStandard?: string;
+        pidRequestIntervalSeconds?: number;
+        requestMessageId: number;
+        useExtendedIds?: boolean;
+    }
+
+    export interface DecoderManifestObdNetworkInterface {
+        interfaceId: string;
+        obdInterface: outputs.iotfleetwise.DecoderManifestObdInterface;
+        type: enums.iotfleetwise.DecoderManifestObdNetworkInterfaceType;
+    }
+
+    export interface DecoderManifestObdSignal {
+        bitMaskLength?: number;
+        bitRightShift?: number;
+        byteLength: number;
+        offset: number;
+        pid: number;
+        pidResponseLength: number;
+        scaling: number;
+        serviceMode: number;
+        startByte: number;
+    }
+
+    export interface DecoderManifestObdSignalDecoder {
+        fullyQualifiedName: string;
+        interfaceId: string;
+        obdSignal: outputs.iotfleetwise.DecoderManifestObdSignal;
+        type: enums.iotfleetwise.DecoderManifestObdSignalDecoderType;
+    }
+
+    export interface DecoderManifestTag {
+        key: string;
+        value: string;
+    }
+
+    export interface FleetTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ModelManifestTag {
+        key: string;
+        value: string;
+    }
+
+    export interface SignalCatalogNode {
+    }
+
+    export interface SignalCatalogNodeCounts {
+        totalActuators?: number;
+        totalAttributes?: number;
+        totalBranches?: number;
+        totalNodes?: number;
+        totalSensors?: number;
+    }
+
+    export interface SignalCatalogTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VehicleTag {
+        key: string;
+        value: string;
+    }
+
+    export interface VehicleattributesMap {
+    }
+
+}
+
 export namespace iotsitewise {
     /**
      * Contains information for an IAM role identity in an access policy.
@@ -18164,7 +18416,7 @@ export namespace iotsitewise {
     }
 
     /**
-     * The asset property's definition, alias, and notification state.
+     * The asset property's definition, alias, unit, and notification state.
      */
     export interface AssetProperty {
         /**
@@ -18179,6 +18431,10 @@ export namespace iotsitewise {
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
         notificationState?: enums.iotsitewise.AssetPropertyNotificationState;
+        /**
+         * The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
+         */
+        unit?: string;
     }
 
     export interface AssetTag {
@@ -18302,6 +18558,7 @@ export namespace iotwireless {
     export interface DeviceProfileLoRaWANDeviceProfile {
         classBTimeout?: number;
         classCTimeout?: number;
+        factoryPresetFreqsList?: number[];
         macVersion?: string;
         maxDutyCycle?: number;
         maxEirp?: number;
@@ -18310,6 +18567,10 @@ export namespace iotwireless {
         pingSlotPeriod?: number;
         regParamsRevision?: string;
         rfRegion?: string;
+        rxDataRate2?: number;
+        rxDelay1?: number;
+        rxDrOffset1?: number;
+        rxFreq2?: number;
         supports32BitFCnt?: boolean;
         supportsClassB?: boolean;
         supportsClassC?: boolean;
@@ -22621,6 +22882,12 @@ export namespace lookoutmetrics {
 }
 
 export namespace m2 {
+    export interface ApplicationDefinition {
+    }
+
+    export interface ApplicationTagMap {
+    }
+
     /**
      * Defines the details of a high availability configuration.
      */
@@ -24201,6 +24468,10 @@ export namespace mediapackage {
          * An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
          */
         constantInitializationVector?: string;
+        /**
+         * The encryption method used
+         */
+        encryptionMethod?: enums.mediapackage.OriginEndpointCmafEncryptionEncryptionMethod;
         /**
          * Time (in seconds) between each encryption key rotation.
          */
@@ -28225,6 +28496,20 @@ export namespace rds {
     }
 
     /**
+     * Contains the scaling configuration of an Aurora Serverless v2 DB cluster.
+     */
+    export interface DBClusterServerlessV2ScalingConfiguration {
+        /**
+         * The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.
+         */
+        maxCapacity?: number;
+        /**
+         * The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+         */
+        minCapacity?: number;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface DBClusterTag {
@@ -28313,7 +28598,7 @@ export namespace rds {
          */
         description?: string;
         /**
-         * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+         * Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
          */
         iAMAuth?: enums.rds.DBProxyAuthFormatIAMAuth;
         /**
@@ -28471,12 +28756,27 @@ export namespace redshift {
     }
 
     export interface ClusterParameterGroupParameter {
+        /**
+         * The name of the parameter.
+         */
         parameterName: string;
+        /**
+         * The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
+         */
         parameterValue: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ClusterParameterGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -28485,8 +28785,17 @@ export namespace redshift {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ClusterSubnetGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -29309,17 +29618,17 @@ export namespace route53recoverycontrol {
 export namespace route53recoveryreadiness {
     export interface CellTag {
         key: string;
-        value: string[];
+        value: string;
     }
 
     export interface ReadinessCheckTag {
         key: string;
-        value: string[];
+        value: string;
     }
 
     export interface RecoveryGroupTag {
         key: string;
-        value: string[];
+        value: string;
     }
 
     /**
@@ -29390,7 +29699,7 @@ export namespace route53recoveryreadiness {
 
     export interface ResourceSetTag {
         key: string;
-        value: string[];
+        value: string;
     }
 
     /**
@@ -30309,7 +30618,6 @@ export namespace s3 {
     }
 
     export interface MultiRegionAccessPointRegion {
-        accountId?: string;
         bucket: string;
     }
 
@@ -31186,6 +31494,51 @@ export namespace sagemaker {
         captureMode: string;
     }
 
+    export interface EndpointConfigClarifyExplainerConfig {
+        enableExplanations?: string;
+        inferenceConfig?: outputs.sagemaker.EndpointConfigClarifyInferenceConfig;
+        shapConfig: outputs.sagemaker.EndpointConfigClarifyShapConfig;
+    }
+
+    export interface EndpointConfigClarifyFeatureType {
+    }
+
+    export interface EndpointConfigClarifyHeader {
+    }
+
+    export interface EndpointConfigClarifyInferenceConfig {
+        contentTemplate?: string;
+        featureHeaders?: outputs.sagemaker.EndpointConfigClarifyHeader[];
+        featureTypes?: outputs.sagemaker.EndpointConfigClarifyFeatureType[];
+        featuresAttribute?: string;
+        labelAttribute?: string;
+        labelHeaders?: outputs.sagemaker.EndpointConfigClarifyHeader[];
+        labelIndex?: number;
+        maxPayloadInMB?: number;
+        maxRecordCount?: number;
+        probabilityAttribute?: string;
+        probabilityIndex?: number;
+    }
+
+    export interface EndpointConfigClarifyShapBaselineConfig {
+        mimeType?: string;
+        shapBaseline?: string;
+        shapBaselineUri?: string;
+    }
+
+    export interface EndpointConfigClarifyShapConfig {
+        numberOfSamples?: number;
+        seed?: number;
+        shapBaselineConfig: outputs.sagemaker.EndpointConfigClarifyShapBaselineConfig;
+        textConfig?: outputs.sagemaker.EndpointConfigClarifyTextConfig;
+        useLogit?: boolean;
+    }
+
+    export interface EndpointConfigClarifyTextConfig {
+        granularity: string;
+        language: string;
+    }
+
     export interface EndpointConfigDataCaptureConfig {
         captureContentTypeHeader?: outputs.sagemaker.EndpointConfigCaptureContentTypeHeader;
         captureOptions: outputs.sagemaker.EndpointConfigCaptureOption[];
@@ -31195,14 +31548,21 @@ export namespace sagemaker {
         kmsKeyId?: string;
     }
 
+    export interface EndpointConfigExplainerConfig {
+        clarifyExplainerConfig?: outputs.sagemaker.EndpointConfigClarifyExplainerConfig;
+    }
+
     export interface EndpointConfigProductionVariant {
         acceleratorType?: string;
+        containerStartupHealthCheckTimeoutInSeconds?: number;
         initialInstanceCount?: number;
         initialVariantWeight: number;
         instanceType?: string;
+        modelDataDownloadTimeoutInSeconds?: number;
         modelName: string;
         serverlessConfig?: outputs.sagemaker.EndpointConfigServerlessConfig;
         variantName: string;
+        volumeSizeInGB?: number;
     }
 
     export interface EndpointConfigServerlessConfig {
@@ -34207,6 +34567,100 @@ export namespace timestream {
 }
 
 export namespace transfer {
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface AgreementTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: string;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: string;
+    }
+
+    /**
+     * Configuration for an AS2 connector.
+     */
+    export interface As2ConfigProperties {
+        /**
+         * Compression setting for this AS2 connector configuration.
+         */
+        compression?: enums.transfer.ConnectorAs2ConfigPropertiesCompression;
+        /**
+         * Encryption algorithm for this AS2 connector configuration.
+         */
+        encryptionAlgorithm?: enums.transfer.ConnectorAs2ConfigPropertiesEncryptionAlgorithm;
+        /**
+         * A unique identifier for the local profile.
+         */
+        localProfileId?: string;
+        /**
+         * MDN Response setting for this AS2 connector configuration.
+         */
+        mdnResponse?: enums.transfer.ConnectorAs2ConfigPropertiesMdnResponse;
+        /**
+         * MDN Signing algorithm for this AS2 connector configuration.
+         */
+        mdnSigningAlgorithm?: enums.transfer.ConnectorAs2ConfigPropertiesMdnSigningAlgorithm;
+        /**
+         * The message subject for this AS2 connector configuration.
+         */
+        messageSubject?: string;
+        /**
+         * A unique identifier for the partner profile.
+         */
+        partnerProfileId?: string;
+        /**
+         * Signing algorithm for this AS2 connector configuration.
+         */
+        signingAlgorithm?: enums.transfer.ConnectorAs2ConfigPropertiesSigningAlgorithm;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface ConnectorTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: string;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: string;
+    }
+
+    /**
+     * Creates a key-value pair for a specific resource.
+     */
+    export interface ProfileTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: string;
+        /**
+         * Contains one or more values that you assigned to the key name you create.
+         */
+        value: string;
+    }
+
     export interface ServerAs2Transport {
     }
 

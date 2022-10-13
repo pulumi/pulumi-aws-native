@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, default_run_properties=None, description=None, id=None, tags=None):
+    def __init__(__self__, default_run_properties=None, description=None, id=None, max_concurrent_runs=None, tags=None):
         if default_run_properties and not isinstance(default_run_properties, dict):
             raise TypeError("Expected argument 'default_run_properties' to be a dict")
         pulumi.set(__self__, "default_run_properties", default_run_properties)
@@ -28,6 +28,9 @@ class GetWorkflowResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if max_concurrent_runs and not isinstance(max_concurrent_runs, int):
+            raise TypeError("Expected argument 'max_concurrent_runs' to be a int")
+        pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -48,6 +51,11 @@ class GetWorkflowResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[int]:
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
@@ -62,6 +70,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             default_run_properties=self.default_run_properties,
             description=self.description,
             id=self.id,
+            max_concurrent_runs=self.max_concurrent_runs,
             tags=self.tags)
 
 
@@ -79,6 +88,7 @@ def get_workflow(id: Optional[str] = None,
         default_run_properties=__ret__.default_run_properties,
         description=__ret__.description,
         id=__ret__.id,
+        max_concurrent_runs=__ret__.max_concurrent_runs,
         tags=__ret__.tags)
 
 

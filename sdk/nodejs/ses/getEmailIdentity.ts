@@ -37,6 +37,7 @@ export interface GetEmailIdentityResult {
     readonly dkimDNSTokenValue1?: string;
     readonly dkimDNSTokenValue2?: string;
     readonly dkimDNSTokenValue3?: string;
+    readonly dkimSigningAttributes?: outputs.ses.EmailIdentityDkimSigningAttributes;
     readonly feedbackAttributes?: outputs.ses.EmailIdentityFeedbackAttributes;
     readonly mailFromAttributes?: outputs.ses.EmailIdentityMailFromAttributes;
 }

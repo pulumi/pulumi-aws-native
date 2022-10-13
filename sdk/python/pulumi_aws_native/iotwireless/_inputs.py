@@ -76,6 +76,7 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     def __init__(__self__, *,
                  class_b_timeout: Optional[pulumi.Input[int]] = None,
                  class_c_timeout: Optional[pulumi.Input[int]] = None,
+                 factory_preset_freqs_list: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  mac_version: Optional[pulumi.Input[str]] = None,
                  max_duty_cycle: Optional[pulumi.Input[int]] = None,
                  max_eirp: Optional[pulumi.Input[int]] = None,
@@ -84,6 +85,10 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
                  ping_slot_period: Optional[pulumi.Input[int]] = None,
                  reg_params_revision: Optional[pulumi.Input[str]] = None,
                  rf_region: Optional[pulumi.Input[str]] = None,
+                 rx_data_rate2: Optional[pulumi.Input[int]] = None,
+                 rx_delay1: Optional[pulumi.Input[int]] = None,
+                 rx_dr_offset1: Optional[pulumi.Input[int]] = None,
+                 rx_freq2: Optional[pulumi.Input[int]] = None,
                  supports32_bit_f_cnt: Optional[pulumi.Input[bool]] = None,
                  supports_class_b: Optional[pulumi.Input[bool]] = None,
                  supports_class_c: Optional[pulumi.Input[bool]] = None,
@@ -92,6 +97,8 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
             pulumi.set(__self__, "class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
             pulumi.set(__self__, "class_c_timeout", class_c_timeout)
+        if factory_preset_freqs_list is not None:
+            pulumi.set(__self__, "factory_preset_freqs_list", factory_preset_freqs_list)
         if mac_version is not None:
             pulumi.set(__self__, "mac_version", mac_version)
         if max_duty_cycle is not None:
@@ -108,6 +115,14 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
             pulumi.set(__self__, "reg_params_revision", reg_params_revision)
         if rf_region is not None:
             pulumi.set(__self__, "rf_region", rf_region)
+        if rx_data_rate2 is not None:
+            pulumi.set(__self__, "rx_data_rate2", rx_data_rate2)
+        if rx_delay1 is not None:
+            pulumi.set(__self__, "rx_delay1", rx_delay1)
+        if rx_dr_offset1 is not None:
+            pulumi.set(__self__, "rx_dr_offset1", rx_dr_offset1)
+        if rx_freq2 is not None:
+            pulumi.set(__self__, "rx_freq2", rx_freq2)
         if supports32_bit_f_cnt is not None:
             pulumi.set(__self__, "supports32_bit_f_cnt", supports32_bit_f_cnt)
         if supports_class_b is not None:
@@ -134,6 +149,15 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @class_c_timeout.setter
     def class_c_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "class_c_timeout", value)
+
+    @property
+    @pulumi.getter(name="factoryPresetFreqsList")
+    def factory_preset_freqs_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "factory_preset_freqs_list")
+
+    @factory_preset_freqs_list.setter
+    def factory_preset_freqs_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "factory_preset_freqs_list", value)
 
     @property
     @pulumi.getter(name="macVersion")
@@ -206,6 +230,42 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @rf_region.setter
     def rf_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rf_region", value)
+
+    @property
+    @pulumi.getter(name="rxDataRate2")
+    def rx_data_rate2(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rx_data_rate2")
+
+    @rx_data_rate2.setter
+    def rx_data_rate2(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rx_data_rate2", value)
+
+    @property
+    @pulumi.getter(name="rxDelay1")
+    def rx_delay1(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rx_delay1")
+
+    @rx_delay1.setter
+    def rx_delay1(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rx_delay1", value)
+
+    @property
+    @pulumi.getter(name="rxDrOffset1")
+    def rx_dr_offset1(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rx_dr_offset1")
+
+    @rx_dr_offset1.setter
+    def rx_dr_offset1(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rx_dr_offset1", value)
+
+    @property
+    @pulumi.getter(name="rxFreq2")
+    def rx_freq2(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "rx_freq2")
+
+    @rx_freq2.setter
+    def rx_freq2(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "rx_freq2", value)
 
     @property
     @pulumi.getter(name="supports32BitFCnt")

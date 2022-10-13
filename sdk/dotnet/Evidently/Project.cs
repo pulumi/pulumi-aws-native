@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Evidently
     [AwsNativeResourceType("aws-native:evidently:Project")]
     public partial class Project : global::Pulumi.CustomResource
     {
+        [Output("appConfigResource")]
+        public Output<Outputs.ProjectAppConfigResourceObject?> AppConfigResource { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.Evidently
 
     public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appConfigResource")]
+        public Input<Inputs.ProjectAppConfigResourceObjectArgs>? AppConfigResource { get; set; }
+
         [Input("dataDelivery")]
         public Input<Inputs.ProjectDataDeliveryObjectArgs>? DataDelivery { get; set; }
 

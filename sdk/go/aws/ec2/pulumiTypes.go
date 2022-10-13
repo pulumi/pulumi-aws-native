@@ -22803,6 +22803,7 @@ type SpotFleetRequestConfigData struct {
 	SpotMaintenanceStrategies        *SpotFleetSpotMaintenanceStrategies                        `pulumi:"spotMaintenanceStrategies"`
 	SpotMaxTotalPrice                *string                                                    `pulumi:"spotMaxTotalPrice"`
 	SpotPrice                        *string                                                    `pulumi:"spotPrice"`
+	TagSpecifications                []SpotFleetTagSpecification                                `pulumi:"tagSpecifications"`
 	TargetCapacity                   int                                                        `pulumi:"targetCapacity"`
 	TargetCapacityUnitType           *SpotFleetRequestConfigDataTargetCapacityUnitType          `pulumi:"targetCapacityUnitType"`
 	TerminateInstancesWithExpiration *bool                                                      `pulumi:"terminateInstancesWithExpiration"`
@@ -22839,6 +22840,7 @@ type SpotFleetRequestConfigDataArgs struct {
 	SpotMaintenanceStrategies        SpotFleetSpotMaintenanceStrategiesPtrInput                        `pulumi:"spotMaintenanceStrategies"`
 	SpotMaxTotalPrice                pulumi.StringPtrInput                                             `pulumi:"spotMaxTotalPrice"`
 	SpotPrice                        pulumi.StringPtrInput                                             `pulumi:"spotPrice"`
+	TagSpecifications                SpotFleetTagSpecificationArrayInput                               `pulumi:"tagSpecifications"`
 	TargetCapacity                   pulumi.IntInput                                                   `pulumi:"targetCapacity"`
 	TargetCapacityUnitType           SpotFleetRequestConfigDataTargetCapacityUnitTypePtrInput          `pulumi:"targetCapacityUnitType"`
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput                                               `pulumi:"terminateInstancesWithExpiration"`
@@ -22943,6 +22945,10 @@ func (o SpotFleetRequestConfigDataOutput) SpotMaxTotalPrice() pulumi.StringPtrOu
 
 func (o SpotFleetRequestConfigDataOutput) SpotPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestConfigData) *string { return v.SpotPrice }).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestConfigData) []SpotFleetTagSpecification { return v.TagSpecifications }).(SpotFleetTagSpecificationArrayOutput)
 }
 
 func (o SpotFleetRequestConfigDataOutput) TargetCapacity() pulumi.IntOutput {
@@ -23137,6 +23143,15 @@ func (o SpotFleetRequestConfigDataPtrOutput) SpotPrice() pulumi.StringPtrOutput 
 		}
 		return v.SpotPrice
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o SpotFleetRequestConfigDataPtrOutput) TagSpecifications() SpotFleetTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestConfigData) []SpotFleetTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(SpotFleetTagSpecificationArrayOutput)
 }
 
 func (o SpotFleetRequestConfigDataPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
