@@ -26,6 +26,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "AccountId", "RoleArn", "DefaultLogLevel" ],
+  "taggable" : false,
   "primaryIdentifier" : [ "/properties/AccountId" ],
   "createOnlyProperties" : [ "/properties/AccountId" ],
   "handlers" : {

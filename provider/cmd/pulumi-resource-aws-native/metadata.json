@@ -14089,117 +14089,6 @@
                 "vpcId"
             ]
         },
-        "aws-native:ec2:VPCEndpoint": {
-            "cf": "AWS::EC2::VPCEndpoint",
-            "inputs": {
-                "policyDocument": {
-                    "type": "string",
-                    "description": "A policy to attach to the endpoint that controls access to the service."
-                },
-                "privateDnsEnabled": {
-                    "type": "boolean",
-                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
-                },
-                "routeTableIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "One or more route table IDs."
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
-                },
-                "serviceName": {
-                    "type": "string",
-                    "description": "The service name."
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
-                },
-                "vpcEndpointType": {
-                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC in which the endpoint will be used."
-                }
-            },
-            "outputs": {
-                "creationTimestamp": {
-                    "type": "string"
-                },
-                "dnsEntries": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "networkInterfaceIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "policyDocument": {
-                    "type": "string",
-                    "description": "A policy to attach to the endpoint that controls access to the service."
-                },
-                "privateDnsEnabled": {
-                    "type": "boolean",
-                    "description": "Indicate whether to associate a private hosted zone with the specified VPC."
-                },
-                "routeTableIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "One or more route table IDs."
-                },
-                "securityGroupIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more security groups to associate with the endpoint network interface."
-                },
-                "serviceName": {
-                    "type": "string",
-                    "description": "The service name."
-                },
-                "subnetIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The ID of one or more subnets in which to create an endpoint network interface."
-                },
-                "vpcEndpointType": {
-                    "$ref": "#/types/aws-native:ec2:VPCEndpointVpcEndpointType"
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The ID of the VPC in which the endpoint will be used."
-                }
-            },
-            "required": [
-                "serviceName",
-                "vpcId"
-            ],
-            "createOnly": [
-                "serviceName",
-                "vpcEndpointType",
-                "vpcId"
-            ]
-        },
         "aws-native:ec2:VPCPeeringConnection": {
             "cf": "AWS::EC2::VPCPeeringConnection",
             "inputs": {
@@ -30986,6 +30875,9 @@
                 "openMonitoring": {
                     "$ref": "#/types/aws-native:msk:ClusterOpenMonitoring"
                 },
+                "storageMode": {
+                    "$ref": "#/types/aws-native:msk:ClusterStorageMode"
+                },
                 "tags": {
                     "$ref": "pulumi.json#/Any",
                     "description": "A key-value pair to associate with a resource."
@@ -31028,6 +30920,9 @@
                 },
                 "openMonitoring": {
                     "$ref": "#/types/aws-native:msk:ClusterOpenMonitoring"
+                },
+                "storageMode": {
+                    "$ref": "#/types/aws-native:msk:ClusterStorageMode"
                 },
                 "tags": {
                     "$ref": "pulumi.json#/Any",
@@ -53201,6 +53096,12 @@
                 },
                 "lastName": {
                     "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "secondaryEmail": {
+                    "type": "string"
                 }
             }
         },
@@ -56161,6 +56062,12 @@
                         "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestAcceleratorTypesItem"
                     }
                 },
+                "allowedInstanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "bareMetal": {
                     "$ref": "#/types/aws-native:ec2:EC2FleetInstanceRequirementsRequestBareMetal"
                 },
@@ -56202,6 +56109,9 @@
                 },
                 "memoryMiB": {
                     "$ref": "#/types/aws-native:ec2:EC2FleetMemoryMiBRequest"
+                },
+                "networkBandwidthGbps": {
+                    "$ref": "#/types/aws-native:ec2:EC2FleetNetworkBandwidthGbpsRequest"
                 },
                 "networkInterfaceCount": {
                     "$ref": "#/types/aws-native:ec2:EC2FleetNetworkInterfaceCountRequest"
@@ -56277,6 +56187,17 @@
                 },
                 "min": {
                     "type": "integer"
+                }
+            }
+        },
+        "aws-native:ec2:EC2FleetNetworkBandwidthGbpsRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
                 }
             }
         },
@@ -57534,6 +57455,12 @@
                         "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorTypesItem"
                     }
                 },
+                "allowedInstanceTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "bareMetal": {
                     "$ref": "#/types/aws-native:ec2:SpotFleetInstanceRequirementsRequestBareMetal"
                 },
@@ -57575,6 +57502,9 @@
                 },
                 "memoryMiB": {
                     "$ref": "#/types/aws-native:ec2:SpotFleetMemoryMiBRequest"
+                },
+                "networkBandwidthGbps": {
+                    "$ref": "#/types/aws-native:ec2:SpotFleetNetworkBandwidthGbpsRequest"
                 },
                 "networkInterfaceCount": {
                     "$ref": "#/types/aws-native:ec2:SpotFleetNetworkInterfaceCountRequest"
@@ -57772,6 +57702,17 @@
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                }
+            }
+        },
+        "aws-native:ec2:SpotFleetNetworkBandwidthGbpsRequest": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
                 }
             }
         },
@@ -58107,9 +58048,6 @@
                     "type": "string"
                 }
             }
-        },
-        "aws-native:ec2:VPCEndpointVpcEndpointType": {
-            "type": "string"
         },
         "aws-native:ec2:VPCPeeringConnectionTag": {
             "type": "object",
@@ -62781,7 +62719,13 @@
             }
         },
         "aws-native:identitystore:GroupMembershipMemberId": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "userId": {
+                    "type": "string",
+                    "description": "The identifier for a user in the identity store."
+                }
+            }
         },
         "aws-native:imagebuilder:ComponentPlatform": {
             "type": "string"
@@ -74695,6 +74639,9 @@
                     "$ref": "#/types/aws-native:msk:ClusterEBSStorageInfo"
                 }
             }
+        },
+        "aws-native:msk:ClusterStorageMode": {
+            "type": "string"
         },
         "aws-native:msk:ClusterTls": {
             "type": "object",
@@ -88612,12 +88559,6 @@
             "ids": [
                 "dhcpOptionsId",
                 "vpcId"
-            ]
-        },
-        "aws-native:ec2:getVPCEndpoint": {
-            "cf": "AWS::EC2::VPCEndpoint",
-            "ids": [
-                "id"
             ]
         },
         "aws-native:ec2:getVPCPeeringConnection": {

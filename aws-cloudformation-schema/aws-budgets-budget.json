@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::Budgets::Budget",
   "additionalProperties" : false,
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "NotificationsWithSubscribers" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -15,9 +12,35 @@
     },
     "Budget" : {
       "$ref" : "#/definitions/BudgetData"
+    },
+    "Id" : {
+      "type" : "string"
     }
   },
   "definitions" : {
+    "HistoricalOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "BudgetAdjustmentPeriod" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "BudgetAdjustmentPeriod" ]
+    },
+    "Subscriber" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Address" : {
+          "type" : "string"
+        },
+        "SubscriptionType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SubscriptionType", "Address" ]
+    },
     "BudgetData" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -27,6 +50,9 @@
         },
         "TimePeriod" : {
           "$ref" : "#/definitions/TimePeriod"
+        },
+        "AutoAdjustData" : {
+          "$ref" : "#/definitions/AutoAdjustData"
         },
         "TimeUnit" : {
           "type" : "string"
@@ -49,6 +75,31 @@
       },
       "required" : [ "TimeUnit", "BudgetType" ]
     },
+    "TimePeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Start" : {
+          "type" : "string"
+        },
+        "End" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Spend" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Unit" : {
+          "type" : "string"
+        },
+        "Amount" : {
+          "type" : "number"
+        }
+      },
+      "required" : [ "Amount", "Unit" ]
+    },
     "NotificationWithSubscribers" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -65,6 +116,19 @@
         }
       },
       "required" : [ "Subscribers", "Notification" ]
+    },
+    "AutoAdjustData" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AutoAdjustType" : {
+          "type" : "string"
+        },
+        "HistoricalOptions" : {
+          "$ref" : "#/definitions/HistoricalOptions"
+        }
+      },
+      "required" : [ "AutoAdjustType" ]
     },
     "Notification" : {
       "type" : "object",
@@ -84,19 +148,6 @@
         }
       },
       "required" : [ "ComparisonOperator", "NotificationType", "Threshold" ]
-    },
-    "Spend" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Amount" : {
-          "type" : "number"
-        },
-        "Unit" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Unit", "Amount" ]
     },
     "CostTypes" : {
       "type" : "object",
@@ -134,31 +185,6 @@
         },
         "IncludeRefund" : {
           "type" : "boolean"
-        }
-      }
-    },
-    "Subscriber" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SubscriptionType" : {
-          "type" : "string"
-        },
-        "Address" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Address", "SubscriptionType" ]
-    },
-    "TimePeriod" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Start" : {
-          "type" : "string"
-        },
-        "End" : {
-          "type" : "string"
         }
       }
     }
