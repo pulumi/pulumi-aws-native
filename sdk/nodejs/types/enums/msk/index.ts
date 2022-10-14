@@ -18,3 +18,10 @@ export const ClusterEnhancedMonitoring = {
 } as const;
 
 export type ClusterEnhancedMonitoring = (typeof ClusterEnhancedMonitoring)[keyof typeof ClusterEnhancedMonitoring];
+
+export const ClusterStorageMode = {
+    Local: "LOCAL",
+    Tiered: "TIERED",
+} as const;
+
+export type ClusterStorageMode = (typeof ClusterStorageMode)[keyof typeof ClusterStorageMode];

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Budgets.Inputs
 
     public sealed class BudgetDataArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoAdjustData")]
+        public Input<Inputs.BudgetAutoAdjustDataArgs>? AutoAdjustData { get; set; }
+
         [Input("budgetLimit")]
         public Input<Inputs.BudgetSpendArgs>? BudgetLimit { get; set; }
 

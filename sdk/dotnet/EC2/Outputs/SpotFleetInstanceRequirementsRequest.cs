@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem> AcceleratorNames;
         public readonly Outputs.SpotFleetAcceleratorTotalMemoryMiBRequest? AcceleratorTotalMemoryMiB;
         public readonly ImmutableArray<Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem> AcceleratorTypes;
+        public readonly ImmutableArray<string> AllowedInstanceTypes;
         public readonly Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestBareMetal? BareMetal;
         public readonly Outputs.SpotFleetBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
         public readonly Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestBurstablePerformance? BurstablePerformance;
@@ -28,6 +29,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem> LocalStorageTypes;
         public readonly Outputs.SpotFleetMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         public readonly Outputs.SpotFleetMemoryMiBRequest? MemoryMiB;
+        public readonly Outputs.SpotFleetNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
         public readonly Outputs.SpotFleetNetworkInterfaceCountRequest? NetworkInterfaceCount;
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool? RequireHibernateSupport;
@@ -46,6 +48,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
             Outputs.SpotFleetAcceleratorTotalMemoryMiBRequest? acceleratorTotalMemoryMiB,
 
             ImmutableArray<Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem> acceleratorTypes,
+
+            ImmutableArray<string> allowedInstanceTypes,
 
             Pulumi.AwsNative.EC2.SpotFleetInstanceRequirementsRequestBareMetal? bareMetal,
 
@@ -67,6 +71,8 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             Outputs.SpotFleetMemoryMiBRequest? memoryMiB,
 
+            Outputs.SpotFleetNetworkBandwidthGbpsRequest? networkBandwidthGbps,
+
             Outputs.SpotFleetNetworkInterfaceCountRequest? networkInterfaceCount,
 
             int? onDemandMaxPricePercentageOverLowestPrice,
@@ -84,6 +90,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             AcceleratorNames = acceleratorNames;
             AcceleratorTotalMemoryMiB = acceleratorTotalMemoryMiB;
             AcceleratorTypes = acceleratorTypes;
+            AllowedInstanceTypes = allowedInstanceTypes;
             BareMetal = bareMetal;
             BaselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             BurstablePerformance = burstablePerformance;
@@ -94,6 +101,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
             LocalStorageTypes = localStorageTypes;
             MemoryGiBPerVCpu = memoryGiBPerVCpu;
             MemoryMiB = memoryMiB;
+            NetworkBandwidthGbps = networkBandwidthGbps;
             NetworkInterfaceCount = networkInterfaceCount;
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;

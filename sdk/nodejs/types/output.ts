@@ -4671,6 +4671,11 @@ export namespace billingconductor {
 }
 
 export namespace budgets {
+    export interface BudgetAutoAdjustData {
+        autoAdjustType: string;
+        historicalOptions?: outputs.budgets.BudgetHistoricalOptions;
+    }
+
     export interface BudgetCostTypes {
         includeCredit?: boolean;
         includeDiscount?: boolean;
@@ -4686,6 +4691,7 @@ export namespace budgets {
     }
 
     export interface BudgetData {
+        autoAdjustData?: outputs.budgets.BudgetAutoAdjustData;
         budgetLimit?: outputs.budgets.BudgetSpend;
         budgetName?: string;
         budgetType: string;
@@ -4694,6 +4700,10 @@ export namespace budgets {
         plannedBudgetLimits?: any;
         timePeriod?: outputs.budgets.BudgetTimePeriod;
         timeUnit: string;
+    }
+
+    export interface BudgetHistoricalOptions {
+        budgetAdjustmentPeriod: number;
     }
 
     export interface BudgetNotification {
@@ -7587,6 +7597,8 @@ export namespace connect {
         email?: string;
         firstName?: string;
         lastName?: string;
+        mobile?: string;
+        secondaryEmail?: string;
     }
 
     /**
@@ -9803,7 +9815,7 @@ export namespace ec2 {
     export interface EC2FleetFleetLaunchTemplateSpecificationRequest {
         launchTemplateId?: string;
         launchTemplateName?: string;
-        version?: string;
+        version: string;
     }
 
     export interface EC2FleetInstanceRequirementsRequest {
@@ -9812,6 +9824,7 @@ export namespace ec2 {
         acceleratorNames?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem[];
         acceleratorTotalMemoryMiB?: outputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequest;
         acceleratorTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        allowedInstanceTypes?: string[];
         bareMetal?: enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal;
         baselineEbsBandwidthMbps?: outputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequest;
         burstablePerformance?: enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance;
@@ -9822,6 +9835,7 @@ export namespace ec2 {
         localStorageTypes?: enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem[];
         memoryGiBPerVCpu?: outputs.ec2.EC2FleetMemoryGiBPerVCpuRequest;
         memoryMiB?: outputs.ec2.EC2FleetMemoryMiBRequest;
+        networkBandwidthGbps?: outputs.ec2.EC2FleetNetworkBandwidthGbpsRequest;
         networkInterfaceCount?: outputs.ec2.EC2FleetNetworkInterfaceCountRequest;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
@@ -9840,6 +9854,11 @@ export namespace ec2 {
     }
 
     export interface EC2FleetMemoryMiBRequest {
+        max?: number;
+        min?: number;
+    }
+
+    export interface EC2FleetNetworkBandwidthGbpsRequest {
         max?: number;
         min?: number;
     }
@@ -10748,6 +10767,7 @@ export namespace ec2 {
         acceleratorNames?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem[];
         acceleratorTotalMemoryMiB?: outputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequest;
         acceleratorTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem[];
+        allowedInstanceTypes?: string[];
         bareMetal?: enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal;
         baselineEbsBandwidthMbps?: outputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequest;
         burstablePerformance?: enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance;
@@ -10758,6 +10778,7 @@ export namespace ec2 {
         localStorageTypes?: enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem[];
         memoryGiBPerVCpu?: outputs.ec2.SpotFleetMemoryGiBPerVCpuRequest;
         memoryMiB?: outputs.ec2.SpotFleetMemoryMiBRequest;
+        networkBandwidthGbps?: outputs.ec2.SpotFleetNetworkBandwidthGbpsRequest;
         networkInterfaceCount?: outputs.ec2.SpotFleetNetworkInterfaceCountRequest;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
@@ -10819,6 +10840,11 @@ export namespace ec2 {
 
     export interface SpotFleetMonitoring {
         enabled?: boolean;
+    }
+
+    export interface SpotFleetNetworkBandwidthGbpsRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface SpotFleetNetworkInterfaceCountRequest {
@@ -15583,7 +15609,14 @@ export namespace iam {
 }
 
 export namespace identitystore {
+    /**
+     * An object containing the identifier of a group member.
+     */
     export interface GroupMembershipMemberId {
+        /**
+         * The identifier for a user in the identity store.
+         */
+        userId: string;
     }
 
 }

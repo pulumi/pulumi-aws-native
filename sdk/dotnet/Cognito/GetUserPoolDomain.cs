@@ -51,15 +51,19 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetUserPoolDomainResult
     {
+        public readonly string? CloudFrontDistribution;
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
         public readonly string? Id;
 
         [OutputConstructor]
         private GetUserPoolDomainResult(
+            string? cloudFrontDistribution,
+
             Outputs.UserPoolDomainCustomDomainConfigType? customDomainConfig,
 
             string? id)
         {
+            CloudFrontDistribution = cloudFrontDistribution;
             CustomDomainConfig = customDomainConfig;
             Id = id;
         }

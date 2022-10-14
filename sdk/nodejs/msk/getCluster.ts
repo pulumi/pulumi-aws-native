@@ -40,6 +40,7 @@ export interface GetClusterResult {
     readonly loggingInfo?: outputs.msk.ClusterLoggingInfo;
     readonly numberOfBrokerNodes?: number;
     readonly openMonitoring?: outputs.msk.ClusterOpenMonitoring;
+    readonly storageMode?: enums.msk.ClusterStorageMode;
 }
 
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {

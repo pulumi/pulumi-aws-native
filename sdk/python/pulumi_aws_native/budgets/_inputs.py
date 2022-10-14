@@ -11,8 +11,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BudgetAutoAdjustDataArgs',
     'BudgetCostTypesArgs',
     'BudgetDataArgs',
+    'BudgetHistoricalOptionsArgs',
     'BudgetNotificationWithSubscribersArgs',
     'BudgetNotificationArgs',
     'BudgetSpendArgs',
@@ -25,6 +27,34 @@ __all__ = [
     'BudgetsActionSsmActionDefinitionArgs',
     'BudgetsActionSubscriberArgs',
 ]
+
+@pulumi.input_type
+class BudgetAutoAdjustDataArgs:
+    def __init__(__self__, *,
+                 auto_adjust_type: pulumi.Input[str],
+                 historical_options: Optional[pulumi.Input['BudgetHistoricalOptionsArgs']] = None):
+        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        if historical_options is not None:
+            pulumi.set(__self__, "historical_options", historical_options)
+
+    @property
+    @pulumi.getter(name="autoAdjustType")
+    def auto_adjust_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "auto_adjust_type")
+
+    @auto_adjust_type.setter
+    def auto_adjust_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "auto_adjust_type", value)
+
+    @property
+    @pulumi.getter(name="historicalOptions")
+    def historical_options(self) -> Optional[pulumi.Input['BudgetHistoricalOptionsArgs']]:
+        return pulumi.get(self, "historical_options")
+
+    @historical_options.setter
+    def historical_options(self, value: Optional[pulumi.Input['BudgetHistoricalOptionsArgs']]):
+        pulumi.set(self, "historical_options", value)
+
 
 @pulumi.input_type
 class BudgetCostTypesArgs:
@@ -168,6 +198,7 @@ class BudgetDataArgs:
     def __init__(__self__, *,
                  budget_type: pulumi.Input[str],
                  time_unit: pulumi.Input[str],
+                 auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
                  budget_limit: Optional[pulumi.Input['BudgetSpendArgs']] = None,
                  budget_name: Optional[pulumi.Input[str]] = None,
                  cost_filters: Optional[Any] = None,
@@ -176,6 +207,8 @@ class BudgetDataArgs:
                  time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None):
         pulumi.set(__self__, "budget_type", budget_type)
         pulumi.set(__self__, "time_unit", time_unit)
+        if auto_adjust_data is not None:
+            pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
         if budget_limit is not None:
             pulumi.set(__self__, "budget_limit", budget_limit)
         if budget_name is not None:
@@ -206,6 +239,15 @@ class BudgetDataArgs:
     @time_unit.setter
     def time_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_unit", value)
+
+    @property
+    @pulumi.getter(name="autoAdjustData")
+    def auto_adjust_data(self) -> Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]:
+        return pulumi.get(self, "auto_adjust_data")
+
+    @auto_adjust_data.setter
+    def auto_adjust_data(self, value: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']]):
+        pulumi.set(self, "auto_adjust_data", value)
 
     @property
     @pulumi.getter(name="budgetLimit")
@@ -260,6 +302,22 @@ class BudgetDataArgs:
     @time_period.setter
     def time_period(self, value: Optional[pulumi.Input['BudgetTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
+
+
+@pulumi.input_type
+class BudgetHistoricalOptionsArgs:
+    def __init__(__self__, *,
+                 budget_adjustment_period: pulumi.Input[int]):
+        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+
+    @property
+    @pulumi.getter(name="budgetAdjustmentPeriod")
+    def budget_adjustment_period(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "budget_adjustment_period")
+
+    @budget_adjustment_period.setter
+    def budget_adjustment_period(self, value: pulumi.Input[int]):
+        pulumi.set(self, "budget_adjustment_period", value)
 
 
 @pulumi.input_type

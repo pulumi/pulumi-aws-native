@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
+    'ClusterStorageMode',
 ]
 
 
@@ -21,3 +22,8 @@ class ClusterEnhancedMonitoring(str, Enum):
     PER_BROKER = "PER_BROKER"
     PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
     PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
+class ClusterStorageMode(str, Enum):
+    LOCAL = "LOCAL"
+    TIERED = "TIERED"

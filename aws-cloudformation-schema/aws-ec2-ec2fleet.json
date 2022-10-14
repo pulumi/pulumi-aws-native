@@ -151,7 +151,8 @@
         "Version" : {
           "type" : "string"
         }
-      }
+      },
+      "required" : [ "Version" ]
     },
     "Placement" : {
       "type" : "object",
@@ -290,6 +291,16 @@
         "MemoryGiBPerVCpu" : {
           "$ref" : "#/definitions/MemoryGiBPerVCpuRequest"
         },
+        "AllowedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 30,
+            "pattern" : "[a-zA-Z0-9\\.\\*]+"
+          }
+        },
         "ExcludedInstanceTypes" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -324,6 +335,9 @@
         },
         "RequireHibernateSupport" : {
           "type" : "boolean"
+        },
+        "NetworkBandwidthGbps" : {
+          "$ref" : "#/definitions/NetworkBandwidthGbpsRequest"
         },
         "NetworkInterfaceCount" : {
           "$ref" : "#/definitions/NetworkInterfaceCountRequest"
@@ -403,6 +417,18 @@
       }
     },
     "MemoryGiBPerVCpuRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Min" : {
+          "type" : "number"
+        },
+        "Max" : {
+          "type" : "number"
+        }
+      }
+    },
+    "NetworkBandwidthGbpsRequest" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {

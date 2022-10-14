@@ -28,6 +28,7 @@ class ClusterArgs:
                  enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
+                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -53,6 +54,8 @@ class ClusterArgs:
             pulumi.set(__self__, "logging_info", logging_info)
         if open_monitoring is not None:
             pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if storage_mode is not None:
+            pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -159,6 +162,15 @@ class ClusterArgs:
         pulumi.set(self, "open_monitoring", value)
 
     @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> Optional[pulumi.Input['ClusterStorageMode']]:
+        return pulumi.get(self, "storage_mode")
+
+    @storage_mode.setter
+    def storage_mode(self, value: Optional[pulumi.Input['ClusterStorageMode']]):
+        pulumi.set(self, "storage_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -187,6 +199,7 @@ class Cluster(pulumi.CustomResource):
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         """
@@ -232,6 +245,7 @@ class Cluster(pulumi.CustomResource):
                  logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
                  open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -259,6 +273,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
             __props__.__dict__["open_monitoring"] = open_monitoring
+            __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
@@ -295,6 +310,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["logging_info"] = None
         __props__.__dict__["number_of_broker_nodes"] = None
         __props__.__dict__["open_monitoring"] = None
+        __props__.__dict__["storage_mode"] = None
         __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -360,6 +376,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> pulumi.Output[Optional['outputs.ClusterOpenMonitoring']]:
         return pulumi.get(self, "open_monitoring")
+
+    @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> pulumi.Output[Optional['ClusterStorageMode']]:
+        return pulumi.get(self, "storage_mode")
 
     @property
     @pulumi.getter

@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.MSK
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
 
+        [Output("storageMode")]
+        public Output<Pulumi.AwsNative.MSK.ClusterStorageMode?> StorageMode { get; private set; } = null!;
+
         /// <summary>
         /// A key-value pair to associate with a resource.
         /// </summary>
@@ -140,6 +143,9 @@ namespace Pulumi.AwsNative.MSK
 
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
+        [Input("storageMode")]
+        public Input<Pulumi.AwsNative.MSK.ClusterStorageMode>? StorageMode { get; set; }
 
         /// <summary>
         /// A key-value pair to associate with a resource.

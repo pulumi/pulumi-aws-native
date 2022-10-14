@@ -5298,6 +5298,11 @@ export namespace billingconductor {
 }
 
 export namespace budgets {
+    export interface BudgetAutoAdjustDataArgs {
+        autoAdjustType: pulumi.Input<string>;
+        historicalOptions?: pulumi.Input<inputs.budgets.BudgetHistoricalOptionsArgs>;
+    }
+
     export interface BudgetCostTypesArgs {
         includeCredit?: pulumi.Input<boolean>;
         includeDiscount?: pulumi.Input<boolean>;
@@ -5313,6 +5318,7 @@ export namespace budgets {
     }
 
     export interface BudgetDataArgs {
+        autoAdjustData?: pulumi.Input<inputs.budgets.BudgetAutoAdjustDataArgs>;
         budgetLimit?: pulumi.Input<inputs.budgets.BudgetSpendArgs>;
         budgetName?: pulumi.Input<string>;
         budgetType: pulumi.Input<string>;
@@ -5321,6 +5327,10 @@ export namespace budgets {
         plannedBudgetLimits?: any;
         timePeriod?: pulumi.Input<inputs.budgets.BudgetTimePeriodArgs>;
         timeUnit: pulumi.Input<string>;
+    }
+
+    export interface BudgetHistoricalOptionsArgs {
+        budgetAdjustmentPeriod: pulumi.Input<number>;
     }
 
     export interface BudgetNotificationArgs {
@@ -7489,6 +7499,8 @@ export namespace connect {
         email?: pulumi.Input<string>;
         firstName?: pulumi.Input<string>;
         lastName?: pulumi.Input<string>;
+        mobile?: pulumi.Input<string>;
+        secondaryEmail?: pulumi.Input<string>;
     }
 
     /**
@@ -9690,7 +9702,7 @@ export namespace ec2 {
     export interface EC2FleetFleetLaunchTemplateSpecificationRequestArgs {
         launchTemplateId?: pulumi.Input<string>;
         launchTemplateName?: pulumi.Input<string>;
-        version?: pulumi.Input<string>;
+        version: pulumi.Input<string>;
     }
 
     export interface EC2FleetInstanceRequirementsRequestArgs {
@@ -9699,6 +9711,7 @@ export namespace ec2 {
         acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
         acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.EC2FleetAcceleratorTotalMemoryMiBRequestArgs>;
         acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         bareMetal?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBareMetal>;
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.EC2FleetBaselineEbsBandwidthMbpsRequestArgs>;
         burstablePerformance?: pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestBurstablePerformance>;
@@ -9709,6 +9722,7 @@ export namespace ec2 {
         localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.EC2FleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.EC2FleetMemoryGiBPerVCpuRequestArgs>;
         memoryMiB?: pulumi.Input<inputs.ec2.EC2FleetMemoryMiBRequestArgs>;
+        networkBandwidthGbps?: pulumi.Input<inputs.ec2.EC2FleetNetworkBandwidthGbpsRequestArgs>;
         networkInterfaceCount?: pulumi.Input<inputs.ec2.EC2FleetNetworkInterfaceCountRequestArgs>;
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
@@ -9727,6 +9741,11 @@ export namespace ec2 {
     }
 
     export interface EC2FleetMemoryMiBRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
+    }
+
+    export interface EC2FleetNetworkBandwidthGbpsRequestArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
     }
@@ -10480,6 +10499,7 @@ export namespace ec2 {
         acceleratorNames?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem>[]>;
         acceleratorTotalMemoryMiB?: pulumi.Input<inputs.ec2.SpotFleetAcceleratorTotalMemoryMiBRequestArgs>;
         acceleratorTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestAcceleratorTypesItem>[]>;
+        allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         bareMetal?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBareMetal>;
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.ec2.SpotFleetBaselineEbsBandwidthMbpsRequestArgs>;
         burstablePerformance?: pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance>;
@@ -10490,6 +10510,7 @@ export namespace ec2 {
         localStorageTypes?: pulumi.Input<pulumi.Input<enums.ec2.SpotFleetInstanceRequirementsRequestLocalStorageTypesItem>[]>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.ec2.SpotFleetMemoryGiBPerVCpuRequestArgs>;
         memoryMiB?: pulumi.Input<inputs.ec2.SpotFleetMemoryMiBRequestArgs>;
+        networkBandwidthGbps?: pulumi.Input<inputs.ec2.SpotFleetNetworkBandwidthGbpsRequestArgs>;
         networkInterfaceCount?: pulumi.Input<inputs.ec2.SpotFleetNetworkInterfaceCountRequestArgs>;
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
@@ -10551,6 +10572,11 @@ export namespace ec2 {
 
     export interface SpotFleetMonitoringArgs {
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SpotFleetNetworkBandwidthGbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface SpotFleetNetworkInterfaceCountRequestArgs {
@@ -15259,7 +15285,14 @@ export namespace iam {
 }
 
 export namespace identitystore {
+    /**
+     * An object containing the identifier of a group member.
+     */
     export interface GroupMembershipMemberIdArgs {
+        /**
+         * The identifier for a user in the identity store.
+         */
+        userId: pulumi.Input<string>;
     }
 }
 

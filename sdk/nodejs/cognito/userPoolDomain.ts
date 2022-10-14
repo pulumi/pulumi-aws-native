@@ -40,6 +40,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPoolDomain.__pulumiType;
     }
 
+    public /*out*/ readonly cloudFrontDistribution!: pulumi.Output<string>;
     public readonly customDomainConfig!: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
     public readonly domain!: pulumi.Output<string>;
     public readonly userPoolId!: pulumi.Output<string>;
@@ -66,7 +67,9 @@ export class UserPoolDomain extends pulumi.CustomResource {
             resourceInputs["customDomainConfig"] = args ? args.customDomainConfig : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
         } else {
+            resourceInputs["cloudFrontDistribution"] = undefined /*out*/;
             resourceInputs["customDomainConfig"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["userPoolId"] = undefined /*out*/;

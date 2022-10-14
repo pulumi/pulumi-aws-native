@@ -52,6 +52,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    public readonly storageMode!: pulumi.Output<enums.msk.ClusterStorageMode | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
@@ -88,6 +89,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["storageMode"] = args ? args.storageMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -103,6 +105,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = undefined /*out*/;
             resourceInputs["numberOfBrokerNodes"] = undefined /*out*/;
             resourceInputs["openMonitoring"] = undefined /*out*/;
+            resourceInputs["storageMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -128,6 +131,7 @@ export interface ClusterArgs {
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
     numberOfBrokerNodes: pulumi.Input<number>;
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
+    storageMode?: pulumi.Input<enums.msk.ClusterStorageMode>;
     /**
      * A key-value pair to associate with a resource.
      */

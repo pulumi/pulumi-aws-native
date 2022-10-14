@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("lastName")]
         public Input<string>? LastName { get; set; }
 
+        [Input("mobile")]
+        public Input<string>? Mobile { get; set; }
+
+        [Input("secondaryEmail")]
+        public Input<string>? SecondaryEmail { get; set; }
+
         public UserIdentityInfoArgs()
         {
         }

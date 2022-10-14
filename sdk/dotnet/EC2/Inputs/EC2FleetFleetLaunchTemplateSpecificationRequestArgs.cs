@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
-        [Input("version")]
-        public Input<string>? Version { get; set; }
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
 
         public EC2FleetFleetLaunchTemplateSpecificationRequestArgs()
         {

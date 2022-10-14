@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Budgets.Outputs
     [OutputType]
     public sealed class BudgetData
     {
+        public readonly Outputs.BudgetAutoAdjustData? AutoAdjustData;
         public readonly Outputs.BudgetSpend? BudgetLimit;
         public readonly string? BudgetName;
         public readonly string BudgetType;
@@ -24,6 +25,8 @@ namespace Pulumi.AwsNative.Budgets.Outputs
 
         [OutputConstructor]
         private BudgetData(
+            Outputs.BudgetAutoAdjustData? autoAdjustData,
+
             Outputs.BudgetSpend? budgetLimit,
 
             string? budgetName,
@@ -40,6 +43,7 @@ namespace Pulumi.AwsNative.Budgets.Outputs
 
             string timeUnit)
         {
+            AutoAdjustData = autoAdjustData;
             BudgetLimit = budgetLimit;
             BudgetName = budgetName;
             BudgetType = budgetType;

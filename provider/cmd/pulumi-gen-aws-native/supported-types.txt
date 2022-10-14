@@ -197,7 +197,6 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
-AWS::EC2::VPCEndpoint
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNGateway

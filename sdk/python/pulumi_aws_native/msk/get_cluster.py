@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None):
+    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, storage_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetClusterResult:
         if open_monitoring and not isinstance(open_monitoring, dict):
             raise TypeError("Expected argument 'open_monitoring' to be a dict")
         pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if storage_mode and not isinstance(storage_mode, str):
+            raise TypeError("Expected argument 'storage_mode' to be a str")
+        pulumi.set(__self__, "storage_mode", storage_mode)
 
     @property
     @pulumi.getter
@@ -113,6 +116,11 @@ class GetClusterResult:
     def open_monitoring(self) -> Optional['outputs.ClusterOpenMonitoring']:
         return pulumi.get(self, "open_monitoring")
 
+    @property
+    @pulumi.getter(name="storageMode")
+    def storage_mode(self) -> Optional['ClusterStorageMode']:
+        return pulumi.get(self, "storage_mode")
+
 
 class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
@@ -130,7 +138,8 @@ class AwaitableGetClusterResult(GetClusterResult):
             kafka_version=self.kafka_version,
             logging_info=self.logging_info,
             number_of_broker_nodes=self.number_of_broker_nodes,
-            open_monitoring=self.open_monitoring)
+            open_monitoring=self.open_monitoring,
+            storage_mode=self.storage_mode)
 
 
 def get_cluster(arn: Optional[str] = None,
@@ -154,7 +163,8 @@ def get_cluster(arn: Optional[str] = None,
         kafka_version=__ret__.kafka_version,
         logging_info=__ret__.logging_info,
         number_of_broker_nodes=__ret__.number_of_broker_nodes,
-        open_monitoring=__ret__.open_monitoring)
+        open_monitoring=__ret__.open_monitoring,
+        storage_mode=__ret__.storage_mode)
 
 
 @_utilities.lift_output_func(get_cluster)

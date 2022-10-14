@@ -10,12 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IdentityStore.Outputs
 {
 
+    /// <summary>
+    /// An object containing the identifier of a group member.
+    /// </summary>
     [OutputType]
     public sealed class GroupMembershipMemberId
     {
+        /// <summary>
+        /// The identifier for a user in the identity store.
+        /// </summary>
+        public readonly string UserId;
+
         [OutputConstructor]
-        private GroupMembershipMemberId()
+        private GroupMembershipMemberId(string userId)
         {
+            UserId = userId;
         }
     }
 }

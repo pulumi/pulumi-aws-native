@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:UserPoolDomain")]
     public partial class UserPoolDomain : global::Pulumi.CustomResource
     {
+        [Output("cloudFrontDistribution")]
+        public Output<string> CloudFrontDistribution { get; private set; } = null!;
+
         [Output("customDomainConfig")]
         public Output<Outputs.UserPoolDomainCustomDomainConfigType?> CustomDomainConfig { get; private set; } = null!;
 

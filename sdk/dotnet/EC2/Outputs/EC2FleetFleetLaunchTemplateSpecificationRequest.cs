@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
     {
         public readonly string? LaunchTemplateId;
         public readonly string? LaunchTemplateName;
-        public readonly string? Version;
+        public readonly string Version;
 
         [OutputConstructor]
         private EC2FleetFleetLaunchTemplateSpecificationRequest(
@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.EC2.Outputs
 
             string? launchTemplateName,
 
-            string? version)
+            string version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;

@@ -65,4 +65,32 @@ namespace Pulumi.AwsNative.MSK
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct ClusterStorageMode : IEquatable<ClusterStorageMode>
+    {
+        private readonly string _value;
+
+        private ClusterStorageMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterStorageMode Local { get; } = new ClusterStorageMode("LOCAL");
+        public static ClusterStorageMode Tiered { get; } = new ClusterStorageMode("TIERED");
+
+        public static bool operator ==(ClusterStorageMode left, ClusterStorageMode right) => left.Equals(right);
+        public static bool operator !=(ClusterStorageMode left, ClusterStorageMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterStorageMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterStorageMode other && Equals(other);
+        public bool Equals(ClusterStorageMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

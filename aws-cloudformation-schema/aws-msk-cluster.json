@@ -56,6 +56,12 @@
     },
     "ConfigurationInfo" : {
       "$ref" : "#/definitions/ConfigurationInfo"
+    },
+    "StorageMode" : {
+      "type" : "string",
+      "minLength" : 5,
+      "maxLength" : 6,
+      "enum" : [ "LOCAL", "TIERED" ]
     }
   },
   "definitions" : {
@@ -402,7 +408,7 @@
       "timeoutInMinutes" : 120
     },
     "update" : {
-      "permissions" : [ "kafka:UpdateMonitoring", "kafka:UpdateClusterKafkaVersion", "kafka:UpdateClusterConfiguration", "kafka:UpdateBrokerType", "kafka:UpdateBrokerCount", "kafka:UpdateBrokerStorage", "kafka:UpdateSecurity", "kafka:UpdateConnectivity", "kafka:DescribeClusterOperation", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:DescribeKey", "kms:CreateGrant", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "S3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream" ],
+      "permissions" : [ "kafka:UpdateMonitoring", "kafka:UpdateClusterKafkaVersion", "kafka:UpdateClusterConfiguration", "kafka:UpdateBrokerType", "kafka:UpdateBrokerCount", "kafka:UpdateBrokerStorage", "kafka:UpdateStorage", "kafka:UpdateSecurity", "kafka:UpdateConnectivity", "kafka:DescribeClusterOperation", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:DescribeKey", "kms:CreateGrant", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "S3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream" ],
       "timeoutInMinutes" : 720
     },
     "delete" : {

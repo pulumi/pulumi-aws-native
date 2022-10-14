@@ -28,6 +28,7 @@ type Cluster struct {
 	LoggingInfo         ClusterLoggingInfoPtrOutput        `pulumi:"loggingInfo"`
 	NumberOfBrokerNodes pulumi.IntOutput                   `pulumi:"numberOfBrokerNodes"`
 	OpenMonitoring      ClusterOpenMonitoringPtrOutput     `pulumi:"openMonitoring"`
+	StorageMode         ClusterStorageModePtrOutput        `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
@@ -92,6 +93,7 @@ type clusterArgs struct {
 	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
 	NumberOfBrokerNodes int                        `pulumi:"numberOfBrokerNodes"`
 	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
+	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
 	Tags interface{} `pulumi:"tags"`
 }
@@ -110,6 +112,7 @@ type ClusterArgs struct {
 	LoggingInfo         ClusterLoggingInfoPtrInput
 	NumberOfBrokerNodes pulumi.IntInput
 	OpenMonitoring      ClusterOpenMonitoringPtrInput
+	StorageMode         ClusterStorageModePtrInput
 	// A key-value pair to associate with a resource.
 	Tags pulumi.Input
 }
@@ -198,6 +201,10 @@ func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+func (o ClusterOutput) StorageMode() ClusterStorageModePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterStorageModePtrOutput { return v.StorageMode }).(ClusterStorageModePtrOutput)
 }
 
 // A key-value pair to associate with a resource.

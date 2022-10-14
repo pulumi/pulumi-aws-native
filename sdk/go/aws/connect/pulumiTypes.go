@@ -3070,9 +3070,11 @@ func (o TaskTemplateTagArrayOutput) Index(i pulumi.IntInput) TaskTemplateTagOutp
 
 // Contains information about the identity of a user.
 type UserIdentityInfo struct {
-	Email     *string `pulumi:"email"`
-	FirstName *string `pulumi:"firstName"`
-	LastName  *string `pulumi:"lastName"`
+	Email          *string `pulumi:"email"`
+	FirstName      *string `pulumi:"firstName"`
+	LastName       *string `pulumi:"lastName"`
+	Mobile         *string `pulumi:"mobile"`
+	SecondaryEmail *string `pulumi:"secondaryEmail"`
 }
 
 // UserIdentityInfoInput is an input type that accepts UserIdentityInfoArgs and UserIdentityInfoOutput values.
@@ -3088,9 +3090,11 @@ type UserIdentityInfoInput interface {
 
 // Contains information about the identity of a user.
 type UserIdentityInfoArgs struct {
-	Email     pulumi.StringPtrInput `pulumi:"email"`
-	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	LastName  pulumi.StringPtrInput `pulumi:"lastName"`
+	Email          pulumi.StringPtrInput `pulumi:"email"`
+	FirstName      pulumi.StringPtrInput `pulumi:"firstName"`
+	LastName       pulumi.StringPtrInput `pulumi:"lastName"`
+	Mobile         pulumi.StringPtrInput `pulumi:"mobile"`
+	SecondaryEmail pulumi.StringPtrInput `pulumi:"secondaryEmail"`
 }
 
 func (UserIdentityInfoArgs) ElementType() reflect.Type {
@@ -3183,6 +3187,14 @@ func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
 
+func (o UserIdentityInfoOutput) Mobile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Mobile }).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoOutput) SecondaryEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserIdentityInfo) *string { return v.SecondaryEmail }).(pulumi.StringPtrOutput)
+}
+
 type UserIdentityInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (UserIdentityInfoPtrOutput) ElementType() reflect.Type {
@@ -3231,6 +3243,24 @@ func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoPtrOutput) Mobile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mobile
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserIdentityInfoPtrOutput) SecondaryEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserIdentityInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryEmail
 	}).(pulumi.StringPtrOutput)
 }
 

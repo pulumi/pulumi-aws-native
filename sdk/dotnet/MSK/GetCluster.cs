@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.MSK
         public readonly Outputs.ClusterLoggingInfo? LoggingInfo;
         public readonly int? NumberOfBrokerNodes;
         public readonly Outputs.ClusterOpenMonitoring? OpenMonitoring;
+        public readonly Pulumi.AwsNative.MSK.ClusterStorageMode? StorageMode;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -88,7 +89,9 @@ namespace Pulumi.AwsNative.MSK
 
             int? numberOfBrokerNodes,
 
-            Outputs.ClusterOpenMonitoring? openMonitoring)
+            Outputs.ClusterOpenMonitoring? openMonitoring,
+
+            Pulumi.AwsNative.MSK.ClusterStorageMode? storageMode)
         {
             Arn = arn;
             BrokerNodeGroupInfo = brokerNodeGroupInfo;
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.MSK
             LoggingInfo = loggingInfo;
             NumberOfBrokerNodes = numberOfBrokerNodes;
             OpenMonitoring = openMonitoring;
+            StorageMode = storageMode;
         }
     }
 }

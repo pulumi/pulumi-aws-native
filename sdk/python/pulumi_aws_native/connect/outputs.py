@@ -1054,6 +1054,8 @@ class UserIdentityInfo(dict):
             suggest = "first_name"
         elif key == "lastName":
             suggest = "last_name"
+        elif key == "secondaryEmail":
+            suggest = "secondary_email"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserIdentityInfo. Access the value via the '{suggest}' property getter instead.")
@@ -1069,7 +1071,9 @@ class UserIdentityInfo(dict):
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  first_name: Optional[str] = None,
-                 last_name: Optional[str] = None):
+                 last_name: Optional[str] = None,
+                 mobile: Optional[str] = None,
+                 secondary_email: Optional[str] = None):
         """
         Contains information about the identity of a user.
         """
@@ -1079,6 +1083,10 @@ class UserIdentityInfo(dict):
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if secondary_email is not None:
+            pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -1094,6 +1102,16 @@ class UserIdentityInfo(dict):
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[str]:
         return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[str]:
+        return pulumi.get(self, "mobile")
+
+    @property
+    @pulumi.getter(name="secondaryEmail")
+    def secondary_email(self) -> Optional[str]:
+        return pulumi.get(self, "secondary_email")
 
 
 @pulumi.output_type

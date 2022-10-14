@@ -25,8 +25,9 @@ type LookupUserPoolDomainArgs struct {
 }
 
 type LookupUserPoolDomainResult struct {
-	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
-	Id                 *string                               `pulumi:"id"`
+	CloudFrontDistribution *string                               `pulumi:"cloudFrontDistribution"`
+	CustomDomainConfig     *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
+	Id                     *string                               `pulumi:"id"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -62,6 +63,10 @@ func (o LookupUserPoolDomainResultOutput) ToLookupUserPoolDomainResultOutput() L
 
 func (o LookupUserPoolDomainResultOutput) ToLookupUserPoolDomainResultOutputWithContext(ctx context.Context) LookupUserPoolDomainResultOutput {
 	return o
+}
+
+func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.CloudFrontDistribution }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {

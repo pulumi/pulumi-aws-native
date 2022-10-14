@@ -27,25 +27,10 @@ export interface GetVPCEndpointResult {
     readonly dnsEntries?: string[];
     readonly id?: string;
     readonly networkInterfaceIds?: string[];
-    /**
-     * A policy to attach to the endpoint that controls access to the service.
-     */
-    readonly policyDocument?: string;
-    /**
-     * Indicate whether to associate a private hosted zone with the specified VPC.
-     */
+    readonly policyDocument?: any;
     readonly privateDnsEnabled?: boolean;
-    /**
-     * One or more route table IDs.
-     */
     readonly routeTableIds?: string[];
-    /**
-     * The ID of one or more security groups to associate with the endpoint network interface.
-     */
     readonly securityGroupIds?: string[];
-    /**
-     * The ID of one or more subnets in which to create an endpoint network interface.
-     */
     readonly subnetIds?: string[];
 }
 

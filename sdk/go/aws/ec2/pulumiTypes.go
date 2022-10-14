@@ -3121,7 +3121,7 @@ func (o EC2FleetFleetLaunchTemplateOverridesRequestArrayOutput) Index(i pulumi.I
 type EC2FleetFleetLaunchTemplateSpecificationRequest struct {
 	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	Version            *string `pulumi:"version"`
+	Version            string  `pulumi:"version"`
 }
 
 // EC2FleetFleetLaunchTemplateSpecificationRequestInput is an input type that accepts EC2FleetFleetLaunchTemplateSpecificationRequestArgs and EC2FleetFleetLaunchTemplateSpecificationRequestOutput values.
@@ -3138,7 +3138,7 @@ type EC2FleetFleetLaunchTemplateSpecificationRequestInput interface {
 type EC2FleetFleetLaunchTemplateSpecificationRequestArgs struct {
 	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	Version            pulumi.StringPtrInput `pulumi:"version"`
+	Version            pulumi.StringInput    `pulumi:"version"`
 }
 
 func (EC2FleetFleetLaunchTemplateSpecificationRequestArgs) ElementType() reflect.Type {
@@ -3226,8 +3226,8 @@ func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) LaunchTemplateNam
 	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o EC2FleetFleetLaunchTemplateSpecificationRequestOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v EC2FleetFleetLaunchTemplateSpecificationRequest) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput struct{ *pulumi.OutputState }
@@ -3277,7 +3277,7 @@ func (o EC2FleetFleetLaunchTemplateSpecificationRequestPtrOutput) Version() pulu
 		if v == nil {
 			return nil
 		}
-		return v.Version
+		return &v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3287,6 +3287,7 @@ type EC2FleetInstanceRequirementsRequest struct {
 	AcceleratorNames                          []EC2FleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 *EC2FleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          []EC2FleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      []string                                                          `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 *EC2FleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  *EC2FleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      *EC2FleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
@@ -3297,6 +3298,7 @@ type EC2FleetInstanceRequirementsRequest struct {
 	LocalStorageTypes                         []EC2FleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          *EC2FleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 *EC2FleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      *EC2FleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     *EC2FleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                             `pulumi:"requireHibernateSupport"`
@@ -3322,6 +3324,7 @@ type EC2FleetInstanceRequirementsRequestArgs struct {
 	AcceleratorNames                          EC2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 EC2FleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      pulumi.StringArrayInput                                                   `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 EC2FleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  EC2FleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      EC2FleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
@@ -3332,6 +3335,7 @@ type EC2FleetInstanceRequirementsRequestArgs struct {
 	LocalStorageTypes                         EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          EC2FleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 EC2FleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      EC2FleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     EC2FleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                        `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                       `pulumi:"requireHibernateSupport"`
@@ -3447,6 +3451,10 @@ func (o EC2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() EC2FleetIn
 	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 func (o EC2FleetInstanceRequirementsRequestOutput) BareMetal() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
@@ -3501,6 +3509,12 @@ func (o EC2FleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() EC2FleetMe
 
 func (o EC2FleetInstanceRequirementsRequestOutput) MemoryMiB() EC2FleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetMemoryMiBRequest { return v.MemoryMiB }).(EC2FleetMemoryMiBRequestPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+		return v.NetworkBandwidthGbps
+	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
 func (o EC2FleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() EC2FleetNetworkInterfaceCountRequestPtrOutput {
@@ -3600,6 +3614,15 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() EC2Flee
 	}).(EC2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (o EC2FleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o EC2FleetInstanceRequirementsRequestPtrOutput) BareMetal() EC2FleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetInstanceRequirementsRequestBareMetal {
 		if v == nil {
@@ -3688,6 +3711,15 @@ func (o EC2FleetInstanceRequirementsRequestPtrOutput) MemoryMiB() EC2FleetMemory
 		}
 		return v.MemoryMiB
 	}).(EC2FleetMemoryMiBRequestPtrOutput)
+}
+
+func (o EC2FleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v *EC2FleetInstanceRequirementsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
 func (o EC2FleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() EC2FleetNetworkInterfaceCountRequestPtrOutput {
@@ -4171,6 +4203,154 @@ func (o EC2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type EC2FleetNetworkBandwidthGbpsRequest struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// EC2FleetNetworkBandwidthGbpsRequestInput is an input type that accepts EC2FleetNetworkBandwidthGbpsRequestArgs and EC2FleetNetworkBandwidthGbpsRequestOutput values.
+// You can construct a concrete instance of `EC2FleetNetworkBandwidthGbpsRequestInput` via:
+//
+//	EC2FleetNetworkBandwidthGbpsRequestArgs{...}
+type EC2FleetNetworkBandwidthGbpsRequestInput interface {
+	pulumi.Input
+
+	ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput
+	ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput
+}
+
+type EC2FleetNetworkBandwidthGbpsRequestArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (EC2FleetNetworkBandwidthGbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput {
+	return i.ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(context.Background())
+}
+
+func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestOutput)
+}
+
+func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i EC2FleetNetworkBandwidthGbpsRequestArgs) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestOutput).ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx)
+}
+
+// EC2FleetNetworkBandwidthGbpsRequestPtrInput is an input type that accepts EC2FleetNetworkBandwidthGbpsRequestArgs, EC2FleetNetworkBandwidthGbpsRequestPtr and EC2FleetNetworkBandwidthGbpsRequestPtrOutput values.
+// You can construct a concrete instance of `EC2FleetNetworkBandwidthGbpsRequestPtrInput` via:
+//
+//	        EC2FleetNetworkBandwidthGbpsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type EC2FleetNetworkBandwidthGbpsRequestPtrInput interface {
+	pulumi.Input
+
+	ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput
+	ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput
+}
+
+type ec2fleetNetworkBandwidthGbpsRequestPtrType EC2FleetNetworkBandwidthGbpsRequestArgs
+
+func EC2FleetNetworkBandwidthGbpsRequestPtr(v *EC2FleetNetworkBandwidthGbpsRequestArgs) EC2FleetNetworkBandwidthGbpsRequestPtrInput {
+	return (*ec2fleetNetworkBandwidthGbpsRequestPtrType)(v)
+}
+
+func (*ec2fleetNetworkBandwidthGbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i *ec2fleetNetworkBandwidthGbpsRequestPtrType) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2fleetNetworkBandwidthGbpsRequestPtrType) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+type EC2FleetNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestOutput() EC2FleetNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EC2FleetNetworkBandwidthGbpsRequest) *EC2FleetNetworkBandwidthGbpsRequest {
+		return &v
+	}).(EC2FleetNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EC2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EC2FleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type EC2FleetNetworkBandwidthGbpsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EC2FleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutput() EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) ToEC2FleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) EC2FleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Elem() EC2FleetNetworkBandwidthGbpsRequestOutput {
+	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) EC2FleetNetworkBandwidthGbpsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret EC2FleetNetworkBandwidthGbpsRequest
+		return ret
+	}).(EC2FleetNetworkBandwidthGbpsRequestOutput)
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o EC2FleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EC2FleetNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
 }
 
 type EC2FleetNetworkInterfaceCountRequest struct {
@@ -21066,6 +21246,7 @@ type SpotFleetInstanceRequirementsRequest struct {
 	AcceleratorNames                          []SpotFleetInstanceRequirementsRequestAcceleratorNamesItem         `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 *SpotFleetAcceleratorTotalMemoryMiBRequest                         `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      []string                                                           `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 *SpotFleetInstanceRequirementsRequestBareMetal                     `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  *SpotFleetBaselineEbsBandwidthMbpsRequest                          `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      *SpotFleetInstanceRequirementsRequestBurstablePerformance          `pulumi:"burstablePerformance"`
@@ -21076,6 +21257,7 @@ type SpotFleetInstanceRequirementsRequest struct {
 	LocalStorageTypes                         []SpotFleetInstanceRequirementsRequestLocalStorageTypesItem        `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          *SpotFleetMemoryGiBPerVCpuRequest                                  `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 *SpotFleetMemoryMiBRequest                                         `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      *SpotFleetNetworkBandwidthGbpsRequest                              `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     *SpotFleetNetworkInterfaceCountRequest                             `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice *int                                                               `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                                              `pulumi:"requireHibernateSupport"`
@@ -21101,6 +21283,7 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	AcceleratorNames                          SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput         `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput                          `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      pulumi.StringArrayInput                                                    `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 SpotFleetInstanceRequirementsRequestBareMetalPtrInput                      `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput                           `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      SpotFleetInstanceRequirementsRequestBurstablePerformancePtrInput           `pulumi:"burstablePerformance"`
@@ -21111,6 +21294,7 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	LocalStorageTypes                         SpotFleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput        `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          SpotFleetMemoryGiBPerVCpuRequestPtrInput                                   `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 SpotFleetMemoryMiBRequestPtrInput                                          `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      SpotFleetNetworkBandwidthGbpsRequestPtrInput                               `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     SpotFleetNetworkInterfaceCountRequestPtrInput                              `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                                        `pulumi:"requireHibernateSupport"`
@@ -21226,6 +21410,10 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleet
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 func (o SpotFleetInstanceRequirementsRequestOutput) BareMetal() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBareMetal {
 		return v.BareMetal
@@ -21280,6 +21468,12 @@ func (o SpotFleetInstanceRequirementsRequestOutput) MemoryGiBPerVCpu() SpotFleet
 
 func (o SpotFleetInstanceRequirementsRequestOutput) MemoryMiB() SpotFleetMemoryMiBRequestPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetMemoryMiBRequest { return v.MemoryMiB }).(SpotFleetMemoryMiBRequestPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestOutput) NetworkBandwidthGbps() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkBandwidthGbpsRequest {
+		return v.NetworkBandwidthGbps
+	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() SpotFleetNetworkInterfaceCountRequestPtrOutput {
@@ -21379,6 +21573,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFl
 	}).(SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput)
 }
 
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) BareMetal() SpotFleetInstanceRequirementsRequestBareMetalPtrOutput {
 	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetInstanceRequirementsRequestBareMetal {
 		if v == nil {
@@ -21467,6 +21670,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) MemoryMiB() SpotFleetMemo
 		}
 		return v.MemoryMiB
 	}).(SpotFleetMemoryMiBRequestPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkBandwidthGbps() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetNetworkBandwidthGbpsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
 }
 
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) NetworkInterfaceCount() SpotFleetNetworkInterfaceCountRequestPtrOutput {
@@ -22536,6 +22748,154 @@ func (o SpotFleetMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type SpotFleetNetworkBandwidthGbpsRequest struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// SpotFleetNetworkBandwidthGbpsRequestInput is an input type that accepts SpotFleetNetworkBandwidthGbpsRequestArgs and SpotFleetNetworkBandwidthGbpsRequestOutput values.
+// You can construct a concrete instance of `SpotFleetNetworkBandwidthGbpsRequestInput` via:
+//
+//	SpotFleetNetworkBandwidthGbpsRequestArgs{...}
+type SpotFleetNetworkBandwidthGbpsRequestInput interface {
+	pulumi.Input
+
+	ToSpotFleetNetworkBandwidthGbpsRequestOutput() SpotFleetNetworkBandwidthGbpsRequestOutput
+	ToSpotFleetNetworkBandwidthGbpsRequestOutputWithContext(context.Context) SpotFleetNetworkBandwidthGbpsRequestOutput
+}
+
+type SpotFleetNetworkBandwidthGbpsRequestArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (SpotFleetNetworkBandwidthGbpsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i SpotFleetNetworkBandwidthGbpsRequestArgs) ToSpotFleetNetworkBandwidthGbpsRequestOutput() SpotFleetNetworkBandwidthGbpsRequestOutput {
+	return i.ToSpotFleetNetworkBandwidthGbpsRequestOutputWithContext(context.Background())
+}
+
+func (i SpotFleetNetworkBandwidthGbpsRequestArgs) ToSpotFleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetNetworkBandwidthGbpsRequestOutput)
+}
+
+func (i SpotFleetNetworkBandwidthGbpsRequestArgs) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutput() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetNetworkBandwidthGbpsRequestArgs) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetNetworkBandwidthGbpsRequestOutput).ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx)
+}
+
+// SpotFleetNetworkBandwidthGbpsRequestPtrInput is an input type that accepts SpotFleetNetworkBandwidthGbpsRequestArgs, SpotFleetNetworkBandwidthGbpsRequestPtr and SpotFleetNetworkBandwidthGbpsRequestPtrOutput values.
+// You can construct a concrete instance of `SpotFleetNetworkBandwidthGbpsRequestPtrInput` via:
+//
+//	        SpotFleetNetworkBandwidthGbpsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpotFleetNetworkBandwidthGbpsRequestPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetNetworkBandwidthGbpsRequestPtrOutput() SpotFleetNetworkBandwidthGbpsRequestPtrOutput
+	ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Context) SpotFleetNetworkBandwidthGbpsRequestPtrOutput
+}
+
+type spotFleetNetworkBandwidthGbpsRequestPtrType SpotFleetNetworkBandwidthGbpsRequestArgs
+
+func SpotFleetNetworkBandwidthGbpsRequestPtr(v *SpotFleetNetworkBandwidthGbpsRequestArgs) SpotFleetNetworkBandwidthGbpsRequestPtrInput {
+	return (*spotFleetNetworkBandwidthGbpsRequestPtrType)(v)
+}
+
+func (*spotFleetNetworkBandwidthGbpsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (i *spotFleetNetworkBandwidthGbpsRequestPtrType) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutput() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return i.ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetNetworkBandwidthGbpsRequestPtrType) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+type SpotFleetNetworkBandwidthGbpsRequestOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetNetworkBandwidthGbpsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) ToSpotFleetNetworkBandwidthGbpsRequestOutput() SpotFleetNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) ToSpotFleetNetworkBandwidthGbpsRequestOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestOutput {
+	return o
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutput() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetNetworkBandwidthGbpsRequest) *SpotFleetNetworkBandwidthGbpsRequest {
+		return &v
+	}).(SpotFleetNetworkBandwidthGbpsRequestPtrOutput)
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetNetworkBandwidthGbpsRequest) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetNetworkBandwidthGbpsRequest) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetNetworkBandwidthGbpsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetNetworkBandwidthGbpsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetNetworkBandwidthGbpsRequest)(nil)).Elem()
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutput() SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) ToSpotFleetNetworkBandwidthGbpsRequestPtrOutputWithContext(ctx context.Context) SpotFleetNetworkBandwidthGbpsRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Elem() SpotFleetNetworkBandwidthGbpsRequestOutput {
+	return o.ApplyT(func(v *SpotFleetNetworkBandwidthGbpsRequest) SpotFleetNetworkBandwidthGbpsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetNetworkBandwidthGbpsRequest
+		return ret
+	}).(SpotFleetNetworkBandwidthGbpsRequestOutput)
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o SpotFleetNetworkBandwidthGbpsRequestPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetNetworkBandwidthGbpsRequest) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
 }
 
 type SpotFleetNetworkInterfaceCountRequest struct {
@@ -26439,6 +26799,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryGiBPerVCpuRequestPtrInput)(nil)).Elem(), EC2FleetMemoryGiBPerVCpuRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryMiBRequestInput)(nil)).Elem(), EC2FleetMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetMemoryMiBRequestPtrInput)(nil)).Elem(), EC2FleetMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequestInput)(nil)).Elem(), EC2FleetNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), EC2FleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequestInput)(nil)).Elem(), EC2FleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), EC2FleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetOnDemandOptionsRequestInput)(nil)).Elem(), EC2FleetOnDemandOptionsRequestArgs{})
@@ -26673,6 +27035,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetMemoryMiBRequestPtrInput)(nil)).Elem(), SpotFleetMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetMonitoringInput)(nil)).Elem(), SpotFleetMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetMonitoringPtrInput)(nil)).Elem(), SpotFleetMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkBandwidthGbpsRequestInput)(nil)).Elem(), SpotFleetNetworkBandwidthGbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), SpotFleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkInterfaceCountRequestInput)(nil)).Elem(), SpotFleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), SpotFleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPrivateIpAddressSpecificationInput)(nil)).Elem(), SpotFleetPrivateIpAddressSpecificationArgs{})
@@ -26793,6 +27157,8 @@ func init() {
 	pulumi.RegisterOutputType(EC2FleetMemoryGiBPerVCpuRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetMemoryMiBRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetMemoryMiBRequestPtrOutput{})
+	pulumi.RegisterOutputType(EC2FleetNetworkBandwidthGbpsRequestOutput{})
+	pulumi.RegisterOutputType(EC2FleetNetworkBandwidthGbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetNetworkInterfaceCountRequestOutput{})
 	pulumi.RegisterOutputType(EC2FleetNetworkInterfaceCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(EC2FleetOnDemandOptionsRequestOutput{})
@@ -27057,6 +27423,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetMonitoringOutput{})
 	pulumi.RegisterOutputType(SpotFleetMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetNetworkBandwidthGbpsRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetNetworkBandwidthGbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetNetworkInterfaceCountRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetNetworkInterfaceCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationOutput{})

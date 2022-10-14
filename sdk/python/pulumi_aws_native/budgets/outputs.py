@@ -12,8 +12,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BudgetAutoAdjustData',
     'BudgetCostTypes',
     'BudgetData',
+    'BudgetHistoricalOptions',
     'BudgetNotification',
     'BudgetNotificationWithSubscribers',
     'BudgetSpend',
@@ -26,6 +28,45 @@ __all__ = [
     'BudgetsActionSsmActionDefinition',
     'BudgetsActionSubscriber',
 ]
+
+@pulumi.output_type
+class BudgetAutoAdjustData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoAdjustType":
+            suggest = "auto_adjust_type"
+        elif key == "historicalOptions":
+            suggest = "historical_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetAutoAdjustData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetAutoAdjustData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetAutoAdjustData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_adjust_type: str,
+                 historical_options: Optional['outputs.BudgetHistoricalOptions'] = None):
+        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
+        if historical_options is not None:
+            pulumi.set(__self__, "historical_options", historical_options)
+
+    @property
+    @pulumi.getter(name="autoAdjustType")
+    def auto_adjust_type(self) -> str:
+        return pulumi.get(self, "auto_adjust_type")
+
+    @property
+    @pulumi.getter(name="historicalOptions")
+    def historical_options(self) -> Optional['outputs.BudgetHistoricalOptions']:
+        return pulumi.get(self, "historical_options")
+
 
 @pulumi.output_type
 class BudgetCostTypes(dict):
@@ -166,6 +207,8 @@ class BudgetData(dict):
             suggest = "budget_type"
         elif key == "timeUnit":
             suggest = "time_unit"
+        elif key == "autoAdjustData":
+            suggest = "auto_adjust_data"
         elif key == "budgetLimit":
             suggest = "budget_limit"
         elif key == "budgetName":
@@ -193,6 +236,7 @@ class BudgetData(dict):
     def __init__(__self__, *,
                  budget_type: str,
                  time_unit: str,
+                 auto_adjust_data: Optional['outputs.BudgetAutoAdjustData'] = None,
                  budget_limit: Optional['outputs.BudgetSpend'] = None,
                  budget_name: Optional[str] = None,
                  cost_filters: Optional[Any] = None,
@@ -201,6 +245,8 @@ class BudgetData(dict):
                  time_period: Optional['outputs.BudgetTimePeriod'] = None):
         pulumi.set(__self__, "budget_type", budget_type)
         pulumi.set(__self__, "time_unit", time_unit)
+        if auto_adjust_data is not None:
+            pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
         if budget_limit is not None:
             pulumi.set(__self__, "budget_limit", budget_limit)
         if budget_name is not None:
@@ -223,6 +269,11 @@ class BudgetData(dict):
     @pulumi.getter(name="timeUnit")
     def time_unit(self) -> str:
         return pulumi.get(self, "time_unit")
+
+    @property
+    @pulumi.getter(name="autoAdjustData")
+    def auto_adjust_data(self) -> Optional['outputs.BudgetAutoAdjustData']:
+        return pulumi.get(self, "auto_adjust_data")
 
     @property
     @pulumi.getter(name="budgetLimit")
@@ -253,6 +304,35 @@ class BudgetData(dict):
     @pulumi.getter(name="timePeriod")
     def time_period(self) -> Optional['outputs.BudgetTimePeriod']:
         return pulumi.get(self, "time_period")
+
+
+@pulumi.output_type
+class BudgetHistoricalOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "budgetAdjustmentPeriod":
+            suggest = "budget_adjustment_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetHistoricalOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetHistoricalOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetHistoricalOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 budget_adjustment_period: int):
+        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
+
+    @property
+    @pulumi.getter(name="budgetAdjustmentPeriod")
+    def budget_adjustment_period(self) -> int:
+        return pulumi.get(self, "budget_adjustment_period")
 
 
 @pulumi.output_type

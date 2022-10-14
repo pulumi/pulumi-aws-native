@@ -55,25 +55,10 @@ namespace Pulumi.AwsNative.EC2
         public readonly ImmutableArray<string> DnsEntries;
         public readonly string? Id;
         public readonly ImmutableArray<string> NetworkInterfaceIds;
-        /// <summary>
-        /// A policy to attach to the endpoint that controls access to the service.
-        /// </summary>
-        public readonly string? PolicyDocument;
-        /// <summary>
-        /// Indicate whether to associate a private hosted zone with the specified VPC.
-        /// </summary>
+        public readonly object? PolicyDocument;
         public readonly bool? PrivateDnsEnabled;
-        /// <summary>
-        /// One or more route table IDs.
-        /// </summary>
         public readonly ImmutableArray<string> RouteTableIds;
-        /// <summary>
-        /// The ID of one or more security groups to associate with the endpoint network interface.
-        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
-        /// <summary>
-        /// The ID of one or more subnets in which to create an endpoint network interface.
-        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]
@@ -86,7 +71,7 @@ namespace Pulumi.AwsNative.EC2
 
             ImmutableArray<string> networkInterfaceIds,
 
-            string? policyDocument,
+            object? policyDocument,
 
             bool? privateDnsEnabled,
 

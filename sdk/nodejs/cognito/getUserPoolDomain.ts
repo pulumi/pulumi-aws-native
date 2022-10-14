@@ -26,6 +26,7 @@ export interface GetUserPoolDomainArgs {
 }
 
 export interface GetUserPoolDomainResult {
+    readonly cloudFrontDistribution?: string;
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
     readonly id?: string;
 }

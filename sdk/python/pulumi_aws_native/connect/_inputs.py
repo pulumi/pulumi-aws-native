@@ -939,7 +939,9 @@ class UserIdentityInfoArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
-                 last_name: Optional[pulumi.Input[str]] = None):
+                 last_name: Optional[pulumi.Input[str]] = None,
+                 mobile: Optional[pulumi.Input[str]] = None,
+                 secondary_email: Optional[pulumi.Input[str]] = None):
         """
         Contains information about the identity of a user.
         """
@@ -949,6 +951,10 @@ class UserIdentityInfoArgs:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if secondary_email is not None:
+            pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -976,6 +982,24 @@ class UserIdentityInfoArgs:
     @last_name.setter
     def last_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mobile")
+
+    @mobile.setter
+    def mobile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mobile", value)
+
+    @property
+    @pulumi.getter(name="secondaryEmail")
+    def secondary_email(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secondary_email")
+
+    @secondary_email.setter
+    def secondary_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_email", value)
 
 
 @pulumi.input_type

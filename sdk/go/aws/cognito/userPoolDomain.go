@@ -17,9 +17,10 @@ import (
 type UserPoolDomain struct {
 	pulumi.CustomResourceState
 
-	CustomDomainConfig UserPoolDomainCustomDomainConfigTypePtrOutput `pulumi:"customDomainConfig"`
-	Domain             pulumi.StringOutput                           `pulumi:"domain"`
-	UserPoolId         pulumi.StringOutput                           `pulumi:"userPoolId"`
+	CloudFrontDistribution pulumi.StringOutput                           `pulumi:"cloudFrontDistribution"`
+	CustomDomainConfig     UserPoolDomainCustomDomainConfigTypePtrOutput `pulumi:"customDomainConfig"`
+	Domain                 pulumi.StringOutput                           `pulumi:"domain"`
+	UserPoolId             pulumi.StringOutput                           `pulumi:"userPoolId"`
 }
 
 // NewUserPoolDomain registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +115,10 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return o
+}
+
+func (o UserPoolDomainOutput) CloudFrontDistribution() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudFrontDistribution }).(pulumi.StringOutput)
 }
 
 func (o UserPoolDomainOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {

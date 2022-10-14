@@ -341,13 +341,181 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+type ClusterStorageMode string
+
+const (
+	ClusterStorageModeLocal  = ClusterStorageMode("LOCAL")
+	ClusterStorageModeTiered = ClusterStorageMode("TIERED")
+)
+
+func (ClusterStorageMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageMode)(nil)).Elem()
+}
+
+func (e ClusterStorageMode) ToClusterStorageModeOutput() ClusterStorageModeOutput {
+	return pulumi.ToOutput(e).(ClusterStorageModeOutput)
+}
+
+func (e ClusterStorageMode) ToClusterStorageModeOutputWithContext(ctx context.Context) ClusterStorageModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterStorageModeOutput)
+}
+
+func (e ClusterStorageMode) ToClusterStorageModePtrOutput() ClusterStorageModePtrOutput {
+	return e.ToClusterStorageModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterStorageMode) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
+	return ClusterStorageMode(e).ToClusterStorageModeOutputWithContext(ctx).ToClusterStorageModePtrOutputWithContext(ctx)
+}
+
+func (e ClusterStorageMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterStorageMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterStorageMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterStorageMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterStorageModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterStorageMode)(nil)).Elem()
+}
+
+func (o ClusterStorageModeOutput) ToClusterStorageModeOutput() ClusterStorageModeOutput {
+	return o
+}
+
+func (o ClusterStorageModeOutput) ToClusterStorageModeOutputWithContext(ctx context.Context) ClusterStorageModeOutput {
+	return o
+}
+
+func (o ClusterStorageModeOutput) ToClusterStorageModePtrOutput() ClusterStorageModePtrOutput {
+	return o.ToClusterStorageModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageModeOutput) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterStorageMode) *ClusterStorageMode {
+		return &v
+	}).(ClusterStorageModePtrOutput)
+}
+
+func (o ClusterStorageModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStorageMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterStorageModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterStorageMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterStorageModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterStorageModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterStorageMode)(nil)).Elem()
+}
+
+func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutput() ClusterStorageModePtrOutput {
+	return o
+}
+
+func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
+	return o
+}
+
+func (o ClusterStorageModePtrOutput) Elem() ClusterStorageModeOutput {
+	return o.ApplyT(func(v *ClusterStorageMode) ClusterStorageMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterStorageMode
+		return ret
+	}).(ClusterStorageModeOutput)
+}
+
+func (o ClusterStorageModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterStorageModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterStorageMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterStorageModeInput is an input type that accepts ClusterStorageModeArgs and ClusterStorageModeOutput values.
+// You can construct a concrete instance of `ClusterStorageModeInput` via:
+//
+//	ClusterStorageModeArgs{...}
+type ClusterStorageModeInput interface {
+	pulumi.Input
+
+	ToClusterStorageModeOutput() ClusterStorageModeOutput
+	ToClusterStorageModeOutputWithContext(context.Context) ClusterStorageModeOutput
+}
+
+var clusterStorageModePtrType = reflect.TypeOf((**ClusterStorageMode)(nil)).Elem()
+
+type ClusterStorageModePtrInput interface {
+	pulumi.Input
+
+	ToClusterStorageModePtrOutput() ClusterStorageModePtrOutput
+	ToClusterStorageModePtrOutputWithContext(context.Context) ClusterStorageModePtrOutput
+}
+
+type clusterStorageModePtr string
+
+func ClusterStorageModePtr(v string) ClusterStorageModePtrInput {
+	return (*clusterStorageModePtr)(&v)
+}
+
+func (*clusterStorageModePtr) ElementType() reflect.Type {
+	return clusterStorageModePtrType
+}
+
+func (in *clusterStorageModePtr) ToClusterStorageModePtrOutput() ClusterStorageModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterStorageModePtrOutput)
+}
+
+func (in *clusterStorageModePtr) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterStorageModePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerPtrInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringPtrInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(ClusterStorageModeOutput{})
+	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
 }

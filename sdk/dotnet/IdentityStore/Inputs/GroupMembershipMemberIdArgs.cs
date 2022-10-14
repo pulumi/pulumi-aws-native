@@ -10,8 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IdentityStore.Inputs
 {
 
+    /// <summary>
+    /// An object containing the identifier of a group member.
+    /// </summary>
     public sealed class GroupMembershipMemberIdArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier for a user in the identity store.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
+
         public GroupMembershipMemberIdArgs()
         {
         }

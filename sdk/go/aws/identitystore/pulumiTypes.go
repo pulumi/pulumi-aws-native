@@ -10,7 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// An object containing the identifier of a group member.
 type GroupMembershipMemberId struct {
+	// The identifier for a user in the identity store.
+	UserId string `pulumi:"userId"`
 }
 
 // GroupMembershipMemberIdInput is an input type that accepts GroupMembershipMemberIdArgs and GroupMembershipMemberIdOutput values.
@@ -24,7 +27,10 @@ type GroupMembershipMemberIdInput interface {
 	ToGroupMembershipMemberIdOutputWithContext(context.Context) GroupMembershipMemberIdOutput
 }
 
+// An object containing the identifier of a group member.
 type GroupMembershipMemberIdArgs struct {
+	// The identifier for a user in the identity store.
+	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
 func (GroupMembershipMemberIdArgs) ElementType() reflect.Type {
@@ -39,6 +45,7 @@ func (i GroupMembershipMemberIdArgs) ToGroupMembershipMemberIdOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipMemberIdOutput)
 }
 
+// An object containing the identifier of a group member.
 type GroupMembershipMemberIdOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipMemberIdOutput) ElementType() reflect.Type {
@@ -51,6 +58,11 @@ func (o GroupMembershipMemberIdOutput) ToGroupMembershipMemberIdOutput() GroupMe
 
 func (o GroupMembershipMemberIdOutput) ToGroupMembershipMemberIdOutputWithContext(ctx context.Context) GroupMembershipMemberIdOutput {
 	return o
+}
+
+// The identifier for a user in the identity store.
+func (o GroupMembershipMemberIdOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v GroupMembershipMemberId) string { return v.UserId }).(pulumi.StringOutput)
 }
 
 type GroupMembershipMemberIdPtrOutput struct{ *pulumi.OutputState }
@@ -75,6 +87,16 @@ func (o GroupMembershipMemberIdPtrOutput) Elem() GroupMembershipMemberIdOutput {
 		var ret GroupMembershipMemberId
 		return ret
 	}).(GroupMembershipMemberIdOutput)
+}
+
+// The identifier for a user in the identity store.
+func (o GroupMembershipMemberIdPtrOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupMembershipMemberId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserId
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {

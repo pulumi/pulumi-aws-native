@@ -19,6 +19,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly string? Email;
         public readonly string? FirstName;
         public readonly string? LastName;
+        public readonly string? Mobile;
+        public readonly string? SecondaryEmail;
 
         [OutputConstructor]
         private UserIdentityInfo(
@@ -26,11 +28,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string? firstName,
 
-            string? lastName)
+            string? lastName,
+
+            string? mobile,
+
+            string? secondaryEmail)
         {
             Email = email;
             FirstName = firstName;
             LastName = lastName;
+            Mobile = mobile;
+            SecondaryEmail = secondaryEmail;
         }
     }
 }

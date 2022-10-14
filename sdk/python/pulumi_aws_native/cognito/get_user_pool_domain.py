@@ -19,13 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolDomainResult:
-    def __init__(__self__, custom_domain_config=None, id=None):
+    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, id=None):
+        if cloud_front_distribution and not isinstance(cloud_front_distribution, str):
+            raise TypeError("Expected argument 'cloud_front_distribution' to be a str")
+        pulumi.set(__self__, "cloud_front_distribution", cloud_front_distribution)
         if custom_domain_config and not isinstance(custom_domain_config, dict):
             raise TypeError("Expected argument 'custom_domain_config' to be a dict")
         pulumi.set(__self__, "custom_domain_config", custom_domain_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="cloudFrontDistribution")
+    def cloud_front_distribution(self) -> Optional[str]:
+        return pulumi.get(self, "cloud_front_distribution")
 
     @property
     @pulumi.getter(name="customDomainConfig")
@@ -44,6 +52,7 @@ class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
         if False:
             yield self
         return GetUserPoolDomainResult(
+            cloud_front_distribution=self.cloud_front_distribution,
             custom_domain_config=self.custom_domain_config,
             id=self.id)
 
@@ -59,6 +68,7 @@ def get_user_pool_domain(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult).value
 
     return AwaitableGetUserPoolDomainResult(
+        cloud_front_distribution=__ret__.cloud_front_distribution,
         custom_domain_config=__ret__.custom_domain_config,
         id=__ret__.id)
 

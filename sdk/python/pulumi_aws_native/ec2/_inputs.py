@@ -41,6 +41,7 @@ __all__ = [
     'EC2FleetMaintenanceStrategiesArgs',
     'EC2FleetMemoryGiBPerVCpuRequestArgs',
     'EC2FleetMemoryMiBRequestArgs',
+    'EC2FleetNetworkBandwidthGbpsRequestArgs',
     'EC2FleetNetworkInterfaceCountRequestArgs',
     'EC2FleetOnDemandOptionsRequestArgs',
     'EC2FleetPlacementArgs',
@@ -159,6 +160,7 @@ __all__ = [
     'SpotFleetMemoryGiBPerVCpuRequestArgs',
     'SpotFleetMemoryMiBRequestArgs',
     'SpotFleetMonitoringArgs',
+    'SpotFleetNetworkBandwidthGbpsRequestArgs',
     'SpotFleetNetworkInterfaceCountRequestArgs',
     'SpotFleetPrivateIpAddressSpecificationArgs',
     'SpotFleetRequestConfigDataArgs',
@@ -1042,15 +1044,23 @@ class EC2FleetFleetLaunchTemplateOverridesRequestArgs:
 @pulumi.input_type
 class EC2FleetFleetLaunchTemplateSpecificationRequestArgs:
     def __init__(__self__, *,
+                 version: pulumi.Input[str],
                  launch_template_id: Optional[pulumi.Input[str]] = None,
-                 launch_template_name: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 launch_template_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "version", version)
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -1070,15 +1080,6 @@ class EC2FleetFleetLaunchTemplateSpecificationRequestArgs:
     def launch_template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_template_name", value)
 
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
-
 
 @pulumi.input_type
 class EC2FleetInstanceRequirementsRequestArgs:
@@ -1088,6 +1089,7 @@ class EC2FleetInstanceRequirementsRequestArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetInstanceRequirementsRequestAcceleratorNamesItem']]]] = None,
                  accelerator_total_memory_mi_b: Optional[pulumi.Input['EC2FleetAcceleratorTotalMemoryMiBRequestArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetInstanceRequirementsRequestAcceleratorTypesItem']]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input['EC2FleetInstanceRequirementsRequestBareMetal']] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['EC2FleetBaselineEbsBandwidthMbpsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input['EC2FleetInstanceRequirementsRequestBurstablePerformance']] = None,
@@ -1098,6 +1100,7 @@ class EC2FleetInstanceRequirementsRequestArgs:
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetInstanceRequirementsRequestLocalStorageTypesItem']]]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['EC2FleetMemoryGiBPerVCpuRequestArgs']] = None,
                  memory_mi_b: Optional[pulumi.Input['EC2FleetMemoryMiBRequestArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['EC2FleetNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['EC2FleetNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -1114,6 +1117,8 @@ class EC2FleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -1134,6 +1139,8 @@ class EC2FleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
             pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -1191,6 +1198,15 @@ class EC2FleetInstanceRequirementsRequestArgs:
     @accelerator_types.setter
     def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetInstanceRequirementsRequestAcceleratorTypesItem']]]]):
         pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -1281,6 +1297,15 @@ class EC2FleetInstanceRequirementsRequestArgs:
     @memory_mi_b.setter
     def memory_mi_b(self, value: Optional[pulumi.Input['EC2FleetMemoryMiBRequestArgs']]):
         pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['EC2FleetNetworkBandwidthGbpsRequestArgs']]:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['EC2FleetNetworkBandwidthGbpsRequestArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -1409,6 +1434,35 @@ class EC2FleetMemoryMiBRequestArgs:
 
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class EC2FleetNetworkBandwidthGbpsRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min", value)
 
 
@@ -6248,6 +6302,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorNamesItem']]]] = None,
                  accelerator_total_memory_mi_b: Optional[pulumi.Input['SpotFleetAcceleratorTotalMemoryMiBRequestArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestBareMetal']] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance']] = None,
@@ -6258,6 +6313,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestLocalStorageTypesItem']]]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['SpotFleetMemoryGiBPerVCpuRequestArgs']] = None,
                  memory_mi_b: Optional[pulumi.Input['SpotFleetMemoryMiBRequestArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -6274,6 +6330,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -6294,6 +6352,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
             pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -6351,6 +6411,15 @@ class SpotFleetInstanceRequirementsRequestArgs:
     @accelerator_types.setter
     def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]]]):
         pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -6441,6 +6510,15 @@ class SpotFleetInstanceRequirementsRequestArgs:
     @memory_mi_b.setter
     def memory_mi_b(self, value: Optional[pulumi.Input['SpotFleetMemoryMiBRequestArgs']]):
         pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgs']]:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -6937,6 +7015,35 @@ class SpotFleetMonitoringArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class SpotFleetNetworkBandwidthGbpsRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type

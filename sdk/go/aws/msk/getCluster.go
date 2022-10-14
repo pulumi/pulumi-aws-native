@@ -37,6 +37,7 @@ type LookupClusterResult struct {
 	LoggingInfo         *ClusterLoggingInfo        `pulumi:"loggingInfo"`
 	NumberOfBrokerNodes *int                       `pulumi:"numberOfBrokerNodes"`
 	OpenMonitoring      *ClusterOpenMonitoring     `pulumi:"openMonitoring"`
+	StorageMode         *ClusterStorageMode        `pulumi:"storageMode"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -117,6 +118,10 @@ func (o LookupClusterResultOutput) NumberOfBrokerNodes() pulumi.IntPtrOutput {
 
 func (o LookupClusterResultOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterOpenMonitoring { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) StorageMode() ClusterStorageModePtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterStorageMode { return v.StorageMode }).(ClusterStorageModePtrOutput)
 }
 
 func init() {

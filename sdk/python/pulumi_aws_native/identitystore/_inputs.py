@@ -15,7 +15,24 @@ __all__ = [
 
 @pulumi.input_type
 class GroupMembershipMemberIdArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 user_id: pulumi.Input[str]):
+        """
+        An object containing the identifier of a group member.
+        :param pulumi.Input[str] user_id: The identifier for a user in the identity store.
+        """
+        pulumi.set(__self__, "user_id", user_id)
+
+    @property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[str]:
+        """
+        The identifier for a user in the identity store.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_id", value)
 
 
