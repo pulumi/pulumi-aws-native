@@ -1,5 +1,11 @@
 ## HEAD (Unreleased)
 
+## 0.30.0 (October 17, 2022)
+
+- Update to Pulumi SDK v3.42.0
+- Update to include the latest resource definitions
+
+
 ## 0.29.0 (September 8, 2022)
 
 * Update to Pulumi SDK v3.39.3
