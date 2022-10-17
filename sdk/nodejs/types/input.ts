@@ -16390,6 +16390,7 @@ export namespace iot {
         kafka?: pulumi.Input<inputs.iot.TopicRuleKafkaActionArgs>;
         kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesisActionArgs>;
         lambda?: pulumi.Input<inputs.iot.TopicRuleLambdaActionArgs>;
+        location?: pulumi.Input<inputs.iot.TopicRuleLocationActionArgs>;
         openSearch?: pulumi.Input<inputs.iot.TopicRuleOpenSearchActionArgs>;
         republish?: pulumi.Input<inputs.iot.TopicRuleRepublishActionArgs>;
         s3?: pulumi.Input<inputs.iot.TopicRuleS3ActionArgs>;
@@ -16533,6 +16534,15 @@ export namespace iot {
         functionArn?: pulumi.Input<string>;
     }
 
+    export interface TopicRuleLocationActionArgs {
+        deviceId: pulumi.Input<string>;
+        latitude: pulumi.Input<string>;
+        longitude: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        timestamp?: pulumi.Input<inputs.iot.TopicRuleTimestampArgs>;
+        trackerName: pulumi.Input<string>;
+    }
+
     export interface TopicRuleOpenSearchActionArgs {
         endpoint: pulumi.Input<string>;
         id: pulumi.Input<string>;
@@ -16601,6 +16611,11 @@ export namespace iot {
 
     export interface TopicRuleTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TopicRuleTimestampArgs {
+        unit?: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 

@@ -70,6 +70,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly kmsMasterKeyId!: pulumi.Output<string | undefined>;
     /**
+     * Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+     */
+    public readonly signatureVersion!: pulumi.Output<string | undefined>;
+    /**
      * The SNS subscriptions (endpoints) for this topic.
      */
     public readonly subscription!: pulumi.Output<outputs.sns.TopicSubscription[] | undefined>;
@@ -98,6 +102,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
             resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
+            resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
             resourceInputs["subscription"] = args ? args.subscription : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
@@ -108,6 +113,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["fifoTopic"] = undefined /*out*/;
             resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
+            resourceInputs["signatureVersion"] = undefined /*out*/;
             resourceInputs["subscription"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["topicArn"] = undefined /*out*/;
@@ -154,6 +160,10 @@ export interface TopicArgs {
      * This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
     kmsMasterKeyId?: pulumi.Input<string>;
+    /**
+     * Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+     */
+    signatureVersion?: pulumi.Input<string>;
     /**
      * The SNS subscriptions (endpoints) for this topic.
      */

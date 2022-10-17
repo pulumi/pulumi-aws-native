@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNotificationRuleResult:
-    def __init__(__self__, arn=None, created_by=None, detail_type=None, event_type_ids=None, name=None, status=None, targets=None):
+    def __init__(__self__, arn=None, created_by=None, detail_type=None, event_type_ids=None, name=None, status=None, tags=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetNotificationRuleResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
         pulumi.set(__self__, "targets", targets)
@@ -75,6 +78,11 @@ class GetNotificationRuleResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Any]:
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.NotificationRuleTarget']]:
         return pulumi.get(self, "targets")
 
@@ -91,6 +99,7 @@ class AwaitableGetNotificationRuleResult(GetNotificationRuleResult):
             event_type_ids=self.event_type_ids,
             name=self.name,
             status=self.status,
+            tags=self.tags,
             targets=self.targets)
 
 
@@ -111,6 +120,7 @@ def get_notification_rule(arn: Optional[str] = None,
         event_type_ids=__ret__.event_type_ids,
         name=__ret__.name,
         status=__ret__.status,
+        tags=__ret__.tags,
         targets=__ret__.targets)
 
 

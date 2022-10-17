@@ -77,6 +77,7 @@ __all__ = [
     'TopicRuleKafkaActionArgs',
     'TopicRuleKinesisActionArgs',
     'TopicRuleLambdaActionArgs',
+    'TopicRuleLocationActionArgs',
     'TopicRuleOpenSearchActionArgs',
     'TopicRulePayloadArgs',
     'TopicRulePutAssetPropertyValueEntryArgs',
@@ -88,6 +89,7 @@ __all__ = [
     'TopicRuleSqsActionArgs',
     'TopicRuleStepFunctionsActionArgs',
     'TopicRuleTagArgs',
+    'TopicRuleTimestampArgs',
     'TopicRuleTimestreamActionArgs',
     'TopicRuleTimestreamDimensionArgs',
     'TopicRuleTimestreamTimestampArgs',
@@ -1920,6 +1922,7 @@ class TopicRuleActionArgs:
                  kafka: Optional[pulumi.Input['TopicRuleKafkaActionArgs']] = None,
                  kinesis: Optional[pulumi.Input['TopicRuleKinesisActionArgs']] = None,
                  lambda_: Optional[pulumi.Input['TopicRuleLambdaActionArgs']] = None,
+                 location: Optional[pulumi.Input['TopicRuleLocationActionArgs']] = None,
                  open_search: Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']] = None,
                  republish: Optional[pulumi.Input['TopicRuleRepublishActionArgs']] = None,
                  s3: Optional[pulumi.Input['TopicRuleS3ActionArgs']] = None,
@@ -1955,6 +1958,8 @@ class TopicRuleActionArgs:
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if open_search is not None:
             pulumi.set(__self__, "open_search", open_search)
         if republish is not None:
@@ -2095,6 +2100,15 @@ class TopicRuleActionArgs:
     @lambda_.setter
     def lambda_(self, value: Optional[pulumi.Input['TopicRuleLambdaActionArgs']]):
         pulumi.set(self, "lambda_", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input['TopicRuleLocationActionArgs']]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input['TopicRuleLocationActionArgs']]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter(name="openSearch")
@@ -3079,6 +3093,78 @@ class TopicRuleLambdaActionArgs:
 
 
 @pulumi.input_type
+class TopicRuleLocationActionArgs:
+    def __init__(__self__, *,
+                 device_id: pulumi.Input[str],
+                 latitude: pulumi.Input[str],
+                 longitude: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 tracker_name: pulumi.Input[str],
+                 timestamp: Optional[pulumi.Input['TopicRuleTimestampArgs']] = None):
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "tracker_name", tracker_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "device_id")
+
+    @device_id.setter
+    def device_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "device_id", value)
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "latitude")
+
+    @latitude.setter
+    def latitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "latitude", value)
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "longitude")
+
+    @longitude.setter
+    def longitude(self, value: pulumi.Input[str]):
+        pulumi.set(self, "longitude", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="trackerName")
+    def tracker_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "tracker_name")
+
+    @tracker_name.setter
+    def tracker_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tracker_name", value)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestampArgs']]:
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: Optional[pulumi.Input['TopicRuleTimestampArgs']]):
+        pulumi.set(self, "timestamp", value)
+
+
+@pulumi.input_type
 class TopicRuleOpenSearchActionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
@@ -3562,6 +3648,34 @@ class TopicRuleTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TopicRuleTimestampArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str],
+                 unit: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "value", value)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
 
 
 @pulumi.input_type

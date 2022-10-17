@@ -77,7 +77,7 @@
     }
   },
   "required" : [ "EventTypeIds", "Resource", "DetailType", "Targets", "Name" ],
-  "createOnlyProperties" : [ "/properties/Resource", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Resource" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "writeOnlyProperties" : [ "/properties/EventTypeId", "/properties/TargetAddress" ],
@@ -95,7 +95,7 @@
       "permissions" : [ "codestar-notifications:deleteNotificationRule", "codestar-notifications:describeNotificationRule" ]
     },
     "update" : {
-      "permissions" : [ "codestar-notifications:updateNotificationRule" ]
+      "permissions" : [ "codestar-notifications:updateNotificationRule", "codestar-notifications:TagResource", "codestar-notifications:UntagResource" ]
     }
   }
 }

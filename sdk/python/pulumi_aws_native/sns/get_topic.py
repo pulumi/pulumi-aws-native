@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, subscription=None, tags=None, topic_arn=None):
+    def __init__(__self__, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None):
         if content_based_deduplication and not isinstance(content_based_deduplication, bool):
             raise TypeError("Expected argument 'content_based_deduplication' to be a bool")
         pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
@@ -32,6 +32,9 @@ class GetTopicResult:
         if kms_master_key_id and not isinstance(kms_master_key_id, str):
             raise TypeError("Expected argument 'kms_master_key_id' to be a str")
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if signature_version and not isinstance(signature_version, str):
+            raise TypeError("Expected argument 'signature_version' to be a str")
+        pulumi.set(__self__, "signature_version", signature_version)
         if subscription and not isinstance(subscription, list):
             raise TypeError("Expected argument 'subscription' to be a list")
         pulumi.set(__self__, "subscription", subscription)
@@ -87,6 +90,14 @@ class GetTopicResult:
         return pulumi.get(self, "kms_master_key_id")
 
     @property
+    @pulumi.getter(name="signatureVersion")
+    def signature_version(self) -> Optional[str]:
+        """
+        Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        """
+        return pulumi.get(self, "signature_version")
+
+    @property
     @pulumi.getter
     def subscription(self) -> Optional[Sequence['outputs.TopicSubscription']]:
         """
@@ -115,6 +126,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             data_protection_policy=self.data_protection_policy,
             display_name=self.display_name,
             kms_master_key_id=self.kms_master_key_id,
+            signature_version=self.signature_version,
             subscription=self.subscription,
             tags=self.tags,
             topic_arn=self.topic_arn)
@@ -135,6 +147,7 @@ def get_topic(topic_arn: Optional[str] = None,
         data_protection_policy=__ret__.data_protection_policy,
         display_name=__ret__.display_name,
         kms_master_key_id=__ret__.kms_master_key_id,
+        signature_version=__ret__.signature_version,
         subscription=__ret__.subscription,
         tags=__ret__.tags,
         topic_arn=__ret__.topic_arn)

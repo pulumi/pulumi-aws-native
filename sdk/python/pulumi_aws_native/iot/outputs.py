@@ -79,6 +79,7 @@ __all__ = [
     'TopicRuleKafkaAction',
     'TopicRuleKinesisAction',
     'TopicRuleLambdaAction',
+    'TopicRuleLocationAction',
     'TopicRuleOpenSearchAction',
     'TopicRulePayload',
     'TopicRulePutAssetPropertyValueEntry',
@@ -90,6 +91,7 @@ __all__ = [
     'TopicRuleSqsAction',
     'TopicRuleStepFunctionsAction',
     'TopicRuleTag',
+    'TopicRuleTimestamp',
     'TopicRuleTimestreamAction',
     'TopicRuleTimestreamDimension',
     'TopicRuleTimestreamTimestamp',
@@ -2161,6 +2163,7 @@ class TopicRuleAction(dict):
                  kafka: Optional['outputs.TopicRuleKafkaAction'] = None,
                  kinesis: Optional['outputs.TopicRuleKinesisAction'] = None,
                  lambda_: Optional['outputs.TopicRuleLambdaAction'] = None,
+                 location: Optional['outputs.TopicRuleLocationAction'] = None,
                  open_search: Optional['outputs.TopicRuleOpenSearchAction'] = None,
                  republish: Optional['outputs.TopicRuleRepublishAction'] = None,
                  s3: Optional['outputs.TopicRuleS3Action'] = None,
@@ -2196,6 +2199,8 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if open_search is not None:
             pulumi.set(__self__, "open_search", open_search)
         if republish is not None:
@@ -2280,6 +2285,11 @@ class TopicRuleAction(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.TopicRuleLambdaAction']:
         return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional['outputs.TopicRuleLocationAction']:
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="openSearch")
@@ -3330,6 +3340,75 @@ class TopicRuleLambdaAction(dict):
 
 
 @pulumi.output_type
+class TopicRuleLocationAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deviceId":
+            suggest = "device_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "trackerName":
+            suggest = "tracker_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleLocationAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleLocationAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleLocationAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 device_id: str,
+                 latitude: str,
+                 longitude: str,
+                 role_arn: str,
+                 tracker_name: str,
+                 timestamp: Optional['outputs.TopicRuleTimestamp'] = None):
+        pulumi.set(__self__, "device_id", device_id)
+        pulumi.set(__self__, "latitude", latitude)
+        pulumi.set(__self__, "longitude", longitude)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "tracker_name", tracker_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> str:
+        return pulumi.get(self, "device_id")
+
+    @property
+    @pulumi.getter
+    def latitude(self) -> str:
+        return pulumi.get(self, "latitude")
+
+    @property
+    @pulumi.getter
+    def longitude(self) -> str:
+        return pulumi.get(self, "longitude")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="trackerName")
+    def tracker_name(self) -> str:
+        return pulumi.get(self, "tracker_name")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional['outputs.TopicRuleTimestamp']:
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
 class TopicRuleOpenSearchAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3863,6 +3942,26 @@ class TopicRuleTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicRuleTimestamp(dict):
+    def __init__(__self__, *,
+                 value: str,
+                 unit: Optional[str] = None):
+        pulumi.set(__self__, "value", value)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

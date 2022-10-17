@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.SNS
         public Output<string?> KmsMasterKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        /// </summary>
+        [Output("signatureVersion")]
+        public Output<string?> SignatureVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The SNS subscriptions (endpoints) for this topic.
         /// </summary>
         [Output("subscription")]
@@ -163,6 +169,12 @@ namespace Pulumi.AwsNative.SNS
         /// </summary>
         [Input("kmsMasterKeyId")]
         public Input<string>? KmsMasterKeyId { get; set; }
+
+        /// <summary>
+        /// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        /// </summary>
+        [Input("signatureVersion")]
+        public Input<string>? SignatureVersion { get; set; }
 
         [Input("subscription")]
         private InputList<Inputs.TopicSubscriptionArgs>? _subscription;

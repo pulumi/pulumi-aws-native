@@ -36,6 +36,8 @@ type Topic struct {
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	SignatureVersion pulumi.StringPtrOutput `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription TopicSubscriptionArrayOutput `pulumi:"subscription"`
 	Tags         TopicTagArrayOutput          `pulumi:"tags"`
@@ -107,6 +109,8 @@ type topicArgs struct {
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription []TopicSubscription `pulumi:"subscription"`
 	Tags         []TopicTag          `pulumi:"tags"`
@@ -140,6 +144,8 @@ type TopicArgs struct {
 	//
 	// This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 	KmsMasterKeyId pulumi.StringPtrInput
+	// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+	SignatureVersion pulumi.StringPtrInput
 	// The SNS subscriptions (endpoints) for this topic.
 	Subscription TopicSubscriptionArrayInput
 	Tags         TopicTagArrayInput
@@ -221,6 +227,11 @@ func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
 // This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o TopicOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+func (o TopicOutput) SignatureVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.SignatureVersion }).(pulumi.StringPtrOutput)
 }
 
 // The SNS subscriptions (endpoints) for this topic.

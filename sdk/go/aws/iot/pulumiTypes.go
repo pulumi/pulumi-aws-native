@@ -6355,6 +6355,7 @@ type TopicRuleAction struct {
 	Kafka            *TopicRuleKafkaAction            `pulumi:"kafka"`
 	Kinesis          *TopicRuleKinesisAction          `pulumi:"kinesis"`
 	Lambda           *TopicRuleLambdaAction           `pulumi:"lambda"`
+	Location         *TopicRuleLocationAction         `pulumi:"location"`
 	OpenSearch       *TopicRuleOpenSearchAction       `pulumi:"openSearch"`
 	Republish        *TopicRuleRepublishAction        `pulumi:"republish"`
 	S3               *TopicRuleS3Action               `pulumi:"s3"`
@@ -6390,6 +6391,7 @@ type TopicRuleActionArgs struct {
 	Kafka            TopicRuleKafkaActionPtrInput            `pulumi:"kafka"`
 	Kinesis          TopicRuleKinesisActionPtrInput          `pulumi:"kinesis"`
 	Lambda           TopicRuleLambdaActionPtrInput           `pulumi:"lambda"`
+	Location         TopicRuleLocationActionPtrInput         `pulumi:"location"`
 	OpenSearch       TopicRuleOpenSearchActionPtrInput       `pulumi:"openSearch"`
 	Republish        TopicRuleRepublishActionPtrInput        `pulumi:"republish"`
 	S3               TopicRuleS3ActionPtrInput               `pulumi:"s3"`
@@ -6555,6 +6557,10 @@ func (o TopicRuleActionOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 
 func (o TopicRuleActionOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLambdaAction { return v.Lambda }).(TopicRuleLambdaActionPtrOutput)
+}
+
+func (o TopicRuleActionOutput) Location() TopicRuleLocationActionPtrOutput {
+	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLocationAction { return v.Location }).(TopicRuleLocationActionPtrOutput)
 }
 
 func (o TopicRuleActionOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
@@ -6733,6 +6739,15 @@ func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 		}
 		return v.Lambda
 	}).(TopicRuleLambdaActionPtrOutput)
+}
+
+func (o TopicRuleActionPtrOutput) Location() TopicRuleLocationActionPtrOutput {
+	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLocationAction {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(TopicRuleLocationActionPtrOutput)
 }
 
 func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
@@ -10054,6 +10069,214 @@ func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleLocationAction struct {
+	DeviceId    string              `pulumi:"deviceId"`
+	Latitude    string              `pulumi:"latitude"`
+	Longitude   string              `pulumi:"longitude"`
+	RoleArn     string              `pulumi:"roleArn"`
+	Timestamp   *TopicRuleTimestamp `pulumi:"timestamp"`
+	TrackerName string              `pulumi:"trackerName"`
+}
+
+// TopicRuleLocationActionInput is an input type that accepts TopicRuleLocationActionArgs and TopicRuleLocationActionOutput values.
+// You can construct a concrete instance of `TopicRuleLocationActionInput` via:
+//
+//	TopicRuleLocationActionArgs{...}
+type TopicRuleLocationActionInput interface {
+	pulumi.Input
+
+	ToTopicRuleLocationActionOutput() TopicRuleLocationActionOutput
+	ToTopicRuleLocationActionOutputWithContext(context.Context) TopicRuleLocationActionOutput
+}
+
+type TopicRuleLocationActionArgs struct {
+	DeviceId    pulumi.StringInput         `pulumi:"deviceId"`
+	Latitude    pulumi.StringInput         `pulumi:"latitude"`
+	Longitude   pulumi.StringInput         `pulumi:"longitude"`
+	RoleArn     pulumi.StringInput         `pulumi:"roleArn"`
+	Timestamp   TopicRuleTimestampPtrInput `pulumi:"timestamp"`
+	TrackerName pulumi.StringInput         `pulumi:"trackerName"`
+}
+
+func (TopicRuleLocationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleLocationAction)(nil)).Elem()
+}
+
+func (i TopicRuleLocationActionArgs) ToTopicRuleLocationActionOutput() TopicRuleLocationActionOutput {
+	return i.ToTopicRuleLocationActionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleLocationActionArgs) ToTopicRuleLocationActionOutputWithContext(ctx context.Context) TopicRuleLocationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLocationActionOutput)
+}
+
+func (i TopicRuleLocationActionArgs) ToTopicRuleLocationActionPtrOutput() TopicRuleLocationActionPtrOutput {
+	return i.ToTopicRuleLocationActionPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleLocationActionArgs) ToTopicRuleLocationActionPtrOutputWithContext(ctx context.Context) TopicRuleLocationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLocationActionOutput).ToTopicRuleLocationActionPtrOutputWithContext(ctx)
+}
+
+// TopicRuleLocationActionPtrInput is an input type that accepts TopicRuleLocationActionArgs, TopicRuleLocationActionPtr and TopicRuleLocationActionPtrOutput values.
+// You can construct a concrete instance of `TopicRuleLocationActionPtrInput` via:
+//
+//	        TopicRuleLocationActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleLocationActionPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleLocationActionPtrOutput() TopicRuleLocationActionPtrOutput
+	ToTopicRuleLocationActionPtrOutputWithContext(context.Context) TopicRuleLocationActionPtrOutput
+}
+
+type topicRuleLocationActionPtrType TopicRuleLocationActionArgs
+
+func TopicRuleLocationActionPtr(v *TopicRuleLocationActionArgs) TopicRuleLocationActionPtrInput {
+	return (*topicRuleLocationActionPtrType)(v)
+}
+
+func (*topicRuleLocationActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleLocationAction)(nil)).Elem()
+}
+
+func (i *topicRuleLocationActionPtrType) ToTopicRuleLocationActionPtrOutput() TopicRuleLocationActionPtrOutput {
+	return i.ToTopicRuleLocationActionPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleLocationActionPtrType) ToTopicRuleLocationActionPtrOutputWithContext(ctx context.Context) TopicRuleLocationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLocationActionPtrOutput)
+}
+
+type TopicRuleLocationActionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleLocationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleLocationAction)(nil)).Elem()
+}
+
+func (o TopicRuleLocationActionOutput) ToTopicRuleLocationActionOutput() TopicRuleLocationActionOutput {
+	return o
+}
+
+func (o TopicRuleLocationActionOutput) ToTopicRuleLocationActionOutputWithContext(ctx context.Context) TopicRuleLocationActionOutput {
+	return o
+}
+
+func (o TopicRuleLocationActionOutput) ToTopicRuleLocationActionPtrOutput() TopicRuleLocationActionPtrOutput {
+	return o.ToTopicRuleLocationActionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleLocationActionOutput) ToTopicRuleLocationActionPtrOutputWithContext(ctx context.Context) TopicRuleLocationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleLocationAction) *TopicRuleLocationAction {
+		return &v
+	}).(TopicRuleLocationActionPtrOutput)
+}
+
+func (o TopicRuleLocationActionOutput) DeviceId() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.DeviceId }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleLocationActionOutput) Latitude() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.Latitude }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleLocationActionOutput) Longitude() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.Longitude }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleLocationActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleLocationActionOutput) Timestamp() TopicRuleTimestampPtrOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) *TopicRuleTimestamp { return v.Timestamp }).(TopicRuleTimestampPtrOutput)
+}
+
+func (o TopicRuleLocationActionOutput) TrackerName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.TrackerName }).(pulumi.StringOutput)
+}
+
+type TopicRuleLocationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleLocationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleLocationAction)(nil)).Elem()
+}
+
+func (o TopicRuleLocationActionPtrOutput) ToTopicRuleLocationActionPtrOutput() TopicRuleLocationActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleLocationActionPtrOutput) ToTopicRuleLocationActionPtrOutputWithContext(ctx context.Context) TopicRuleLocationActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleLocationActionPtrOutput) Elem() TopicRuleLocationActionOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) TopicRuleLocationAction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleLocationAction
+		return ret
+	}).(TopicRuleLocationActionOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) DeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeviceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Latitude
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Longitude
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) Timestamp() TopicRuleTimestampPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *TopicRuleTimestamp {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(TopicRuleTimestampPtrOutput)
+}
+
+func (o TopicRuleLocationActionPtrOutput) TrackerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleLocationAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrackerName
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRuleOpenSearchAction struct {
 	Endpoint string `pulumi:"endpoint"`
 	Id       string `pulumi:"id"`
@@ -11748,6 +11971,154 @@ func (o TopicRuleTagArrayOutput) Index(i pulumi.IntInput) TopicRuleTagOutput {
 	}).(TopicRuleTagOutput)
 }
 
+type TopicRuleTimestamp struct {
+	Unit  *string `pulumi:"unit"`
+	Value string  `pulumi:"value"`
+}
+
+// TopicRuleTimestampInput is an input type that accepts TopicRuleTimestampArgs and TopicRuleTimestampOutput values.
+// You can construct a concrete instance of `TopicRuleTimestampInput` via:
+//
+//	TopicRuleTimestampArgs{...}
+type TopicRuleTimestampInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestampOutput() TopicRuleTimestampOutput
+	ToTopicRuleTimestampOutputWithContext(context.Context) TopicRuleTimestampOutput
+}
+
+type TopicRuleTimestampArgs struct {
+	Unit  pulumi.StringPtrInput `pulumi:"unit"`
+	Value pulumi.StringInput    `pulumi:"value"`
+}
+
+func (TopicRuleTimestampArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestamp)(nil)).Elem()
+}
+
+func (i TopicRuleTimestampArgs) ToTopicRuleTimestampOutput() TopicRuleTimestampOutput {
+	return i.ToTopicRuleTimestampOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestampArgs) ToTopicRuleTimestampOutputWithContext(ctx context.Context) TopicRuleTimestampOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestampOutput)
+}
+
+func (i TopicRuleTimestampArgs) ToTopicRuleTimestampPtrOutput() TopicRuleTimestampPtrOutput {
+	return i.ToTopicRuleTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestampArgs) ToTopicRuleTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestampOutput).ToTopicRuleTimestampPtrOutputWithContext(ctx)
+}
+
+// TopicRuleTimestampPtrInput is an input type that accepts TopicRuleTimestampArgs, TopicRuleTimestampPtr and TopicRuleTimestampPtrOutput values.
+// You can construct a concrete instance of `TopicRuleTimestampPtrInput` via:
+//
+//	        TopicRuleTimestampArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleTimestampPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestampPtrOutput() TopicRuleTimestampPtrOutput
+	ToTopicRuleTimestampPtrOutputWithContext(context.Context) TopicRuleTimestampPtrOutput
+}
+
+type topicRuleTimestampPtrType TopicRuleTimestampArgs
+
+func TopicRuleTimestampPtr(v *TopicRuleTimestampArgs) TopicRuleTimestampPtrInput {
+	return (*topicRuleTimestampPtrType)(v)
+}
+
+func (*topicRuleTimestampPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleTimestamp)(nil)).Elem()
+}
+
+func (i *topicRuleTimestampPtrType) ToTopicRuleTimestampPtrOutput() TopicRuleTimestampPtrOutput {
+	return i.ToTopicRuleTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleTimestampPtrType) ToTopicRuleTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestampPtrOutput)
+}
+
+type TopicRuleTimestampOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestampOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleTimestampOutput) ToTopicRuleTimestampOutput() TopicRuleTimestampOutput {
+	return o
+}
+
+func (o TopicRuleTimestampOutput) ToTopicRuleTimestampOutputWithContext(ctx context.Context) TopicRuleTimestampOutput {
+	return o
+}
+
+func (o TopicRuleTimestampOutput) ToTopicRuleTimestampPtrOutput() TopicRuleTimestampPtrOutput {
+	return o.ToTopicRuleTimestampPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleTimestampOutput) ToTopicRuleTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestampPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleTimestamp) *TopicRuleTimestamp {
+		return &v
+	}).(TopicRuleTimestampPtrOutput)
+}
+
+func (o TopicRuleTimestampOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleTimestamp) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleTimestampOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestamp) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleTimestampPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestampPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleTimestampPtrOutput) ToTopicRuleTimestampPtrOutput() TopicRuleTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleTimestampPtrOutput) ToTopicRuleTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleTimestampPtrOutput) Elem() TopicRuleTimestampOutput {
+	return o.ApplyT(func(v *TopicRuleTimestamp) TopicRuleTimestamp {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleTimestamp
+		return ret
+	}).(TopicRuleTimestampOutput)
+}
+
+func (o TopicRuleTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleTimestampPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRuleTimestreamAction struct {
 	DatabaseName string                         `pulumi:"databaseName"`
 	Dimensions   []TopicRuleTimestreamDimension `pulumi:"dimensions"`
@@ -12319,6 +12690,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisActionPtrInput)(nil)).Elem(), TopicRuleKinesisActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaActionInput)(nil)).Elem(), TopicRuleLambdaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaActionPtrInput)(nil)).Elem(), TopicRuleLambdaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLocationActionInput)(nil)).Elem(), TopicRuleLocationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLocationActionPtrInput)(nil)).Elem(), TopicRuleLocationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleOpenSearchActionInput)(nil)).Elem(), TopicRuleOpenSearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleOpenSearchActionPtrInput)(nil)).Elem(), TopicRuleOpenSearchActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePayloadInput)(nil)).Elem(), TopicRulePayloadArgs{})
@@ -12340,6 +12713,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionsActionPtrInput)(nil)).Elem(), TopicRuleStepFunctionsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTagInput)(nil)).Elem(), TopicRuleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTagArrayInput)(nil)).Elem(), TopicRuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestampInput)(nil)).Elem(), TopicRuleTimestampArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestampPtrInput)(nil)).Elem(), TopicRuleTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamActionInput)(nil)).Elem(), TopicRuleTimestreamActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamActionPtrInput)(nil)).Elem(), TopicRuleTimestreamActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionInput)(nil)).Elem(), TopicRuleTimestreamDimensionArgs{})
@@ -12479,6 +12854,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleKinesisActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleLocationActionOutput{})
+	pulumi.RegisterOutputType(TopicRuleLocationActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleOpenSearchActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRulePayloadOutput{})
@@ -12501,6 +12878,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleStepFunctionsActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleTagOutput{})
 	pulumi.RegisterOutputType(TopicRuleTagArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestampOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestampPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionOutput{})

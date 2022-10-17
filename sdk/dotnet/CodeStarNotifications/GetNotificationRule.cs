@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public readonly ImmutableArray<string> EventTypeIds;
         public readonly string? Name;
         public readonly Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus? Status;
+        public readonly object? Tags;
         public readonly ImmutableArray<Outputs.NotificationRuleTarget> Targets;
 
         [OutputConstructor]
@@ -73,6 +74,8 @@ namespace Pulumi.AwsNative.CodeStarNotifications
 
             Pulumi.AwsNative.CodeStarNotifications.NotificationRuleStatus? status,
 
+            object? tags,
+
             ImmutableArray<Outputs.NotificationRuleTarget> targets)
         {
             Arn = arn;
@@ -81,6 +84,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
             EventTypeIds = eventTypeIds;
             Name = name;
             Status = status;
+            Tags = tags;
             Targets = targets;
         }
     }

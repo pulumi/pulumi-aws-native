@@ -31,6 +31,7 @@ type LookupNotificationRuleResult struct {
 	EventTypeIds []string                    `pulumi:"eventTypeIds"`
 	Name         *string                     `pulumi:"name"`
 	Status       *NotificationRuleStatus     `pulumi:"status"`
+	Tags         interface{}                 `pulumi:"tags"`
 	Targets      []NotificationRuleTarget    `pulumi:"targets"`
 }
 
@@ -91,6 +92,10 @@ func (o LookupNotificationRuleResultOutput) Name() pulumi.StringPtrOutput {
 
 func (o LookupNotificationRuleResultOutput) Status() NotificationRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) *NotificationRuleStatus { return v.Status }).(NotificationRuleStatusPtrOutput)
+}
+
+func (o LookupNotificationRuleResultOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupNotificationRuleResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }
 
 func (o LookupNotificationRuleResultOutput) Targets() NotificationRuleTargetArrayOutput {

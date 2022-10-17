@@ -16724,6 +16724,7 @@ export namespace iot {
         kafka?: outputs.iot.TopicRuleKafkaAction;
         kinesis?: outputs.iot.TopicRuleKinesisAction;
         lambda?: outputs.iot.TopicRuleLambdaAction;
+        location?: outputs.iot.TopicRuleLocationAction;
         openSearch?: outputs.iot.TopicRuleOpenSearchAction;
         republish?: outputs.iot.TopicRuleRepublishAction;
         s3?: outputs.iot.TopicRuleS3Action;
@@ -16867,6 +16868,15 @@ export namespace iot {
         functionArn?: string;
     }
 
+    export interface TopicRuleLocationAction {
+        deviceId: string;
+        latitude: string;
+        longitude: string;
+        roleArn: string;
+        timestamp?: outputs.iot.TopicRuleTimestamp;
+        trackerName: string;
+    }
+
     export interface TopicRuleOpenSearchAction {
         endpoint: string;
         id: string;
@@ -16935,6 +16945,11 @@ export namespace iot {
 
     export interface TopicRuleTag {
         key: string;
+        value: string;
+    }
+
+    export interface TopicRuleTimestamp {
+        unit?: string;
         value: string;
     }
 

@@ -31,19 +31,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigatewayv2:createModel" ]
+      "permissions" : [ "apigateway:POST" ]
     },
     "update" : {
-      "permissions" : [ "apigatewayv2:updateModel" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
     },
     "read" : {
-      "permissions" : [ "apigatewayv2:getModel" ]
+      "permissions" : [ "apigateway:GET" ]
     },
     "delete" : {
-      "permissions" : [ "apigatewayv2:getModel", "apigatewayv2:deleteModel" ]
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
     },
     "list" : {
-      "permissions" : [ "apigatewayv2:getModels" ]
+      "permissions" : [ "apigateway:GET" ]
     }
   }
 }

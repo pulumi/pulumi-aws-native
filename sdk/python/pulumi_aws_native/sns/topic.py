@@ -21,6 +21,7 @@ class TopicArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
+                 signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None):
@@ -43,6 +44,7 @@ class TopicArgs:
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
                
                This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        :param pulumi.Input[str] signature_version: Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
         :param pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]] subscription: The SNS subscriptions (endpoints) for this topic.
         :param pulumi.Input[str] topic_name: The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
                
@@ -58,6 +60,8 @@ class TopicArgs:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
         if kms_master_key_id is not None:
             pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if signature_version is not None:
+            pulumi.set(__self__, "signature_version", signature_version)
         if subscription is not None:
             pulumi.set(__self__, "subscription", subscription)
         if tags is not None:
@@ -138,6 +142,18 @@ class TopicArgs:
         pulumi.set(self, "kms_master_key_id", value)
 
     @property
+    @pulumi.getter(name="signatureVersion")
+    def signature_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        """
+        return pulumi.get(self, "signature_version")
+
+    @signature_version.setter
+    def signature_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signature_version", value)
+
+    @property
     @pulumi.getter
     def subscription(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]]:
         """
@@ -183,6 +199,7 @@ class Topic(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
+                 signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -209,6 +226,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
                
                This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
+        :param pulumi.Input[str] signature_version: Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]] subscription: The SNS subscriptions (endpoints) for this topic.
         :param pulumi.Input[str] topic_name: The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with .fifo.
                
@@ -243,6 +261,7 @@ class Topic(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
+                 signature_version: Optional[pulumi.Input[str]] = None,
                  subscription: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicSubscriptionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicTagArgs']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
@@ -260,6 +279,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
+            __props__.__dict__["signature_version"] = signature_version
             __props__.__dict__["subscription"] = subscription
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_name"] = topic_name
@@ -291,6 +311,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["fifo_topic"] = None
         __props__.__dict__["kms_master_key_id"] = None
+        __props__.__dict__["signature_version"] = None
         __props__.__dict__["subscription"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["topic_arn"] = None
@@ -348,6 +369,14 @@ class Topic(pulumi.CustomResource):
         This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         """
         return pulumi.get(self, "kms_master_key_id")
+
+    @property
+    @pulumi.getter(name="signatureVersion")
+    def signature_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values.
+        """
+        return pulumi.get(self, "signature_version")
 
     @property
     @pulumi.getter
