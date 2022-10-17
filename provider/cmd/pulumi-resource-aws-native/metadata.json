@@ -7169,8 +7169,7 @@
                 "targets"
             ],
             "createOnly": [
-                "resource",
-                "tags"
+                "resource"
             ]
         },
         "aws-native:configuration:AggregationAuthorization": {
@@ -43012,6 +43011,10 @@
                     "type": "string",
                     "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.\n\nThis property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html)."
                 },
+                "signatureVersion": {
+                    "type": "string",
+                    "description": "Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values."
+                },
                 "subscription": {
                     "type": "array",
                     "items": {
@@ -43050,6 +43053,10 @@
                 "kmsMasterKeyId": {
                     "type": "string",
                     "description": "The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.\n\nThis property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html)."
+                },
+                "signatureVersion": {
+                    "type": "string",
+                    "description": "Version of the Amazon SNS signature used. If the SignatureVersion is 1, Signature is a Base64-encoded SHA1withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values. If the SignatureVersion is 2, Signature is a Base64-encoded SHA256withRSA signature of the Message, MessageId, Type, Timestamp, and TopicArn values."
                 },
                 "subscription": {
                     "type": "array",
@@ -64333,6 +64340,9 @@
                 "lambda": {
                     "$ref": "#/types/aws-native:iot:TopicRuleLambdaAction"
                 },
+                "location": {
+                    "$ref": "#/types/aws-native:iot:TopicRuleLocationAction"
+                },
                 "openSearch": {
                     "$ref": "#/types/aws-native:iot:TopicRuleOpenSearchAction"
                 },
@@ -64692,6 +64702,29 @@
                 }
             }
         },
+        "aws-native:iot:TopicRuleLocationAction": {
+            "type": "object",
+            "properties": {
+                "deviceId": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "$ref": "#/types/aws-native:iot:TopicRuleTimestamp"
+                },
+                "trackerName": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:iot:TopicRuleOpenSearchAction": {
             "type": "object",
             "properties": {
@@ -64860,6 +64893,17 @@
             "type": "object",
             "properties": {
                 "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:TopicRuleTimestamp": {
+            "type": "object",
+            "properties": {
+                "unit": {
                     "type": "string"
                 },
                 "value": {

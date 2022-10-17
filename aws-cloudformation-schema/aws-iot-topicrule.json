@@ -87,6 +87,9 @@
         },
         "OpenSearch" : {
           "$ref" : "#/definitions/OpenSearchAction"
+        },
+        "Location" : {
+          "$ref" : "#/definitions/LocationAction"
         }
       }
     },
@@ -639,6 +642,31 @@
       },
       "required" : [ "Type", "Endpoint", "Index", "Id", "RoleArn" ]
     },
+    "LocationAction" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RoleArn" : {
+          "type" : "string"
+        },
+        "TrackerName" : {
+          "type" : "string"
+        },
+        "DeviceId" : {
+          "type" : "string"
+        },
+        "Latitude" : {
+          "type" : "string"
+        },
+        "Longitude" : {
+          "type" : "string"
+        },
+        "Timestamp" : {
+          "$ref" : "#/definitions/Timestamp"
+        }
+      },
+      "required" : [ "RoleArn", "TrackerName", "DeviceId", "Latitude", "Longitude" ]
+    },
     "CannedAccessControlList" : {
       "type" : "string",
       "enum" : [ "private", "public-read", "public-read-write", "aws-exec-read", "authenticated-read", "bucket-owner-read", "bucket-owner-full-control", "log-delivery-write" ]
@@ -692,6 +720,19 @@
       },
       "additionalProperties" : false,
       "required" : [ "Value", "Unit" ]
+    },
+    "Timestamp" : {
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Unit" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false,
+      "required" : [ "Value" ]
     }
   },
   "required" : [ "TopicRulePayload" ],
