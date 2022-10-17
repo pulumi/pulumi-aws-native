@@ -5,6 +5,27 @@
 - Update to Pulumi SDK v3.42.0
 - Update to include the latest resource definitions
 
+#### New resources:
+
+- aws-native:apigatewayv2:Model
+- aws-native:cloudfront:MonitoringSubscription
+- aws-native:codedeploy:Application
+- aws-native:codedeploy:DeploymentConfig
+- aws-native:ec2:EIP
+- aws-native:ec2:VPNConnection
+- aws-native:elasticache:SubnetGroup
+- aws-native:elasticbeanstalk:ApplicationVersion
+- aws-native:emr:SecurityConfiguration
+- aws-native:greengrassv2:Deployment
+- aws-native:identitystore:Group
+- aws-native:identitystore:GroupMembership
+- aws-native:logs:Destination
+- aws-native:m2:Application
+- aws-native:transfer:Agreement
+- aws-native:transfer:Certificate
+- aws-native:transfer:Connector
+- aws-native:transfer:Profile
+
 
 ## 0.29.0 (September 8, 2022)
 
