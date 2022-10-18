@@ -71680,6 +71680,10 @@
                 },
                 "messageSelectionStrategy": {
                     "$ref": "#/types/aws-native:lex:BotMessageSelectionStrategy"
+                },
+                "promptAttemptsSpecification": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Specifies the advanced settings on each attempt of the prompt."
                 }
             }
         },
@@ -74880,6 +74884,9 @@
                 }
             }
         },
+        "aws-native:networkfirewall:FirewallPolicyOverrideAction": {
+            "type": "string"
+        },
         "aws-native:networkfirewall:FirewallPolicyPublishMetricAction": {
             "type": "object",
             "properties": {
@@ -74902,9 +74909,20 @@
                 }
             }
         },
+        "aws-native:networkfirewall:FirewallPolicyStatefulRuleGroupOverride": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyOverrideAction"
+                }
+            }
+        },
         "aws-native:networkfirewall:FirewallPolicyStatefulRuleGroupReference": {
             "type": "object",
             "properties": {
+                "override": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyStatefulRuleGroupOverride"
+                },
                 "priority": {
                     "type": "integer"
                 },
