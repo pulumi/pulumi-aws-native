@@ -9181,6 +9181,89 @@
                 "tags"
             ]
         },
+        "aws-native:datapipeline:Pipeline": {
+            "cf": "AWS::DataPipeline::Pipeline",
+            "inputs": {
+                "activate": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parameterObjects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterObject"
+                    }
+                },
+                "parameterValues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterValue"
+                    }
+                },
+                "pipelineObjects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineObject"
+                    }
+                },
+                "pipelineTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineTag"
+                    }
+                }
+            },
+            "outputs": {
+                "activate": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parameterObjects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterObject"
+                    }
+                },
+                "parameterValues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterValue"
+                    }
+                },
+                "pipelineObjects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineObject"
+                    }
+                },
+                "pipelineTags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "parameterObjects"
+            ],
+            "createOnly": [
+                "description",
+                "name"
+            ]
+        },
         "aws-native:datasync:Agent": {
             "cf": "AWS::DataSync::Agent",
             "inputs": {
@@ -54672,6 +54755,84 @@
                 }
             }
         },
+        "aws-native:datapipeline:PipelineField": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "refValue": {
+                    "type": "string"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:datapipeline:PipelineObject": {
+            "type": "object",
+            "properties": {
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineField"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:datapipeline:PipelineParameterAttribute": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:datapipeline:PipelineParameterObject": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterAttribute"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:datapipeline:PipelineParameterValue": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "stringValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:datapipeline:PipelineTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:datasync:AgentEndpointType": {
             "type": "string"
         },
@@ -71680,6 +71841,10 @@
                 },
                 "messageSelectionStrategy": {
                     "$ref": "#/types/aws-native:lex:BotMessageSelectionStrategy"
+                },
+                "promptAttemptsSpecification": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Specifies the advanced settings on each attempt of the prompt."
                 }
             }
         },
@@ -81430,6 +81595,36 @@
         "aws-native:sagemaker:AppType": {
             "type": "string"
         },
+        "aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInput": {
+            "type": "object",
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data."
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionDatasetFormat"
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the endpoint data is available to the container."
+                },
+                "s3DataDistributionType": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3DataDistributionType",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated"
+                },
+                "s3InputMode": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3InputMode",
+                    "description": "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File."
+                }
+            }
+        },
+        "aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3DataDistributionType": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInputS3InputMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:DataQualityJobDefinitionClusterConfig": {
             "type": "object",
             "properties": {
@@ -81457,6 +81652,15 @@
                 "s3Uri": {
                     "type": "string",
                     "description": "The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against."
+                }
+            }
+        },
+        "aws-native:sagemaker:DataQualityJobDefinitionCsv": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if given CSV has header"
                 }
             }
         },
@@ -81512,8 +81716,25 @@
         "aws-native:sagemaker:DataQualityJobDefinitionDataQualityJobInput": {
             "type": "object",
             "properties": {
+                "batchTransformInput": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionBatchTransformInput"
+                },
                 "endpointInput": {
                     "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionEndpointInput"
+                }
+            }
+        },
+        "aws-native:sagemaker:DataQualityJobDefinitionDatasetFormat": {
+            "type": "object",
+            "properties": {
+                "csv": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionCsv"
+                },
+                "json": {
+                    "$ref": "#/types/aws-native:sagemaker:DataQualityJobDefinitionJson"
+                },
+                "parquet": {
+                    "type": "boolean"
                 }
             }
         },
@@ -81542,6 +81763,15 @@
         },
         "aws-native:sagemaker:DataQualityJobDefinitionEndpointInputS3InputMode": {
             "type": "string"
+        },
+        "aws-native:sagemaker:DataQualityJobDefinitionJson": {
+            "type": "object",
+            "properties": {
+                "line": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if it is JSON line format"
+                }
+            }
         },
         "aws-native:sagemaker:DataQualityJobDefinitionMonitoringOutput": {
             "type": "object",
@@ -81996,6 +82226,59 @@
                 }
             }
         },
+        "aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInput": {
+            "type": "object",
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data."
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionDatasetFormat"
+                },
+                "endTimeOffset": {
+                    "type": "string",
+                    "description": "Monitoring end time offset, e.g. PT0H"
+                },
+                "featuresAttribute": {
+                    "type": "string",
+                    "description": "JSONpath to locate features in JSONlines dataset"
+                },
+                "inferenceAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate predicted label(s)"
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the endpoint data is available to the container."
+                },
+                "probabilityAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate probabilities"
+                },
+                "probabilityThresholdAttribute": {
+                    "type": "number"
+                },
+                "s3DataDistributionType": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated"
+                },
+                "s3InputMode": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3InputMode",
+                    "description": "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File."
+                },
+                "startTimeOffset": {
+                    "type": "string",
+                    "description": "Monitoring start time offset, e.g. -PT1H"
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInputS3InputMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:ModelBiasJobDefinitionClusterConfig": {
             "type": "object",
             "properties": {
@@ -82023,6 +82306,29 @@
                 "s3Uri": {
                     "type": "string",
                     "description": "The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against."
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelBiasJobDefinitionCsv": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if given CSV has header"
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelBiasJobDefinitionDatasetFormat": {
+            "type": "object",
+            "properties": {
+                "csv": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionCsv"
+                },
+                "json": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionJson"
+                },
+                "parquet": {
+                    "type": "boolean"
                 }
             }
         },
@@ -82075,6 +82381,15 @@
         "aws-native:sagemaker:ModelBiasJobDefinitionEndpointInputS3InputMode": {
             "type": "string"
         },
+        "aws-native:sagemaker:ModelBiasJobDefinitionJson": {
+            "type": "object",
+            "properties": {
+                "line": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if it is JSON line format"
+                }
+            }
+        },
         "aws-native:sagemaker:ModelBiasJobDefinitionModelBiasAppSpecification": {
             "type": "object",
             "properties": {
@@ -82106,6 +82421,9 @@
         "aws-native:sagemaker:ModelBiasJobDefinitionModelBiasJobInput": {
             "type": "object",
             "properties": {
+                "batchTransformInput": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionBatchTransformInput"
+                },
                 "endpointInput": {
                     "$ref": "#/types/aws-native:sagemaker:ModelBiasJobDefinitionEndpointInput"
                 },
@@ -82232,6 +82550,48 @@
                 }
             }
         },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInput": {
+            "type": "object",
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data."
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionDatasetFormat"
+                },
+                "featuresAttribute": {
+                    "type": "string",
+                    "description": "JSONpath to locate features in JSONlines dataset"
+                },
+                "inferenceAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate predicted label(s)"
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the endpoint data is available to the container."
+                },
+                "probabilityAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate probabilities"
+                },
+                "s3DataDistributionType": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated"
+                },
+                "s3InputMode": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode",
+                    "description": "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File."
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:ModelExplainabilityJobDefinitionClusterConfig": {
             "type": "object",
             "properties": {
@@ -82259,6 +82619,29 @@
                 "s3Uri": {
                     "type": "string",
                     "description": "The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against."
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionCsv": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if given CSV has header"
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionDatasetFormat": {
+            "type": "object",
+            "properties": {
+                "csv": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionCsv"
+                },
+                "json": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionJson"
+                },
+                "parquet": {
+                    "type": "boolean"
                 }
             }
         },
@@ -82300,6 +82683,15 @@
         "aws-native:sagemaker:ModelExplainabilityJobDefinitionEndpointInputS3InputMode": {
             "type": "string"
         },
+        "aws-native:sagemaker:ModelExplainabilityJobDefinitionJson": {
+            "type": "object",
+            "properties": {
+                "line": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if it is JSON line format"
+                }
+            }
+        },
         "aws-native:sagemaker:ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification": {
             "type": "object",
             "properties": {
@@ -82331,6 +82723,9 @@
         "aws-native:sagemaker:ModelExplainabilityJobDefinitionModelExplainabilityJobInput": {
             "type": "object",
             "properties": {
+                "batchTransformInput": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionBatchTransformInput"
+                },
                 "endpointInput": {
                     "$ref": "#/types/aws-native:sagemaker:ModelExplainabilityJobDefinitionEndpointInput"
                 }
@@ -83024,6 +83419,55 @@
                 }
             }
         },
+        "aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInput": {
+            "type": "object",
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data."
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionDatasetFormat"
+                },
+                "endTimeOffset": {
+                    "type": "string",
+                    "description": "Monitoring end time offset, e.g. PT0H"
+                },
+                "inferenceAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate predicted label(s)"
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the endpoint data is available to the container."
+                },
+                "probabilityAttribute": {
+                    "type": "string",
+                    "description": "Index or JSONpath to locate probabilities"
+                },
+                "probabilityThresholdAttribute": {
+                    "type": "number"
+                },
+                "s3DataDistributionType": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated"
+                },
+                "s3InputMode": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3InputMode",
+                    "description": "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File."
+                },
+                "startTimeOffset": {
+                    "type": "string",
+                    "description": "Monitoring start time offset, e.g. -PT1H"
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInputS3InputMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:ModelQualityJobDefinitionClusterConfig": {
             "type": "object",
             "properties": {
@@ -83051,6 +83495,29 @@
                 "s3Uri": {
                     "type": "string",
                     "description": "The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against."
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelQualityJobDefinitionCsv": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if given CSV has header"
+                }
+            }
+        },
+        "aws-native:sagemaker:ModelQualityJobDefinitionDatasetFormat": {
+            "type": "object",
+            "properties": {
+                "csv": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionCsv"
+                },
+                "json": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionJson"
+                },
+                "parquet": {
+                    "type": "boolean"
                 }
             }
         },
@@ -83098,6 +83565,15 @@
         },
         "aws-native:sagemaker:ModelQualityJobDefinitionEndpointInputS3InputMode": {
             "type": "string"
+        },
+        "aws-native:sagemaker:ModelQualityJobDefinitionJson": {
+            "type": "object",
+            "properties": {
+                "line": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if it is JSON line format"
+                }
+            }
         },
         "aws-native:sagemaker:ModelQualityJobDefinitionModelQualityAppSpecification": {
             "type": "object",
@@ -83151,6 +83627,9 @@
         "aws-native:sagemaker:ModelQualityJobDefinitionModelQualityJobInput": {
             "type": "object",
             "properties": {
+                "batchTransformInput": {
+                    "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionBatchTransformInput"
+                },
                 "endpointInput": {
                     "$ref": "#/types/aws-native:sagemaker:ModelQualityJobDefinitionEndpointInput"
                 },
@@ -83291,6 +83770,36 @@
                 }
             }
         },
+        "aws-native:sagemaker:MonitoringScheduleBatchTransformInput": {
+            "type": "object",
+            "properties": {
+                "dataCapturedDestinationS3Uri": {
+                    "type": "string",
+                    "description": "A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data."
+                },
+                "datasetFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleDatasetFormat"
+                },
+                "localPath": {
+                    "type": "string",
+                    "description": "Path to the filesystem where the endpoint data is available to the container."
+                },
+                "s3DataDistributionType": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3DataDistributionType",
+                    "description": "Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated"
+                },
+                "s3InputMode": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3InputMode",
+                    "description": "Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File."
+                }
+            }
+        },
+        "aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3DataDistributionType": {
+            "type": "string"
+        },
+        "aws-native:sagemaker:MonitoringScheduleBatchTransformInputS3InputMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:MonitoringScheduleClusterConfig": {
             "type": "object",
             "properties": {
@@ -83339,6 +83848,29 @@
                 }
             }
         },
+        "aws-native:sagemaker:MonitoringScheduleCsv": {
+            "type": "object",
+            "properties": {
+                "header": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if given CSV has header"
+                }
+            }
+        },
+        "aws-native:sagemaker:MonitoringScheduleDatasetFormat": {
+            "type": "object",
+            "properties": {
+                "csv": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleCsv"
+                },
+                "json": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleJson"
+                },
+                "parquet": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:sagemaker:MonitoringScheduleEndpointInput": {
             "type": "object",
             "properties": {
@@ -83364,6 +83896,15 @@
         },
         "aws-native:sagemaker:MonitoringScheduleEndpointInputS3InputMode": {
             "type": "string"
+        },
+        "aws-native:sagemaker:MonitoringScheduleJson": {
+            "type": "object",
+            "properties": {
+                "line": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating if it is JSON line format"
+                }
+            }
         },
         "aws-native:sagemaker:MonitoringScheduleMonitoringAppSpecification": {
             "type": "object",
@@ -83437,6 +83978,9 @@
         "aws-native:sagemaker:MonitoringScheduleMonitoringInput": {
             "type": "object",
             "properties": {
+                "batchTransformInput": {
+                    "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleBatchTransformInput"
+                },
                 "endpointInput": {
                     "$ref": "#/types/aws-native:sagemaker:MonitoringScheduleEndpointInput"
                 }
@@ -88176,6 +88720,12 @@
             "cf": "AWS::DataBrew::Schedule",
             "ids": [
                 "name"
+            ]
+        },
+        "aws-native:datapipeline:getPipeline": {
+            "cf": "AWS::DataPipeline::Pipeline",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:datasync:getAgent": {
