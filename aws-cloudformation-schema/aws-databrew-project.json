@@ -85,7 +85,7 @@
       "permissions" : [ "databrew:CreateProject", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "databrew:ReadProject", "databrew:ListTagsForResource", "iam:ListRoles" ]
+      "permissions" : [ "databrew:DescribeProject", "databrew:ListTagsForResource", "iam:ListRoles" ]
     },
     "update" : {
       "permissions" : [ "databrew:UpdateProject" ]

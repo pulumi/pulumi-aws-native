@@ -20,7 +20,7 @@
   "typeName" : "AWS::EC2::TransitGatewayPeeringAttachment",
   "readOnlyProperties" : [ "/properties/TransitGatewayAttachmentId", "/properties/Status", "/properties/State", "/properties/CreationTime" ],
   "description" : "The AWS::EC2::TransitGatewayPeeringAttachment type",
-  "writeOnlyProperties" : [ "/properties/Options" ],
+  "writeOnlyProperties" : [ ],
   "createOnlyProperties" : [ "/properties/TransitGatewayId", "/properties/PeerTransitGatewayId", "/properties/PeerRegion", "/properties/PeerAccountId" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/TransitGatewayAttachmentId" ],

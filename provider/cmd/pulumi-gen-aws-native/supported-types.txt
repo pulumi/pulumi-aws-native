@@ -53,6 +53,7 @@ AWS::AuditManager::Assessment
 AWS::AutoScaling::LaunchConfiguration
 AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::ScalingPolicy
+AWS::AutoScaling::ScheduledAction
 AWS::AutoScaling::WarmPool
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
@@ -128,6 +129,7 @@ AWS::DataBrew::Project
 AWS::DataBrew::Recipe
 AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
+AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
@@ -609,6 +611,8 @@ AWSQS::Kubernetes::Resource
 Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
+BigID::DataSource::DynamoDB
+BigID::DataSource::S3
 ConfluentCloud::IAM::ServiceAccount
 Datadog::Dashboards::Dashboard
 Datadog::Integrations::AWS
