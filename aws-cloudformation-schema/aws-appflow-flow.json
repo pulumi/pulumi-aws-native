@@ -676,6 +676,9 @@
         },
         "IncludeDeletedRecords" : {
           "$ref" : "#/definitions/IncludeDeletedRecords"
+        },
+        "DataTransferApi" : {
+          "$ref" : "#/definitions/DataTransferApi"
         }
       },
       "required" : [ "Object" ],
@@ -894,6 +897,9 @@
         },
         "WriteOperationType" : {
           "$ref" : "#/definitions/WriteOperationType"
+        },
+        "DataTransferApi" : {
+          "$ref" : "#/definitions/DataTransferApi"
         }
       },
       "required" : [ "Object" ],
@@ -980,7 +986,7 @@
     },
     "OperatorPropertiesKeys" : {
       "type" : "string",
-      "enum" : [ "VALUE", "VALUES", "DATA_TYPE", "UPPER_BOUND", "LOWER_BOUND", "SOURCE_DATA_TYPE", "DESTINATION_DATA_TYPE", "VALIDATION_ACTION", "MASK_VALUE", "MASK_LENGTH", "TRUNCATE_LENGTH", "MATH_OPERATION_FIELDS_ORDER", "CONCAT_FORMAT", "SUBFIELD_CATEGORY_MAP", "EXCLUDE_SOURCE_FIELDS_LIST" ]
+      "enum" : [ "VALUE", "VALUES", "DATA_TYPE", "UPPER_BOUND", "LOWER_BOUND", "SOURCE_DATA_TYPE", "DESTINATION_DATA_TYPE", "VALIDATION_ACTION", "MASK_VALUE", "MASK_LENGTH", "TRUNCATE_LENGTH", "MATH_OPERATION_FIELDS_ORDER", "CONCAT_FORMAT", "SUBFIELD_CATEGORY_MAP", "EXCLUDE_SOURCE_FIELDS_LIST", "INCLUDE_NEW_FIELDS" ]
     },
     "TaskPropertiesObject" : {
       "description" : "An object used to store task related info",
@@ -1065,6 +1071,10 @@
     "Status" : {
       "type" : "string",
       "enum" : [ "Active", "Draft", "Errored", "Suspended" ]
+    },
+    "DataTransferApi" : {
+      "type" : "string",
+      "enum" : [ "AUTOMATIC", "BULKV2", "REST_SYNC" ]
     }
   },
   "required" : [ "FlowName", "Tasks", "SourceFlowConfig", "DestinationFlowConfigList", "TriggerConfig" ],
