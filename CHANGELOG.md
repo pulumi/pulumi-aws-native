@@ -1,5 +1,20 @@
 ## HEAD (Unreleased)
 
+## 0.31.0 (October 24, 2022)
+
+- Update to Pulumi SDK v3.43.1
+- Update to include the latest resource definitions
+
+#### New resources:
+
+- `aws-native:autoscaling:ScheduledAction`
+- `aws-native:datapipeline:Pipeline`
+
+#### New functions:
+
+- `aws-native:autoscaling:getScheduledAction`
+- `aws-native:datapipeline:getPipeline`
+
 ## 0.30.0 (October 17, 2022)
 
 - Update to Pulumi SDK v3.42.0
