@@ -5499,6 +5499,8 @@ type BotPromptSpecification struct {
 	MaxRetries               int                          `pulumi:"maxRetries"`
 	MessageGroupsList        []BotMessageGroup            `pulumi:"messageGroupsList"`
 	MessageSelectionStrategy *BotMessageSelectionStrategy `pulumi:"messageSelectionStrategy"`
+	// Specifies the advanced settings on each attempt of the prompt.
+	PromptAttemptsSpecification interface{} `pulumi:"promptAttemptsSpecification"`
 }
 
 // BotPromptSpecificationInput is an input type that accepts BotPromptSpecificationArgs and BotPromptSpecificationOutput values.
@@ -5519,6 +5521,8 @@ type BotPromptSpecificationArgs struct {
 	MaxRetries               pulumi.IntInput                     `pulumi:"maxRetries"`
 	MessageGroupsList        BotMessageGroupArrayInput           `pulumi:"messageGroupsList"`
 	MessageSelectionStrategy BotMessageSelectionStrategyPtrInput `pulumi:"messageSelectionStrategy"`
+	// Specifies the advanced settings on each attempt of the prompt.
+	PromptAttemptsSpecification pulumi.Input `pulumi:"promptAttemptsSpecification"`
 }
 
 func (BotPromptSpecificationArgs) ElementType() reflect.Type {
@@ -5616,6 +5620,11 @@ func (o BotPromptSpecificationOutput) MessageSelectionStrategy() BotMessageSelec
 	return o.ApplyT(func(v BotPromptSpecification) *BotMessageSelectionStrategy { return v.MessageSelectionStrategy }).(BotMessageSelectionStrategyPtrOutput)
 }
 
+// Specifies the advanced settings on each attempt of the prompt.
+func (o BotPromptSpecificationOutput) PromptAttemptsSpecification() pulumi.AnyOutput {
+	return o.ApplyT(func(v BotPromptSpecification) interface{} { return v.PromptAttemptsSpecification }).(pulumi.AnyOutput)
+}
+
 type BotPromptSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (BotPromptSpecificationPtrOutput) ElementType() reflect.Type {
@@ -5675,6 +5684,16 @@ func (o BotPromptSpecificationPtrOutput) MessageSelectionStrategy() BotMessageSe
 		}
 		return v.MessageSelectionStrategy
 	}).(BotMessageSelectionStrategyPtrOutput)
+}
+
+// Specifies the advanced settings on each attempt of the prompt.
+func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() pulumi.AnyOutput {
+	return o.ApplyT(func(v *BotPromptSpecification) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PromptAttemptsSpecification
+	}).(pulumi.AnyOutput)
 }
 
 // A list of message groups that Amazon Lex uses to respond the user input.

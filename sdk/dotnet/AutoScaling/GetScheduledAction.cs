@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.AutoScaling
     public static class GetScheduledAction
     {
         /// <summary>
-        /// Resource Type definition for AWS::AutoScaling::ScheduledAction
+        /// The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::AutoScaling::ScheduledAction
+        /// The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetScheduledActionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Auto Scaling group.
+        /// </summary>
+        [Input("autoScalingGroupName", required: true)]
+        public string AutoScalingGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Auto-generated unique identifier
+        /// </summary>
+        [Input("scheduledActionName", required: true)]
+        public string ScheduledActionName { get; set; } = null!;
 
         public GetScheduledActionArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class GetScheduledActionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Auto Scaling group.
+        /// </summary>
+        [Input("autoScalingGroupName", required: true)]
+        public Input<string> AutoScalingGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Auto-generated unique identifier
+        /// </summary>
+        [Input("scheduledActionName", required: true)]
+        public Input<string> ScheduledActionName { get; set; } = null!;
 
         public GetScheduledActionInvokeArgs()
         {
@@ -51,13 +69,37 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetScheduledActionResult
     {
+        /// <summary>
+        /// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+        /// </summary>
         public readonly int? DesiredCapacity;
+        /// <summary>
+        /// The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+        /// </summary>
         public readonly string? EndTime;
-        public readonly string? Id;
+        /// <summary>
+        /// The minimum size of the Auto Scaling group.
+        /// </summary>
         public readonly int? MaxSize;
+        /// <summary>
+        /// The minimum size of the Auto Scaling group.
+        /// </summary>
         public readonly int? MinSize;
+        /// <summary>
+        /// The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+        /// </summary>
         public readonly string? Recurrence;
+        /// <summary>
+        /// Auto-generated unique identifier
+        /// </summary>
+        public readonly string? ScheduledActionName;
+        /// <summary>
+        /// The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+        /// </summary>
         public readonly string? StartTime;
+        /// <summary>
+        /// The time zone for the cron expression.
+        /// </summary>
         public readonly string? TimeZone;
 
         [OutputConstructor]
@@ -66,13 +108,13 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? endTime,
 
-            string? id,
-
             int? maxSize,
 
             int? minSize,
 
             string? recurrence,
+
+            string? scheduledActionName,
 
             string? startTime,
 
@@ -80,10 +122,10 @@ namespace Pulumi.AwsNative.AutoScaling
         {
             DesiredCapacity = desiredCapacity;
             EndTime = endTime;
-            Id = id;
             MaxSize = maxSize;
             MinSize = minSize;
             Recurrence = recurrence;
+            ScheduledActionName = scheduledActionName;
             StartTime = startTime;
             TimeZone = timeZone;
         }

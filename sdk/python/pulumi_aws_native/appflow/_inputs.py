@@ -3278,6 +3278,7 @@ class FlowSAPODataSourcePropertiesArgs:
 class FlowSalesforceDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str],
+                 data_transfer_api: Optional[pulumi.Input['FlowDataTransferApi']] = None,
                  error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
                  id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
@@ -3285,6 +3286,8 @@ class FlowSalesforceDestinationPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] id_field_names: List of fields used as ID when performing a write operation.
         """
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if error_handling_config is not None:
             pulumi.set(__self__, "error_handling_config", error_handling_config)
         if id_field_names is not None:
@@ -3300,6 +3303,15 @@ class FlowSalesforceDestinationPropertiesArgs:
     @object.setter
     def object(self, value: pulumi.Input[str]):
         pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[pulumi.Input['FlowDataTransferApi']]:
+        return pulumi.get(self, "data_transfer_api")
+
+    @data_transfer_api.setter
+    def data_transfer_api(self, value: Optional[pulumi.Input['FlowDataTransferApi']]):
+        pulumi.set(self, "data_transfer_api", value)
 
     @property
     @pulumi.getter(name="errorHandlingConfig")
@@ -3336,9 +3348,12 @@ class FlowSalesforceDestinationPropertiesArgs:
 class FlowSalesforceSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str],
+                 data_transfer_api: Optional[pulumi.Input['FlowDataTransferApi']] = None,
                  enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "object", object)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
         if enable_dynamic_field_update is not None:
             pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
         if include_deleted_records is not None:
@@ -3352,6 +3367,15 @@ class FlowSalesforceSourcePropertiesArgs:
     @object.setter
     def object(self, value: pulumi.Input[str]):
         pulumi.set(self, "object", value)
+
+    @property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> Optional[pulumi.Input['FlowDataTransferApi']]:
+        return pulumi.get(self, "data_transfer_api")
+
+    @data_transfer_api.setter
+    def data_transfer_api(self, value: Optional[pulumi.Input['FlowDataTransferApi']]):
+        pulumi.set(self, "data_transfer_api", value)
 
     @property
     @pulumi.getter(name="enableDynamicFieldUpdate")

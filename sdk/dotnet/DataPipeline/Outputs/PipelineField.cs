@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineField
     {
+        /// <summary>
+        /// Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// A field value that you specify as an identifier of another object in the same pipeline definition.
+        /// </summary>
         public readonly string? RefValue;
+        /// <summary>
+        /// A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         public readonly string? StringValue;
 
         [OutputConstructor]

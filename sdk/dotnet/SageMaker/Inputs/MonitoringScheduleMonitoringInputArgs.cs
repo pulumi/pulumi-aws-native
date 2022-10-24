@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class MonitoringScheduleMonitoringInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("endpointInput", required: true)]
-        public Input<Inputs.MonitoringScheduleEndpointInputArgs> EndpointInput { get; set; } = null!;
+        [Input("batchTransformInput")]
+        public Input<Inputs.MonitoringScheduleBatchTransformInputArgs>? BatchTransformInput { get; set; }
+
+        [Input("endpointInput")]
+        public Input<Inputs.MonitoringScheduleEndpointInputArgs>? EndpointInput { get; set; }
 
         public MonitoringScheduleMonitoringInputArgs()
         {

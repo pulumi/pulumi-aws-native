@@ -20,12 +20,16 @@ __all__ = [
     'AppTag',
     'CodeRepositoryGitConfig',
     'CodeRepositoryTag',
+    'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
+    'DataQualityJobDefinitionCsv',
     'DataQualityJobDefinitionDataQualityAppSpecification',
     'DataQualityJobDefinitionDataQualityBaselineConfig',
     'DataQualityJobDefinitionDataQualityJobInput',
+    'DataQualityJobDefinitionDatasetFormat',
     'DataQualityJobDefinitionEndpointInput',
+    'DataQualityJobDefinitionJson',
     'DataQualityJobDefinitionMonitoringOutput',
     'DataQualityJobDefinitionMonitoringOutputConfig',
     'DataQualityJobDefinitionMonitoringResources',
@@ -82,9 +86,13 @@ __all__ = [
     'FeatureGroupS3StorageConfig',
     'FeatureGroupTag',
     'ImageTag',
+    'ModelBiasJobDefinitionBatchTransformInput',
     'ModelBiasJobDefinitionClusterConfig',
     'ModelBiasJobDefinitionConstraintsResource',
+    'ModelBiasJobDefinitionCsv',
+    'ModelBiasJobDefinitionDatasetFormat',
     'ModelBiasJobDefinitionEndpointInput',
+    'ModelBiasJobDefinitionJson',
     'ModelBiasJobDefinitionModelBiasAppSpecification',
     'ModelBiasJobDefinitionModelBiasBaselineConfig',
     'ModelBiasJobDefinitionModelBiasJobInput',
@@ -98,9 +106,13 @@ __all__ = [
     'ModelBiasJobDefinitionTag',
     'ModelBiasJobDefinitionVpcConfig',
     'ModelContainerDefinition',
+    'ModelExplainabilityJobDefinitionBatchTransformInput',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
+    'ModelExplainabilityJobDefinitionCsv',
+    'ModelExplainabilityJobDefinitionDatasetFormat',
     'ModelExplainabilityJobDefinitionEndpointInput',
+    'ModelExplainabilityJobDefinitionJson',
     'ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification',
     'ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig',
     'ModelExplainabilityJobDefinitionModelExplainabilityJobInput',
@@ -150,9 +162,13 @@ __all__ = [
     'ModelPackageTransformResources',
     'ModelPackageValidationProfile',
     'ModelPackageValidationSpecification',
+    'ModelQualityJobDefinitionBatchTransformInput',
     'ModelQualityJobDefinitionClusterConfig',
     'ModelQualityJobDefinitionConstraintsResource',
+    'ModelQualityJobDefinitionCsv',
+    'ModelQualityJobDefinitionDatasetFormat',
     'ModelQualityJobDefinitionEndpointInput',
+    'ModelQualityJobDefinitionJson',
     'ModelQualityJobDefinitionModelQualityAppSpecification',
     'ModelQualityJobDefinitionModelQualityBaselineConfig',
     'ModelQualityJobDefinitionModelQualityJobInput',
@@ -169,10 +185,14 @@ __all__ = [
     'ModelTag',
     'ModelVpcConfig',
     'MonitoringScheduleBaselineConfig',
+    'MonitoringScheduleBatchTransformInput',
     'MonitoringScheduleClusterConfig',
     'MonitoringScheduleConfig',
     'MonitoringScheduleConstraintsResource',
+    'MonitoringScheduleCsv',
+    'MonitoringScheduleDatasetFormat',
     'MonitoringScheduleEndpointInput',
+    'MonitoringScheduleJson',
     'MonitoringScheduleMonitoringAppSpecification',
     'MonitoringScheduleMonitoringExecutionSummary',
     'MonitoringScheduleMonitoringInput',
@@ -553,6 +573,95 @@ class CodeRepositoryTag(dict):
 
 
 @pulumi.output_type
+class DataQualityJobDefinitionBatchTransformInput(dict):
+    """
+    The batch transform input for a monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityJobDefinitionBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.DataQualityJobDefinitionDatasetFormat',
+                 local_path: str,
+                 s3_data_distribution_type: Optional['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode'] = None):
+        """
+        The batch transform input for a monitoring job.
+        :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param 'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'DataQualityJobDefinitionBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.DataQualityJobDefinitionDatasetFormat':
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['DataQualityJobDefinitionBatchTransformInputS3DataDistributionType']:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['DataQualityJobDefinitionBatchTransformInputS3InputMode']:
+        """
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
 class DataQualityJobDefinitionClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -669,6 +778,29 @@ class DataQualityJobDefinitionConstraintsResource(dict):
         The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionCsv(dict):
+    """
+    The CSV format
+    """
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        The CSV format
+        :param bool header: A boolean flag indicating if given CSV has header
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if given CSV has header
+        """
+        return pulumi.get(self, "header")
 
 
 @pulumi.output_type
@@ -842,7 +974,9 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointInput":
+        if key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
             suggest = "endpoint_input"
 
         if suggest:
@@ -857,16 +991,60 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_input: 'outputs.DataQualityJobDefinitionEndpointInput'):
+                 batch_transform_input: Optional['outputs.DataQualityJobDefinitionBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.DataQualityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
         """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.DataQualityJobDefinitionBatchTransformInput']:
+        return pulumi.get(self, "batch_transform_input")
 
     @property
     @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> 'outputs.DataQualityJobDefinitionEndpointInput':
+    def endpoint_input(self) -> Optional['outputs.DataQualityJobDefinitionEndpointInput']:
         return pulumi.get(self, "endpoint_input")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionDatasetFormat(dict):
+    """
+    The dataset format of the data to monitor
+    """
+    def __init__(__self__, *,
+                 csv: Optional['outputs.DataQualityJobDefinitionCsv'] = None,
+                 json: Optional['outputs.DataQualityJobDefinitionJson'] = None,
+                 parquet: Optional[bool] = None):
+        """
+        The dataset format of the data to monitor
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.DataQualityJobDefinitionCsv']:
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.DataQualityJobDefinitionJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def parquet(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet")
 
 
 @pulumi.output_type
@@ -943,6 +1121,29 @@ class DataQualityJobDefinitionEndpointInput(dict):
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
+class DataQualityJobDefinitionJson(dict):
+    """
+    The Json format
+    """
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        The Json format
+        :param bool line: A boolean flag indicating if it is JSON line format
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if it is JSON line format
+        """
+        return pulumi.get(self, "line")
 
 
 @pulumi.output_type
@@ -3502,6 +3703,175 @@ class ImageTag(dict):
 
 
 @pulumi.output_type
+class ModelBiasJobDefinitionBatchTransformInput(dict):
+    """
+    The batch transform input for a monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelBiasJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelBiasJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.ModelBiasJobDefinitionDatasetFormat',
+                 local_path: str,
+                 end_time_offset: Optional[str] = None,
+                 features_attribute: Optional[str] = None,
+                 inference_attribute: Optional[str] = None,
+                 probability_attribute: Optional[str] = None,
+                 probability_threshold_attribute: Optional[float] = None,
+                 s3_data_distribution_type: Optional['ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelBiasJobDefinitionBatchTransformInputS3InputMode'] = None,
+                 start_time_offset: Optional[str] = None):
+        """
+        The batch transform input for a monitoring job.
+        :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str end_time_offset: Monitoring end time offset, e.g. PT0H
+        :param str features_attribute: JSONpath to locate features in JSONlines dataset
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param 'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelBiasJobDefinitionBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if end_time_offset is not None:
+            pulumi.set(__self__, "end_time_offset", end_time_offset)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if inference_attribute is not None:
+            pulumi.set(__self__, "inference_attribute", inference_attribute)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_threshold_attribute is not None:
+            pulumi.set(__self__, "probability_threshold_attribute", probability_threshold_attribute)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+        if start_time_offset is not None:
+            pulumi.set(__self__, "start_time_offset", start_time_offset)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.ModelBiasJobDefinitionDatasetFormat':
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="endTimeOffset")
+    def end_time_offset(self) -> Optional[str]:
+        """
+        Monitoring end time offset, e.g. PT0H
+        """
+        return pulumi.get(self, "end_time_offset")
+
+    @property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[str]:
+        """
+        JSONpath to locate features in JSONlines dataset
+        """
+        return pulumi.get(self, "features_attribute")
+
+    @property
+    @pulumi.getter(name="inferenceAttribute")
+    def inference_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate predicted label(s)
+        """
+        return pulumi.get(self, "inference_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate probabilities
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityThresholdAttribute")
+    def probability_threshold_attribute(self) -> Optional[float]:
+        return pulumi.get(self, "probability_threshold_attribute")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType']:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['ModelBiasJobDefinitionBatchTransformInputS3InputMode']:
+        """
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> Optional[str]:
+        """
+        Monitoring start time offset, e.g. -PT1H
+        """
+        return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
 class ModelBiasJobDefinitionClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -3618,6 +3988,64 @@ class ModelBiasJobDefinitionConstraintsResource(dict):
         The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class ModelBiasJobDefinitionCsv(dict):
+    """
+    The CSV format
+    """
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        The CSV format
+        :param bool header: A boolean flag indicating if given CSV has header
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if given CSV has header
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class ModelBiasJobDefinitionDatasetFormat(dict):
+    """
+    The dataset format of the data to monitor
+    """
+    def __init__(__self__, *,
+                 csv: Optional['outputs.ModelBiasJobDefinitionCsv'] = None,
+                 json: Optional['outputs.ModelBiasJobDefinitionJson'] = None,
+                 parquet: Optional[bool] = None):
+        """
+        The dataset format of the data to monitor
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.ModelBiasJobDefinitionCsv']:
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.ModelBiasJobDefinitionJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def parquet(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet")
 
 
 @pulumi.output_type
@@ -3777,6 +4205,29 @@ class ModelBiasJobDefinitionEndpointInput(dict):
 
 
 @pulumi.output_type
+class ModelBiasJobDefinitionJson(dict):
+    """
+    The Json format
+    """
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        The Json format
+        :param bool line: A boolean flag indicating if it is JSON line format
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if it is JSON line format
+        """
+        return pulumi.get(self, "line")
+
+
+@pulumi.output_type
 class ModelBiasJobDefinitionModelBiasAppSpecification(dict):
     """
     Container image configuration object for the monitoring job.
@@ -3894,10 +4345,12 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointInput":
-            suggest = "endpoint_input"
-        elif key == "groundTruthS3Input":
+        if key == "groundTruthS3Input":
             suggest = "ground_truth_s3_input"
+        elif key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
+            suggest = "endpoint_input"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ModelBiasJobDefinitionModelBiasJobInput. Access the value via the '{suggest}' property getter instead.")
@@ -3911,23 +4364,32 @@ class ModelBiasJobDefinitionModelBiasJobInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_input: 'outputs.ModelBiasJobDefinitionEndpointInput',
-                 ground_truth_s3_input: 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input'):
+                 ground_truth_s3_input: 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input',
+                 batch_transform_input: Optional['outputs.ModelBiasJobDefinitionBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.ModelBiasJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
         """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
-
-    @property
-    @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> 'outputs.ModelBiasJobDefinitionEndpointInput':
-        return pulumi.get(self, "endpoint_input")
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> 'outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input':
         return pulumi.get(self, "ground_truth_s3_input")
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.ModelBiasJobDefinitionBatchTransformInput']:
+        return pulumi.get(self, "batch_transform_input")
+
+    @property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> Optional['outputs.ModelBiasJobDefinitionEndpointInput']:
+        return pulumi.get(self, "endpoint_input")
 
 
 @pulumi.output_type
@@ -4449,6 +4911,137 @@ class ModelContainerDefinition(dict):
 
 
 @pulumi.output_type
+class ModelExplainabilityJobDefinitionBatchTransformInput(dict):
+    """
+    The batch transform input for a monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelExplainabilityJobDefinitionBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelExplainabilityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelExplainabilityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.ModelExplainabilityJobDefinitionDatasetFormat',
+                 local_path: str,
+                 features_attribute: Optional[str] = None,
+                 inference_attribute: Optional[str] = None,
+                 probability_attribute: Optional[str] = None,
+                 s3_data_distribution_type: Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode'] = None):
+        """
+        The batch transform input for a monitoring job.
+        :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str features_attribute: JSONpath to locate features in JSONlines dataset
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param 'ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if inference_attribute is not None:
+            pulumi.set(__self__, "inference_attribute", inference_attribute)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.ModelExplainabilityJobDefinitionDatasetFormat':
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[str]:
+        """
+        JSONpath to locate features in JSONlines dataset
+        """
+        return pulumi.get(self, "features_attribute")
+
+    @property
+    @pulumi.getter(name="inferenceAttribute")
+    def inference_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate predicted label(s)
+        """
+        return pulumi.get(self, "inference_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate probabilities
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType']:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode']:
+        """
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
 class ModelExplainabilityJobDefinitionClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -4565,6 +5158,64 @@ class ModelExplainabilityJobDefinitionConstraintsResource(dict):
         The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class ModelExplainabilityJobDefinitionCsv(dict):
+    """
+    The CSV format
+    """
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        The CSV format
+        :param bool header: A boolean flag indicating if given CSV has header
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if given CSV has header
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class ModelExplainabilityJobDefinitionDatasetFormat(dict):
+    """
+    The dataset format of the data to monitor
+    """
+    def __init__(__self__, *,
+                 csv: Optional['outputs.ModelExplainabilityJobDefinitionCsv'] = None,
+                 json: Optional['outputs.ModelExplainabilityJobDefinitionJson'] = None,
+                 parquet: Optional[bool] = None):
+        """
+        The dataset format of the data to monitor
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.ModelExplainabilityJobDefinitionCsv']:
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.ModelExplainabilityJobDefinitionJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def parquet(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet")
 
 
 @pulumi.output_type
@@ -4686,6 +5337,29 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
 
 
 @pulumi.output_type
+class ModelExplainabilityJobDefinitionJson(dict):
+    """
+    The Json format
+    """
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        The Json format
+        :param bool line: A boolean flag indicating if it is JSON line format
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if it is JSON line format
+        """
+        return pulumi.get(self, "line")
+
+
+@pulumi.output_type
 class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(dict):
     """
     Container image configuration object for the monitoring job.
@@ -4803,7 +5477,9 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointInput":
+        if key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
             suggest = "endpoint_input"
 
         if suggest:
@@ -4818,15 +5494,24 @@ class ModelExplainabilityJobDefinitionModelExplainabilityJobInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_input: 'outputs.ModelExplainabilityJobDefinitionEndpointInput'):
+                 batch_transform_input: Optional['outputs.ModelExplainabilityJobDefinitionBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.ModelExplainabilityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
         """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.ModelExplainabilityJobDefinitionBatchTransformInput']:
+        return pulumi.get(self, "batch_transform_input")
 
     @property
     @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> 'outputs.ModelExplainabilityJobDefinitionEndpointInput':
+    def endpoint_input(self) -> Optional['outputs.ModelExplainabilityJobDefinitionEndpointInput']:
         return pulumi.get(self, "endpoint_input")
 
 
@@ -7107,6 +7792,161 @@ class ModelPackageValidationSpecification(dict):
 
 
 @pulumi.output_type
+class ModelQualityJobDefinitionBatchTransformInput(dict):
+    """
+    The batch transform input for a monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelQualityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelQualityJobDefinitionBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.ModelQualityJobDefinitionDatasetFormat',
+                 local_path: str,
+                 end_time_offset: Optional[str] = None,
+                 inference_attribute: Optional[str] = None,
+                 probability_attribute: Optional[str] = None,
+                 probability_threshold_attribute: Optional[float] = None,
+                 s3_data_distribution_type: Optional['ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelQualityJobDefinitionBatchTransformInputS3InputMode'] = None,
+                 start_time_offset: Optional[str] = None):
+        """
+        The batch transform input for a monitoring job.
+        :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param str end_time_offset: Monitoring end time offset, e.g. PT0H
+        :param str inference_attribute: Index or JSONpath to locate predicted label(s)
+        :param str probability_attribute: Index or JSONpath to locate probabilities
+        :param 'ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelQualityJobDefinitionBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if end_time_offset is not None:
+            pulumi.set(__self__, "end_time_offset", end_time_offset)
+        if inference_attribute is not None:
+            pulumi.set(__self__, "inference_attribute", inference_attribute)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_threshold_attribute is not None:
+            pulumi.set(__self__, "probability_threshold_attribute", probability_threshold_attribute)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+        if start_time_offset is not None:
+            pulumi.set(__self__, "start_time_offset", start_time_offset)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.ModelQualityJobDefinitionDatasetFormat':
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="endTimeOffset")
+    def end_time_offset(self) -> Optional[str]:
+        """
+        Monitoring end time offset, e.g. PT0H
+        """
+        return pulumi.get(self, "end_time_offset")
+
+    @property
+    @pulumi.getter(name="inferenceAttribute")
+    def inference_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate predicted label(s)
+        """
+        return pulumi.get(self, "inference_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[str]:
+        """
+        Index or JSONpath to locate probabilities
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @property
+    @pulumi.getter(name="probabilityThresholdAttribute")
+    def probability_threshold_attribute(self) -> Optional[float]:
+        return pulumi.get(self, "probability_threshold_attribute")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType']:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['ModelQualityJobDefinitionBatchTransformInputS3InputMode']:
+        """
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> Optional[str]:
+        """
+        Monitoring start time offset, e.g. -PT1H
+        """
+        return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
 class ModelQualityJobDefinitionClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -7223,6 +8063,64 @@ class ModelQualityJobDefinitionConstraintsResource(dict):
         The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         """
         return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class ModelQualityJobDefinitionCsv(dict):
+    """
+    The CSV format
+    """
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        The CSV format
+        :param bool header: A boolean flag indicating if given CSV has header
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if given CSV has header
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class ModelQualityJobDefinitionDatasetFormat(dict):
+    """
+    The dataset format of the data to monitor
+    """
+    def __init__(__self__, *,
+                 csv: Optional['outputs.ModelQualityJobDefinitionCsv'] = None,
+                 json: Optional['outputs.ModelQualityJobDefinitionJson'] = None,
+                 parquet: Optional[bool] = None):
+        """
+        The dataset format of the data to monitor
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.ModelQualityJobDefinitionCsv']:
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.ModelQualityJobDefinitionJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def parquet(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet")
 
 
 @pulumi.output_type
@@ -7365,6 +8263,29 @@ class ModelQualityJobDefinitionEndpointInput(dict):
         Monitoring start time offset, e.g. -PT1H
         """
         return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
+class ModelQualityJobDefinitionJson(dict):
+    """
+    The Json format
+    """
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        The Json format
+        :param bool line: A boolean flag indicating if it is JSON line format
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if it is JSON line format
+        """
+        return pulumi.get(self, "line")
 
 
 @pulumi.output_type
@@ -7537,10 +8458,12 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointInput":
-            suggest = "endpoint_input"
-        elif key == "groundTruthS3Input":
+        if key == "groundTruthS3Input":
             suggest = "ground_truth_s3_input"
+        elif key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
+            suggest = "endpoint_input"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ModelQualityJobDefinitionModelQualityJobInput. Access the value via the '{suggest}' property getter instead.")
@@ -7554,23 +8477,32 @@ class ModelQualityJobDefinitionModelQualityJobInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_input: 'outputs.ModelQualityJobDefinitionEndpointInput',
-                 ground_truth_s3_input: 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input'):
+                 ground_truth_s3_input: 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input',
+                 batch_transform_input: Optional['outputs.ModelQualityJobDefinitionBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.ModelQualityJobDefinitionEndpointInput'] = None):
         """
         The inputs for a monitoring job.
         """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
         pulumi.set(__self__, "ground_truth_s3_input", ground_truth_s3_input)
-
-    @property
-    @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> 'outputs.ModelQualityJobDefinitionEndpointInput':
-        return pulumi.get(self, "endpoint_input")
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
 
     @property
     @pulumi.getter(name="groundTruthS3Input")
     def ground_truth_s3_input(self) -> 'outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input':
         return pulumi.get(self, "ground_truth_s3_input")
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.ModelQualityJobDefinitionBatchTransformInput']:
+        return pulumi.get(self, "batch_transform_input")
+
+    @property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> Optional['outputs.ModelQualityJobDefinitionEndpointInput']:
+        return pulumi.get(self, "endpoint_input")
 
 
 @pulumi.output_type
@@ -8118,6 +9050,95 @@ class MonitoringScheduleBaselineConfig(dict):
 
 
 @pulumi.output_type
+class MonitoringScheduleBatchTransformInput(dict):
+    """
+    The batch transform input for a monitoring job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: str,
+                 dataset_format: 'outputs.MonitoringScheduleDatasetFormat',
+                 local_path: str,
+                 s3_data_distribution_type: Optional['MonitoringScheduleBatchTransformInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['MonitoringScheduleBatchTransformInputS3InputMode'] = None):
+        """
+        The batch transform input for a monitoring job.
+        :param str data_captured_destination_s3_uri: A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        :param str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param 'MonitoringScheduleBatchTransformInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'MonitoringScheduleBatchTransformInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+
+    @property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> str:
+        """
+        A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.MonitoringScheduleDatasetFormat':
+        return pulumi.get(self, "dataset_format")
+
+    @property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional['MonitoringScheduleBatchTransformInputS3DataDistributionType']:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional['MonitoringScheduleBatchTransformInputS3InputMode']:
+        """
+        Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
 class MonitoringScheduleClusterConfig(dict):
     """
     Configuration for the cluster used to run model monitoring jobs.
@@ -8307,6 +9328,64 @@ class MonitoringScheduleConstraintsResource(dict):
 
 
 @pulumi.output_type
+class MonitoringScheduleCsv(dict):
+    """
+    The CSV format
+    """
+    def __init__(__self__, *,
+                 header: Optional[bool] = None):
+        """
+        The CSV format
+        :param bool header: A boolean flag indicating if given CSV has header
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if given CSV has header
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class MonitoringScheduleDatasetFormat(dict):
+    """
+    The dataset format of the data to monitor
+    """
+    def __init__(__self__, *,
+                 csv: Optional['outputs.MonitoringScheduleCsv'] = None,
+                 json: Optional['outputs.MonitoringScheduleJson'] = None,
+                 parquet: Optional[bool] = None):
+        """
+        The dataset format of the data to monitor
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+        if parquet is not None:
+            pulumi.set(__self__, "parquet", parquet)
+
+    @property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.MonitoringScheduleCsv']:
+        return pulumi.get(self, "csv")
+
+    @property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.MonitoringScheduleJson']:
+        return pulumi.get(self, "json")
+
+    @property
+    @pulumi.getter
+    def parquet(self) -> Optional[bool]:
+        return pulumi.get(self, "parquet")
+
+
+@pulumi.output_type
 class MonitoringScheduleEndpointInput(dict):
     """
     The endpoint for a monitoring job.
@@ -8380,6 +9459,29 @@ class MonitoringScheduleEndpointInput(dict):
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         return pulumi.get(self, "s3_input_mode")
+
+
+@pulumi.output_type
+class MonitoringScheduleJson(dict):
+    """
+    The Json format
+    """
+    def __init__(__self__, *,
+                 line: Optional[bool] = None):
+        """
+        The Json format
+        :param bool line: A boolean flag indicating if it is JSON line format
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @property
+    @pulumi.getter
+    def line(self) -> Optional[bool]:
+        """
+        A boolean flag indicating if it is JSON line format
+        """
+        return pulumi.get(self, "line")
 
 
 @pulumi.output_type
@@ -8610,7 +9712,9 @@ class MonitoringScheduleMonitoringInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointInput":
+        if key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
             suggest = "endpoint_input"
 
         if suggest:
@@ -8625,15 +9729,24 @@ class MonitoringScheduleMonitoringInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 endpoint_input: 'outputs.MonitoringScheduleEndpointInput'):
+                 batch_transform_input: Optional['outputs.MonitoringScheduleBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.MonitoringScheduleEndpointInput'] = None):
         """
         The inputs for a monitoring job.
         """
-        pulumi.set(__self__, "endpoint_input", endpoint_input)
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.MonitoringScheduleBatchTransformInput']:
+        return pulumi.get(self, "batch_transform_input")
 
     @property
     @pulumi.getter(name="endpointInput")
-    def endpoint_input(self) -> 'outputs.MonitoringScheduleEndpointInput':
+    def endpoint_input(self) -> Optional['outputs.MonitoringScheduleEndpointInput']:
         return pulumi.get(self, "endpoint_input")
 
 

@@ -2104,6 +2104,8 @@ class BotPromptSpecification(dict):
             suggest = "allow_interrupt"
         elif key == "messageSelectionStrategy":
             suggest = "message_selection_strategy"
+        elif key == "promptAttemptsSpecification":
+            suggest = "prompt_attempts_specification"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotPromptSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -2120,10 +2122,12 @@ class BotPromptSpecification(dict):
                  max_retries: int,
                  message_groups_list: Sequence['outputs.BotMessageGroup'],
                  allow_interrupt: Optional[bool] = None,
-                 message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None):
+                 message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None,
+                 prompt_attempts_specification: Optional[Any] = None):
         """
         Prompts the user to confirm the intent.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
+        :param Any prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -2131,6 +2135,8 @@ class BotPromptSpecification(dict):
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_selection_strategy is not None:
             pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
+        if prompt_attempts_specification is not None:
+            pulumi.set(__self__, "prompt_attempts_specification", prompt_attempts_specification)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -2154,6 +2160,14 @@ class BotPromptSpecification(dict):
     @pulumi.getter(name="messageSelectionStrategy")
     def message_selection_strategy(self) -> Optional['BotMessageSelectionStrategy']:
         return pulumi.get(self, "message_selection_strategy")
+
+    @property
+    @pulumi.getter(name="promptAttemptsSpecification")
+    def prompt_attempts_specification(self) -> Optional[Any]:
+        """
+        Specifies the advanced settings on each attempt of the prompt.
+        """
+        return pulumi.get(self, "prompt_attempts_specification")
 
 
 @pulumi.output_type

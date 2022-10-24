@@ -16,6 +16,8 @@ type DedicatedIpPool struct {
 
 	// The name of the dedicated IP pool.
 	PoolName pulumi.StringPtrOutput `pulumi:"poolName"`
+	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+	ScalingMode pulumi.StringPtrOutput `pulumi:"scalingMode"`
 }
 
 // NewDedicatedIpPool registers a new resource with the given unique name, arguments, and options.
@@ -59,12 +61,16 @@ func (DedicatedIpPoolState) ElementType() reflect.Type {
 type dedicatedIpPoolArgs struct {
 	// The name of the dedicated IP pool.
 	PoolName *string `pulumi:"poolName"`
+	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+	ScalingMode *string `pulumi:"scalingMode"`
 }
 
 // The set of arguments for constructing a DedicatedIpPool resource.
 type DedicatedIpPoolArgs struct {
 	// The name of the dedicated IP pool.
 	PoolName pulumi.StringPtrInput
+	// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+	ScalingMode pulumi.StringPtrInput
 }
 
 func (DedicatedIpPoolArgs) ElementType() reflect.Type {
@@ -107,6 +113,11 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Co
 // The name of the dedicated IP pool.
 func (o DedicatedIpPoolOutput) PoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.PoolName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+func (o DedicatedIpPoolOutput) ScalingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedIpPool) pulumi.StringPtrOutput { return v.ScalingMode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

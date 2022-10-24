@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineParameterAttribute
     {
+        /// <summary>
+        /// The field identifier.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The field value, expressed as a String.
+        /// </summary>
         public readonly string StringValue;
 
         [OutputConstructor]

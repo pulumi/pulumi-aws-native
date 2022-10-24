@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionModelExplainabilityJobInput
     {
-        public readonly Outputs.ModelExplainabilityJobDefinitionEndpointInput EndpointInput;
+        public readonly Outputs.ModelExplainabilityJobDefinitionBatchTransformInput? BatchTransformInput;
+        public readonly Outputs.ModelExplainabilityJobDefinitionEndpointInput? EndpointInput;
 
         [OutputConstructor]
-        private ModelExplainabilityJobDefinitionModelExplainabilityJobInput(Outputs.ModelExplainabilityJobDefinitionEndpointInput endpointInput)
+        private ModelExplainabilityJobDefinitionModelExplainabilityJobInput(
+            Outputs.ModelExplainabilityJobDefinitionBatchTransformInput? batchTransformInput,
+
+            Outputs.ModelExplainabilityJobDefinitionEndpointInput? endpointInput)
         {
+            BatchTransformInput = batchTransformInput;
             EndpointInput = endpointInput;
         }
     }

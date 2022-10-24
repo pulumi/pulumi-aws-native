@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DataPipeline.Inputs
 
     public sealed class PipelineTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key name of a tag.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value to associate with the key name.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

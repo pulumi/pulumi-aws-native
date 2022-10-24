@@ -11592,6 +11592,7 @@ func (o FlowSAPODataSourcePropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutp
 }
 
 type FlowSalesforceDestinationProperties struct {
+	DataTransferApi     *FlowDataTransferApi     `pulumi:"dataTransferApi"`
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames       []string                `pulumi:"idFieldNames"`
@@ -11611,6 +11612,7 @@ type FlowSalesforceDestinationPropertiesInput interface {
 }
 
 type FlowSalesforceDestinationPropertiesArgs struct {
+	DataTransferApi     FlowDataTransferApiPtrInput     `pulumi:"dataTransferApi"`
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames       pulumi.StringArrayInput        `pulumi:"idFieldNames"`
@@ -11695,6 +11697,10 @@ func (o FlowSalesforceDestinationPropertiesOutput) ToFlowSalesforceDestinationPr
 	}).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
+func (o FlowSalesforceDestinationPropertiesOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
+	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowDataTransferApi { return v.DataTransferApi }).(FlowDataTransferApiPtrOutput)
+}
+
 func (o FlowSalesforceDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
@@ -11736,6 +11742,15 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Elem() FlowSalesforceDesti
 	}).(FlowSalesforceDestinationPropertiesOutput)
 }
 
+func (o FlowSalesforceDestinationPropertiesPtrOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
+	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowDataTransferApi {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferApi
+	}).(FlowDataTransferApiPtrOutput)
+}
+
 func (o FlowSalesforceDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -11774,9 +11789,10 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() FlowW
 }
 
 type FlowSalesforceSourceProperties struct {
-	EnableDynamicFieldUpdate *bool  `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    *bool  `pulumi:"includeDeletedRecords"`
-	Object                   string `pulumi:"object"`
+	DataTransferApi          *FlowDataTransferApi `pulumi:"dataTransferApi"`
+	EnableDynamicFieldUpdate *bool                `pulumi:"enableDynamicFieldUpdate"`
+	IncludeDeletedRecords    *bool                `pulumi:"includeDeletedRecords"`
+	Object                   string               `pulumi:"object"`
 }
 
 // FlowSalesforceSourcePropertiesInput is an input type that accepts FlowSalesforceSourcePropertiesArgs and FlowSalesforceSourcePropertiesOutput values.
@@ -11791,9 +11807,10 @@ type FlowSalesforceSourcePropertiesInput interface {
 }
 
 type FlowSalesforceSourcePropertiesArgs struct {
-	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	IncludeDeletedRecords    pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	Object                   pulumi.StringInput  `pulumi:"object"`
+	DataTransferApi          FlowDataTransferApiPtrInput `pulumi:"dataTransferApi"`
+	EnableDynamicFieldUpdate pulumi.BoolPtrInput         `pulumi:"enableDynamicFieldUpdate"`
+	IncludeDeletedRecords    pulumi.BoolPtrInput         `pulumi:"includeDeletedRecords"`
+	Object                   pulumi.StringInput          `pulumi:"object"`
 }
 
 func (FlowSalesforceSourcePropertiesArgs) ElementType() reflect.Type {
@@ -11873,6 +11890,10 @@ func (o FlowSalesforceSourcePropertiesOutput) ToFlowSalesforceSourcePropertiesPt
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
+func (o FlowSalesforceSourcePropertiesOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
+	return o.ApplyT(func(v FlowSalesforceSourceProperties) *FlowDataTransferApi { return v.DataTransferApi }).(FlowDataTransferApiPtrOutput)
+}
+
 func (o FlowSalesforceSourcePropertiesOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceSourceProperties) *bool { return v.EnableDynamicFieldUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -11907,6 +11928,15 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Elem() FlowSalesforceSourceProp
 		var ret FlowSalesforceSourceProperties
 		return ret
 	}).(FlowSalesforceSourcePropertiesOutput)
+}
+
+func (o FlowSalesforceSourcePropertiesPtrOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
+	return o.ApplyT(func(v *FlowSalesforceSourceProperties) *FlowDataTransferApi {
+		if v == nil {
+			return nil
+		}
+		return v.DataTransferApi
+	}).(FlowDataTransferApiPtrOutput)
 }
 
 func (o FlowSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {

@@ -80,6 +80,26 @@ export const AppType = {
  */
 export type AppType = (typeof AppType)[keyof typeof AppType];
 
+export const DataQualityJobDefinitionBatchTransformInputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+ */
+export type DataQualityJobDefinitionBatchTransformInputS3DataDistributionType = (typeof DataQualityJobDefinitionBatchTransformInputS3DataDistributionType)[keyof typeof DataQualityJobDefinitionBatchTransformInputS3DataDistributionType];
+
+export const DataQualityJobDefinitionBatchTransformInputS3InputMode = {
+    Pipe: "Pipe",
+    File: "File",
+} as const;
+
+/**
+ * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+ */
+export type DataQualityJobDefinitionBatchTransformInputS3InputMode = (typeof DataQualityJobDefinitionBatchTransformInputS3InputMode)[keyof typeof DataQualityJobDefinitionBatchTransformInputS3InputMode];
+
 export const DataQualityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -218,6 +238,26 @@ export const FeatureGroupFeatureDefinitionFeatureType = {
 
 export type FeatureGroupFeatureDefinitionFeatureType = (typeof FeatureGroupFeatureDefinitionFeatureType)[keyof typeof FeatureGroupFeatureDefinitionFeatureType];
 
+export const ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+ */
+export type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType = (typeof ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType)[keyof typeof ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType];
+
+export const ModelBiasJobDefinitionBatchTransformInputS3InputMode = {
+    Pipe: "Pipe",
+    File: "File",
+} as const;
+
+/**
+ * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+ */
+export type ModelBiasJobDefinitionBatchTransformInputS3InputMode = (typeof ModelBiasJobDefinitionBatchTransformInputS3InputMode)[keyof typeof ModelBiasJobDefinitionBatchTransformInputS3InputMode];
+
 export const ModelBiasJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -247,6 +287,26 @@ export const ModelBiasJobDefinitionS3OutputS3UploadMode = {
  * Whether to upload the results of the monitoring job continuously or after the job completes.
  */
 export type ModelBiasJobDefinitionS3OutputS3UploadMode = (typeof ModelBiasJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelBiasJobDefinitionS3OutputS3UploadMode];
+
+export const ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+ */
+export type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType = (typeof ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType)[keyof typeof ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType];
+
+export const ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode = {
+    Pipe: "Pipe",
+    File: "File",
+} as const;
+
+/**
+ * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+ */
+export type ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode = (typeof ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode)[keyof typeof ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode];
 
 export const ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
@@ -381,6 +441,26 @@ export const ModelPackageTransformOutputAssembleWith = {
  */
 export type ModelPackageTransformOutputAssembleWith = (typeof ModelPackageTransformOutputAssembleWith)[keyof typeof ModelPackageTransformOutputAssembleWith];
 
+export const ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+ */
+export type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType = (typeof ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType)[keyof typeof ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType];
+
+export const ModelQualityJobDefinitionBatchTransformInputS3InputMode = {
+    Pipe: "Pipe",
+    File: "File",
+} as const;
+
+/**
+ * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+ */
+export type ModelQualityJobDefinitionBatchTransformInputS3InputMode = (typeof ModelQualityJobDefinitionBatchTransformInputS3InputMode)[keyof typeof ModelQualityJobDefinitionBatchTransformInputS3InputMode];
+
 export const ModelQualityJobDefinitionEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",
@@ -421,6 +501,26 @@ export const ModelQualityJobDefinitionS3OutputS3UploadMode = {
  * Whether to upload the results of the monitoring job continuously or after the job completes.
  */
 export type ModelQualityJobDefinitionS3OutputS3UploadMode = (typeof ModelQualityJobDefinitionS3OutputS3UploadMode)[keyof typeof ModelQualityJobDefinitionS3OutputS3UploadMode];
+
+export const MonitoringScheduleBatchTransformInputS3DataDistributionType = {
+    FullyReplicated: "FullyReplicated",
+    ShardedByS3Key: "ShardedByS3Key",
+} as const;
+
+/**
+ * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+ */
+export type MonitoringScheduleBatchTransformInputS3DataDistributionType = (typeof MonitoringScheduleBatchTransformInputS3DataDistributionType)[keyof typeof MonitoringScheduleBatchTransformInputS3DataDistributionType];
+
+export const MonitoringScheduleBatchTransformInputS3InputMode = {
+    Pipe: "Pipe",
+    File: "File",
+} as const;
+
+/**
+ * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+ */
+export type MonitoringScheduleBatchTransformInputS3InputMode = (typeof MonitoringScheduleBatchTransformInputS3InputMode)[keyof typeof MonitoringScheduleBatchTransformInputS3InputMode];
 
 export const MonitoringScheduleEndpointInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",

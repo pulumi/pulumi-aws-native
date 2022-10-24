@@ -2476,6 +2476,7 @@ export namespace appflow {
     }
 
     export interface FlowSalesforceDestinationPropertiesArgs {
+        dataTransferApi?: pulumi.Input<enums.appflow.FlowDataTransferApi>;
         errorHandlingConfig?: pulumi.Input<inputs.appflow.FlowErrorHandlingConfigArgs>;
         /**
          * List of fields used as ID when performing a write operation.
@@ -2486,6 +2487,7 @@ export namespace appflow {
     }
 
     export interface FlowSalesforceSourcePropertiesArgs {
+        dataTransferApi?: pulumi.Input<enums.appflow.FlowDataTransferApi>;
         enableDynamicFieldUpdate?: pulumi.Input<boolean>;
         includeDeletedRecords?: pulumi.Input<boolean>;
         object: pulumi.Input<string>;
@@ -8327,34 +8329,76 @@ export namespace databrew {
 
 export namespace datapipeline {
     export interface PipelineFieldArgs {
+        /**
+         * Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+         */
         key: pulumi.Input<string>;
+        /**
+         * A field value that you specify as an identifier of another object in the same pipeline definition.
+         */
         refValue?: pulumi.Input<string>;
+        /**
+         * A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+         */
         stringValue?: pulumi.Input<string>;
     }
 
     export interface PipelineObjectArgs {
+        /**
+         * Key-value pairs that define the properties of the object.
+         */
         fields: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineFieldArgs>[]>;
+        /**
+         * The ID of the object.
+         */
         id: pulumi.Input<string>;
+        /**
+         * The name of the object.
+         */
         name: pulumi.Input<string>;
     }
 
     export interface PipelineParameterAttributeArgs {
+        /**
+         * The field identifier.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The field value, expressed as a String.
+         */
         stringValue: pulumi.Input<string>;
     }
 
     export interface PipelineParameterObjectArgs {
+        /**
+         * The attributes of the parameter object.
+         */
         attributes: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterAttributeArgs>[]>;
+        /**
+         * The ID of the parameter object.
+         */
         id: pulumi.Input<string>;
     }
 
     export interface PipelineParameterValueArgs {
+        /**
+         * The ID of the parameter value.
+         */
         id: pulumi.Input<string>;
+        /**
+         * The field value, expressed as a String.
+         */
         stringValue: pulumi.Input<string>;
     }
 
     export interface PipelineTagArgs {
+        /**
+         * The key name of a tag.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value to associate with the key name.
+         */
         value: pulumi.Input<string>;
     }
 }
@@ -8871,7 +8915,16 @@ export namespace devopsguru {
      * Information about notification channels you have configured with DevOps Guru.
      */
     export interface NotificationChannelConfigArgs {
+        filters?: pulumi.Input<inputs.devopsguru.NotificationChannelNotificationFilterConfigArgs>;
         sns?: pulumi.Input<inputs.devopsguru.NotificationChannelSnsChannelConfigArgs>;
+    }
+
+    /**
+     * Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+     */
+    export interface NotificationChannelNotificationFilterConfigArgs {
+        messageTypes?: pulumi.Input<pulumi.Input<enums.devopsguru.NotificationChannelNotificationMessageType>[]>;
+        severities?: pulumi.Input<pulumi.Input<enums.devopsguru.NotificationChannelInsightSeverity>[]>;
     }
 
     /**
@@ -21279,6 +21332,10 @@ export namespace lex {
         maxRetries: pulumi.Input<number>;
         messageGroupsList: pulumi.Input<pulumi.Input<inputs.lex.BotMessageGroupArgs>[]>;
         messageSelectionStrategy?: pulumi.Input<enums.lex.BotMessageSelectionStrategy>;
+        /**
+         * Specifies the advanced settings on each attempt of the prompt.
+         */
+        promptAttemptsSpecification?: any;
     }
 
     /**
@@ -25047,7 +25104,12 @@ export namespace networkfirewall {
         ruleOrder?: pulumi.Input<enums.networkfirewall.FirewallPolicyRuleOrder>;
     }
 
+    export interface FirewallPolicyStatefulRuleGroupOverrideArgs {
+        action?: pulumi.Input<enums.networkfirewall.FirewallPolicyOverrideAction>;
+    }
+
     export interface FirewallPolicyStatefulRuleGroupReferenceArgs {
+        override?: pulumi.Input<inputs.networkfirewall.FirewallPolicyStatefulRuleGroupOverrideArgs>;
         priority?: pulumi.Input<number>;
         resourceArn: pulumi.Input<string>;
     }
@@ -30057,6 +30119,29 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface DataQualityJobDefinitionBatchTransformInputArgs {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: pulumi.Input<string>;
+        datasetFormat: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionDatasetFormatArgs>;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: pulumi.Input<string>;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionBatchTransformInputS3DataDistributionType>;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionBatchTransformInputS3InputMode>;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface DataQualityJobDefinitionClusterConfigArgs {
@@ -30086,6 +30171,16 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface DataQualityJobDefinitionCsvArgs {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: pulumi.Input<boolean>;
     }
 
     /**
@@ -30131,7 +30226,17 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface DataQualityJobDefinitionDataQualityJobInputArgs {
-        endpointInput: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionEndpointInputArgs>;
+        batchTransformInput?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionBatchTransformInputArgs>;
+        endpointInput?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionEndpointInputArgs>;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface DataQualityJobDefinitionDatasetFormatArgs {
+        csv?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionCsvArgs>;
+        json?: pulumi.Input<inputs.sagemaker.DataQualityJobDefinitionJsonArgs>;
+        parquet?: pulumi.Input<boolean>;
     }
 
     /**
@@ -30151,6 +30256,16 @@ export namespace sagemaker {
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
         s3InputMode?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionEndpointInputS3InputMode>;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface DataQualityJobDefinitionJsonArgs {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: pulumi.Input<boolean>;
     }
 
     /**
@@ -30673,6 +30788,50 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelBiasJobDefinitionBatchTransformInputArgs {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: pulumi.Input<string>;
+        datasetFormat: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionDatasetFormatArgs>;
+        /**
+         * Monitoring end time offset, e.g. PT0H
+         */
+        endTimeOffset?: pulumi.Input<string>;
+        /**
+         * JSONpath to locate features in JSONlines dataset
+         */
+        featuresAttribute?: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: pulumi.Input<string>;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: pulumi.Input<string>;
+        probabilityThresholdAttribute?: pulumi.Input<number>;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType>;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelBiasJobDefinitionBatchTransformInputS3InputMode>;
+        /**
+         * Monitoring start time offset, e.g. -PT1H
+         */
+        startTimeOffset?: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelBiasJobDefinitionClusterConfigArgs {
@@ -30702,6 +30861,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelBiasJobDefinitionCsvArgs {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelBiasJobDefinitionDatasetFormatArgs {
+        csv?: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionCsvArgs>;
+        json?: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionJsonArgs>;
+        parquet?: pulumi.Input<boolean>;
     }
 
     /**
@@ -30745,6 +30923,16 @@ export namespace sagemaker {
     }
 
     /**
+     * The Json format
+     */
+    export interface ModelBiasJobDefinitionJsonArgs {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Container image configuration object for the monitoring job.
      */
     export interface ModelBiasJobDefinitionModelBiasAppSpecificationArgs {
@@ -30774,7 +30962,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelBiasJobDefinitionModelBiasJobInputArgs {
-        endpointInput: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionEndpointInputArgs>;
+        batchTransformInput?: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionBatchTransformInputArgs>;
+        endpointInput?: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionEndpointInputArgs>;
         groundTruthS3Input: pulumi.Input<inputs.sagemaker.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs>;
     }
 
@@ -30900,6 +31089,41 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelExplainabilityJobDefinitionBatchTransformInputArgs {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: pulumi.Input<string>;
+        datasetFormat: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionDatasetFormatArgs>;
+        /**
+         * JSONpath to locate features in JSONlines dataset
+         */
+        featuresAttribute?: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: pulumi.Input<string>;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: pulumi.Input<string>;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType>;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode>;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelExplainabilityJobDefinitionClusterConfigArgs {
@@ -30929,6 +31153,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelExplainabilityJobDefinitionCsvArgs {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelExplainabilityJobDefinitionDatasetFormatArgs {
+        csv?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionCsvArgs>;
+        json?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionJsonArgs>;
+        parquet?: pulumi.Input<boolean>;
     }
 
     /**
@@ -30963,6 +31206,16 @@ export namespace sagemaker {
     }
 
     /**
+     * The Json format
+     */
+    export interface ModelExplainabilityJobDefinitionJsonArgs {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Container image configuration object for the monitoring job.
      */
     export interface ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs {
@@ -30992,7 +31245,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs {
-        endpointInput: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionEndpointInputArgs>;
+        batchTransformInput?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInputArgs>;
+        endpointInput?: pulumi.Input<inputs.sagemaker.ModelExplainabilityJobDefinitionEndpointInputArgs>;
     }
 
     /**
@@ -31578,6 +31832,46 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelQualityJobDefinitionBatchTransformInputArgs {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: pulumi.Input<string>;
+        datasetFormat: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionDatasetFormatArgs>;
+        /**
+         * Monitoring end time offset, e.g. PT0H
+         */
+        endTimeOffset?: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: pulumi.Input<string>;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: pulumi.Input<string>;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: pulumi.Input<string>;
+        probabilityThresholdAttribute?: pulumi.Input<number>;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType>;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionBatchTransformInputS3InputMode>;
+        /**
+         * Monitoring start time offset, e.g. -PT1H
+         */
+        startTimeOffset?: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelQualityJobDefinitionClusterConfigArgs {
@@ -31607,6 +31901,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: pulumi.Input<string>;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelQualityJobDefinitionCsvArgs {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelQualityJobDefinitionDatasetFormatArgs {
+        csv?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionCsvArgs>;
+        json?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionJsonArgs>;
+        parquet?: pulumi.Input<boolean>;
     }
 
     /**
@@ -31643,6 +31956,16 @@ export namespace sagemaker {
          * Monitoring start time offset, e.g. -PT1H
          */
         startTimeOffset?: pulumi.Input<string>;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface ModelQualityJobDefinitionJsonArgs {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: pulumi.Input<boolean>;
     }
 
     /**
@@ -31688,7 +32011,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelQualityJobDefinitionModelQualityJobInputArgs {
-        endpointInput: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionEndpointInputArgs>;
+        batchTransformInput?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionBatchTransformInputArgs>;
+        endpointInput?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionEndpointInputArgs>;
         groundTruthS3Input: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs>;
     }
 
@@ -31824,6 +32148,29 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface MonitoringScheduleBatchTransformInputArgs {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: pulumi.Input<string>;
+        datasetFormat: pulumi.Input<inputs.sagemaker.MonitoringScheduleDatasetFormatArgs>;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: pulumi.Input<string>;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.MonitoringScheduleBatchTransformInputS3DataDistributionType>;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: pulumi.Input<enums.sagemaker.MonitoringScheduleBatchTransformInputS3InputMode>;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface MonitoringScheduleClusterConfigArgs {
@@ -31869,6 +32216,25 @@ export namespace sagemaker {
     }
 
     /**
+     * The CSV format
+     */
+    export interface MonitoringScheduleCsvArgs {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface MonitoringScheduleDatasetFormatArgs {
+        csv?: pulumi.Input<inputs.sagemaker.MonitoringScheduleCsvArgs>;
+        json?: pulumi.Input<inputs.sagemaker.MonitoringScheduleJsonArgs>;
+        parquet?: pulumi.Input<boolean>;
+    }
+
+    /**
      * The endpoint for a monitoring job.
      */
     export interface MonitoringScheduleEndpointInputArgs {
@@ -31885,6 +32251,16 @@ export namespace sagemaker {
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
         s3InputMode?: pulumi.Input<enums.sagemaker.MonitoringScheduleEndpointInputS3InputMode>;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface MonitoringScheduleJsonArgs {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: pulumi.Input<boolean>;
     }
 
     /**
@@ -31949,7 +32325,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface MonitoringScheduleMonitoringInputArgs {
-        endpointInput: pulumi.Input<inputs.sagemaker.MonitoringScheduleEndpointInputArgs>;
+        batchTransformInput?: pulumi.Input<inputs.sagemaker.MonitoringScheduleBatchTransformInputArgs>;
+        endpointInput?: pulumi.Input<inputs.sagemaker.MonitoringScheduleEndpointInputArgs>;
     }
 
     /**

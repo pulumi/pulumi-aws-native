@@ -15,8 +15,11 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ModelBiasJobDefinitionModelBiasJobInputArgs : global::Pulumi.ResourceArgs
     {
-        [Input("endpointInput", required: true)]
-        public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
+        [Input("batchTransformInput")]
+        public Input<Inputs.ModelBiasJobDefinitionBatchTransformInputArgs>? BatchTransformInput { get; set; }
+
+        [Input("endpointInput")]
+        public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs>? EndpointInput { get; set; }
 
         [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;

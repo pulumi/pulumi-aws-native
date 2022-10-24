@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::DataPipeline::Pipeline
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     if (!opts) {
@@ -17,20 +17,35 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:datapipeline:getPipeline", {
-        "id": args.id,
+        "pipelineId": args.pipelineId,
     }, opts);
 }
 
 export interface GetPipelineArgs {
-    id: string;
+    pipelineId: string;
 }
 
 export interface GetPipelineResult {
+    /**
+     * Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+     */
     readonly activate?: boolean;
-    readonly id?: string;
+    /**
+     * The parameter objects used with the pipeline.
+     */
     readonly parameterObjects?: outputs.datapipeline.PipelineParameterObject[];
+    /**
+     * The parameter values used with the pipeline.
+     */
     readonly parameterValues?: outputs.datapipeline.PipelineParameterValue[];
+    readonly pipelineId?: string;
+    /**
+     * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+     */
     readonly pipelineObjects?: outputs.datapipeline.PipelineObject[];
+    /**
+     * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+     */
     readonly pipelineTags?: outputs.datapipeline.PipelineTag[];
 }
 
@@ -39,5 +54,5 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetPipelineOutputArgs {
-    id: pulumi.Input<string>;
+    pipelineId: pulumi.Input<string>;
 }

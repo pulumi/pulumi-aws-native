@@ -12,6 +12,7 @@ __all__ = [
     'FlowAggregationType',
     'FlowAmplitudeConnectorOperator',
     'FlowConnectorType',
+    'FlowDataTransferApi',
     'FlowDatadogConnectorOperator',
     'FlowDynatraceConnectorOperator',
     'FlowFileType',
@@ -110,6 +111,12 @@ class FlowConnectorType(str, Enum):
     EVENT_BRIDGE = "EventBridge"
     UPSOLVER = "Upsolver"
     LOOKOUT_METRICS = "LookoutMetrics"
+
+
+class FlowDataTransferApi(str, Enum):
+    AUTOMATIC = "AUTOMATIC"
+    BULKV2 = "BULKV2"
+    REST_SYNC = "REST_SYNC"
 
 
 class FlowDatadogConnectorOperator(str, Enum):
@@ -236,6 +243,7 @@ class FlowOperatorPropertiesKeys(str, Enum):
     CONCAT_FORMAT = "CONCAT_FORMAT"
     SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP"
     EXCLUDE_SOURCE_FIELDS_LIST = "EXCLUDE_SOURCE_FIELDS_LIST"
+    INCLUDE_NEW_FIELDS = "INCLUDE_NEW_FIELDS"
 
 
 class FlowPrefixFormat(str, Enum):

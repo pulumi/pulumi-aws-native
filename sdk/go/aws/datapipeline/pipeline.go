@@ -7,35 +7,37 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::DataPipeline::Pipeline
-//
-// Deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// An example resource schema demonstrating some basic constructs and validation rules.
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	Activate         pulumi.BoolPtrOutput               `pulumi:"activate"`
-	Description      pulumi.StringPtrOutput             `pulumi:"description"`
-	Name             pulumi.StringOutput                `pulumi:"name"`
+	// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+	Activate pulumi.BoolPtrOutput `pulumi:"activate"`
+	// A description of the pipeline.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the pipeline.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The parameter objects used with the pipeline.
 	ParameterObjects PipelineParameterObjectArrayOutput `pulumi:"parameterObjects"`
-	ParameterValues  PipelineParameterValueArrayOutput  `pulumi:"parameterValues"`
-	PipelineObjects  PipelineObjectArrayOutput          `pulumi:"pipelineObjects"`
-	PipelineTags     PipelineTagArrayOutput             `pulumi:"pipelineTags"`
+	// The parameter values used with the pipeline.
+	ParameterValues PipelineParameterValueArrayOutput `pulumi:"parameterValues"`
+	PipelineId      pulumi.StringOutput               `pulumi:"pipelineId"`
+	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+	PipelineObjects PipelineObjectArrayOutput `pulumi:"pipelineObjects"`
+	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+	PipelineTags PipelineTagArrayOutput `pulumi:"pipelineTags"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
 func NewPipeline(ctx *pulumi.Context,
 	name string, args *PipelineArgs, opts ...pulumi.ResourceOption) (*Pipeline, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PipelineArgs{}
 	}
 
-	if args.ParameterObjects == nil {
-		return nil, errors.New("invalid value for required argument 'ParameterObjects'")
-	}
 	var resource Pipeline
 	err := ctx.RegisterResource("aws-native:datapipeline:Pipeline", name, args, &resource, opts...)
 	if err != nil {
@@ -68,24 +70,38 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	Activate         *bool                     `pulumi:"activate"`
-	Description      *string                   `pulumi:"description"`
-	Name             *string                   `pulumi:"name"`
+	// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+	Activate *bool `pulumi:"activate"`
+	// A description of the pipeline.
+	Description *string `pulumi:"description"`
+	// The name of the pipeline.
+	Name *string `pulumi:"name"`
+	// The parameter objects used with the pipeline.
 	ParameterObjects []PipelineParameterObject `pulumi:"parameterObjects"`
-	ParameterValues  []PipelineParameterValue  `pulumi:"parameterValues"`
-	PipelineObjects  []PipelineObject          `pulumi:"pipelineObjects"`
-	PipelineTags     []PipelineTag             `pulumi:"pipelineTags"`
+	// The parameter values used with the pipeline.
+	ParameterValues []PipelineParameterValue `pulumi:"parameterValues"`
+	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+	PipelineObjects []PipelineObject `pulumi:"pipelineObjects"`
+	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+	PipelineTags []PipelineTag `pulumi:"pipelineTags"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	Activate         pulumi.BoolPtrInput
-	Description      pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
+	// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+	Activate pulumi.BoolPtrInput
+	// A description of the pipeline.
+	Description pulumi.StringPtrInput
+	// The name of the pipeline.
+	Name pulumi.StringPtrInput
+	// The parameter objects used with the pipeline.
 	ParameterObjects PipelineParameterObjectArrayInput
-	ParameterValues  PipelineParameterValueArrayInput
-	PipelineObjects  PipelineObjectArrayInput
-	PipelineTags     PipelineTagArrayInput
+	// The parameter values used with the pipeline.
+	ParameterValues PipelineParameterValueArrayInput
+	// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+	PipelineObjects PipelineObjectArrayInput
+	// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+	PipelineTags PipelineTagArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -125,30 +141,41 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
 func (o PipelineOutput) Activate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
 
+// A description of the pipeline.
 func (o PipelineOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the pipeline.
 func (o PipelineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The parameter objects used with the pipeline.
 func (o PipelineOutput) ParameterObjects() PipelineParameterObjectArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineParameterObjectArrayOutput { return v.ParameterObjects }).(PipelineParameterObjectArrayOutput)
 }
 
+// The parameter values used with the pipeline.
 func (o PipelineOutput) ParameterValues() PipelineParameterValueArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineParameterValueArrayOutput { return v.ParameterValues }).(PipelineParameterValueArrayOutput)
 }
 
+func (o PipelineOutput) PipelineId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineId }).(pulumi.StringOutput)
+}
+
+// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
 func (o PipelineOutput) PipelineObjects() PipelineObjectArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineObjectArrayOutput { return v.PipelineObjects }).(PipelineObjectArrayOutput)
 }
 
+// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
 func (o PipelineOutput) PipelineTags() PipelineTagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.PipelineTags }).(PipelineTagArrayOutput)
 }

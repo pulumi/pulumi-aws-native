@@ -38,6 +38,10 @@ export class DedicatedIpPool extends pulumi.CustomResource {
      * The name of the dedicated IP pool.
      */
     public readonly poolName!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+     */
+    public readonly scalingMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -51,8 +55,10 @@ export class DedicatedIpPool extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["scalingMode"] = args ? args.scalingMode : undefined;
         } else {
             resourceInputs["poolName"] = undefined /*out*/;
+            resourceInputs["scalingMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedIpPool.__pulumiType, name, resourceInputs, opts);
@@ -67,4 +73,8 @@ export interface DedicatedIpPoolArgs {
      * The name of the dedicated IP pool.
      */
     poolName?: pulumi.Input<string>;
+    /**
+     * Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+     */
+    scalingMode?: pulumi.Input<string>;
 }

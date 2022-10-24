@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AppResourceSpecInstanceType',
     'AppType',
+    'DataQualityJobDefinitionBatchTransformInputS3DataDistributionType',
+    'DataQualityJobDefinitionBatchTransformInputS3InputMode',
     'DataQualityJobDefinitionEndpointInputS3DataDistributionType',
     'DataQualityJobDefinitionEndpointInputS3InputMode',
     'DataQualityJobDefinitionS3OutputS3UploadMode',
@@ -18,9 +20,13 @@ __all__ = [
     'DomainResourceSpecInstanceType',
     'DomainSharingSettingsNotebookOutputOption',
     'FeatureGroupFeatureDefinitionFeatureType',
+    'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType',
+    'ModelBiasJobDefinitionBatchTransformInputS3InputMode',
     'ModelBiasJobDefinitionEndpointInputS3DataDistributionType',
     'ModelBiasJobDefinitionEndpointInputS3InputMode',
     'ModelBiasJobDefinitionS3OutputS3UploadMode',
+    'ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType',
+    'ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode',
     'ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelExplainabilityJobDefinitionEndpointInputS3InputMode',
     'ModelExplainabilityJobDefinitionS3OutputS3UploadMode',
@@ -33,10 +39,14 @@ __all__ = [
     'ModelPackageTransformInputSplitType',
     'ModelPackageTransformJobDefinitionBatchStrategy',
     'ModelPackageTransformOutputAssembleWith',
+    'ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType',
+    'ModelQualityJobDefinitionBatchTransformInputS3InputMode',
     'ModelQualityJobDefinitionEndpointInputS3DataDistributionType',
     'ModelQualityJobDefinitionEndpointInputS3InputMode',
     'ModelQualityJobDefinitionProblemType',
     'ModelQualityJobDefinitionS3OutputS3UploadMode',
+    'MonitoringScheduleBatchTransformInputS3DataDistributionType',
+    'MonitoringScheduleBatchTransformInputS3InputMode',
     'MonitoringScheduleEndpointInputS3DataDistributionType',
     'MonitoringScheduleEndpointInputS3InputMode',
     'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus',
@@ -123,6 +133,22 @@ class AppType(str, Enum):
     R_STUDIO_SERVER_PRO = "RStudioServerPro"
     R_SESSION_GATEWAY = "RSessionGateway"
     CANVAS = "Canvas"
+
+
+class DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
+    """
+    Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+class DataQualityJobDefinitionBatchTransformInputS3InputMode(str, Enum):
+    """
+    Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    """
+    PIPE = "Pipe"
+    FILE = "File"
 
 
 class DataQualityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
@@ -241,6 +267,22 @@ class FeatureGroupFeatureDefinitionFeatureType(str, Enum):
     STRING = "String"
 
 
+class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
+    """
+    Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+class ModelBiasJobDefinitionBatchTransformInputS3InputMode(str, Enum):
+    """
+    Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    """
+    PIPE = "Pipe"
+    FILE = "File"
+
+
 class ModelBiasJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -263,6 +305,22 @@ class ModelBiasJobDefinitionS3OutputS3UploadMode(str, Enum):
     """
     CONTINUOUS = "Continuous"
     END_OF_JOB = "EndOfJob"
+
+
+class ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
+    """
+    Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+class ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode(str, Enum):
+    """
+    Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    """
+    PIPE = "Pipe"
+    FILE = "File"
 
 
 class ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
@@ -374,6 +432,22 @@ class ModelPackageTransformOutputAssembleWith(str, Enum):
     LINE = "Line"
 
 
+class ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):
+    """
+    Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+class ModelQualityJobDefinitionBatchTransformInputS3InputMode(str, Enum):
+    """
+    Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    """
+    PIPE = "Pipe"
+    FILE = "File"
+
+
 class ModelQualityJobDefinitionEndpointInputS3DataDistributionType(str, Enum):
     """
     Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -405,6 +479,22 @@ class ModelQualityJobDefinitionS3OutputS3UploadMode(str, Enum):
     """
     CONTINUOUS = "Continuous"
     END_OF_JOB = "EndOfJob"
+
+
+class MonitoringScheduleBatchTransformInputS3DataDistributionType(str, Enum):
+    """
+    Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    """
+    FULLY_REPLICATED = "FullyReplicated"
+    SHARDED_BY_S3_KEY = "ShardedByS3Key"
+
+
+class MonitoringScheduleBatchTransformInputS3InputMode(str, Enum):
+    """
+    Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    """
+    PIPE = "Pipe"
+    FILE = "File"
 
 
 class MonitoringScheduleEndpointInputS3DataDistributionType(str, Enum):

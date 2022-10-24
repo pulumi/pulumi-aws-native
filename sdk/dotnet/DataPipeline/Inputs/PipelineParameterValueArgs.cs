@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DataPipeline.Inputs
 
     public sealed class PipelineParameterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the parameter value.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The field value, expressed as a String.
+        /// </summary>
         [Input("stringValue", required: true)]
         public Input<string> StringValue { get; set; } = null!;
 

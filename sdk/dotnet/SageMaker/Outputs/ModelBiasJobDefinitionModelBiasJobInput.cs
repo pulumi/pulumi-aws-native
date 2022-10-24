@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelBiasJobDefinitionModelBiasJobInput
     {
-        public readonly Outputs.ModelBiasJobDefinitionEndpointInput EndpointInput;
+        public readonly Outputs.ModelBiasJobDefinitionBatchTransformInput? BatchTransformInput;
+        public readonly Outputs.ModelBiasJobDefinitionEndpointInput? EndpointInput;
         public readonly Outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input;
 
         [OutputConstructor]
         private ModelBiasJobDefinitionModelBiasJobInput(
-            Outputs.ModelBiasJobDefinitionEndpointInput endpointInput,
+            Outputs.ModelBiasJobDefinitionBatchTransformInput? batchTransformInput,
+
+            Outputs.ModelBiasJobDefinitionEndpointInput? endpointInput,
 
             Outputs.ModelBiasJobDefinitionMonitoringGroundTruthS3Input groundTruthS3Input)
         {
+            BatchTransformInput = batchTransformInput;
             EndpointInput = endpointInput;
             GroundTruthS3Input = groundTruthS3Input;
         }

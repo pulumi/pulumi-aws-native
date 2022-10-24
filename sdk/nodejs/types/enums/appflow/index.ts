@@ -89,6 +89,14 @@ export const FlowConnectorType = {
 
 export type FlowConnectorType = (typeof FlowConnectorType)[keyof typeof FlowConnectorType];
 
+export const FlowDataTransferApi = {
+    Automatic: "AUTOMATIC",
+    Bulkv2: "BULKV2",
+    RestSync: "REST_SYNC",
+} as const;
+
+export type FlowDataTransferApi = (typeof FlowDataTransferApi)[keyof typeof FlowDataTransferApi];
+
 export const FlowDatadogConnectorOperator = {
     Projection: "PROJECTION",
     Between: "BETWEEN",
@@ -227,6 +235,7 @@ export const FlowOperatorPropertiesKeys = {
     ConcatFormat: "CONCAT_FORMAT",
     SubfieldCategoryMap: "SUBFIELD_CATEGORY_MAP",
     ExcludeSourceFieldsList: "EXCLUDE_SOURCE_FIELDS_LIST",
+    IncludeNewFields: "INCLUDE_NEW_FIELDS",
 } as const;
 
 export type FlowOperatorPropertiesKeys = (typeof FlowOperatorPropertiesKeys)[keyof typeof FlowOperatorPropertiesKeys];

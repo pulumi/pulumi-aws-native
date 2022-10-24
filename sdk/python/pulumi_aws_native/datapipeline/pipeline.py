@@ -16,23 +16,31 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 parameter_objects: pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]],
                  activate: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]] = None,
                  parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]] = None,
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]] = None,
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
+        :param pulumi.Input[bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        :param pulumi.Input[str] description: A description of the pipeline.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]] parameter_objects: The parameter objects used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]] parameter_values: The parameter values used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """
-        pulumi.set(__self__, "parameter_objects", parameter_objects)
         if activate is not None:
             pulumi.set(__self__, "activate", activate)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parameter_objects is not None:
+            pulumi.set(__self__, "parameter_objects", parameter_objects)
         if parameter_values is not None:
             pulumi.set(__self__, "parameter_values", parameter_values)
         if pipeline_objects is not None:
@@ -41,17 +49,11 @@ class PipelineArgs:
             pulumi.set(__self__, "pipeline_tags", pipeline_tags)
 
     @property
-    @pulumi.getter(name="parameterObjects")
-    def parameter_objects(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]:
-        return pulumi.get(self, "parameter_objects")
-
-    @parameter_objects.setter
-    def parameter_objects(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]):
-        pulumi.set(self, "parameter_objects", value)
-
-    @property
     @pulumi.getter
     def activate(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -61,6 +63,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the pipeline.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,6 +75,9 @@ class PipelineArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -77,8 +85,23 @@ class PipelineArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="parameterObjects")
+    def parameter_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]]:
+        """
+        The parameter objects used with the pipeline.
+        """
+        return pulumi.get(self, "parameter_objects")
+
+    @parameter_objects.setter
+    def parameter_objects(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]]):
+        pulumi.set(self, "parameter_objects", value)
+
+    @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]]:
+        """
+        The parameter values used with the pipeline.
+        """
         return pulumi.get(self, "parameter_values")
 
     @parameter_values.setter
@@ -88,6 +111,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]]:
+        """
+        The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "pipeline_objects")
 
     @pipeline_objects.setter
@@ -97,6 +123,9 @@ class PipelineArgs:
     @property
     @pulumi.getter(name="pipelineTags")
     def pipeline_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]]:
+        """
+        A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "pipeline_tags")
 
     @pipeline_tags.setter
@@ -104,12 +133,7 @@ class PipelineArgs:
         pulumi.set(self, "pipeline_tags", value)
 
 
-warnings.warn("""Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Pipeline(pulumi.CustomResource):
-    warnings.warn("""Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -123,19 +147,26 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::DataPipeline::Pipeline
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] activate: Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        :param pulumi.Input[str] description: A description of the pipeline.
+        :param pulumi.Input[str] name: The name of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterObjectArgs']]]] parameter_objects: The parameter objects used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineParameterValueArgs']]]] parameter_values: The parameter values used with the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PipelineArgs,
+                 args: Optional[PipelineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::DataPipeline::Pipeline
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +191,6 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineObjectArgs']]]]] = None,
                  pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -172,12 +202,11 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["activate"] = activate
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if parameter_objects is None and not opts.urn:
-                raise TypeError("Missing required property 'parameter_objects'")
             __props__.__dict__["parameter_objects"] = parameter_objects
             __props__.__dict__["parameter_values"] = parameter_values
             __props__.__dict__["pipeline_objects"] = pipeline_objects
             __props__.__dict__["pipeline_tags"] = pipeline_tags
+            __props__.__dict__["pipeline_id"] = None
         super(Pipeline, __self__).__init__(
             'aws-native:datapipeline:Pipeline',
             resource_name,
@@ -205,6 +234,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["parameter_objects"] = None
         __props__.__dict__["parameter_values"] = None
+        __props__.__dict__["pipeline_id"] = None
         __props__.__dict__["pipeline_objects"] = None
         __props__.__dict__["pipeline_tags"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
@@ -212,35 +242,61 @@ class Pipeline(pulumi.CustomResource):
     @property
     @pulumi.getter
     def activate(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        """
         return pulumi.get(self, "activate")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the pipeline.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the pipeline.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parameterObjects")
-    def parameter_objects(self) -> pulumi.Output[Sequence['outputs.PipelineParameterObject']]:
+    def parameter_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineParameterObject']]]:
+        """
+        The parameter objects used with the pipeline.
+        """
         return pulumi.get(self, "parameter_objects")
 
     @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineParameterValue']]]:
+        """
+        The parameter values used with the pipeline.
+        """
         return pulumi.get(self, "parameter_values")
+
+    @property
+    @pulumi.getter(name="pipelineId")
+    def pipeline_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "pipeline_id")
 
     @property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineObject']]]:
+        """
+        The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "pipeline_objects")
 
     @property
     @pulumi.getter(name="pipelineTags")
     def pipeline_tags(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTag']]]:
+        """
+        A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "pipeline_tags")
 

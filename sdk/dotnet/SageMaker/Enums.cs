@@ -131,6 +131,68 @@ namespace Pulumi.AwsNative.SageMaker
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
+    public readonly struct DataQualityJobDefinitionBatchTransformInputS3DataDistributionType : IEquatable<DataQualityJobDefinitionBatchTransformInputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataQualityJobDefinitionBatchTransformInputS3DataDistributionType FullyReplicated { get; } = new DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated");
+        public static DataQualityJobDefinitionBatchTransformInputS3DataDistributionType ShardedByS3Key { get; } = new DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(DataQualityJobDefinitionBatchTransformInputS3DataDistributionType left, DataQualityJobDefinitionBatchTransformInputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(DataQualityJobDefinitionBatchTransformInputS3DataDistributionType left, DataQualityJobDefinitionBatchTransformInputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(DataQualityJobDefinitionBatchTransformInputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataQualityJobDefinitionBatchTransformInputS3DataDistributionType other && Equals(other);
+        public bool Equals(DataQualityJobDefinitionBatchTransformInputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataQualityJobDefinitionBatchTransformInputS3InputMode : IEquatable<DataQualityJobDefinitionBatchTransformInputS3InputMode>
+    {
+        private readonly string _value;
+
+        private DataQualityJobDefinitionBatchTransformInputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataQualityJobDefinitionBatchTransformInputS3InputMode Pipe { get; } = new DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe");
+        public static DataQualityJobDefinitionBatchTransformInputS3InputMode File { get; } = new DataQualityJobDefinitionBatchTransformInputS3InputMode("File");
+
+        public static bool operator ==(DataQualityJobDefinitionBatchTransformInputS3InputMode left, DataQualityJobDefinitionBatchTransformInputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(DataQualityJobDefinitionBatchTransformInputS3InputMode left, DataQualityJobDefinitionBatchTransformInputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataQualityJobDefinitionBatchTransformInputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataQualityJobDefinitionBatchTransformInputS3InputMode other && Equals(other);
+        public bool Equals(DataQualityJobDefinitionBatchTransformInputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    /// </summary>
+    [EnumType]
     public readonly struct DataQualityJobDefinitionEndpointInputS3DataDistributionType : IEquatable<DataQualityJobDefinitionEndpointInputS3DataDistributionType>
     {
         private readonly string _value;
@@ -500,6 +562,68 @@ namespace Pulumi.AwsNative.SageMaker
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
+    public readonly struct ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType : IEquatable<ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType FullyReplicated { get; } = new ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated");
+        public static ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType ShardedByS3Key { get; } = new ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType left, ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType left, ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType other && Equals(other);
+        public bool Equals(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelBiasJobDefinitionBatchTransformInputS3InputMode : IEquatable<ModelBiasJobDefinitionBatchTransformInputS3InputMode>
+    {
+        private readonly string _value;
+
+        private ModelBiasJobDefinitionBatchTransformInputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelBiasJobDefinitionBatchTransformInputS3InputMode Pipe { get; } = new ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe");
+        public static ModelBiasJobDefinitionBatchTransformInputS3InputMode File { get; } = new ModelBiasJobDefinitionBatchTransformInputS3InputMode("File");
+
+        public static bool operator ==(ModelBiasJobDefinitionBatchTransformInputS3InputMode left, ModelBiasJobDefinitionBatchTransformInputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(ModelBiasJobDefinitionBatchTransformInputS3InputMode left, ModelBiasJobDefinitionBatchTransformInputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelBiasJobDefinitionBatchTransformInputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelBiasJobDefinitionBatchTransformInputS3InputMode other && Equals(other);
+        public bool Equals(ModelBiasJobDefinitionBatchTransformInputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    /// </summary>
+    [EnumType]
     public readonly struct ModelBiasJobDefinitionEndpointInputS3DataDistributionType : IEquatable<ModelBiasJobDefinitionEndpointInputS3DataDistributionType>
     {
         private readonly string _value;
@@ -582,6 +706,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelBiasJobDefinitionS3OutputS3UploadMode other && Equals(other);
         public bool Equals(ModelBiasJobDefinitionS3OutputS3UploadMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType : IEquatable<ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType FullyReplicated { get; } = new ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated");
+        public static ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType ShardedByS3Key { get; } = new ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType left, ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType left, ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType other && Equals(other);
+        public bool Equals(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode : IEquatable<ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode>
+    {
+        private readonly string _value;
+
+        private ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode Pipe { get; } = new ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe");
+        public static ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode File { get; } = new ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("File");
+
+        public static bool operator ==(ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode left, ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode left, ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode other && Equals(other);
+        public bool Equals(ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -978,6 +1164,68 @@ namespace Pulumi.AwsNative.SageMaker
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]
+    public readonly struct ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType : IEquatable<ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType FullyReplicated { get; } = new ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated");
+        public static ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType ShardedByS3Key { get; } = new ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType left, ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType left, ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType other && Equals(other);
+        public bool Equals(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelQualityJobDefinitionBatchTransformInputS3InputMode : IEquatable<ModelQualityJobDefinitionBatchTransformInputS3InputMode>
+    {
+        private readonly string _value;
+
+        private ModelQualityJobDefinitionBatchTransformInputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelQualityJobDefinitionBatchTransformInputS3InputMode Pipe { get; } = new ModelQualityJobDefinitionBatchTransformInputS3InputMode("Pipe");
+        public static ModelQualityJobDefinitionBatchTransformInputS3InputMode File { get; } = new ModelQualityJobDefinitionBatchTransformInputS3InputMode("File");
+
+        public static bool operator ==(ModelQualityJobDefinitionBatchTransformInputS3InputMode left, ModelQualityJobDefinitionBatchTransformInputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(ModelQualityJobDefinitionBatchTransformInputS3InputMode left, ModelQualityJobDefinitionBatchTransformInputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(ModelQualityJobDefinitionBatchTransformInputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelQualityJobDefinitionBatchTransformInputS3InputMode other && Equals(other);
+        public bool Equals(ModelQualityJobDefinitionBatchTransformInputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    /// </summary>
+    [EnumType]
     public readonly struct ModelQualityJobDefinitionEndpointInputS3DataDistributionType : IEquatable<ModelQualityJobDefinitionEndpointInputS3DataDistributionType>
     {
         private readonly string _value;
@@ -1092,6 +1340,68 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ModelQualityJobDefinitionS3OutputS3UploadMode other && Equals(other);
         public bool Equals(ModelQualityJobDefinitionS3OutputS3UploadMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringScheduleBatchTransformInputS3DataDistributionType : IEquatable<MonitoringScheduleBatchTransformInputS3DataDistributionType>
+    {
+        private readonly string _value;
+
+        private MonitoringScheduleBatchTransformInputS3DataDistributionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonitoringScheduleBatchTransformInputS3DataDistributionType FullyReplicated { get; } = new MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated");
+        public static MonitoringScheduleBatchTransformInputS3DataDistributionType ShardedByS3Key { get; } = new MonitoringScheduleBatchTransformInputS3DataDistributionType("ShardedByS3Key");
+
+        public static bool operator ==(MonitoringScheduleBatchTransformInputS3DataDistributionType left, MonitoringScheduleBatchTransformInputS3DataDistributionType right) => left.Equals(right);
+        public static bool operator !=(MonitoringScheduleBatchTransformInputS3DataDistributionType left, MonitoringScheduleBatchTransformInputS3DataDistributionType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringScheduleBatchTransformInputS3DataDistributionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringScheduleBatchTransformInputS3DataDistributionType other && Equals(other);
+        public bool Equals(MonitoringScheduleBatchTransformInputS3DataDistributionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringScheduleBatchTransformInputS3InputMode : IEquatable<MonitoringScheduleBatchTransformInputS3InputMode>
+    {
+        private readonly string _value;
+
+        private MonitoringScheduleBatchTransformInputS3InputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MonitoringScheduleBatchTransformInputS3InputMode Pipe { get; } = new MonitoringScheduleBatchTransformInputS3InputMode("Pipe");
+        public static MonitoringScheduleBatchTransformInputS3InputMode File { get; } = new MonitoringScheduleBatchTransformInputS3InputMode("File");
+
+        public static bool operator ==(MonitoringScheduleBatchTransformInputS3InputMode left, MonitoringScheduleBatchTransformInputS3InputMode right) => left.Equals(right);
+        public static bool operator !=(MonitoringScheduleBatchTransformInputS3InputMode left, MonitoringScheduleBatchTransformInputS3InputMode right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringScheduleBatchTransformInputS3InputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringScheduleBatchTransformInputS3InputMode other && Equals(other);
+        public bool Equals(MonitoringScheduleBatchTransformInputS3InputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineParameterObject
     {
+        /// <summary>
+        /// The attributes of the parameter object.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineParameterAttribute> Attributes;
+        /// <summary>
+        /// The ID of the parameter object.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

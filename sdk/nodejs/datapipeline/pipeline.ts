@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::DataPipeline::Pipeline
- *
- * @deprecated Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pipeline {
-        pulumi.log.warn("Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Pipeline(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,12 +37,34 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    /**
+     * Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+     */
     public readonly activate!: pulumi.Output<boolean | undefined>;
+    /**
+     * A description of the pipeline.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the pipeline.
+     */
     public readonly name!: pulumi.Output<string>;
-    public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineParameterObject[]>;
+    /**
+     * The parameter objects used with the pipeline.
+     */
+    public readonly parameterObjects!: pulumi.Output<outputs.datapipeline.PipelineParameterObject[] | undefined>;
+    /**
+     * The parameter values used with the pipeline.
+     */
     public readonly parameterValues!: pulumi.Output<outputs.datapipeline.PipelineParameterValue[] | undefined>;
+    public /*out*/ readonly pipelineId!: pulumi.Output<string>;
+    /**
+     * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+     */
     public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineObject[] | undefined>;
+    /**
+     * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+     */
     public readonly pipelineTags!: pulumi.Output<outputs.datapipeline.PipelineTag[] | undefined>;
 
     /**
@@ -55,15 +74,10 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
+    constructor(name: string, args?: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.parameterObjects === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parameterObjects'");
-            }
             resourceInputs["activate"] = args ? args.activate : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -71,12 +85,14 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
             resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
             resourceInputs["pipelineTags"] = args ? args.pipelineTags : undefined;
+            resourceInputs["pipelineId"] = undefined /*out*/;
         } else {
             resourceInputs["activate"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameterObjects"] = undefined /*out*/;
             resourceInputs["parameterValues"] = undefined /*out*/;
+            resourceInputs["pipelineId"] = undefined /*out*/;
             resourceInputs["pipelineObjects"] = undefined /*out*/;
             resourceInputs["pipelineTags"] = undefined /*out*/;
         }
@@ -89,11 +105,32 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    /**
+     * Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+     */
     activate?: pulumi.Input<boolean>;
+    /**
+     * A description of the pipeline.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the pipeline.
+     */
     name?: pulumi.Input<string>;
-    parameterObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[]>;
+    /**
+     * The parameter objects used with the pipeline.
+     */
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[]>;
+    /**
+     * The parameter values used with the pipeline.
+     */
     parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterValueArgs>[]>;
+    /**
+     * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+     */
     pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineObjectArgs>[]>;
+    /**
+     * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+     */
     pipelineTags?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineTagArgs>[]>;
 }

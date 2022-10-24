@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineTag
     {
+        /// <summary>
+        /// The key name of a tag.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value to associate with the key name.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

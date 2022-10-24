@@ -16,6 +16,7 @@ __all__ = [
     'FirewallPolicyDimensionArgs',
     'FirewallPolicyPublishMetricActionArgs',
     'FirewallPolicyStatefulEngineOptionsArgs',
+    'FirewallPolicyStatefulRuleGroupOverrideArgs',
     'FirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyStatelessRuleGroupReferenceArgs',
     'FirewallPolicyTagArgs',
@@ -140,11 +141,31 @@ class FirewallPolicyStatefulEngineOptionsArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyStatefulRuleGroupOverrideArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['FirewallPolicyOverrideAction']] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['FirewallPolicyOverrideAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['FirewallPolicyOverrideAction']]):
+        pulumi.set(self, "action", value)
+
+
+@pulumi.input_type
 class FirewallPolicyStatefulRuleGroupReferenceArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
+                 override: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']] = None,
                  priority: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if override is not None:
+            pulumi.set(__self__, "override", override)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
 
@@ -156,6 +177,15 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
     @resource_arn.setter
     def resource_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']]:
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']]):
+        pulumi.set(self, "override", value)
 
     @property
     @pulumi.getter

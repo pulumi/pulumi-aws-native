@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.DataPipeline.Inputs
     {
         [Input("fields", required: true)]
         private InputList<Inputs.PipelineFieldArgs>? _fields;
+
+        /// <summary>
+        /// Key-value pairs that define the properties of the object.
+        /// </summary>
         public InputList<Inputs.PipelineFieldArgs> Fields
         {
             get => _fields ?? (_fields = new InputList<Inputs.PipelineFieldArgs>());
             set => _fields = value;
         }
 
+        /// <summary>
+        /// The ID of the object.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the object.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

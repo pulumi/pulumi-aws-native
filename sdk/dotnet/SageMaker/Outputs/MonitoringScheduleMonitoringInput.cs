@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class MonitoringScheduleMonitoringInput
     {
-        public readonly Outputs.MonitoringScheduleEndpointInput EndpointInput;
+        public readonly Outputs.MonitoringScheduleBatchTransformInput? BatchTransformInput;
+        public readonly Outputs.MonitoringScheduleEndpointInput? EndpointInput;
 
         [OutputConstructor]
-        private MonitoringScheduleMonitoringInput(Outputs.MonitoringScheduleEndpointInput endpointInput)
+        private MonitoringScheduleMonitoringInput(
+            Outputs.MonitoringScheduleBatchTransformInput? batchTransformInput,
+
+            Outputs.MonitoringScheduleEndpointInput? endpointInput)
         {
+            BatchTransformInput = batchTransformInput;
             EndpointInput = endpointInput;
         }
     }

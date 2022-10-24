@@ -1773,10 +1773,12 @@ class BotPromptSpecificationArgs:
                  max_retries: pulumi.Input[int],
                  message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
                  allow_interrupt: Optional[pulumi.Input[bool]] = None,
-                 message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None):
+                 message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None,
+                 prompt_attempts_specification: Optional[Any] = None):
         """
         Prompts the user to confirm the intent.
         :param pulumi.Input[bool] allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
+        :param Any prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
         pulumi.set(__self__, "max_retries", max_retries)
         pulumi.set(__self__, "message_groups_list", message_groups_list)
@@ -1784,6 +1786,8 @@ class BotPromptSpecificationArgs:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_selection_strategy is not None:
             pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
+        if prompt_attempts_specification is not None:
+            pulumi.set(__self__, "prompt_attempts_specification", prompt_attempts_specification)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -1823,6 +1827,18 @@ class BotPromptSpecificationArgs:
     @message_selection_strategy.setter
     def message_selection_strategy(self, value: Optional[pulumi.Input['BotMessageSelectionStrategy']]):
         pulumi.set(self, "message_selection_strategy", value)
+
+    @property
+    @pulumi.getter(name="promptAttemptsSpecification")
+    def prompt_attempts_specification(self) -> Optional[Any]:
+        """
+        Specifies the advanced settings on each attempt of the prompt.
+        """
+        return pulumi.get(self, "prompt_attempts_specification")
+
+    @prompt_attempts_specification.setter
+    def prompt_attempts_specification(self, value: Optional[Any]):
+        pulumi.set(self, "prompt_attempts_specification", value)
 
 
 @pulumi.input_type

@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
     /// </summary>
     public sealed class NotificationChannelConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("filters")]
+        public Input<Inputs.NotificationChannelNotificationFilterConfigArgs>? Filters { get; set; }
+
         [Input("sns")]
         public Input<Inputs.NotificationChannelSnsChannelConfigArgs>? Sns { get; set; }
 

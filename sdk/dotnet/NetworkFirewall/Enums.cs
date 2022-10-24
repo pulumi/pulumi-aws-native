@@ -8,6 +8,33 @@ using Pulumi;
 namespace Pulumi.AwsNative.NetworkFirewall
 {
     [EnumType]
+    public readonly struct FirewallPolicyOverrideAction : IEquatable<FirewallPolicyOverrideAction>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyOverrideAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyOverrideAction DropToAlert { get; } = new FirewallPolicyOverrideAction("DROP_TO_ALERT");
+
+        public static bool operator ==(FirewallPolicyOverrideAction left, FirewallPolicyOverrideAction right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyOverrideAction left, FirewallPolicyOverrideAction right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyOverrideAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyOverrideAction other && Equals(other);
+        public bool Equals(FirewallPolicyOverrideAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FirewallPolicyRuleOrder : IEquatable<FirewallPolicyRuleOrder>
     {
         private readonly string _value;

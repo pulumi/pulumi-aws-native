@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowSalesforceSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dataTransferApi")]
+        public Input<Pulumi.AwsNative.AppFlow.FlowDataTransferApi>? DataTransferApi { get; set; }
+
         [Input("enableDynamicFieldUpdate")]
         public Input<bool>? EnableDynamicFieldUpdate { get; set; }
 

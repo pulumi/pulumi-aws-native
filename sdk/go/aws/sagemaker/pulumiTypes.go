@@ -1042,6 +1042,224 @@ func (o CodeRepositoryTagArrayOutput) Index(i pulumi.IntInput) CodeRepositoryTag
 	}).(CodeRepositoryTagOutput)
 }
 
+// The batch transform input for a monitoring job.
+type DataQualityJobDefinitionBatchTransformInput struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri string                                `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                DataQualityJobDefinitionDatasetFormat `pulumi:"datasetFormat"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode *DataQualityJobDefinitionBatchTransformInputS3InputMode `pulumi:"s3InputMode"`
+}
+
+// DataQualityJobDefinitionBatchTransformInputInput is an input type that accepts DataQualityJobDefinitionBatchTransformInputArgs and DataQualityJobDefinitionBatchTransformInputOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionBatchTransformInputInput` via:
+//
+//	DataQualityJobDefinitionBatchTransformInputArgs{...}
+type DataQualityJobDefinitionBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputOutput() DataQualityJobDefinitionBatchTransformInputOutput
+	ToDataQualityJobDefinitionBatchTransformInputOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputOutput
+}
+
+// The batch transform input for a monitoring job.
+type DataQualityJobDefinitionBatchTransformInputArgs struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri pulumi.StringInput                         `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                DataQualityJobDefinitionDatasetFormatInput `pulumi:"datasetFormat"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode DataQualityJobDefinitionBatchTransformInputS3InputModePtrInput `pulumi:"s3InputMode"`
+}
+
+func (DataQualityJobDefinitionBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionBatchTransformInputArgs) ToDataQualityJobDefinitionBatchTransformInputOutput() DataQualityJobDefinitionBatchTransformInputOutput {
+	return i.ToDataQualityJobDefinitionBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionBatchTransformInputArgs) ToDataQualityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionBatchTransformInputOutput)
+}
+
+func (i DataQualityJobDefinitionBatchTransformInputArgs) ToDataQualityJobDefinitionBatchTransformInputPtrOutput() DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionBatchTransformInputArgs) ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionBatchTransformInputOutput).ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// DataQualityJobDefinitionBatchTransformInputPtrInput is an input type that accepts DataQualityJobDefinitionBatchTransformInputArgs, DataQualityJobDefinitionBatchTransformInputPtr and DataQualityJobDefinitionBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionBatchTransformInputPtrInput` via:
+//
+//	        DataQualityJobDefinitionBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityJobDefinitionBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputPtrOutput() DataQualityJobDefinitionBatchTransformInputPtrOutput
+	ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputPtrOutput
+}
+
+type dataQualityJobDefinitionBatchTransformInputPtrType DataQualityJobDefinitionBatchTransformInputArgs
+
+func DataQualityJobDefinitionBatchTransformInputPtr(v *DataQualityJobDefinitionBatchTransformInputArgs) DataQualityJobDefinitionBatchTransformInputPtrInput {
+	return (*dataQualityJobDefinitionBatchTransformInputPtrType)(v)
+}
+
+func (*dataQualityJobDefinitionBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i *dataQualityJobDefinitionBatchTransformInputPtrType) ToDataQualityJobDefinitionBatchTransformInputPtrOutput() DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityJobDefinitionBatchTransformInputPtrType) ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// The batch transform input for a monitoring job.
+type DataQualityJobDefinitionBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputOutput) ToDataQualityJobDefinitionBatchTransformInputOutput() DataQualityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputOutput) ToDataQualityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputOutput) ToDataQualityJobDefinitionBatchTransformInputPtrOutput() DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputOutput) ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionBatchTransformInput {
+		return &v
+	}).(DataQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o DataQualityJobDefinitionBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) string { return v.DataCapturedDestinationS3Uri }).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputOutput) DatasetFormat() DataQualityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) DataQualityJobDefinitionDatasetFormat {
+		return v.DatasetFormat
+	}).(DataQualityJobDefinitionDatasetFormatOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o DataQualityJobDefinitionBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o DataQualityJobDefinitionBatchTransformInputOutput) S3DataDistributionType() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o DataQualityJobDefinitionBatchTransformInputOutput) S3InputMode() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionBatchTransformInputS3InputMode {
+		return v.S3InputMode
+	}).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+type DataQualityJobDefinitionBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) ToDataQualityJobDefinitionBatchTransformInputPtrOutput() DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) ToDataQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) Elem() DataQualityJobDefinitionBatchTransformInputOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) DataQualityJobDefinitionBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionBatchTransformInput
+		return ret
+	}).(DataQualityJobDefinitionBatchTransformInputOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) DatasetFormat() DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(DataQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) S3DataDistributionType() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o DataQualityJobDefinitionBatchTransformInputPtrOutput) S3InputMode() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInput) *DataQualityJobDefinitionBatchTransformInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
 // Configuration for the cluster used to run model monitoring jobs.
 type DataQualityJobDefinitionClusterConfig struct {
 	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -1262,6 +1480,146 @@ func (o DataQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.Str
 		}
 		return v.S3Uri
 	}).(pulumi.StringPtrOutput)
+}
+
+// The CSV format
+type DataQualityJobDefinitionCsv struct {
+	// A boolean flag indicating if given CSV has header
+	Header *bool `pulumi:"header"`
+}
+
+// DataQualityJobDefinitionCsvInput is an input type that accepts DataQualityJobDefinitionCsvArgs and DataQualityJobDefinitionCsvOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionCsvInput` via:
+//
+//	DataQualityJobDefinitionCsvArgs{...}
+type DataQualityJobDefinitionCsvInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionCsvOutput() DataQualityJobDefinitionCsvOutput
+	ToDataQualityJobDefinitionCsvOutputWithContext(context.Context) DataQualityJobDefinitionCsvOutput
+}
+
+// The CSV format
+type DataQualityJobDefinitionCsvArgs struct {
+	// A boolean flag indicating if given CSV has header
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (DataQualityJobDefinitionCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionCsvArgs) ToDataQualityJobDefinitionCsvOutput() DataQualityJobDefinitionCsvOutput {
+	return i.ToDataQualityJobDefinitionCsvOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionCsvArgs) ToDataQualityJobDefinitionCsvOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionCsvOutput)
+}
+
+func (i DataQualityJobDefinitionCsvArgs) ToDataQualityJobDefinitionCsvPtrOutput() DataQualityJobDefinitionCsvPtrOutput {
+	return i.ToDataQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionCsvArgs) ToDataQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionCsvOutput).ToDataQualityJobDefinitionCsvPtrOutputWithContext(ctx)
+}
+
+// DataQualityJobDefinitionCsvPtrInput is an input type that accepts DataQualityJobDefinitionCsvArgs, DataQualityJobDefinitionCsvPtr and DataQualityJobDefinitionCsvPtrOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionCsvPtrInput` via:
+//
+//	        DataQualityJobDefinitionCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityJobDefinitionCsvPtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionCsvPtrOutput() DataQualityJobDefinitionCsvPtrOutput
+	ToDataQualityJobDefinitionCsvPtrOutputWithContext(context.Context) DataQualityJobDefinitionCsvPtrOutput
+}
+
+type dataQualityJobDefinitionCsvPtrType DataQualityJobDefinitionCsvArgs
+
+func DataQualityJobDefinitionCsvPtr(v *DataQualityJobDefinitionCsvArgs) DataQualityJobDefinitionCsvPtrInput {
+	return (*dataQualityJobDefinitionCsvPtrType)(v)
+}
+
+func (*dataQualityJobDefinitionCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i *dataQualityJobDefinitionCsvPtrType) ToDataQualityJobDefinitionCsvPtrOutput() DataQualityJobDefinitionCsvPtrOutput {
+	return i.ToDataQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityJobDefinitionCsvPtrType) ToDataQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionCsvPtrOutput)
+}
+
+// The CSV format
+type DataQualityJobDefinitionCsvOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionCsvOutput) ToDataQualityJobDefinitionCsvOutput() DataQualityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionCsvOutput) ToDataQualityJobDefinitionCsvOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionCsvOutput) ToDataQualityJobDefinitionCsvPtrOutput() DataQualityJobDefinitionCsvPtrOutput {
+	return o.ToDataQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionCsvOutput) ToDataQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionCsv) *DataQualityJobDefinitionCsv {
+		return &v
+	}).(DataQualityJobDefinitionCsvPtrOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o DataQualityJobDefinitionCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionCsv) *bool { return v.Header }).(pulumi.BoolPtrOutput)
+}
+
+type DataQualityJobDefinitionCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionCsvPtrOutput) ToDataQualityJobDefinitionCsvPtrOutput() DataQualityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionCsvPtrOutput) ToDataQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionCsvPtrOutput) Elem() DataQualityJobDefinitionCsvOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionCsv) DataQualityJobDefinitionCsv {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionCsv
+		return ret
+	}).(DataQualityJobDefinitionCsvOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o DataQualityJobDefinitionCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -1540,7 +1898,8 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) StatisticsRe
 
 // The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInput struct {
-	EndpointInput DataQualityJobDefinitionEndpointInput `pulumi:"endpointInput"`
+	BatchTransformInput *DataQualityJobDefinitionBatchTransformInput `pulumi:"batchTransformInput"`
+	EndpointInput       *DataQualityJobDefinitionEndpointInput       `pulumi:"endpointInput"`
 }
 
 // DataQualityJobDefinitionDataQualityJobInputInput is an input type that accepts DataQualityJobDefinitionDataQualityJobInputArgs and DataQualityJobDefinitionDataQualityJobInputOutput values.
@@ -1556,7 +1915,8 @@ type DataQualityJobDefinitionDataQualityJobInputInput interface {
 
 // The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInputArgs struct {
-	EndpointInput DataQualityJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
+	BatchTransformInput DataQualityJobDefinitionBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
+	EndpointInput       DataQualityJobDefinitionEndpointInputPtrInput       `pulumi:"endpointInput"`
 }
 
 func (DataQualityJobDefinitionDataQualityJobInputArgs) ElementType() reflect.Type {
@@ -1586,10 +1946,182 @@ func (o DataQualityJobDefinitionDataQualityJobInputOutput) ToDataQualityJobDefin
 	return o
 }
 
-func (o DataQualityJobDefinitionDataQualityJobInputOutput) EndpointInput() DataQualityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInput) DataQualityJobDefinitionEndpointInput {
+func (o DataQualityJobDefinitionDataQualityJobInputOutput) BatchTransformInput() DataQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInput) *DataQualityJobDefinitionBatchTransformInput {
+		return v.BatchTransformInput
+	}).(DataQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDataQualityJobInputOutput) EndpointInput() DataQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInput) *DataQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
-	}).(DataQualityJobDefinitionEndpointInputOutput)
+	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type DataQualityJobDefinitionDatasetFormat struct {
+	Csv     *DataQualityJobDefinitionCsv  `pulumi:"csv"`
+	Json    *DataQualityJobDefinitionJson `pulumi:"json"`
+	Parquet *bool                         `pulumi:"parquet"`
+}
+
+// DataQualityJobDefinitionDatasetFormatInput is an input type that accepts DataQualityJobDefinitionDatasetFormatArgs and DataQualityJobDefinitionDatasetFormatOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionDatasetFormatInput` via:
+//
+//	DataQualityJobDefinitionDatasetFormatArgs{...}
+type DataQualityJobDefinitionDatasetFormatInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionDatasetFormatOutput() DataQualityJobDefinitionDatasetFormatOutput
+	ToDataQualityJobDefinitionDatasetFormatOutputWithContext(context.Context) DataQualityJobDefinitionDatasetFormatOutput
+}
+
+// The dataset format of the data to monitor
+type DataQualityJobDefinitionDatasetFormatArgs struct {
+	Csv     DataQualityJobDefinitionCsvPtrInput  `pulumi:"csv"`
+	Json    DataQualityJobDefinitionJsonPtrInput `pulumi:"json"`
+	Parquet pulumi.BoolPtrInput                  `pulumi:"parquet"`
+}
+
+func (DataQualityJobDefinitionDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionDatasetFormatArgs) ToDataQualityJobDefinitionDatasetFormatOutput() DataQualityJobDefinitionDatasetFormatOutput {
+	return i.ToDataQualityJobDefinitionDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionDatasetFormatArgs) ToDataQualityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDatasetFormatOutput)
+}
+
+func (i DataQualityJobDefinitionDatasetFormatArgs) ToDataQualityJobDefinitionDatasetFormatPtrOutput() DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionDatasetFormatArgs) ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDatasetFormatOutput).ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// DataQualityJobDefinitionDatasetFormatPtrInput is an input type that accepts DataQualityJobDefinitionDatasetFormatArgs, DataQualityJobDefinitionDatasetFormatPtr and DataQualityJobDefinitionDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionDatasetFormatPtrInput` via:
+//
+//	        DataQualityJobDefinitionDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityJobDefinitionDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionDatasetFormatPtrOutput() DataQualityJobDefinitionDatasetFormatPtrOutput
+	ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Context) DataQualityJobDefinitionDatasetFormatPtrOutput
+}
+
+type dataQualityJobDefinitionDatasetFormatPtrType DataQualityJobDefinitionDatasetFormatArgs
+
+func DataQualityJobDefinitionDatasetFormatPtr(v *DataQualityJobDefinitionDatasetFormatArgs) DataQualityJobDefinitionDatasetFormatPtrInput {
+	return (*dataQualityJobDefinitionDatasetFormatPtrType)(v)
+}
+
+func (*dataQualityJobDefinitionDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i *dataQualityJobDefinitionDatasetFormatPtrType) ToDataQualityJobDefinitionDatasetFormatPtrOutput() DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityJobDefinitionDatasetFormatPtrType) ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type DataQualityJobDefinitionDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) ToDataQualityJobDefinitionDatasetFormatOutput() DataQualityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) ToDataQualityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) ToDataQualityJobDefinitionDatasetFormatPtrOutput() DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionDatasetFormat) *DataQualityJobDefinitionDatasetFormat {
+		return &v
+	}).(DataQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) Csv() DataQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDatasetFormat) *DataQualityJobDefinitionCsv { return v.Csv }).(DataQualityJobDefinitionCsvPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) Json() DataQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDatasetFormat) *DataQualityJobDefinitionJson { return v.Json }).(DataQualityJobDefinitionJsonPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDatasetFormat) *bool { return v.Parquet }).(pulumi.BoolPtrOutput)
+}
+
+type DataQualityJobDefinitionDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) ToDataQualityJobDefinitionDatasetFormatPtrOutput() DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) ToDataQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) Elem() DataQualityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDatasetFormat) DataQualityJobDefinitionDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionDatasetFormat
+		return ret
+	}).(DataQualityJobDefinitionDatasetFormatOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) Csv() DataQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDatasetFormat) *DataQualityJobDefinitionCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(DataQualityJobDefinitionCsvPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) Json() DataQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDatasetFormat) *DataQualityJobDefinitionJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(DataQualityJobDefinitionJsonPtrOutput)
+}
+
+func (o DataQualityJobDefinitionDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDatasetFormat) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Parquet
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The endpoint for a monitoring job.
@@ -1637,6 +2169,47 @@ func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEnd
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputOutput)
 }
 
+func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
+	return i.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionEndpointInputArgs) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputOutput).ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
+}
+
+// DataQualityJobDefinitionEndpointInputPtrInput is an input type that accepts DataQualityJobDefinitionEndpointInputArgs, DataQualityJobDefinitionEndpointInputPtr and DataQualityJobDefinitionEndpointInputPtrOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionEndpointInputPtrInput` via:
+//
+//	        DataQualityJobDefinitionEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityJobDefinitionEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput
+	ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) DataQualityJobDefinitionEndpointInputPtrOutput
+}
+
+type dataQualityJobDefinitionEndpointInputPtrType DataQualityJobDefinitionEndpointInputArgs
+
+func DataQualityJobDefinitionEndpointInputPtr(v *DataQualityJobDefinitionEndpointInputArgs) DataQualityJobDefinitionEndpointInputPtrInput {
+	return (*dataQualityJobDefinitionEndpointInputPtrType)(v)
+}
+
+func (*dataQualityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (i *dataQualityJobDefinitionEndpointInputPtrType) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
+	return i.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityJobDefinitionEndpointInputPtrType) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -1650,6 +2223,16 @@ func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionE
 
 func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputOutput {
 	return o
+}
+
+func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInput {
+		return &v
+	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o DataQualityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
@@ -1673,6 +2256,209 @@ func (o DataQualityJobDefinitionEndpointInputOutput) S3InputMode() DataQualityJo
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
 		return v.S3InputMode
 	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+type DataQualityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) ToDataQualityJobDefinitionEndpointInputPtrOutput() DataQualityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) ToDataQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) Elem() DataQualityJobDefinitionEndpointInputOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) DataQualityJobDefinitionEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionEndpointInput
+		return ret
+	}).(DataQualityJobDefinitionEndpointInputOutput)
+}
+
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *DataQualityJobDefinitionEndpointInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+// The Json format
+type DataQualityJobDefinitionJson struct {
+	// A boolean flag indicating if it is JSON line format
+	Line *bool `pulumi:"line"`
+}
+
+// DataQualityJobDefinitionJsonInput is an input type that accepts DataQualityJobDefinitionJsonArgs and DataQualityJobDefinitionJsonOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionJsonInput` via:
+//
+//	DataQualityJobDefinitionJsonArgs{...}
+type DataQualityJobDefinitionJsonInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionJsonOutput() DataQualityJobDefinitionJsonOutput
+	ToDataQualityJobDefinitionJsonOutputWithContext(context.Context) DataQualityJobDefinitionJsonOutput
+}
+
+// The Json format
+type DataQualityJobDefinitionJsonArgs struct {
+	// A boolean flag indicating if it is JSON line format
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (DataQualityJobDefinitionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionJsonArgs) ToDataQualityJobDefinitionJsonOutput() DataQualityJobDefinitionJsonOutput {
+	return i.ToDataQualityJobDefinitionJsonOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionJsonArgs) ToDataQualityJobDefinitionJsonOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionJsonOutput)
+}
+
+func (i DataQualityJobDefinitionJsonArgs) ToDataQualityJobDefinitionJsonPtrOutput() DataQualityJobDefinitionJsonPtrOutput {
+	return i.ToDataQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionJsonArgs) ToDataQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionJsonOutput).ToDataQualityJobDefinitionJsonPtrOutputWithContext(ctx)
+}
+
+// DataQualityJobDefinitionJsonPtrInput is an input type that accepts DataQualityJobDefinitionJsonArgs, DataQualityJobDefinitionJsonPtr and DataQualityJobDefinitionJsonPtrOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionJsonPtrInput` via:
+//
+//	        DataQualityJobDefinitionJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataQualityJobDefinitionJsonPtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionJsonPtrOutput() DataQualityJobDefinitionJsonPtrOutput
+	ToDataQualityJobDefinitionJsonPtrOutputWithContext(context.Context) DataQualityJobDefinitionJsonPtrOutput
+}
+
+type dataQualityJobDefinitionJsonPtrType DataQualityJobDefinitionJsonArgs
+
+func DataQualityJobDefinitionJsonPtr(v *DataQualityJobDefinitionJsonArgs) DataQualityJobDefinitionJsonPtrInput {
+	return (*dataQualityJobDefinitionJsonPtrType)(v)
+}
+
+func (*dataQualityJobDefinitionJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i *dataQualityJobDefinitionJsonPtrType) ToDataQualityJobDefinitionJsonPtrOutput() DataQualityJobDefinitionJsonPtrOutput {
+	return i.ToDataQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *dataQualityJobDefinitionJsonPtrType) ToDataQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionJsonPtrOutput)
+}
+
+// The Json format
+type DataQualityJobDefinitionJsonOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionJsonOutput) ToDataQualityJobDefinitionJsonOutput() DataQualityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionJsonOutput) ToDataQualityJobDefinitionJsonOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionJsonOutput) ToDataQualityJobDefinitionJsonPtrOutput() DataQualityJobDefinitionJsonPtrOutput {
+	return o.ToDataQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionJsonOutput) ToDataQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionJson) *DataQualityJobDefinitionJson {
+		return &v
+	}).(DataQualityJobDefinitionJsonPtrOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o DataQualityJobDefinitionJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionJson) *bool { return v.Line }).(pulumi.BoolPtrOutput)
+}
+
+type DataQualityJobDefinitionJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionJsonPtrOutput) ToDataQualityJobDefinitionJsonPtrOutput() DataQualityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionJsonPtrOutput) ToDataQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionJsonPtrOutput) Elem() DataQualityJobDefinitionJsonOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionJson) DataQualityJobDefinitionJson {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionJson
+		return ret
+	}).(DataQualityJobDefinitionJsonOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o DataQualityJobDefinitionJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -9462,6 +10248,334 @@ func (o ImageTagArrayOutput) Index(i pulumi.IntInput) ImageTagOutput {
 	}).(ImageTagOutput)
 }
 
+// The batch transform input for a monitoring job.
+type ModelBiasJobDefinitionBatchTransformInput struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri string                              `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelBiasJobDefinitionDatasetFormat `pulumi:"datasetFormat"`
+	// Monitoring end time offset, e.g. PT0H
+	EndTimeOffset *string `pulumi:"endTimeOffset"`
+	// JSONpath to locate features in JSONlines dataset
+	FeaturesAttribute *string `pulumi:"featuresAttribute"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute *string `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
+	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode *ModelBiasJobDefinitionBatchTransformInputS3InputMode `pulumi:"s3InputMode"`
+	// Monitoring start time offset, e.g. -PT1H
+	StartTimeOffset *string `pulumi:"startTimeOffset"`
+}
+
+// ModelBiasJobDefinitionBatchTransformInputInput is an input type that accepts ModelBiasJobDefinitionBatchTransformInputArgs and ModelBiasJobDefinitionBatchTransformInputOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionBatchTransformInputInput` via:
+//
+//	ModelBiasJobDefinitionBatchTransformInputArgs{...}
+type ModelBiasJobDefinitionBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputOutput() ModelBiasJobDefinitionBatchTransformInputOutput
+	ToModelBiasJobDefinitionBatchTransformInputOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputOutput
+}
+
+// The batch transform input for a monitoring job.
+type ModelBiasJobDefinitionBatchTransformInputArgs struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri pulumi.StringInput                       `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelBiasJobDefinitionDatasetFormatInput `pulumi:"datasetFormat"`
+	// Monitoring end time offset, e.g. PT0H
+	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
+	// JSONpath to locate features in JSONlines dataset
+	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
+	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode ModelBiasJobDefinitionBatchTransformInputS3InputModePtrInput `pulumi:"s3InputMode"`
+	// Monitoring start time offset, e.g. -PT1H
+	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
+}
+
+func (ModelBiasJobDefinitionBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionBatchTransformInputArgs) ToModelBiasJobDefinitionBatchTransformInputOutput() ModelBiasJobDefinitionBatchTransformInputOutput {
+	return i.ToModelBiasJobDefinitionBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionBatchTransformInputArgs) ToModelBiasJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionBatchTransformInputOutput)
+}
+
+func (i ModelBiasJobDefinitionBatchTransformInputArgs) ToModelBiasJobDefinitionBatchTransformInputPtrOutput() ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionBatchTransformInputArgs) ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionBatchTransformInputOutput).ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// ModelBiasJobDefinitionBatchTransformInputPtrInput is an input type that accepts ModelBiasJobDefinitionBatchTransformInputArgs, ModelBiasJobDefinitionBatchTransformInputPtr and ModelBiasJobDefinitionBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionBatchTransformInputPtrInput` via:
+//
+//	        ModelBiasJobDefinitionBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelBiasJobDefinitionBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputPtrOutput() ModelBiasJobDefinitionBatchTransformInputPtrOutput
+	ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputPtrOutput
+}
+
+type modelBiasJobDefinitionBatchTransformInputPtrType ModelBiasJobDefinitionBatchTransformInputArgs
+
+func ModelBiasJobDefinitionBatchTransformInputPtr(v *ModelBiasJobDefinitionBatchTransformInputArgs) ModelBiasJobDefinitionBatchTransformInputPtrInput {
+	return (*modelBiasJobDefinitionBatchTransformInputPtrType)(v)
+}
+
+func (*modelBiasJobDefinitionBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i *modelBiasJobDefinitionBatchTransformInputPtrType) ToModelBiasJobDefinitionBatchTransformInputPtrOutput() ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelBiasJobDefinitionBatchTransformInputPtrType) ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// The batch transform input for a monitoring job.
+type ModelBiasJobDefinitionBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ToModelBiasJobDefinitionBatchTransformInputOutput() ModelBiasJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ToModelBiasJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ToModelBiasJobDefinitionBatchTransformInputPtrOutput() ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return o.ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionBatchTransformInput {
+		return &v
+	}).(ModelBiasJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) string { return v.DataCapturedDestinationS3Uri }).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) DatasetFormat() ModelBiasJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) ModelBiasJobDefinitionDatasetFormat {
+		return v.DatasetFormat
+	}).(ModelBiasJobDefinitionDatasetFormatOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *string { return v.EndTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *float64 { return v.ProbabilityThresholdAttribute }).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) S3DataDistributionType() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) S3InputMode() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionBatchTransformInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelBiasJobDefinitionBatchTransformInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionBatchTransformInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+type ModelBiasJobDefinitionBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) ToModelBiasJobDefinitionBatchTransformInputPtrOutput() ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) ToModelBiasJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) Elem() ModelBiasJobDefinitionBatchTransformInputOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) ModelBiasJobDefinitionBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionBatchTransformInput
+		return ret
+	}).(ModelBiasJobDefinitionBatchTransformInputOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) DatasetFormat() ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(ModelBiasJobDefinitionDatasetFormatPtrOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) S3DataDistributionType() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) S3InputMode() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *ModelBiasJobDefinitionBatchTransformInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelBiasJobDefinitionBatchTransformInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelBiasJobDefinitionClusterConfig struct {
 	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -9684,6 +10798,312 @@ func (o ModelBiasJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CSV format
+type ModelBiasJobDefinitionCsv struct {
+	// A boolean flag indicating if given CSV has header
+	Header *bool `pulumi:"header"`
+}
+
+// ModelBiasJobDefinitionCsvInput is an input type that accepts ModelBiasJobDefinitionCsvArgs and ModelBiasJobDefinitionCsvOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionCsvInput` via:
+//
+//	ModelBiasJobDefinitionCsvArgs{...}
+type ModelBiasJobDefinitionCsvInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionCsvOutput() ModelBiasJobDefinitionCsvOutput
+	ToModelBiasJobDefinitionCsvOutputWithContext(context.Context) ModelBiasJobDefinitionCsvOutput
+}
+
+// The CSV format
+type ModelBiasJobDefinitionCsvArgs struct {
+	// A boolean flag indicating if given CSV has header
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (ModelBiasJobDefinitionCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionCsvArgs) ToModelBiasJobDefinitionCsvOutput() ModelBiasJobDefinitionCsvOutput {
+	return i.ToModelBiasJobDefinitionCsvOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionCsvArgs) ToModelBiasJobDefinitionCsvOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionCsvOutput)
+}
+
+func (i ModelBiasJobDefinitionCsvArgs) ToModelBiasJobDefinitionCsvPtrOutput() ModelBiasJobDefinitionCsvPtrOutput {
+	return i.ToModelBiasJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionCsvArgs) ToModelBiasJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionCsvOutput).ToModelBiasJobDefinitionCsvPtrOutputWithContext(ctx)
+}
+
+// ModelBiasJobDefinitionCsvPtrInput is an input type that accepts ModelBiasJobDefinitionCsvArgs, ModelBiasJobDefinitionCsvPtr and ModelBiasJobDefinitionCsvPtrOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionCsvPtrInput` via:
+//
+//	        ModelBiasJobDefinitionCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelBiasJobDefinitionCsvPtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionCsvPtrOutput() ModelBiasJobDefinitionCsvPtrOutput
+	ToModelBiasJobDefinitionCsvPtrOutputWithContext(context.Context) ModelBiasJobDefinitionCsvPtrOutput
+}
+
+type modelBiasJobDefinitionCsvPtrType ModelBiasJobDefinitionCsvArgs
+
+func ModelBiasJobDefinitionCsvPtr(v *ModelBiasJobDefinitionCsvArgs) ModelBiasJobDefinitionCsvPtrInput {
+	return (*modelBiasJobDefinitionCsvPtrType)(v)
+}
+
+func (*modelBiasJobDefinitionCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i *modelBiasJobDefinitionCsvPtrType) ToModelBiasJobDefinitionCsvPtrOutput() ModelBiasJobDefinitionCsvPtrOutput {
+	return i.ToModelBiasJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *modelBiasJobDefinitionCsvPtrType) ToModelBiasJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionCsvPtrOutput)
+}
+
+// The CSV format
+type ModelBiasJobDefinitionCsvOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionCsvOutput) ToModelBiasJobDefinitionCsvOutput() ModelBiasJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionCsvOutput) ToModelBiasJobDefinitionCsvOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionCsvOutput) ToModelBiasJobDefinitionCsvPtrOutput() ModelBiasJobDefinitionCsvPtrOutput {
+	return o.ToModelBiasJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionCsvOutput) ToModelBiasJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionCsv) *ModelBiasJobDefinitionCsv {
+		return &v
+	}).(ModelBiasJobDefinitionCsvPtrOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelBiasJobDefinitionCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionCsv) *bool { return v.Header }).(pulumi.BoolPtrOutput)
+}
+
+type ModelBiasJobDefinitionCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionCsvPtrOutput) ToModelBiasJobDefinitionCsvPtrOutput() ModelBiasJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionCsvPtrOutput) ToModelBiasJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionCsvPtrOutput) Elem() ModelBiasJobDefinitionCsvOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionCsv) ModelBiasJobDefinitionCsv {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionCsv
+		return ret
+	}).(ModelBiasJobDefinitionCsvOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelBiasJobDefinitionCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelBiasJobDefinitionDatasetFormat struct {
+	Csv     *ModelBiasJobDefinitionCsv  `pulumi:"csv"`
+	Json    *ModelBiasJobDefinitionJson `pulumi:"json"`
+	Parquet *bool                       `pulumi:"parquet"`
+}
+
+// ModelBiasJobDefinitionDatasetFormatInput is an input type that accepts ModelBiasJobDefinitionDatasetFormatArgs and ModelBiasJobDefinitionDatasetFormatOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionDatasetFormatInput` via:
+//
+//	ModelBiasJobDefinitionDatasetFormatArgs{...}
+type ModelBiasJobDefinitionDatasetFormatInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionDatasetFormatOutput() ModelBiasJobDefinitionDatasetFormatOutput
+	ToModelBiasJobDefinitionDatasetFormatOutputWithContext(context.Context) ModelBiasJobDefinitionDatasetFormatOutput
+}
+
+// The dataset format of the data to monitor
+type ModelBiasJobDefinitionDatasetFormatArgs struct {
+	Csv     ModelBiasJobDefinitionCsvPtrInput  `pulumi:"csv"`
+	Json    ModelBiasJobDefinitionJsonPtrInput `pulumi:"json"`
+	Parquet pulumi.BoolPtrInput                `pulumi:"parquet"`
+}
+
+func (ModelBiasJobDefinitionDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionDatasetFormatArgs) ToModelBiasJobDefinitionDatasetFormatOutput() ModelBiasJobDefinitionDatasetFormatOutput {
+	return i.ToModelBiasJobDefinitionDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionDatasetFormatArgs) ToModelBiasJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionDatasetFormatOutput)
+}
+
+func (i ModelBiasJobDefinitionDatasetFormatArgs) ToModelBiasJobDefinitionDatasetFormatPtrOutput() ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionDatasetFormatArgs) ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionDatasetFormatOutput).ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// ModelBiasJobDefinitionDatasetFormatPtrInput is an input type that accepts ModelBiasJobDefinitionDatasetFormatArgs, ModelBiasJobDefinitionDatasetFormatPtr and ModelBiasJobDefinitionDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionDatasetFormatPtrInput` via:
+//
+//	        ModelBiasJobDefinitionDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelBiasJobDefinitionDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionDatasetFormatPtrOutput() ModelBiasJobDefinitionDatasetFormatPtrOutput
+	ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(context.Context) ModelBiasJobDefinitionDatasetFormatPtrOutput
+}
+
+type modelBiasJobDefinitionDatasetFormatPtrType ModelBiasJobDefinitionDatasetFormatArgs
+
+func ModelBiasJobDefinitionDatasetFormatPtr(v *ModelBiasJobDefinitionDatasetFormatArgs) ModelBiasJobDefinitionDatasetFormatPtrInput {
+	return (*modelBiasJobDefinitionDatasetFormatPtrType)(v)
+}
+
+func (*modelBiasJobDefinitionDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i *modelBiasJobDefinitionDatasetFormatPtrType) ToModelBiasJobDefinitionDatasetFormatPtrOutput() ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *modelBiasJobDefinitionDatasetFormatPtrType) ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionDatasetFormatPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelBiasJobDefinitionDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) ToModelBiasJobDefinitionDatasetFormatOutput() ModelBiasJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) ToModelBiasJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) ToModelBiasJobDefinitionDatasetFormatPtrOutput() ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return o.ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionDatasetFormat) *ModelBiasJobDefinitionDatasetFormat {
+		return &v
+	}).(ModelBiasJobDefinitionDatasetFormatPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) Csv() ModelBiasJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionDatasetFormat) *ModelBiasJobDefinitionCsv { return v.Csv }).(ModelBiasJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) Json() ModelBiasJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionDatasetFormat) *ModelBiasJobDefinitionJson { return v.Json }).(ModelBiasJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionDatasetFormat) *bool { return v.Parquet }).(pulumi.BoolPtrOutput)
+}
+
+type ModelBiasJobDefinitionDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) ToModelBiasJobDefinitionDatasetFormatPtrOutput() ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) ToModelBiasJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) Elem() ModelBiasJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionDatasetFormat) ModelBiasJobDefinitionDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionDatasetFormat
+		return ret
+	}).(ModelBiasJobDefinitionDatasetFormatOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) Csv() ModelBiasJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionDatasetFormat) *ModelBiasJobDefinitionCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(ModelBiasJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) Json() ModelBiasJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionDatasetFormat) *ModelBiasJobDefinitionJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(ModelBiasJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionDatasetFormat) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Parquet
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInput struct {
 	// Monitoring end time offset, e.g. PT0H
@@ -9751,6 +11171,47 @@ func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputOutput)
 }
 
+func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionEndpointInputArgs) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputOutput).ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx)
+}
+
+// ModelBiasJobDefinitionEndpointInputPtrInput is an input type that accepts ModelBiasJobDefinitionEndpointInputArgs, ModelBiasJobDefinitionEndpointInputPtr and ModelBiasJobDefinitionEndpointInputPtrOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionEndpointInputPtrInput` via:
+//
+//	        ModelBiasJobDefinitionEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelBiasJobDefinitionEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput
+	ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput
+}
+
+type modelBiasJobDefinitionEndpointInputPtrType ModelBiasJobDefinitionEndpointInputArgs
+
+func ModelBiasJobDefinitionEndpointInputPtr(v *ModelBiasJobDefinitionEndpointInputArgs) ModelBiasJobDefinitionEndpointInputPtrInput {
+	return (*modelBiasJobDefinitionEndpointInputPtrType)(v)
+}
+
+func (*modelBiasJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (i *modelBiasJobDefinitionEndpointInputPtrType) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelBiasJobDefinitionEndpointInputPtrType) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -9764,6 +11225,16 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpo
 
 func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputOutput {
 	return o
+}
+
+func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return o.ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInput {
+		return &v
+	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
 // Monitoring end time offset, e.g. PT0H
@@ -9816,6 +11287,268 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) S3InputMode() ModelBiasJobDef
 // Monitoring start time offset, e.g. -PT1H
 func (o ModelBiasJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+type ModelBiasJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ToModelBiasJobDefinitionEndpointInputPtrOutput() ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ToModelBiasJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) Elem() ModelBiasJobDefinitionEndpointInputOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) ModelBiasJobDefinitionEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionEndpointInput
+		return ret
+	}).(ModelBiasJobDefinitionEndpointInputOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *ModelBiasJobDefinitionEndpointInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelBiasJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Json format
+type ModelBiasJobDefinitionJson struct {
+	// A boolean flag indicating if it is JSON line format
+	Line *bool `pulumi:"line"`
+}
+
+// ModelBiasJobDefinitionJsonInput is an input type that accepts ModelBiasJobDefinitionJsonArgs and ModelBiasJobDefinitionJsonOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionJsonInput` via:
+//
+//	ModelBiasJobDefinitionJsonArgs{...}
+type ModelBiasJobDefinitionJsonInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionJsonOutput() ModelBiasJobDefinitionJsonOutput
+	ToModelBiasJobDefinitionJsonOutputWithContext(context.Context) ModelBiasJobDefinitionJsonOutput
+}
+
+// The Json format
+type ModelBiasJobDefinitionJsonArgs struct {
+	// A boolean flag indicating if it is JSON line format
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (ModelBiasJobDefinitionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionJson)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionJsonArgs) ToModelBiasJobDefinitionJsonOutput() ModelBiasJobDefinitionJsonOutput {
+	return i.ToModelBiasJobDefinitionJsonOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionJsonArgs) ToModelBiasJobDefinitionJsonOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionJsonOutput)
+}
+
+func (i ModelBiasJobDefinitionJsonArgs) ToModelBiasJobDefinitionJsonPtrOutput() ModelBiasJobDefinitionJsonPtrOutput {
+	return i.ToModelBiasJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionJsonArgs) ToModelBiasJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionJsonOutput).ToModelBiasJobDefinitionJsonPtrOutputWithContext(ctx)
+}
+
+// ModelBiasJobDefinitionJsonPtrInput is an input type that accepts ModelBiasJobDefinitionJsonArgs, ModelBiasJobDefinitionJsonPtr and ModelBiasJobDefinitionJsonPtrOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionJsonPtrInput` via:
+//
+//	        ModelBiasJobDefinitionJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelBiasJobDefinitionJsonPtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionJsonPtrOutput() ModelBiasJobDefinitionJsonPtrOutput
+	ToModelBiasJobDefinitionJsonPtrOutputWithContext(context.Context) ModelBiasJobDefinitionJsonPtrOutput
+}
+
+type modelBiasJobDefinitionJsonPtrType ModelBiasJobDefinitionJsonArgs
+
+func ModelBiasJobDefinitionJsonPtr(v *ModelBiasJobDefinitionJsonArgs) ModelBiasJobDefinitionJsonPtrInput {
+	return (*modelBiasJobDefinitionJsonPtrType)(v)
+}
+
+func (*modelBiasJobDefinitionJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionJson)(nil)).Elem()
+}
+
+func (i *modelBiasJobDefinitionJsonPtrType) ToModelBiasJobDefinitionJsonPtrOutput() ModelBiasJobDefinitionJsonPtrOutput {
+	return i.ToModelBiasJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *modelBiasJobDefinitionJsonPtrType) ToModelBiasJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionJsonPtrOutput)
+}
+
+// The Json format
+type ModelBiasJobDefinitionJsonOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionJsonOutput) ToModelBiasJobDefinitionJsonOutput() ModelBiasJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionJsonOutput) ToModelBiasJobDefinitionJsonOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionJsonOutput) ToModelBiasJobDefinitionJsonPtrOutput() ModelBiasJobDefinitionJsonPtrOutput {
+	return o.ToModelBiasJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionJsonOutput) ToModelBiasJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionJson) *ModelBiasJobDefinitionJson {
+		return &v
+	}).(ModelBiasJobDefinitionJsonPtrOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelBiasJobDefinitionJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionJson) *bool { return v.Line }).(pulumi.BoolPtrOutput)
+}
+
+type ModelBiasJobDefinitionJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionJsonPtrOutput) ToModelBiasJobDefinitionJsonPtrOutput() ModelBiasJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionJsonPtrOutput) ToModelBiasJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionJsonPtrOutput) Elem() ModelBiasJobDefinitionJsonOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionJson) ModelBiasJobDefinitionJson {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionJson
+		return ret
+	}).(ModelBiasJobDefinitionJsonOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelBiasJobDefinitionJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -10046,8 +11779,9 @@ func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) ConstraintsResou
 
 // The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInput struct {
-	EndpointInput      ModelBiasJobDefinitionEndpointInput                `pulumi:"endpointInput"`
-	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
+	BatchTransformInput *ModelBiasJobDefinitionBatchTransformInput         `pulumi:"batchTransformInput"`
+	EndpointInput       *ModelBiasJobDefinitionEndpointInput               `pulumi:"endpointInput"`
+	GroundTruthS3Input  ModelBiasJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
 // ModelBiasJobDefinitionModelBiasJobInputInput is an input type that accepts ModelBiasJobDefinitionModelBiasJobInputArgs and ModelBiasJobDefinitionModelBiasJobInputOutput values.
@@ -10063,8 +11797,9 @@ type ModelBiasJobDefinitionModelBiasJobInputInput interface {
 
 // The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInputArgs struct {
-	EndpointInput      ModelBiasJobDefinitionEndpointInputInput                `pulumi:"endpointInput"`
-	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
+	BatchTransformInput ModelBiasJobDefinitionBatchTransformInputPtrInput       `pulumi:"batchTransformInput"`
+	EndpointInput       ModelBiasJobDefinitionEndpointInputPtrInput             `pulumi:"endpointInput"`
+	GroundTruthS3Input  ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
 func (ModelBiasJobDefinitionModelBiasJobInputArgs) ElementType() reflect.Type {
@@ -10094,10 +11829,16 @@ func (o ModelBiasJobDefinitionModelBiasJobInputOutput) ToModelBiasJobDefinitionM
 	return o
 }
 
-func (o ModelBiasJobDefinitionModelBiasJobInputOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionEndpointInput {
+func (o ModelBiasJobDefinitionModelBiasJobInputOutput) BatchTransformInput() ModelBiasJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionBatchTransformInput {
+		return v.BatchTransformInput
+	}).(ModelBiasJobDefinitionBatchTransformInputPtrOutput)
+}
+
+func (o ModelBiasJobDefinitionModelBiasJobInputOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionEndpointInput {
 		return v.EndpointInput
-	}).(ModelBiasJobDefinitionEndpointInputOutput)
+	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o ModelBiasJobDefinitionModelBiasJobInputOutput) GroundTruthS3Input() ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput {
@@ -11333,6 +13074,283 @@ func (o ModelContainerDefinitionArrayOutput) Index(i pulumi.IntInput) ModelConta
 	}).(ModelContainerDefinitionOutput)
 }
 
+// The batch transform input for a monitoring job.
+type ModelExplainabilityJobDefinitionBatchTransformInput struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri string                                        `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelExplainabilityJobDefinitionDatasetFormat `pulumi:"datasetFormat"`
+	// JSONpath to locate features in JSONlines dataset
+	FeaturesAttribute *string `pulumi:"featuresAttribute"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute *string `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode `pulumi:"s3InputMode"`
+}
+
+// ModelExplainabilityJobDefinitionBatchTransformInputInput is an input type that accepts ModelExplainabilityJobDefinitionBatchTransformInputArgs and ModelExplainabilityJobDefinitionBatchTransformInputOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionBatchTransformInputInput` via:
+//
+//	ModelExplainabilityJobDefinitionBatchTransformInputArgs{...}
+type ModelExplainabilityJobDefinitionBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputOutput() ModelExplainabilityJobDefinitionBatchTransformInputOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputOutput
+}
+
+// The batch transform input for a monitoring job.
+type ModelExplainabilityJobDefinitionBatchTransformInputArgs struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri pulumi.StringInput                                 `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelExplainabilityJobDefinitionDatasetFormatInput `pulumi:"datasetFormat"`
+	// JSONpath to locate features in JSONlines dataset
+	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrInput `pulumi:"s3InputMode"`
+}
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionBatchTransformInputArgs) ToModelExplainabilityJobDefinitionBatchTransformInputOutput() ModelExplainabilityJobDefinitionBatchTransformInputOutput {
+	return i.ToModelExplainabilityJobDefinitionBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionBatchTransformInputArgs) ToModelExplainabilityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionBatchTransformInputOutput)
+}
+
+func (i ModelExplainabilityJobDefinitionBatchTransformInputArgs) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionBatchTransformInputArgs) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionBatchTransformInputOutput).ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// ModelExplainabilityJobDefinitionBatchTransformInputPtrInput is an input type that accepts ModelExplainabilityJobDefinitionBatchTransformInputArgs, ModelExplainabilityJobDefinitionBatchTransformInputPtr and ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionBatchTransformInputPtrInput` via:
+//
+//	        ModelExplainabilityJobDefinitionBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelExplainabilityJobDefinitionBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput
+}
+
+type modelExplainabilityJobDefinitionBatchTransformInputPtrType ModelExplainabilityJobDefinitionBatchTransformInputArgs
+
+func ModelExplainabilityJobDefinitionBatchTransformInputPtr(v *ModelExplainabilityJobDefinitionBatchTransformInputArgs) ModelExplainabilityJobDefinitionBatchTransformInputPtrInput {
+	return (*modelExplainabilityJobDefinitionBatchTransformInputPtrType)(v)
+}
+
+func (*modelExplainabilityJobDefinitionBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i *modelExplainabilityJobDefinitionBatchTransformInputPtrType) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelExplainabilityJobDefinitionBatchTransformInputPtrType) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// The batch transform input for a monitoring job.
+type ModelExplainabilityJobDefinitionBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) ToModelExplainabilityJobDefinitionBatchTransformInputOutput() ModelExplainabilityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) ToModelExplainabilityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionBatchTransformInput {
+		return &v
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) string {
+		return v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) DatasetFormat() ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) ModelExplainabilityJobDefinitionDatasetFormat {
+		return v.DatasetFormat
+	}).(ModelExplainabilityJobDefinitionDatasetFormatOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputOutput) S3InputMode() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) Elem() ModelExplainabilityJobDefinitionBatchTransformInputOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) ModelExplainabilityJobDefinitionBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionBatchTransformInput
+		return ret
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) DatasetFormat() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(ModelExplainabilityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput) S3InputMode() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInput) *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelExplainabilityJobDefinitionClusterConfig struct {
 	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -11555,6 +13573,316 @@ func (o ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CSV format
+type ModelExplainabilityJobDefinitionCsv struct {
+	// A boolean flag indicating if given CSV has header
+	Header *bool `pulumi:"header"`
+}
+
+// ModelExplainabilityJobDefinitionCsvInput is an input type that accepts ModelExplainabilityJobDefinitionCsvArgs and ModelExplainabilityJobDefinitionCsvOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionCsvInput` via:
+//
+//	ModelExplainabilityJobDefinitionCsvArgs{...}
+type ModelExplainabilityJobDefinitionCsvInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionCsvOutput() ModelExplainabilityJobDefinitionCsvOutput
+	ToModelExplainabilityJobDefinitionCsvOutputWithContext(context.Context) ModelExplainabilityJobDefinitionCsvOutput
+}
+
+// The CSV format
+type ModelExplainabilityJobDefinitionCsvArgs struct {
+	// A boolean flag indicating if given CSV has header
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (ModelExplainabilityJobDefinitionCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionCsvArgs) ToModelExplainabilityJobDefinitionCsvOutput() ModelExplainabilityJobDefinitionCsvOutput {
+	return i.ToModelExplainabilityJobDefinitionCsvOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionCsvArgs) ToModelExplainabilityJobDefinitionCsvOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionCsvOutput)
+}
+
+func (i ModelExplainabilityJobDefinitionCsvArgs) ToModelExplainabilityJobDefinitionCsvPtrOutput() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionCsvArgs) ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionCsvOutput).ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(ctx)
+}
+
+// ModelExplainabilityJobDefinitionCsvPtrInput is an input type that accepts ModelExplainabilityJobDefinitionCsvArgs, ModelExplainabilityJobDefinitionCsvPtr and ModelExplainabilityJobDefinitionCsvPtrOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionCsvPtrInput` via:
+//
+//	        ModelExplainabilityJobDefinitionCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelExplainabilityJobDefinitionCsvPtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionCsvPtrOutput() ModelExplainabilityJobDefinitionCsvPtrOutput
+	ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionCsvPtrOutput
+}
+
+type modelExplainabilityJobDefinitionCsvPtrType ModelExplainabilityJobDefinitionCsvArgs
+
+func ModelExplainabilityJobDefinitionCsvPtr(v *ModelExplainabilityJobDefinitionCsvArgs) ModelExplainabilityJobDefinitionCsvPtrInput {
+	return (*modelExplainabilityJobDefinitionCsvPtrType)(v)
+}
+
+func (*modelExplainabilityJobDefinitionCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i *modelExplainabilityJobDefinitionCsvPtrType) ToModelExplainabilityJobDefinitionCsvPtrOutput() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *modelExplainabilityJobDefinitionCsvPtrType) ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionCsvPtrOutput)
+}
+
+// The CSV format
+type ModelExplainabilityJobDefinitionCsvOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionCsvOutput) ToModelExplainabilityJobDefinitionCsvOutput() ModelExplainabilityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionCsvOutput) ToModelExplainabilityJobDefinitionCsvOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionCsvOutput) ToModelExplainabilityJobDefinitionCsvPtrOutput() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o.ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionCsvOutput) ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionCsv) *ModelExplainabilityJobDefinitionCsv {
+		return &v
+	}).(ModelExplainabilityJobDefinitionCsvPtrOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelExplainabilityJobDefinitionCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionCsv) *bool { return v.Header }).(pulumi.BoolPtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionCsvPtrOutput) ToModelExplainabilityJobDefinitionCsvPtrOutput() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionCsvPtrOutput) ToModelExplainabilityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionCsvPtrOutput) Elem() ModelExplainabilityJobDefinitionCsvOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionCsv) ModelExplainabilityJobDefinitionCsv {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionCsv
+		return ret
+	}).(ModelExplainabilityJobDefinitionCsvOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelExplainabilityJobDefinitionCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelExplainabilityJobDefinitionDatasetFormat struct {
+	Csv     *ModelExplainabilityJobDefinitionCsv  `pulumi:"csv"`
+	Json    *ModelExplainabilityJobDefinitionJson `pulumi:"json"`
+	Parquet *bool                                 `pulumi:"parquet"`
+}
+
+// ModelExplainabilityJobDefinitionDatasetFormatInput is an input type that accepts ModelExplainabilityJobDefinitionDatasetFormatArgs and ModelExplainabilityJobDefinitionDatasetFormatOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionDatasetFormatInput` via:
+//
+//	ModelExplainabilityJobDefinitionDatasetFormatArgs{...}
+type ModelExplainabilityJobDefinitionDatasetFormatInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionDatasetFormatOutput() ModelExplainabilityJobDefinitionDatasetFormatOutput
+	ToModelExplainabilityJobDefinitionDatasetFormatOutputWithContext(context.Context) ModelExplainabilityJobDefinitionDatasetFormatOutput
+}
+
+// The dataset format of the data to monitor
+type ModelExplainabilityJobDefinitionDatasetFormatArgs struct {
+	Csv     ModelExplainabilityJobDefinitionCsvPtrInput  `pulumi:"csv"`
+	Json    ModelExplainabilityJobDefinitionJsonPtrInput `pulumi:"json"`
+	Parquet pulumi.BoolPtrInput                          `pulumi:"parquet"`
+}
+
+func (ModelExplainabilityJobDefinitionDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionDatasetFormatArgs) ToModelExplainabilityJobDefinitionDatasetFormatOutput() ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return i.ToModelExplainabilityJobDefinitionDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionDatasetFormatArgs) ToModelExplainabilityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionDatasetFormatOutput)
+}
+
+func (i ModelExplainabilityJobDefinitionDatasetFormatArgs) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutput() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionDatasetFormatArgs) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionDatasetFormatOutput).ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// ModelExplainabilityJobDefinitionDatasetFormatPtrInput is an input type that accepts ModelExplainabilityJobDefinitionDatasetFormatArgs, ModelExplainabilityJobDefinitionDatasetFormatPtr and ModelExplainabilityJobDefinitionDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionDatasetFormatPtrInput` via:
+//
+//	        ModelExplainabilityJobDefinitionDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelExplainabilityJobDefinitionDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionDatasetFormatPtrOutput() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput
+	ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionDatasetFormatPtrOutput
+}
+
+type modelExplainabilityJobDefinitionDatasetFormatPtrType ModelExplainabilityJobDefinitionDatasetFormatArgs
+
+func ModelExplainabilityJobDefinitionDatasetFormatPtr(v *ModelExplainabilityJobDefinitionDatasetFormatArgs) ModelExplainabilityJobDefinitionDatasetFormatPtrInput {
+	return (*modelExplainabilityJobDefinitionDatasetFormatPtrType)(v)
+}
+
+func (*modelExplainabilityJobDefinitionDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i *modelExplainabilityJobDefinitionDatasetFormatPtrType) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutput() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *modelExplainabilityJobDefinitionDatasetFormatPtrType) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelExplainabilityJobDefinitionDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) ToModelExplainabilityJobDefinitionDatasetFormatOutput() ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) ToModelExplainabilityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutput() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return o.ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionDatasetFormat) *ModelExplainabilityJobDefinitionDatasetFormat {
+		return &v
+	}).(ModelExplainabilityJobDefinitionDatasetFormatPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) Csv() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionDatasetFormat) *ModelExplainabilityJobDefinitionCsv {
+		return v.Csv
+	}).(ModelExplainabilityJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) Json() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionDatasetFormat) *ModelExplainabilityJobDefinitionJson {
+		return v.Json
+	}).(ModelExplainabilityJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionDatasetFormat) *bool { return v.Parquet }).(pulumi.BoolPtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutput() ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) ToModelExplainabilityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) Elem() ModelExplainabilityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionDatasetFormat) ModelExplainabilityJobDefinitionDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionDatasetFormat
+		return ret
+	}).(ModelExplainabilityJobDefinitionDatasetFormatOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) Csv() ModelExplainabilityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionDatasetFormat) *ModelExplainabilityJobDefinitionCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(ModelExplainabilityJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) Json() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionDatasetFormat) *ModelExplainabilityJobDefinitionJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(ModelExplainabilityJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionDatasetFormat) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Parquet
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInput struct {
 	EndpointName string `pulumi:"endpointName"`
@@ -11612,6 +13940,47 @@ func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainability
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputOutput)
 }
 
+func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionEndpointInputArgs) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputOutput).ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
+}
+
+// ModelExplainabilityJobDefinitionEndpointInputPtrInput is an input type that accepts ModelExplainabilityJobDefinitionEndpointInputArgs, ModelExplainabilityJobDefinitionEndpointInputPtr and ModelExplainabilityJobDefinitionEndpointInputPtrOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionEndpointInputPtrInput` via:
+//
+//	        ModelExplainabilityJobDefinitionEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelExplainabilityJobDefinitionEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput
+	ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput
+}
+
+type modelExplainabilityJobDefinitionEndpointInputPtrType ModelExplainabilityJobDefinitionEndpointInputArgs
+
+func ModelExplainabilityJobDefinitionEndpointInputPtr(v *ModelExplainabilityJobDefinitionEndpointInputArgs) ModelExplainabilityJobDefinitionEndpointInputPtrInput {
+	return (*modelExplainabilityJobDefinitionEndpointInputPtrType)(v)
+}
+
+func (*modelExplainabilityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (i *modelExplainabilityJobDefinitionEndpointInputPtrType) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelExplainabilityJobDefinitionEndpointInputPtrType) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -11625,6 +13994,16 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabili
 
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputOutput {
 	return o
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return o.ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInput {
+		return &v
+	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
@@ -11663,6 +14042,239 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3InputMode() Model
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
 		return v.S3InputMode
 	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ToModelExplainabilityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) Elem() ModelExplainabilityJobDefinitionEndpointInputOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) ModelExplainabilityJobDefinitionEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionEndpointInput
+		return ret
+	}).(ModelExplainabilityJobDefinitionEndpointInputOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSONpath to locate features in JSONlines dataset
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *ModelExplainabilityJobDefinitionEndpointInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+// The Json format
+type ModelExplainabilityJobDefinitionJson struct {
+	// A boolean flag indicating if it is JSON line format
+	Line *bool `pulumi:"line"`
+}
+
+// ModelExplainabilityJobDefinitionJsonInput is an input type that accepts ModelExplainabilityJobDefinitionJsonArgs and ModelExplainabilityJobDefinitionJsonOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionJsonInput` via:
+//
+//	ModelExplainabilityJobDefinitionJsonArgs{...}
+type ModelExplainabilityJobDefinitionJsonInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionJsonOutput() ModelExplainabilityJobDefinitionJsonOutput
+	ToModelExplainabilityJobDefinitionJsonOutputWithContext(context.Context) ModelExplainabilityJobDefinitionJsonOutput
+}
+
+// The Json format
+type ModelExplainabilityJobDefinitionJsonArgs struct {
+	// A boolean flag indicating if it is JSON line format
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (ModelExplainabilityJobDefinitionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionJsonArgs) ToModelExplainabilityJobDefinitionJsonOutput() ModelExplainabilityJobDefinitionJsonOutput {
+	return i.ToModelExplainabilityJobDefinitionJsonOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionJsonArgs) ToModelExplainabilityJobDefinitionJsonOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionJsonOutput)
+}
+
+func (i ModelExplainabilityJobDefinitionJsonArgs) ToModelExplainabilityJobDefinitionJsonPtrOutput() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionJsonArgs) ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionJsonOutput).ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(ctx)
+}
+
+// ModelExplainabilityJobDefinitionJsonPtrInput is an input type that accepts ModelExplainabilityJobDefinitionJsonArgs, ModelExplainabilityJobDefinitionJsonPtr and ModelExplainabilityJobDefinitionJsonPtrOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionJsonPtrInput` via:
+//
+//	        ModelExplainabilityJobDefinitionJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelExplainabilityJobDefinitionJsonPtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionJsonPtrOutput() ModelExplainabilityJobDefinitionJsonPtrOutput
+	ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionJsonPtrOutput
+}
+
+type modelExplainabilityJobDefinitionJsonPtrType ModelExplainabilityJobDefinitionJsonArgs
+
+func ModelExplainabilityJobDefinitionJsonPtr(v *ModelExplainabilityJobDefinitionJsonArgs) ModelExplainabilityJobDefinitionJsonPtrInput {
+	return (*modelExplainabilityJobDefinitionJsonPtrType)(v)
+}
+
+func (*modelExplainabilityJobDefinitionJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i *modelExplainabilityJobDefinitionJsonPtrType) ToModelExplainabilityJobDefinitionJsonPtrOutput() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return i.ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *modelExplainabilityJobDefinitionJsonPtrType) ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionJsonPtrOutput)
+}
+
+// The Json format
+type ModelExplainabilityJobDefinitionJsonOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionJsonOutput) ToModelExplainabilityJobDefinitionJsonOutput() ModelExplainabilityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionJsonOutput) ToModelExplainabilityJobDefinitionJsonOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionJsonOutput) ToModelExplainabilityJobDefinitionJsonPtrOutput() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o.ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionJsonOutput) ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionJson) *ModelExplainabilityJobDefinitionJson {
+		return &v
+	}).(ModelExplainabilityJobDefinitionJsonPtrOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelExplainabilityJobDefinitionJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionJson) *bool { return v.Line }).(pulumi.BoolPtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionJsonPtrOutput) ToModelExplainabilityJobDefinitionJsonPtrOutput() ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionJsonPtrOutput) ToModelExplainabilityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionJsonPtrOutput) Elem() ModelExplainabilityJobDefinitionJsonOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionJson) ModelExplainabilityJobDefinitionJson {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionJson
+		return ret
+	}).(ModelExplainabilityJobDefinitionJsonOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelExplainabilityJobDefinitionJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -11897,7 +14509,8 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutp
 
 // The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInput struct {
-	EndpointInput ModelExplainabilityJobDefinitionEndpointInput `pulumi:"endpointInput"`
+	BatchTransformInput *ModelExplainabilityJobDefinitionBatchTransformInput `pulumi:"batchTransformInput"`
+	EndpointInput       *ModelExplainabilityJobDefinitionEndpointInput       `pulumi:"endpointInput"`
 }
 
 // ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput is an input type that accepts ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs and ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput values.
@@ -11913,7 +14526,8 @@ type ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput interface 
 
 // The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs struct {
-	EndpointInput ModelExplainabilityJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
+	BatchTransformInput ModelExplainabilityJobDefinitionBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
+	EndpointInput       ModelExplainabilityJobDefinitionEndpointInputPtrInput       `pulumi:"endpointInput"`
 }
 
 func (ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs) ElementType() reflect.Type {
@@ -11943,10 +14557,16 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ToMod
 	return o
 }
 
-func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) ModelExplainabilityJobDefinitionEndpointInput {
+func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) BatchTransformInput() ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) *ModelExplainabilityJobDefinitionBatchTransformInput {
+		return v.BatchTransformInput
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) *ModelExplainabilityJobDefinitionEndpointInput {
 		return v.EndpointInput
-	}).(ModelExplainabilityJobDefinitionEndpointInputOutput)
+	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
 // The output object for a monitoring job.
@@ -18354,6 +20974,315 @@ func (o ModelPackageValidationSpecificationPtrOutput) ValidationRole() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The batch transform input for a monitoring job.
+type ModelQualityJobDefinitionBatchTransformInput struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri string                                 `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelQualityJobDefinitionDatasetFormat `pulumi:"datasetFormat"`
+	// Monitoring end time offset, e.g. PT0H
+	EndTimeOffset *string `pulumi:"endTimeOffset"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute *string `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
+	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode *ModelQualityJobDefinitionBatchTransformInputS3InputMode `pulumi:"s3InputMode"`
+	// Monitoring start time offset, e.g. -PT1H
+	StartTimeOffset *string `pulumi:"startTimeOffset"`
+}
+
+// ModelQualityJobDefinitionBatchTransformInputInput is an input type that accepts ModelQualityJobDefinitionBatchTransformInputArgs and ModelQualityJobDefinitionBatchTransformInputOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionBatchTransformInputInput` via:
+//
+//	ModelQualityJobDefinitionBatchTransformInputArgs{...}
+type ModelQualityJobDefinitionBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputOutput() ModelQualityJobDefinitionBatchTransformInputOutput
+	ToModelQualityJobDefinitionBatchTransformInputOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputOutput
+}
+
+// The batch transform input for a monitoring job.
+type ModelQualityJobDefinitionBatchTransformInputArgs struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri pulumi.StringInput                          `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                ModelQualityJobDefinitionDatasetFormatInput `pulumi:"datasetFormat"`
+	// Monitoring end time offset, e.g. PT0H
+	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
+	// Index or JSONpath to locate predicted label(s)
+	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
+	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode ModelQualityJobDefinitionBatchTransformInputS3InputModePtrInput `pulumi:"s3InputMode"`
+	// Monitoring start time offset, e.g. -PT1H
+	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
+}
+
+func (ModelQualityJobDefinitionBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionBatchTransformInputArgs) ToModelQualityJobDefinitionBatchTransformInputOutput() ModelQualityJobDefinitionBatchTransformInputOutput {
+	return i.ToModelQualityJobDefinitionBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionBatchTransformInputArgs) ToModelQualityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionBatchTransformInputOutput)
+}
+
+func (i ModelQualityJobDefinitionBatchTransformInputArgs) ToModelQualityJobDefinitionBatchTransformInputPtrOutput() ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionBatchTransformInputArgs) ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionBatchTransformInputOutput).ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// ModelQualityJobDefinitionBatchTransformInputPtrInput is an input type that accepts ModelQualityJobDefinitionBatchTransformInputArgs, ModelQualityJobDefinitionBatchTransformInputPtr and ModelQualityJobDefinitionBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionBatchTransformInputPtrInput` via:
+//
+//	        ModelQualityJobDefinitionBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelQualityJobDefinitionBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputPtrOutput() ModelQualityJobDefinitionBatchTransformInputPtrOutput
+	ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputPtrOutput
+}
+
+type modelQualityJobDefinitionBatchTransformInputPtrType ModelQualityJobDefinitionBatchTransformInputArgs
+
+func ModelQualityJobDefinitionBatchTransformInputPtr(v *ModelQualityJobDefinitionBatchTransformInputArgs) ModelQualityJobDefinitionBatchTransformInputPtrInput {
+	return (*modelQualityJobDefinitionBatchTransformInputPtrType)(v)
+}
+
+func (*modelQualityJobDefinitionBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (i *modelQualityJobDefinitionBatchTransformInputPtrType) ToModelQualityJobDefinitionBatchTransformInputPtrOutput() ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return i.ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelQualityJobDefinitionBatchTransformInputPtrType) ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// The batch transform input for a monitoring job.
+type ModelQualityJobDefinitionBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ToModelQualityJobDefinitionBatchTransformInputOutput() ModelQualityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ToModelQualityJobDefinitionBatchTransformInputOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ToModelQualityJobDefinitionBatchTransformInputPtrOutput() ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionBatchTransformInput {
+		return &v
+	}).(ModelQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) string { return v.DataCapturedDestinationS3Uri }).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) DatasetFormat() ModelQualityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) ModelQualityJobDefinitionDatasetFormat {
+		return v.DatasetFormat
+	}).(ModelQualityJobDefinitionDatasetFormatOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *string { return v.EndTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *float64 { return v.ProbabilityThresholdAttribute }).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) S3DataDistributionType() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) S3InputMode() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionBatchTransformInputS3InputMode {
+		return v.S3InputMode
+	}).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelQualityJobDefinitionBatchTransformInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionBatchTransformInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+type ModelQualityJobDefinitionBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInput)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) ToModelQualityJobDefinitionBatchTransformInputPtrOutput() ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) ToModelQualityJobDefinitionBatchTransformInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) Elem() ModelQualityJobDefinitionBatchTransformInputOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) ModelQualityJobDefinitionBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionBatchTransformInput
+		return ret
+	}).(ModelQualityJobDefinitionBatchTransformInputOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) DatasetFormat() ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(ModelQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) S3DataDistributionType() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) S3InputMode() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *ModelQualityJobDefinitionBatchTransformInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelQualityJobDefinitionBatchTransformInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configuration for the cluster used to run model monitoring jobs.
 type ModelQualityJobDefinitionClusterConfig struct {
 	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -18576,6 +21505,312 @@ func (o ModelQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CSV format
+type ModelQualityJobDefinitionCsv struct {
+	// A boolean flag indicating if given CSV has header
+	Header *bool `pulumi:"header"`
+}
+
+// ModelQualityJobDefinitionCsvInput is an input type that accepts ModelQualityJobDefinitionCsvArgs and ModelQualityJobDefinitionCsvOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionCsvInput` via:
+//
+//	ModelQualityJobDefinitionCsvArgs{...}
+type ModelQualityJobDefinitionCsvInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionCsvOutput() ModelQualityJobDefinitionCsvOutput
+	ToModelQualityJobDefinitionCsvOutputWithContext(context.Context) ModelQualityJobDefinitionCsvOutput
+}
+
+// The CSV format
+type ModelQualityJobDefinitionCsvArgs struct {
+	// A boolean flag indicating if given CSV has header
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (ModelQualityJobDefinitionCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionCsvArgs) ToModelQualityJobDefinitionCsvOutput() ModelQualityJobDefinitionCsvOutput {
+	return i.ToModelQualityJobDefinitionCsvOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionCsvArgs) ToModelQualityJobDefinitionCsvOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionCsvOutput)
+}
+
+func (i ModelQualityJobDefinitionCsvArgs) ToModelQualityJobDefinitionCsvPtrOutput() ModelQualityJobDefinitionCsvPtrOutput {
+	return i.ToModelQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionCsvArgs) ToModelQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionCsvOutput).ToModelQualityJobDefinitionCsvPtrOutputWithContext(ctx)
+}
+
+// ModelQualityJobDefinitionCsvPtrInput is an input type that accepts ModelQualityJobDefinitionCsvArgs, ModelQualityJobDefinitionCsvPtr and ModelQualityJobDefinitionCsvPtrOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionCsvPtrInput` via:
+//
+//	        ModelQualityJobDefinitionCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelQualityJobDefinitionCsvPtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionCsvPtrOutput() ModelQualityJobDefinitionCsvPtrOutput
+	ToModelQualityJobDefinitionCsvPtrOutputWithContext(context.Context) ModelQualityJobDefinitionCsvPtrOutput
+}
+
+type modelQualityJobDefinitionCsvPtrType ModelQualityJobDefinitionCsvArgs
+
+func ModelQualityJobDefinitionCsvPtr(v *ModelQualityJobDefinitionCsvArgs) ModelQualityJobDefinitionCsvPtrInput {
+	return (*modelQualityJobDefinitionCsvPtrType)(v)
+}
+
+func (*modelQualityJobDefinitionCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (i *modelQualityJobDefinitionCsvPtrType) ToModelQualityJobDefinitionCsvPtrOutput() ModelQualityJobDefinitionCsvPtrOutput {
+	return i.ToModelQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *modelQualityJobDefinitionCsvPtrType) ToModelQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionCsvPtrOutput)
+}
+
+// The CSV format
+type ModelQualityJobDefinitionCsvOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionCsvOutput) ToModelQualityJobDefinitionCsvOutput() ModelQualityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionCsvOutput) ToModelQualityJobDefinitionCsvOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionCsvOutput) ToModelQualityJobDefinitionCsvPtrOutput() ModelQualityJobDefinitionCsvPtrOutput {
+	return o.ToModelQualityJobDefinitionCsvPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionCsvOutput) ToModelQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionCsv) *ModelQualityJobDefinitionCsv {
+		return &v
+	}).(ModelQualityJobDefinitionCsvPtrOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelQualityJobDefinitionCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionCsv) *bool { return v.Header }).(pulumi.BoolPtrOutput)
+}
+
+type ModelQualityJobDefinitionCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionCsv)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionCsvPtrOutput) ToModelQualityJobDefinitionCsvPtrOutput() ModelQualityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionCsvPtrOutput) ToModelQualityJobDefinitionCsvPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionCsvPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionCsvPtrOutput) Elem() ModelQualityJobDefinitionCsvOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionCsv) ModelQualityJobDefinitionCsv {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionCsv
+		return ret
+	}).(ModelQualityJobDefinitionCsvOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o ModelQualityJobDefinitionCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelQualityJobDefinitionDatasetFormat struct {
+	Csv     *ModelQualityJobDefinitionCsv  `pulumi:"csv"`
+	Json    *ModelQualityJobDefinitionJson `pulumi:"json"`
+	Parquet *bool                          `pulumi:"parquet"`
+}
+
+// ModelQualityJobDefinitionDatasetFormatInput is an input type that accepts ModelQualityJobDefinitionDatasetFormatArgs and ModelQualityJobDefinitionDatasetFormatOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionDatasetFormatInput` via:
+//
+//	ModelQualityJobDefinitionDatasetFormatArgs{...}
+type ModelQualityJobDefinitionDatasetFormatInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionDatasetFormatOutput() ModelQualityJobDefinitionDatasetFormatOutput
+	ToModelQualityJobDefinitionDatasetFormatOutputWithContext(context.Context) ModelQualityJobDefinitionDatasetFormatOutput
+}
+
+// The dataset format of the data to monitor
+type ModelQualityJobDefinitionDatasetFormatArgs struct {
+	Csv     ModelQualityJobDefinitionCsvPtrInput  `pulumi:"csv"`
+	Json    ModelQualityJobDefinitionJsonPtrInput `pulumi:"json"`
+	Parquet pulumi.BoolPtrInput                   `pulumi:"parquet"`
+}
+
+func (ModelQualityJobDefinitionDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionDatasetFormatArgs) ToModelQualityJobDefinitionDatasetFormatOutput() ModelQualityJobDefinitionDatasetFormatOutput {
+	return i.ToModelQualityJobDefinitionDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionDatasetFormatArgs) ToModelQualityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionDatasetFormatOutput)
+}
+
+func (i ModelQualityJobDefinitionDatasetFormatArgs) ToModelQualityJobDefinitionDatasetFormatPtrOutput() ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionDatasetFormatArgs) ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionDatasetFormatOutput).ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// ModelQualityJobDefinitionDatasetFormatPtrInput is an input type that accepts ModelQualityJobDefinitionDatasetFormatArgs, ModelQualityJobDefinitionDatasetFormatPtr and ModelQualityJobDefinitionDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionDatasetFormatPtrInput` via:
+//
+//	        ModelQualityJobDefinitionDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelQualityJobDefinitionDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionDatasetFormatPtrOutput() ModelQualityJobDefinitionDatasetFormatPtrOutput
+	ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Context) ModelQualityJobDefinitionDatasetFormatPtrOutput
+}
+
+type modelQualityJobDefinitionDatasetFormatPtrType ModelQualityJobDefinitionDatasetFormatArgs
+
+func ModelQualityJobDefinitionDatasetFormatPtr(v *ModelQualityJobDefinitionDatasetFormatArgs) ModelQualityJobDefinitionDatasetFormatPtrInput {
+	return (*modelQualityJobDefinitionDatasetFormatPtrType)(v)
+}
+
+func (*modelQualityJobDefinitionDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (i *modelQualityJobDefinitionDatasetFormatPtrType) ToModelQualityJobDefinitionDatasetFormatPtrOutput() ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return i.ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *modelQualityJobDefinitionDatasetFormatPtrType) ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type ModelQualityJobDefinitionDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) ToModelQualityJobDefinitionDatasetFormatOutput() ModelQualityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) ToModelQualityJobDefinitionDatasetFormatOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) ToModelQualityJobDefinitionDatasetFormatPtrOutput() ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionDatasetFormat) *ModelQualityJobDefinitionDatasetFormat {
+		return &v
+	}).(ModelQualityJobDefinitionDatasetFormatPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) Csv() ModelQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionDatasetFormat) *ModelQualityJobDefinitionCsv { return v.Csv }).(ModelQualityJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) Json() ModelQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionDatasetFormat) *ModelQualityJobDefinitionJson { return v.Json }).(ModelQualityJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionDatasetFormat) *bool { return v.Parquet }).(pulumi.BoolPtrOutput)
+}
+
+type ModelQualityJobDefinitionDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionDatasetFormat)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) ToModelQualityJobDefinitionDatasetFormatPtrOutput() ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) ToModelQualityJobDefinitionDatasetFormatPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionDatasetFormatPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) Elem() ModelQualityJobDefinitionDatasetFormatOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionDatasetFormat) ModelQualityJobDefinitionDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionDatasetFormat
+		return ret
+	}).(ModelQualityJobDefinitionDatasetFormatOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) Csv() ModelQualityJobDefinitionCsvPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionDatasetFormat) *ModelQualityJobDefinitionCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(ModelQualityJobDefinitionCsvPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) Json() ModelQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionDatasetFormat) *ModelQualityJobDefinitionJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(ModelQualityJobDefinitionJsonPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionDatasetFormat) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Parquet
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInput struct {
 	// Monitoring end time offset, e.g. PT0H
@@ -18639,6 +21874,47 @@ func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionE
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputOutput)
 }
 
+func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionEndpointInputArgs) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputOutput).ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx)
+}
+
+// ModelQualityJobDefinitionEndpointInputPtrInput is an input type that accepts ModelQualityJobDefinitionEndpointInputArgs, ModelQualityJobDefinitionEndpointInputPtr and ModelQualityJobDefinitionEndpointInputPtrOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionEndpointInputPtrInput` via:
+//
+//	        ModelQualityJobDefinitionEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelQualityJobDefinitionEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput
+	ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput
+}
+
+type modelQualityJobDefinitionEndpointInputPtrType ModelQualityJobDefinitionEndpointInputArgs
+
+func ModelQualityJobDefinitionEndpointInputPtr(v *ModelQualityJobDefinitionEndpointInputArgs) ModelQualityJobDefinitionEndpointInputPtrInput {
+	return (*modelQualityJobDefinitionEndpointInputPtrType)(v)
+}
+
+func (*modelQualityJobDefinitionEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (i *modelQualityJobDefinitionEndpointInputPtrType) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return i.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *modelQualityJobDefinitionEndpointInputPtrType) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -18652,6 +21928,16 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitio
 
 func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputOutput {
 	return o
+}
+
+func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInput {
+		return &v
+	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 // Monitoring end time offset, e.g. PT0H
@@ -18699,6 +21985,258 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) S3InputMode() ModelQuality
 // Monitoring start time offset, e.g. -PT1H
 func (o ModelQualityJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
+}
+
+type ModelQualityJobDefinitionEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionEndpointInput)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ToModelQualityJobDefinitionEndpointInputPtrOutput() ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ToModelQualityJobDefinitionEndpointInputPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) Elem() ModelQualityJobDefinitionEndpointInputOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) ModelQualityJobDefinitionEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionEndpointInput
+		return ret
+	}).(ModelQualityJobDefinitionEndpointInputOutput)
+}
+
+// Monitoring end time offset, e.g. PT0H
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate predicted label(s)
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index or JSONpath to locate probabilities
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *ModelQualityJobDefinitionEndpointInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput)
+}
+
+// Monitoring start time offset, e.g. -PT1H
+func (o ModelQualityJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Json format
+type ModelQualityJobDefinitionJson struct {
+	// A boolean flag indicating if it is JSON line format
+	Line *bool `pulumi:"line"`
+}
+
+// ModelQualityJobDefinitionJsonInput is an input type that accepts ModelQualityJobDefinitionJsonArgs and ModelQualityJobDefinitionJsonOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionJsonInput` via:
+//
+//	ModelQualityJobDefinitionJsonArgs{...}
+type ModelQualityJobDefinitionJsonInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionJsonOutput() ModelQualityJobDefinitionJsonOutput
+	ToModelQualityJobDefinitionJsonOutputWithContext(context.Context) ModelQualityJobDefinitionJsonOutput
+}
+
+// The Json format
+type ModelQualityJobDefinitionJsonArgs struct {
+	// A boolean flag indicating if it is JSON line format
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (ModelQualityJobDefinitionJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionJsonArgs) ToModelQualityJobDefinitionJsonOutput() ModelQualityJobDefinitionJsonOutput {
+	return i.ToModelQualityJobDefinitionJsonOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionJsonArgs) ToModelQualityJobDefinitionJsonOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionJsonOutput)
+}
+
+func (i ModelQualityJobDefinitionJsonArgs) ToModelQualityJobDefinitionJsonPtrOutput() ModelQualityJobDefinitionJsonPtrOutput {
+	return i.ToModelQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionJsonArgs) ToModelQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionJsonOutput).ToModelQualityJobDefinitionJsonPtrOutputWithContext(ctx)
+}
+
+// ModelQualityJobDefinitionJsonPtrInput is an input type that accepts ModelQualityJobDefinitionJsonArgs, ModelQualityJobDefinitionJsonPtr and ModelQualityJobDefinitionJsonPtrOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionJsonPtrInput` via:
+//
+//	        ModelQualityJobDefinitionJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelQualityJobDefinitionJsonPtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionJsonPtrOutput() ModelQualityJobDefinitionJsonPtrOutput
+	ToModelQualityJobDefinitionJsonPtrOutputWithContext(context.Context) ModelQualityJobDefinitionJsonPtrOutput
+}
+
+type modelQualityJobDefinitionJsonPtrType ModelQualityJobDefinitionJsonArgs
+
+func ModelQualityJobDefinitionJsonPtr(v *ModelQualityJobDefinitionJsonArgs) ModelQualityJobDefinitionJsonPtrInput {
+	return (*modelQualityJobDefinitionJsonPtrType)(v)
+}
+
+func (*modelQualityJobDefinitionJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (i *modelQualityJobDefinitionJsonPtrType) ToModelQualityJobDefinitionJsonPtrOutput() ModelQualityJobDefinitionJsonPtrOutput {
+	return i.ToModelQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *modelQualityJobDefinitionJsonPtrType) ToModelQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionJsonPtrOutput)
+}
+
+// The Json format
+type ModelQualityJobDefinitionJsonOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionJsonOutput) ToModelQualityJobDefinitionJsonOutput() ModelQualityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionJsonOutput) ToModelQualityJobDefinitionJsonOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionJsonOutput) ToModelQualityJobDefinitionJsonPtrOutput() ModelQualityJobDefinitionJsonPtrOutput {
+	return o.ToModelQualityJobDefinitionJsonPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionJsonOutput) ToModelQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionJson) *ModelQualityJobDefinitionJson {
+		return &v
+	}).(ModelQualityJobDefinitionJsonPtrOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelQualityJobDefinitionJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionJson) *bool { return v.Line }).(pulumi.BoolPtrOutput)
+}
+
+type ModelQualityJobDefinitionJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionJson)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionJsonPtrOutput) ToModelQualityJobDefinitionJsonPtrOutput() ModelQualityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionJsonPtrOutput) ToModelQualityJobDefinitionJsonPtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionJsonPtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionJsonPtrOutput) Elem() ModelQualityJobDefinitionJsonOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionJson) ModelQualityJobDefinitionJson {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionJson
+		return ret
+	}).(ModelQualityJobDefinitionJsonOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o ModelQualityJobDefinitionJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -18968,8 +22506,9 @@ func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) Constraint
 
 // The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInput struct {
-	EndpointInput      ModelQualityJobDefinitionEndpointInput                `pulumi:"endpointInput"`
-	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
+	BatchTransformInput *ModelQualityJobDefinitionBatchTransformInput         `pulumi:"batchTransformInput"`
+	EndpointInput       *ModelQualityJobDefinitionEndpointInput               `pulumi:"endpointInput"`
+	GroundTruthS3Input  ModelQualityJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
 // ModelQualityJobDefinitionModelQualityJobInputInput is an input type that accepts ModelQualityJobDefinitionModelQualityJobInputArgs and ModelQualityJobDefinitionModelQualityJobInputOutput values.
@@ -18985,8 +22524,9 @@ type ModelQualityJobDefinitionModelQualityJobInputInput interface {
 
 // The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInputArgs struct {
-	EndpointInput      ModelQualityJobDefinitionEndpointInputInput                `pulumi:"endpointInput"`
-	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
+	BatchTransformInput ModelQualityJobDefinitionBatchTransformInputPtrInput       `pulumi:"batchTransformInput"`
+	EndpointInput       ModelQualityJobDefinitionEndpointInputPtrInput             `pulumi:"endpointInput"`
+	GroundTruthS3Input  ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
 func (ModelQualityJobDefinitionModelQualityJobInputArgs) ElementType() reflect.Type {
@@ -19016,10 +22556,16 @@ func (o ModelQualityJobDefinitionModelQualityJobInputOutput) ToModelQualityJobDe
 	return o
 }
 
-func (o ModelQualityJobDefinitionModelQualityJobInputOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionEndpointInput {
+func (o ModelQualityJobDefinitionModelQualityJobInputOutput) BatchTransformInput() ModelQualityJobDefinitionBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionBatchTransformInput {
+		return v.BatchTransformInput
+	}).(ModelQualityJobDefinitionBatchTransformInputPtrOutput)
+}
+
+func (o ModelQualityJobDefinitionModelQualityJobInputOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputPtrOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
-	}).(ModelQualityJobDefinitionEndpointInputOutput)
+	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
 func (o ModelQualityJobDefinitionModelQualityJobInputOutput) GroundTruthS3Input() ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput {
@@ -20493,6 +24039,222 @@ func (o MonitoringScheduleBaselineConfigPtrOutput) StatisticsResource() Monitori
 	}).(MonitoringScheduleStatisticsResourcePtrOutput)
 }
 
+// The batch transform input for a monitoring job.
+type MonitoringScheduleBatchTransformInput struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri string                          `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                MonitoringScheduleDatasetFormat `pulumi:"datasetFormat"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType *MonitoringScheduleBatchTransformInputS3DataDistributionType `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode *MonitoringScheduleBatchTransformInputS3InputMode `pulumi:"s3InputMode"`
+}
+
+// MonitoringScheduleBatchTransformInputInput is an input type that accepts MonitoringScheduleBatchTransformInputArgs and MonitoringScheduleBatchTransformInputOutput values.
+// You can construct a concrete instance of `MonitoringScheduleBatchTransformInputInput` via:
+//
+//	MonitoringScheduleBatchTransformInputArgs{...}
+type MonitoringScheduleBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputOutput() MonitoringScheduleBatchTransformInputOutput
+	ToMonitoringScheduleBatchTransformInputOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputOutput
+}
+
+// The batch transform input for a monitoring job.
+type MonitoringScheduleBatchTransformInputArgs struct {
+	// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+	DataCapturedDestinationS3Uri pulumi.StringInput                   `pulumi:"dataCapturedDestinationS3Uri"`
+	DatasetFormat                MonitoringScheduleDatasetFormatInput `pulumi:"datasetFormat"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+	S3DataDistributionType MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrInput `pulumi:"s3DataDistributionType"`
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+	S3InputMode MonitoringScheduleBatchTransformInputS3InputModePtrInput `pulumi:"s3InputMode"`
+}
+
+func (MonitoringScheduleBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInput)(nil)).Elem()
+}
+
+func (i MonitoringScheduleBatchTransformInputArgs) ToMonitoringScheduleBatchTransformInputOutput() MonitoringScheduleBatchTransformInputOutput {
+	return i.ToMonitoringScheduleBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleBatchTransformInputArgs) ToMonitoringScheduleBatchTransformInputOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleBatchTransformInputOutput)
+}
+
+func (i MonitoringScheduleBatchTransformInputArgs) ToMonitoringScheduleBatchTransformInputPtrOutput() MonitoringScheduleBatchTransformInputPtrOutput {
+	return i.ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleBatchTransformInputArgs) ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleBatchTransformInputOutput).ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleBatchTransformInputPtrInput is an input type that accepts MonitoringScheduleBatchTransformInputArgs, MonitoringScheduleBatchTransformInputPtr and MonitoringScheduleBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleBatchTransformInputPtrInput` via:
+//
+//	        MonitoringScheduleBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputPtrOutput() MonitoringScheduleBatchTransformInputPtrOutput
+	ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputPtrOutput
+}
+
+type monitoringScheduleBatchTransformInputPtrType MonitoringScheduleBatchTransformInputArgs
+
+func MonitoringScheduleBatchTransformInputPtr(v *MonitoringScheduleBatchTransformInputArgs) MonitoringScheduleBatchTransformInputPtrInput {
+	return (*monitoringScheduleBatchTransformInputPtrType)(v)
+}
+
+func (*monitoringScheduleBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleBatchTransformInput)(nil)).Elem()
+}
+
+func (i *monitoringScheduleBatchTransformInputPtrType) ToMonitoringScheduleBatchTransformInputPtrOutput() MonitoringScheduleBatchTransformInputPtrOutput {
+	return i.ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleBatchTransformInputPtrType) ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleBatchTransformInputPtrOutput)
+}
+
+// The batch transform input for a monitoring job.
+type MonitoringScheduleBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputOutput) ToMonitoringScheduleBatchTransformInputOutput() MonitoringScheduleBatchTransformInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputOutput) ToMonitoringScheduleBatchTransformInputOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputOutput) ToMonitoringScheduleBatchTransformInputPtrOutput() MonitoringScheduleBatchTransformInputPtrOutput {
+	return o.ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputOutput) ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleBatchTransformInput) *MonitoringScheduleBatchTransformInput {
+		return &v
+	}).(MonitoringScheduleBatchTransformInputPtrOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o MonitoringScheduleBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) string { return v.DataCapturedDestinationS3Uri }).(pulumi.StringOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputOutput) DatasetFormat() MonitoringScheduleDatasetFormatOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) MonitoringScheduleDatasetFormat { return v.DatasetFormat }).(MonitoringScheduleDatasetFormatOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o MonitoringScheduleBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) string { return v.LocalPath }).(pulumi.StringOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o MonitoringScheduleBatchTransformInputOutput) S3DataDistributionType() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) *MonitoringScheduleBatchTransformInputS3DataDistributionType {
+		return v.S3DataDistributionType
+	}).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o MonitoringScheduleBatchTransformInputOutput) S3InputMode() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleBatchTransformInput) *MonitoringScheduleBatchTransformInputS3InputMode {
+		return v.S3InputMode
+	}).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
+}
+
+type MonitoringScheduleBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleBatchTransformInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputPtrOutput) ToMonitoringScheduleBatchTransformInputPtrOutput() MonitoringScheduleBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputPtrOutput) ToMonitoringScheduleBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputPtrOutput) Elem() MonitoringScheduleBatchTransformInputOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) MonitoringScheduleBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleBatchTransformInput
+		return ret
+	}).(MonitoringScheduleBatchTransformInputOutput)
+}
+
+// A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+func (o MonitoringScheduleBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputPtrOutput) DatasetFormat() MonitoringScheduleDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *MonitoringScheduleDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(MonitoringScheduleDatasetFormatPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o MonitoringScheduleBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o MonitoringScheduleBatchTransformInputPtrOutput) S3DataDistributionType() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *MonitoringScheduleBatchTransformInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o MonitoringScheduleBatchTransformInputPtrOutput) S3InputMode() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInput) *MonitoringScheduleBatchTransformInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
+}
+
 // Configuration for the cluster used to run model monitoring jobs.
 type MonitoringScheduleClusterConfig struct {
 	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
@@ -20966,6 +24728,312 @@ func (o MonitoringScheduleConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The CSV format
+type MonitoringScheduleCsv struct {
+	// A boolean flag indicating if given CSV has header
+	Header *bool `pulumi:"header"`
+}
+
+// MonitoringScheduleCsvInput is an input type that accepts MonitoringScheduleCsvArgs and MonitoringScheduleCsvOutput values.
+// You can construct a concrete instance of `MonitoringScheduleCsvInput` via:
+//
+//	MonitoringScheduleCsvArgs{...}
+type MonitoringScheduleCsvInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleCsvOutput() MonitoringScheduleCsvOutput
+	ToMonitoringScheduleCsvOutputWithContext(context.Context) MonitoringScheduleCsvOutput
+}
+
+// The CSV format
+type MonitoringScheduleCsvArgs struct {
+	// A boolean flag indicating if given CSV has header
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (MonitoringScheduleCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleCsv)(nil)).Elem()
+}
+
+func (i MonitoringScheduleCsvArgs) ToMonitoringScheduleCsvOutput() MonitoringScheduleCsvOutput {
+	return i.ToMonitoringScheduleCsvOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleCsvArgs) ToMonitoringScheduleCsvOutputWithContext(ctx context.Context) MonitoringScheduleCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleCsvOutput)
+}
+
+func (i MonitoringScheduleCsvArgs) ToMonitoringScheduleCsvPtrOutput() MonitoringScheduleCsvPtrOutput {
+	return i.ToMonitoringScheduleCsvPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleCsvArgs) ToMonitoringScheduleCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleCsvOutput).ToMonitoringScheduleCsvPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleCsvPtrInput is an input type that accepts MonitoringScheduleCsvArgs, MonitoringScheduleCsvPtr and MonitoringScheduleCsvPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleCsvPtrInput` via:
+//
+//	        MonitoringScheduleCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleCsvPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleCsvPtrOutput() MonitoringScheduleCsvPtrOutput
+	ToMonitoringScheduleCsvPtrOutputWithContext(context.Context) MonitoringScheduleCsvPtrOutput
+}
+
+type monitoringScheduleCsvPtrType MonitoringScheduleCsvArgs
+
+func MonitoringScheduleCsvPtr(v *MonitoringScheduleCsvArgs) MonitoringScheduleCsvPtrInput {
+	return (*monitoringScheduleCsvPtrType)(v)
+}
+
+func (*monitoringScheduleCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleCsv)(nil)).Elem()
+}
+
+func (i *monitoringScheduleCsvPtrType) ToMonitoringScheduleCsvPtrOutput() MonitoringScheduleCsvPtrOutput {
+	return i.ToMonitoringScheduleCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleCsvPtrType) ToMonitoringScheduleCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleCsvPtrOutput)
+}
+
+// The CSV format
+type MonitoringScheduleCsvOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleCsv)(nil)).Elem()
+}
+
+func (o MonitoringScheduleCsvOutput) ToMonitoringScheduleCsvOutput() MonitoringScheduleCsvOutput {
+	return o
+}
+
+func (o MonitoringScheduleCsvOutput) ToMonitoringScheduleCsvOutputWithContext(ctx context.Context) MonitoringScheduleCsvOutput {
+	return o
+}
+
+func (o MonitoringScheduleCsvOutput) ToMonitoringScheduleCsvPtrOutput() MonitoringScheduleCsvPtrOutput {
+	return o.ToMonitoringScheduleCsvPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleCsvOutput) ToMonitoringScheduleCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleCsv) *MonitoringScheduleCsv {
+		return &v
+	}).(MonitoringScheduleCsvPtrOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o MonitoringScheduleCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleCsv) *bool { return v.Header }).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleCsv)(nil)).Elem()
+}
+
+func (o MonitoringScheduleCsvPtrOutput) ToMonitoringScheduleCsvPtrOutput() MonitoringScheduleCsvPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleCsvPtrOutput) ToMonitoringScheduleCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleCsvPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleCsvPtrOutput) Elem() MonitoringScheduleCsvOutput {
+	return o.ApplyT(func(v *MonitoringScheduleCsv) MonitoringScheduleCsv {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleCsv
+		return ret
+	}).(MonitoringScheduleCsvOutput)
+}
+
+// A boolean flag indicating if given CSV has header
+func (o MonitoringScheduleCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type MonitoringScheduleDatasetFormat struct {
+	Csv     *MonitoringScheduleCsv  `pulumi:"csv"`
+	Json    *MonitoringScheduleJson `pulumi:"json"`
+	Parquet *bool                   `pulumi:"parquet"`
+}
+
+// MonitoringScheduleDatasetFormatInput is an input type that accepts MonitoringScheduleDatasetFormatArgs and MonitoringScheduleDatasetFormatOutput values.
+// You can construct a concrete instance of `MonitoringScheduleDatasetFormatInput` via:
+//
+//	MonitoringScheduleDatasetFormatArgs{...}
+type MonitoringScheduleDatasetFormatInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleDatasetFormatOutput() MonitoringScheduleDatasetFormatOutput
+	ToMonitoringScheduleDatasetFormatOutputWithContext(context.Context) MonitoringScheduleDatasetFormatOutput
+}
+
+// The dataset format of the data to monitor
+type MonitoringScheduleDatasetFormatArgs struct {
+	Csv     MonitoringScheduleCsvPtrInput  `pulumi:"csv"`
+	Json    MonitoringScheduleJsonPtrInput `pulumi:"json"`
+	Parquet pulumi.BoolPtrInput            `pulumi:"parquet"`
+}
+
+func (MonitoringScheduleDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleDatasetFormat)(nil)).Elem()
+}
+
+func (i MonitoringScheduleDatasetFormatArgs) ToMonitoringScheduleDatasetFormatOutput() MonitoringScheduleDatasetFormatOutput {
+	return i.ToMonitoringScheduleDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleDatasetFormatArgs) ToMonitoringScheduleDatasetFormatOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleDatasetFormatOutput)
+}
+
+func (i MonitoringScheduleDatasetFormatArgs) ToMonitoringScheduleDatasetFormatPtrOutput() MonitoringScheduleDatasetFormatPtrOutput {
+	return i.ToMonitoringScheduleDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleDatasetFormatArgs) ToMonitoringScheduleDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleDatasetFormatOutput).ToMonitoringScheduleDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleDatasetFormatPtrInput is an input type that accepts MonitoringScheduleDatasetFormatArgs, MonitoringScheduleDatasetFormatPtr and MonitoringScheduleDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleDatasetFormatPtrInput` via:
+//
+//	        MonitoringScheduleDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleDatasetFormatPtrOutput() MonitoringScheduleDatasetFormatPtrOutput
+	ToMonitoringScheduleDatasetFormatPtrOutputWithContext(context.Context) MonitoringScheduleDatasetFormatPtrOutput
+}
+
+type monitoringScheduleDatasetFormatPtrType MonitoringScheduleDatasetFormatArgs
+
+func MonitoringScheduleDatasetFormatPtr(v *MonitoringScheduleDatasetFormatArgs) MonitoringScheduleDatasetFormatPtrInput {
+	return (*monitoringScheduleDatasetFormatPtrType)(v)
+}
+
+func (*monitoringScheduleDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleDatasetFormat)(nil)).Elem()
+}
+
+func (i *monitoringScheduleDatasetFormatPtrType) ToMonitoringScheduleDatasetFormatPtrOutput() MonitoringScheduleDatasetFormatPtrOutput {
+	return i.ToMonitoringScheduleDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleDatasetFormatPtrType) ToMonitoringScheduleDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleDatasetFormatPtrOutput)
+}
+
+// The dataset format of the data to monitor
+type MonitoringScheduleDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleDatasetFormat)(nil)).Elem()
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) ToMonitoringScheduleDatasetFormatOutput() MonitoringScheduleDatasetFormatOutput {
+	return o
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) ToMonitoringScheduleDatasetFormatOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatOutput {
+	return o
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) ToMonitoringScheduleDatasetFormatPtrOutput() MonitoringScheduleDatasetFormatPtrOutput {
+	return o.ToMonitoringScheduleDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) ToMonitoringScheduleDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleDatasetFormat) *MonitoringScheduleDatasetFormat {
+		return &v
+	}).(MonitoringScheduleDatasetFormatPtrOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) Csv() MonitoringScheduleCsvPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleDatasetFormat) *MonitoringScheduleCsv { return v.Csv }).(MonitoringScheduleCsvPtrOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) Json() MonitoringScheduleJsonPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleDatasetFormat) *MonitoringScheduleJson { return v.Json }).(MonitoringScheduleJsonPtrOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleDatasetFormat) *bool { return v.Parquet }).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleDatasetFormat)(nil)).Elem()
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) ToMonitoringScheduleDatasetFormatPtrOutput() MonitoringScheduleDatasetFormatPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) ToMonitoringScheduleDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleDatasetFormatPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) Elem() MonitoringScheduleDatasetFormatOutput {
+	return o.ApplyT(func(v *MonitoringScheduleDatasetFormat) MonitoringScheduleDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleDatasetFormat
+		return ret
+	}).(MonitoringScheduleDatasetFormatOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) Csv() MonitoringScheduleCsvPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleDatasetFormat) *MonitoringScheduleCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(MonitoringScheduleCsvPtrOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) Json() MonitoringScheduleJsonPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleDatasetFormat) *MonitoringScheduleJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(MonitoringScheduleJsonPtrOutput)
+}
+
+func (o MonitoringScheduleDatasetFormatPtrOutput) Parquet() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleDatasetFormat) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Parquet
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInput struct {
 	EndpointName string `pulumi:"endpointName"`
@@ -21011,6 +25079,47 @@ func (i MonitoringScheduleEndpointInputArgs) ToMonitoringScheduleEndpointInputOu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEndpointInputOutput)
 }
 
+func (i MonitoringScheduleEndpointInputArgs) ToMonitoringScheduleEndpointInputPtrOutput() MonitoringScheduleEndpointInputPtrOutput {
+	return i.ToMonitoringScheduleEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleEndpointInputArgs) ToMonitoringScheduleEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEndpointInputOutput).ToMonitoringScheduleEndpointInputPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleEndpointInputPtrInput is an input type that accepts MonitoringScheduleEndpointInputArgs, MonitoringScheduleEndpointInputPtr and MonitoringScheduleEndpointInputPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleEndpointInputPtrInput` via:
+//
+//	        MonitoringScheduleEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleEndpointInputPtrOutput() MonitoringScheduleEndpointInputPtrOutput
+	ToMonitoringScheduleEndpointInputPtrOutputWithContext(context.Context) MonitoringScheduleEndpointInputPtrOutput
+}
+
+type monitoringScheduleEndpointInputPtrType MonitoringScheduleEndpointInputArgs
+
+func MonitoringScheduleEndpointInputPtr(v *MonitoringScheduleEndpointInputArgs) MonitoringScheduleEndpointInputPtrInput {
+	return (*monitoringScheduleEndpointInputPtrType)(v)
+}
+
+func (*monitoringScheduleEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleEndpointInput)(nil)).Elem()
+}
+
+func (i *monitoringScheduleEndpointInputPtrType) ToMonitoringScheduleEndpointInputPtrOutput() MonitoringScheduleEndpointInputPtrOutput {
+	return i.ToMonitoringScheduleEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleEndpointInputPtrType) ToMonitoringScheduleEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEndpointInputPtrOutput)
+}
+
 // The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInputOutput struct{ *pulumi.OutputState }
 
@@ -21024,6 +25133,16 @@ func (o MonitoringScheduleEndpointInputOutput) ToMonitoringScheduleEndpointInput
 
 func (o MonitoringScheduleEndpointInputOutput) ToMonitoringScheduleEndpointInputOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputOutput {
 	return o
+}
+
+func (o MonitoringScheduleEndpointInputOutput) ToMonitoringScheduleEndpointInputPtrOutput() MonitoringScheduleEndpointInputPtrOutput {
+	return o.ToMonitoringScheduleEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleEndpointInputOutput) ToMonitoringScheduleEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInput {
+		return &v
+	}).(MonitoringScheduleEndpointInputPtrOutput)
 }
 
 func (o MonitoringScheduleEndpointInputOutput) EndpointName() pulumi.StringOutput {
@@ -21047,6 +25166,209 @@ func (o MonitoringScheduleEndpointInputOutput) S3InputMode() MonitoringScheduleE
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInputS3InputMode {
 		return v.S3InputMode
 	}).(MonitoringScheduleEndpointInputS3InputModePtrOutput)
+}
+
+type MonitoringScheduleEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleEndpointInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleEndpointInputPtrOutput) ToMonitoringScheduleEndpointInputPtrOutput() MonitoringScheduleEndpointInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleEndpointInputPtrOutput) ToMonitoringScheduleEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleEndpointInputPtrOutput) Elem() MonitoringScheduleEndpointInputOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) MonitoringScheduleEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleEndpointInput
+		return ret
+	}).(MonitoringScheduleEndpointInputOutput)
+}
+
+func (o MonitoringScheduleEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o MonitoringScheduleEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+func (o MonitoringScheduleEndpointInputPtrOutput) S3DataDistributionType() MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInputS3DataDistributionType {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+func (o MonitoringScheduleEndpointInputPtrOutput) S3InputMode() MonitoringScheduleEndpointInputS3InputModePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleEndpointInput) *MonitoringScheduleEndpointInputS3InputMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(MonitoringScheduleEndpointInputS3InputModePtrOutput)
+}
+
+// The Json format
+type MonitoringScheduleJson struct {
+	// A boolean flag indicating if it is JSON line format
+	Line *bool `pulumi:"line"`
+}
+
+// MonitoringScheduleJsonInput is an input type that accepts MonitoringScheduleJsonArgs and MonitoringScheduleJsonOutput values.
+// You can construct a concrete instance of `MonitoringScheduleJsonInput` via:
+//
+//	MonitoringScheduleJsonArgs{...}
+type MonitoringScheduleJsonInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleJsonOutput() MonitoringScheduleJsonOutput
+	ToMonitoringScheduleJsonOutputWithContext(context.Context) MonitoringScheduleJsonOutput
+}
+
+// The Json format
+type MonitoringScheduleJsonArgs struct {
+	// A boolean flag indicating if it is JSON line format
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (MonitoringScheduleJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleJson)(nil)).Elem()
+}
+
+func (i MonitoringScheduleJsonArgs) ToMonitoringScheduleJsonOutput() MonitoringScheduleJsonOutput {
+	return i.ToMonitoringScheduleJsonOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleJsonArgs) ToMonitoringScheduleJsonOutputWithContext(ctx context.Context) MonitoringScheduleJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleJsonOutput)
+}
+
+func (i MonitoringScheduleJsonArgs) ToMonitoringScheduleJsonPtrOutput() MonitoringScheduleJsonPtrOutput {
+	return i.ToMonitoringScheduleJsonPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleJsonArgs) ToMonitoringScheduleJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleJsonOutput).ToMonitoringScheduleJsonPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleJsonPtrInput is an input type that accepts MonitoringScheduleJsonArgs, MonitoringScheduleJsonPtr and MonitoringScheduleJsonPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleJsonPtrInput` via:
+//
+//	        MonitoringScheduleJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleJsonPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleJsonPtrOutput() MonitoringScheduleJsonPtrOutput
+	ToMonitoringScheduleJsonPtrOutputWithContext(context.Context) MonitoringScheduleJsonPtrOutput
+}
+
+type monitoringScheduleJsonPtrType MonitoringScheduleJsonArgs
+
+func MonitoringScheduleJsonPtr(v *MonitoringScheduleJsonArgs) MonitoringScheduleJsonPtrInput {
+	return (*monitoringScheduleJsonPtrType)(v)
+}
+
+func (*monitoringScheduleJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleJson)(nil)).Elem()
+}
+
+func (i *monitoringScheduleJsonPtrType) ToMonitoringScheduleJsonPtrOutput() MonitoringScheduleJsonPtrOutput {
+	return i.ToMonitoringScheduleJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleJsonPtrType) ToMonitoringScheduleJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleJsonPtrOutput)
+}
+
+// The Json format
+type MonitoringScheduleJsonOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleJson)(nil)).Elem()
+}
+
+func (o MonitoringScheduleJsonOutput) ToMonitoringScheduleJsonOutput() MonitoringScheduleJsonOutput {
+	return o
+}
+
+func (o MonitoringScheduleJsonOutput) ToMonitoringScheduleJsonOutputWithContext(ctx context.Context) MonitoringScheduleJsonOutput {
+	return o
+}
+
+func (o MonitoringScheduleJsonOutput) ToMonitoringScheduleJsonPtrOutput() MonitoringScheduleJsonPtrOutput {
+	return o.ToMonitoringScheduleJsonPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleJsonOutput) ToMonitoringScheduleJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleJson) *MonitoringScheduleJson {
+		return &v
+	}).(MonitoringScheduleJsonPtrOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o MonitoringScheduleJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleJson) *bool { return v.Line }).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleJson)(nil)).Elem()
+}
+
+func (o MonitoringScheduleJsonPtrOutput) ToMonitoringScheduleJsonPtrOutput() MonitoringScheduleJsonPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleJsonPtrOutput) ToMonitoringScheduleJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleJsonPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleJsonPtrOutput) Elem() MonitoringScheduleJsonOutput {
+	return o.ApplyT(func(v *MonitoringScheduleJson) MonitoringScheduleJson {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleJson
+		return ret
+	}).(MonitoringScheduleJsonOutput)
+}
+
+// A boolean flag indicating if it is JSON line format
+func (o MonitoringScheduleJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Container image configuration object for the monitoring job.
@@ -21534,7 +25856,8 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) ScheduledTime() p
 
 // The inputs for a monitoring job.
 type MonitoringScheduleMonitoringInput struct {
-	EndpointInput MonitoringScheduleEndpointInput `pulumi:"endpointInput"`
+	BatchTransformInput *MonitoringScheduleBatchTransformInput `pulumi:"batchTransformInput"`
+	EndpointInput       *MonitoringScheduleEndpointInput       `pulumi:"endpointInput"`
 }
 
 // MonitoringScheduleMonitoringInputInput is an input type that accepts MonitoringScheduleMonitoringInputArgs and MonitoringScheduleMonitoringInputOutput values.
@@ -21550,7 +25873,8 @@ type MonitoringScheduleMonitoringInputInput interface {
 
 // The inputs for a monitoring job.
 type MonitoringScheduleMonitoringInputArgs struct {
-	EndpointInput MonitoringScheduleEndpointInputInput `pulumi:"endpointInput"`
+	BatchTransformInput MonitoringScheduleBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
+	EndpointInput       MonitoringScheduleEndpointInputPtrInput       `pulumi:"endpointInput"`
 }
 
 func (MonitoringScheduleMonitoringInputArgs) ElementType() reflect.Type {
@@ -21605,8 +25929,14 @@ func (o MonitoringScheduleMonitoringInputOutput) ToMonitoringScheduleMonitoringI
 	return o
 }
 
-func (o MonitoringScheduleMonitoringInputOutput) EndpointInput() MonitoringScheduleEndpointInputOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringInput) MonitoringScheduleEndpointInput { return v.EndpointInput }).(MonitoringScheduleEndpointInputOutput)
+func (o MonitoringScheduleMonitoringInputOutput) BatchTransformInput() MonitoringScheduleBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringInput) *MonitoringScheduleBatchTransformInput {
+		return v.BatchTransformInput
+	}).(MonitoringScheduleBatchTransformInputPtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringInputOutput) EndpointInput() MonitoringScheduleEndpointInputPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringInput) *MonitoringScheduleEndpointInput { return v.EndpointInput }).(MonitoringScheduleEndpointInputPtrOutput)
 }
 
 type MonitoringScheduleMonitoringInputArrayOutput struct{ *pulumi.OutputState }
@@ -26412,14 +30742,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTagInput)(nil)).Elem(), CodeRepositoryTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryTagArrayInput)(nil)).Elem(), CodeRepositoryTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionConstraintsResourceInput)(nil)).Elem(), DataQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), DataQualityJobDefinitionConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionCsvInput)(nil)).Elem(), DataQualityJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionCsvPtrInput)(nil)).Elem(), DataQualityJobDefinitionCsvArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityAppSpecificationInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityBaselineConfigInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityBaselineConfigPtrInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDataQualityJobInputInput)(nil)).Elem(), DataQualityJobDefinitionDataQualityJobInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDatasetFormatInput)(nil)).Elem(), DataQualityJobDefinitionDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionDatasetFormatPtrInput)(nil)).Elem(), DataQualityJobDefinitionDatasetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionJsonInput)(nil)).Elem(), DataQualityJobDefinitionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionJsonPtrInput)(nil)).Elem(), DataQualityJobDefinitionJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputArrayInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), DataQualityJobDefinitionMonitoringOutputConfigArgs{})
@@ -26527,10 +30866,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTagArrayInput)(nil)).Elem(), FeatureGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagInput)(nil)).Elem(), ImageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTagArrayInput)(nil)).Elem(), ImageTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionClusterConfigInput)(nil)).Elem(), ModelBiasJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelBiasJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelBiasJobDefinitionConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionCsvInput)(nil)).Elem(), ModelBiasJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionCsvPtrInput)(nil)).Elem(), ModelBiasJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionDatasetFormatInput)(nil)).Elem(), ModelBiasJobDefinitionDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionDatasetFormatPtrInput)(nil)).Elem(), ModelBiasJobDefinitionDatasetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionJsonInput)(nil)).Elem(), ModelBiasJobDefinitionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionJsonPtrInput)(nil)).Elem(), ModelBiasJobDefinitionJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasAppSpecificationInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasBaselineConfigInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionModelBiasBaselineConfigPtrInput)(nil)).Elem(), ModelBiasJobDefinitionModelBiasBaselineConfigArgs{})
@@ -26552,10 +30900,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionPtrInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionArrayInput)(nil)).Elem(), ModelContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelExplainabilityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionCsvInput)(nil)).Elem(), ModelExplainabilityJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionCsvPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionDatasetFormatInput)(nil)).Elem(), ModelExplainabilityJobDefinitionDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionDatasetFormatPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionDatasetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionJsonInput)(nil)).Elem(), ModelExplainabilityJobDefinitionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionJsonPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs{})
@@ -26646,10 +31003,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationProfileArrayInput)(nil)).Elem(), ModelPackageValidationProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationSpecificationInput)(nil)).Elem(), ModelPackageValidationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageValidationSpecificationPtrInput)(nil)).Elem(), ModelPackageValidationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelQualityJobDefinitionClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourceInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionConstraintsResourcePtrInput)(nil)).Elem(), ModelQualityJobDefinitionConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionCsvInput)(nil)).Elem(), ModelQualityJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionCsvPtrInput)(nil)).Elem(), ModelQualityJobDefinitionCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionDatasetFormatInput)(nil)).Elem(), ModelQualityJobDefinitionDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionDatasetFormatPtrInput)(nil)).Elem(), ModelQualityJobDefinitionDatasetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputPtrInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionJsonInput)(nil)).Elem(), ModelQualityJobDefinitionJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionJsonPtrInput)(nil)).Elem(), ModelQualityJobDefinitionJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityAppSpecificationInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityBaselineConfigInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionModelQualityBaselineConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionModelQualityBaselineConfigArgs{})
@@ -26676,12 +31042,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBaselineConfigInput)(nil)).Elem(), MonitoringScheduleBaselineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBaselineConfigPtrInput)(nil)).Elem(), MonitoringScheduleBaselineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputPtrInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleClusterConfigInput)(nil)).Elem(), MonitoringScheduleClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleClusterConfigPtrInput)(nil)).Elem(), MonitoringScheduleClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConfigInput)(nil)).Elem(), MonitoringScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConstraintsResourceInput)(nil)).Elem(), MonitoringScheduleConstraintsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleConstraintsResourcePtrInput)(nil)).Elem(), MonitoringScheduleConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleCsvInput)(nil)).Elem(), MonitoringScheduleCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleCsvPtrInput)(nil)).Elem(), MonitoringScheduleCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleDatasetFormatInput)(nil)).Elem(), MonitoringScheduleDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleDatasetFormatPtrInput)(nil)).Elem(), MonitoringScheduleDatasetFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputInput)(nil)).Elem(), MonitoringScheduleEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputPtrInput)(nil)).Elem(), MonitoringScheduleEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleJsonInput)(nil)).Elem(), MonitoringScheduleJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleJsonPtrInput)(nil)).Elem(), MonitoringScheduleJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringAppSpecificationInput)(nil)).Elem(), MonitoringScheduleMonitoringAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringAppSpecificationPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringAppSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringExecutionSummaryInput)(nil)).Elem(), MonitoringScheduleMonitoringExecutionSummaryArgs{})
@@ -26770,14 +31145,23 @@ func init() {
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryTagArrayOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionCsvOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionCsvPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityAppSpecificationOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionDataQualityJobInputOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionDatasetFormatOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionDatasetFormatPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionJsonOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionJsonPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionMonitoringOutputConfigOutput{})
@@ -26887,10 +31271,19 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ImageTagOutput{})
 	pulumi.RegisterOutputType(ImageTagArrayOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionCsvOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionCsvPtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionDatasetFormatOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionDatasetFormatPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionJsonOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionJsonPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput{})
@@ -26912,10 +31305,19 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerDefinitionOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionCsvOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionCsvPtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionDatasetFormatOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionDatasetFormatPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionJsonOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionJsonPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput{})
@@ -27006,10 +31408,19 @@ func init() {
 	pulumi.RegisterOutputType(ModelPackageValidationProfileArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageValidationSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelPackageValidationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionCsvOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionCsvPtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionDatasetFormatOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionDatasetFormatPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionJsonOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionJsonPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityAppSpecificationOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityBaselineConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput{})
@@ -27036,13 +31447,22 @@ func init() {
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourceOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleCsvOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleCsvPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleDatasetFormatOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleDatasetFormatPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleJsonOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleJsonPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringAppSpecificationOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringAppSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringExecutionSummaryOutput{})

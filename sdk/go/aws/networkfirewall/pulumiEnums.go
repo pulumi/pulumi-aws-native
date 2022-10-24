@@ -10,6 +10,169 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FirewallPolicyOverrideAction string
+
+const (
+	FirewallPolicyOverrideActionDropToAlert = FirewallPolicyOverrideAction("DROP_TO_ALERT")
+)
+
+func (FirewallPolicyOverrideAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyOverrideAction)(nil)).Elem()
+}
+
+func (e FirewallPolicyOverrideAction) ToFirewallPolicyOverrideActionOutput() FirewallPolicyOverrideActionOutput {
+	return pulumi.ToOutput(e).(FirewallPolicyOverrideActionOutput)
+}
+
+func (e FirewallPolicyOverrideAction) ToFirewallPolicyOverrideActionOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallPolicyOverrideActionOutput)
+}
+
+func (e FirewallPolicyOverrideAction) ToFirewallPolicyOverrideActionPtrOutput() FirewallPolicyOverrideActionPtrOutput {
+	return e.ToFirewallPolicyOverrideActionPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyOverrideAction) ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionPtrOutput {
+	return FirewallPolicyOverrideAction(e).ToFirewallPolicyOverrideActionOutputWithContext(ctx).ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx)
+}
+
+func (e FirewallPolicyOverrideAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyOverrideAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyOverrideAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyOverrideAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallPolicyOverrideActionOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyOverrideActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyOverrideAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToFirewallPolicyOverrideActionOutput() FirewallPolicyOverrideActionOutput {
+	return o
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToFirewallPolicyOverrideActionOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionOutput {
+	return o
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToFirewallPolicyOverrideActionPtrOutput() FirewallPolicyOverrideActionPtrOutput {
+	return o.ToFirewallPolicyOverrideActionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyOverrideAction) *FirewallPolicyOverrideAction {
+		return &v
+	}).(FirewallPolicyOverrideActionPtrOutput)
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyOverrideAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyOverrideActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyOverrideAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyOverrideActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyOverrideActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyOverrideAction)(nil)).Elem()
+}
+
+func (o FirewallPolicyOverrideActionPtrOutput) ToFirewallPolicyOverrideActionPtrOutput() FirewallPolicyOverrideActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyOverrideActionPtrOutput) ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyOverrideActionPtrOutput) Elem() FirewallPolicyOverrideActionOutput {
+	return o.ApplyT(func(v *FirewallPolicyOverrideAction) FirewallPolicyOverrideAction {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyOverrideAction
+		return ret
+	}).(FirewallPolicyOverrideActionOutput)
+}
+
+func (o FirewallPolicyOverrideActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyOverrideActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallPolicyOverrideAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallPolicyOverrideActionInput is an input type that accepts FirewallPolicyOverrideActionArgs and FirewallPolicyOverrideActionOutput values.
+// You can construct a concrete instance of `FirewallPolicyOverrideActionInput` via:
+//
+//	FirewallPolicyOverrideActionArgs{...}
+type FirewallPolicyOverrideActionInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyOverrideActionOutput() FirewallPolicyOverrideActionOutput
+	ToFirewallPolicyOverrideActionOutputWithContext(context.Context) FirewallPolicyOverrideActionOutput
+}
+
+var firewallPolicyOverrideActionPtrType = reflect.TypeOf((**FirewallPolicyOverrideAction)(nil)).Elem()
+
+type FirewallPolicyOverrideActionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyOverrideActionPtrOutput() FirewallPolicyOverrideActionPtrOutput
+	ToFirewallPolicyOverrideActionPtrOutputWithContext(context.Context) FirewallPolicyOverrideActionPtrOutput
+}
+
+type firewallPolicyOverrideActionPtr string
+
+func FirewallPolicyOverrideActionPtr(v string) FirewallPolicyOverrideActionPtrInput {
+	return (*firewallPolicyOverrideActionPtr)(&v)
+}
+
+func (*firewallPolicyOverrideActionPtr) ElementType() reflect.Type {
+	return firewallPolicyOverrideActionPtrType
+}
+
+func (in *firewallPolicyOverrideActionPtr) ToFirewallPolicyOverrideActionPtrOutput() FirewallPolicyOverrideActionPtrOutput {
+	return pulumi.ToOutput(in).(FirewallPolicyOverrideActionPtrOutput)
+}
+
+func (in *firewallPolicyOverrideActionPtr) ToFirewallPolicyOverrideActionPtrOutputWithContext(ctx context.Context) FirewallPolicyOverrideActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyOverrideActionPtrOutput)
+}
+
 type FirewallPolicyRuleOrder string
 
 const (
@@ -1930,6 +2093,8 @@ func (in *ruleGroupTypeEnumPtr) ToRuleGroupTypeEnumPtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionPtrInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderPtrInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigLogDestinationTypeInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigLogDestinationType("S3"))
@@ -1954,6 +2119,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTargetTypeArrayInput)(nil)).Elem(), RuleGroupTargetTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumPtrInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
+	pulumi.RegisterOutputType(FirewallPolicyOverrideActionOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput{})

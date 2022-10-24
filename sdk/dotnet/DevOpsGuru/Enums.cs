@@ -8,6 +8,72 @@ using Pulumi;
 namespace Pulumi.AwsNative.DevOpsGuru
 {
     /// <summary>
+    /// DevOps Guru Insight Severity Enum
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationChannelInsightSeverity : IEquatable<NotificationChannelInsightSeverity>
+    {
+        private readonly string _value;
+
+        private NotificationChannelInsightSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationChannelInsightSeverity Low { get; } = new NotificationChannelInsightSeverity("LOW");
+        public static NotificationChannelInsightSeverity Medium { get; } = new NotificationChannelInsightSeverity("MEDIUM");
+        public static NotificationChannelInsightSeverity High { get; } = new NotificationChannelInsightSeverity("HIGH");
+
+        public static bool operator ==(NotificationChannelInsightSeverity left, NotificationChannelInsightSeverity right) => left.Equals(right);
+        public static bool operator !=(NotificationChannelInsightSeverity left, NotificationChannelInsightSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationChannelInsightSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationChannelInsightSeverity other && Equals(other);
+        public bool Equals(NotificationChannelInsightSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// DevOps Guru NotificationMessageType Enum
+    /// </summary>
+    [EnumType]
+    public readonly struct NotificationChannelNotificationMessageType : IEquatable<NotificationChannelNotificationMessageType>
+    {
+        private readonly string _value;
+
+        private NotificationChannelNotificationMessageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NotificationChannelNotificationMessageType NewInsight { get; } = new NotificationChannelNotificationMessageType("NEW_INSIGHT");
+        public static NotificationChannelNotificationMessageType ClosedInsight { get; } = new NotificationChannelNotificationMessageType("CLOSED_INSIGHT");
+        public static NotificationChannelNotificationMessageType NewAssociation { get; } = new NotificationChannelNotificationMessageType("NEW_ASSOCIATION");
+        public static NotificationChannelNotificationMessageType SeverityUpgraded { get; } = new NotificationChannelNotificationMessageType("SEVERITY_UPGRADED");
+        public static NotificationChannelNotificationMessageType NewRecommendation { get; } = new NotificationChannelNotificationMessageType("NEW_RECOMMENDATION");
+
+        public static bool operator ==(NotificationChannelNotificationMessageType left, NotificationChannelNotificationMessageType right) => left.Equals(right);
+        public static bool operator !=(NotificationChannelNotificationMessageType left, NotificationChannelNotificationMessageType right) => !left.Equals(right);
+
+        public static explicit operator string(NotificationChannelNotificationMessageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NotificationChannelNotificationMessageType other && Equals(other);
+        public bool Equals(NotificationChannelNotificationMessageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of ResourceCollection
     /// </summary>
     [EnumType]

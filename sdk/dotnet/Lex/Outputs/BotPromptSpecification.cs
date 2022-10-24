@@ -23,6 +23,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
         public readonly int MaxRetries;
         public readonly ImmutableArray<Outputs.BotMessageGroup> MessageGroupsList;
         public readonly Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? MessageSelectionStrategy;
+        /// <summary>
+        /// Specifies the advanced settings on each attempt of the prompt.
+        /// </summary>
+        public readonly object? PromptAttemptsSpecification;
 
         [OutputConstructor]
         private BotPromptSpecification(
@@ -32,12 +36,15 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             ImmutableArray<Outputs.BotMessageGroup> messageGroupsList,
 
-            Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? messageSelectionStrategy)
+            Pulumi.AwsNative.Lex.BotMessageSelectionStrategy? messageSelectionStrategy,
+
+            object? promptAttemptsSpecification)
         {
             AllowInterrupt = allowInterrupt;
             MaxRetries = maxRetries;
             MessageGroupsList = messageGroupsList;
             MessageSelectionStrategy = messageSelectionStrategy;
+            PromptAttemptsSpecification = promptAttemptsSpecification;
         }
     }
 }

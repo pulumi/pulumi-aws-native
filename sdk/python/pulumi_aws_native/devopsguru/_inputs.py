@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'NotificationChannelConfigArgs',
+    'NotificationChannelNotificationFilterConfigArgs',
     'NotificationChannelSnsChannelConfigArgs',
     'ResourceCollectionCloudFormationCollectionFilterArgs',
     'ResourceCollectionFilterArgs',
@@ -21,12 +22,24 @@ __all__ = [
 @pulumi.input_type
 class NotificationChannelConfigArgs:
     def __init__(__self__, *,
+                 filters: Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']] = None,
                  sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None):
         """
         Information about notification channels you have configured with DevOps Guru.
         """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']]):
+        pulumi.set(self, "filters", value)
 
     @property
     @pulumi.getter
@@ -36,6 +49,38 @@ class NotificationChannelConfigArgs:
     @sns.setter
     def sns(self, value: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']]):
         pulumi.set(self, "sns", value)
+
+
+@pulumi.input_type
+class NotificationChannelNotificationFilterConfigArgs:
+    def __init__(__self__, *,
+                 message_types: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]] = None,
+                 severities: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None):
+        """
+        Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+        """
+        if message_types is not None:
+            pulumi.set(__self__, "message_types", message_types)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+
+    @property
+    @pulumi.getter(name="messageTypes")
+    def message_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]:
+        return pulumi.get(self, "message_types")
+
+    @message_types.setter
+    def message_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]]):
+        pulumi.set(self, "message_types", value)
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]:
+        return pulumi.get(self, "severities")
+
+    @severities.setter
+    def severities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]]):
+        pulumi.set(self, "severities", value)
 
 
 @pulumi.input_type

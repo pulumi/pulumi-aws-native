@@ -399,6 +399,336 @@ func (in *appTypePtr) ToAppTypePtrOutputWithContext(ctx context.Context) AppType
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+type DataQualityJobDefinitionBatchTransformInputS3DataDistributionType string
+
+const (
+	DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeFullyReplicated = DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated")
+	DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeShardedByS3Key  = DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return e.ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return DataQualityJobDefinitionBatchTransformInputS3DataDistributionType(e).ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx).ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return &v
+	}).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) DataQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionBatchTransformInputS3DataDistributionType
+		return ret
+	}).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataQualityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput is an input type that accepts DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs and DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput` via:
+//
+//	DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs{...}
+type DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+	ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+}
+
+var dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType = reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+
+type DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+	ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+}
+
+type dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr string
+
+func DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr(v string) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput {
+	return (*dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr)(&v)
+}
+
+func (*dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType
+}
+
+func (in *dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (in *dataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+type DataQualityJobDefinitionBatchTransformInputS3InputMode string
+
+const (
+	DataQualityJobDefinitionBatchTransformInputS3InputModePipe = DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe")
+	DataQualityJobDefinitionBatchTransformInputS3InputModeFile = DataQualityJobDefinitionBatchTransformInputS3InputMode("File")
+)
+
+func (DataQualityJobDefinitionBatchTransformInputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutput() DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutput(e).(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return e.ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return DataQualityJobDefinitionBatchTransformInputS3InputMode(e).ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx).ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataQualityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataQualityJobDefinitionBatchTransformInputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutput() DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataQualityJobDefinitionBatchTransformInputS3InputMode) *DataQualityJobDefinitionBatchTransformInputS3InputMode {
+		return &v
+	}).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataQualityJobDefinitionBatchTransformInputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataQualityJobDefinitionBatchTransformInputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionBatchTransformInputS3InputMode) DataQualityJobDefinitionBatchTransformInputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret DataQualityJobDefinitionBatchTransformInputS3InputMode
+		return ret
+	}).(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataQualityJobDefinitionBatchTransformInputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataQualityJobDefinitionBatchTransformInputS3InputModeInput is an input type that accepts DataQualityJobDefinitionBatchTransformInputS3InputModeArgs and DataQualityJobDefinitionBatchTransformInputS3InputModeOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionBatchTransformInputS3InputModeInput` via:
+//
+//	DataQualityJobDefinitionBatchTransformInputS3InputModeArgs{...}
+type DataQualityJobDefinitionBatchTransformInputS3InputModeInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutput() DataQualityJobDefinitionBatchTransformInputS3InputModeOutput
+	ToDataQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModeOutput
+}
+
+var dataQualityJobDefinitionBatchTransformInputS3InputModePtrType = reflect.TypeOf((**DataQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+
+type DataQualityJobDefinitionBatchTransformInputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput
+	ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput
+}
+
+type dataQualityJobDefinitionBatchTransformInputS3InputModePtr string
+
+func DataQualityJobDefinitionBatchTransformInputS3InputModePtr(v string) DataQualityJobDefinitionBatchTransformInputS3InputModePtrInput {
+	return (*dataQualityJobDefinitionBatchTransformInputS3InputModePtr)(&v)
+}
+
+func (*dataQualityJobDefinitionBatchTransformInputS3InputModePtr) ElementType() reflect.Type {
+	return dataQualityJobDefinitionBatchTransformInputS3InputModePtrType
+}
+
+func (in *dataQualityJobDefinitionBatchTransformInputS3InputModePtr) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (in *dataQualityJobDefinitionBatchTransformInputS3InputModePtr) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type DataQualityJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
@@ -2244,6 +2574,336 @@ func (in *featureGroupFeatureDefinitionFeatureTypePtr) ToFeatureGroupFeatureDefi
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType string
+
+const (
+	ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeFullyReplicated = ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated")
+	ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeShardedByS3Key  = ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return e.ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(e).ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx).ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType {
+		return &v
+	}).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType
+		return ret
+	}).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput is an input type that accepts ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeArgs and ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput` via:
+//
+//	ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeArgs{...}
+type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+	ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+}
+
+var modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrType = reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+
+type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+	ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+}
+
+type modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr string
+
+func ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr(v string) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput {
+	return (*modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr)(&v)
+}
+
+func (*modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrType
+}
+
+func (in *modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (in *modelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+type ModelBiasJobDefinitionBatchTransformInputS3InputMode string
+
+const (
+	ModelBiasJobDefinitionBatchTransformInputS3InputModePipe = ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe")
+	ModelBiasJobDefinitionBatchTransformInputS3InputModeFile = ModelBiasJobDefinitionBatchTransformInputS3InputMode("File")
+)
+
+func (ModelBiasJobDefinitionBatchTransformInputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutput(e).(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return e.ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return ModelBiasJobDefinitionBatchTransformInputS3InputMode(e).ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx).ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelBiasJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelBiasJobDefinitionBatchTransformInputS3InputMode) *ModelBiasJobDefinitionBatchTransformInputS3InputMode {
+		return &v
+	}).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelBiasJobDefinitionBatchTransformInputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelBiasJobDefinitionBatchTransformInputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionBatchTransformInputS3InputMode) ModelBiasJobDefinitionBatchTransformInputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelBiasJobDefinitionBatchTransformInputS3InputMode
+		return ret
+	}).(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelBiasJobDefinitionBatchTransformInputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelBiasJobDefinitionBatchTransformInputS3InputModeInput is an input type that accepts ModelBiasJobDefinitionBatchTransformInputS3InputModeArgs and ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionBatchTransformInputS3InputModeInput` via:
+//
+//	ModelBiasJobDefinitionBatchTransformInputS3InputModeArgs{...}
+type ModelBiasJobDefinitionBatchTransformInputS3InputModeInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput
+	ToModelBiasJobDefinitionBatchTransformInputS3InputModeOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput
+}
+
+var modelBiasJobDefinitionBatchTransformInputS3InputModePtrType = reflect.TypeOf((**ModelBiasJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+
+type ModelBiasJobDefinitionBatchTransformInputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput
+	ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput
+}
+
+type modelBiasJobDefinitionBatchTransformInputS3InputModePtr string
+
+func ModelBiasJobDefinitionBatchTransformInputS3InputModePtr(v string) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrInput {
+	return (*modelBiasJobDefinitionBatchTransformInputS3InputModePtr)(&v)
+}
+
+func (*modelBiasJobDefinitionBatchTransformInputS3InputModePtr) ElementType() reflect.Type {
+	return modelBiasJobDefinitionBatchTransformInputS3InputModePtrType
+}
+
+func (in *modelBiasJobDefinitionBatchTransformInputS3InputModePtr) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (in *modelBiasJobDefinitionBatchTransformInputS3InputModePtr) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelBiasJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
@@ -2736,6 +3396,336 @@ func (in *modelBiasJobDefinitionS3OutputS3UploadModePtr) ToModelBiasJobDefinitio
 
 func (in *modelBiasJobDefinitionS3OutputS3UploadModePtr) ToModelBiasJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType string
+
+const (
+	ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeFullyReplicated = ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated")
+	ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeShardedByS3Key  = ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return e.ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType(e).ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx).ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return &v
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType
+		return ret
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput is an input type that accepts ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs and ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput` via:
+//
+//	ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs{...}
+type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+}
+
+var modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType = reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+}
+
+type modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr string
+
+func ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr(v string) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput {
+	return (*modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr)(&v)
+}
+
+func (*modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType
+}
+
+func (in *modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (in *modelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+type ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode string
+
+const (
+	ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePipe = ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe")
+	ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeFile = ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("File")
+)
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutput(e).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return e.ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode(e).ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx).ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode {
+		return &v
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode
+		return ret
+	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput is an input type that accepts ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeArgs and ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput` via:
+//
+//	ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeArgs{...}
+type ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput
+}
+
+var modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrType = reflect.TypeOf((**ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+
+type ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput
+	ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput
+}
+
+type modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr string
+
+func ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr(v string) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrInput {
+	return (*modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr)(&v)
+}
+
+func (*modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr) ElementType() reflect.Type {
+	return modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrType
+}
+
+func (in *modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (in *modelExplainabilityJobDefinitionBatchTransformInputS3InputModePtr) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -4584,6 +5574,336 @@ func (in *modelPackageTransformOutputAssembleWithPtr) ToModelPackageTransformOut
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType string
+
+const (
+	ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeFullyReplicated = ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated")
+	ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeShardedByS3Key  = ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return e.ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType(e).ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx).ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		return &v
+	}).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType
+		return ret
+	}).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput is an input type that accepts ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs and ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput` via:
+//
+//	ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeArgs{...}
+type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+	ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
+}
+
+var modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType = reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType)(nil)).Elem()
+
+type ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+	ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
+}
+
+type modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr string
+
+func ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr(v string) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput {
+	return (*modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr)(&v)
+}
+
+func (*modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrType
+}
+
+func (in *modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (in *modelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtr) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+type ModelQualityJobDefinitionBatchTransformInputS3InputMode string
+
+const (
+	ModelQualityJobDefinitionBatchTransformInputS3InputModePipe = ModelQualityJobDefinitionBatchTransformInputS3InputMode("Pipe")
+	ModelQualityJobDefinitionBatchTransformInputS3InputModeFile = ModelQualityJobDefinitionBatchTransformInputS3InputMode("File")
+)
+
+func (ModelQualityJobDefinitionBatchTransformInputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutput(e).(ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return e.ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return ModelQualityJobDefinitionBatchTransformInputS3InputMode(e).ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx).ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ModelQualityJobDefinitionBatchTransformInputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelQualityJobDefinitionBatchTransformInputS3InputMode) *ModelQualityJobDefinitionBatchTransformInputS3InputMode {
+		return &v
+	}).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelQualityJobDefinitionBatchTransformInputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ModelQualityJobDefinitionBatchTransformInputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionBatchTransformInputS3InputMode) ModelQualityJobDefinitionBatchTransformInputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret ModelQualityJobDefinitionBatchTransformInputS3InputMode
+		return ret
+	}).(ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput)
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ModelQualityJobDefinitionBatchTransformInputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ModelQualityJobDefinitionBatchTransformInputS3InputModeInput is an input type that accepts ModelQualityJobDefinitionBatchTransformInputS3InputModeArgs and ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionBatchTransformInputS3InputModeInput` via:
+//
+//	ModelQualityJobDefinitionBatchTransformInputS3InputModeArgs{...}
+type ModelQualityJobDefinitionBatchTransformInputS3InputModeInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput
+	ToModelQualityJobDefinitionBatchTransformInputS3InputModeOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput
+}
+
+var modelQualityJobDefinitionBatchTransformInputS3InputModePtrType = reflect.TypeOf((**ModelQualityJobDefinitionBatchTransformInputS3InputMode)(nil)).Elem()
+
+type ModelQualityJobDefinitionBatchTransformInputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput
+	ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput
+}
+
+type modelQualityJobDefinitionBatchTransformInputS3InputModePtr string
+
+func ModelQualityJobDefinitionBatchTransformInputS3InputModePtr(v string) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrInput {
+	return (*modelQualityJobDefinitionBatchTransformInputS3InputModePtr)(&v)
+}
+
+func (*modelQualityJobDefinitionBatchTransformInputS3InputModePtr) ElementType() reflect.Type {
+	return modelQualityJobDefinitionBatchTransformInputS3InputModePtrType
+}
+
+func (in *modelQualityJobDefinitionBatchTransformInputS3InputModePtr) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput() ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+func (in *modelQualityJobDefinitionBatchTransformInputS3InputModePtr) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelQualityJobDefinitionEndpointInputS3DataDistributionType string
 
 const (
@@ -5242,6 +6562,336 @@ func (in *modelQualityJobDefinitionS3OutputS3UploadModePtr) ToModelQualityJobDef
 
 func (in *modelQualityJobDefinitionS3OutputS3UploadModePtr) ToModelQualityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+type MonitoringScheduleBatchTransformInputS3DataDistributionType string
+
+const (
+	MonitoringScheduleBatchTransformInputS3DataDistributionTypeFullyReplicated = MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated")
+	MonitoringScheduleBatchTransformInputS3DataDistributionTypeShardedByS3Key  = MonitoringScheduleBatchTransformInputS3DataDistributionType("ShardedByS3Key")
+)
+
+func (MonitoringScheduleBatchTransformInputS3DataDistributionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutput(e).(MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return e.ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return MonitoringScheduleBatchTransformInputS3DataDistributionType(e).ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx).ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MonitoringScheduleBatchTransformInputS3DataDistributionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleBatchTransformInputS3DataDistributionType) *MonitoringScheduleBatchTransformInputS3DataDistributionType {
+		return &v
+	}).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleBatchTransformInputS3DataDistributionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleBatchTransformInputS3DataDistributionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleBatchTransformInputS3DataDistributionType)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) Elem() MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInputS3DataDistributionType) MonitoringScheduleBatchTransformInputS3DataDistributionType {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleBatchTransformInputS3DataDistributionType
+		return ret
+	}).(MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringScheduleBatchTransformInputS3DataDistributionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MonitoringScheduleBatchTransformInputS3DataDistributionTypeInput is an input type that accepts MonitoringScheduleBatchTransformInputS3DataDistributionTypeArgs and MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput values.
+// You can construct a concrete instance of `MonitoringScheduleBatchTransformInputS3DataDistributionTypeInput` via:
+//
+//	MonitoringScheduleBatchTransformInputS3DataDistributionTypeArgs{...}
+type MonitoringScheduleBatchTransformInputS3DataDistributionTypeInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput
+	ToMonitoringScheduleBatchTransformInputS3DataDistributionTypeOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput
+}
+
+var monitoringScheduleBatchTransformInputS3DataDistributionTypePtrType = reflect.TypeOf((**MonitoringScheduleBatchTransformInputS3DataDistributionType)(nil)).Elem()
+
+type MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput
+	ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput
+}
+
+type monitoringScheduleBatchTransformInputS3DataDistributionTypePtr string
+
+func MonitoringScheduleBatchTransformInputS3DataDistributionTypePtr(v string) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrInput {
+	return (*monitoringScheduleBatchTransformInputS3DataDistributionTypePtr)(&v)
+}
+
+func (*monitoringScheduleBatchTransformInputS3DataDistributionTypePtr) ElementType() reflect.Type {
+	return monitoringScheduleBatchTransformInputS3DataDistributionTypePtrType
+}
+
+func (in *monitoringScheduleBatchTransformInputS3DataDistributionTypePtr) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput() MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutput(in).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+func (in *monitoringScheduleBatchTransformInputS3DataDistributionTypePtr) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
+}
+
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+type MonitoringScheduleBatchTransformInputS3InputMode string
+
+const (
+	MonitoringScheduleBatchTransformInputS3InputModePipe = MonitoringScheduleBatchTransformInputS3InputMode("Pipe")
+	MonitoringScheduleBatchTransformInputS3InputModeFile = MonitoringScheduleBatchTransformInputS3InputMode("File")
+)
+
+func (MonitoringScheduleBatchTransformInputS3InputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToMonitoringScheduleBatchTransformInputS3InputModeOutput() MonitoringScheduleBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutput(e).(MonitoringScheduleBatchTransformInputS3InputModeOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToMonitoringScheduleBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MonitoringScheduleBatchTransformInputS3InputModeOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutput() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return e.ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return MonitoringScheduleBatchTransformInputS3InputMode(e).ToMonitoringScheduleBatchTransformInputS3InputModeOutputWithContext(ctx).ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MonitoringScheduleBatchTransformInputS3InputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MonitoringScheduleBatchTransformInputS3InputModeOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputS3InputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToMonitoringScheduleBatchTransformInputS3InputModeOutput() MonitoringScheduleBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToMonitoringScheduleBatchTransformInputS3InputModeOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModeOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutput() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o.ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleBatchTransformInputS3InputMode) *MonitoringScheduleBatchTransformInputS3InputMode {
+		return &v
+	}).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleBatchTransformInputS3InputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MonitoringScheduleBatchTransformInputS3InputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleBatchTransformInputS3InputModePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleBatchTransformInputS3InputMode)(nil)).Elem()
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutput() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) Elem() MonitoringScheduleBatchTransformInputS3InputModeOutput {
+	return o.ApplyT(func(v *MonitoringScheduleBatchTransformInputS3InputMode) MonitoringScheduleBatchTransformInputS3InputMode {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleBatchTransformInputS3InputMode
+		return ret
+	}).(MonitoringScheduleBatchTransformInputS3InputModeOutput)
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MonitoringScheduleBatchTransformInputS3InputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MonitoringScheduleBatchTransformInputS3InputModeInput is an input type that accepts MonitoringScheduleBatchTransformInputS3InputModeArgs and MonitoringScheduleBatchTransformInputS3InputModeOutput values.
+// You can construct a concrete instance of `MonitoringScheduleBatchTransformInputS3InputModeInput` via:
+//
+//	MonitoringScheduleBatchTransformInputS3InputModeArgs{...}
+type MonitoringScheduleBatchTransformInputS3InputModeInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputS3InputModeOutput() MonitoringScheduleBatchTransformInputS3InputModeOutput
+	ToMonitoringScheduleBatchTransformInputS3InputModeOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputS3InputModeOutput
+}
+
+var monitoringScheduleBatchTransformInputS3InputModePtrType = reflect.TypeOf((**MonitoringScheduleBatchTransformInputS3InputMode)(nil)).Elem()
+
+type MonitoringScheduleBatchTransformInputS3InputModePtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleBatchTransformInputS3InputModePtrOutput() MonitoringScheduleBatchTransformInputS3InputModePtrOutput
+	ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput
+}
+
+type monitoringScheduleBatchTransformInputS3InputModePtr string
+
+func MonitoringScheduleBatchTransformInputS3InputModePtr(v string) MonitoringScheduleBatchTransformInputS3InputModePtrInput {
+	return (*monitoringScheduleBatchTransformInputS3InputModePtr)(&v)
+}
+
+func (*monitoringScheduleBatchTransformInputS3InputModePtr) ElementType() reflect.Type {
+	return monitoringScheduleBatchTransformInputS3InputModePtrType
+}
+
+func (in *monitoringScheduleBatchTransformInputS3InputModePtr) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutput() MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutput(in).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
+}
+
+func (in *monitoringScheduleBatchTransformInputS3InputModePtr) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
 }
 
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
@@ -7034,6 +8684,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypeInput)(nil)).Elem(), AppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypePtrInput)(nil)).Elem(), AppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputS3InputModePtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), DataQualityJobDefinitionEndpointInputS3InputMode("Pipe"))
@@ -7056,12 +8710,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionEndpointInputS3InputModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionEndpointInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelBiasJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), ModelExplainabilityJobDefinitionEndpointInputS3InputMode("Pipe"))
@@ -7082,6 +8744,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformJobDefinitionBatchStrategyPtrInput)(nil)).Elem(), ModelPackageTransformJobDefinitionBatchStrategy("MultiRecord"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformOutputAssembleWithInput)(nil)).Elem(), ModelPackageTransformOutputAssembleWith("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformOutputAssembleWithPtrInput)(nil)).Elem(), ModelPackageTransformOutputAssembleWith("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionBatchTransformInputS3InputModePtrInput)(nil)).Elem(), ModelQualityJobDefinitionBatchTransformInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionEndpointInputS3InputModeInput)(nil)).Elem(), ModelQualityJobDefinitionEndpointInputS3InputMode("Pipe"))
@@ -7090,6 +8756,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionProblemTypePtrInput)(nil)).Elem(), ModelQualityJobDefinitionProblemType("BinaryClassification"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputS3UploadModeInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionS3OutputS3UploadModePtrInput)(nil)).Elem(), ModelQualityJobDefinitionS3OutputS3UploadMode("Continuous"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3DataDistributionType("FullyReplicated"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3InputModeInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3InputMode("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleBatchTransformInputS3InputModePtrInput)(nil)).Elem(), MonitoringScheduleBatchTransformInputS3InputMode("Pipe"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputS3DataDistributionTypeInput)(nil)).Elem(), MonitoringScheduleEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputS3DataDistributionTypePtrInput)(nil)).Elem(), MonitoringScheduleEndpointInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleEndpointInputS3InputModeInput)(nil)).Elem(), MonitoringScheduleEndpointInputS3InputMode("Pipe"))
@@ -7114,6 +8784,10 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
 	pulumi.RegisterOutputType(AppTypePtrOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3InputModeOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionEndpointInputS3InputModeOutput{})
@@ -7136,12 +8810,20 @@ func init() {
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3InputModeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput{})
@@ -7166,6 +8848,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageTransformOutputAssembleWithOutput{})
 	pulumi.RegisterOutputType(ModelPackageTransformOutputAssembleWithPtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionEndpointInputS3InputModeOutput{})
@@ -7174,6 +8860,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionProblemTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputS3UploadModeOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3InputModeOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleBatchTransformInputS3InputModePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleEndpointInputS3InputModeOutput{})

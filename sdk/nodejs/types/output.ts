@@ -1781,6 +1781,7 @@ export namespace appflow {
     }
 
     export interface FlowSalesforceDestinationProperties {
+        dataTransferApi?: enums.appflow.FlowDataTransferApi;
         errorHandlingConfig?: outputs.appflow.FlowErrorHandlingConfig;
         /**
          * List of fields used as ID when performing a write operation.
@@ -1791,6 +1792,7 @@ export namespace appflow {
     }
 
     export interface FlowSalesforceSourceProperties {
+        dataTransferApi?: enums.appflow.FlowDataTransferApi;
         enableDynamicFieldUpdate?: boolean;
         includeDeletedRecords?: boolean;
         object: string;
@@ -8429,34 +8431,76 @@ export namespace databrew {
 
 export namespace datapipeline {
     export interface PipelineField {
+        /**
+         * Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+         */
         key: string;
+        /**
+         * A field value that you specify as an identifier of another object in the same pipeline definition.
+         */
         refValue?: string;
+        /**
+         * A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+         */
         stringValue?: string;
     }
 
     export interface PipelineObject {
+        /**
+         * Key-value pairs that define the properties of the object.
+         */
         fields: outputs.datapipeline.PipelineField[];
+        /**
+         * The ID of the object.
+         */
         id: string;
+        /**
+         * The name of the object.
+         */
         name: string;
     }
 
     export interface PipelineParameterAttribute {
+        /**
+         * The field identifier.
+         */
         key: string;
+        /**
+         * The field value, expressed as a String.
+         */
         stringValue: string;
     }
 
     export interface PipelineParameterObject {
+        /**
+         * The attributes of the parameter object.
+         */
         attributes: outputs.datapipeline.PipelineParameterAttribute[];
+        /**
+         * The ID of the parameter object.
+         */
         id: string;
     }
 
     export interface PipelineParameterValue {
+        /**
+         * The ID of the parameter value.
+         */
         id: string;
+        /**
+         * The field value, expressed as a String.
+         */
         stringValue: string;
     }
 
     export interface PipelineTag {
+        /**
+         * The key name of a tag.
+         */
         key: string;
+        /**
+         * The value to associate with the key name.
+         */
         value: string;
     }
 
@@ -8978,7 +9022,16 @@ export namespace devopsguru {
      * Information about notification channels you have configured with DevOps Guru.
      */
     export interface NotificationChannelConfig {
+        filters?: outputs.devopsguru.NotificationChannelNotificationFilterConfig;
         sns?: outputs.devopsguru.NotificationChannelSnsChannelConfig;
+    }
+
+    /**
+     * Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+     */
+    export interface NotificationChannelNotificationFilterConfig {
+        messageTypes?: enums.devopsguru.NotificationChannelNotificationMessageType[];
+        severities?: enums.devopsguru.NotificationChannelInsightSeverity[];
     }
 
     /**
@@ -21660,6 +21713,10 @@ export namespace lex {
         maxRetries: number;
         messageGroupsList: outputs.lex.BotMessageGroup[];
         messageSelectionStrategy?: enums.lex.BotMessageSelectionStrategy;
+        /**
+         * Specifies the advanced settings on each attempt of the prompt.
+         */
+        promptAttemptsSpecification?: any;
     }
 
     /**
@@ -25515,7 +25572,12 @@ export namespace networkfirewall {
         ruleOrder?: enums.networkfirewall.FirewallPolicyRuleOrder;
     }
 
+    export interface FirewallPolicyStatefulRuleGroupOverride {
+        action?: enums.networkfirewall.FirewallPolicyOverrideAction;
+    }
+
     export interface FirewallPolicyStatefulRuleGroupReference {
+        override?: outputs.networkfirewall.FirewallPolicyStatefulRuleGroupOverride;
         priority?: number;
         resourceArn: string;
     }
@@ -31071,6 +31133,29 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface DataQualityJobDefinitionBatchTransformInput {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: string;
+        datasetFormat: outputs.sagemaker.DataQualityJobDefinitionDatasetFormat;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: string;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: enums.sagemaker.DataQualityJobDefinitionBatchTransformInputS3DataDistributionType;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: enums.sagemaker.DataQualityJobDefinitionBatchTransformInputS3InputMode;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface DataQualityJobDefinitionClusterConfig {
@@ -31100,6 +31185,16 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: string;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface DataQualityJobDefinitionCsv {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: boolean;
     }
 
     /**
@@ -31145,7 +31240,17 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface DataQualityJobDefinitionDataQualityJobInput {
-        endpointInput: outputs.sagemaker.DataQualityJobDefinitionEndpointInput;
+        batchTransformInput?: outputs.sagemaker.DataQualityJobDefinitionBatchTransformInput;
+        endpointInput?: outputs.sagemaker.DataQualityJobDefinitionEndpointInput;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface DataQualityJobDefinitionDatasetFormat {
+        csv?: outputs.sagemaker.DataQualityJobDefinitionCsv;
+        json?: outputs.sagemaker.DataQualityJobDefinitionJson;
+        parquet?: boolean;
     }
 
     /**
@@ -31165,6 +31270,16 @@ export namespace sagemaker {
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
         s3InputMode?: enums.sagemaker.DataQualityJobDefinitionEndpointInputS3InputMode;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface DataQualityJobDefinitionJson {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: boolean;
     }
 
     /**
@@ -31687,6 +31802,50 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelBiasJobDefinitionBatchTransformInput {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: string;
+        datasetFormat: outputs.sagemaker.ModelBiasJobDefinitionDatasetFormat;
+        /**
+         * Monitoring end time offset, e.g. PT0H
+         */
+        endTimeOffset?: string;
+        /**
+         * JSONpath to locate features in JSONlines dataset
+         */
+        featuresAttribute?: string;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: string;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: string;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: string;
+        probabilityThresholdAttribute?: number;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: enums.sagemaker.ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: enums.sagemaker.ModelBiasJobDefinitionBatchTransformInputS3InputMode;
+        /**
+         * Monitoring start time offset, e.g. -PT1H
+         */
+        startTimeOffset?: string;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelBiasJobDefinitionClusterConfig {
@@ -31716,6 +31875,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: string;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelBiasJobDefinitionCsv {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: boolean;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelBiasJobDefinitionDatasetFormat {
+        csv?: outputs.sagemaker.ModelBiasJobDefinitionCsv;
+        json?: outputs.sagemaker.ModelBiasJobDefinitionJson;
+        parquet?: boolean;
     }
 
     /**
@@ -31759,6 +31937,16 @@ export namespace sagemaker {
     }
 
     /**
+     * The Json format
+     */
+    export interface ModelBiasJobDefinitionJson {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: boolean;
+    }
+
+    /**
      * Container image configuration object for the monitoring job.
      */
     export interface ModelBiasJobDefinitionModelBiasAppSpecification {
@@ -31788,7 +31976,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelBiasJobDefinitionModelBiasJobInput {
-        endpointInput: outputs.sagemaker.ModelBiasJobDefinitionEndpointInput;
+        batchTransformInput?: outputs.sagemaker.ModelBiasJobDefinitionBatchTransformInput;
+        endpointInput?: outputs.sagemaker.ModelBiasJobDefinitionEndpointInput;
         groundTruthS3Input: outputs.sagemaker.ModelBiasJobDefinitionMonitoringGroundTruthS3Input;
     }
 
@@ -31914,6 +32103,41 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelExplainabilityJobDefinitionBatchTransformInput {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: string;
+        datasetFormat: outputs.sagemaker.ModelExplainabilityJobDefinitionDatasetFormat;
+        /**
+         * JSONpath to locate features in JSONlines dataset
+         */
+        featuresAttribute?: string;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: string;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: string;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: string;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: enums.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: enums.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelExplainabilityJobDefinitionClusterConfig {
@@ -31943,6 +32167,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: string;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelExplainabilityJobDefinitionCsv {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: boolean;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelExplainabilityJobDefinitionDatasetFormat {
+        csv?: outputs.sagemaker.ModelExplainabilityJobDefinitionCsv;
+        json?: outputs.sagemaker.ModelExplainabilityJobDefinitionJson;
+        parquet?: boolean;
     }
 
     /**
@@ -31977,6 +32220,16 @@ export namespace sagemaker {
     }
 
     /**
+     * The Json format
+     */
+    export interface ModelExplainabilityJobDefinitionJson {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: boolean;
+    }
+
+    /**
      * Container image configuration object for the monitoring job.
      */
     export interface ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification {
@@ -32006,7 +32259,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelExplainabilityJobDefinitionModelExplainabilityJobInput {
-        endpointInput: outputs.sagemaker.ModelExplainabilityJobDefinitionEndpointInput;
+        batchTransformInput?: outputs.sagemaker.ModelExplainabilityJobDefinitionBatchTransformInput;
+        endpointInput?: outputs.sagemaker.ModelExplainabilityJobDefinitionEndpointInput;
     }
 
     /**
@@ -32592,6 +32846,46 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface ModelQualityJobDefinitionBatchTransformInput {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: string;
+        datasetFormat: outputs.sagemaker.ModelQualityJobDefinitionDatasetFormat;
+        /**
+         * Monitoring end time offset, e.g. PT0H
+         */
+        endTimeOffset?: string;
+        /**
+         * Index or JSONpath to locate predicted label(s)
+         */
+        inferenceAttribute?: string;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: string;
+        /**
+         * Index or JSONpath to locate probabilities
+         */
+        probabilityAttribute?: string;
+        probabilityThresholdAttribute?: number;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: enums.sagemaker.ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: enums.sagemaker.ModelQualityJobDefinitionBatchTransformInputS3InputMode;
+        /**
+         * Monitoring start time offset, e.g. -PT1H
+         */
+        startTimeOffset?: string;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface ModelQualityJobDefinitionClusterConfig {
@@ -32621,6 +32915,25 @@ export namespace sagemaker {
          * The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
          */
         s3Uri?: string;
+    }
+
+    /**
+     * The CSV format
+     */
+    export interface ModelQualityJobDefinitionCsv {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: boolean;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface ModelQualityJobDefinitionDatasetFormat {
+        csv?: outputs.sagemaker.ModelQualityJobDefinitionCsv;
+        json?: outputs.sagemaker.ModelQualityJobDefinitionJson;
+        parquet?: boolean;
     }
 
     /**
@@ -32657,6 +32970,16 @@ export namespace sagemaker {
          * Monitoring start time offset, e.g. -PT1H
          */
         startTimeOffset?: string;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface ModelQualityJobDefinitionJson {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: boolean;
     }
 
     /**
@@ -32702,7 +33025,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface ModelQualityJobDefinitionModelQualityJobInput {
-        endpointInput: outputs.sagemaker.ModelQualityJobDefinitionEndpointInput;
+        batchTransformInput?: outputs.sagemaker.ModelQualityJobDefinitionBatchTransformInput;
+        endpointInput?: outputs.sagemaker.ModelQualityJobDefinitionEndpointInput;
         groundTruthS3Input: outputs.sagemaker.ModelQualityJobDefinitionMonitoringGroundTruthS3Input;
     }
 
@@ -32838,6 +33162,29 @@ export namespace sagemaker {
     }
 
     /**
+     * The batch transform input for a monitoring job.
+     */
+    export interface MonitoringScheduleBatchTransformInput {
+        /**
+         * A URI that identifies the Amazon S3 storage location where Batch Transform Job captures data.
+         */
+        dataCapturedDestinationS3Uri: string;
+        datasetFormat: outputs.sagemaker.MonitoringScheduleDatasetFormat;
+        /**
+         * Path to the filesystem where the endpoint data is available to the container.
+         */
+        localPath: string;
+        /**
+         * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+         */
+        s3DataDistributionType?: enums.sagemaker.MonitoringScheduleBatchTransformInputS3DataDistributionType;
+        /**
+         * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+         */
+        s3InputMode?: enums.sagemaker.MonitoringScheduleBatchTransformInputS3InputMode;
+    }
+
+    /**
      * Configuration for the cluster used to run model monitoring jobs.
      */
     export interface MonitoringScheduleClusterConfig {
@@ -32883,6 +33230,25 @@ export namespace sagemaker {
     }
 
     /**
+     * The CSV format
+     */
+    export interface MonitoringScheduleCsv {
+        /**
+         * A boolean flag indicating if given CSV has header
+         */
+        header?: boolean;
+    }
+
+    /**
+     * The dataset format of the data to monitor
+     */
+    export interface MonitoringScheduleDatasetFormat {
+        csv?: outputs.sagemaker.MonitoringScheduleCsv;
+        json?: outputs.sagemaker.MonitoringScheduleJson;
+        parquet?: boolean;
+    }
+
+    /**
      * The endpoint for a monitoring job.
      */
     export interface MonitoringScheduleEndpointInput {
@@ -32899,6 +33265,16 @@ export namespace sagemaker {
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
         s3InputMode?: enums.sagemaker.MonitoringScheduleEndpointInputS3InputMode;
+    }
+
+    /**
+     * The Json format
+     */
+    export interface MonitoringScheduleJson {
+        /**
+         * A boolean flag indicating if it is JSON line format
+         */
+        line?: boolean;
     }
 
     /**
@@ -32963,7 +33339,8 @@ export namespace sagemaker {
      * The inputs for a monitoring job.
      */
     export interface MonitoringScheduleMonitoringInput {
-        endpointInput: outputs.sagemaker.MonitoringScheduleEndpointInput;
+        batchTransformInput?: outputs.sagemaker.MonitoringScheduleBatchTransformInput;
+        endpointInput?: outputs.sagemaker.MonitoringScheduleEndpointInput;
     }
 
     /**

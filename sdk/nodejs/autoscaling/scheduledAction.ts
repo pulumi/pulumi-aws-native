@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::AutoScaling::ScheduledAction
- *
- * @deprecated ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScheduledAction {
-        pulumi.log.warn("ScheduledAction is deprecated: ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ScheduledAction(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,13 +34,41 @@ export class ScheduledAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledAction.__pulumiType;
     }
 
+    /**
+     * The name of the Auto Scaling group.
+     */
     public readonly autoScalingGroupName!: pulumi.Output<string>;
+    /**
+     * The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+     */
     public readonly desiredCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+     */
     public readonly endTime!: pulumi.Output<string | undefined>;
+    /**
+     * The minimum size of the Auto Scaling group.
+     */
     public readonly maxSize!: pulumi.Output<number | undefined>;
+    /**
+     * The minimum size of the Auto Scaling group.
+     */
     public readonly minSize!: pulumi.Output<number | undefined>;
+    /**
+     * The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+     */
     public readonly recurrence!: pulumi.Output<string | undefined>;
+    /**
+     * Auto-generated unique identifier
+     */
+    public /*out*/ readonly scheduledActionName!: pulumi.Output<string>;
+    /**
+     * The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+     */
     public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * The time zone for the cron expression.
+     */
     public readonly timeZone!: pulumi.Output<string | undefined>;
 
     /**
@@ -53,9 +78,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScheduledActionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ScheduledAction is deprecated: ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -70,6 +93,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["recurrence"] = args ? args.recurrence : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["scheduledActionName"] = undefined /*out*/;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["desiredCapacity"] = undefined /*out*/;
@@ -77,6 +101,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["maxSize"] = undefined /*out*/;
             resourceInputs["minSize"] = undefined /*out*/;
             resourceInputs["recurrence"] = undefined /*out*/;
+            resourceInputs["scheduledActionName"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["timeZone"] = undefined /*out*/;
         }
@@ -89,12 +114,36 @@ export class ScheduledAction extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledAction resource.
  */
 export interface ScheduledActionArgs {
+    /**
+     * The name of the Auto Scaling group.
+     */
     autoScalingGroupName: pulumi.Input<string>;
+    /**
+     * The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+     */
     desiredCapacity?: pulumi.Input<number>;
+    /**
+     * The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+     */
     endTime?: pulumi.Input<string>;
+    /**
+     * The minimum size of the Auto Scaling group.
+     */
     maxSize?: pulumi.Input<number>;
+    /**
+     * The minimum size of the Auto Scaling group.
+     */
     minSize?: pulumi.Input<number>;
+    /**
+     * The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+     */
     recurrence?: pulumi.Input<string>;
+    /**
+     * The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+     */
     startTime?: pulumi.Input<string>;
+    /**
+     * The time zone for the cron expression.
+     */
     timeZone?: pulumi.Input<string>;
 }

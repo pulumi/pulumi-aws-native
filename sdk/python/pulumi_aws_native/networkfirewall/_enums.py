@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'FirewallPolicyOverrideAction',
     'FirewallPolicyRuleOrder',
     'LoggingConfigurationLogDestinationConfigLogDestinationType',
     'LoggingConfigurationLogDestinationConfigLogType',
@@ -17,6 +18,10 @@ __all__ = [
     'RuleGroupTargetType',
     'RuleGroupTypeEnum',
 ]
+
+
+class FirewallPolicyOverrideAction(str, Enum):
+    DROP_TO_ALERT = "DROP_TO_ALERT"
 
 
 class FirewallPolicyRuleOrder(str, Enum):

@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FirewallPolicyOverrideAction = {
+    DropToAlert: "DROP_TO_ALERT",
+} as const;
+
+export type FirewallPolicyOverrideAction = (typeof FirewallPolicyOverrideAction)[keyof typeof FirewallPolicyOverrideAction];
+
 export const FirewallPolicyRuleOrder = {
     DefaultActionOrder: "DEFAULT_ACTION_ORDER",
     StrictOrder: "STRICT_ORDER",

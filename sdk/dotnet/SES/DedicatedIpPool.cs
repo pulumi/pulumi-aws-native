@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.SES
         [Output("poolName")]
         public Output<string?> PoolName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+        /// </summary>
+        [Output("scalingMode")]
+        public Output<string?> ScalingMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DedicatedIpPool resource with the given unique name, arguments, and options.
@@ -71,6 +77,12 @@ namespace Pulumi.AwsNative.SES
         /// </summary>
         [Input("poolName")]
         public Input<string>? PoolName { get; set; }
+
+        /// <summary>
+        /// Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
+        /// </summary>
+        [Input("scalingMode")]
+        public Input<string>? ScalingMode { get; set; }
 
         public DedicatedIpPoolArgs()
         {

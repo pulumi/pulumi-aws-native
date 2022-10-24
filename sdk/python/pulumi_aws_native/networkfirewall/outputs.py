@@ -18,6 +18,7 @@ __all__ = [
     'FirewallPolicyDimension',
     'FirewallPolicyPublishMetricAction',
     'FirewallPolicyStatefulEngineOptions',
+    'FirewallPolicyStatefulRuleGroupOverride',
     'FirewallPolicyStatefulRuleGroupReference',
     'FirewallPolicyStatelessRuleGroupReference',
     'FirewallPolicyTag',
@@ -258,6 +259,19 @@ class FirewallPolicyStatefulEngineOptions(dict):
 
 
 @pulumi.output_type
+class FirewallPolicyStatefulRuleGroupOverride(dict):
+    def __init__(__self__, *,
+                 action: Optional['FirewallPolicyOverrideAction'] = None):
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional['FirewallPolicyOverrideAction']:
+        return pulumi.get(self, "action")
+
+
+@pulumi.output_type
 class FirewallPolicyStatefulRuleGroupReference(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -278,8 +292,11 @@ class FirewallPolicyStatefulRuleGroupReference(dict):
 
     def __init__(__self__, *,
                  resource_arn: str,
+                 override: Optional['outputs.FirewallPolicyStatefulRuleGroupOverride'] = None,
                  priority: Optional[int] = None):
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if override is not None:
+            pulumi.set(__self__, "override", override)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
 
@@ -287,6 +304,11 @@ class FirewallPolicyStatefulRuleGroupReference(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> str:
         return pulumi.get(self, "resource_arn")
+
+    @property
+    @pulumi.getter
+    def override(self) -> Optional['outputs.FirewallPolicyStatefulRuleGroupOverride']:
+        return pulumi.get(self, "override")
 
     @property
     @pulumi.getter

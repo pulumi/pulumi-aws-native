@@ -11,8 +11,11 @@ import (
 )
 
 type PipelineField struct {
-	Key         string  `pulumi:"key"`
-	RefValue    *string `pulumi:"refValue"`
+	// Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+	Key string `pulumi:"key"`
+	// A field value that you specify as an identifier of another object in the same pipeline definition.
+	RefValue *string `pulumi:"refValue"`
+	// A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
 	StringValue *string `pulumi:"stringValue"`
 }
 
@@ -28,8 +31,11 @@ type PipelineFieldInput interface {
 }
 
 type PipelineFieldArgs struct {
-	Key         pulumi.StringInput    `pulumi:"key"`
-	RefValue    pulumi.StringPtrInput `pulumi:"refValue"`
+	// Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A field value that you specify as an identifier of another object in the same pipeline definition.
+	RefValue pulumi.StringPtrInput `pulumi:"refValue"`
+	// A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
 	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
@@ -84,14 +90,17 @@ func (o PipelineFieldOutput) ToPipelineFieldOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
 func (o PipelineFieldOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineField) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// A field value that you specify as an identifier of another object in the same pipeline definition.
 func (o PipelineFieldOutput) RefValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineField) *string { return v.RefValue }).(pulumi.StringPtrOutput)
 }
 
+// A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
 func (o PipelineFieldOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineField) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
@@ -117,9 +126,12 @@ func (o PipelineFieldArrayOutput) Index(i pulumi.IntInput) PipelineFieldOutput {
 }
 
 type PipelineObject struct {
+	// Key-value pairs that define the properties of the object.
 	Fields []PipelineField `pulumi:"fields"`
-	Id     string          `pulumi:"id"`
-	Name   string          `pulumi:"name"`
+	// The ID of the object.
+	Id string `pulumi:"id"`
+	// The name of the object.
+	Name string `pulumi:"name"`
 }
 
 // PipelineObjectInput is an input type that accepts PipelineObjectArgs and PipelineObjectOutput values.
@@ -134,9 +146,12 @@ type PipelineObjectInput interface {
 }
 
 type PipelineObjectArgs struct {
+	// Key-value pairs that define the properties of the object.
 	Fields PipelineFieldArrayInput `pulumi:"fields"`
-	Id     pulumi.StringInput      `pulumi:"id"`
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// The ID of the object.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the object.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PipelineObjectArgs) ElementType() reflect.Type {
@@ -190,14 +205,17 @@ func (o PipelineObjectOutput) ToPipelineObjectOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Key-value pairs that define the properties of the object.
 func (o PipelineObjectOutput) Fields() PipelineFieldArrayOutput {
 	return o.ApplyT(func(v PipelineObject) []PipelineField { return v.Fields }).(PipelineFieldArrayOutput)
 }
 
+// The ID of the object.
 func (o PipelineObjectOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineObject) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the object.
 func (o PipelineObjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineObject) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -223,7 +241,9 @@ func (o PipelineObjectArrayOutput) Index(i pulumi.IntInput) PipelineObjectOutput
 }
 
 type PipelineParameterAttribute struct {
-	Key         string `pulumi:"key"`
+	// The field identifier.
+	Key string `pulumi:"key"`
+	// The field value, expressed as a String.
 	StringValue string `pulumi:"stringValue"`
 }
 
@@ -239,7 +259,9 @@ type PipelineParameterAttributeInput interface {
 }
 
 type PipelineParameterAttributeArgs struct {
-	Key         pulumi.StringInput `pulumi:"key"`
+	// The field identifier.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The field value, expressed as a String.
 	StringValue pulumi.StringInput `pulumi:"stringValue"`
 }
 
@@ -294,10 +316,12 @@ func (o PipelineParameterAttributeOutput) ToPipelineParameterAttributeOutputWith
 	return o
 }
 
+// The field identifier.
 func (o PipelineParameterAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineParameterAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The field value, expressed as a String.
 func (o PipelineParameterAttributeOutput) StringValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineParameterAttribute) string { return v.StringValue }).(pulumi.StringOutput)
 }
@@ -323,8 +347,10 @@ func (o PipelineParameterAttributeArrayOutput) Index(i pulumi.IntInput) Pipeline
 }
 
 type PipelineParameterObject struct {
+	// The attributes of the parameter object.
 	Attributes []PipelineParameterAttribute `pulumi:"attributes"`
-	Id         string                       `pulumi:"id"`
+	// The ID of the parameter object.
+	Id string `pulumi:"id"`
 }
 
 // PipelineParameterObjectInput is an input type that accepts PipelineParameterObjectArgs and PipelineParameterObjectOutput values.
@@ -339,8 +365,10 @@ type PipelineParameterObjectInput interface {
 }
 
 type PipelineParameterObjectArgs struct {
+	// The attributes of the parameter object.
 	Attributes PipelineParameterAttributeArrayInput `pulumi:"attributes"`
-	Id         pulumi.StringInput                   `pulumi:"id"`
+	// The ID of the parameter object.
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (PipelineParameterObjectArgs) ElementType() reflect.Type {
@@ -394,10 +422,12 @@ func (o PipelineParameterObjectOutput) ToPipelineParameterObjectOutputWithContex
 	return o
 }
 
+// The attributes of the parameter object.
 func (o PipelineParameterObjectOutput) Attributes() PipelineParameterAttributeArrayOutput {
 	return o.ApplyT(func(v PipelineParameterObject) []PipelineParameterAttribute { return v.Attributes }).(PipelineParameterAttributeArrayOutput)
 }
 
+// The ID of the parameter object.
 func (o PipelineParameterObjectOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineParameterObject) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -423,7 +453,9 @@ func (o PipelineParameterObjectArrayOutput) Index(i pulumi.IntInput) PipelinePar
 }
 
 type PipelineParameterValue struct {
-	Id          string `pulumi:"id"`
+	// The ID of the parameter value.
+	Id string `pulumi:"id"`
+	// The field value, expressed as a String.
 	StringValue string `pulumi:"stringValue"`
 }
 
@@ -439,7 +471,9 @@ type PipelineParameterValueInput interface {
 }
 
 type PipelineParameterValueArgs struct {
-	Id          pulumi.StringInput `pulumi:"id"`
+	// The ID of the parameter value.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The field value, expressed as a String.
 	StringValue pulumi.StringInput `pulumi:"stringValue"`
 }
 
@@ -494,10 +528,12 @@ func (o PipelineParameterValueOutput) ToPipelineParameterValueOutputWithContext(
 	return o
 }
 
+// The ID of the parameter value.
 func (o PipelineParameterValueOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineParameterValue) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The field value, expressed as a String.
 func (o PipelineParameterValueOutput) StringValue() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineParameterValue) string { return v.StringValue }).(pulumi.StringOutput)
 }
@@ -523,7 +559,9 @@ func (o PipelineParameterValueArrayOutput) Index(i pulumi.IntInput) PipelinePara
 }
 
 type PipelineTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of a tag.
+	Key string `pulumi:"key"`
+	// The value to associate with the key name.
 	Value string `pulumi:"value"`
 }
 
@@ -539,7 +577,9 @@ type PipelineTagInput interface {
 }
 
 type PipelineTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of a tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value to associate with the key name.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -594,10 +634,12 @@ func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The key name of a tag.
 func (o PipelineTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value to associate with the key name.
 func (o PipelineTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
 }

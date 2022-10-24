@@ -17,7 +17,7 @@
     }
   },
   "typeName" : "AWS::Lambda::Function",
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
   "description" : "Resource Type definition for AWS::Lambda::Function",
   "writeOnlyProperties" : [ "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile" ],
   "createOnlyProperties" : [ "/properties/FunctionName" ],

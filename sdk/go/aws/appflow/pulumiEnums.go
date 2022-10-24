@@ -1194,6 +1194,171 @@ func (in *flowConnectorTypePtr) ToFlowConnectorTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(FlowConnectorTypePtrOutput)
 }
 
+type FlowDataTransferApi string
+
+const (
+	FlowDataTransferApiAutomatic = FlowDataTransferApi("AUTOMATIC")
+	FlowDataTransferApiBulkv2    = FlowDataTransferApi("BULKV2")
+	FlowDataTransferApiRestSync  = FlowDataTransferApi("REST_SYNC")
+)
+
+func (FlowDataTransferApi) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDataTransferApi)(nil)).Elem()
+}
+
+func (e FlowDataTransferApi) ToFlowDataTransferApiOutput() FlowDataTransferApiOutput {
+	return pulumi.ToOutput(e).(FlowDataTransferApiOutput)
+}
+
+func (e FlowDataTransferApi) ToFlowDataTransferApiOutputWithContext(ctx context.Context) FlowDataTransferApiOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowDataTransferApiOutput)
+}
+
+func (e FlowDataTransferApi) ToFlowDataTransferApiPtrOutput() FlowDataTransferApiPtrOutput {
+	return e.ToFlowDataTransferApiPtrOutputWithContext(context.Background())
+}
+
+func (e FlowDataTransferApi) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
+	return FlowDataTransferApi(e).ToFlowDataTransferApiOutputWithContext(ctx).ToFlowDataTransferApiPtrOutputWithContext(ctx)
+}
+
+func (e FlowDataTransferApi) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowDataTransferApi) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowDataTransferApi) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowDataTransferApi) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowDataTransferApiOutput struct{ *pulumi.OutputState }
+
+func (FlowDataTransferApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDataTransferApi)(nil)).Elem()
+}
+
+func (o FlowDataTransferApiOutput) ToFlowDataTransferApiOutput() FlowDataTransferApiOutput {
+	return o
+}
+
+func (o FlowDataTransferApiOutput) ToFlowDataTransferApiOutputWithContext(ctx context.Context) FlowDataTransferApiOutput {
+	return o
+}
+
+func (o FlowDataTransferApiOutput) ToFlowDataTransferApiPtrOutput() FlowDataTransferApiPtrOutput {
+	return o.ToFlowDataTransferApiPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDataTransferApiOutput) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDataTransferApi) *FlowDataTransferApi {
+		return &v
+	}).(FlowDataTransferApiPtrOutput)
+}
+
+func (o FlowDataTransferApiOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowDataTransferApiOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowDataTransferApi) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowDataTransferApiOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDataTransferApiOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowDataTransferApi) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowDataTransferApiPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDataTransferApiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDataTransferApi)(nil)).Elem()
+}
+
+func (o FlowDataTransferApiPtrOutput) ToFlowDataTransferApiPtrOutput() FlowDataTransferApiPtrOutput {
+	return o
+}
+
+func (o FlowDataTransferApiPtrOutput) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
+	return o
+}
+
+func (o FlowDataTransferApiPtrOutput) Elem() FlowDataTransferApiOutput {
+	return o.ApplyT(func(v *FlowDataTransferApi) FlowDataTransferApi {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDataTransferApi
+		return ret
+	}).(FlowDataTransferApiOutput)
+}
+
+func (o FlowDataTransferApiPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDataTransferApiPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowDataTransferApi) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowDataTransferApiInput is an input type that accepts FlowDataTransferApiArgs and FlowDataTransferApiOutput values.
+// You can construct a concrete instance of `FlowDataTransferApiInput` via:
+//
+//	FlowDataTransferApiArgs{...}
+type FlowDataTransferApiInput interface {
+	pulumi.Input
+
+	ToFlowDataTransferApiOutput() FlowDataTransferApiOutput
+	ToFlowDataTransferApiOutputWithContext(context.Context) FlowDataTransferApiOutput
+}
+
+var flowDataTransferApiPtrType = reflect.TypeOf((**FlowDataTransferApi)(nil)).Elem()
+
+type FlowDataTransferApiPtrInput interface {
+	pulumi.Input
+
+	ToFlowDataTransferApiPtrOutput() FlowDataTransferApiPtrOutput
+	ToFlowDataTransferApiPtrOutputWithContext(context.Context) FlowDataTransferApiPtrOutput
+}
+
+type flowDataTransferApiPtr string
+
+func FlowDataTransferApiPtr(v string) FlowDataTransferApiPtrInput {
+	return (*flowDataTransferApiPtr)(&v)
+}
+
+func (*flowDataTransferApiPtr) ElementType() reflect.Type {
+	return flowDataTransferApiPtrType
+}
+
+func (in *flowDataTransferApiPtr) ToFlowDataTransferApiPtrOutput() FlowDataTransferApiPtrOutput {
+	return pulumi.ToOutput(in).(FlowDataTransferApiPtrOutput)
+}
+
+func (in *flowDataTransferApiPtr) ToFlowDataTransferApiPtrOutputWithContext(ctx context.Context) FlowDataTransferApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowDataTransferApiPtrOutput)
+}
+
 type FlowDatadogConnectorOperator string
 
 const (
@@ -2433,6 +2598,7 @@ const (
 	FlowOperatorPropertiesKeysConcatFormat             = FlowOperatorPropertiesKeys("CONCAT_FORMAT")
 	FlowOperatorPropertiesKeysSubfieldCategoryMap      = FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
 	FlowOperatorPropertiesKeysExcludeSourceFieldsList  = FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST")
+	FlowOperatorPropertiesKeysIncludeNewFields         = FlowOperatorPropertiesKeys("INCLUDE_NEW_FIELDS")
 )
 
 func (FlowOperatorPropertiesKeys) ElementType() reflect.Type {
@@ -5387,6 +5553,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAmplitudeConnectorOperatorPtrInput)(nil)).Elem(), FlowAmplitudeConnectorOperator("BETWEEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectorTypeInput)(nil)).Elem(), FlowConnectorType("SAPOData"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowConnectorTypePtrInput)(nil)).Elem(), FlowConnectorType("SAPOData"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowDataTransferApiInput)(nil)).Elem(), FlowDataTransferApi("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowDataTransferApiPtrInput)(nil)).Elem(), FlowDataTransferApi("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDatadogConnectorOperatorInput)(nil)).Elem(), FlowDatadogConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDatadogConnectorOperatorPtrInput)(nil)).Elem(), FlowDatadogConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDynatraceConnectorOperatorInput)(nil)).Elem(), FlowDynatraceConnectorOperator("PROJECTION"))
@@ -5449,6 +5617,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowAmplitudeConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowConnectorTypeOutput{})
 	pulumi.RegisterOutputType(FlowConnectorTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowDataTransferApiOutput{})
+	pulumi.RegisterOutputType(FlowDataTransferApiPtrOutput{})
 	pulumi.RegisterOutputType(FlowDatadogConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(FlowDatadogConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowDynatraceConnectorOperatorOutput{})

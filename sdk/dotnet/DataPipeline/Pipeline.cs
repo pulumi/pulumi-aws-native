@@ -10,30 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataPipeline
 {
     /// <summary>
-    /// Resource Type definition for AWS::DataPipeline::Pipeline
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
-    [Obsolete(@"Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:datapipeline:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        /// </summary>
         [Output("activate")]
         public Output<bool?> Activate { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the pipeline.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameter objects used with the pipeline.
+        /// </summary>
         [Output("parameterObjects")]
         public Output<ImmutableArray<Outputs.PipelineParameterObject>> ParameterObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameter values used with the pipeline.
+        /// </summary>
         [Output("parameterValues")]
         public Output<ImmutableArray<Outputs.PipelineParameterValue>> ParameterValues { get; private set; } = null!;
 
+        [Output("pipelineId")]
+        public Output<string> PipelineId { get; private set; } = null!;
+
+        /// <summary>
+        /// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         [Output("pipelineObjects")]
         public Output<ImmutableArray<Outputs.PipelineObject>> PipelineObjects { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         [Output("pipelineTags")]
         public Output<ImmutableArray<Outputs.PipelineTag>> PipelineTags { get; private set; } = null!;
 
@@ -45,7 +68,7 @@ namespace Pulumi.AwsNative.DataPipeline
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Pipeline(string name, PipelineArgs args, CustomResourceOptions? options = null)
+        public Pipeline(string name, PipelineArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:datapipeline:Pipeline", name, args ?? new PipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -82,17 +105,30 @@ namespace Pulumi.AwsNative.DataPipeline
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
+        /// </summary>
         [Input("activate")]
         public Input<bool>? Activate { get; set; }
 
+        /// <summary>
+        /// A description of the pipeline.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the pipeline.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("parameterObjects", required: true)]
+        [Input("parameterObjects")]
         private InputList<Inputs.PipelineParameterObjectArgs>? _parameterObjects;
+
+        /// <summary>
+        /// The parameter objects used with the pipeline.
+        /// </summary>
         public InputList<Inputs.PipelineParameterObjectArgs> ParameterObjects
         {
             get => _parameterObjects ?? (_parameterObjects = new InputList<Inputs.PipelineParameterObjectArgs>());
@@ -101,6 +137,10 @@ namespace Pulumi.AwsNative.DataPipeline
 
         [Input("parameterValues")]
         private InputList<Inputs.PipelineParameterValueArgs>? _parameterValues;
+
+        /// <summary>
+        /// The parameter values used with the pipeline.
+        /// </summary>
         public InputList<Inputs.PipelineParameterValueArgs> ParameterValues
         {
             get => _parameterValues ?? (_parameterValues = new InputList<Inputs.PipelineParameterValueArgs>());
@@ -109,6 +149,10 @@ namespace Pulumi.AwsNative.DataPipeline
 
         [Input("pipelineObjects")]
         private InputList<Inputs.PipelineObjectArgs>? _pipelineObjects;
+
+        /// <summary>
+        /// The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         public InputList<Inputs.PipelineObjectArgs> PipelineObjects
         {
             get => _pipelineObjects ?? (_pipelineObjects = new InputList<Inputs.PipelineObjectArgs>());
@@ -117,6 +161,10 @@ namespace Pulumi.AwsNative.DataPipeline
 
         [Input("pipelineTags")]
         private InputList<Inputs.PipelineTagArgs>? _pipelineTags;
+
+        /// <summary>
+        /// A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
+        /// </summary>
         public InputList<Inputs.PipelineTagArgs> PipelineTags
         {
             get => _pipelineTags ?? (_pipelineTags = new InputList<Inputs.PipelineTagArgs>());

@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class FirewallPolicyStatefulRuleGroupReference
     {
+        public readonly Outputs.FirewallPolicyStatefulRuleGroupOverride? Override;
         public readonly int? Priority;
         public readonly string ResourceArn;
 
         [OutputConstructor]
         private FirewallPolicyStatefulRuleGroupReference(
+            Outputs.FirewallPolicyStatefulRuleGroupOverride? @override,
+
             int? priority,
 
             string resourceArn)
         {
+            Override = @override;
             Priority = priority;
             ResourceArn = resourceArn;
         }

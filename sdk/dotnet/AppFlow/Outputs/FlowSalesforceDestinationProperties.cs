@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSalesforceDestinationProperties
     {
+        public readonly Pulumi.AwsNative.AppFlow.FlowDataTransferApi? DataTransferApi;
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>
         /// List of fields used as ID when performing a write operation.
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
         [OutputConstructor]
         private FlowSalesforceDestinationProperties(
+            Pulumi.AwsNative.AppFlow.FlowDataTransferApi? dataTransferApi,
+
             Outputs.FlowErrorHandlingConfig? errorHandlingConfig,
 
             ImmutableArray<string> idFieldNames,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowWriteOperationType? writeOperationType)
         {
+            DataTransferApi = dataTransferApi;
             ErrorHandlingConfig = errorHandlingConfig;
             IdFieldNames = idFieldNames;
             Object = @object;

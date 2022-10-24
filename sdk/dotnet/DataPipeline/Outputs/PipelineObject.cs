@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.DataPipeline.Outputs
     [OutputType]
     public sealed class PipelineObject
     {
+        /// <summary>
+        /// Key-value pairs that define the properties of the object.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PipelineField> Fields;
+        /// <summary>
+        /// The ID of the object.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the object.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

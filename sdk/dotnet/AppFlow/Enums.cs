@@ -242,6 +242,35 @@ namespace Pulumi.AwsNative.AppFlow
     }
 
     [EnumType]
+    public readonly struct FlowDataTransferApi : IEquatable<FlowDataTransferApi>
+    {
+        private readonly string _value;
+
+        private FlowDataTransferApi(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowDataTransferApi Automatic { get; } = new FlowDataTransferApi("AUTOMATIC");
+        public static FlowDataTransferApi Bulkv2 { get; } = new FlowDataTransferApi("BULKV2");
+        public static FlowDataTransferApi RestSync { get; } = new FlowDataTransferApi("REST_SYNC");
+
+        public static bool operator ==(FlowDataTransferApi left, FlowDataTransferApi right) => left.Equals(right);
+        public static bool operator !=(FlowDataTransferApi left, FlowDataTransferApi right) => !left.Equals(right);
+
+        public static explicit operator string(FlowDataTransferApi value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowDataTransferApi other && Equals(other);
+        public bool Equals(FlowDataTransferApi other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FlowDatadogConnectorOperator : IEquatable<FlowDatadogConnectorOperator>
     {
         private readonly string _value;
@@ -535,6 +564,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowOperatorPropertiesKeys ConcatFormat { get; } = new FlowOperatorPropertiesKeys("CONCAT_FORMAT");
         public static FlowOperatorPropertiesKeys SubfieldCategoryMap { get; } = new FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP");
         public static FlowOperatorPropertiesKeys ExcludeSourceFieldsList { get; } = new FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST");
+        public static FlowOperatorPropertiesKeys IncludeNewFields { get; } = new FlowOperatorPropertiesKeys("INCLUDE_NEW_FIELDS");
 
         public static bool operator ==(FlowOperatorPropertiesKeys left, FlowOperatorPropertiesKeys right) => left.Equals(right);
         public static bool operator !=(FlowOperatorPropertiesKeys left, FlowOperatorPropertiesKeys right) => !left.Equals(right);

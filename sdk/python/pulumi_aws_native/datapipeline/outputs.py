@@ -44,6 +44,11 @@ class PipelineField(dict):
                  key: str,
                  ref_value: Optional[str] = None,
                  string_value: Optional[str] = None):
+        """
+        :param str key: Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        :param str ref_value: A field value that you specify as an identifier of another object in the same pipeline definition.
+        :param str string_value: A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        """
         pulumi.set(__self__, "key", key)
         if ref_value is not None:
             pulumi.set(__self__, "ref_value", ref_value)
@@ -53,16 +58,25 @@ class PipelineField(dict):
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="refValue")
     def ref_value(self) -> Optional[str]:
+        """
+        A field value that you specify as an identifier of another object in the same pipeline definition.
+        """
         return pulumi.get(self, "ref_value")
 
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> Optional[str]:
+        """
+        A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide.
+        """
         return pulumi.get(self, "string_value")
 
 
@@ -72,6 +86,11 @@ class PipelineObject(dict):
                  fields: Sequence['outputs.PipelineField'],
                  id: str,
                  name: str):
+        """
+        :param Sequence['PipelineField'] fields: Key-value pairs that define the properties of the object.
+        :param str id: The ID of the object.
+        :param str name: The name of the object.
+        """
         pulumi.set(__self__, "fields", fields)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -79,16 +98,25 @@ class PipelineObject(dict):
     @property
     @pulumi.getter
     def fields(self) -> Sequence['outputs.PipelineField']:
+        """
+        Key-value pairs that define the properties of the object.
+        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the object.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the object.
+        """
         return pulumi.get(self, "name")
 
 
@@ -114,17 +142,27 @@ class PipelineParameterAttribute(dict):
     def __init__(__self__, *,
                  key: str,
                  string_value: str):
+        """
+        :param str key: The field identifier.
+        :param str string_value: The field value, expressed as a String.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The field identifier.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> str:
+        """
+        The field value, expressed as a String.
+        """
         return pulumi.get(self, "string_value")
 
 
@@ -133,17 +171,27 @@ class PipelineParameterObject(dict):
     def __init__(__self__, *,
                  attributes: Sequence['outputs.PipelineParameterAttribute'],
                  id: str):
+        """
+        :param Sequence['PipelineParameterAttribute'] attributes: The attributes of the parameter object.
+        :param str id: The ID of the parameter object.
+        """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def attributes(self) -> Sequence['outputs.PipelineParameterAttribute']:
+        """
+        The attributes of the parameter object.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the parameter object.
+        """
         return pulumi.get(self, "id")
 
 
@@ -169,17 +217,27 @@ class PipelineParameterValue(dict):
     def __init__(__self__, *,
                  id: str,
                  string_value: str):
+        """
+        :param str id: The ID of the parameter value.
+        :param str string_value: The field value, expressed as a String.
+        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of the parameter value.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="stringValue")
     def string_value(self) -> str:
+        """
+        The field value, expressed as a String.
+        """
         return pulumi.get(self, "string_value")
 
 
@@ -188,17 +246,27 @@ class PipelineTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key name of a tag.
+        :param str value: The value to associate with the key name.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of a tag.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value to associate with the key name.
+        """
         return pulumi.get(self, "value")
 
 

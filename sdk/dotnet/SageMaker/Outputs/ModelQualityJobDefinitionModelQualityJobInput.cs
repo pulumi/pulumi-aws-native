@@ -16,15 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelQualityJobDefinitionModelQualityJobInput
     {
-        public readonly Outputs.ModelQualityJobDefinitionEndpointInput EndpointInput;
+        public readonly Outputs.ModelQualityJobDefinitionBatchTransformInput? BatchTransformInput;
+        public readonly Outputs.ModelQualityJobDefinitionEndpointInput? EndpointInput;
         public readonly Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input;
 
         [OutputConstructor]
         private ModelQualityJobDefinitionModelQualityJobInput(
-            Outputs.ModelQualityJobDefinitionEndpointInput endpointInput,
+            Outputs.ModelQualityJobDefinitionBatchTransformInput? batchTransformInput,
+
+            Outputs.ModelQualityJobDefinitionEndpointInput? endpointInput,
 
             Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input groundTruthS3Input)
         {
+            BatchTransformInput = batchTransformInput;
             EndpointInput = endpointInput;
             GroundTruthS3Input = groundTruthS3Input;
         }

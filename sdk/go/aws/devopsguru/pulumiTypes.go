@@ -12,7 +12,8 @@ import (
 
 // Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelConfig struct {
-	Sns *NotificationChannelSnsChannelConfig `pulumi:"sns"`
+	Filters *NotificationChannelNotificationFilterConfig `pulumi:"filters"`
+	Sns     *NotificationChannelSnsChannelConfig         `pulumi:"sns"`
 }
 
 // NotificationChannelConfigInput is an input type that accepts NotificationChannelConfigArgs and NotificationChannelConfigOutput values.
@@ -28,7 +29,8 @@ type NotificationChannelConfigInput interface {
 
 // Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelConfigArgs struct {
-	Sns NotificationChannelSnsChannelConfigPtrInput `pulumi:"sns"`
+	Filters NotificationChannelNotificationFilterConfigPtrInput `pulumi:"filters"`
+	Sns     NotificationChannelSnsChannelConfigPtrInput         `pulumi:"sns"`
 }
 
 func (NotificationChannelConfigArgs) ElementType() reflect.Type {
@@ -58,8 +60,167 @@ func (o NotificationChannelConfigOutput) ToNotificationChannelConfigOutputWithCo
 	return o
 }
 
+func (o NotificationChannelConfigOutput) Filters() NotificationChannelNotificationFilterConfigPtrOutput {
+	return o.ApplyT(func(v NotificationChannelConfig) *NotificationChannelNotificationFilterConfig { return v.Filters }).(NotificationChannelNotificationFilterConfigPtrOutput)
+}
+
 func (o NotificationChannelConfigOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
 	return o.ApplyT(func(v NotificationChannelConfig) *NotificationChannelSnsChannelConfig { return v.Sns }).(NotificationChannelSnsChannelConfigPtrOutput)
+}
+
+// Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+type NotificationChannelNotificationFilterConfig struct {
+	MessageTypes []NotificationChannelNotificationMessageType `pulumi:"messageTypes"`
+	Severities   []NotificationChannelInsightSeverity         `pulumi:"severities"`
+}
+
+// NotificationChannelNotificationFilterConfigInput is an input type that accepts NotificationChannelNotificationFilterConfigArgs and NotificationChannelNotificationFilterConfigOutput values.
+// You can construct a concrete instance of `NotificationChannelNotificationFilterConfigInput` via:
+//
+//	NotificationChannelNotificationFilterConfigArgs{...}
+type NotificationChannelNotificationFilterConfigInput interface {
+	pulumi.Input
+
+	ToNotificationChannelNotificationFilterConfigOutput() NotificationChannelNotificationFilterConfigOutput
+	ToNotificationChannelNotificationFilterConfigOutputWithContext(context.Context) NotificationChannelNotificationFilterConfigOutput
+}
+
+// Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+type NotificationChannelNotificationFilterConfigArgs struct {
+	MessageTypes NotificationChannelNotificationMessageTypeArrayInput `pulumi:"messageTypes"`
+	Severities   NotificationChannelInsightSeverityArrayInput         `pulumi:"severities"`
+}
+
+func (NotificationChannelNotificationFilterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelNotificationFilterConfig)(nil)).Elem()
+}
+
+func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNotificationFilterConfigOutput() NotificationChannelNotificationFilterConfigOutput {
+	return i.ToNotificationChannelNotificationFilterConfigOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNotificationFilterConfigOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationFilterConfigOutput)
+}
+
+func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput {
+	return i.ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NotificationChannelNotificationFilterConfigArgs) ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationFilterConfigOutput).ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx)
+}
+
+// NotificationChannelNotificationFilterConfigPtrInput is an input type that accepts NotificationChannelNotificationFilterConfigArgs, NotificationChannelNotificationFilterConfigPtr and NotificationChannelNotificationFilterConfigPtrOutput values.
+// You can construct a concrete instance of `NotificationChannelNotificationFilterConfigPtrInput` via:
+//
+//	        NotificationChannelNotificationFilterConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotificationChannelNotificationFilterConfigPtrInput interface {
+	pulumi.Input
+
+	ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput
+	ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(context.Context) NotificationChannelNotificationFilterConfigPtrOutput
+}
+
+type notificationChannelNotificationFilterConfigPtrType NotificationChannelNotificationFilterConfigArgs
+
+func NotificationChannelNotificationFilterConfigPtr(v *NotificationChannelNotificationFilterConfigArgs) NotificationChannelNotificationFilterConfigPtrInput {
+	return (*notificationChannelNotificationFilterConfigPtrType)(v)
+}
+
+func (*notificationChannelNotificationFilterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelNotificationFilterConfig)(nil)).Elem()
+}
+
+func (i *notificationChannelNotificationFilterConfigPtrType) ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput {
+	return i.ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *notificationChannelNotificationFilterConfigPtrType) ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationFilterConfigPtrOutput)
+}
+
+// Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+type NotificationChannelNotificationFilterConfigOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelNotificationFilterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationChannelNotificationFilterConfig)(nil)).Elem()
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannelNotificationFilterConfigOutput() NotificationChannelNotificationFilterConfigOutput {
+	return o
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannelNotificationFilterConfigOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigOutput {
+	return o
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput {
+	return o.ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationChannelNotificationFilterConfig) *NotificationChannelNotificationFilterConfig {
+		return &v
+	}).(NotificationChannelNotificationFilterConfigPtrOutput)
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) MessageTypes() NotificationChannelNotificationMessageTypeArrayOutput {
+	return o.ApplyT(func(v NotificationChannelNotificationFilterConfig) []NotificationChannelNotificationMessageType {
+		return v.MessageTypes
+	}).(NotificationChannelNotificationMessageTypeArrayOutput)
+}
+
+func (o NotificationChannelNotificationFilterConfigOutput) Severities() NotificationChannelInsightSeverityArrayOutput {
+	return o.ApplyT(func(v NotificationChannelNotificationFilterConfig) []NotificationChannelInsightSeverity {
+		return v.Severities
+	}).(NotificationChannelInsightSeverityArrayOutput)
+}
+
+type NotificationChannelNotificationFilterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationChannelNotificationFilterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotificationChannelNotificationFilterConfig)(nil)).Elem()
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) ToNotificationChannelNotificationFilterConfigPtrOutput() NotificationChannelNotificationFilterConfigPtrOutput {
+	return o
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) ToNotificationChannelNotificationFilterConfigPtrOutputWithContext(ctx context.Context) NotificationChannelNotificationFilterConfigPtrOutput {
+	return o
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) Elem() NotificationChannelNotificationFilterConfigOutput {
+	return o.ApplyT(func(v *NotificationChannelNotificationFilterConfig) NotificationChannelNotificationFilterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationChannelNotificationFilterConfig
+		return ret
+	}).(NotificationChannelNotificationFilterConfigOutput)
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) MessageTypes() NotificationChannelNotificationMessageTypeArrayOutput {
+	return o.ApplyT(func(v *NotificationChannelNotificationFilterConfig) []NotificationChannelNotificationMessageType {
+		if v == nil {
+			return nil
+		}
+		return v.MessageTypes
+	}).(NotificationChannelNotificationMessageTypeArrayOutput)
+}
+
+func (o NotificationChannelNotificationFilterConfigPtrOutput) Severities() NotificationChannelInsightSeverityArrayOutput {
+	return o.ApplyT(func(v *NotificationChannelNotificationFilterConfig) []NotificationChannelInsightSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severities
+	}).(NotificationChannelInsightSeverityArrayOutput)
 }
 
 // Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
@@ -551,6 +712,8 @@ func (o ResourceCollectionTagCollectionArrayOutput) Index(i pulumi.IntInput) Res
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelConfigInput)(nil)).Elem(), NotificationChannelConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelNotificationFilterConfigInput)(nil)).Elem(), NotificationChannelNotificationFilterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelNotificationFilterConfigPtrInput)(nil)).Elem(), NotificationChannelNotificationFilterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationChannelSnsChannelConfigPtrInput)(nil)).Elem(), NotificationChannelSnsChannelConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionCloudFormationCollectionFilterInput)(nil)).Elem(), ResourceCollectionCloudFormationCollectionFilterArgs{})
@@ -559,6 +722,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTagCollectionInput)(nil)).Elem(), ResourceCollectionTagCollectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceCollectionTagCollectionArrayInput)(nil)).Elem(), ResourceCollectionTagCollectionArray{})
 	pulumi.RegisterOutputType(NotificationChannelConfigOutput{})
+	pulumi.RegisterOutputType(NotificationChannelNotificationFilterConfigOutput{})
+	pulumi.RegisterOutputType(NotificationChannelNotificationFilterConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigOutput{})
 	pulumi.RegisterOutputType(NotificationChannelSnsChannelConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResourceCollectionCloudFormationCollectionFilterOutput{})

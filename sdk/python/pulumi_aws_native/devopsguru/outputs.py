@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'NotificationChannelConfig',
+    'NotificationChannelNotificationFilterConfig',
     'NotificationChannelSnsChannelConfig',
     'ResourceCollectionCloudFormationCollectionFilter',
     'ResourceCollectionFilter',
@@ -25,17 +26,69 @@ class NotificationChannelConfig(dict):
     Information about notification channels you have configured with DevOps Guru.
     """
     def __init__(__self__, *,
+                 filters: Optional['outputs.NotificationChannelNotificationFilterConfig'] = None,
                  sns: Optional['outputs.NotificationChannelSnsChannelConfig'] = None):
         """
         Information about notification channels you have configured with DevOps Guru.
         """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
 
     @property
     @pulumi.getter
+    def filters(self) -> Optional['outputs.NotificationChannelNotificationFilterConfig']:
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
     def sns(self) -> Optional['outputs.NotificationChannelSnsChannelConfig']:
         return pulumi.get(self, "sns")
+
+
+@pulumi.output_type
+class NotificationChannelNotificationFilterConfig(dict):
+    """
+    Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "messageTypes":
+            suggest = "message_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotificationChannelNotificationFilterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotificationChannelNotificationFilterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotificationChannelNotificationFilterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message_types: Optional[Sequence['NotificationChannelNotificationMessageType']] = None,
+                 severities: Optional[Sequence['NotificationChannelInsightSeverity']] = None):
+        """
+        Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
+        """
+        if message_types is not None:
+            pulumi.set(__self__, "message_types", message_types)
+        if severities is not None:
+            pulumi.set(__self__, "severities", severities)
+
+    @property
+    @pulumi.getter(name="messageTypes")
+    def message_types(self) -> Optional[Sequence['NotificationChannelNotificationMessageType']]:
+        return pulumi.get(self, "message_types")
+
+    @property
+    @pulumi.getter
+    def severities(self) -> Optional[Sequence['NotificationChannelInsightSeverity']]:
+        return pulumi.get(self, "severities")
 
 
 @pulumi.output_type

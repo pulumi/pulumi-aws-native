@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyStatefulRuleGroupReferenceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("override")]
+        public Input<Inputs.FirewallPolicyStatefulRuleGroupOverrideArgs>? Override { get; set; }
+
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 

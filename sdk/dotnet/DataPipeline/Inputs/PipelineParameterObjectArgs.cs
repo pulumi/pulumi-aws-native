@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.DataPipeline.Inputs
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.PipelineParameterAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// The attributes of the parameter object.
+        /// </summary>
         public InputList<Inputs.PipelineParameterAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.PipelineParameterAttributeArgs>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// The ID of the parameter object.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

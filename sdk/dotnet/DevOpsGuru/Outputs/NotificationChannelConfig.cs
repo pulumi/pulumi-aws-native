@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
     [OutputType]
     public sealed class NotificationChannelConfig
     {
+        public readonly Outputs.NotificationChannelNotificationFilterConfig? Filters;
         public readonly Outputs.NotificationChannelSnsChannelConfig? Sns;
 
         [OutputConstructor]
-        private NotificationChannelConfig(Outputs.NotificationChannelSnsChannelConfig? sns)
+        private NotificationChannelConfig(
+            Outputs.NotificationChannelNotificationFilterConfig? filters,
+
+            Outputs.NotificationChannelSnsChannelConfig? sns)
         {
+            Filters = filters;
             Sns = sns;
         }
     }

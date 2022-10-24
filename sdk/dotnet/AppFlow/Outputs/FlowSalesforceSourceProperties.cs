@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSalesforceSourceProperties
     {
+        public readonly Pulumi.AwsNative.AppFlow.FlowDataTransferApi? DataTransferApi;
         public readonly bool? EnableDynamicFieldUpdate;
         public readonly bool? IncludeDeletedRecords;
         public readonly string Object;
 
         [OutputConstructor]
         private FlowSalesforceSourceProperties(
+            Pulumi.AwsNative.AppFlow.FlowDataTransferApi? dataTransferApi,
+
             bool? enableDynamicFieldUpdate,
 
             bool? includeDeletedRecords,
 
             string @object)
         {
+            DataTransferApi = dataTransferApi;
             EnableDynamicFieldUpdate = enableDynamicFieldUpdate;
             IncludeDeletedRecords = includeDeletedRecords;
             Object = @object;

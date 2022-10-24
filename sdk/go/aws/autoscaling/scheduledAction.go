@@ -11,20 +11,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::AutoScaling::ScheduledAction
-//
-// Deprecated: ScheduledAction is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 type ScheduledAction struct {
 	pulumi.CustomResourceState
 
-	AutoScalingGroupName pulumi.StringOutput    `pulumi:"autoScalingGroupName"`
-	DesiredCapacity      pulumi.IntPtrOutput    `pulumi:"desiredCapacity"`
-	EndTime              pulumi.StringPtrOutput `pulumi:"endTime"`
-	MaxSize              pulumi.IntPtrOutput    `pulumi:"maxSize"`
-	MinSize              pulumi.IntPtrOutput    `pulumi:"minSize"`
-	Recurrence           pulumi.StringPtrOutput `pulumi:"recurrence"`
-	StartTime            pulumi.StringPtrOutput `pulumi:"startTime"`
-	TimeZone             pulumi.StringPtrOutput `pulumi:"timeZone"`
+	// The name of the Auto Scaling group.
+	AutoScalingGroupName pulumi.StringOutput `pulumi:"autoScalingGroupName"`
+	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+	DesiredCapacity pulumi.IntPtrOutput `pulumi:"desiredCapacity"`
+	// The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
+	// The minimum size of the Auto Scaling group.
+	MaxSize pulumi.IntPtrOutput `pulumi:"maxSize"`
+	// The minimum size of the Auto Scaling group.
+	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
+	// The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+	Recurrence pulumi.StringPtrOutput `pulumi:"recurrence"`
+	// Auto-generated unique identifier
+	ScheduledActionName pulumi.StringOutput `pulumi:"scheduledActionName"`
+	// The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
+	// The time zone for the cron expression.
+	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
 }
 
 // NewScheduledAction registers a new resource with the given unique name, arguments, and options.
@@ -69,26 +77,42 @@ func (ScheduledActionState) ElementType() reflect.Type {
 }
 
 type scheduledActionArgs struct {
-	AutoScalingGroupName string  `pulumi:"autoScalingGroupName"`
-	DesiredCapacity      *int    `pulumi:"desiredCapacity"`
-	EndTime              *string `pulumi:"endTime"`
-	MaxSize              *int    `pulumi:"maxSize"`
-	MinSize              *int    `pulumi:"minSize"`
-	Recurrence           *string `pulumi:"recurrence"`
-	StartTime            *string `pulumi:"startTime"`
-	TimeZone             *string `pulumi:"timeZone"`
+	// The name of the Auto Scaling group.
+	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
+	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+	DesiredCapacity *int `pulumi:"desiredCapacity"`
+	// The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	EndTime *string `pulumi:"endTime"`
+	// The minimum size of the Auto Scaling group.
+	MaxSize *int `pulumi:"maxSize"`
+	// The minimum size of the Auto Scaling group.
+	MinSize *int `pulumi:"minSize"`
+	// The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+	Recurrence *string `pulumi:"recurrence"`
+	// The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	StartTime *string `pulumi:"startTime"`
+	// The time zone for the cron expression.
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a ScheduledAction resource.
 type ScheduledActionArgs struct {
+	// The name of the Auto Scaling group.
 	AutoScalingGroupName pulumi.StringInput
-	DesiredCapacity      pulumi.IntPtrInput
-	EndTime              pulumi.StringPtrInput
-	MaxSize              pulumi.IntPtrInput
-	MinSize              pulumi.IntPtrInput
-	Recurrence           pulumi.StringPtrInput
-	StartTime            pulumi.StringPtrInput
-	TimeZone             pulumi.StringPtrInput
+	// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
+	DesiredCapacity pulumi.IntPtrInput
+	// The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	EndTime pulumi.StringPtrInput
+	// The minimum size of the Auto Scaling group.
+	MaxSize pulumi.IntPtrInput
+	// The minimum size of the Auto Scaling group.
+	MinSize pulumi.IntPtrInput
+	// The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
+	Recurrence pulumi.StringPtrInput
+	// The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
+	StartTime pulumi.StringPtrInput
+	// The time zone for the cron expression.
+	TimeZone pulumi.StringPtrInput
 }
 
 func (ScheduledActionArgs) ElementType() reflect.Type {
@@ -128,34 +152,47 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the Auto Scaling group.
 func (o ScheduledActionOutput) AutoScalingGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.AutoScalingGroupName }).(pulumi.StringOutput)
 }
 
+// The desired capacity is the initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain.
 func (o ScheduledActionOutput) DesiredCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.DesiredCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The latest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 func (o ScheduledActionOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
 }
 
+// The minimum size of the Auto Scaling group.
 func (o ScheduledActionOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.MaxSize }).(pulumi.IntPtrOutput)
 }
 
+// The minimum size of the Auto Scaling group.
 func (o ScheduledActionOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
+// The recurring schedule for the action, in Unix cron syntax format. When StartTime and EndTime are specified with Recurrence , they form the boundaries of when the recurring action starts and stops.
 func (o ScheduledActionOutput) Recurrence() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
+// Auto-generated unique identifier
+func (o ScheduledActionOutput) ScheduledActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ScheduledActionName }).(pulumi.StringOutput)
+}
+
+// The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
 func (o ScheduledActionOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
+// The time zone for the cron expression.
 func (o ScheduledActionOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
