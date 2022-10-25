@@ -48,14 +48,21 @@
     "RouteKey" : {
       "type" : "string"
     },
-    "Id" : {
+    "ApiId" : {
       "type" : "string"
     },
     "Body" : {
       "type" : "object"
     },
     "Tags" : {
-      "type" : "object"
+      "type" : "object",
+      "description" : "This resource type use map for Tags, suggest to use List of Tag",
+      "additionalProperties" : false,
+      "patternProperties" : {
+        ".*" : {
+          "type" : "string"
+        }
+      }
     },
     "ApiKeySelectionExpression" : {
       "type" : "string"
@@ -122,6 +129,31 @@
     }
   },
   "createOnlyProperties" : [ "/properties/ProtocolType" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/ApiEndpoint" ]
+  "primaryIdentifier" : [ "/properties/ApiId" ],
+  "readOnlyProperties" : [ "/properties/ApiId", "/properties/ApiEndpoint" ],
+  "writeOnlyProperties" : [ "/properties/BasePath", "/properties/Body", "/properties/BodyS3Location", "/properties/BodyS3Location/Etag", "/properties/BodyS3Location/Bucket", "/properties/BodyS3Location/Version", "/properties/BodyS3Location/Key", "/properties/CredentialsArn", "/properties/FailOnWarnings", "/properties/RouteKey", "/properties/Target", "/properties/DisableSchemaValidation" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "apigateway:POST", "s3:getObject" ]
+    },
+    "update" : {
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "s3:getObject" ]
+    },
+    "read" : {
+      "permissions" : [ "apigateway:GET", "s3:getObject" ]
+    },
+    "delete" : {
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE", "s3:getObject" ]
+    },
+    "list" : {
+      "permissions" : [ "apigateway:GET", "s3:getObject" ]
+    }
+  }
 }

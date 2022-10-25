@@ -192,6 +192,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the certificate authority."
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Usage mode of the ceritificate authority."
                 }
             },
             "outputs": {
@@ -236,6 +240,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the certificate authority."
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Usage mode of the ceritificate authority."
                 }
             },
             "required": [
@@ -250,7 +258,8 @@
                 "keyStorageSecurityStandard",
                 "signingAlgorithm",
                 "subject",
-                "type"
+                "type",
+                "usageMode"
             ]
         },
         "aws-native:acmpca:CertificateAuthorityActivation": {
@@ -1919,6 +1928,129 @@
                 "keyId",
                 "keyType",
                 "usagePlanId"
+            ]
+        },
+        "aws-native:apigatewayv2:Api": {
+            "cf": "AWS::ApiGatewayV2::Api",
+            "inputs": {
+                "apiKeySelectionExpression": {
+                    "type": "string"
+                },
+                "basePath": {
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiBodyS3Location"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiCors"
+                },
+                "credentialsArn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "disableSchemaValidation": {
+                    "type": "boolean"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protocolType": {
+                    "type": "string"
+                },
+                "routeKey": {
+                    "type": "string"
+                },
+                "routeSelectionExpression": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "This resource type use map for Tags, suggest to use List of Tag"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "apiEndpoint": {
+                    "type": "string"
+                },
+                "apiId": {
+                    "type": "string"
+                },
+                "apiKeySelectionExpression": {
+                    "type": "string"
+                },
+                "basePath": {
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiBodyS3Location"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiCors"
+                },
+                "credentialsArn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "disableSchemaValidation": {
+                    "type": "boolean"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protocolType": {
+                    "type": "string"
+                },
+                "routeKey": {
+                    "type": "string"
+                },
+                "routeSelectionExpression": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "This resource type use map for Tags, suggest to use List of Tag"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "protocolType"
             ]
         },
         "aws-native:apigatewayv2:Model": {
@@ -18612,6 +18744,94 @@
             ],
             "createOnly": [
                 "name"
+            ]
+        },
+        "aws-native:fsx:DataRepositoryAssociation": {
+            "cf": "AWS::FSx::DataRepositoryAssociation",
+            "inputs": {
+                "batchImportMetaDataOnCreate": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true."
+                },
+                "dataRepositoryPath": {
+                    "type": "string",
+                    "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to."
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The globally unique ID of the file system, assigned by Amazon FSx."
+                },
+                "fileSystemPath": {
+                    "type": "string",
+                    "description": "This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory."
+                },
+                "importedFileChunkSize": {
+                    "type": "integer",
+                    "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system."
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationS3",
+                    "description": "The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationTag"
+                    },
+                    "description": "A list of Tag values, with a maximum of 50 elements."
+                }
+            },
+            "outputs": {
+                "associationId": {
+                    "type": "string",
+                    "description": "The system-generated, unique ID of the data repository association."
+                },
+                "batchImportMetaDataOnCreate": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true."
+                },
+                "dataRepositoryPath": {
+                    "type": "string",
+                    "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to."
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The globally unique ID of the file system, assigned by Amazon FSx."
+                },
+                "fileSystemPath": {
+                    "type": "string",
+                    "description": "This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory."
+                },
+                "importedFileChunkSize": {
+                    "type": "integer",
+                    "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system."
+                },
+                "resourceARN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference."
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationS3",
+                    "description": "The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationTag"
+                    },
+                    "description": "A list of Tag values, with a maximum of 50 elements."
+                }
+            },
+            "required": [
+                "dataRepositoryPath",
+                "fileSystemId",
+                "fileSystemPath"
+            ],
+            "createOnly": [
+                "batchImportMetaDataOnCreate",
+                "dataRepositoryPath",
+                "fileSystemId",
+                "fileSystemPath"
             ]
         },
         "aws-native:gamelift:Alias": {
@@ -47519,6 +47739,58 @@
                 }
             }
         },
+        "aws-native:apigatewayv2:ApiBodyS3Location": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigatewayv2:ApiCors": {
+            "type": "object",
+            "properties": {
+                "allowCredentials": {
+                    "type": "boolean"
+                },
+                "allowHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exposeHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxAge": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -61961,6 +62233,55 @@
         },
         "aws-native:frauddetector:VariableType": {
             "type": "string"
+        },
+        "aws-native:fsx:DataRepositoryAssociationAutoExportPolicy": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationEventType"
+                    }
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationAutoImportPolicy": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationEventType"
+                    }
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationEventType": {
+            "type": "string"
+        },
+        "aws-native:fsx:DataRepositoryAssociationS3": {
+            "type": "object",
+            "properties": {
+                "autoExportPolicy": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationAutoExportPolicy"
+                },
+                "autoImportPolicy": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationAutoImportPolicy"
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
         },
         "aws-native:gamelift:AliasRoutingStrategy": {
             "type": "object",
@@ -80202,6 +80523,13 @@
                     },
                     "description": "If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation."
                 },
+                "metricDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorMetricDestination"
+                    },
+                    "description": "An array of structures which define the destinations and the metrics that you want to send."
+                },
                 "sessionSampleRate": {
                     "type": "number",
                     "description": "Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used."
@@ -80214,6 +80542,58 @@
                     "description": "An array that lists the types of telemetry data that this app monitor is to collect."
                 }
             }
+        },
+        "aws-native:rum:AppMonitorMetricDefinition": {
+            "type": "object",
+            "properties": {
+                "dimensionKeys": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Use this field only if you are sending the metric to CloudWatch.\n\nThis field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:\n\n\"metadata.pageId\": \"PageId\"\n\n\"metadata.browserName\": \"BrowserName\"\n\n\"metadata.deviceType\": \"DeviceType\"\n\n\"metadata.osName\": \"OSName\"\n\n\"metadata.countryCode\": \"CountryCode\"\n\n\"event_details.fileType\": \"FileType\"\n\nAll dimensions listed in this field must also be included in EventPattern."
+                },
+                "eventPattern": {
+                    "type": "string",
+                    "description": "The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.\n\nWhen you define extended metrics, the metric definition is not valid if EventPattern is omitted.\n\nExample event patterns:\n\n'{ \"event_type\": [\"com.amazon.rum.js_error_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Safari\" ], } }'\n\n'{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Firefox\" ] }, \"event_details\": { \"duration\": [{ \"numeric\": [ \"\u003c\", 2000 ] }] } }'\n\n'{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Safari\" ], \"countryCode\": [ \"US\" ] }, \"event_details\": { \"duration\": [{ \"numeric\": [ \"\u003e=\", 2000, \"\u003c\", 8000 ] }] } }'\n\nIf the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the metric that is defined in this structure. Valid values are the following:\n\nPerformanceNavigationDuration\n\nPerformanceResourceDuration\n\nNavigationSatisfiedTransaction\n\nNavigationToleratedTransaction\n\nNavigationFrustratedTransaction\n\nWebVitalsCumulativeLayoutShift\n\nWebVitalsFirstInputDelay\n\nWebVitalsLargestContentfulPaint\n\nJsErrorCount\n\nHttpErrorCount\n\nSessionCount"
+                },
+                "unitLabel": {
+                    "type": "string",
+                    "description": "The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit."
+                },
+                "valueKey": {
+                    "type": "string",
+                    "description": "The field within the event object that the metric value is sourced from.\n\nIf you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.\n\nIf this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorMetricDestination": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorMetricDestinationDestination",
+                    "description": "Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment."
+                },
+                "destinationArn": {
+                    "type": "string",
+                    "description": "Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics."
+                },
+                "iamRoleArn": {
+                    "type": "string",
+                    "description": "This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.\n\nThis parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment."
+                },
+                "metricDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorMetricDefinition"
+                    },
+                    "description": "An array of structures which define the metrics that you want to send."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorMetricDestinationDestination": {
+            "type": "string"
         },
         "aws-native:rum:AppMonitorTag": {
             "type": "object",
@@ -88291,6 +88671,12 @@
                 "id"
             ]
         },
+        "aws-native:apigatewayv2:getApi": {
+            "cf": "AWS::ApiGatewayV2::Api",
+            "ids": [
+                "apiId"
+            ]
+        },
         "aws-native:apigatewayv2:getModel": {
             "cf": "AWS::ApiGatewayV2::Model",
             "ids": [
@@ -89668,6 +90054,12 @@
             "cf": "AWS::FraudDetector::Variable",
             "ids": [
                 "arn"
+            ]
+        },
+        "aws-native:fsx:getDataRepositoryAssociation": {
+            "cf": "AWS::FSx::DataRepositoryAssociation",
+            "ids": [
+                "associationId"
             ]
         },
         "aws-native:gamelift:getAlias": {
