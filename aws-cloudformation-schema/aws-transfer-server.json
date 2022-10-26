@@ -111,9 +111,15 @@
           "items" : {
             "$ref" : "#/definitions/WorkflowDetail"
           }
+        },
+        "OnPartialUpload" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/WorkflowDetail"
+          }
         }
-      },
-      "required" : [ "OnUpload" ]
+      }
     },
     "WorkflowDetail" : {
       "type" : "object",

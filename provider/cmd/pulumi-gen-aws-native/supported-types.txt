@@ -26,6 +26,7 @@ AWS::ApiGateway::Resource
 AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
+AWS::ApiGatewayV2::Api
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::VpcLink
 AWS::AppFlow::ConnectorProfile
@@ -247,6 +248,7 @@ AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
+AWS::FSx::DataRepositoryAssociation
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
 AWS::Forecast::DatasetGroup
