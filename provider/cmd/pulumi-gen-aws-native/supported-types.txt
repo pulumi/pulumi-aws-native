@@ -26,6 +26,7 @@ AWS::ApiGateway::Resource
 AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
+AWS::ApiGatewayV2::Api
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::VpcLink
 AWS::AppFlow::ConnectorProfile
@@ -129,7 +130,6 @@ AWS::DataBrew::Project
 AWS::DataBrew::Recipe
 AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
-AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
 AWS::DataSync::LocationEFS
 AWS::DataSync::LocationFSxLustre
@@ -202,6 +202,7 @@ AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNGateway
+AWS::EC2::Volume
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
@@ -247,6 +248,7 @@ AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
+AWS::FSx::DataRepositoryAssociation
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
 AWS::Forecast::DatasetGroup
