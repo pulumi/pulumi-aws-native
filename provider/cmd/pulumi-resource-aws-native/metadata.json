@@ -192,6 +192,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the certificate authority."
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Usage mode of the ceritificate authority."
                 }
             },
             "outputs": {
@@ -236,6 +240,10 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the certificate authority."
+                },
+                "usageMode": {
+                    "type": "string",
+                    "description": "Usage mode of the ceritificate authority."
                 }
             },
             "required": [
@@ -250,7 +258,8 @@
                 "keyStorageSecurityStandard",
                 "signingAlgorithm",
                 "subject",
-                "type"
+                "type",
+                "usageMode"
             ]
         },
         "aws-native:acmpca:CertificateAuthorityActivation": {
@@ -1919,6 +1928,129 @@
                 "keyId",
                 "keyType",
                 "usagePlanId"
+            ]
+        },
+        "aws-native:apigatewayv2:Api": {
+            "cf": "AWS::ApiGatewayV2::Api",
+            "inputs": {
+                "apiKeySelectionExpression": {
+                    "type": "string"
+                },
+                "basePath": {
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiBodyS3Location"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiCors"
+                },
+                "credentialsArn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "disableSchemaValidation": {
+                    "type": "boolean"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protocolType": {
+                    "type": "string"
+                },
+                "routeKey": {
+                    "type": "string"
+                },
+                "routeSelectionExpression": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "This resource type use map for Tags, suggest to use List of Tag"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "apiEndpoint": {
+                    "type": "string"
+                },
+                "apiId": {
+                    "type": "string"
+                },
+                "apiKeySelectionExpression": {
+                    "type": "string"
+                },
+                "basePath": {
+                    "type": "string"
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiBodyS3Location"
+                },
+                "corsConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:ApiCors"
+                },
+                "credentialsArn": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "disableSchemaValidation": {
+                    "type": "boolean"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protocolType": {
+                    "type": "string"
+                },
+                "routeKey": {
+                    "type": "string"
+                },
+                "routeSelectionExpression": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "This resource type use map for Tags, suggest to use List of Tag"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "protocolType"
             ]
         },
         "aws-native:apigatewayv2:Model": {
@@ -9262,103 +9394,6 @@
                 "tags"
             ]
         },
-        "aws-native:datapipeline:Pipeline": {
-            "cf": "AWS::DataPipeline::Pipeline",
-            "inputs": {
-                "activate": {
-                    "type": "boolean",
-                    "description": "Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "A description of the pipeline."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the pipeline."
-                },
-                "parameterObjects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterObject"
-                    },
-                    "description": "The parameter objects used with the pipeline."
-                },
-                "parameterValues": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterValue"
-                    },
-                    "description": "The parameter values used with the pipeline."
-                },
-                "pipelineObjects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineObject"
-                    },
-                    "description": "The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide."
-                },
-                "pipelineTags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineTag"
-                    },
-                    "description": "A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide."
-                }
-            },
-            "outputs": {
-                "activate": {
-                    "type": "boolean",
-                    "description": "Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true."
-                },
-                "description": {
-                    "type": "string",
-                    "description": "A description of the pipeline."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the pipeline."
-                },
-                "parameterObjects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterObject"
-                    },
-                    "description": "The parameter objects used with the pipeline."
-                },
-                "parameterValues": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterValue"
-                    },
-                    "description": "The parameter values used with the pipeline."
-                },
-                "pipelineId": {
-                    "type": "string"
-                },
-                "pipelineObjects": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineObject"
-                    },
-                    "description": "The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide."
-                },
-                "pipelineTags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineTag"
-                    },
-                    "description": "A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide."
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name"
-            },
-            "createOnly": [
-                "description",
-                "name"
-            ]
-        },
         "aws-native:datasync:Agent": {
             "cf": "AWS::DataSync::Agent",
             "inputs": {
@@ -14475,6 +14510,127 @@
                 "type"
             ]
         },
+        "aws-native:ec2:Volume": {
+            "cf": "AWS::EC2::Volume",
+            "inputs": {
+                "autoEnableIO": {
+                    "type": "boolean",
+                    "description": "The Availability Zone in which to create the volume."
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create the volume."
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types."
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. "
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias."
+                },
+                "multiAttachEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether Amazon EBS Multi-Attach is enabled."
+                },
+                "outpostArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost."
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. "
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. "
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VolumeTag"
+                    },
+                    "description": "The tags to apply to the volume during creation."
+                },
+                "throughput": {
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s."
+                },
+                "volumeType": {
+                    "type": "string",
+                    "description": "The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard"
+                }
+            },
+            "outputs": {
+                "autoEnableIO": {
+                    "type": "boolean",
+                    "description": "The Availability Zone in which to create the volume."
+                },
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The Availability Zone in which to create the volume."
+                },
+                "encrypted": {
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types."
+                },
+                "iops": {
+                    "type": "integer",
+                    "description": "The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. "
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias."
+                },
+                "multiAttachEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether Amazon EBS Multi-Attach is enabled."
+                },
+                "outpostArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost."
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. "
+                },
+                "snapshotId": {
+                    "type": "string",
+                    "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. "
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ec2:VolumeTag"
+                    },
+                    "description": "The tags to apply to the volume during creation."
+                },
+                "throughput": {
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s."
+                },
+                "volumeId": {
+                    "type": "string"
+                },
+                "volumeType": {
+                    "type": "string",
+                    "description": "The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard"
+                }
+            },
+            "required": [
+                "availabilityZone"
+            ],
+            "createOnly": [
+                "availabilityZone",
+                "encrypted",
+                "kmsKeyId",
+                "snapshotId"
+            ]
+        },
         "aws-native:ecr:PullThroughCacheRule": {
             "cf": "AWS::ECR::PullThroughCacheRule",
             "inputs": {
@@ -18612,6 +18768,94 @@
             ],
             "createOnly": [
                 "name"
+            ]
+        },
+        "aws-native:fsx:DataRepositoryAssociation": {
+            "cf": "AWS::FSx::DataRepositoryAssociation",
+            "inputs": {
+                "batchImportMetaDataOnCreate": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true."
+                },
+                "dataRepositoryPath": {
+                    "type": "string",
+                    "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to."
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The globally unique ID of the file system, assigned by Amazon FSx."
+                },
+                "fileSystemPath": {
+                    "type": "string",
+                    "description": "This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory."
+                },
+                "importedFileChunkSize": {
+                    "type": "integer",
+                    "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system."
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationS3",
+                    "description": "The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationTag"
+                    },
+                    "description": "A list of Tag values, with a maximum of 50 elements."
+                }
+            },
+            "outputs": {
+                "associationId": {
+                    "type": "string",
+                    "description": "The system-generated, unique ID of the data repository association."
+                },
+                "batchImportMetaDataOnCreate": {
+                    "type": "boolean",
+                    "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true."
+                },
+                "dataRepositoryPath": {
+                    "type": "string",
+                    "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to."
+                },
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "The globally unique ID of the file system, assigned by Amazon FSx."
+                },
+                "fileSystemPath": {
+                    "type": "string",
+                    "description": "This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory."
+                },
+                "importedFileChunkSize": {
+                    "type": "integer",
+                    "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system."
+                },
+                "resourceARN": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference."
+                },
+                "s3": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationS3",
+                    "description": "The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationTag"
+                    },
+                    "description": "A list of Tag values, with a maximum of 50 elements."
+                }
+            },
+            "required": [
+                "dataRepositoryPath",
+                "fileSystemId",
+                "fileSystemPath"
+            ],
+            "createOnly": [
+                "batchImportMetaDataOnCreate",
+                "dataRepositoryPath",
+                "fileSystemId",
+                "fileSystemPath"
             ]
         },
         "aws-native:gamelift:Alias": {
@@ -47519,6 +47763,58 @@
                 }
             }
         },
+        "aws-native:apigatewayv2:ApiBodyS3Location": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "etag": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigatewayv2:ApiCors": {
+            "type": "object",
+            "properties": {
+                "allowCredentials": {
+                    "type": "boolean"
+                },
+                "allowHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "allowOrigins": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exposeHeaders": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "maxAge": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -54868,98 +55164,6 @@
                 }
             }
         },
-        "aws-native:datapipeline:PipelineField": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "Specifies the name of a field for a particular object. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide."
-                },
-                "refValue": {
-                    "type": "string",
-                    "description": "A field value that you specify as an identifier of another object in the same pipeline definition."
-                },
-                "stringValue": {
-                    "type": "string",
-                    "description": "A field value that you specify as a string. To view valid values for a particular field, see Pipeline Object Reference in the AWS Data Pipeline Developer Guide."
-                }
-            }
-        },
-        "aws-native:datapipeline:PipelineObject": {
-            "type": "object",
-            "properties": {
-                "fields": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineField"
-                    },
-                    "description": "Key-value pairs that define the properties of the object."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the object."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the object."
-                }
-            }
-        },
-        "aws-native:datapipeline:PipelineParameterAttribute": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "The field identifier."
-                },
-                "stringValue": {
-                    "type": "string",
-                    "description": "The field value, expressed as a String."
-                }
-            }
-        },
-        "aws-native:datapipeline:PipelineParameterObject": {
-            "type": "object",
-            "properties": {
-                "attributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:datapipeline:PipelineParameterAttribute"
-                    },
-                    "description": "The attributes of the parameter object."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the parameter object."
-                }
-            }
-        },
-        "aws-native:datapipeline:PipelineParameterValue": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the parameter value."
-                },
-                "stringValue": {
-                    "type": "string",
-                    "description": "The field value, expressed as a String."
-                }
-            }
-        },
-        "aws-native:datapipeline:PipelineTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "The key name of a tag."
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The value to associate with the key name."
-                }
-            }
-        },
         "aws-native:datasync:AgentEndpointType": {
             "type": "string"
         },
@@ -58424,6 +58628,19 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ec2:VolumeTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -61962,6 +62179,55 @@
         "aws-native:frauddetector:VariableType": {
             "type": "string"
         },
+        "aws-native:fsx:DataRepositoryAssociationAutoExportPolicy": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationEventType"
+                    }
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationAutoImportPolicy": {
+            "type": "object",
+            "properties": {
+                "events": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationEventType"
+                    }
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationEventType": {
+            "type": "string"
+        },
+        "aws-native:fsx:DataRepositoryAssociationS3": {
+            "type": "object",
+            "properties": {
+                "autoExportPolicy": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationAutoExportPolicy"
+                },
+                "autoImportPolicy": {
+                    "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationAutoImportPolicy"
+                }
+            }
+        },
+        "aws-native:fsx:DataRepositoryAssociationTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                }
+            }
+        },
         "aws-native:gamelift:AliasRoutingStrategy": {
             "type": "object",
             "properties": {
@@ -65119,6 +65385,9 @@
         "aws-native:iot:TopicRuleRepublishAction": {
             "type": "object",
             "properties": {
+                "headers": {
+                    "$ref": "#/types/aws-native:iot:TopicRuleRepublishActionHeadersProperties"
+                },
                 "qos": {
                     "type": "integer"
                 },
@@ -65127,6 +65396,32 @@
                 },
                 "topic": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:TopicRuleRepublishActionHeadersProperties": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "type": "string"
+                },
+                "correlationData": {
+                    "type": "string"
+                },
+                "messageExpiry": {
+                    "type": "string"
+                },
+                "payloadFormatIndicator": {
+                    "type": "string"
+                },
+                "responseTopic": {
+                    "type": "string"
+                },
+                "userProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:iot:TopicRuleUserProperty"
+                    }
                 }
             }
         },
@@ -65263,6 +65558,17 @@
             "type": "object",
             "properties": {
                 "unit": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:iot:TopicRuleUserProperty": {
+            "type": "object",
+            "properties": {
+                "key": {
                     "type": "string"
                 },
                 "value": {
@@ -80202,6 +80508,13 @@
                     },
                     "description": "If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation."
                 },
+                "metricDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorMetricDestination"
+                    },
+                    "description": "An array of structures which define the destinations and the metrics that you want to send."
+                },
                 "sessionSampleRate": {
                     "type": "number",
                     "description": "Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used."
@@ -80214,6 +80527,58 @@
                     "description": "An array that lists the types of telemetry data that this app monitor is to collect."
                 }
             }
+        },
+        "aws-native:rum:AppMonitorMetricDefinition": {
+            "type": "object",
+            "properties": {
+                "dimensionKeys": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Use this field only if you are sending the metric to CloudWatch.\n\nThis field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:\n\n\"metadata.pageId\": \"PageId\"\n\n\"metadata.browserName\": \"BrowserName\"\n\n\"metadata.deviceType\": \"DeviceType\"\n\n\"metadata.osName\": \"OSName\"\n\n\"metadata.countryCode\": \"CountryCode\"\n\n\"event_details.fileType\": \"FileType\"\n\nAll dimensions listed in this field must also be included in EventPattern."
+                },
+                "eventPattern": {
+                    "type": "string",
+                    "description": "The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.\n\nWhen you define extended metrics, the metric definition is not valid if EventPattern is omitted.\n\nExample event patterns:\n\n'{ \"event_type\": [\"com.amazon.rum.js_error_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Safari\" ], } }'\n\n'{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Firefox\" ] }, \"event_details\": { \"duration\": [{ \"numeric\": [ \"\u003c\", 2000 ] }] } }'\n\n'{ \"event_type\": [\"com.amazon.rum.performance_navigation_event\"], \"metadata\": { \"browserName\": [ \"Chrome\", \"Safari\" ], \"countryCode\": [ \"US\" ] }, \"event_details\": { \"duration\": [{ \"numeric\": [ \"\u003e=\", 2000, \"\u003c\", 8000 ] }] } }'\n\nIf the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name for the metric that is defined in this structure. Valid values are the following:\n\nPerformanceNavigationDuration\n\nPerformanceResourceDuration\n\nNavigationSatisfiedTransaction\n\nNavigationToleratedTransaction\n\nNavigationFrustratedTransaction\n\nWebVitalsCumulativeLayoutShift\n\nWebVitalsFirstInputDelay\n\nWebVitalsLargestContentfulPaint\n\nJsErrorCount\n\nHttpErrorCount\n\nSessionCount"
+                },
+                "unitLabel": {
+                    "type": "string",
+                    "description": "The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit."
+                },
+                "valueKey": {
+                    "type": "string",
+                    "description": "The field within the event object that the metric value is sourced from.\n\nIf you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.\n\nIf this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorMetricDestination": {
+            "type": "object",
+            "properties": {
+                "destination": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorMetricDestinationDestination",
+                    "description": "Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment."
+                },
+                "destinationArn": {
+                    "type": "string",
+                    "description": "Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics."
+                },
+                "iamRoleArn": {
+                    "type": "string",
+                    "description": "This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.\n\nThis parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment."
+                },
+                "metricDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:rum:AppMonitorMetricDefinition"
+                    },
+                    "description": "An array of structures which define the metrics that you want to send."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorMetricDestinationDestination": {
+            "type": "string"
         },
         "aws-native:rum:AppMonitorTag": {
             "type": "object",
@@ -88291,6 +88656,12 @@
                 "id"
             ]
         },
+        "aws-native:apigatewayv2:getApi": {
+            "cf": "AWS::ApiGatewayV2::Api",
+            "ids": [
+                "apiId"
+            ]
+        },
         "aws-native:apigatewayv2:getModel": {
             "cf": "AWS::ApiGatewayV2::Model",
             "ids": [
@@ -88896,12 +89267,6 @@
                 "name"
             ]
         },
-        "aws-native:datapipeline:getPipeline": {
-            "cf": "AWS::DataPipeline::Pipeline",
-            "ids": [
-                "pipelineId"
-            ]
-        },
         "aws-native:datasync:getAgent": {
             "cf": "AWS::DataSync::Agent",
             "ids": [
@@ -89347,6 +89712,12 @@
                 "vPNGatewayId"
             ]
         },
+        "aws-native:ec2:getVolume": {
+            "cf": "AWS::EC2::Volume",
+            "ids": [
+                "volumeId"
+            ]
+        },
         "aws-native:ecr:getRegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "ids": [
@@ -89668,6 +90039,12 @@
             "cf": "AWS::FraudDetector::Variable",
             "ids": [
                 "arn"
+            ]
+        },
+        "aws-native:fsx:getDataRepositoryAssociation": {
+            "cf": "AWS::FSx::DataRepositoryAssociation",
+            "ids": [
+                "associationId"
             ]
         },
         "aws-native:gamelift:getAlias": {

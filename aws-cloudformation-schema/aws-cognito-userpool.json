@@ -52,6 +52,9 @@
     "MfaConfiguration" : {
       "type" : "string"
     },
+    "DeletionProtection" : {
+      "type" : "string"
+    },
     "SmsAuthenticationMessage" : {
       "type" : "string"
     },
