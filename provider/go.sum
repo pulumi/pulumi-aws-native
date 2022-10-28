@@ -1569,8 +1569,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.37.3-0.20220809202049-8441ea2eeefd/go.mod h1:
 github.com/pulumi/pulumi/pkg/v3 v3.38.1-0.20220825161912-0fc18cbafb78/go.mod h1:b1VnAnwsu+rLwFSZJ6Awxl8czGpypf1QeNCiBinLC00=
 github.com/pulumi/pulumi/pkg/v3 v3.40.1/go.mod h1:Of6sFHjTHQGIFqUoXOu2fG/H+HzR4bQRDNTUZZrIvUY=
 github.com/pulumi/pulumi/pkg/v3 v3.42.1-0.20221010121757-adef574983fa/go.mod h1:613f45hSUcSIc7Z3XpSyzFLk+SHZcE8tdffbs3D0xYY=
-github.com/pulumi/pulumi/pkg/v3 v3.43.1 h1:iSZUZQwRtg+gEO7VUEnwntSA7eTgfyUb0ME+vnJ4x6M=
-github.com/pulumi/pulumi/pkg/v3 v3.43.1/go.mod h1:Qw53+WzwFFYfuig8mK5p9rcqWOFGM/YUW3Gq0xc30Po=
+github.com/pulumi/pulumi/pkg/v3 v3.44.2 h1:PbjppVv17nrlSCD2AR/pxr39cJuuMRl+1ft5PAmPoZM=
+github.com/pulumi/pulumi/pkg/v3 v3.44.2/go.mod h1:ZPmdEFaa4IT0RWIvLxP61SidP91X+WRtpvIXP+fENkE=
 github.com/pulumi/pulumi/sdk/v3 v3.26.0/go.mod h1:VsxW+TGv2VBLe/MeqsAr9r0zKzK/gbAhFT9QxYr24cY=
 github.com/pulumi/pulumi/sdk/v3 v3.28.0/go.mod h1:Oe6AnW5MjJE5X2UJeqeXm1Al7qahdLVhIPeiKuoqxAw=
 github.com/pulumi/pulumi/sdk/v3 v3.31.0/go.mod h1:hGo/+AL1L4sPL9Ukd/i5bNFM3WHs3dHcA+GKEW7M3RA=
@@ -1591,8 +1591,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.38.1-0.20220825161912-0fc18cbafb78/go.mod h1:
 github.com/pulumi/pulumi/sdk/v3 v3.40.1/go.mod h1:tSNA8Z+GnEjMxH+qtrfcwpmOQj7mTPTAmJUhwvuox5I=
 github.com/pulumi/pulumi/sdk/v3 v3.42.0/go.mod h1:N5jL+cw5KiOeMn9bwvRuPQEAhbE3KPq2wSb/Kw+6HuY=
 github.com/pulumi/pulumi/sdk/v3 v3.42.1-0.20221010121757-adef574983fa/go.mod h1:N5jL+cw5KiOeMn9bwvRuPQEAhbE3KPq2wSb/Kw+6HuY=
-github.com/pulumi/pulumi/sdk/v3 v3.43.1 h1:JH+al/6zK2A7SWQ6z2HlLKq223xnPE+oGJfaOJtqzlc=
-github.com/pulumi/pulumi/sdk/v3 v3.43.1/go.mod h1:N5jL+cw5KiOeMn9bwvRuPQEAhbE3KPq2wSb/Kw+6HuY=
+github.com/pulumi/pulumi/sdk/v3 v3.44.2 h1:hBHR4J6kBLJSXFBEa41OPGkyOkJKiMGxewjsaESwnlg=
+github.com/pulumi/pulumi/sdk/v3 v3.44.2/go.mod h1:N5jL+cw5KiOeMn9bwvRuPQEAhbE3KPq2wSb/Kw+6HuY=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
