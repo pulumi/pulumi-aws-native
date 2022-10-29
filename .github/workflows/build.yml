@@ -352,7 +352,7 @@ jobs:
         fields: repo,commit,author,action
         status: ${{ job.status }}
   publish:
-    runs-on: macos-latest
+    runs-on: macos-11
     needs: test
     strategy:
       matrix:
