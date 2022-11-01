@@ -81,7 +81,7 @@
         "Runtime" : {
           "type" : "string",
           "description" : "Runtime",
-          "enum" : [ "PYTHON_3", "NODEJS_12", "NODEJS_14", "CORRETTO_8", "CORRETTO_11", "NODEJS_16" ]
+          "enum" : [ "PYTHON_3", "NODEJS_12", "NODEJS_14", "CORRETTO_8", "CORRETTO_11", "NODEJS_16", "GO_1", "DOTNET_6", "PHP_81", "RUBY_31" ]
         },
         "BuildCommand" : {
           "type" : "string",
@@ -271,15 +271,29 @@
       "required" : [ "EgressType" ],
       "additionalProperties" : false
     },
+    "IngressConfiguration" : {
+      "description" : "Network ingress configuration",
+      "type" : "object",
+      "properties" : {
+        "IsPubliclyAccessible" : {
+          "description" : "It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "IsPubliclyAccessible" ],
+      "additionalProperties" : false
+    },
     "NetworkConfiguration" : {
       "description" : "Network configuration",
       "type" : "object",
       "properties" : {
         "EgressConfiguration" : {
           "$ref" : "#/definitions/EgressConfiguration"
+        },
+        "IngressConfiguration" : {
+          "$ref" : "#/definitions/IngressConfiguration"
         }
       },
-      "required" : [ "EgressConfiguration" ],
       "additionalProperties" : false
     },
     "ServiceObservabilityConfiguration" : {

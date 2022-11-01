@@ -91,7 +91,7 @@
         },
         "AllocationStrategy" : {
           "type" : "string",
-          "enum" : [ "lowestPrice", "diversified", "capacityOptimized", "capacityOptimizedPrioritized" ]
+          "enum" : [ "lowest-price", "lowestPrice", "diversified", "capacityOptimized", "capacity-optimized", "capacityOptimizedPrioritized", "capacity-optimized-prioritized", "priceCapacityOptimized", "price-capacity-optimized" ]
         },
         "SingleInstanceType" : {
           "type" : "boolean"
