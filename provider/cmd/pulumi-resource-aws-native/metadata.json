@@ -26536,6 +26536,10 @@
                     "type": "string",
                     "description": "The identifier of the function's runtime."
                 },
+                "snapStart": {
+                    "$ref": "#/types/aws-native:lambda:FunctionSnapStartConfig",
+                    "description": "SnapStart configuration"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -26640,6 +26644,10 @@
                 "runtime": {
                     "type": "string",
                     "description": "The identifier of the function's runtime."
+                },
+                "snapStart": {
+                    "$ref": "#/types/aws-native:lambda:FunctionSnapStartConfig",
+                    "description": "SnapStart configuration"
                 },
                 "tags": {
                     "type": "array",
@@ -71237,6 +71245,18 @@
             }
         },
         "aws-native:lambda:FunctionPackageType": {
+            "type": "string"
+        },
+        "aws-native:lambda:FunctionSnapStartConfig": {
+            "type": "object",
+            "properties": {
+                "applyOn": {
+                    "$ref": "#/types/aws-native:lambda:FunctionSnapStartConfigApplyOn",
+                    "description": "When to optimize startup."
+                }
+            }
+        },
+        "aws-native:lambda:FunctionSnapStartConfigApplyOn": {
             "type": "string"
         },
         "aws-native:lambda:FunctionTag": {
