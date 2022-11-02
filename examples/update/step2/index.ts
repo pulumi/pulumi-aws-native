@@ -29,7 +29,7 @@ const lambdaRole = new awsClassic.iam.Role("lambdaRole", {
 });
 
 const func = new aws.lambda.Function("function", {
-    runtime: "nodejs12.x",
+    runtime: "nodejs16.x",
     role: lambdaRole.arn,
     handler: "index.handler",
     code: {
