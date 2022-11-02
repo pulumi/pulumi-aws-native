@@ -3001,6 +3001,143 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionSnapStartConfig struct {
+	// When to optimize startup.
+	ApplyOn *FunctionSnapStartConfigApplyOn `pulumi:"applyOn"`
+}
+
+// FunctionSnapStartConfigInput is an input type that accepts FunctionSnapStartConfigArgs and FunctionSnapStartConfigOutput values.
+// You can construct a concrete instance of `FunctionSnapStartConfigInput` via:
+//
+//	FunctionSnapStartConfigArgs{...}
+type FunctionSnapStartConfigInput interface {
+	pulumi.Input
+
+	ToFunctionSnapStartConfigOutput() FunctionSnapStartConfigOutput
+	ToFunctionSnapStartConfigOutputWithContext(context.Context) FunctionSnapStartConfigOutput
+}
+
+type FunctionSnapStartConfigArgs struct {
+	// When to optimize startup.
+	ApplyOn FunctionSnapStartConfigApplyOnPtrInput `pulumi:"applyOn"`
+}
+
+func (FunctionSnapStartConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSnapStartConfig)(nil)).Elem()
+}
+
+func (i FunctionSnapStartConfigArgs) ToFunctionSnapStartConfigOutput() FunctionSnapStartConfigOutput {
+	return i.ToFunctionSnapStartConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionSnapStartConfigArgs) ToFunctionSnapStartConfigOutputWithContext(ctx context.Context) FunctionSnapStartConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartConfigOutput)
+}
+
+func (i FunctionSnapStartConfigArgs) ToFunctionSnapStartConfigPtrOutput() FunctionSnapStartConfigPtrOutput {
+	return i.ToFunctionSnapStartConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionSnapStartConfigArgs) ToFunctionSnapStartConfigPtrOutputWithContext(ctx context.Context) FunctionSnapStartConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartConfigOutput).ToFunctionSnapStartConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionSnapStartConfigPtrInput is an input type that accepts FunctionSnapStartConfigArgs, FunctionSnapStartConfigPtr and FunctionSnapStartConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionSnapStartConfigPtrInput` via:
+//
+//	        FunctionSnapStartConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionSnapStartConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionSnapStartConfigPtrOutput() FunctionSnapStartConfigPtrOutput
+	ToFunctionSnapStartConfigPtrOutputWithContext(context.Context) FunctionSnapStartConfigPtrOutput
+}
+
+type functionSnapStartConfigPtrType FunctionSnapStartConfigArgs
+
+func FunctionSnapStartConfigPtr(v *FunctionSnapStartConfigArgs) FunctionSnapStartConfigPtrInput {
+	return (*functionSnapStartConfigPtrType)(v)
+}
+
+func (*functionSnapStartConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSnapStartConfig)(nil)).Elem()
+}
+
+func (i *functionSnapStartConfigPtrType) ToFunctionSnapStartConfigPtrOutput() FunctionSnapStartConfigPtrOutput {
+	return i.ToFunctionSnapStartConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionSnapStartConfigPtrType) ToFunctionSnapStartConfigPtrOutputWithContext(ctx context.Context) FunctionSnapStartConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartConfigPtrOutput)
+}
+
+type FunctionSnapStartConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSnapStartConfig)(nil)).Elem()
+}
+
+func (o FunctionSnapStartConfigOutput) ToFunctionSnapStartConfigOutput() FunctionSnapStartConfigOutput {
+	return o
+}
+
+func (o FunctionSnapStartConfigOutput) ToFunctionSnapStartConfigOutputWithContext(ctx context.Context) FunctionSnapStartConfigOutput {
+	return o
+}
+
+func (o FunctionSnapStartConfigOutput) ToFunctionSnapStartConfigPtrOutput() FunctionSnapStartConfigPtrOutput {
+	return o.ToFunctionSnapStartConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionSnapStartConfigOutput) ToFunctionSnapStartConfigPtrOutputWithContext(ctx context.Context) FunctionSnapStartConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionSnapStartConfig) *FunctionSnapStartConfig {
+		return &v
+	}).(FunctionSnapStartConfigPtrOutput)
+}
+
+// When to optimize startup.
+func (o FunctionSnapStartConfigOutput) ApplyOn() FunctionSnapStartConfigApplyOnPtrOutput {
+	return o.ApplyT(func(v FunctionSnapStartConfig) *FunctionSnapStartConfigApplyOn { return v.ApplyOn }).(FunctionSnapStartConfigApplyOnPtrOutput)
+}
+
+type FunctionSnapStartConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSnapStartConfig)(nil)).Elem()
+}
+
+func (o FunctionSnapStartConfigPtrOutput) ToFunctionSnapStartConfigPtrOutput() FunctionSnapStartConfigPtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartConfigPtrOutput) ToFunctionSnapStartConfigPtrOutputWithContext(ctx context.Context) FunctionSnapStartConfigPtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartConfigPtrOutput) Elem() FunctionSnapStartConfigOutput {
+	return o.ApplyT(func(v *FunctionSnapStartConfig) FunctionSnapStartConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionSnapStartConfig
+		return ret
+	}).(FunctionSnapStartConfigOutput)
+}
+
+// When to optimize startup.
+func (o FunctionSnapStartConfigPtrOutput) ApplyOn() FunctionSnapStartConfigApplyOnPtrOutput {
+	return o.ApplyT(func(v *FunctionSnapStartConfig) *FunctionSnapStartConfigApplyOn {
+		if v == nil {
+			return nil
+		}
+		return v.ApplyOn
+	}).(FunctionSnapStartConfigApplyOnPtrOutput)
+}
+
 type FunctionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -3873,6 +4010,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartConfigInput)(nil)).Elem(), FunctionSnapStartConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartConfigPtrInput)(nil)).Elem(), FunctionSnapStartConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagInput)(nil)).Elem(), FunctionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagArrayInput)(nil)).Elem(), FunctionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
@@ -3929,6 +4068,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartConfigOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTagOutput{})
 	pulumi.RegisterOutputType(FunctionTagArrayOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})

@@ -10,6 +10,7 @@ __all__ = [
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
     'FunctionPackageType',
+    'FunctionSnapStartConfigApplyOn',
     'FunctionTracingConfigMode',
     'UrlAllowMethodsItem',
     'UrlAuthType',
@@ -54,6 +55,13 @@ class FunctionPackageType(str, Enum):
     """
     IMAGE = "Image"
     ZIP = "Zip"
+
+
+class FunctionSnapStartConfigApplyOn(str, Enum):
+    """
+    When to optimize startup.
+    """
+    PUBLISHED_VERSIONS = "PublishedVersions"
 
 
 class FunctionTracingConfigMode(str, Enum):

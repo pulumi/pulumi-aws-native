@@ -127,6 +127,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
+        /// SnapStart configuration
+        /// </summary>
+        [Output("snapStart")]
+        public Output<Outputs.FunctionSnapStartConfig?> SnapStart { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags to apply to the function.
         /// </summary>
         [Output("tags")]
@@ -316,6 +322,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
+
+        /// <summary>
+        /// SnapStart configuration
+        /// </summary>
+        [Input("snapStart")]
+        public Input<Inputs.FunctionSnapStartConfigArgs>? SnapStart { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.FunctionTagArgs>? _tags;

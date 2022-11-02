@@ -59,6 +59,8 @@ type LookupFunctionResult struct {
 	Role *string `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime *string `pulumi:"runtime"`
+	// SnapStart configuration
+	SnapStart *FunctionSnapStartConfig `pulumi:"snapStart"`
 	// A list of tags to apply to the function.
 	Tags []FunctionTag `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -187,6 +189,11 @@ func (o LookupFunctionResultOutput) Role() pulumi.StringPtrOutput {
 // The identifier of the function's runtime.
 func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// SnapStart configuration
+func (o LookupFunctionResultOutput) SnapStart() FunctionSnapStartConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionSnapStartConfig { return v.SnapStart }).(FunctionSnapStartConfigPtrOutput)
 }
 
 // A list of tags to apply to the function.

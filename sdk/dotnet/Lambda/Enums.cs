@@ -162,6 +162,36 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// When to optimize startup.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionSnapStartConfigApplyOn : IEquatable<FunctionSnapStartConfigApplyOn>
+    {
+        private readonly string _value;
+
+        private FunctionSnapStartConfigApplyOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionSnapStartConfigApplyOn PublishedVersions { get; } = new FunctionSnapStartConfigApplyOn("PublishedVersions");
+
+        public static bool operator ==(FunctionSnapStartConfigApplyOn left, FunctionSnapStartConfigApplyOn right) => left.Equals(right);
+        public static bool operator !=(FunctionSnapStartConfigApplyOn left, FunctionSnapStartConfigApplyOn right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionSnapStartConfigApplyOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionSnapStartConfigApplyOn other && Equals(other);
+        public bool Equals(FunctionSnapStartConfigApplyOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The tracing mode.
     /// </summary>
     [EnumType]

@@ -123,6 +123,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? Runtime;
         /// <summary>
+        /// SnapStart configuration
+        /// </summary>
+        public readonly Outputs.FunctionSnapStartConfig? SnapStart;
+        /// <summary>
         /// A list of tags to apply to the function.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionTag> Tags;
@@ -175,6 +179,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? runtime,
 
+            Outputs.FunctionSnapStartConfig? snapStart,
+
             ImmutableArray<Outputs.FunctionTag> tags,
 
             int? timeout,
@@ -200,6 +206,7 @@ namespace Pulumi.AwsNative.Lambda
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;
             Runtime = runtime;
+            SnapStart = snapStart;
             Tags = tags;
             Timeout = timeout;
             TracingConfig = tracingConfig;

@@ -95,6 +95,10 @@ export interface GetFunctionResult {
      */
     readonly runtime?: string;
     /**
+     * SnapStart configuration
+     */
+    readonly snapStart?: outputs.lambda.FunctionSnapStartConfig;
+    /**
      * A list of tags to apply to the function.
      */
     readonly tags?: outputs.lambda.FunctionTag[];

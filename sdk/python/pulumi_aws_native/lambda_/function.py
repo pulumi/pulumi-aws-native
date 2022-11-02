@@ -35,6 +35,7 @@ class FunctionArgs:
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input['FunctionSnapStartConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
@@ -58,6 +59,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input['FunctionSnapStartConfigArgs'] snap_start: SnapStart configuration
         :param pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -97,6 +99,8 @@ class FunctionArgs:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
+        if snap_start is not None:
+            pulumi.set(__self__, "snap_start", snap_start)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
@@ -320,6 +324,18 @@ class FunctionArgs:
         pulumi.set(self, "runtime", value)
 
     @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartConfigArgs']]:
+        """
+        SnapStart configuration
+        """
+        return pulumi.get(self, "snap_start")
+
+    @snap_start.setter
+    def snap_start(self, value: Optional[pulumi.Input['FunctionSnapStartConfigArgs']]):
+        pulumi.set(self, "snap_start", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]]:
         """
@@ -391,6 +407,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
@@ -418,6 +435,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input[pulumi.InputType['FunctionSnapStartConfigArgs']] snap_start: SnapStart configuration
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
@@ -465,6 +483,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartConfigArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
@@ -500,6 +519,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["runtime"] = runtime
+            __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
@@ -546,6 +566,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["runtime"] = None
+        __props__.__dict__["snap_start"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["tracing_config"] = None
@@ -700,6 +721,14 @@ class Function(pulumi.CustomResource):
         The identifier of the function's runtime.
         """
         return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> pulumi.Output[Optional['outputs.FunctionSnapStartConfig']]:
+        """
+        SnapStart configuration
+        """
+        return pulumi.get(self, "snap_start")
 
     @property
     @pulumi.getter

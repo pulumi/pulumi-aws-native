@@ -34,6 +34,7 @@ __all__ = [
     'FunctionEphemeralStorageArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionSnapStartConfigArgs',
     'FunctionTagArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
@@ -688,6 +689,29 @@ class FunctionImageConfigArgs:
     @working_directory.setter
     def working_directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class FunctionSnapStartConfigArgs:
+    def __init__(__self__, *,
+                 apply_on: Optional[pulumi.Input['FunctionSnapStartConfigApplyOn']] = None):
+        """
+        :param pulumi.Input['FunctionSnapStartConfigApplyOn'] apply_on: When to optimize startup.
+        """
+        if apply_on is not None:
+            pulumi.set(__self__, "apply_on", apply_on)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> Optional[pulumi.Input['FunctionSnapStartConfigApplyOn']]:
+        """
+        When to optimize startup.
+        """
+        return pulumi.get(self, "apply_on")
+
+    @apply_on.setter
+    def apply_on(self, value: Optional[pulumi.Input['FunctionSnapStartConfigApplyOn']]):
+        pulumi.set(self, "apply_on", value)
 
 
 @pulumi.input_type

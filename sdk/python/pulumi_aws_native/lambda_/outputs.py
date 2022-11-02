@@ -35,6 +35,7 @@ __all__ = [
     'FunctionEphemeralStorage',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionSnapStartConfig',
     'FunctionTag',
     'FunctionTracingConfig',
     'FunctionVpcConfig',
@@ -868,6 +869,42 @@ class FunctionImageConfig(dict):
         WorkingDirectory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionSnapStartConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyOn":
+            suggest = "apply_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSnapStartConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSnapStartConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSnapStartConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_on: Optional['FunctionSnapStartConfigApplyOn'] = None):
+        """
+        :param 'FunctionSnapStartConfigApplyOn' apply_on: When to optimize startup.
+        """
+        if apply_on is not None:
+            pulumi.set(__self__, "apply_on", apply_on)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> Optional['FunctionSnapStartConfigApplyOn']:
+        """
+        When to optimize startup.
+        """
+        return pulumi.get(self, "apply_on")
 
 
 @pulumi.output_type

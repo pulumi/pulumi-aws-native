@@ -51,6 +51,15 @@ export const FunctionPackageType = {
  */
 export type FunctionPackageType = (typeof FunctionPackageType)[keyof typeof FunctionPackageType];
 
+export const FunctionSnapStartConfigApplyOn = {
+    PublishedVersions: "PublishedVersions",
+} as const;
+
+/**
+ * When to optimize startup.
+ */
+export type FunctionSnapStartConfigApplyOn = (typeof FunctionSnapStartConfigApplyOn)[keyof typeof FunctionSnapStartConfigApplyOn];
+
 export const FunctionTracingConfigMode = {
     Active: "Active",
     PassThrough: "PassThrough",

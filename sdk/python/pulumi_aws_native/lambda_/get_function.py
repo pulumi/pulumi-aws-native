@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, snap_start=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -72,6 +72,9 @@ class GetFunctionResult:
         if runtime and not isinstance(runtime, str):
             raise TypeError("Expected argument 'runtime' to be a str")
         pulumi.set(__self__, "runtime", runtime)
+        if snap_start and not isinstance(snap_start, dict):
+            raise TypeError("Expected argument 'snap_start' to be a dict")
+        pulumi.set(__self__, "snap_start", snap_start)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -219,6 +222,14 @@ class GetFunctionResult:
         return pulumi.get(self, "runtime")
 
     @property
+    @pulumi.getter(name="snapStart")
+    def snap_start(self) -> Optional['outputs.FunctionSnapStartConfig']:
+        """
+        SnapStart configuration
+        """
+        return pulumi.get(self, "snap_start")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.FunctionTag']]:
         """
@@ -274,6 +285,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             reserved_concurrent_executions=self.reserved_concurrent_executions,
             role=self.role,
             runtime=self.runtime,
+            snap_start=self.snap_start,
             tags=self.tags,
             timeout=self.timeout,
             tracing_config=self.tracing_config,
@@ -311,6 +323,7 @@ def get_function(function_name: Optional[str] = None,
         reserved_concurrent_executions=__ret__.reserved_concurrent_executions,
         role=__ret__.role,
         runtime=__ret__.runtime,
+        snap_start=__ret__.snap_start,
         tags=__ret__.tags,
         timeout=__ret__.timeout,
         tracing_config=__ret__.tracing_config,
