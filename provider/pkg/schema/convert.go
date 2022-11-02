@@ -100,15 +100,22 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.J
 		cfnName := ToCfnName(sdkName)
 		key := resource.PropertyKey(sdkName)
 		if v, ok := diff.Updates[key]; ok {
-			op := c.valueToPatch("replace", cfnName, prop, v.New)
-			ops = append(ops, op)
+			// Check if properties are write-only, and use an "add" if so. This is because the old values of write only
+			// properties don't show up when applying the diff within CC, so we need to do an "add".
+			if c.isPropWriteOnly(sdkName) {
+				op := c.valueToPatch("add", cfnName, prop, v.New)
+				ops = append(ops, op)
+			} else {
+				op := c.valueToPatch("replace", cfnName, prop, v.New)
+				ops = append(ops, op)
+			}
 		}
 		if v, ok := diff.Adds[key]; ok {
 			op := c.valueToPatch("add", cfnName, prop, v)
 			ops = append(ops, op)
 		}
 		if _, ok := diff.Deletes[key]; ok {
-			op := jsonpatch.NewPatch("remove", "/" + cfnName, nil)
+			op := jsonpatch.NewPatch("remove", "/"+cfnName, nil)
 			ops = append(ops, op)
 		}
 	}
@@ -116,7 +123,7 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.J
 }
 
 func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) jsonpatch.JsonPatchOperation {
-	op := jsonpatch.NewPatch(opName, "/" + propName, nil)
+	op := jsonpatch.NewPatch(opName, "/"+propName, nil)
 	switch {
 	case value.IsNumber() && prop.Type == "integer":
 		i := int32(value.NumberValue())
@@ -133,6 +140,15 @@ func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.P
 		op.Value = cfnObj
 	}
 	return op
+}
+
+func (c *sdkToCfnConverter) isPropWriteOnly(cfnName string) bool {
+	for _, createOnlyProp := range c.spec.WriteOnly {
+		if createOnlyProp == cfnName {
+			return true
+		}
+	}
+	return false
 }
 
 // CfnToSdk converts CloudFormation-shaped payload to Pulumi-SDK-shaped state. In particular, SDK properties

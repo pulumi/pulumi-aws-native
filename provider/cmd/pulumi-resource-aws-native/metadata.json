@@ -154,6 +154,10 @@
                 "templateArn",
                 "validity",
                 "validityNotBefore"
+            ],
+            "writeOnly": [
+                "apiPassthrough",
+                "certificateSigningRequest"
             ]
         },
         "aws-native:acmpca:CertificateAuthority": {
@@ -251,6 +255,9 @@
                 "signingAlgorithm",
                 "subject",
                 "type"
+            ],
+            "writeOnly": [
+                "subject"
             ]
         },
         "aws-native:acmpca:CertificateAuthorityActivation": {
@@ -301,6 +308,10 @@
             ],
             "createOnly": [
                 "certificateAuthorityArn"
+            ],
+            "writeOnly": [
+                "certificate",
+                "certificateChain"
             ]
         },
         "aws-native:acmpca:Permission": {
@@ -483,7 +494,13 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 255
-            }
+            },
+            "writeOnly": [
+                "accessToken",
+                "autoBranchCreationConfig",
+                "basicAuthConfig",
+                "oauthToken"
+            ]
         },
         "aws-native:amplify:Branch": {
             "cf": "AWS::Amplify::Branch",
@@ -589,6 +606,9 @@
             "createOnly": [
                 "appId",
                 "branchName"
+            ],
+            "writeOnly": [
+                "basicAuthConfig"
             ]
         },
         "aws-native:amplify:Domain": {
@@ -956,6 +976,9 @@
                 "generateDistinctId",
                 "name",
                 "value"
+            ],
+            "writeOnly": [
+                "generateDistinctId"
             ]
         },
         "aws-native:apigateway:Authorizer": {
@@ -1199,6 +1222,11 @@
             "createOnly": [
                 "deploymentCanarySettings",
                 "restApiId"
+            ],
+            "writeOnly": [
+                "deploymentCanarySettings",
+                "stageDescription",
+                "stageName"
             ]
         },
         "aws-native:apigateway:DocumentationPart": {
@@ -2103,6 +2131,9 @@
                 "connectorProfileName",
                 "connectorType",
                 "kMSArn"
+            ],
+            "writeOnly": [
+                "connectorProfileConfig"
             ]
         },
         "aws-native:appflow:Flow": {
@@ -2549,6 +2580,9 @@
                 "observabilityConfigurationName",
                 "tags",
                 "traceConfiguration"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:apprunner:Service": {
@@ -2649,6 +2683,10 @@
                 "encryptionConfiguration",
                 "serviceName",
                 "tags"
+            ],
+            "writeOnly": [
+                "autoScalingConfigurationArn",
+                "tags"
             ]
         },
         "aws-native:apprunner:VpcConnector": {
@@ -2728,6 +2766,9 @@
                 "subnets",
                 "tags",
                 "vpcConnectorName"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:appstream:AppBlock": {
@@ -2797,6 +2838,9 @@
                 "name",
                 "setupScriptDetails",
                 "sourceS3Location"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:appstream:Application": {
@@ -2921,6 +2965,9 @@
                 "instanceFamilies",
                 "name",
                 "platforms"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:appstream:ApplicationEntitlementAssociation": {
@@ -3022,6 +3069,9 @@
             ],
             "createOnly": [
                 "directoryName"
+            ],
+            "writeOnly": [
+                "serviceAccountCredentials/AccountPassword"
             ]
         },
         "aws-native:appstream:Entitlement": {
@@ -3641,6 +3691,9 @@
             },
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "workGroupConfigurationUpdates"
             ]
         },
         "aws-native:auditmanager:Assessment": {
@@ -3741,6 +3794,10 @@
             "createOnly": [
                 "awsAccount",
                 "frameworkId"
+            ],
+            "writeOnly": [
+                "description",
+                "name"
             ]
         },
         "aws-native:autoscaling:LaunchConfiguration": {
@@ -4629,6 +4686,10 @@
                 "computeResources/SpotIamFleetRole",
                 "tags",
                 "type"
+            ],
+            "writeOnly": [
+                "computeResources/UpdateToLatestImageVersion",
+                "replaceComputeEnvironment"
             ]
         },
         "aws-native:batch:JobQueue": {
@@ -5293,6 +5354,9 @@
                 "loggingConfig",
                 "schemaHandlerPackage",
                 "typeName"
+            ],
+            "writeOnly": [
+                "schemaHandlerPackage"
             ]
         },
         "aws-native:cloudformation:ModuleDefaultVersion": {
@@ -5327,6 +5391,10 @@
             },
             "createOnly": [
                 "arn",
+                "moduleName",
+                "versionId"
+            ],
+            "writeOnly": [
                 "moduleName",
                 "versionId"
             ]
@@ -5391,6 +5459,9 @@
             ],
             "createOnly": [
                 "moduleName",
+                "modulePackage"
+            ],
+            "writeOnly": [
                 "modulePackage"
             ]
         },
@@ -5612,6 +5683,9 @@
                 "loggingConfig",
                 "schemaHandlerPackage",
                 "typeName"
+            ],
+            "writeOnly": [
+                "schemaHandlerPackage"
             ]
         },
         "aws-native:cloudformation:StackSet": {
@@ -5776,6 +5850,11 @@
             "createOnly": [
                 "permissionModel",
                 "stackSetName"
+            ],
+            "writeOnly": [
+                "callAs",
+                "operationPreferences",
+                "templateURL"
             ]
         },
         "aws-native:cloudformation:TypeActivation": {
@@ -5991,7 +6070,11 @@
             },
             "autoNamingSpec": {
                 "sdkName": "name"
-            }
+            },
+            "writeOnly": [
+                "autoPublish",
+                "functionCode"
+            ]
         },
         "aws-native:cloudfront:KeyGroup": {
             "cf": "AWS::CloudFront::KeyGroup",
@@ -6667,6 +6750,9 @@
             ],
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:codeartifact:Domain": {
@@ -7251,6 +7337,10 @@
             ],
             "createOnly": [
                 "resource"
+            ],
+            "writeOnly": [
+                "eventTypeId",
+                "targetAddress"
             ]
         },
         "aws-native:configuration:AggregationAuthorization": {
@@ -7436,6 +7526,11 @@
             },
             "createOnly": [
                 "conformancePackName"
+            ],
+            "writeOnly": [
+                "templateBody",
+                "templateS3Uri",
+                "templateSSMDocumentDetails"
             ]
         },
         "aws-native:configuration:OrganizationConformancePack": {
@@ -7519,6 +7614,10 @@
             },
             "createOnly": [
                 "organizationConformancePackName"
+            ],
+            "writeOnly": [
+                "templateBody",
+                "templateS3Uri"
             ]
         },
         "aws-native:configuration:StoredQuery": {
@@ -7880,6 +7979,9 @@
                 "directoryId",
                 "identityManagementType",
                 "instanceAlias"
+            ],
+            "writeOnly": [
+                "directoryId"
             ]
         },
         "aws-native:connect:InstanceStorageConfig": {
@@ -8023,6 +8125,9 @@
                 "description",
                 "prefix",
                 "type"
+            ],
+            "writeOnly": [
+                "prefix"
             ]
         },
         "aws-native:connect:QuickConnect": {
@@ -8310,6 +8415,9 @@
                 "routingProfileArn",
                 "securityProfileArns",
                 "username"
+            ],
+            "writeOnly": [
+                "password"
             ]
         },
         "aws-native:connect:UserHierarchyGroup": {
@@ -8602,6 +8710,9 @@
             "createOnly": [
                 "domainName",
                 "uri"
+            ],
+            "writeOnly": [
+                "flowDefinition"
             ]
         },
         "aws-native:customerprofiles:ObjectType": {
@@ -9452,6 +9563,9 @@
                 "securityGroupArns",
                 "subnetArns",
                 "vpcEndpointId"
+            ],
+            "writeOnly": [
+                "activationKey"
             ]
         },
         "aws-native:datasync:LocationEFS": {
@@ -9539,6 +9653,10 @@
                 "fileSystemAccessRoleArn",
                 "inTransitEncryption",
                 "subdirectory"
+            ],
+            "writeOnly": [
+                "efsFilesystemArn",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationFSxLustre": {
@@ -9606,6 +9724,10 @@
             "createOnly": [
                 "fsxFilesystemArn",
                 "securityGroupArns",
+                "subdirectory"
+            ],
+            "writeOnly": [
+                "fsxFilesystemArn",
                 "subdirectory"
             ]
         },
@@ -9687,6 +9809,9 @@
                 "securityGroupArns",
                 "storageVirtualMachineArn",
                 "subdirectory"
+            ],
+            "writeOnly": [
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationFSxOpenZFS": {
@@ -9762,6 +9887,10 @@
                 "fsxFilesystemArn",
                 "protocol",
                 "securityGroupArns",
+                "subdirectory"
+            ],
+            "writeOnly": [
+                "fsxFilesystemArn",
                 "subdirectory"
             ]
         },
@@ -9860,6 +9989,11 @@
                 "securityGroupArns",
                 "subdirectory",
                 "user"
+            ],
+            "writeOnly": [
+                "fsxFilesystemArn",
+                "password",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationHDFS": {
@@ -10000,6 +10134,11 @@
                 "agentArns",
                 "authenticationType",
                 "nameNodes"
+            ],
+            "writeOnly": [
+                "kerberosKeytab",
+                "kerberosKrb5Conf",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationNFS": {
@@ -10065,6 +10204,10 @@
             ],
             "createOnly": [
                 "serverHostname"
+            ],
+            "writeOnly": [
+                "serverHostname",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationObjectStorage": {
@@ -10173,6 +10316,12 @@
             "createOnly": [
                 "bucketName",
                 "serverHostname"
+            ],
+            "writeOnly": [
+                "bucketName",
+                "secretKey",
+                "serverHostname",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:LocationS3": {
@@ -10241,6 +10390,10 @@
                 "s3BucketArn",
                 "s3Config",
                 "s3StorageClass",
+                "subdirectory"
+            ],
+            "writeOnly": [
+                "s3BucketArn",
                 "subdirectory"
             ]
         },
@@ -10341,6 +10494,11 @@
             ],
             "createOnly": [
                 "serverHostname"
+            ],
+            "writeOnly": [
+                "password",
+                "serverHostname",
+                "subdirectory"
             ]
         },
         "aws-native:datasync:Task": {
@@ -10866,7 +11024,10 @@
                 "sdkName": "name",
                 "minLength": 1,
                 "maxLength": 64
-            }
+            },
+            "writeOnly": [
+                "vpcConfig"
+            ]
         },
         "aws-native:devicefarm:VPCEConfiguration": {
             "cf": "AWS::DeviceFarm::VPCEConfiguration",
@@ -11241,6 +11402,9 @@
             "createOnly": [
                 "importSourceSpecification",
                 "tableName"
+            ],
+            "writeOnly": [
+                "importSourceSpecification"
             ]
         },
         "aws-native:ec2:CapacityReservation": {
@@ -12200,6 +12364,9 @@
                 "description",
                 "ipamPoolId",
                 "netmaskLength"
+            ],
+            "writeOnly": [
+                "netmaskLength"
             ]
         },
         "aws-native:ec2:IPAMPool": {
@@ -12775,6 +12942,10 @@
                 }
             },
             "createOnly": [
+                "excludePaths",
+                "matchPaths"
+            ],
+            "writeOnly": [
                 "excludePaths",
                 "matchPaths"
             ]
@@ -14233,6 +14404,10 @@
                 "cidrBlock",
                 "ipv4IpamPoolId",
                 "ipv4NetmaskLength"
+            ],
+            "writeOnly": [
+                "ipv4IpamPoolId",
+                "ipv4NetmaskLength"
             ]
         },
         "aws-native:ec2:VPCDHCPOptionsAssociation": {
@@ -15488,6 +15663,9 @@
                 "encrypted",
                 "kmsKeyId",
                 "performanceMode"
+            ],
+            "writeOnly": [
+                "bypassPolicyLockoutSafetyCheck"
             ]
         },
         "aws-native:efs:MountTarget": {
@@ -15611,6 +15789,9 @@
             "createOnly": [
                 "addonName",
                 "clusterName"
+            ],
+            "writeOnly": [
+                "resolveConflicts"
             ]
         },
         "aws-native:eks:Cluster": {
@@ -16082,6 +16263,9 @@
                 "nodegroupName",
                 "remoteAccess",
                 "subnets"
+            ],
+            "writeOnly": [
+                "forceUpdateEnabled"
             ]
         },
         "aws-native:elasticache:GlobalReplicationGroup": {
@@ -16184,6 +16368,15 @@
             },
             "required": [
                 "members"
+            ],
+            "writeOnly": [
+                "automaticFailoverEnabled",
+                "cacheNodeType",
+                "engineVersion",
+                "globalNodeGroupCount",
+                "globalReplicationGroupDescription",
+                "globalReplicationGroupIdSuffix",
+                "regionalConfigurations"
             ]
         },
         "aws-native:elasticache:SubnetGroup": {
@@ -16321,6 +16514,11 @@
                 "engine",
                 "userId",
                 "userName"
+            ],
+            "writeOnly": [
+                "accessString",
+                "noPasswordRequired",
+                "passwords"
             ]
         },
         "aws-native:elasticache:UserGroup": {
@@ -16527,6 +16725,11 @@
             ],
             "createOnly": [
                 "loadBalancerArn"
+            ],
+            "writeOnly": [
+                "defaultActions/*/AuthenticateOidcConfig/ClientSecret",
+                "defaultActions/*/ForwardConfig",
+                "defaultActions/*/TargetGroupArn"
             ]
         },
         "aws-native:elasticloadbalancingv2:ListenerRule": {
@@ -16585,6 +16788,11 @@
             ],
             "createOnly": [
                 "listenerArn"
+            ],
+            "writeOnly": [
+                "actions/*/AuthenticateOidcConfig/ClientSecret",
+                "actions/*/ForwardConfig",
+                "actions/*/TargetGroupArn"
             ]
         },
         "aws-native:emr:SecurityConfiguration": {
@@ -17173,6 +17381,9 @@
             ],
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "authParameters"
             ]
         },
         "aws-native:events:Endpoint": {
@@ -17997,6 +18208,9 @@
                 "remediationEnabled",
                 "resourceType",
                 "securityServicePolicyData"
+            ],
+            "writeOnly": [
+                "deleteAllPolicyResources"
             ]
         },
         "aws-native:forecast:Dataset": {
@@ -19020,6 +19234,9 @@
                 "instanceDefinitions",
                 "launchTemplate",
                 "roleArn"
+            ],
+            "writeOnly": [
+                "deleteOption"
             ]
         },
         "aws-native:globalaccelerator:Accelerator": {
@@ -19416,6 +19633,9 @@
                 "name",
                 "registry",
                 "schemaDefinition"
+            ],
+            "writeOnly": [
+                "schemaDefinition"
             ]
         },
         "aws-native:glue:SchemaVersion": {
@@ -19531,6 +19751,10 @@
                 }
             },
             "createOnly": [
+                "inlineRecipe",
+                "lambdaFunction"
+            ],
+            "writeOnly": [
                 "inlineRecipe",
                 "lambdaFunction"
             ]
@@ -20161,6 +20385,11 @@
                 "certificateChain",
                 "privateKey",
                 "serverCertificateName"
+            ],
+            "writeOnly": [
+                "certificateBody",
+                "certificateChain",
+                "privateKey"
             ]
         },
         "aws-native:iam:VirtualMFADevice": {
@@ -20424,6 +20653,11 @@
                 "tags",
                 "uri",
                 "version"
+            ],
+            "writeOnly": [
+                "data",
+                "platform",
+                "uri"
             ]
         },
         "aws-native:imagebuilder:ContainerRecipe": {
@@ -20581,6 +20815,10 @@
                 "targetRepository",
                 "version",
                 "workingDirectory"
+            ],
+            "writeOnly": [
+                "dockerfileTemplateData",
+                "dockerfileTemplateUri"
             ]
         },
         "aws-native:imagebuilder:DistributionConfiguration": {
@@ -21481,6 +21719,9 @@
                 "cACertificatePem",
                 "certificateMode",
                 "verificationCertificatePem"
+            ],
+            "writeOnly": [
+                "verificationCertificatePem"
             ]
         },
         "aws-native:iot:Certificate": {
@@ -21529,6 +21770,10 @@
                 "cACertificatePem",
                 "certificateMode",
                 "certificatePem",
+                "certificateSigningRequest"
+            ],
+            "writeOnly": [
+                "cACertificatePem",
                 "certificateSigningRequest"
             ]
         },
@@ -21745,6 +21990,9 @@
                 "serverCertificateArns",
                 "serviceType",
                 "validationCertificateArn"
+            ],
+            "writeOnly": [
+                "serverCertificateArns"
             ]
         },
         "aws-native:iot:FleetMetric": {
@@ -21974,6 +22222,10 @@
                 "presignedUrlConfig",
                 "tags",
                 "timeoutConfig"
+            ],
+            "writeOnly": [
+                "jobArn",
+                "tags"
             ]
         },
         "aws-native:iot:Logging": {
@@ -23351,7 +23603,13 @@
             },
             "autoNamingSpec": {
                 "sdkName": "assetModelName"
-            }
+            },
+            "writeOnly": [
+                "assetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric",
+                "assetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform",
+                "assetModelProperties/*/DataTypeSpec",
+                "assetModelProperties/*/Type/Transform/Variables/*/Value/HierarchyLogicalId"
+            ]
         },
         "aws-native:iotsitewise:Dashboard": {
             "cf": "AWS::IoTSiteWise::Dashboard",
@@ -23589,6 +23847,9 @@
             ],
             "createOnly": [
                 "portalAuthMode"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:iotsitewise:Project": {
@@ -25523,6 +25784,11 @@
                 "applicationMode",
                 "applicationName",
                 "runtimeEnvironment"
+            ],
+            "writeOnly": [
+                "applicationConfiguration/ApplicationCodeConfiguration/CodeContent/ZipFileContent",
+                "applicationConfiguration/EnvironmentProperties",
+                "runConfiguration"
             ]
         },
         "aws-native:kinesisfirehose:DeliveryStream": {
@@ -25881,6 +26147,9 @@
             },
             "required": [
                 "keyPolicy"
+            ],
+            "writeOnly": [
+                "pendingWindowInDays"
             ]
         },
         "aws-native:kms:ReplicaKey": {
@@ -25955,6 +26224,9 @@
             ],
             "createOnly": [
                 "primaryKeyArn"
+            ],
+            "writeOnly": [
+                "pendingWindowInDays"
             ]
         },
         "aws-native:lakeformation:DataCellsFilter": {
@@ -26671,6 +26943,14 @@
             ],
             "createOnly": [
                 "functionName"
+            ],
+            "writeOnly": [
+                "code",
+                "code/ImageUri",
+                "code/S3Bucket",
+                "code/S3Key",
+                "code/S3ObjectVersion",
+                "code/ZipFile"
             ]
         },
         "aws-native:lambda:Url": {
@@ -26730,6 +27010,10 @@
                 "targetFunctionArn"
             ],
             "createOnly": [
+                "qualifier",
+                "targetFunctionArn"
+            ],
+            "writeOnly": [
                 "qualifier",
                 "targetFunctionArn"
             ]
@@ -26846,6 +27130,13 @@
                 "dataPrivacy",
                 "idleSessionTTLInSeconds",
                 "roleArn"
+            ],
+            "writeOnly": [
+                "autoBuildBotLocales",
+                "botFileS3Location",
+                "botLocales",
+                "botTags",
+                "testBotAliasTags"
             ]
         },
         "aws-native:lex:BotAlias": {
@@ -26935,6 +27226,9 @@
             ],
             "createOnly": [
                 "botId"
+            ],
+            "writeOnly": [
+                "botAliasTags"
             ]
         },
         "aws-native:lex:BotVersion": {
@@ -26981,6 +27275,9 @@
             ],
             "createOnly": [
                 "botId"
+            ],
+            "writeOnly": [
+                "botVersionLocaleSpecification"
             ]
         },
         "aws-native:lex:ResourcePolicy": {
@@ -27079,7 +27376,11 @@
             },
             "autoNamingSpec": {
                 "sdkName": "grantName"
-            }
+            },
+            "writeOnly": [
+                "allowedOperations",
+                "principals"
+            ]
         },
         "aws-native:licensemanager:License": {
             "cf": "AWS::LicenseManager::License",
@@ -27193,6 +27494,9 @@
                 "issuer",
                 "productName",
                 "validity"
+            ],
+            "writeOnly": [
+                "status"
             ]
         },
         "aws-native:lightsail:Alarm": {
@@ -27739,6 +28043,11 @@
                 "relationalDatabaseBlueprintId",
                 "relationalDatabaseBundleId",
                 "relationalDatabaseName"
+            ],
+            "writeOnly": [
+                "masterUserPassword",
+                "relationalDatabaseParameters",
+                "rotateMasterUserPassword"
             ]
         },
         "aws-native:lightsail:Disk": {
@@ -29095,6 +29404,9 @@
             "createOnly": [
                 "engineType",
                 "name"
+            ],
+            "writeOnly": [
+                "definition"
             ]
         },
         "aws-native:m2:Environment": {
@@ -30857,6 +31169,9 @@
                 "description",
                 "family",
                 "parameterGroupName"
+            ],
+            "writeOnly": [
+                "parameters"
             ]
         },
         "aws-native:memorydb:SubnetGroup": {
@@ -30982,6 +31297,10 @@
             ],
             "createOnly": [
                 "userName"
+            ],
+            "writeOnly": [
+                "accessString",
+                "authenticationMode"
             ]
         },
         "aws-native:msk:BatchScramSecret": {
@@ -31174,6 +31493,9 @@
             "createOnly": [
                 "kafkaVersionsList",
                 "name"
+            ],
+            "writeOnly": [
+                "serverProperties"
             ]
         },
         "aws-native:msk:ServerlessCluster": {
@@ -31858,6 +32180,12 @@
                 "coreNetworkAddress",
                 "insideCidrBlocks",
                 "peerAddress"
+            ],
+            "writeOnly": [
+                "bgpOptions",
+                "coreNetworkAddress",
+                "insideCidrBlocks",
+                "peerAddress"
             ]
         },
         "aws-native:networkmanager:CoreNetwork": {
@@ -32400,6 +32728,9 @@
             "createOnly": [
                 "coreNetworkId",
                 "vpnConnectionArn"
+            ],
+            "writeOnly": [
+                "vpnConnectionArn"
             ]
         },
         "aws-native:networkmanager:TransitGatewayRegistration": {
@@ -32541,6 +32872,9 @@
             },
             "createOnly": [
                 "coreNetworkId",
+                "vpcArn"
+            ],
+            "writeOnly": [
                 "vpcArn"
             ]
         },
@@ -33057,6 +33391,9 @@
             },
             "createOnly": [
                 "domainName"
+            ],
+            "writeOnly": [
+                "advancedSecurityOptions/MasterUserOptions"
             ]
         },
         "aws-native:opsworkscm:Server": {
@@ -33247,6 +33584,10 @@
                 "serverName",
                 "serviceRoleArn",
                 "subnetIds"
+            ],
+            "writeOnly": [
+                "customPrivateKey",
+                "engineAttributes"
             ]
         },
         "aws-native:panorama:ApplicationInstance": {
@@ -34010,6 +34351,13 @@
             "createOnly": [
                 "analysisId",
                 "awsAccountId"
+            ],
+            "writeOnly": [
+                "lastUpdatedTime",
+                "parameters",
+                "sheets",
+                "sourceEntity",
+                "status"
             ]
         },
         "aws-native:quicksight:Dashboard": {
@@ -34132,6 +34480,16 @@
             "createOnly": [
                 "awsAccountId",
                 "dashboardId"
+            ],
+            "writeOnly": [
+                "createdTime",
+                "dashboardPublishOptions",
+                "lastUpdatedTime",
+                "parameters",
+                "sourceEntity",
+                "themeArn",
+                "version",
+                "versionDescription"
             ]
         },
         "aws-native:quicksight:DataSet": {
@@ -34287,6 +34645,10 @@
             "createOnly": [
                 "awsAccountId",
                 "dataSetId"
+            ],
+            "writeOnly": [
+                "fieldFolders",
+                "ingestionWaitPolicy"
             ]
         },
         "aws-native:quicksight:DataSource": {
@@ -34417,6 +34779,9 @@
                 "awsAccountId",
                 "dataSourceId",
                 "type"
+            ],
+            "writeOnly": [
+                "credentials"
             ]
         },
         "aws-native:quicksight:Template": {
@@ -34515,6 +34880,13 @@
             "createOnly": [
                 "awsAccountId",
                 "templateId"
+            ],
+            "writeOnly": [
+                "createdTime",
+                "lastUpdatedTime",
+                "sourceEntity",
+                "version",
+                "versionDescription"
             ]
         },
         "aws-native:quicksight:Theme": {
@@ -34623,6 +34995,11 @@
             "createOnly": [
                 "awsAccountId",
                 "themeId"
+            ],
+            "writeOnly": [
+                "baseThemeId",
+                "configuration",
+                "versionDescription"
             ]
         },
         "aws-native:rds:DBCluster": {
@@ -35080,6 +35457,15 @@
                 "sourceRegion",
                 "storageEncrypted",
                 "useLatestRestorableTime"
+            ],
+            "writeOnly": [
+                "dBInstanceParameterGroupName",
+                "masterUserPassword",
+                "restoreType",
+                "snapshotIdentifier",
+                "sourceDBClusterIdentifier",
+                "sourceRegion",
+                "useLatestRestorableTime"
             ]
         },
         "aws-native:rds:DBClusterParameterGroup": {
@@ -35137,6 +35523,9 @@
             "createOnly": [
                 "description",
                 "family"
+            ],
+            "writeOnly": [
+                "parameters"
             ]
         },
         "aws-native:rds:DBInstance": {
@@ -35662,6 +36051,14 @@
                 "sourceRegion",
                 "storageEncrypted",
                 "timezone"
+            ],
+            "writeOnly": [
+                "dBSnapshotIdentifier",
+                "masterUserPassword",
+                "port",
+                "sourceDBInstanceIdentifier",
+                "sourceRegion",
+                "tdeCredentialPassword"
             ]
         },
         "aws-native:rds:DBParameterGroup": {
@@ -35719,6 +36116,9 @@
             "createOnly": [
                 "description",
                 "family"
+            ],
+            "writeOnly": [
+                "parameters"
             ]
         },
         "aws-native:rds:DBProxy": {
@@ -36080,6 +36480,9 @@
             ],
             "createOnly": [
                 "dBSubnetGroupName"
+            ],
+            "writeOnly": [
+                "subnetIds"
             ]
         },
         "aws-native:rds:EventSubscription": {
@@ -36732,6 +37135,9 @@
                 "ownerAccount",
                 "snapshotClusterIdentifier",
                 "snapshotIdentifier"
+            ],
+            "writeOnly": [
+                "masterUserPassword"
             ]
         },
         "aws-native:redshift:ClusterParameterGroup": {
@@ -37037,6 +37443,9 @@
             "createOnly": [
                 "account",
                 "clusterIdentifier"
+            ],
+            "writeOnly": [
+                "force"
             ]
         },
         "aws-native:redshift:EventSubscription": {
@@ -37380,6 +37789,10 @@
             "createOnly": [
                 "namespaceName",
                 "tags"
+            ],
+            "writeOnly": [
+                "adminUserPassword",
+                "tags"
             ]
         },
         "aws-native:redshiftserverless:Workgroup": {
@@ -37482,6 +37895,15 @@
             "createOnly": [
                 "namespaceName",
                 "workgroupName"
+            ],
+            "writeOnly": [
+                "baseCapacity",
+                "configParameters",
+                "enhancedVpcRouting",
+                "publiclyAccessible",
+                "securityGroupIds",
+                "subnetIds",
+                "tags"
             ]
         },
         "aws-native:refactorspaces:Application": {
@@ -37569,6 +37991,9 @@
                 "name",
                 "proxyType",
                 "vpcId"
+            ],
+            "writeOnly": [
+                "apiGatewayProxy"
             ]
         },
         "aws-native:refactorspaces:Environment": {
@@ -37624,6 +38049,11 @@
                 "maxLength": 63
             },
             "createOnly": [
+                "description",
+                "name",
+                "networkFabricType"
+            ],
+            "writeOnly": [
                 "description",
                 "name",
                 "networkFabricType"
@@ -37707,6 +38137,12 @@
                 "uriPathRoute/IncludeChildPaths",
                 "uriPathRoute/Methods",
                 "uriPathRoute/SourcePath"
+            ],
+            "writeOnly": [
+                "defaultRoute",
+                "routeType",
+                "serviceIdentifier",
+                "uriPathRoute"
             ]
         },
         "aws-native:refactorspaces:Service": {
@@ -37797,6 +38233,14 @@
                 "description",
                 "endpointType",
                 "environmentIdentifier",
+                "lambdaEndpoint",
+                "name",
+                "urlEndpoint",
+                "vpcId"
+            ],
+            "writeOnly": [
+                "description",
+                "endpointType",
                 "lambdaEndpoint",
                 "name",
                 "urlEndpoint",
@@ -39007,6 +39451,9 @@
             "createOnly": [
                 "name",
                 "tags"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:route53recoverycontrol:ControlPanel": {
@@ -39069,6 +39516,9 @@
             "createOnly": [
                 "clusterArn",
                 "tags"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:route53recoverycontrol:RoutingControl": {
@@ -39117,6 +39567,9 @@
             "createOnly": [
                 "clusterArn",
                 "controlPanelArn"
+            ],
+            "writeOnly": [
+                "clusterArn"
             ]
         },
         "aws-native:route53recoverycontrol:SafetyRule": {
@@ -39185,6 +39638,9 @@
             "createOnly": [
                 "controlPanelArn",
                 "ruleConfig",
+                "tags"
+            ],
+            "writeOnly": [
                 "tags"
             ]
         },
@@ -39506,6 +39962,10 @@
             },
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "domainFileUrl",
+                "domains"
             ]
         },
         "aws-native:route53resolver:FirewallRuleGroup": {
@@ -40868,6 +41328,9 @@
                 "domainId",
                 "tags",
                 "userProfileName"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:sagemaker:AppImageConfig": {
@@ -40917,6 +41380,9 @@
             },
             "createOnly": [
                 "appImageConfigName",
+                "tags"
+            ],
+            "writeOnly": [
                 "tags"
             ]
         },
@@ -41290,6 +41756,9 @@
                 "subnetIds",
                 "tags",
                 "vpcId"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:sagemaker:FeatureGroup": {
@@ -42434,6 +42903,9 @@
                 "userProfileName",
                 "userSettings/RStudioServerProAppSettings/AccessStatus",
                 "userSettings/RStudioServerProAppSettings/UserGroup"
+            ],
+            "writeOnly": [
+                "tags"
             ]
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
@@ -42600,6 +43072,9 @@
             "required": [
                 "definition",
                 "definitionType"
+            ],
+            "writeOnly": [
+                "acceptLanguage"
             ]
         },
         "aws-native:servicecatalog:ServiceActionAssociation": {
@@ -43037,6 +43512,10 @@
             ],
             "createOnly": [
                 "emailIdentity"
+            ],
+            "writeOnly": [
+                "dkimSigningAttributes/DomainSigningPrivateKey",
+                "dkimSigningAttributes/DomainSigningSelector"
             ]
         },
         "aws-native:ses:Template": {
@@ -43818,6 +44297,9 @@
             "createOnly": [
                 "alias",
                 "type"
+            ],
+            "writeOnly": [
+                "plan"
             ]
         },
         "aws-native:ssmcontacts:ContactChannel": {
@@ -44361,6 +44843,11 @@
             "createOnly": [
                 "stateMachineName",
                 "stateMachineType"
+            ],
+            "writeOnly": [
+                "definition",
+                "definitionS3Location",
+                "definitionSubstitutions"
             ]
         },
         "aws-native:supportapp:AccountAlias": {
@@ -44623,6 +45110,12 @@
             ],
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "code/S3Bucket",
+                "code/S3Key",
+                "code/S3ObjectVersion",
+                "code/Script"
             ]
         },
         "aws-native:synthetics:Group": {
@@ -45132,6 +45625,9 @@
                 "certificate",
                 "certificateChain",
                 "privateKey"
+            ],
+            "writeOnly": [
+                "privateKey"
             ]
         },
         "aws-native:transfer:Connector": {
@@ -45384,6 +45880,11 @@
                 "maxLength": 256
             },
             "required": [
+                "serverSideEncryptionConfiguration"
+            ],
+            "writeOnly": [
+                "description",
+                "name",
                 "serverSideEncryptionConfiguration"
             ]
         },
