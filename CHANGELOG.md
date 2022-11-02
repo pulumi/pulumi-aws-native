@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+- Fix updates to write-only properties [#678](https://github.com/pulumi/pulumi-aws-native/pull/678).
+
 ## 0.39.0 (October 24, 2022)
 
 - Update to Pulumi SDK v3.43.1

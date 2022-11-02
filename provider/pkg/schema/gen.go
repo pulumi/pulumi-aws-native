@@ -677,24 +677,25 @@ func readPropNames(resourceSpec *jsschema.Schema, listName string) []string {
 	return make([]string, 0)
 }
 
+func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.StringSet {
+	output := codegen.NewStringSet()
+	if p, ok := resourceSpec.Extras[listName]; ok {
+		pSlice := p.([]interface{})
+		for _, v := range pSlice {
+			n := strings.TrimPrefix(v.(string), "/properties/")
+			output.Add(ToSdkName(n))
+		}
+	}
+	return output
+}
+
 // gatherResourceType builds the schema for the resource type in the context.
 func (ctx *context) gatherResourceType() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
-	readOnlyProperties := codegen.NewStringSet()
-	if rop, ok := ctx.resourceSpec.Extras["readOnlyProperties"].([]interface{}); ok {
-		for _, propRef := range rop {
-			propName := strings.TrimPrefix(propRef.(string), "/properties/")
-			readOnlyProperties.Add(propName)
-		}
-	}
 
-	createOnlyProperties := codegen.NewStringSet()
-	if cop, ok := ctx.resourceSpec.Extras["createOnlyProperties"].([]interface{}); ok {
-		for _, propRef := range cop {
-			cfName := strings.TrimPrefix(propRef.(string), "/properties/")
-			createOnlyProperties.Add(ToSdkName(cfName))
-		}
-	}
+	writeOnlyProperties := readPropSdkNames(ctx.resourceSpec, "writeOnlyProperties")
+	createOnlyProperties := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
+	readOnlyProperties := codegen.NewStringSet(readPropNames(ctx.resourceSpec, "readOnlyProperties")...)
 
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
@@ -759,6 +760,7 @@ func (ctx *context) gatherResourceType() error {
 		CreateOnly:     createOnlyProperties.SortedValues(),
 		Required:       requiredInputs.SortedValues(),
 		AutoNamingSpec: autoNamingSpec,
+		WriteOnly:      writeOnlyProperties.SortedValues(),
 	}
 	return nil
 }
