@@ -24,6 +24,17 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/FunctionName" ],
   "definitions" : {
+    "SnapStartConfig": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "ApplyOn": {
+          "description": "When to optimize startup.",
+          "type": "string",
+          "enum" : [ "PublishedVersions" ]
+        }
+      }
+    },
     "ImageConfig" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -326,6 +337,10 @@
         "type" : "string",
         "enum" : [ "x86_64", "arm64" ]
       }
+    },
+    "SnapStart": {
+      "description": "SnapStart configuration",
+      "$ref": "#/definitions/SnapStartConfig"
     }
   }
 }
