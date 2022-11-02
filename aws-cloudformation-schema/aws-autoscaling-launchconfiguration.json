@@ -181,6 +181,7 @@
   "createOnlyProperties" : [ "/properties/AssociatePublicIpAddress", "/properties/BlockDeviceMappings", "/properties/ClassicLinkVPCId", "/properties/ClassicLinkVPCSecurityGroups", "/properties/EbsOptimized", "/properties/IamInstanceProfile", "/properties/ImageId", "/properties/InstanceId", "/properties/InstanceMonitoring", "/properties/InstanceType", "/properties/KernelId", "/properties/KeyName", "/properties/LaunchConfigurationName", "/properties/MetadataOptions", "/properties/PlacementTenancy", "/properties/RamDiskId", "/properties/SecurityGroups", "/properties/SpotPrice", "/properties/UserData" ],
   "taggable" : false,
   "primaryIdentifier" : [ "/properties/LaunchConfigurationName" ],
+  "writeOnlyProperties" : [ "/properties/InstanceId" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "autoscaling:CreateLaunchConfiguration", "autoscaling:DescribeLaunchConfigurations" ]

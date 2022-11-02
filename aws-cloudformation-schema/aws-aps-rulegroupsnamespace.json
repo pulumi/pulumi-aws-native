@@ -79,6 +79,9 @@
     },
     "delete" : {
       "permissions" : [ "aps:DeleteRuleGroupsNamespace" ]
+    },
+    "list" : {
+      "permissions" : [ "aps:ListRuleGroupsNamespaces", "aps:ListTagsForResource" ]
     }
   }
 }
