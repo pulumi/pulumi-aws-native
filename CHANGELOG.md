@@ -1,6 +1,9 @@
 ## HEAD (Unreleased)
 (None)
 
+## 0.40.2 (November 3, 2022)
+- Republish due to `nuget push` silently failing
+
 ## 0.40.1 (November 3, 2022)
 - Fix reading resources which have been deleted in the cloud [#682](https://github.com/pulumi/pulumi-aws-native/pull/682)
 
