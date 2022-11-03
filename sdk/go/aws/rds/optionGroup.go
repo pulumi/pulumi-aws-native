@@ -24,7 +24,7 @@ type OptionGroup struct {
 	// Provides a description of the option group.
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// Specifies the name of the option group.
-	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
+	OptionGroupName pulumi.StringPtrOutput `pulumi:"optionGroupName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags OptionGroupTagArrayOutput `pulumi:"tags"`
 }
@@ -85,6 +85,8 @@ type optionGroupArgs struct {
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
 	// Provides a description of the option group.
 	OptionGroupDescription string `pulumi:"optionGroupDescription"`
+	// Specifies the name of the option group.
+	OptionGroupName *string `pulumi:"optionGroupName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []OptionGroupTag `pulumi:"tags"`
 }
@@ -99,6 +101,8 @@ type OptionGroupArgs struct {
 	OptionConfigurations OptionGroupOptionConfigurationArrayInput
 	// Provides a description of the option group.
 	OptionGroupDescription pulumi.StringInput
+	// Specifies the name of the option group.
+	OptionGroupName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags OptionGroupTagArrayInput
 }
@@ -161,8 +165,8 @@ func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 }
 
 // Specifies the name of the option group.
-func (o OptionGroupOutput) OptionGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupName }).(pulumi.StringOutput)
+func (o OptionGroupOutput) OptionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringPtrOutput { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

@@ -3337,6 +3337,16 @@ export namespace apprunner {
     }
 
     /**
+     * Network ingress configuration
+     */
+    export interface ServiceIngressConfiguration {
+        /**
+         * It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
+         */
+        isPubliclyAccessible: boolean;
+    }
+
+    /**
      * Instance Configuration
      */
     export interface ServiceInstanceConfiguration {
@@ -3363,7 +3373,8 @@ export namespace apprunner {
      * Network configuration
      */
     export interface ServiceNetworkConfiguration {
-        egressConfiguration: outputs.apprunner.ServiceEgressConfiguration;
+        egressConfiguration?: outputs.apprunner.ServiceEgressConfiguration;
+        ingressConfiguration?: outputs.apprunner.ServiceIngressConfiguration;
     }
 
     /**
@@ -3413,6 +3424,25 @@ export namespace apprunner {
     }
 
     export interface VpcConnectorTag {
+        key?: string;
+        value?: string;
+    }
+
+    /**
+     * The configuration of customer’s VPC and related VPC endpoint
+     */
+    export interface VpcIngressConnectionIngressVpcConfiguration {
+        /**
+         * The ID of the VPC endpoint that your App Runner service connects to.
+         */
+        vpcEndpointId: string;
+        /**
+         * The ID of the VPC that the VPC endpoint is used in.
+         */
+        vpcId: string;
+    }
+
+    export interface VpcIngressConnectionTag {
         key?: string;
         value?: string;
     }
@@ -11110,7 +11140,13 @@ export namespace ec2 {
     }
 
     export interface VolumeTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: string;
     }
 
@@ -13989,6 +14025,42 @@ export namespace frauddetector {
 }
 
 export namespace fsx {
+    /**
+     * Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+     */
+    export interface DataRepositoryAssociationAutoExportPolicy {
+        events: enums.fsx.DataRepositoryAssociationEventType[];
+    }
+
+    /**
+     * Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+     */
+    export interface DataRepositoryAssociationAutoImportPolicy {
+        events: enums.fsx.DataRepositoryAssociationEventType[];
+    }
+
+    /**
+     * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+     */
+    export interface DataRepositoryAssociationS3 {
+        autoExportPolicy?: outputs.fsx.DataRepositoryAssociationAutoExportPolicy;
+        autoImportPolicy?: outputs.fsx.DataRepositoryAssociationAutoImportPolicy;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DataRepositoryAssociationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
     export interface FileSystemAuditLogConfiguration {
         auditLogDestination?: string;
         fileAccessAuditLogLevel: string;
@@ -15407,8 +15479,8 @@ export namespace groundstation {
     }
 
     export interface DataflowEndpointGroupTag {
-        key?: string;
-        value?: string;
+        key: string;
+        value: string;
     }
 
     export interface MissionProfileDataflowEdge {
@@ -16960,9 +17032,19 @@ export namespace iot {
     }
 
     export interface TopicRuleRepublishAction {
+        headers?: outputs.iot.TopicRuleRepublishActionHeaders;
         qos?: number;
         roleArn: string;
         topic: string;
+    }
+
+    export interface TopicRuleRepublishActionHeaders {
+        contentType?: string;
+        correlationData?: string;
+        messageExpiry?: string;
+        payloadFormatIndicator?: string;
+        responseTopic?: string;
+        userProperties?: outputs.iot.TopicRuleUserProperty[];
     }
 
     export interface TopicRuleS3Action {
@@ -17021,6 +17103,11 @@ export namespace iot {
 
     export interface TopicRuleTimestreamTimestamp {
         unit: string;
+        value: string;
+    }
+
+    export interface TopicRuleUserProperty {
+        key: string;
         value: string;
     }
 
@@ -27715,6 +27802,10 @@ export namespace quicksight {
          */
         copySourceArn?: string;
         credentialPair?: outputs.quicksight.DataSourceCredentialPair;
+        /**
+         * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+         */
+        secretArn?: string;
     }
 
     /**
@@ -28603,6 +28694,14 @@ export namespace rds {
          * The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
          */
         secondsUntilAutoPause?: number;
+        /**
+         * The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+         * ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+         * RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+         *
+         * For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+         */
+        timeoutAction?: string;
     }
 
     /**
@@ -29967,6 +30066,10 @@ export namespace rum {
          */
         includedPages?: string[];
         /**
+         * An array of structures which define the destinations and the metrics that you want to send.
+         */
+        metricDestinations?: outputs.rum.AppMonitorMetricDestination[];
+        /**
          * Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
          */
         sessionSampleRate?: number;
@@ -29974,6 +30077,110 @@ export namespace rum {
          * An array that lists the types of telemetry data that this app monitor is to collect.
          */
         telemetries?: enums.rum.AppMonitorTelemetry[];
+    }
+
+    /**
+     * A single metric definition
+     */
+    export interface AppMonitorMetricDefinition {
+        /**
+         * Use this field only if you are sending the metric to CloudWatch.
+         *
+         * This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+         *
+         * "metadata.pageId": "PageId"
+         *
+         * "metadata.browserName": "BrowserName"
+         *
+         * "metadata.deviceType": "DeviceType"
+         *
+         * "metadata.osName": "OSName"
+         *
+         * "metadata.countryCode": "CountryCode"
+         *
+         * "event_details.fileType": "FileType"
+         *
+         * All dimensions listed in this field must also be included in EventPattern.
+         */
+        dimensionKeys?: any;
+        /**
+         * The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+         *
+         * When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+         *
+         * Example event patterns:
+         *
+         * '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+         *
+         * '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+         *
+         * '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+         *
+         * If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+         */
+        eventPattern?: string;
+        /**
+         * The name for the metric that is defined in this structure. Valid values are the following:
+         *
+         * PerformanceNavigationDuration
+         *
+         * PerformanceResourceDuration
+         *
+         * NavigationSatisfiedTransaction
+         *
+         * NavigationToleratedTransaction
+         *
+         * NavigationFrustratedTransaction
+         *
+         * WebVitalsCumulativeLayoutShift
+         *
+         * WebVitalsFirstInputDelay
+         *
+         * WebVitalsLargestContentfulPaint
+         *
+         * JsErrorCount
+         *
+         * HttpErrorCount
+         *
+         * SessionCount
+         */
+        name: string;
+        /**
+         * The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+         */
+        unitLabel?: string;
+        /**
+         * The field within the event object that the metric value is sourced from.
+         *
+         * If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+         *
+         * If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+         */
+        valueKey?: string;
+    }
+
+    /**
+     * An structure which defines the destination and the metrics that you want to send.
+     */
+    export interface AppMonitorMetricDestination {
+        /**
+         * Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+         */
+        destination: enums.rum.AppMonitorMetricDestinationDestination;
+        /**
+         * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+         */
+        destinationArn?: string;
+        /**
+         * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+         *
+         * This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+         */
+        iamRoleArn?: string;
+        /**
+         * An array of structures which define the metrics that you want to send.
+         */
+        metricDefinitions?: outputs.rum.AppMonitorMetricDefinition[];
     }
 
     /**
@@ -33966,7 +34173,7 @@ export namespace ses {
          */
         kinesisFirehoseDestination?: outputs.ses.ConfigurationSetEventDestinationKinesisFirehoseDestination;
         /**
-         * The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+         * The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
          */
         matchingEventTypes: string[];
         /**
@@ -35125,7 +35332,8 @@ export namespace transfer {
     }
 
     export interface ServerWorkflowDetails {
-        onUpload: outputs.transfer.ServerWorkflowDetail[];
+        onPartialUpload?: outputs.transfer.ServerWorkflowDetail[];
+        onUpload?: outputs.transfer.ServerWorkflowDetail[];
     }
 
     export interface UserHomeDirectoryMapEntry {

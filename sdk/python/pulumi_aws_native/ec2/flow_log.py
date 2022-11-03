@@ -19,7 +19,6 @@ class FlowLogArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  resource_type: pulumi.Input['FlowLogResourceType'],
-                 traffic_type: pulumi.Input['FlowLogTrafficType'],
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -27,12 +26,12 @@ class FlowLogArgs:
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]] = None,
+                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None):
         """
         The set of arguments for constructing a FlowLog resource.
         :param pulumi.Input[str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
         :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-        :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
@@ -40,10 +39,10 @@ class FlowLogArgs:
         :param pulumi.Input[str] log_group_name: The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
         :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]] tags: The tags to apply to the flow logs.
+        :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "traffic_type", traffic_type)
         if deliver_logs_permission_arn is not None:
             pulumi.set(__self__, "deliver_logs_permission_arn", deliver_logs_permission_arn)
         if destination_options is not None:
@@ -60,6 +59,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if traffic_type is not None:
+            pulumi.set(__self__, "traffic_type", traffic_type)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -84,18 +85,6 @@ class FlowLogArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input['FlowLogResourceType']):
         pulumi.set(self, "resource_type", value)
-
-    @property
-    @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> pulumi.Input['FlowLogTrafficType']:
-        """
-        The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-        """
-        return pulumi.get(self, "traffic_type")
-
-    @traffic_type.setter
-    def traffic_type(self, value: pulumi.Input['FlowLogTrafficType']):
-        pulumi.set(self, "traffic_type", value)
 
     @property
     @pulumi.getter(name="deliverLogsPermissionArn")
@@ -190,6 +179,18 @@ class FlowLogArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="trafficType")
+    def traffic_type(self) -> Optional[pulumi.Input['FlowLogTrafficType']]:
+        """
+        The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
+        """
+        return pulumi.get(self, "traffic_type")
+
+    @traffic_type.setter
+    def traffic_type(self, value: Optional[pulumi.Input['FlowLogTrafficType']]):
+        pulumi.set(self, "traffic_type", value)
+
 
 class FlowLog(pulumi.CustomResource):
     @overload
@@ -282,8 +283,6 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["tags"] = tags
-            if traffic_type is None and not opts.urn:
-                raise TypeError("Missing required property 'traffic_type'")
             __props__.__dict__["traffic_type"] = traffic_type
         super(FlowLog, __self__).__init__(
             'aws-native:ec2:FlowLog',
@@ -399,7 +398,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> pulumi.Output['FlowLogTrafficType']:
+    def traffic_type(self) -> pulumi.Output[Optional['FlowLogTrafficType']]:
         """
         The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """

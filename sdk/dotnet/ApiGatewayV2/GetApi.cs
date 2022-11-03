@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
 
         public GetApiArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetApiInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
 
         public GetApiInvokeArgs()
         {
@@ -52,79 +52,50 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetApiResult
     {
         public readonly string? ApiEndpoint;
+        public readonly string? ApiId;
         public readonly string? ApiKeySelectionExpression;
-        public readonly string? BasePath;
-        public readonly object? Body;
-        public readonly Outputs.ApiBodyS3Location? BodyS3Location;
         public readonly Outputs.ApiCors? CorsConfiguration;
-        public readonly string? CredentialsArn;
         public readonly string? Description;
         public readonly bool? DisableExecuteApiEndpoint;
-        public readonly bool? DisableSchemaValidation;
-        public readonly bool? FailOnWarnings;
-        public readonly string? Id;
         public readonly string? Name;
-        public readonly string? RouteKey;
         public readonly string? RouteSelectionExpression;
+        /// <summary>
+        /// This resource type use map for Tags, suggest to use List of Tag
+        /// </summary>
         public readonly object? Tags;
-        public readonly string? Target;
         public readonly string? Version;
 
         [OutputConstructor]
         private GetApiResult(
             string? apiEndpoint,
 
+            string? apiId,
+
             string? apiKeySelectionExpression,
 
-            string? basePath,
-
-            object? body,
-
-            Outputs.ApiBodyS3Location? bodyS3Location,
-
             Outputs.ApiCors? corsConfiguration,
-
-            string? credentialsArn,
 
             string? description,
 
             bool? disableExecuteApiEndpoint,
 
-            bool? disableSchemaValidation,
-
-            bool? failOnWarnings,
-
-            string? id,
-
             string? name,
-
-            string? routeKey,
 
             string? routeSelectionExpression,
 
             object? tags,
 
-            string? target,
-
             string? version)
         {
             ApiEndpoint = apiEndpoint;
+            ApiId = apiId;
             ApiKeySelectionExpression = apiKeySelectionExpression;
-            BasePath = basePath;
-            Body = body;
-            BodyS3Location = bodyS3Location;
             CorsConfiguration = corsConfiguration;
-            CredentialsArn = credentialsArn;
             Description = description;
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
-            DisableSchemaValidation = disableSchemaValidation;
-            FailOnWarnings = failOnWarnings;
-            Id = id;
             Name = name;
-            RouteKey = routeKey;
             RouteSelectionExpression = routeSelectionExpression;
             Tags = tags;
-            Target = target;
             Version = version;
         }
     }

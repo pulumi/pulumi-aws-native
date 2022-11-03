@@ -11,12 +11,11 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Api
-//
-// Deprecated: Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Api struct {
 	pulumi.CustomResourceState
 
 	ApiEndpoint               pulumi.StringOutput        `pulumi:"apiEndpoint"`
+	ApiId                     pulumi.StringOutput        `pulumi:"apiId"`
 	ApiKeySelectionExpression pulumi.StringPtrOutput     `pulumi:"apiKeySelectionExpression"`
 	BasePath                  pulumi.StringPtrOutput     `pulumi:"basePath"`
 	Body                      pulumi.AnyOutput           `pulumi:"body"`
@@ -31,9 +30,10 @@ type Api struct {
 	ProtocolType              pulumi.StringPtrOutput     `pulumi:"protocolType"`
 	RouteKey                  pulumi.StringPtrOutput     `pulumi:"routeKey"`
 	RouteSelectionExpression  pulumi.StringPtrOutput     `pulumi:"routeSelectionExpression"`
-	Tags                      pulumi.AnyOutput           `pulumi:"tags"`
-	Target                    pulumi.StringPtrOutput     `pulumi:"target"`
-	Version                   pulumi.StringPtrOutput     `pulumi:"version"`
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags    pulumi.AnyOutput       `pulumi:"tags"`
+	Target  pulumi.StringPtrOutput `pulumi:"target"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewApi registers a new resource with the given unique name, arguments, and options.
@@ -89,9 +89,10 @@ type apiArgs struct {
 	ProtocolType              *string            `pulumi:"protocolType"`
 	RouteKey                  *string            `pulumi:"routeKey"`
 	RouteSelectionExpression  *string            `pulumi:"routeSelectionExpression"`
-	Tags                      interface{}        `pulumi:"tags"`
-	Target                    *string            `pulumi:"target"`
-	Version                   *string            `pulumi:"version"`
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags    interface{} `pulumi:"tags"`
+	Target  *string     `pulumi:"target"`
+	Version *string     `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Api resource.
@@ -110,9 +111,10 @@ type ApiArgs struct {
 	ProtocolType              pulumi.StringPtrInput
 	RouteKey                  pulumi.StringPtrInput
 	RouteSelectionExpression  pulumi.StringPtrInput
-	Tags                      pulumi.Input
-	Target                    pulumi.StringPtrInput
-	Version                   pulumi.StringPtrInput
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags    pulumi.Input
+	Target  pulumi.StringPtrInput
+	Version pulumi.StringPtrInput
 }
 
 func (ApiArgs) ElementType() reflect.Type {
@@ -154,6 +156,10 @@ func (o ApiOutput) ToApiOutputWithContext(ctx context.Context) ApiOutput {
 
 func (o ApiOutput) ApiEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiEndpoint }).(pulumi.StringOutput)
+}
+
+func (o ApiOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
 func (o ApiOutput) ApiKeySelectionExpression() pulumi.StringPtrOutput {
@@ -212,6 +218,7 @@ func (o ApiOutput) RouteSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.RouteSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// This resource type use map for Tags, suggest to use List of Tag
 func (o ApiOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Api) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
 }

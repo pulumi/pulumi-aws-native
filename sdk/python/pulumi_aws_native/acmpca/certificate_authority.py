@@ -23,7 +23,8 @@ class CertificateAuthorityArgs:
                  csr_extensions: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']] = None,
                  key_storage_security_standard: Optional[pulumi.Input[str]] = None,
                  revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthority resource.
         :param pulumi.Input[str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
@@ -33,6 +34,7 @@ class CertificateAuthorityArgs:
         :param pulumi.Input['CertificateAuthorityCsrExtensionsArgs'] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         :param pulumi.Input[str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+        :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
@@ -46,6 +48,8 @@ class CertificateAuthorityArgs:
             pulumi.set(__self__, "revocation_configuration", revocation_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if usage_mode is not None:
+            pulumi.set(__self__, "usage_mode", usage_mode)
 
     @property
     @pulumi.getter(name="keyAlgorithm")
@@ -140,6 +144,18 @@ class CertificateAuthorityArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Usage mode of the ceritificate authority.
+        """
+        return pulumi.get(self, "usage_mode")
+
+    @usage_mode.setter
+    def usage_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_mode", value)
+
 
 class CertificateAuthority(pulumi.CustomResource):
     @overload
@@ -154,6 +170,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateAuthorityTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Private certificate authority.
@@ -167,6 +184,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
         :param pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']] subject: Structure that contains X.500 distinguished name information for your CA.
         :param pulumi.Input[str] type: The type of the certificate authority.
+        :param pulumi.Input[str] usage_mode: Usage mode of the ceritificate authority.
         """
         ...
     @overload
@@ -200,6 +218,7 @@ class CertificateAuthority(pulumi.CustomResource):
                  subject: Optional[pulumi.Input[pulumi.InputType['CertificateAuthoritySubjectArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateAuthorityTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 usage_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,6 +244,7 @@ class CertificateAuthority(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["usage_mode"] = usage_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_signing_request"] = None
         super(CertificateAuthority, __self__).__init__(
@@ -259,6 +279,7 @@ class CertificateAuthority(pulumi.CustomResource):
         __props__.__dict__["subject"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["usage_mode"] = None
         return CertificateAuthority(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -337,4 +358,12 @@ class CertificateAuthority(pulumi.CustomResource):
         The type of the certificate authority.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usageMode")
+    def usage_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Usage mode of the ceritificate authority.
+        """
+        return pulumi.get(self, "usage_mode")
 

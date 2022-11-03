@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.SES.Outputs
         /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination? KinesisFirehoseDestination;
         /// <summary>
-        /// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        /// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         /// </summary>
         public readonly ImmutableArray<string> MatchingEventTypes;
         /// <summary>

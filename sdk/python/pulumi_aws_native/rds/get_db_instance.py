@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, replica_mode=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -45,6 +45,9 @@ class GetDBInstanceResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if d_b_instance_arn and not isinstance(d_b_instance_arn, str):
+            raise TypeError("Expected argument 'd_b_instance_arn' to be a str")
+        pulumi.set(__self__, "d_b_instance_arn", d_b_instance_arn)
         if d_b_instance_class and not isinstance(d_b_instance_class, str):
             raise TypeError("Expected argument 'd_b_instance_class' to be a str")
         pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
@@ -54,6 +57,9 @@ class GetDBInstanceResult:
         if d_b_security_groups and not isinstance(d_b_security_groups, list):
             raise TypeError("Expected argument 'd_b_security_groups' to be a list")
         pulumi.set(__self__, "d_b_security_groups", d_b_security_groups)
+        if dbi_resource_id and not isinstance(dbi_resource_id, str):
+            raise TypeError("Expected argument 'dbi_resource_id' to be a str")
+        pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
         if delete_automated_backups and not isinstance(delete_automated_backups, bool):
             raise TypeError("Expected argument 'delete_automated_backups' to be a bool")
         pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
@@ -126,6 +132,9 @@ class GetDBInstanceResult:
         if promotion_tier and not isinstance(promotion_tier, int):
             raise TypeError("Expected argument 'promotion_tier' to be a int")
         pulumi.set(__self__, "promotion_tier", promotion_tier)
+        if replica_mode and not isinstance(replica_mode, str):
+            raise TypeError("Expected argument 'replica_mode' to be a str")
+        pulumi.set(__self__, "replica_mode", replica_mode)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -207,6 +216,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
+    @pulumi.getter(name="dBInstanceArn")
+    def d_b_instance_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB instance.
+        """
+        return pulumi.get(self, "d_b_instance_arn")
+
+    @property
     @pulumi.getter(name="dBInstanceClass")
     def d_b_instance_class(self) -> Optional[str]:
         """
@@ -229,6 +246,14 @@ class GetDBInstanceResult:
         A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         """
         return pulumi.get(self, "d_b_security_groups")
+
+    @property
+    @pulumi.getter(name="dbiResourceId")
+    def dbi_resource_id(self) -> Optional[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        """
+        return pulumi.get(self, "dbi_resource_id")
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -423,6 +448,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "promotion_tier")
 
     @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> Optional[str]:
+        """
+        The open mode of an Oracle read replica. The default is open-read-only.
+        """
+        return pulumi.get(self, "replica_mode")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[str]:
         """
@@ -477,9 +510,11 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             backup_retention_period=self.backup_retention_period,
             c_a_certificate_identifier=self.c_a_certificate_identifier,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
+            d_b_instance_arn=self.d_b_instance_arn,
             d_b_instance_class=self.d_b_instance_class,
             d_b_parameter_group_name=self.d_b_parameter_group_name,
             d_b_security_groups=self.d_b_security_groups,
+            dbi_resource_id=self.dbi_resource_id,
             delete_automated_backups=self.delete_automated_backups,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
@@ -504,6 +539,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             preferred_maintenance_window=self.preferred_maintenance_window,
             processor_features=self.processor_features,
             promotion_tier=self.promotion_tier,
+            replica_mode=self.replica_mode,
             storage_type=self.storage_type,
             tags=self.tags,
             tde_credential_arn=self.tde_credential_arn,
@@ -533,9 +569,11 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         backup_retention_period=__ret__.backup_retention_period,
         c_a_certificate_identifier=__ret__.c_a_certificate_identifier,
         copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
+        d_b_instance_arn=__ret__.d_b_instance_arn,
         d_b_instance_class=__ret__.d_b_instance_class,
         d_b_parameter_group_name=__ret__.d_b_parameter_group_name,
         d_b_security_groups=__ret__.d_b_security_groups,
+        dbi_resource_id=__ret__.dbi_resource_id,
         delete_automated_backups=__ret__.delete_automated_backups,
         deletion_protection=__ret__.deletion_protection,
         domain=__ret__.domain,
@@ -560,6 +598,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         preferred_maintenance_window=__ret__.preferred_maintenance_window,
         processor_features=__ret__.processor_features,
         promotion_tier=__ret__.promotion_tier,
+        replica_mode=__ret__.replica_mode,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         tde_credential_arn=__ret__.tde_credential_arn,

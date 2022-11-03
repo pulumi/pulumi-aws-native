@@ -40,7 +40,7 @@ export class DBParameterGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of the DB parameter group
      */
-    public /*out*/ readonly dBParameterGroupName!: pulumi.Output<string>;
+    public readonly dBParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * Provides the customer-specified description for this DB parameter group.
      */
@@ -75,11 +75,11 @@ export class DBParameterGroup extends pulumi.CustomResource {
             if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
+            resourceInputs["dBParameterGroupName"] = args ? args.dBParameterGroupName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["dBParameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["dBParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -96,6 +96,10 @@ export class DBParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBParameterGroup resource.
  */
 export interface DBParameterGroupArgs {
+    /**
+     * Specifies the name of the DB parameter group
+     */
+    dBParameterGroupName?: pulumi.Input<string>;
     /**
      * Provides the customer-specified description for this DB parameter group.
      */

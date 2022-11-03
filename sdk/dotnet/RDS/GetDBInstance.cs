@@ -90,6 +90,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// </summary>
+        public readonly string? DBInstanceArn;
+        /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         /// </summary>
         public readonly string? DBInstanceClass;
@@ -101,6 +105,10 @@ namespace Pulumi.AwsNative.RDS
         /// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         /// </summary>
         public readonly ImmutableArray<string> DBSecurityGroups;
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        /// </summary>
+        public readonly string? DbiResourceId;
         /// <summary>
         /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         /// </summary>
@@ -198,6 +206,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly int? PromotionTier;
         /// <summary>
+        /// The open mode of an Oracle read replica. The default is open-read-only.
+        /// </summary>
+        public readonly string? ReplicaMode;
+        /// <summary>
         /// Specifies the storage type to be associated with the DB instance.
         /// </summary>
         public readonly string? StorageType;
@@ -236,11 +248,15 @@ namespace Pulumi.AwsNative.RDS
 
             bool? copyTagsToSnapshot,
 
+            string? dBInstanceArn,
+
             string? dBInstanceClass,
 
             string? dBParameterGroupName,
 
             ImmutableArray<string> dBSecurityGroups,
+
+            string? dbiResourceId,
 
             bool? deleteAutomatedBackups,
 
@@ -290,6 +306,8 @@ namespace Pulumi.AwsNative.RDS
 
             int? promotionTier,
 
+            string? replicaMode,
+
             string? storageType,
 
             ImmutableArray<Outputs.DBInstanceTag> tags,
@@ -308,9 +326,11 @@ namespace Pulumi.AwsNative.RDS
             BackupRetentionPeriod = backupRetentionPeriod;
             CACertificateIdentifier = cACertificateIdentifier;
             CopyTagsToSnapshot = copyTagsToSnapshot;
+            DBInstanceArn = dBInstanceArn;
             DBInstanceClass = dBInstanceClass;
             DBParameterGroupName = dBParameterGroupName;
             DBSecurityGroups = dBSecurityGroups;
+            DbiResourceId = dbiResourceId;
             DeleteAutomatedBackups = deleteAutomatedBackups;
             DeletionProtection = deletionProtection;
             Domain = domain;
@@ -335,6 +355,7 @@ namespace Pulumi.AwsNative.RDS
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ProcessorFeatures = processorFeatures;
             PromotionTier = promotionTier;
+            ReplicaMode = replicaMode;
             StorageType = storageType;
             Tags = tags;
             TdeCredentialArn = tdeCredentialArn;

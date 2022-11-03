@@ -2238,6 +2238,8 @@ class DataSourceCredentials(dict):
             suggest = "copy_source_arn"
         elif key == "credentialPair":
             suggest = "credential_pair"
+        elif key == "secretArn":
+            suggest = "secret_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceCredentials. Access the value via the '{suggest}' property getter instead.")
@@ -2252,7 +2254,8 @@ class DataSourceCredentials(dict):
 
     def __init__(__self__, *,
                  copy_source_arn: Optional[str] = None,
-                 credential_pair: Optional['outputs.DataSourceCredentialPair'] = None):
+                 credential_pair: Optional['outputs.DataSourceCredentialPair'] = None,
+                 secret_arn: Optional[str] = None):
         """
         <p>Data source credentials. This is a variant type structure. For this structure to be
                     valid, only one of the attributes can be non-null.</p>
@@ -2260,11 +2263,14 @@ class DataSourceCredentials(dict):
                            want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
                            data source in the ARN is used as the credentials for the
                            <code>DataSourceCredentials</code> structure.</p>
+        :param str secret_arn: <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
             pulumi.set(__self__, "credential_pair", credential_pair)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="copySourceArn")
@@ -2281,6 +2287,14 @@ class DataSourceCredentials(dict):
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional['outputs.DataSourceCredentialPair']:
         return pulumi.get(self, "credential_pair")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type

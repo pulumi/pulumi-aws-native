@@ -540,16 +540,29 @@ class ServerTagArgs:
 @pulumi.input_type
 class ServerWorkflowDetailsArgs:
     def __init__(__self__, *,
-                 on_upload: pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]):
-        pulumi.set(__self__, "on_upload", on_upload)
+                 on_partial_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
+                 on_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None):
+        if on_partial_upload is not None:
+            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
+        if on_upload is not None:
+            pulumi.set(__self__, "on_upload", on_upload)
+
+    @property
+    @pulumi.getter(name="onPartialUpload")
+    def on_partial_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
+        return pulumi.get(self, "on_partial_upload")
+
+    @on_partial_upload.setter
+    def on_partial_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
+        pulumi.set(self, "on_partial_upload", value)
 
     @property
     @pulumi.getter(name="onUpload")
-    def on_upload(self) -> pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]:
+    def on_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
         return pulumi.get(self, "on_upload")
 
     @on_upload.setter
-    def on_upload(self, value: pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]):
+    def on_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
         pulumi.set(self, "on_upload", value)
 
 

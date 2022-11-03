@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AppMonitorConfigurationArgs',
+    'AppMonitorMetricDefinitionArgs',
+    'AppMonitorMetricDestinationArgs',
     'AppMonitorTagArgs',
 ]
 
@@ -25,6 +27,7 @@ class AppMonitorConfigurationArgs:
                  guest_role_arn: Optional[pulumi.Input[str]] = None,
                  identity_pool_id: Optional[pulumi.Input[str]] = None,
                  included_pages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 metric_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]] = None,
                  session_sample_rate: Optional[pulumi.Input[float]] = None,
                  telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]] = None):
         """
@@ -36,6 +39,7 @@ class AppMonitorConfigurationArgs:
         :param pulumi.Input[str] guest_role_arn: The ARN of the guest IAM role that is attached to the identity pool that is used to authorize the sending of data to RUM.
         :param pulumi.Input[str] identity_pool_id: The ID of the identity pool that is used to authorize the sending of data to RUM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_pages: If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
+        :param pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]] metric_destinations: An array of structures which define the destinations and the metrics that you want to send.
         :param pulumi.Input[float] session_sample_rate: Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
         :param pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]] telemetries: An array that lists the types of telemetry data that this app monitor is to collect.
         """
@@ -53,6 +57,8 @@ class AppMonitorConfigurationArgs:
             pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         if included_pages is not None:
             pulumi.set(__self__, "included_pages", included_pages)
+        if metric_destinations is not None:
+            pulumi.set(__self__, "metric_destinations", metric_destinations)
         if session_sample_rate is not None:
             pulumi.set(__self__, "session_sample_rate", session_sample_rate)
         if telemetries is not None:
@@ -143,6 +149,18 @@ class AppMonitorConfigurationArgs:
         pulumi.set(self, "included_pages", value)
 
     @property
+    @pulumi.getter(name="metricDestinations")
+    def metric_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]:
+        """
+        An array of structures which define the destinations and the metrics that you want to send.
+        """
+        return pulumi.get(self, "metric_destinations")
+
+    @metric_destinations.setter
+    def metric_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]]):
+        pulumi.set(self, "metric_destinations", value)
+
+    @property
     @pulumi.getter(name="sessionSampleRate")
     def session_sample_rate(self) -> Optional[pulumi.Input[float]]:
         """
@@ -165,6 +183,276 @@ class AppMonitorConfigurationArgs:
     @telemetries.setter
     def telemetries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]):
         pulumi.set(self, "telemetries", value)
+
+
+@pulumi.input_type
+class AppMonitorMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 dimension_keys: Optional[Any] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
+                 unit_label: Optional[pulumi.Input[str]] = None,
+                 value_key: Optional[pulumi.Input[str]] = None):
+        """
+        A single metric definition
+        :param pulumi.Input[str] name: The name for the metric that is defined in this structure. Valid values are the following:
+               
+               PerformanceNavigationDuration
+               
+               PerformanceResourceDuration
+               
+               NavigationSatisfiedTransaction
+               
+               NavigationToleratedTransaction
+               
+               NavigationFrustratedTransaction
+               
+               WebVitalsCumulativeLayoutShift
+               
+               WebVitalsFirstInputDelay
+               
+               WebVitalsLargestContentfulPaint
+               
+               JsErrorCount
+               
+               HttpErrorCount
+               
+               SessionCount
+        :param Any dimension_keys: Use this field only if you are sending the metric to CloudWatch.
+               
+               This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+               
+               "metadata.pageId": "PageId"
+               
+               "metadata.browserName": "BrowserName"
+               
+               "metadata.deviceType": "DeviceType"
+               
+               "metadata.osName": "OSName"
+               
+               "metadata.countryCode": "CountryCode"
+               
+               "event_details.fileType": "FileType"
+               
+               All dimensions listed in this field must also be included in EventPattern.
+        :param pulumi.Input[str] event_pattern: The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+               
+               When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+               
+               Example event patterns:
+               
+               '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+               
+               '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+               
+               '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+               
+               If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+        :param pulumi.Input[str] unit_label: The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+        :param pulumi.Input[str] value_key: The field within the event object that the metric value is sourced from.
+               
+               If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+               
+               If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        """
+        pulumi.set(__self__, "name", name)
+        if dimension_keys is not None:
+            pulumi.set(__self__, "dimension_keys", dimension_keys)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
+        if unit_label is not None:
+            pulumi.set(__self__, "unit_label", unit_label)
+        if value_key is not None:
+            pulumi.set(__self__, "value_key", value_key)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name for the metric that is defined in this structure. Valid values are the following:
+
+        PerformanceNavigationDuration
+
+        PerformanceResourceDuration
+
+        NavigationSatisfiedTransaction
+
+        NavigationToleratedTransaction
+
+        NavigationFrustratedTransaction
+
+        WebVitalsCumulativeLayoutShift
+
+        WebVitalsFirstInputDelay
+
+        WebVitalsLargestContentfulPaint
+
+        JsErrorCount
+
+        HttpErrorCount
+
+        SessionCount
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="dimensionKeys")
+    def dimension_keys(self) -> Optional[Any]:
+        """
+        Use this field only if you are sending the metric to CloudWatch.
+
+        This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+
+        "metadata.pageId": "PageId"
+
+        "metadata.browserName": "BrowserName"
+
+        "metadata.deviceType": "DeviceType"
+
+        "metadata.osName": "OSName"
+
+        "metadata.countryCode": "CountryCode"
+
+        "event_details.fileType": "FileType"
+
+        All dimensions listed in this field must also be included in EventPattern.
+        """
+        return pulumi.get(self, "dimension_keys")
+
+    @dimension_keys.setter
+    def dimension_keys(self, value: Optional[Any]):
+        pulumi.set(self, "dimension_keys", value)
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+
+        When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+
+        Example event patterns:
+
+        '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+
+        '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+
+        '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+
+        If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @event_pattern.setter
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_pattern", value)
+
+    @property
+    @pulumi.getter(name="unitLabel")
+    def unit_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+        """
+        return pulumi.get(self, "unit_label")
+
+    @unit_label.setter
+    def unit_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit_label", value)
+
+    @property
+    @pulumi.getter(name="valueKey")
+    def value_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field within the event object that the metric value is sourced from.
+
+        If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+
+        If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+        """
+        return pulumi.get(self, "value_key")
+
+    @value_key.setter
+    def value_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value_key", value)
+
+
+@pulumi.input_type
+class AppMonitorMetricDestinationArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input['AppMonitorMetricDestinationDestination'],
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 iam_role_arn: Optional[pulumi.Input[str]] = None,
+                 metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None):
+        """
+        An structure which defines the destination and the metrics that you want to send.
+        :param pulumi.Input['AppMonitorMetricDestinationDestination'] destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+               
+               This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+        :param pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]] metric_definitions: An array of structures which define the metrics that you want to send.
+        """
+        pulumi.set(__self__, "destination", destination)
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if iam_role_arn is not None:
+            pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input['AppMonitorMetricDestinationDestination']:
+        """
+        Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input['AppMonitorMetricDestinationDestination']):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+
+        This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]:
+        """
+        An array of structures which define the metrics that you want to send.
+        """
+        return pulumi.get(self, "metric_definitions")
+
+    @metric_definitions.setter
+    def metric_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]]):
+        pulumi.set(self, "metric_definitions", value)
 
 
 @pulumi.input_type

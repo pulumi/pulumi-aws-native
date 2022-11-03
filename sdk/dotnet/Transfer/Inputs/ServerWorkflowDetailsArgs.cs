@@ -12,7 +12,15 @@ namespace Pulumi.AwsNative.Transfer.Inputs
 
     public sealed class ServerWorkflowDetailsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("onUpload", required: true)]
+        [Input("onPartialUpload")]
+        private InputList<Inputs.ServerWorkflowDetailArgs>? _onPartialUpload;
+        public InputList<Inputs.ServerWorkflowDetailArgs> OnPartialUpload
+        {
+            get => _onPartialUpload ?? (_onPartialUpload = new InputList<Inputs.ServerWorkflowDetailArgs>());
+            set => _onPartialUpload = value;
+        }
+
+        [Input("onUpload")]
         private InputList<Inputs.ServerWorkflowDetailArgs>? _onUpload;
         public InputList<Inputs.ServerWorkflowDetailArgs> OnUpload
         {

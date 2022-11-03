@@ -568,7 +568,9 @@ class ServerWorkflowDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "onUpload":
+        if key == "onPartialUpload":
+            suggest = "on_partial_upload"
+        elif key == "onUpload":
             suggest = "on_upload"
 
         if suggest:
@@ -583,12 +585,21 @@ class ServerWorkflowDetails(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 on_upload: Sequence['outputs.ServerWorkflowDetail']):
-        pulumi.set(__self__, "on_upload", on_upload)
+                 on_partial_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None,
+                 on_upload: Optional[Sequence['outputs.ServerWorkflowDetail']] = None):
+        if on_partial_upload is not None:
+            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
+        if on_upload is not None:
+            pulumi.set(__self__, "on_upload", on_upload)
+
+    @property
+    @pulumi.getter(name="onPartialUpload")
+    def on_partial_upload(self) -> Optional[Sequence['outputs.ServerWorkflowDetail']]:
+        return pulumi.get(self, "on_partial_upload")
 
     @property
     @pulumi.getter(name="onUpload")
-    def on_upload(self) -> Sequence['outputs.ServerWorkflowDetail']:
+    def on_upload(self) -> Optional[Sequence['outputs.ServerWorkflowDetail']]:
         return pulumi.get(self, "on_upload")
 
 

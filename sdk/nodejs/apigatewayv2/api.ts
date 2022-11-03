@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Api
- *
- * @deprecated Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Api extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Api {
-        pulumi.log.warn("Api is deprecated: Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Api(name, undefined as any, { ...opts, id: id });
     }
 
@@ -41,6 +38,7 @@ export class Api extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly apiId!: pulumi.Output<string>;
     public readonly apiKeySelectionExpression!: pulumi.Output<string | undefined>;
     public readonly basePath!: pulumi.Output<string | undefined>;
     public readonly body!: pulumi.Output<any | undefined>;
@@ -55,6 +53,9 @@ export class Api extends pulumi.CustomResource {
     public readonly protocolType!: pulumi.Output<string | undefined>;
     public readonly routeKey!: pulumi.Output<string | undefined>;
     public readonly routeSelectionExpression!: pulumi.Output<string | undefined>;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly target!: pulumi.Output<string | undefined>;
     public readonly version!: pulumi.Output<string | undefined>;
@@ -66,9 +67,7 @@ export class Api extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ApiArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Api is deprecated: Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -90,8 +89,10 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
         } else {
             resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["apiKeySelectionExpression"] = undefined /*out*/;
             resourceInputs["basePath"] = undefined /*out*/;
             resourceInputs["body"] = undefined /*out*/;
@@ -133,6 +134,9 @@ export interface ApiArgs {
     protocolType?: pulumi.Input<string>;
     routeKey?: pulumi.Input<string>;
     routeSelectionExpression?: pulumi.Input<string>;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     tags?: any;
     target?: pulumi.Input<string>;
     version?: pulumi.Input<string>;

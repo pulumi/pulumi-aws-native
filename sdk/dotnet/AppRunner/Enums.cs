@@ -87,6 +87,10 @@ namespace Pulumi.AwsNative.AppRunner
         public static ServiceCodeConfigurationValuesRuntime Corretto8 { get; } = new ServiceCodeConfigurationValuesRuntime("CORRETTO_8");
         public static ServiceCodeConfigurationValuesRuntime Corretto11 { get; } = new ServiceCodeConfigurationValuesRuntime("CORRETTO_11");
         public static ServiceCodeConfigurationValuesRuntime Nodejs16 { get; } = new ServiceCodeConfigurationValuesRuntime("NODEJS_16");
+        public static ServiceCodeConfigurationValuesRuntime Go1 { get; } = new ServiceCodeConfigurationValuesRuntime("GO_1");
+        public static ServiceCodeConfigurationValuesRuntime Dotnet6 { get; } = new ServiceCodeConfigurationValuesRuntime("DOTNET_6");
+        public static ServiceCodeConfigurationValuesRuntime Php81 { get; } = new ServiceCodeConfigurationValuesRuntime("PHP_81");
+        public static ServiceCodeConfigurationValuesRuntime Ruby31 { get; } = new ServiceCodeConfigurationValuesRuntime("RUBY_31");
 
         public static bool operator ==(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => left.Equals(right);
         public static bool operator !=(ServiceCodeConfigurationValuesRuntime left, ServiceCodeConfigurationValuesRuntime right) => !left.Equals(right);
@@ -219,6 +223,43 @@ namespace Pulumi.AwsNative.AppRunner
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceSourceCodeVersionType other && Equals(other);
         public bool Equals(ServiceSourceCodeVersionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the VpcIngressConnection.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcIngressConnectionStatus : IEquatable<VpcIngressConnectionStatus>
+    {
+        private readonly string _value;
+
+        private VpcIngressConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcIngressConnectionStatus Available { get; } = new VpcIngressConnectionStatus("AVAILABLE");
+        public static VpcIngressConnectionStatus PendingCreation { get; } = new VpcIngressConnectionStatus("PENDING_CREATION");
+        public static VpcIngressConnectionStatus PendingUpdate { get; } = new VpcIngressConnectionStatus("PENDING_UPDATE");
+        public static VpcIngressConnectionStatus PendingDeletion { get; } = new VpcIngressConnectionStatus("PENDING_DELETION");
+        public static VpcIngressConnectionStatus FailedCreation { get; } = new VpcIngressConnectionStatus("FAILED_CREATION");
+        public static VpcIngressConnectionStatus FailedUpdate { get; } = new VpcIngressConnectionStatus("FAILED_UPDATE");
+        public static VpcIngressConnectionStatus FailedDeletion { get; } = new VpcIngressConnectionStatus("FAILED_DELETION");
+        public static VpcIngressConnectionStatus Deleted { get; } = new VpcIngressConnectionStatus("DELETED");
+
+        public static bool operator ==(VpcIngressConnectionStatus left, VpcIngressConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(VpcIngressConnectionStatus left, VpcIngressConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(VpcIngressConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcIngressConnectionStatus other && Equals(other);
+        public bool Equals(VpcIngressConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

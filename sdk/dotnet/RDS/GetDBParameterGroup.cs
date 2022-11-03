@@ -58,21 +58,13 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GetDBParameterGroupResult
     {
         /// <summary>
-        /// Specifies the name of the DB parameter group
-        /// </summary>
-        public readonly string? DBParameterGroupName;
-        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.DBParameterGroupTag> Tags;
 
         [OutputConstructor]
-        private GetDBParameterGroupResult(
-            string? dBParameterGroupName,
-
-            ImmutableArray<Outputs.DBParameterGroupTag> tags)
+        private GetDBParameterGroupResult(ImmutableArray<Outputs.DBParameterGroupTag> tags)
         {
-            DBParameterGroupName = dBParameterGroupName;
             Tags = tags;
         }
     }

@@ -5,8 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'AppMonitorMetricDestinationDestination',
     'AppMonitorTelemetry',
 ]
+
+
+class AppMonitorMetricDestinationDestination(str, Enum):
+    """
+    Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+    """
+    CLOUD_WATCH = "CloudWatch"
+    EVIDENTLY = "Evidently"
 
 
 class AppMonitorTelemetry(str, Enum):

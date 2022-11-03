@@ -349,6 +349,10 @@ const (
 	ServiceCodeConfigurationValuesRuntimeCorretto8  = ServiceCodeConfigurationValuesRuntime("CORRETTO_8")
 	ServiceCodeConfigurationValuesRuntimeCorretto11 = ServiceCodeConfigurationValuesRuntime("CORRETTO_11")
 	ServiceCodeConfigurationValuesRuntimeNodejs16   = ServiceCodeConfigurationValuesRuntime("NODEJS_16")
+	ServiceCodeConfigurationValuesRuntimeGo1        = ServiceCodeConfigurationValuesRuntime("GO_1")
+	ServiceCodeConfigurationValuesRuntimeDotnet6    = ServiceCodeConfigurationValuesRuntime("DOTNET_6")
+	ServiceCodeConfigurationValuesRuntimePhp81      = ServiceCodeConfigurationValuesRuntime("PHP_81")
+	ServiceCodeConfigurationValuesRuntimeRuby31     = ServiceCodeConfigurationValuesRuntime("RUBY_31")
 )
 
 func (ServiceCodeConfigurationValuesRuntime) ElementType() reflect.Type {
@@ -1167,6 +1171,103 @@ func (in *serviceSourceCodeVersionTypePtr) ToServiceSourceCodeVersionTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSourceCodeVersionTypePtrOutput)
 }
 
+// The current status of the VpcIngressConnection.
+type VpcIngressConnectionStatus string
+
+const (
+	VpcIngressConnectionStatusAvailable       = VpcIngressConnectionStatus("AVAILABLE")
+	VpcIngressConnectionStatusPendingCreation = VpcIngressConnectionStatus("PENDING_CREATION")
+	VpcIngressConnectionStatusPendingUpdate   = VpcIngressConnectionStatus("PENDING_UPDATE")
+	VpcIngressConnectionStatusPendingDeletion = VpcIngressConnectionStatus("PENDING_DELETION")
+	VpcIngressConnectionStatusFailedCreation  = VpcIngressConnectionStatus("FAILED_CREATION")
+	VpcIngressConnectionStatusFailedUpdate    = VpcIngressConnectionStatus("FAILED_UPDATE")
+	VpcIngressConnectionStatusFailedDeletion  = VpcIngressConnectionStatus("FAILED_DELETION")
+	VpcIngressConnectionStatusDeleted         = VpcIngressConnectionStatus("DELETED")
+)
+
+type VpcIngressConnectionStatusOutput struct{ *pulumi.OutputState }
+
+func (VpcIngressConnectionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIngressConnectionStatus)(nil)).Elem()
+}
+
+func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusOutput() VpcIngressConnectionStatusOutput {
+	return o
+}
+
+func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusOutputWithContext(ctx context.Context) VpcIngressConnectionStatusOutput {
+	return o
+}
+
+func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusPtrOutput() VpcIngressConnectionStatusPtrOutput {
+	return o.ToVpcIngressConnectionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusPtrOutputWithContext(ctx context.Context) VpcIngressConnectionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIngressConnectionStatus) *VpcIngressConnectionStatus {
+		return &v
+	}).(VpcIngressConnectionStatusPtrOutput)
+}
+
+func (o VpcIngressConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcIngressConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcIngressConnectionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcIngressConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcIngressConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcIngressConnectionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcIngressConnectionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcIngressConnectionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIngressConnectionStatus)(nil)).Elem()
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutput() VpcIngressConnectionStatusPtrOutput {
+	return o
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutputWithContext(ctx context.Context) VpcIngressConnectionStatusPtrOutput {
+	return o
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) Elem() VpcIngressConnectionStatusOutput {
+	return o.ApplyT(func(v *VpcIngressConnectionStatus) VpcIngressConnectionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret VpcIngressConnectionStatus
+		return ret
+	}).(VpcIngressConnectionStatusOutput)
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcIngressConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcIngressConnectionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendorInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationVendorPtrInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationVendor("AWSXRAY"))
@@ -1196,4 +1297,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceImageRepositoryImageRepositoryTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionTypeOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcIngressConnectionStatusOutput{})
+	pulumi.RegisterOutputType(VpcIngressConnectionStatusPtrOutput{})
 }

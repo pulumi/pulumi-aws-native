@@ -22,6 +22,7 @@ __all__ = [
     'ServiceHealthCheckConfigurationArgs',
     'ServiceImageConfigurationArgs',
     'ServiceImageRepositoryArgs',
+    'ServiceIngressConfigurationArgs',
     'ServiceInstanceConfigurationArgs',
     'ServiceKeyValuePairArgs',
     'ServiceNetworkConfigurationArgs',
@@ -30,6 +31,8 @@ __all__ = [
     'ServiceSourceConfigurationArgs',
     'ServiceTagArgs',
     'VpcConnectorTagArgs',
+    'VpcIngressConnectionIngressVpcConfigurationArgs',
+    'VpcIngressConnectionTagArgs',
 ]
 
 @pulumi.input_type
@@ -557,6 +560,29 @@ class ServiceImageRepositoryArgs:
 
 
 @pulumi.input_type
+class ServiceIngressConfigurationArgs:
+    def __init__(__self__, *,
+                 is_publicly_accessible: pulumi.Input[bool]):
+        """
+        Network ingress configuration
+        :param pulumi.Input[bool] is_publicly_accessible: It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
+        """
+        pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
+
+    @property
+    @pulumi.getter(name="isPubliclyAccessible")
+    def is_publicly_accessible(self) -> pulumi.Input[bool]:
+        """
+        It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
+        """
+        return pulumi.get(self, "is_publicly_accessible")
+
+    @is_publicly_accessible.setter
+    def is_publicly_accessible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_publicly_accessible", value)
+
+
+@pulumi.input_type
 class ServiceInstanceConfigurationArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
@@ -644,20 +670,33 @@ class ServiceKeyValuePairArgs:
 @pulumi.input_type
 class ServiceNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 egress_configuration: pulumi.Input['ServiceEgressConfigurationArgs']):
+                 egress_configuration: Optional[pulumi.Input['ServiceEgressConfigurationArgs']] = None,
+                 ingress_configuration: Optional[pulumi.Input['ServiceIngressConfigurationArgs']] = None):
         """
         Network configuration
         """
-        pulumi.set(__self__, "egress_configuration", egress_configuration)
+        if egress_configuration is not None:
+            pulumi.set(__self__, "egress_configuration", egress_configuration)
+        if ingress_configuration is not None:
+            pulumi.set(__self__, "ingress_configuration", ingress_configuration)
 
     @property
     @pulumi.getter(name="egressConfiguration")
-    def egress_configuration(self) -> pulumi.Input['ServiceEgressConfigurationArgs']:
+    def egress_configuration(self) -> Optional[pulumi.Input['ServiceEgressConfigurationArgs']]:
         return pulumi.get(self, "egress_configuration")
 
     @egress_configuration.setter
-    def egress_configuration(self, value: pulumi.Input['ServiceEgressConfigurationArgs']):
+    def egress_configuration(self, value: Optional[pulumi.Input['ServiceEgressConfigurationArgs']]):
         pulumi.set(self, "egress_configuration", value)
+
+    @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> Optional[pulumi.Input['ServiceIngressConfigurationArgs']]:
+        return pulumi.get(self, "ingress_configuration")
+
+    @ingress_configuration.setter
+    def ingress_configuration(self, value: Optional[pulumi.Input['ServiceIngressConfigurationArgs']]):
+        pulumi.set(self, "ingress_configuration", value)
 
 
 @pulumi.input_type
@@ -828,6 +867,73 @@ class ServiceTagArgs:
 
 @pulumi.input_type
 class VpcConnectorTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VpcIngressConnectionIngressVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_id: pulumi.Input[str],
+                 vpc_id: pulumi.Input[str]):
+        """
+        The configuration of customer’s VPC and related VPC endpoint
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC that the VPC endpoint is used in.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC endpoint that your App Runner service connects to.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC that the VPC endpoint is used in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+
+@pulumi.input_type
+class VpcIngressConnectionTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):

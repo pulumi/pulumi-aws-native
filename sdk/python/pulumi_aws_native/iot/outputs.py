@@ -85,6 +85,7 @@ __all__ = [
     'TopicRulePutAssetPropertyValueEntry',
     'TopicRulePutItemInput',
     'TopicRuleRepublishAction',
+    'TopicRuleRepublishActionHeaders',
     'TopicRuleS3Action',
     'TopicRuleSigV4Authorization',
     'TopicRuleSnsAction',
@@ -95,6 +96,7 @@ __all__ = [
     'TopicRuleTimestreamAction',
     'TopicRuleTimestreamDimension',
     'TopicRuleTimestreamTimestamp',
+    'TopicRuleUserProperty',
 ]
 
 @pulumi.output_type
@@ -3657,9 +3659,12 @@ class TopicRuleRepublishAction(dict):
     def __init__(__self__, *,
                  role_arn: str,
                  topic: str,
+                 headers: Optional['outputs.TopicRuleRepublishActionHeaders'] = None,
                  qos: Optional[int] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "topic", topic)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
         if qos is not None:
             pulumi.set(__self__, "qos", qos)
 
@@ -3675,8 +3680,93 @@ class TopicRuleRepublishAction(dict):
 
     @property
     @pulumi.getter
+    def headers(self) -> Optional['outputs.TopicRuleRepublishActionHeaders']:
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter
     def qos(self) -> Optional[int]:
         return pulumi.get(self, "qos")
+
+
+@pulumi.output_type
+class TopicRuleRepublishActionHeaders(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "correlationData":
+            suggest = "correlation_data"
+        elif key == "messageExpiry":
+            suggest = "message_expiry"
+        elif key == "payloadFormatIndicator":
+            suggest = "payload_format_indicator"
+        elif key == "responseTopic":
+            suggest = "response_topic"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleRepublishActionHeaders. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleRepublishActionHeaders.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleRepublishActionHeaders.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: Optional[str] = None,
+                 correlation_data: Optional[str] = None,
+                 message_expiry: Optional[str] = None,
+                 payload_format_indicator: Optional[str] = None,
+                 response_topic: Optional[str] = None,
+                 user_properties: Optional[Sequence['outputs.TopicRuleUserProperty']] = None):
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if correlation_data is not None:
+            pulumi.set(__self__, "correlation_data", correlation_data)
+        if message_expiry is not None:
+            pulumi.set(__self__, "message_expiry", message_expiry)
+        if payload_format_indicator is not None:
+            pulumi.set(__self__, "payload_format_indicator", payload_format_indicator)
+        if response_topic is not None:
+            pulumi.set(__self__, "response_topic", response_topic)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="correlationData")
+    def correlation_data(self) -> Optional[str]:
+        return pulumi.get(self, "correlation_data")
+
+    @property
+    @pulumi.getter(name="messageExpiry")
+    def message_expiry(self) -> Optional[str]:
+        return pulumi.get(self, "message_expiry")
+
+    @property
+    @pulumi.getter(name="payloadFormatIndicator")
+    def payload_format_indicator(self) -> Optional[str]:
+        return pulumi.get(self, "payload_format_indicator")
+
+    @property
+    @pulumi.getter(name="responseTopic")
+    def response_topic(self) -> Optional[str]:
+        return pulumi.get(self, "response_topic")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.TopicRuleUserProperty']]:
+        return pulumi.get(self, "user_properties")
 
 
 @pulumi.output_type
@@ -4057,6 +4147,25 @@ class TopicRuleTimestreamTimestamp(dict):
     @pulumi.getter
     def unit(self) -> str:
         return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicRuleUserProperty(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
 
     @property
     @pulumi.getter

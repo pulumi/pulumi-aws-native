@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Cognito
         public readonly ImmutableArray<string> AliasAttributes;
         public readonly string? Arn;
         public readonly ImmutableArray<string> AutoVerifiedAttributes;
+        public readonly string? DeletionProtection;
         public readonly Outputs.UserPoolDeviceConfiguration? DeviceConfiguration;
         public readonly Outputs.UserPoolEmailConfiguration? EmailConfiguration;
         public readonly string? EmailVerificationMessage;
@@ -90,6 +91,8 @@ namespace Pulumi.AwsNative.Cognito
             string? arn,
 
             ImmutableArray<string> autoVerifiedAttributes,
+
+            string? deletionProtection,
 
             Outputs.UserPoolDeviceConfiguration? deviceConfiguration,
 
@@ -140,6 +143,7 @@ namespace Pulumi.AwsNative.Cognito
             AliasAttributes = aliasAttributes;
             Arn = arn;
             AutoVerifiedAttributes = autoVerifiedAttributes;
+            DeletionProtection = deletionProtection;
             DeviceConfiguration = deviceConfiguration;
             EmailConfiguration = emailConfiguration;
             EmailVerificationMessage = emailVerificationMessage;

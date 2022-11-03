@@ -26,7 +26,6 @@ export interface GetDBClusterParameterGroupArgs {
 }
 
 export interface GetDBClusterParameterGroupResult {
-    readonly dBClusterParameterGroupName?: string;
     /**
      * The list of tags for the cluster parameter group.
      */

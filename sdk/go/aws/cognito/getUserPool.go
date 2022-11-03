@@ -30,6 +30,7 @@ type LookupUserPoolResult struct {
 	AliasAttributes             []string                             `pulumi:"aliasAttributes"`
 	Arn                         *string                              `pulumi:"arn"`
 	AutoVerifiedAttributes      []string                             `pulumi:"autoVerifiedAttributes"`
+	DeletionProtection          *string                              `pulumi:"deletionProtection"`
 	DeviceConfiguration         *UserPoolDeviceConfiguration         `pulumi:"deviceConfiguration"`
 	EmailConfiguration          *UserPoolEmailConfiguration          `pulumi:"emailConfiguration"`
 	EmailVerificationMessage    *string                              `pulumi:"emailVerificationMessage"`
@@ -107,6 +108,10 @@ func (o LookupUserPoolResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupUserPoolResultOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) []string { return v.AutoVerifiedAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupUserPoolResultOutput) DeletionProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.DeletionProtection }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolResultOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {

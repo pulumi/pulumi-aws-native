@@ -38,6 +38,8 @@ type LookupDBClusterResult struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The Amazon Resource Name (ARN) for the DB cluster.
+	DBClusterArn *string `pulumi:"dBClusterArn"`
 	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
 	DBClusterInstanceClass *string `pulumi:"dBClusterInstanceClass"`
 	// The name of the DB cluster parameter group to associate with this DB cluster.
@@ -166,6 +168,11 @@ func (o LookupDBClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput
 // A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 func (o LookupDBClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the DB cluster.
+func (o LookupDBClusterResultOutput) DBClusterArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *string { return v.DBClusterArn }).(pulumi.StringPtrOutput)
 }
 
 // The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.

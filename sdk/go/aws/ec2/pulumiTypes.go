@@ -26640,7 +26640,9 @@ func (o VPNGatewayTagArrayOutput) Index(i pulumi.IntInput) VPNGatewayTagOutput {
 }
 
 type VolumeTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -26656,7 +26658,9 @@ type VolumeTagInput interface {
 }
 
 type VolumeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26711,10 +26715,12 @@ func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) Volum
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o VolumeTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o VolumeTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeTag) string { return v.Value }).(pulumi.StringOutput)
 }

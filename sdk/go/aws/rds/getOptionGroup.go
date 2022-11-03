@@ -28,8 +28,6 @@ type LookupOptionGroupArgs struct {
 type LookupOptionGroupResult struct {
 	// Indicates what options are available in the option group.
 	OptionConfigurations []OptionGroupOptionConfiguration `pulumi:"optionConfigurations"`
-	// Specifies the name of the option group.
-	OptionGroupName *string `pulumi:"optionGroupName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []OptionGroupTag `pulumi:"tags"`
 }
@@ -73,11 +71,6 @@ func (o LookupOptionGroupResultOutput) ToLookupOptionGroupResultOutputWithContex
 // Indicates what options are available in the option group.
 func (o LookupOptionGroupResultOutput) OptionConfigurations() OptionGroupOptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupOptionGroupResult) []OptionGroupOptionConfiguration { return v.OptionConfigurations }).(OptionGroupOptionConfigurationArrayOutput)
-}
-
-// Specifies the name of the option group.
-func (o LookupOptionGroupResultOutput) OptionGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupOptionGroupResult) *string { return v.OptionGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

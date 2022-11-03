@@ -66,6 +66,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * The Amazon Resource Name (ARN) for the DB cluster.
+     */
+    public /*out*/ readonly dBClusterArn!: pulumi.Output<string>;
+    /**
      * The DB cluster identifier. This parameter is stored as a lowercase string.
      */
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
@@ -308,6 +312,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["dBClusterArn"] = undefined /*out*/;
             resourceInputs["dBClusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
         } else {
@@ -318,6 +323,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["backtrackWindow"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
+            resourceInputs["dBClusterArn"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dBClusterInstanceClass"] = undefined /*out*/;
             resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;

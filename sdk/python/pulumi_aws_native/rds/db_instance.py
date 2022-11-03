@@ -65,6 +65,7 @@ class DBInstanceArgs:
                  processor_features: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -131,6 +132,7 @@ class DBInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DBInstanceProcessorFeatureArgs']]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -238,6 +240,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if replica_mode is not None:
+            pulumi.set(__self__, "replica_mode", replica_mode)
         if source_db_instance_identifier is not None:
             pulumi.set(__self__, "source_db_instance_identifier", source_db_instance_identifier)
         if source_region is not None:
@@ -842,6 +846,18 @@ class DBInstanceArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The open mode of an Oracle read replica. The default is open-read-only.
+        """
+        return pulumi.get(self, "replica_mode")
+
+    @replica_mode.setter
+    def replica_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replica_mode", value)
+
+    @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")
     def source_db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1015,6 +1031,7 @@ class DBInstance(pulumi.CustomResource):
                  processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1085,6 +1102,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -1168,6 +1186,7 @@ class DBInstance(pulumi.CustomResource):
                  processor_features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceProcessorFeatureArgs']]]]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1235,6 +1254,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["processor_features"] = processor_features
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["replica_mode"] = replica_mode
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
             __props__.__dict__["source_region"] = source_region
             __props__.__dict__["storage_encrypted"] = storage_encrypted
@@ -1245,6 +1265,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["v_pc_security_groups"] = v_pc_security_groups
+            __props__.__dict__["d_b_instance_arn"] = None
+            __props__.__dict__["dbi_resource_id"] = None
         super(DBInstance, __self__).__init__(
             'aws-native:rds:DBInstance',
             resource_name,
@@ -1278,6 +1300,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["custom_iam_instance_profile"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
+        __props__.__dict__["d_b_instance_arn"] = None
         __props__.__dict__["d_b_instance_class"] = None
         __props__.__dict__["d_b_instance_identifier"] = None
         __props__.__dict__["d_b_name"] = None
@@ -1285,6 +1308,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["d_b_security_groups"] = None
         __props__.__dict__["d_b_snapshot_identifier"] = None
         __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["dbi_resource_id"] = None
         __props__.__dict__["delete_automated_backups"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
@@ -1315,6 +1339,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["processor_features"] = None
         __props__.__dict__["promotion_tier"] = None
         __props__.__dict__["publicly_accessible"] = None
+        __props__.__dict__["replica_mode"] = None
         __props__.__dict__["source_db_instance_identifier"] = None
         __props__.__dict__["source_region"] = None
         __props__.__dict__["storage_encrypted"] = None
@@ -1422,6 +1447,14 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "d_b_cluster_identifier")
 
     @property
+    @pulumi.getter(name="dBInstanceArn")
+    def d_b_instance_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB instance.
+        """
+        return pulumi.get(self, "d_b_instance_arn")
+
+    @property
     @pulumi.getter(name="dBInstanceClass")
     def d_b_instance_class(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1476,6 +1509,14 @@ class DBInstance(pulumi.CustomResource):
         A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
         """
         return pulumi.get(self, "d_b_subnet_group_name")
+
+    @property
+    @pulumi.getter(name="dbiResourceId")
+    def dbi_resource_id(self) -> pulumi.Output[str]:
+        """
+        The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        """
+        return pulumi.get(self, "dbi_resource_id")
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -1716,6 +1757,14 @@ class DBInstance(pulumi.CustomResource):
         Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The open mode of an Oracle read replica. The default is open-read-only.
+        """
+        return pulumi.get(self, "replica_mode")
 
     @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")

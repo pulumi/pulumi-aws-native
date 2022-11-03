@@ -42,12 +42,16 @@ type LookupDBInstanceResult struct {
 	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The Amazon Resource Name (ARN) for the DB instance.
+	DBInstanceArn *string `pulumi:"dBInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	DBInstanceClass *string `pulumi:"dBInstanceClass"`
 	// The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.
 	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
 	DBSecurityGroups []string `pulumi:"dBSecurityGroups"`
+	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -96,6 +100,8 @@ type LookupDBInstanceResult struct {
 	ProcessorFeatures []DBInstanceProcessorFeature `pulumi:"processorFeatures"`
 	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	PromotionTier *int `pulumi:"promotionTier"`
+	// The open mode of an Oracle read replica. The default is open-read-only.
+	ReplicaMode *string `pulumi:"replicaMode"`
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
@@ -184,6 +190,11 @@ func (o LookupDBInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the DB instance.
+func (o LookupDBInstanceResultOutput) DBInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceArn }).(pulumi.StringPtrOutput)
+}
+
 // The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 func (o LookupDBInstanceResultOutput) DBInstanceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
@@ -197,6 +208,11 @@ func (o LookupDBInstanceResultOutput) DBParameterGroupName() pulumi.StringPtrOut
 // A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
 func (o LookupDBInstanceResultOutput) DBSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.DBSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+func (o LookupDBInstanceResultOutput) DbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbiResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -317,6 +333,11 @@ func (o LookupDBInstanceResultOutput) ProcessorFeatures() DBInstanceProcessorFea
 // A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 func (o LookupDBInstanceResultOutput) PromotionTier() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *int { return v.PromotionTier }).(pulumi.IntPtrOutput)
+}
+
+// The open mode of an Oracle read replica. The default is open-read-only.
+func (o LookupDBInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.ReplicaMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the storage type to be associated with the DB instance.

@@ -58,9 +58,8 @@
     "/properties/DBParameterGroupName" : "$lowercase(DBParameterGroupName)"
   },
   "required" : [ "Family", "Description" ],
-  "readOnlyProperties" : [ "/properties/DBParameterGroupName" ],
   "primaryIdentifier" : [ "/properties/DBParameterGroupName" ],
-  "createOnlyProperties" : [ "/properties/Description", "/properties/Family" ],
+  "createOnlyProperties" : [ "/properties/DBParameterGroupName", "/properties/Description", "/properties/Family" ],
   "writeOnlyProperties" : [ "/properties/Parameters" ],
   "handlers" : {
     "create" : {

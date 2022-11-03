@@ -45,6 +45,7 @@ export class UserPool extends pulumi.CustomResource {
     public readonly aliasAttributes!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly autoVerifiedAttributes!: pulumi.Output<string[] | undefined>;
+    public readonly deletionProtection!: pulumi.Output<string | undefined>;
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
     public readonly emailConfiguration!: pulumi.Output<outputs.cognito.UserPoolEmailConfiguration | undefined>;
     public readonly emailVerificationMessage!: pulumi.Output<string | undefined>;
@@ -84,6 +85,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["adminCreateUserConfig"] = args ? args.adminCreateUserConfig : undefined;
             resourceInputs["aliasAttributes"] = args ? args.aliasAttributes : undefined;
             resourceInputs["autoVerifiedAttributes"] = args ? args.autoVerifiedAttributes : undefined;
+            resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["deviceConfiguration"] = args ? args.deviceConfiguration : undefined;
             resourceInputs["emailConfiguration"] = args ? args.emailConfiguration : undefined;
             resourceInputs["emailVerificationMessage"] = args ? args.emailVerificationMessage : undefined;
@@ -112,6 +114,7 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["aliasAttributes"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoVerifiedAttributes"] = undefined /*out*/;
+            resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["deviceConfiguration"] = undefined /*out*/;
             resourceInputs["emailConfiguration"] = undefined /*out*/;
             resourceInputs["emailVerificationMessage"] = undefined /*out*/;
@@ -147,6 +150,7 @@ export interface UserPoolArgs {
     adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigArgs>;
     aliasAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     autoVerifiedAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    deletionProtection?: pulumi.Input<string>;
     deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfigurationArgs>;
     emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolEmailConfigurationArgs>;
     emailVerificationMessage?: pulumi.Input<string>;

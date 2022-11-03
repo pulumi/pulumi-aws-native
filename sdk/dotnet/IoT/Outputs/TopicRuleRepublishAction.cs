@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleRepublishAction
     {
+        public readonly Outputs.TopicRuleRepublishActionHeaders? Headers;
         public readonly int? Qos;
         public readonly string RoleArn;
         public readonly string Topic;
 
         [OutputConstructor]
         private TopicRuleRepublishAction(
+            Outputs.TopicRuleRepublishActionHeaders? headers,
+
             int? qos,
 
             string roleArn,
 
             string topic)
         {
+            Headers = headers;
             Qos = qos;
             RoleArn = roleArn;
             Topic = topic;

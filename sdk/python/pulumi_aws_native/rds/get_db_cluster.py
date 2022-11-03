@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_arn=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -38,6 +38,9 @@ class GetDBClusterResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if d_b_cluster_arn and not isinstance(d_b_cluster_arn, str):
+            raise TypeError("Expected argument 'd_b_cluster_arn' to be a str")
+        pulumi.set(__self__, "d_b_cluster_arn", d_b_cluster_arn)
         if d_b_cluster_instance_class and not isinstance(d_b_cluster_instance_class, str):
             raise TypeError("Expected argument 'd_b_cluster_instance_class' to be a str")
         pulumi.set(__self__, "d_b_cluster_instance_class", d_b_cluster_instance_class)
@@ -179,6 +182,14 @@ class GetDBClusterResult:
         A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="dBClusterArn")
+    def d_b_cluster_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB cluster.
+        """
+        return pulumi.get(self, "d_b_cluster_arn")
 
     @property
     @pulumi.getter(name="dBClusterInstanceClass")
@@ -437,6 +448,7 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             backtrack_window=self.backtrack_window,
             backup_retention_period=self.backup_retention_period,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
+            d_b_cluster_arn=self.d_b_cluster_arn,
             d_b_cluster_instance_class=self.d_b_cluster_instance_class,
             d_b_cluster_parameter_group_name=self.d_b_cluster_parameter_group_name,
             d_b_cluster_resource_id=self.d_b_cluster_resource_id,
@@ -490,6 +502,7 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         backtrack_window=__ret__.backtrack_window,
         backup_retention_period=__ret__.backup_retention_period,
         copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
+        d_b_cluster_arn=__ret__.d_b_cluster_arn,
         d_b_cluster_instance_class=__ret__.d_b_cluster_instance_class,
         d_b_cluster_parameter_group_name=__ret__.d_b_cluster_parameter_group_name,
         d_b_cluster_resource_id=__ret__.d_b_cluster_resource_id,

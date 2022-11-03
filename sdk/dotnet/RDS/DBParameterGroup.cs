@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.RDS
         /// Specifies the name of the DB parameter group
         /// </summary>
         [Output("dBParameterGroupName")]
-        public Output<string> DBParameterGroupName { get; private set; } = null!;
+        public Output<string?> DBParameterGroupName { get; private set; } = null!;
 
         /// <summary>
         /// Provides the customer-specified description for this DB parameter group.
@@ -90,6 +90,12 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBParameterGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the DB parameter group
+        /// </summary>
+        [Input("dBParameterGroupName")]
+        public Input<string>? DBParameterGroupName { get; set; }
+
         /// <summary>
         /// Provides the customer-specified description for this DB parameter group.
         /// </summary>

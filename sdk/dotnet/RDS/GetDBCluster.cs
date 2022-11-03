@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB cluster.
+        /// </summary>
+        public readonly string? DBClusterArn;
+        /// <summary>
         /// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
         /// </summary>
         public readonly string? DBClusterInstanceClass;
@@ -216,6 +220,8 @@ namespace Pulumi.AwsNative.RDS
 
             bool? copyTagsToSnapshot,
 
+            string? dBClusterArn,
+
             string? dBClusterInstanceClass,
 
             string? dBClusterParameterGroupName,
@@ -284,6 +290,7 @@ namespace Pulumi.AwsNative.RDS
             BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             CopyTagsToSnapshot = copyTagsToSnapshot;
+            DBClusterArn = dBClusterArn;
             DBClusterInstanceClass = dBClusterInstanceClass;
             DBClusterParameterGroupName = dBClusterParameterGroupName;
             DBClusterResourceId = dBClusterResourceId;

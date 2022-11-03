@@ -765,21 +765,19 @@ class DataflowEndpointGroupSocketAddress(dict):
 @pulumi.output_type
 class DataflowEndpointGroupTag(dict):
     def __init__(__self__, *,
-                 key: Optional[str] = None,
-                 value: Optional[str] = None):
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> str:
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[str]:
+    def value(self) -> str:
         return pulumi.get(self, "value")
 
 

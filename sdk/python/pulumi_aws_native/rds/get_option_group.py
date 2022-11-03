@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOptionGroupResult:
-    def __init__(__self__, option_configurations=None, option_group_name=None, tags=None):
+    def __init__(__self__, option_configurations=None, tags=None):
         if option_configurations and not isinstance(option_configurations, list):
             raise TypeError("Expected argument 'option_configurations' to be a list")
         pulumi.set(__self__, "option_configurations", option_configurations)
-        if option_group_name and not isinstance(option_group_name, str):
-            raise TypeError("Expected argument 'option_group_name' to be a str")
-        pulumi.set(__self__, "option_group_name", option_group_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -37,14 +34,6 @@ class GetOptionGroupResult:
         Indicates what options are available in the option group.
         """
         return pulumi.get(self, "option_configurations")
-
-    @property
-    @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> Optional[str]:
-        """
-        Specifies the name of the option group.
-        """
-        return pulumi.get(self, "option_group_name")
 
     @property
     @pulumi.getter
@@ -62,7 +51,6 @@ class AwaitableGetOptionGroupResult(GetOptionGroupResult):
             yield self
         return GetOptionGroupResult(
             option_configurations=self.option_configurations,
-            option_group_name=self.option_group_name,
             tags=self.tags)
 
 
@@ -81,7 +69,6 @@ def get_option_group(option_group_name: Optional[str] = None,
 
     return AwaitableGetOptionGroupResult(
         option_configurations=__ret__.option_configurations,
-        option_group_name=__ret__.option_group_name,
         tags=__ret__.tags)
 
 

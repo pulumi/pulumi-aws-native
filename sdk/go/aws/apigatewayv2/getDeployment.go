@@ -21,13 +21,13 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
-	Id string `pulumi:"id"`
+	ApiId        string `pulumi:"apiId"`
+	DeploymentId string `pulumi:"deploymentId"`
 }
 
 type LookupDeploymentResult struct {
-	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
-	StageName   *string `pulumi:"stageName"`
+	DeploymentId *string `pulumi:"deploymentId"`
+	Description  *string `pulumi:"description"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -44,7 +44,8 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 }
 
 type LookupDeploymentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId        pulumi.StringInput `pulumi:"apiId"`
+	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 }
 
 func (LookupDeploymentOutputArgs) ElementType() reflect.Type {
@@ -65,16 +66,12 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(
 	return o
 }
 
+func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDeploymentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupDeploymentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupDeploymentResultOutput) StageName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.StageName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

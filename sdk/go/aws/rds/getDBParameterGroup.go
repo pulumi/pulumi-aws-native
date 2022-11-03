@@ -26,8 +26,6 @@ type LookupDBParameterGroupArgs struct {
 }
 
 type LookupDBParameterGroupResult struct {
-	// Specifies the name of the DB parameter group
-	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []DBParameterGroupTag `pulumi:"tags"`
 }
@@ -66,11 +64,6 @@ func (o LookupDBParameterGroupResultOutput) ToLookupDBParameterGroupResultOutput
 
 func (o LookupDBParameterGroupResultOutput) ToLookupDBParameterGroupResultOutputWithContext(ctx context.Context) LookupDBParameterGroupResultOutput {
 	return o
-}
-
-// Specifies the name of the DB parameter group
-func (o LookupDBParameterGroupResultOutput) DBParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBParameterGroupResult) *string { return v.DBParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

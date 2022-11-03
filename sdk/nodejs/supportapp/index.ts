@@ -25,6 +25,11 @@ export type SlackChannelConfiguration = import("./slackChannelConfiguration").Sl
 export const SlackChannelConfiguration: typeof import("./slackChannelConfiguration").SlackChannelConfiguration = null as any;
 utilities.lazyLoad(exports, ["SlackChannelConfiguration"], () => require("./slackChannelConfiguration"));
 
+export { SlackWorkspaceConfigurationArgs } from "./slackWorkspaceConfiguration";
+export type SlackWorkspaceConfiguration = import("./slackWorkspaceConfiguration").SlackWorkspaceConfiguration;
+export const SlackWorkspaceConfiguration: typeof import("./slackWorkspaceConfiguration").SlackWorkspaceConfiguration = null as any;
+utilities.lazyLoad(exports, ["SlackWorkspaceConfiguration"], () => require("./slackWorkspaceConfiguration"));
+
 
 // Export enums:
 export * from "../types/enums/supportapp";
@@ -37,6 +42,8 @@ const _module = {
                 return new AccountAlias(name, <any>undefined, { urn })
             case "aws-native:supportapp:SlackChannelConfiguration":
                 return new SlackChannelConfiguration(name, <any>undefined, { urn })
+            case "aws-native:supportapp:SlackWorkspaceConfiguration":
+                return new SlackWorkspaceConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

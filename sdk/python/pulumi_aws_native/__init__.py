@@ -789,7 +789,8 @@ _utilities.register(
   "classes": {
    "aws-native:apprunner:ObservabilityConfiguration": "ObservabilityConfiguration",
    "aws-native:apprunner:Service": "Service",
-   "aws-native:apprunner:VpcConnector": "VpcConnector"
+   "aws-native:apprunner:VpcConnector": "VpcConnector",
+   "aws-native:apprunner:VpcIngressConnection": "VpcIngressConnection"
   }
  },
  {
@@ -1650,6 +1651,7 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
+   "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
    "aws-native:fsx:FileSystem": "FileSystem",
    "aws-native:fsx:Snapshot": "Snapshot",
    "aws-native:fsx:StorageVirtualMachine": "StorageVirtualMachine",
@@ -2881,7 +2883,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.supportapp",
   "classes": {
    "aws-native:supportapp:AccountAlias": "AccountAlias",
-   "aws-native:supportapp:SlackChannelConfiguration": "SlackChannelConfiguration"
+   "aws-native:supportapp:SlackChannelConfiguration": "SlackChannelConfiguration",
+   "aws-native:supportapp:SlackWorkspaceConfiguration": "SlackWorkspaceConfiguration"
   }
  },
  {

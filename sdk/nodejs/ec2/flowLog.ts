@@ -77,7 +77,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    public readonly trafficType!: pulumi.Output<enums.ec2.FlowLogTrafficType>;
+    public readonly trafficType!: pulumi.Output<enums.ec2.FlowLogTrafficType | undefined>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -95,9 +95,6 @@ export class FlowLog extends pulumi.CustomResource {
             }
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
-            }
-            if ((!args || args.trafficType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'trafficType'");
             }
             resourceInputs["deliverLogsPermissionArn"] = args ? args.deliverLogsPermissionArn : undefined;
             resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
@@ -172,5 +169,5 @@ export interface FlowLogArgs {
     /**
      * The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
      */
-    trafficType: pulumi.Input<enums.ec2.FlowLogTrafficType>;
+    trafficType?: pulumi.Input<enums.ec2.FlowLogTrafficType>;
 }

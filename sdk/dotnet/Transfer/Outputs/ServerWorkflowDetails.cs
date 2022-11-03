@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class ServerWorkflowDetails
     {
+        public readonly ImmutableArray<Outputs.ServerWorkflowDetail> OnPartialUpload;
         public readonly ImmutableArray<Outputs.ServerWorkflowDetail> OnUpload;
 
         [OutputConstructor]
-        private ServerWorkflowDetails(ImmutableArray<Outputs.ServerWorkflowDetail> onUpload)
+        private ServerWorkflowDetails(
+            ImmutableArray<Outputs.ServerWorkflowDetail> onPartialUpload,
+
+            ImmutableArray<Outputs.ServerWorkflowDetail> onUpload)
         {
+            OnPartialUpload = onPartialUpload;
             OnUpload = onUpload;
         }
     }

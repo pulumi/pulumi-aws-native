@@ -234,7 +234,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  name: Optional[str] = None,
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationSnsDestination'] = None):
         """
-        :param Sequence[str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        :param Sequence[str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param 'ConfigurationSetEventDestinationCloudWatchDestination' cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -257,7 +257,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="matchingEventTypes")
     def matching_event_types(self) -> Sequence[str]:
         """
-        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         """
         return pulumi.get(self, "matching_event_types")
 

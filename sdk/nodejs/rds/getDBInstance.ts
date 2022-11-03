@@ -62,6 +62,10 @@ export interface GetDBInstanceResult {
      */
     readonly copyTagsToSnapshot?: boolean;
     /**
+     * The Amazon Resource Name (ARN) for the DB instance.
+     */
+    readonly dBInstanceArn?: string;
+    /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
     readonly dBInstanceClass?: string;
@@ -73,6 +77,10 @@ export interface GetDBInstanceResult {
      * A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
      */
     readonly dBSecurityGroups?: string[];
+    /**
+     * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+     */
+    readonly dbiResourceId?: string;
     /**
      * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
      */
@@ -169,6 +177,10 @@ export interface GetDBInstanceResult {
      * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
      */
     readonly promotionTier?: number;
+    /**
+     * The open mode of an Oracle read replica. The default is open-read-only.
+     */
+    readonly replicaMode?: string;
     /**
      * Specifies the storage type to be associated with the DB instance.
      */

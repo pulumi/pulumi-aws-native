@@ -7,6 +7,37 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.RUM
 {
+    /// <summary>
+    /// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+    /// </summary>
+    [EnumType]
+    public readonly struct AppMonitorMetricDestinationDestination : IEquatable<AppMonitorMetricDestinationDestination>
+    {
+        private readonly string _value;
+
+        private AppMonitorMetricDestinationDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppMonitorMetricDestinationDestination CloudWatch { get; } = new AppMonitorMetricDestinationDestination("CloudWatch");
+        public static AppMonitorMetricDestinationDestination Evidently { get; } = new AppMonitorMetricDestinationDestination("Evidently");
+
+        public static bool operator ==(AppMonitorMetricDestinationDestination left, AppMonitorMetricDestinationDestination right) => left.Equals(right);
+        public static bool operator !=(AppMonitorMetricDestinationDestination left, AppMonitorMetricDestinationDestination right) => !left.Equals(right);
+
+        public static explicit operator string(AppMonitorMetricDestinationDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppMonitorMetricDestinationDestination other && Equals(other);
+        public bool Equals(AppMonitorMetricDestinationDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AppMonitorTelemetry : IEquatable<AppMonitorTelemetry>
     {

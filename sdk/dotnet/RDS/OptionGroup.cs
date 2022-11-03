@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.RDS
         /// Specifies the name of the option group.
         /// </summary>
         [Output("optionGroupName")]
-        public Output<string> OptionGroupName { get; private set; } = null!;
+        public Output<string?> OptionGroupName { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -125,6 +125,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("optionGroupDescription", required: true)]
         public Input<string> OptionGroupDescription { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the option group.
+        /// </summary>
+        [Input("optionGroupName")]
+        public Input<string>? OptionGroupName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.OptionGroupTagArgs>? _tags;

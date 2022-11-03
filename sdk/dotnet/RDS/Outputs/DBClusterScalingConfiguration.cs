@@ -38,6 +38,14 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
         /// </summary>
         public readonly int? SecondsUntilAutoPause;
+        /// <summary>
+        /// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+        /// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+        /// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+        /// 
+        /// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+        /// </summary>
+        public readonly string? TimeoutAction;
 
         [OutputConstructor]
         private DBClusterScalingConfiguration(
@@ -47,12 +55,15 @@ namespace Pulumi.AwsNative.RDS.Outputs
 
             int? minCapacity,
 
-            int? secondsUntilAutoPause)
+            int? secondsUntilAutoPause,
+
+            string? timeoutAction)
         {
             AutoPause = autoPause;
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
             SecondsUntilAutoPause = secondsUntilAutoPause;
+            TimeoutAction = timeoutAction;
         }
     }
 }

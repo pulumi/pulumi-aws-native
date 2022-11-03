@@ -5973,6 +5973,8 @@ type DataSourceCredentials struct {
 	//             <code>DataSourceCredentials</code> structure.</p>
 	CopySourceArn  *string                   `pulumi:"copySourceArn"`
 	CredentialPair *DataSourceCredentialPair `pulumi:"credentialPair"`
+	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+	SecretArn *string `pulumi:"secretArn"`
 }
 
 // DataSourceCredentialsInput is an input type that accepts DataSourceCredentialsArgs and DataSourceCredentialsOutput values.
@@ -5996,6 +5998,8 @@ type DataSourceCredentialsArgs struct {
 	//             <code>DataSourceCredentials</code> structure.</p>
 	CopySourceArn  pulumi.StringPtrInput            `pulumi:"copySourceArn"`
 	CredentialPair DataSourceCredentialPairPtrInput `pulumi:"credentialPair"`
+	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
 func (DataSourceCredentialsArgs) ElementType() reflect.Type {
@@ -6091,6 +6095,11 @@ func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialPairPt
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialPair { return v.CredentialPair }).(DataSourceCredentialPairPtrOutput)
 }
 
+// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+func (o DataSourceCredentialsOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceCredentials) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
 type DataSourceCredentialsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCredentialsPtrOutput) ElementType() reflect.Type {
@@ -6136,6 +6145,16 @@ func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialPai
 		}
 		return v.CredentialPair
 	}).(DataSourceCredentialPairPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>Error information for the data source creation or update.</p>

@@ -54,12 +54,7 @@ class DeploymentArgs:
         pulumi.set(self, "stage_name", value)
 
 
-warnings.warn("""Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Deployment(pulumi.CustomResource):
-    warnings.warn("""Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -102,7 +97,6 @@ class Deployment(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Deployment is deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -116,6 +110,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["description"] = description
             __props__.__dict__["stage_name"] = stage_name
+            __props__.__dict__["deployment_id"] = None
         super(Deployment, __self__).__init__(
             'aws-native:apigatewayv2:Deployment',
             resource_name,
@@ -139,6 +134,7 @@ class Deployment(pulumi.CustomResource):
         __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["deployment_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["stage_name"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
@@ -147,6 +143,11 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter

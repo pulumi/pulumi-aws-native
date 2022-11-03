@@ -74,6 +74,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
      * The type of the certificate authority.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * Usage mode of the ceritificate authority.
+     */
+    public readonly usageMode!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["subject"] = args ? args.subject : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usageMode"] = args ? args.usageMode : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["certificateSigningRequest"] = undefined /*out*/;
         } else {
@@ -119,6 +124,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usageMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateAuthority.__pulumiType, name, resourceInputs, opts);
@@ -158,4 +164,8 @@ export interface CertificateAuthorityArgs {
      * The type of the certificate authority.
      */
     type: pulumi.Input<string>;
+    /**
+     * Usage mode of the ceritificate authority.
+     */
+    usageMode?: pulumi.Input<string>;
 }

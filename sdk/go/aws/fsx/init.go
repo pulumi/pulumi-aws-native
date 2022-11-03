@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:fsx:DataRepositoryAssociation":
+		r = &DataRepositoryAssociation{}
 	case "aws-native:fsx:FileSystem":
 		r = &FileSystem{}
 	case "aws-native:fsx:Snapshot":

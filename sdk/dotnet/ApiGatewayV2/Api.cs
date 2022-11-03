@@ -12,12 +12,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::Api
     /// </summary>
-    [Obsolete(@"Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Api")]
     public partial class Api : global::Pulumi.CustomResource
     {
         [Output("apiEndpoint")]
         public Output<string> ApiEndpoint { get; private set; } = null!;
+
+        [Output("apiId")]
+        public Output<string> ApiId { get; private set; } = null!;
 
         [Output("apiKeySelectionExpression")]
         public Output<string?> ApiKeySelectionExpression { get; private set; } = null!;
@@ -61,6 +63,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("routeSelectionExpression")]
         public Output<string?> RouteSelectionExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// This resource type use map for Tags, suggest to use List of Tag
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
@@ -157,6 +162,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Input("routeSelectionExpression")]
         public Input<string>? RouteSelectionExpression { get; set; }
 
+        /// <summary>
+        /// This resource type use map for Tags, suggest to use List of Tag
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 

@@ -14,18 +14,19 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getDeployment", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "deploymentId": args.deploymentId,
     }, opts);
 }
 
 export interface GetDeploymentArgs {
-    id: string;
+    apiId: string;
+    deploymentId: string;
 }
 
 export interface GetDeploymentResult {
+    readonly deploymentId?: string;
     readonly description?: string;
-    readonly id?: string;
-    readonly stageName?: string;
 }
 
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
@@ -33,5 +34,6 @@ export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi
 }
 
 export interface GetDeploymentOutputArgs {
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
+    deploymentId: pulumi.Input<string>;
 }

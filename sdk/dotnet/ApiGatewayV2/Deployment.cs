@@ -12,12 +12,14 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     /// <summary>
     /// Resource Type definition for AWS::ApiGatewayV2::Deployment
     /// </summary>
-    [Obsolete(@"Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigatewayv2:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
     {
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
+
+        [Output("deploymentId")]
+        public Output<string> DeploymentId { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;

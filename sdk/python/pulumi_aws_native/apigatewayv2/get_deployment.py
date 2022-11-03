@@ -18,31 +18,23 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentResult:
-    def __init__(__self__, description=None, id=None, stage_name=None):
+    def __init__(__self__, deployment_id=None, description=None):
+        if deployment_id and not isinstance(deployment_id, str):
+            raise TypeError("Expected argument 'deployment_id' to be a str")
+        pulumi.set(__self__, "deployment_id", deployment_id)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
-        if stage_name and not isinstance(stage_name, str):
-            raise TypeError("Expected argument 'stage_name' to be a str")
-        pulumi.set(__self__, "stage_name", stage_name)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[str]:
+        return pulumi.get(self, "deployment_id")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[str]:
-        return pulumi.get(self, "stage_name")
 
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
@@ -51,29 +43,30 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
-            description=self.description,
-            id=self.id,
-            stage_name=self.stage_name)
+            deployment_id=self.deployment_id,
+            description=self.description)
 
 
-def get_deployment(id: Optional[str] = None,
+def get_deployment(api_id: Optional[str] = None,
+                   deployment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentResult:
     """
     Resource Type definition for AWS::ApiGatewayV2::Deployment
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['apiId'] = api_id
+    __args__['deploymentId'] = deployment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigatewayv2:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        stage_name=__ret__.stage_name)
+        deployment_id=__ret__.deployment_id,
+        description=__ret__.description)
 
 
 @_utilities.lift_output_func(get_deployment)
-def get_deployment_output(id: Optional[pulumi.Input[str]] = None,
+def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
+                          deployment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Resource Type definition for AWS::ApiGatewayV2::Deployment

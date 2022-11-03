@@ -2590,10 +2590,11 @@ func (o EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Ind
 type EC2FleetSpotOptionsRequestAllocationStrategy string
 
 const (
-	EC2FleetSpotOptionsRequestAllocationStrategyLowestPrice                  = EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice")
+	EC2FleetSpotOptionsRequestAllocationStrategyLowestPrice                  = EC2FleetSpotOptionsRequestAllocationStrategy("lowest-price")
 	EC2FleetSpotOptionsRequestAllocationStrategyDiversified                  = EC2FleetSpotOptionsRequestAllocationStrategy("diversified")
 	EC2FleetSpotOptionsRequestAllocationStrategyCapacityOptimized            = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimized")
 	EC2FleetSpotOptionsRequestAllocationStrategyCapacityOptimizedPrioritized = EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimizedPrioritized")
+	EC2FleetSpotOptionsRequestAllocationStrategyPriceCapacityOptimized       = EC2FleetSpotOptionsRequestAllocationStrategy("priceCapacityOptimized")
 )
 
 func (EC2FleetSpotOptionsRequestAllocationStrategy) ElementType() reflect.Type {
@@ -7638,6 +7639,7 @@ const (
 	SpotFleetRequestConfigDataAllocationStrategyCapacityOptimizedPrioritized = SpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized")
 	SpotFleetRequestConfigDataAllocationStrategyDiversified                  = SpotFleetRequestConfigDataAllocationStrategy("diversified")
 	SpotFleetRequestConfigDataAllocationStrategyLowestPrice                  = SpotFleetRequestConfigDataAllocationStrategy("lowestPrice")
+	SpotFleetRequestConfigDataAllocationStrategyPriceCapacityOptimized       = SpotFleetRequestConfigDataAllocationStrategy("priceCapacityOptimized")
 )
 
 func (SpotFleetRequestConfigDataAllocationStrategy) ElementType() reflect.Type {
@@ -9028,8 +9030,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorageTypesItemInput)(nil)).Elem(), EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput)(nil)).Elem(), EC2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput)(nil)).Elem(), EC2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestAllocationStrategyInput)(nil)).Elem(), EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestAllocationStrategyPtrInput)(nil)).Elem(), EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestAllocationStrategyInput)(nil)).Elem(), EC2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestAllocationStrategyPtrInput)(nil)).Elem(), EC2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorInput)(nil)).Elem(), EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("hibernate"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetSpotOptionsRequestInstanceInterruptionBehaviorPtrInput)(nil)).Elem(), EC2FleetSpotOptionsRequestInstanceInterruptionBehavior("hibernate"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EC2FleetTagSpecificationResourceTypeInput)(nil)).Elem(), EC2FleetTagSpecificationResourceType("client-vpn-endpoint"))

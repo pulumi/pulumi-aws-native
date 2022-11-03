@@ -45,6 +45,16 @@ namespace Pulumi.AwsNative.RDS.Inputs
         [Input("secondsUntilAutoPause")]
         public Input<int>? SecondsUntilAutoPause { get; set; }
 
+        /// <summary>
+        /// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+        /// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+        /// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+        /// 
+        /// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+        /// </summary>
+        [Input("timeoutAction")]
+        public Input<string>? TimeoutAction { get; set; }
+
         public DBClusterScalingConfigurationArgs()
         {
         }

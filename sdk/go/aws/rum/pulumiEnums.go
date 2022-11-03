@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+type AppMonitorMetricDestinationDestination string
+
+const (
+	AppMonitorMetricDestinationDestinationCloudWatch = AppMonitorMetricDestinationDestination("CloudWatch")
+	AppMonitorMetricDestinationDestinationEvidently  = AppMonitorMetricDestinationDestination("Evidently")
+)
+
+func (AppMonitorMetricDestinationDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDestinationDestination)(nil)).Elem()
+}
+
+func (e AppMonitorMetricDestinationDestination) ToAppMonitorMetricDestinationDestinationOutput() AppMonitorMetricDestinationDestinationOutput {
+	return pulumi.ToOutput(e).(AppMonitorMetricDestinationDestinationOutput)
+}
+
+func (e AppMonitorMetricDestinationDestination) ToAppMonitorMetricDestinationDestinationOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppMonitorMetricDestinationDestinationOutput)
+}
+
+func (e AppMonitorMetricDestinationDestination) ToAppMonitorMetricDestinationDestinationPtrOutput() AppMonitorMetricDestinationDestinationPtrOutput {
+	return e.ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorMetricDestinationDestination) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
+	return AppMonitorMetricDestinationDestination(e).ToAppMonitorMetricDestinationDestinationOutputWithContext(ctx).ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx)
+}
+
+func (e AppMonitorMetricDestinationDestination) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorMetricDestinationDestination) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorMetricDestinationDestination) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorMetricDestinationDestination) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppMonitorMetricDestinationDestinationOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDestinationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDestinationDestination)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinationDestinationOutput() AppMonitorMetricDestinationDestinationOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinationDestinationOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinationDestinationPtrOutput() AppMonitorMetricDestinationDestinationPtrOutput {
+	return o.ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorMetricDestinationDestination) *AppMonitorMetricDestinationDestination {
+		return &v
+	}).(AppMonitorMetricDestinationDestinationPtrOutput)
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorMetricDestinationDestination) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorMetricDestinationDestinationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorMetricDestinationDestination) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppMonitorMetricDestinationDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDestinationDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorMetricDestinationDestination)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDestinationDestinationPtrOutput() AppMonitorMetricDestinationDestinationPtrOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) Elem() AppMonitorMetricDestinationDestinationOutput {
+	return o.ApplyT(func(v *AppMonitorMetricDestinationDestination) AppMonitorMetricDestinationDestination {
+		if v != nil {
+			return *v
+		}
+		var ret AppMonitorMetricDestinationDestination
+		return ret
+	}).(AppMonitorMetricDestinationDestinationOutput)
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorMetricDestinationDestinationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppMonitorMetricDestinationDestination) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppMonitorMetricDestinationDestinationInput is an input type that accepts AppMonitorMetricDestinationDestinationArgs and AppMonitorMetricDestinationDestinationOutput values.
+// You can construct a concrete instance of `AppMonitorMetricDestinationDestinationInput` via:
+//
+//	AppMonitorMetricDestinationDestinationArgs{...}
+type AppMonitorMetricDestinationDestinationInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDestinationDestinationOutput() AppMonitorMetricDestinationDestinationOutput
+	ToAppMonitorMetricDestinationDestinationOutputWithContext(context.Context) AppMonitorMetricDestinationDestinationOutput
+}
+
+var appMonitorMetricDestinationDestinationPtrType = reflect.TypeOf((**AppMonitorMetricDestinationDestination)(nil)).Elem()
+
+type AppMonitorMetricDestinationDestinationPtrInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDestinationDestinationPtrOutput() AppMonitorMetricDestinationDestinationPtrOutput
+	ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(context.Context) AppMonitorMetricDestinationDestinationPtrOutput
+}
+
+type appMonitorMetricDestinationDestinationPtr string
+
+func AppMonitorMetricDestinationDestinationPtr(v string) AppMonitorMetricDestinationDestinationPtrInput {
+	return (*appMonitorMetricDestinationDestinationPtr)(&v)
+}
+
+func (*appMonitorMetricDestinationDestinationPtr) ElementType() reflect.Type {
+	return appMonitorMetricDestinationDestinationPtrType
+}
+
+func (in *appMonitorMetricDestinationDestinationPtr) ToAppMonitorMetricDestinationDestinationPtrOutput() AppMonitorMetricDestinationDestinationPtrOutput {
+	return pulumi.ToOutput(in).(AppMonitorMetricDestinationDestinationPtrOutput)
+}
+
+func (in *appMonitorMetricDestinationDestinationPtr) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorMetricDestinationDestinationPtrOutput)
+}
+
 type AppMonitorTelemetry string
 
 const (
@@ -221,9 +386,13 @@ func (o AppMonitorTelemetryArrayOutput) Index(i pulumi.IntInput) AppMonitorTelem
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationPtrInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryInput)(nil)).Elem(), AppMonitorTelemetry("errors"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryPtrInput)(nil)).Elem(), AppMonitorTelemetry("errors"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryArrayInput)(nil)).Elem(), AppMonitorTelemetryArray{})
+	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationOutput{})
+	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryArrayOutput{})

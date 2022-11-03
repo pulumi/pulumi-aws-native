@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetDeploymentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
+
+        [Input("deploymentId", required: true)]
+        public string DeploymentId { get; set; } = null!;
 
         public GetDeploymentArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetDeploymentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("deploymentId", required: true)]
+        public Input<string> DeploymentId { get; set; } = null!;
 
         public GetDeploymentInvokeArgs()
         {
@@ -51,21 +57,17 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     [OutputType]
     public sealed class GetDeploymentResult
     {
+        public readonly string? DeploymentId;
         public readonly string? Description;
-        public readonly string? Id;
-        public readonly string? StageName;
 
         [OutputConstructor]
         private GetDeploymentResult(
-            string? description,
+            string? deploymentId,
 
-            string? id,
-
-            string? stageName)
+            string? description)
         {
+            DeploymentId = deploymentId;
             Description = description;
-            Id = id;
-            StageName = stageName;
         }
     }
 }

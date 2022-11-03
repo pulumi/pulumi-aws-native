@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB cluster.
+        /// </summary>
+        [Output("dBClusterArn")]
+        public Output<string> DBClusterArn { get; private set; } = null!;
+
+        /// <summary>
         /// The DB cluster identifier. This parameter is stored as a lowercase string.
         /// </summary>
         [Output("dBClusterIdentifier")]

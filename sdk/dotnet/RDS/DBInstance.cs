@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> DBClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the DB instance.
+        /// </summary>
+        [Output("dBInstanceArn")]
+        public Output<string> DBInstanceArn { get; private set; } = null!;
+
+        /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         /// </summary>
         [Output("dBInstanceClass")]
@@ -128,6 +134,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("dBSubnetGroupName")]
         public Output<string?> DBSubnetGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+        /// </summary>
+        [Output("dbiResourceId")]
+        public Output<string> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -308,6 +320,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// The open mode of an Oracle read replica. The default is open-read-only.
+        /// </summary>
+        [Output("replicaMode")]
+        public Output<string?> ReplicaMode { get; private set; } = null!;
 
         /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
@@ -731,6 +749,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// The open mode of an Oracle read replica. The default is open-read-only.
+        /// </summary>
+        [Input("replicaMode")]
+        public Input<string>? ReplicaMode { get; set; }
 
         /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.

@@ -62,10 +62,6 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionConfiguration> OptionConfigurations;
         /// <summary>
-        /// Specifies the name of the option group.
-        /// </summary>
-        public readonly string? OptionGroupName;
-        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupTag> Tags;
@@ -74,12 +70,9 @@ namespace Pulumi.AwsNative.RDS
         private GetOptionGroupResult(
             ImmutableArray<Outputs.OptionGroupOptionConfiguration> optionConfigurations,
 
-            string? optionGroupName,
-
             ImmutableArray<Outputs.OptionGroupTag> tags)
         {
             OptionConfigurations = optionConfigurations;
-            OptionGroupName = optionGroupName;
             Tags = tags;
         }
     }

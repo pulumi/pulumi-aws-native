@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("autoVerifiedAttributes")]
         public Output<ImmutableArray<string>> AutoVerifiedAttributes { get; private set; } = null!;
 
+        [Output("deletionProtection")]
+        public Output<string?> DeletionProtection { get; private set; } = null!;
+
         [Output("deviceConfiguration")]
         public Output<Outputs.UserPoolDeviceConfiguration?> DeviceConfiguration { get; private set; } = null!;
 
@@ -160,6 +163,9 @@ namespace Pulumi.AwsNative.Cognito
             get => _autoVerifiedAttributes ?? (_autoVerifiedAttributes = new InputList<string>());
             set => _autoVerifiedAttributes = value;
         }
+
+        [Input("deletionProtection")]
+        public Input<string>? DeletionProtection { get; set; }
 
         [Input("deviceConfiguration")]
         public Input<Inputs.UserPoolDeviceConfigurationArgs>? DeviceConfiguration { get; set; }

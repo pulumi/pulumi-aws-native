@@ -1082,6 +1082,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["d_b_cluster_arn"] = None
             __props__.__dict__["d_b_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
         super(DBCluster, __self__).__init__(
@@ -1113,6 +1114,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["backtrack_window"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
+        __props__.__dict__["d_b_cluster_arn"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
         __props__.__dict__["d_b_cluster_instance_class"] = None
         __props__.__dict__["d_b_cluster_parameter_group_name"] = None
@@ -1215,6 +1217,14 @@ class DBCluster(pulumi.CustomResource):
         A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="dBClusterArn")
+    def d_b_cluster_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB cluster.
+        """
+        return pulumi.get(self, "d_b_cluster_arn")
 
     @property
     @pulumi.getter(name="dBClusterIdentifier")

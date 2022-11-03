@@ -28,6 +28,10 @@ export const ServiceCodeConfigurationValuesRuntime = {
     Corretto8: "CORRETTO_8",
     Corretto11: "CORRETTO_11",
     Nodejs16: "NODEJS_16",
+    Go1: "GO_1",
+    Dotnet6: "DOTNET_6",
+    Php81: "PHP_81",
+    Ruby31: "RUBY_31",
 } as const;
 
 /**
@@ -73,3 +77,19 @@ export const ServiceSourceCodeVersionType = {
  * Source Code Version Type
  */
 export type ServiceSourceCodeVersionType = (typeof ServiceSourceCodeVersionType)[keyof typeof ServiceSourceCodeVersionType];
+
+export const VpcIngressConnectionStatus = {
+    Available: "AVAILABLE",
+    PendingCreation: "PENDING_CREATION",
+    PendingUpdate: "PENDING_UPDATE",
+    PendingDeletion: "PENDING_DELETION",
+    FailedCreation: "FAILED_CREATION",
+    FailedUpdate: "FAILED_UPDATE",
+    FailedDeletion: "FAILED_DELETION",
+    Deleted: "DELETED",
+} as const;
+
+/**
+ * The current status of the VpcIngressConnection.
+ */
+export type VpcIngressConnectionStatus = (typeof VpcIngressConnectionStatus)[keyof typeof VpcIngressConnectionStatus];

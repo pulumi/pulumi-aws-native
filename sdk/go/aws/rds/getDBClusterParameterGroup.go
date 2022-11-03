@@ -25,7 +25,6 @@ type LookupDBClusterParameterGroupArgs struct {
 }
 
 type LookupDBClusterParameterGroupResult struct {
-	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
 	// The list of tags for the cluster parameter group.
 	Tags []DBClusterParameterGroupTag `pulumi:"tags"`
 }
@@ -63,10 +62,6 @@ func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGro
 
 func (o LookupDBClusterParameterGroupResultOutput) ToLookupDBClusterParameterGroupResultOutputWithContext(ctx context.Context) LookupDBClusterParameterGroupResultOutput {
 	return o
-}
-
-func (o LookupDBClusterParameterGroupResultOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDBClusterParameterGroupResult) *string { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The list of tags for the cluster parameter group.

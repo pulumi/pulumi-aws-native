@@ -420,10 +420,11 @@ namespace Pulumi.AwsNative.EC2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static EC2FleetSpotOptionsRequestAllocationStrategy LowestPrice { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("lowestPrice");
+        public static EC2FleetSpotOptionsRequestAllocationStrategy LowestPrice { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("lowest-price");
         public static EC2FleetSpotOptionsRequestAllocationStrategy Diversified { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("diversified");
         public static EC2FleetSpotOptionsRequestAllocationStrategy CapacityOptimized { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimized");
         public static EC2FleetSpotOptionsRequestAllocationStrategy CapacityOptimizedPrioritized { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("capacityOptimizedPrioritized");
+        public static EC2FleetSpotOptionsRequestAllocationStrategy PriceCapacityOptimized { get; } = new EC2FleetSpotOptionsRequestAllocationStrategy("priceCapacityOptimized");
 
         public static bool operator ==(EC2FleetSpotOptionsRequestAllocationStrategy left, EC2FleetSpotOptionsRequestAllocationStrategy right) => left.Equals(right);
         public static bool operator !=(EC2FleetSpotOptionsRequestAllocationStrategy left, EC2FleetSpotOptionsRequestAllocationStrategy right) => !left.Equals(right);
@@ -1399,6 +1400,7 @@ namespace Pulumi.AwsNative.EC2
         public static SpotFleetRequestConfigDataAllocationStrategy CapacityOptimizedPrioritized { get; } = new SpotFleetRequestConfigDataAllocationStrategy("capacityOptimizedPrioritized");
         public static SpotFleetRequestConfigDataAllocationStrategy Diversified { get; } = new SpotFleetRequestConfigDataAllocationStrategy("diversified");
         public static SpotFleetRequestConfigDataAllocationStrategy LowestPrice { get; } = new SpotFleetRequestConfigDataAllocationStrategy("lowestPrice");
+        public static SpotFleetRequestConfigDataAllocationStrategy PriceCapacityOptimized { get; } = new SpotFleetRequestConfigDataAllocationStrategy("priceCapacityOptimized");
 
         public static bool operator ==(SpotFleetRequestConfigDataAllocationStrategy left, SpotFleetRequestConfigDataAllocationStrategy right) => left.Equals(right);
         public static bool operator !=(SpotFleetRequestConfigDataAllocationStrategy left, SpotFleetRequestConfigDataAllocationStrategy right) => !left.Equals(right);

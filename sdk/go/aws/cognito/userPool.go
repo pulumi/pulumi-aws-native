@@ -21,6 +21,7 @@ type UserPool struct {
 	AliasAttributes             pulumi.StringArrayOutput                     `pulumi:"aliasAttributes"`
 	Arn                         pulumi.StringOutput                          `pulumi:"arn"`
 	AutoVerifiedAttributes      pulumi.StringArrayOutput                     `pulumi:"autoVerifiedAttributes"`
+	DeletionProtection          pulumi.StringPtrOutput                       `pulumi:"deletionProtection"`
 	DeviceConfiguration         UserPoolDeviceConfigurationPtrOutput         `pulumi:"deviceConfiguration"`
 	EmailConfiguration          UserPoolEmailConfigurationPtrOutput          `pulumi:"emailConfiguration"`
 	EmailVerificationMessage    pulumi.StringPtrOutput                       `pulumi:"emailVerificationMessage"`
@@ -87,6 +88,7 @@ type userPoolArgs struct {
 	AdminCreateUserConfig       *UserPoolAdminCreateUserConfig       `pulumi:"adminCreateUserConfig"`
 	AliasAttributes             []string                             `pulumi:"aliasAttributes"`
 	AutoVerifiedAttributes      []string                             `pulumi:"autoVerifiedAttributes"`
+	DeletionProtection          *string                              `pulumi:"deletionProtection"`
 	DeviceConfiguration         *UserPoolDeviceConfiguration         `pulumi:"deviceConfiguration"`
 	EmailConfiguration          *UserPoolEmailConfiguration          `pulumi:"emailConfiguration"`
 	EmailVerificationMessage    *string                              `pulumi:"emailVerificationMessage"`
@@ -114,6 +116,7 @@ type UserPoolArgs struct {
 	AdminCreateUserConfig       UserPoolAdminCreateUserConfigPtrInput
 	AliasAttributes             pulumi.StringArrayInput
 	AutoVerifiedAttributes      pulumi.StringArrayInput
+	DeletionProtection          pulumi.StringPtrInput
 	DeviceConfiguration         UserPoolDeviceConfigurationPtrInput
 	EmailConfiguration          UserPoolEmailConfigurationPtrInput
 	EmailVerificationMessage    pulumi.StringPtrInput
@@ -190,6 +193,10 @@ func (o UserPoolOutput) Arn() pulumi.StringOutput {
 
 func (o UserPoolOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AutoVerifiedAttributes }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) DeletionProtection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.DeletionProtection }).(pulumi.StringPtrOutput)
 }
 
 func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {

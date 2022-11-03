@@ -17,32 +17,27 @@ export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<G
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getApi", {
-        "id": args.id,
+        "apiId": args.apiId,
     }, opts);
 }
 
 export interface GetApiArgs {
-    id: string;
+    apiId: string;
 }
 
 export interface GetApiResult {
     readonly apiEndpoint?: string;
+    readonly apiId?: string;
     readonly apiKeySelectionExpression?: string;
-    readonly basePath?: string;
-    readonly body?: any;
-    readonly bodyS3Location?: outputs.apigatewayv2.ApiBodyS3Location;
     readonly corsConfiguration?: outputs.apigatewayv2.ApiCors;
-    readonly credentialsArn?: string;
     readonly description?: string;
     readonly disableExecuteApiEndpoint?: boolean;
-    readonly disableSchemaValidation?: boolean;
-    readonly failOnWarnings?: boolean;
-    readonly id?: string;
     readonly name?: string;
-    readonly routeKey?: string;
     readonly routeSelectionExpression?: string;
+    /**
+     * This resource type use map for Tags, suggest to use List of Tag
+     */
     readonly tags?: any;
-    readonly target?: string;
     readonly version?: string;
 }
 
@@ -51,5 +46,5 @@ export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetApiOutputArgs {
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
 }

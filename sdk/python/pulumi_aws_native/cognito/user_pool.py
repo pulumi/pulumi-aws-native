@@ -20,6 +20,7 @@ class UserPoolArgs:
                  admin_create_user_config: Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
                  email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,8 @@ class UserPoolArgs:
             pulumi.set(__self__, "alias_attributes", alias_attributes)
         if auto_verified_attributes is not None:
             pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
+        if deletion_protection is not None:
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration is not None:
             pulumi.set(__self__, "device_configuration", device_configuration)
         if email_configuration is not None:
@@ -124,6 +127,15 @@ class UserPoolArgs:
     @auto_verified_attributes.setter
     def auto_verified_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "auto_verified_attributes", value)
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "deletion_protection")
+
+    @deletion_protection.setter
+    def deletion_protection(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deletion_protection", value)
 
     @property
     @pulumi.getter(name="deviceConfiguration")
@@ -311,6 +323,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
                  email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -365,6 +378,7 @@ class UserPool(pulumi.CustomResource):
                  admin_create_user_config: Optional[pulumi.Input[pulumi.InputType['UserPoolAdminCreateUserConfigArgs']]] = None,
                  alias_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 deletion_protection: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
                  email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
@@ -398,6 +412,7 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["admin_create_user_config"] = admin_create_user_config
             __props__.__dict__["alias_attributes"] = alias_attributes
             __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
+            __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["device_configuration"] = device_configuration
             __props__.__dict__["email_configuration"] = email_configuration
             __props__.__dict__["email_verification_message"] = email_verification_message
@@ -447,6 +462,7 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["alias_attributes"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_verified_attributes"] = None
+        __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["device_configuration"] = None
         __props__.__dict__["email_configuration"] = None
         __props__.__dict__["email_verification_message"] = None
@@ -494,6 +510,11 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "auto_verified_attributes")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="deviceConfiguration")

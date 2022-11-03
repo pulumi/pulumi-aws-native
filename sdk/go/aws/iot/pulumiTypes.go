@@ -10879,9 +10879,10 @@ func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublishAction struct {
-	Qos     *int   `pulumi:"qos"`
-	RoleArn string `pulumi:"roleArn"`
-	Topic   string `pulumi:"topic"`
+	Headers *TopicRuleRepublishActionHeaders `pulumi:"headers"`
+	Qos     *int                             `pulumi:"qos"`
+	RoleArn string                           `pulumi:"roleArn"`
+	Topic   string                           `pulumi:"topic"`
 }
 
 // TopicRuleRepublishActionInput is an input type that accepts TopicRuleRepublishActionArgs and TopicRuleRepublishActionOutput values.
@@ -10896,9 +10897,10 @@ type TopicRuleRepublishActionInput interface {
 }
 
 type TopicRuleRepublishActionArgs struct {
-	Qos     pulumi.IntPtrInput `pulumi:"qos"`
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	Topic   pulumi.StringInput `pulumi:"topic"`
+	Headers TopicRuleRepublishActionHeadersPtrInput `pulumi:"headers"`
+	Qos     pulumi.IntPtrInput                      `pulumi:"qos"`
+	RoleArn pulumi.StringInput                      `pulumi:"roleArn"`
+	Topic   pulumi.StringInput                      `pulumi:"topic"`
 }
 
 func (TopicRuleRepublishActionArgs) ElementType() reflect.Type {
@@ -10978,6 +10980,10 @@ func (o TopicRuleRepublishActionOutput) ToTopicRuleRepublishActionPtrOutputWithC
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
+func (o TopicRuleRepublishActionOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders { return v.Headers }).(TopicRuleRepublishActionHeadersPtrOutput)
+}
+
 func (o TopicRuleRepublishActionOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
@@ -11014,6 +11020,15 @@ func (o TopicRuleRepublishActionPtrOutput) Elem() TopicRuleRepublishActionOutput
 	}).(TopicRuleRepublishActionOutput)
 }
 
+func (o TopicRuleRepublishActionPtrOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(TopicRuleRepublishActionHeadersPtrOutput)
+}
+
 func (o TopicRuleRepublishActionPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *int {
 		if v == nil {
@@ -11039,6 +11054,214 @@ func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 		}
 		return &v.Topic
 	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleRepublishActionHeaders struct {
+	ContentType            *string                 `pulumi:"contentType"`
+	CorrelationData        *string                 `pulumi:"correlationData"`
+	MessageExpiry          *string                 `pulumi:"messageExpiry"`
+	PayloadFormatIndicator *string                 `pulumi:"payloadFormatIndicator"`
+	ResponseTopic          *string                 `pulumi:"responseTopic"`
+	UserProperties         []TopicRuleUserProperty `pulumi:"userProperties"`
+}
+
+// TopicRuleRepublishActionHeadersInput is an input type that accepts TopicRuleRepublishActionHeadersArgs and TopicRuleRepublishActionHeadersOutput values.
+// You can construct a concrete instance of `TopicRuleRepublishActionHeadersInput` via:
+//
+//	TopicRuleRepublishActionHeadersArgs{...}
+type TopicRuleRepublishActionHeadersInput interface {
+	pulumi.Input
+
+	ToTopicRuleRepublishActionHeadersOutput() TopicRuleRepublishActionHeadersOutput
+	ToTopicRuleRepublishActionHeadersOutputWithContext(context.Context) TopicRuleRepublishActionHeadersOutput
+}
+
+type TopicRuleRepublishActionHeadersArgs struct {
+	ContentType            pulumi.StringPtrInput           `pulumi:"contentType"`
+	CorrelationData        pulumi.StringPtrInput           `pulumi:"correlationData"`
+	MessageExpiry          pulumi.StringPtrInput           `pulumi:"messageExpiry"`
+	PayloadFormatIndicator pulumi.StringPtrInput           `pulumi:"payloadFormatIndicator"`
+	ResponseTopic          pulumi.StringPtrInput           `pulumi:"responseTopic"`
+	UserProperties         TopicRuleUserPropertyArrayInput `pulumi:"userProperties"`
+}
+
+func (TopicRuleRepublishActionHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleRepublishActionHeaders)(nil)).Elem()
+}
+
+func (i TopicRuleRepublishActionHeadersArgs) ToTopicRuleRepublishActionHeadersOutput() TopicRuleRepublishActionHeadersOutput {
+	return i.ToTopicRuleRepublishActionHeadersOutputWithContext(context.Background())
+}
+
+func (i TopicRuleRepublishActionHeadersArgs) ToTopicRuleRepublishActionHeadersOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishActionHeadersOutput)
+}
+
+func (i TopicRuleRepublishActionHeadersArgs) ToTopicRuleRepublishActionHeadersPtrOutput() TopicRuleRepublishActionHeadersPtrOutput {
+	return i.ToTopicRuleRepublishActionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleRepublishActionHeadersArgs) ToTopicRuleRepublishActionHeadersPtrOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishActionHeadersOutput).ToTopicRuleRepublishActionHeadersPtrOutputWithContext(ctx)
+}
+
+// TopicRuleRepublishActionHeadersPtrInput is an input type that accepts TopicRuleRepublishActionHeadersArgs, TopicRuleRepublishActionHeadersPtr and TopicRuleRepublishActionHeadersPtrOutput values.
+// You can construct a concrete instance of `TopicRuleRepublishActionHeadersPtrInput` via:
+//
+//	        TopicRuleRepublishActionHeadersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleRepublishActionHeadersPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleRepublishActionHeadersPtrOutput() TopicRuleRepublishActionHeadersPtrOutput
+	ToTopicRuleRepublishActionHeadersPtrOutputWithContext(context.Context) TopicRuleRepublishActionHeadersPtrOutput
+}
+
+type topicRuleRepublishActionHeadersPtrType TopicRuleRepublishActionHeadersArgs
+
+func TopicRuleRepublishActionHeadersPtr(v *TopicRuleRepublishActionHeadersArgs) TopicRuleRepublishActionHeadersPtrInput {
+	return (*topicRuleRepublishActionHeadersPtrType)(v)
+}
+
+func (*topicRuleRepublishActionHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleRepublishActionHeaders)(nil)).Elem()
+}
+
+func (i *topicRuleRepublishActionHeadersPtrType) ToTopicRuleRepublishActionHeadersPtrOutput() TopicRuleRepublishActionHeadersPtrOutput {
+	return i.ToTopicRuleRepublishActionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleRepublishActionHeadersPtrType) ToTopicRuleRepublishActionHeadersPtrOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishActionHeadersPtrOutput)
+}
+
+type TopicRuleRepublishActionHeadersOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleRepublishActionHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleRepublishActionHeaders)(nil)).Elem()
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ToTopicRuleRepublishActionHeadersOutput() TopicRuleRepublishActionHeadersOutput {
+	return o
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ToTopicRuleRepublishActionHeadersOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersOutput {
+	return o
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ToTopicRuleRepublishActionHeadersPtrOutput() TopicRuleRepublishActionHeadersPtrOutput {
+	return o.ToTopicRuleRepublishActionHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ToTopicRuleRepublishActionHeadersPtrOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleRepublishActionHeaders) *TopicRuleRepublishActionHeaders {
+		return &v
+	}).(TopicRuleRepublishActionHeadersPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) CorrelationData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.CorrelationData }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) MessageExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.MessageExpiry }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) PayloadFormatIndicator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.PayloadFormatIndicator }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) ResponseTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) *string { return v.ResponseTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersOutput) UserProperties() TopicRuleUserPropertyArrayOutput {
+	return o.ApplyT(func(v TopicRuleRepublishActionHeaders) []TopicRuleUserProperty { return v.UserProperties }).(TopicRuleUserPropertyArrayOutput)
+}
+
+type TopicRuleRepublishActionHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleRepublishActionHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleRepublishActionHeaders)(nil)).Elem()
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) ToTopicRuleRepublishActionHeadersPtrOutput() TopicRuleRepublishActionHeadersPtrOutput {
+	return o
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) ToTopicRuleRepublishActionHeadersPtrOutputWithContext(ctx context.Context) TopicRuleRepublishActionHeadersPtrOutput {
+	return o
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) Elem() TopicRuleRepublishActionHeadersOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) TopicRuleRepublishActionHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleRepublishActionHeaders
+		return ret
+	}).(TopicRuleRepublishActionHeadersOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) CorrelationData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CorrelationData
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) MessageExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageExpiry
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) PayloadFormatIndicator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PayloadFormatIndicator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) ResponseTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleRepublishActionHeadersPtrOutput) UserProperties() TopicRuleUserPropertyArrayOutput {
+	return o.ApplyT(func(v *TopicRuleRepublishActionHeaders) []TopicRuleUserProperty {
+		if v == nil {
+			return nil
+		}
+		return v.UserProperties
+	}).(TopicRuleUserPropertyArrayOutput)
 }
 
 type TopicRuleS3Action struct {
@@ -12560,6 +12783,106 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleUserProperty struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleUserPropertyInput is an input type that accepts TopicRuleUserPropertyArgs and TopicRuleUserPropertyOutput values.
+// You can construct a concrete instance of `TopicRuleUserPropertyInput` via:
+//
+//	TopicRuleUserPropertyArgs{...}
+type TopicRuleUserPropertyInput interface {
+	pulumi.Input
+
+	ToTopicRuleUserPropertyOutput() TopicRuleUserPropertyOutput
+	ToTopicRuleUserPropertyOutputWithContext(context.Context) TopicRuleUserPropertyOutput
+}
+
+type TopicRuleUserPropertyArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleUserPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleUserProperty)(nil)).Elem()
+}
+
+func (i TopicRuleUserPropertyArgs) ToTopicRuleUserPropertyOutput() TopicRuleUserPropertyOutput {
+	return i.ToTopicRuleUserPropertyOutputWithContext(context.Background())
+}
+
+func (i TopicRuleUserPropertyArgs) ToTopicRuleUserPropertyOutputWithContext(ctx context.Context) TopicRuleUserPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleUserPropertyOutput)
+}
+
+// TopicRuleUserPropertyArrayInput is an input type that accepts TopicRuleUserPropertyArray and TopicRuleUserPropertyArrayOutput values.
+// You can construct a concrete instance of `TopicRuleUserPropertyArrayInput` via:
+//
+//	TopicRuleUserPropertyArray{ TopicRuleUserPropertyArgs{...} }
+type TopicRuleUserPropertyArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleUserPropertyArrayOutput() TopicRuleUserPropertyArrayOutput
+	ToTopicRuleUserPropertyArrayOutputWithContext(context.Context) TopicRuleUserPropertyArrayOutput
+}
+
+type TopicRuleUserPropertyArray []TopicRuleUserPropertyInput
+
+func (TopicRuleUserPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleUserProperty)(nil)).Elem()
+}
+
+func (i TopicRuleUserPropertyArray) ToTopicRuleUserPropertyArrayOutput() TopicRuleUserPropertyArrayOutput {
+	return i.ToTopicRuleUserPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleUserPropertyArray) ToTopicRuleUserPropertyArrayOutputWithContext(ctx context.Context) TopicRuleUserPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleUserPropertyArrayOutput)
+}
+
+type TopicRuleUserPropertyOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleUserPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleUserProperty)(nil)).Elem()
+}
+
+func (o TopicRuleUserPropertyOutput) ToTopicRuleUserPropertyOutput() TopicRuleUserPropertyOutput {
+	return o
+}
+
+func (o TopicRuleUserPropertyOutput) ToTopicRuleUserPropertyOutputWithContext(ctx context.Context) TopicRuleUserPropertyOutput {
+	return o
+}
+
+func (o TopicRuleUserPropertyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleUserProperty) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleUserPropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleUserProperty) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleUserPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleUserPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleUserProperty)(nil)).Elem()
+}
+
+func (o TopicRuleUserPropertyArrayOutput) ToTopicRuleUserPropertyArrayOutput() TopicRuleUserPropertyArrayOutput {
+	return o
+}
+
+func (o TopicRuleUserPropertyArrayOutput) ToTopicRuleUserPropertyArrayOutputWithContext(ctx context.Context) TopicRuleUserPropertyArrayOutput {
+	return o
+}
+
+func (o TopicRuleUserPropertyArrayOutput) Index(i pulumi.IntInput) TopicRuleUserPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleUserProperty {
+		return vs[0].([]TopicRuleUserProperty)[vs[1].(int)]
+	}).(TopicRuleUserPropertyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AbortConfigPropertiesInput)(nil)).Elem(), AbortConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AbortConfigPropertiesPtrInput)(nil)).Elem(), AbortConfigPropertiesArgs{})
@@ -12701,6 +13024,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePutItemInputPtrInput)(nil)).Elem(), TopicRulePutItemInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishActionInput)(nil)).Elem(), TopicRuleRepublishActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishActionPtrInput)(nil)).Elem(), TopicRuleRepublishActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishActionHeadersInput)(nil)).Elem(), TopicRuleRepublishActionHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleRepublishActionHeadersPtrInput)(nil)).Elem(), TopicRuleRepublishActionHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3ActionInput)(nil)).Elem(), TopicRuleS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleS3ActionPtrInput)(nil)).Elem(), TopicRuleS3ActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSigV4AuthorizationInput)(nil)).Elem(), TopicRuleSigV4AuthorizationArgs{})
@@ -12721,6 +13046,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionArrayInput)(nil)).Elem(), TopicRuleTimestreamDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleUserPropertyInput)(nil)).Elem(), TopicRuleUserPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleUserPropertyArrayInput)(nil)).Elem(), TopicRuleUserPropertyArray{})
 	pulumi.RegisterOutputType(AbortConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(AbortConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditCheckConfigurationOutput{})
@@ -12866,6 +13193,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRulePutItemInputPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleRepublishActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleRepublishActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleRepublishActionHeadersOutput{})
+	pulumi.RegisterOutputType(TopicRuleRepublishActionHeadersPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleS3ActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleS3ActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleSigV4AuthorizationOutput{})
@@ -12886,4 +13215,6 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleUserPropertyOutput{})
+	pulumi.RegisterOutputType(TopicRuleUserPropertyArrayOutput{})
 }

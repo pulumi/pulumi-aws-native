@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "aws-native:apprunner:VpcConnector":
 		r = &VpcConnector{}
+	case "aws-native:apprunner:VpcIngressConnection":
+		r = &VpcIngressConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

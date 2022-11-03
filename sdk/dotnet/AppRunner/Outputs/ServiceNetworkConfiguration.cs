@@ -16,12 +16,17 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
-        public readonly Outputs.ServiceEgressConfiguration EgressConfiguration;
+        public readonly Outputs.ServiceEgressConfiguration? EgressConfiguration;
+        public readonly Outputs.ServiceIngressConfiguration? IngressConfiguration;
 
         [OutputConstructor]
-        private ServiceNetworkConfiguration(Outputs.ServiceEgressConfiguration egressConfiguration)
+        private ServiceNetworkConfiguration(
+            Outputs.ServiceEgressConfiguration? egressConfiguration,
+
+            Outputs.ServiceIngressConfiguration? ingressConfiguration)
         {
             EgressConfiguration = egressConfiguration;
+            IngressConfiguration = ingressConfiguration;
         }
     }
 }

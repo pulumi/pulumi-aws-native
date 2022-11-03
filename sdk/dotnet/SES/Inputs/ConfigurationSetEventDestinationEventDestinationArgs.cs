@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SES.Inputs
         private InputList<string>? _matchingEventTypes;
 
         /// <summary>
-        /// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        /// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         /// </summary>
         public InputList<string> MatchingEventTypes
         {

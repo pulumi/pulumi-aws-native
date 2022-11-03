@@ -30,10 +30,6 @@ export interface GetDBParameterGroupArgs {
 
 export interface GetDBParameterGroupResult {
     /**
-     * Specifies the name of the DB parameter group
-     */
-    readonly dBParameterGroupName?: string;
-    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.rds.DBParameterGroupTag[];

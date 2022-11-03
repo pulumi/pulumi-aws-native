@@ -31,6 +31,7 @@ export interface GetUserPoolResult {
     readonly aliasAttributes?: string[];
     readonly arn?: string;
     readonly autoVerifiedAttributes?: string[];
+    readonly deletionProtection?: string;
     readonly deviceConfiguration?: outputs.cognito.UserPoolDeviceConfiguration;
     readonly emailConfiguration?: outputs.cognito.UserPoolEmailConfiguration;
     readonly emailVerificationMessage?: string;

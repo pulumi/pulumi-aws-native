@@ -35,7 +35,7 @@ type FlowLog struct {
 	// The tags to apply to the flow logs.
 	Tags FlowLogTagArrayOutput `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType FlowLogTrafficTypeOutput `pulumi:"trafficType"`
+	TrafficType FlowLogTrafficTypePtrOutput `pulumi:"trafficType"`
 }
 
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
@@ -50,9 +50,6 @@ func NewFlowLog(ctx *pulumi.Context,
 	}
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
-	}
-	if args.TrafficType == nil {
-		return nil, errors.New("invalid value for required argument 'TrafficType'")
 	}
 	var resource FlowLog
 	err := ctx.RegisterResource("aws-native:ec2:FlowLog", name, args, &resource, opts...)
@@ -106,7 +103,7 @@ type flowLogArgs struct {
 	// The tags to apply to the flow logs.
 	Tags []FlowLogTag `pulumi:"tags"`
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType FlowLogTrafficType `pulumi:"trafficType"`
+	TrafficType *FlowLogTrafficType `pulumi:"trafficType"`
 }
 
 // The set of arguments for constructing a FlowLog resource.
@@ -131,7 +128,7 @@ type FlowLogArgs struct {
 	// The tags to apply to the flow logs.
 	Tags FlowLogTagArrayInput
 	// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-	TrafficType FlowLogTrafficTypeInput
+	TrafficType FlowLogTrafficTypePtrInput
 }
 
 func (FlowLogArgs) ElementType() reflect.Type {
@@ -221,8 +218,8 @@ func (o FlowLogOutput) Tags() FlowLogTagArrayOutput {
 }
 
 // The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
-func (o FlowLogOutput) TrafficType() FlowLogTrafficTypeOutput {
-	return o.ApplyT(func(v *FlowLog) FlowLogTrafficTypeOutput { return v.TrafficType }).(FlowLogTrafficTypeOutput)
+func (o FlowLogOutput) TrafficType() FlowLogTrafficTypePtrOutput {
+	return o.ApplyT(func(v *FlowLog) FlowLogTrafficTypePtrOutput { return v.TrafficType }).(FlowLogTrafficTypePtrOutput)
 }
 
 func init() {

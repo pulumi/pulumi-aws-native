@@ -124,8 +124,7 @@
     "/properties/OptionGroupName" : "$lowercase(OptionGroupName)"
   },
   "required" : [ "EngineName", "MajorEngineVersion", "OptionGroupDescription" ],
-  "readOnlyProperties" : [ "/properties/OptionGroupName" ],
-  "createOnlyProperties" : [ "/properties/EngineName", "/properties/MajorEngineVersion", "/properties/OptionGroupDescription" ],
+  "createOnlyProperties" : [ "/properties/EngineName", "/properties/MajorEngineVersion", "/properties/OptionGroupDescription", "/properties/OptionGroupName" ],
   "primaryIdentifier" : [ "/properties/OptionGroupName" ],
   "handlers" : {
     "create" : {

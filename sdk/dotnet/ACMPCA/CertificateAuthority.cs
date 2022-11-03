@@ -72,6 +72,12 @@ namespace Pulumi.AwsNative.ACMPCA
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Usage mode of the ceritificate authority.
+        /// </summary>
+        [Output("usageMode")]
+        public Output<string?> UsageMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CertificateAuthority resource with the given unique name, arguments, and options.
@@ -166,6 +172,12 @@ namespace Pulumi.AwsNative.ACMPCA
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Usage mode of the ceritificate authority.
+        /// </summary>
+        [Input("usageMode")]
+        public Input<string>? UsageMode { get; set; }
 
         public CertificateAuthorityArgs()
         {

@@ -168,7 +168,7 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationSnsDestinationArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param pulumi.Input['ConfigurationSetEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
         :param pulumi.Input[bool] enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
         :param pulumi.Input['ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
@@ -191,7 +191,7 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
     @pulumi.getter(name="matchingEventTypes")
     def matching_event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+        The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         """
         return pulumi.get(self, "matching_event_types")
 

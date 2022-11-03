@@ -25,15 +25,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? CopySourceArn;
         public readonly Outputs.DataSourceCredentialPair? CredentialPair;
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.&lt;/p&gt;
+        /// </summary>
+        public readonly string? SecretArn;
 
         [OutputConstructor]
         private DataSourceCredentials(
             string? copySourceArn,
 
-            Outputs.DataSourceCredentialPair? credentialPair)
+            Outputs.DataSourceCredentialPair? credentialPair,
+
+            string? secretArn)
         {
             CopySourceArn = copySourceArn;
             CredentialPair = credentialPair;
+            SecretArn = secretArn;
         }
     }
 }

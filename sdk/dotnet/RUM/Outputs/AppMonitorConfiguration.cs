@@ -45,6 +45,10 @@ namespace Pulumi.AwsNative.RUM.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludedPages;
         /// <summary>
+        /// An array of structures which define the destinations and the metrics that you want to send.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AppMonitorMetricDestination> MetricDestinations;
+        /// <summary>
         /// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
         /// </summary>
         public readonly double? SessionSampleRate;
@@ -69,6 +73,8 @@ namespace Pulumi.AwsNative.RUM.Outputs
 
             ImmutableArray<string> includedPages,
 
+            ImmutableArray<Outputs.AppMonitorMetricDestination> metricDestinations,
+
             double? sessionSampleRate,
 
             ImmutableArray<Pulumi.AwsNative.RUM.AppMonitorTelemetry> telemetries)
@@ -80,6 +86,7 @@ namespace Pulumi.AwsNative.RUM.Outputs
             GuestRoleArn = guestRoleArn;
             IdentityPoolId = identityPoolId;
             IncludedPages = includedPages;
+            MetricDestinations = metricDestinations;
             SessionSampleRate = sessionSampleRate;
             Telemetries = telemetries;
         }

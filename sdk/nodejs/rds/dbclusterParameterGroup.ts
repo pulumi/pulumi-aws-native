@@ -37,7 +37,7 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBClusterParameterGroup.__pulumiType;
     }
 
-    public /*out*/ readonly dBClusterParameterGroupName!: pulumi.Output<string>;
+    public readonly dBClusterParameterGroupName!: pulumi.Output<string | undefined>;
     /**
      * A friendly description for this DB cluster parameter group.
      */
@@ -75,11 +75,11 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
             if ((!args || args.parameters === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
+            resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["dBClusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -96,6 +96,7 @@ export class DBClusterParameterGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBClusterParameterGroup resource.
  */
 export interface DBClusterParameterGroupArgs {
+    dBClusterParameterGroupName?: pulumi.Input<string>;
     /**
      * A friendly description for this DB cluster parameter group.
      */

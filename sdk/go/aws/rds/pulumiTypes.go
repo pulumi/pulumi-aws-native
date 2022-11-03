@@ -456,6 +456,12 @@ type DBClusterScalingConfiguration struct {
 	MinCapacity *int `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
+	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+	// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+	// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//
+	// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+	TimeoutAction *string `pulumi:"timeoutAction"`
 }
 
 // DBClusterScalingConfigurationInput is an input type that accepts DBClusterScalingConfigurationArgs and DBClusterScalingConfigurationOutput values.
@@ -485,6 +491,12 @@ type DBClusterScalingConfigurationArgs struct {
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
+	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+	// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+	// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+	//
+	// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+	TimeoutAction pulumi.StringPtrInput `pulumi:"timeoutAction"`
 }
 
 func (DBClusterScalingConfigurationArgs) ElementType() reflect.Type {
@@ -591,6 +603,15 @@ func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntP
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
 
+// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+//
+// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+func (o DBClusterScalingConfigurationOutput) TimeoutAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *string { return v.TimeoutAction }).(pulumi.StringPtrOutput)
+}
+
 type DBClusterScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DBClusterScalingConfigurationPtrOutput) ElementType() reflect.Type {
@@ -659,6 +680,20 @@ func (o DBClusterScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.I
 		}
 		return v.SecondsUntilAutoPause
 	}).(pulumi.IntPtrOutput)
+}
+
+// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
+// ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
+// RollbackCapacityChange, the default, ignores the capacity change if a scaling point isn't found in the timeout period.
+//
+// For more information, see Autoscaling for Aurora Serverless v1 in the Amazon Aurora User Guide.
+func (o DBClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutAction
+	}).(pulumi.StringPtrOutput)
 }
 
 // Contains the scaling configuration of an Aurora Serverless v2 DB cluster.

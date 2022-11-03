@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResult:
-    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, enabled_mfas=None, id=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
+    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, enabled_mfas=None, id=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
         if account_recovery_setting and not isinstance(account_recovery_setting, dict):
             raise TypeError("Expected argument 'account_recovery_setting' to be a dict")
         pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -35,6 +35,9 @@ class GetUserPoolResult:
         if auto_verified_attributes and not isinstance(auto_verified_attributes, list):
             raise TypeError("Expected argument 'auto_verified_attributes' to be a list")
         pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
+        if deletion_protection and not isinstance(deletion_protection, str):
+            raise TypeError("Expected argument 'deletion_protection' to be a str")
+        pulumi.set(__self__, "deletion_protection", deletion_protection)
         if device_configuration and not isinstance(device_configuration, dict):
             raise TypeError("Expected argument 'device_configuration' to be a dict")
         pulumi.set(__self__, "device_configuration", device_configuration)
@@ -126,6 +129,11 @@ class GetUserPoolResult:
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "auto_verified_attributes")
+
+    @property
+    @pulumi.getter(name="deletionProtection")
+    def deletion_protection(self) -> Optional[str]:
+        return pulumi.get(self, "deletion_protection")
 
     @property
     @pulumi.getter(name="deviceConfiguration")
@@ -249,6 +257,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             alias_attributes=self.alias_attributes,
             arn=self.arn,
             auto_verified_attributes=self.auto_verified_attributes,
+            deletion_protection=self.deletion_protection,
             device_configuration=self.device_configuration,
             email_configuration=self.email_configuration,
             email_verification_message=self.email_verification_message,
@@ -289,6 +298,7 @@ def get_user_pool(id: Optional[str] = None,
         alias_attributes=__ret__.alias_attributes,
         arn=__ret__.arn,
         auto_verified_attributes=__ret__.auto_verified_attributes,
+        deletion_protection=__ret__.deletion_protection,
         device_configuration=__ret__.device_configuration,
         email_configuration=__ret__.email_configuration,
         email_verification_message=__ret__.email_verification_message,

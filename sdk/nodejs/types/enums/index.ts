@@ -39,6 +39,7 @@ import * as finspace from "./finspace";
 import * as fms from "./fms";
 import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
+import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
@@ -152,6 +153,7 @@ export {
     fms,
     forecast,
     frauddetector,
+    fsx,
     gamelift,
     globalaccelerator,
     glue,

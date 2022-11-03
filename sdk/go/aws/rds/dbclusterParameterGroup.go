@@ -15,7 +15,7 @@ import (
 type DBClusterParameterGroup struct {
 	pulumi.CustomResourceState
 
-	DBClusterParameterGroupName pulumi.StringOutput `pulumi:"dBClusterParameterGroupName"`
+	DBClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"dBClusterParameterGroupName"`
 	// A friendly description for this DB cluster parameter group.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
@@ -74,6 +74,7 @@ func (DBClusterParameterGroupState) ElementType() reflect.Type {
 }
 
 type dbclusterParameterGroupArgs struct {
+	DBClusterParameterGroupName *string `pulumi:"dBClusterParameterGroupName"`
 	// A friendly description for this DB cluster parameter group.
 	Description string `pulumi:"description"`
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
@@ -86,6 +87,7 @@ type dbclusterParameterGroupArgs struct {
 
 // The set of arguments for constructing a DBClusterParameterGroup resource.
 type DBClusterParameterGroupArgs struct {
+	DBClusterParameterGroupName pulumi.StringPtrInput
 	// A friendly description for this DB cluster parameter group.
 	Description pulumi.StringInput
 	// The DB cluster parameter group family name. A DB cluster parameter group can be associated with one and only one DB cluster parameter group family, and can be applied only to a DB cluster running a DB engine and engine version compatible with that DB cluster parameter group family.
@@ -133,8 +135,8 @@ func (o DBClusterParameterGroupOutput) ToDBClusterParameterGroupOutputWithContex
 	return o
 }
 
-func (o DBClusterParameterGroupOutput) DBClusterParameterGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringOutput { return v.DBClusterParameterGroupName }).(pulumi.StringOutput)
+func (o DBClusterParameterGroupOutput) DBClusterParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterParameterGroup) pulumi.StringPtrOutput { return v.DBClusterParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // A friendly description for this DB cluster parameter group.

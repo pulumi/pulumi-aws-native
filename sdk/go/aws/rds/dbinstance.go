@@ -42,6 +42,8 @@ type DBInstance struct {
 	CustomIAMInstanceProfile pulumi.StringPtrOutput `pulumi:"customIAMInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
+	// The Amazon Resource Name (ARN) for the DB instance.
+	DBInstanceArn pulumi.StringOutput `pulumi:"dBInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	DBInstanceClass pulumi.StringPtrOutput `pulumi:"dBInstanceClass"`
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
@@ -56,6 +58,8 @@ type DBInstance struct {
 	DBSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dBSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -116,6 +120,8 @@ type DBInstance struct {
 	PromotionTier pulumi.IntPtrOutput `pulumi:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// The open mode of an Oracle read replica. The default is open-read-only.
+	ReplicaMode pulumi.StringPtrOutput `pulumi:"replicaMode"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBInstanceIdentifier"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -279,6 +285,8 @@ type dbinstanceArgs struct {
 	PromotionTier *int `pulumi:"promotionTier"`
 	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The open mode of an Oracle read replica. The default is open-read-only.
+	ReplicaMode *string `pulumi:"replicaMode"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier *string `pulumi:"sourceDBInstanceIdentifier"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -405,6 +413,8 @@ type DBInstanceArgs struct {
 	PromotionTier pulumi.IntPtrInput
 	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// The open mode of an Oracle read replica. The default is open-read-only.
+	ReplicaMode pulumi.StringPtrInput
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier pulumi.StringPtrInput
 	// The ID of the region that contains the source DB instance for the Read Replica.
@@ -525,6 +535,11 @@ func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the DB instance.
+func (o DBInstanceOutput) DBInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBInstanceArn }).(pulumi.StringOutput)
+}
+
 // The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 func (o DBInstanceOutput) DBInstanceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBInstanceClass }).(pulumi.StringPtrOutput)
@@ -558,6 +573,11 @@ func (o DBInstanceOutput) DBSnapshotIdentifier() pulumi.StringPtrOutput {
 // A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 func (o DBInstanceOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+func (o DBInstanceOutput) DbiResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
 }
 
 // A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -708,6 +728,11 @@ func (o DBInstanceOutput) PromotionTier() pulumi.IntPtrOutput {
 // Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
 func (o DBInstanceOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The open mode of an Oracle read replica. The default is open-read-only.
+func (o DBInstanceOutput) ReplicaMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.ReplicaMode }).(pulumi.StringPtrOutput)
 }
 
 // If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.

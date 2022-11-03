@@ -112,10 +112,11 @@ export const EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
 export type EC2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof EC2FleetInstanceRequirementsRequestLocalStorageTypesItem];
 
 export const EC2FleetSpotOptionsRequestAllocationStrategy = {
-    LowestPrice: "lowestPrice",
+    LowestPrice: "lowest-price",
     Diversified: "diversified",
     CapacityOptimized: "capacityOptimized",
     CapacityOptimizedPrioritized: "capacityOptimizedPrioritized",
+    PriceCapacityOptimized: "priceCapacityOptimized",
 } as const;
 
 export type EC2FleetSpotOptionsRequestAllocationStrategy = (typeof EC2FleetSpotOptionsRequestAllocationStrategy)[keyof typeof EC2FleetSpotOptionsRequestAllocationStrategy];
@@ -440,6 +441,7 @@ export const SpotFleetRequestConfigDataAllocationStrategy = {
     CapacityOptimizedPrioritized: "capacityOptimizedPrioritized",
     Diversified: "diversified",
     LowestPrice: "lowestPrice",
+    PriceCapacityOptimized: "priceCapacityOptimized",
 } as const;
 
 export type SpotFleetRequestConfigDataAllocationStrategy = (typeof SpotFleetRequestConfigDataAllocationStrategy)[keyof typeof SpotFleetRequestConfigDataAllocationStrategy];

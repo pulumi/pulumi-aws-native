@@ -34,6 +34,8 @@ type CertificateAuthority struct {
 	Tags    CertificateAuthorityTagArrayOutput `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Usage mode of the ceritificate authority.
+	UsageMode pulumi.StringPtrOutput `pulumi:"usageMode"`
 }
 
 // NewCertificateAuthority registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +104,8 @@ type certificateAuthorityArgs struct {
 	Tags    []CertificateAuthorityTag   `pulumi:"tags"`
 	// The type of the certificate authority.
 	Type string `pulumi:"type"`
+	// Usage mode of the ceritificate authority.
+	UsageMode *string `pulumi:"usageMode"`
 }
 
 // The set of arguments for constructing a CertificateAuthority resource.
@@ -121,6 +125,8 @@ type CertificateAuthorityArgs struct {
 	Tags    CertificateAuthorityTagArrayInput
 	// The type of the certificate authority.
 	Type pulumi.StringInput
+	// Usage mode of the ceritificate authority.
+	UsageMode pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityArgs) ElementType() reflect.Type {
@@ -209,6 +215,11 @@ func (o CertificateAuthorityOutput) Tags() CertificateAuthorityTagArrayOutput {
 // The type of the certificate authority.
 func (o CertificateAuthorityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Usage mode of the ceritificate authority.
+func (o CertificateAuthorityOutput) UsageMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthority) pulumi.StringPtrOutput { return v.UsageMode }).(pulumi.StringPtrOutput)
 }
 
 func init() {

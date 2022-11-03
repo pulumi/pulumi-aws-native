@@ -56,7 +56,7 @@ export class OptionGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of the option group.
      */
-    public /*out*/ readonly optionGroupName!: pulumi.Output<string>;
+    public readonly optionGroupName!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -86,8 +86,8 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
             resourceInputs["optionConfigurations"] = args ? args.optionConfigurations : undefined;
             resourceInputs["optionGroupDescription"] = args ? args.optionGroupDescription : undefined;
+            resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["optionGroupName"] = undefined /*out*/;
         } else {
             resourceInputs["engineName"] = undefined /*out*/;
             resourceInputs["majorEngineVersion"] = undefined /*out*/;
@@ -121,6 +121,10 @@ export interface OptionGroupArgs {
      * Provides a description of the option group.
      */
     optionGroupDescription: pulumi.Input<string>;
+    /**
+     * Specifies the name of the option group.
+     */
+    optionGroupName?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

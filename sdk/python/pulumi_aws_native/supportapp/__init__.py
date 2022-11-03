@@ -10,3 +10,4 @@ from .account_alias import *
 from .get_account_alias import *
 from .get_slack_channel_configuration import *
 from .slack_channel_configuration import *
+from .slack_workspace_configuration import *

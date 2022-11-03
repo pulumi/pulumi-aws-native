@@ -75,6 +75,18 @@ namespace Pulumi.AwsNative.RUM.Inputs
             set => _includedPages = value;
         }
 
+        [Input("metricDestinations")]
+        private InputList<Inputs.AppMonitorMetricDestinationArgs>? _metricDestinations;
+
+        /// <summary>
+        /// An array of structures which define the destinations and the metrics that you want to send.
+        /// </summary>
+        public InputList<Inputs.AppMonitorMetricDestinationArgs> MetricDestinations
+        {
+            get => _metricDestinations ?? (_metricDestinations = new InputList<Inputs.AppMonitorMetricDestinationArgs>());
+            set => _metricDestinations = value;
+        }
+
         /// <summary>
         /// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
         /// </summary>

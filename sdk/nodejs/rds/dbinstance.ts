@@ -88,6 +88,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) for the DB instance.
+     */
+    public /*out*/ readonly dBInstanceArn!: pulumi.Output<string>;
+    /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
     public readonly dBInstanceClass!: pulumi.Output<string | undefined>;
@@ -115,6 +119,10 @@ export class DBInstance extends pulumi.CustomResource {
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
      */
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
+     */
+    public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
      * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
      */
@@ -236,6 +244,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
+     * The open mode of an Oracle read replica. The default is open-read-only.
+     */
+    public readonly replicaMode!: pulumi.Output<string | undefined>;
+    /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */
     public readonly sourceDBInstanceIdentifier!: pulumi.Output<string | undefined>;
@@ -335,6 +347,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["processorFeatures"] = args ? args.processorFeatures : undefined;
             resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["replicaMode"] = args ? args.replicaMode : undefined;
             resourceInputs["sourceDBInstanceIdentifier"] = args ? args.sourceDBInstanceIdentifier : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
@@ -345,6 +358,8 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
             resourceInputs["vPCSecurityGroups"] = args ? args.vPCSecurityGroups : undefined;
+            resourceInputs["dBInstanceArn"] = undefined /*out*/;
+            resourceInputs["dbiResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["allowMajorVersionUpgrade"] = undefined /*out*/;
@@ -357,6 +372,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["customIAMInstanceProfile"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dBInstanceArn"] = undefined /*out*/;
             resourceInputs["dBInstanceClass"] = undefined /*out*/;
             resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["dBName"] = undefined /*out*/;
@@ -364,6 +380,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["dBSecurityGroups"] = undefined /*out*/;
             resourceInputs["dBSnapshotIdentifier"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
@@ -394,6 +411,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["processorFeatures"] = undefined /*out*/;
             resourceInputs["promotionTier"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
+            resourceInputs["replicaMode"] = undefined /*out*/;
             resourceInputs["sourceDBInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
@@ -612,6 +630,10 @@ export interface DBInstanceArgs {
      * Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * The open mode of an Oracle read replica. The default is open-read-only.
+     */
+    replicaMode?: pulumi.Input<string>;
     /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */

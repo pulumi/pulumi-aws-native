@@ -35,6 +35,7 @@ class ApiArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Api resource.
+        :param Any tags: This resource type use map for Tags, suggest to use List of Tag
         """
         if api_key_selection_expression is not None:
             pulumi.set(__self__, "api_key_selection_expression", api_key_selection_expression)
@@ -200,6 +201,9 @@ class ApiArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
+        """
+        This resource type use map for Tags, suggest to use List of Tag
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -225,12 +229,7 @@ class ApiArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Api(pulumi.CustomResource):
-    warnings.warn("""Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -258,6 +257,7 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any tags: This resource type use map for Tags, suggest to use List of Tag
         """
         ...
     @overload
@@ -301,7 +301,6 @@ class Api(pulumi.CustomResource):
                  target: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Api is deprecated: Api is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -328,6 +327,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["target"] = target
             __props__.__dict__["version"] = version
             __props__.__dict__["api_endpoint"] = None
+            __props__.__dict__["api_id"] = None
         super(Api, __self__).__init__(
             'aws-native:apigatewayv2:Api',
             resource_name,
@@ -351,6 +351,7 @@ class Api(pulumi.CustomResource):
         __props__ = ApiArgs.__new__(ApiArgs)
 
         __props__.__dict__["api_endpoint"] = None
+        __props__.__dict__["api_id"] = None
         __props__.__dict__["api_key_selection_expression"] = None
         __props__.__dict__["base_path"] = None
         __props__.__dict__["body"] = None
@@ -374,6 +375,11 @@ class Api(pulumi.CustomResource):
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
@@ -448,6 +454,9 @@ class Api(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Any]]:
+        """
+        This resource type use map for Tags, suggest to use List of Tag
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -143,10 +143,11 @@ class EC2FleetInstanceRequirementsRequestLocalStorageTypesItem(str, Enum):
 
 
 class EC2FleetSpotOptionsRequestAllocationStrategy(str, Enum):
-    LOWEST_PRICE = "lowestPrice"
+    LOWEST_PRICE = "lowest-price"
     DIVERSIFIED = "diversified"
     CAPACITY_OPTIMIZED = "capacityOptimized"
     CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
+    PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
 
 
 class EC2FleetSpotOptionsRequestInstanceInterruptionBehavior(str, Enum):
@@ -409,6 +410,7 @@ class SpotFleetRequestConfigDataAllocationStrategy(str, Enum):
     CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
     DIVERSIFIED = "diversified"
     LOWEST_PRICE = "lowestPrice"
+    PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized"
 
 
 class SpotFleetRequestConfigDataExcessCapacityTerminationPolicy(str, Enum):

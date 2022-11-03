@@ -436,7 +436,7 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	Enabled *bool `pulumi:"enabled"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
-	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
 	// The name of the event destination set.
 	Name *string `pulumi:"name"`
@@ -462,7 +462,7 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
 	KinesisFirehoseDestination ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
-	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+	// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
 	// The name of the event destination set.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -515,7 +515,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) KinesisFirehoseD
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
@@ -586,7 +586,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) KinesisFireho
 	}).(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput)
 }
 
-// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure.
+// The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) []string {
 		if v == nil {

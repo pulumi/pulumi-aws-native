@@ -51,19 +51,14 @@ namespace Pulumi.AwsNative.RDS
     [OutputType]
     public sealed class GetDBClusterParameterGroupResult
     {
-        public readonly string? DBClusterParameterGroupName;
         /// <summary>
         /// The list of tags for the cluster parameter group.
         /// </summary>
         public readonly ImmutableArray<Outputs.DBClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
-        private GetDBClusterParameterGroupResult(
-            string? dBClusterParameterGroupName,
-
-            ImmutableArray<Outputs.DBClusterParameterGroupTag> tags)
+        private GetDBClusterParameterGroupResult(ImmutableArray<Outputs.DBClusterParameterGroupTag> tags)
         {
-            DBClusterParameterGroupName = dBClusterParameterGroupName;
             Tags = tags;
         }
     }

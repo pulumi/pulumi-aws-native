@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleRepublishActionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("headers")]
+        public Input<Inputs.TopicRuleRepublishActionHeadersArgs>? Headers { get; set; }
+
         [Input("qos")]
         public Input<int>? Qos { get; set; }
 

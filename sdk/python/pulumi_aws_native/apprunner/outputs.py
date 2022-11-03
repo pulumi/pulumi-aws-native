@@ -23,6 +23,7 @@ __all__ = [
     'ServiceHealthCheckConfiguration',
     'ServiceImageConfiguration',
     'ServiceImageRepository',
+    'ServiceIngressConfiguration',
     'ServiceInstanceConfiguration',
     'ServiceKeyValuePair',
     'ServiceNetworkConfiguration',
@@ -31,6 +32,8 @@ __all__ = [
     'ServiceSourceConfiguration',
     'ServiceTag',
     'VpcConnectorTag',
+    'VpcIngressConnectionIngressVpcConfiguration',
+    'VpcIngressConnectionTag',
 ]
 
 @pulumi.output_type
@@ -643,6 +646,45 @@ class ServiceImageRepository(dict):
 
 
 @pulumi.output_type
+class ServiceIngressConfiguration(dict):
+    """
+    Network ingress configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPubliclyAccessible":
+            suggest = "is_publicly_accessible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceIngressConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceIngressConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceIngressConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_publicly_accessible: bool):
+        """
+        Network ingress configuration
+        :param bool is_publicly_accessible: It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
+        """
+        pulumi.set(__self__, "is_publicly_accessible", is_publicly_accessible)
+
+    @property
+    @pulumi.getter(name="isPubliclyAccessible")
+    def is_publicly_accessible(self) -> bool:
+        """
+        It's set to true if the Apprunner service is publicly accessible. It's set to false otherwise.
+        """
+        return pulumi.get(self, "is_publicly_accessible")
+
+
+@pulumi.output_type
 class ServiceInstanceConfiguration(dict):
     """
     Instance Configuration
@@ -737,6 +779,8 @@ class ServiceNetworkConfiguration(dict):
         suggest = None
         if key == "egressConfiguration":
             suggest = "egress_configuration"
+        elif key == "ingressConfiguration":
+            suggest = "ingress_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -750,16 +794,25 @@ class ServiceNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 egress_configuration: 'outputs.ServiceEgressConfiguration'):
+                 egress_configuration: Optional['outputs.ServiceEgressConfiguration'] = None,
+                 ingress_configuration: Optional['outputs.ServiceIngressConfiguration'] = None):
         """
         Network configuration
         """
-        pulumi.set(__self__, "egress_configuration", egress_configuration)
+        if egress_configuration is not None:
+            pulumi.set(__self__, "egress_configuration", egress_configuration)
+        if ingress_configuration is not None:
+            pulumi.set(__self__, "ingress_configuration", ingress_configuration)
 
     @property
     @pulumi.getter(name="egressConfiguration")
-    def egress_configuration(self) -> 'outputs.ServiceEgressConfiguration':
+    def egress_configuration(self) -> Optional['outputs.ServiceEgressConfiguration']:
         return pulumi.get(self, "egress_configuration")
+
+    @property
+    @pulumi.getter(name="ingressConfiguration")
+    def ingress_configuration(self) -> Optional['outputs.ServiceIngressConfiguration']:
+        return pulumi.get(self, "ingress_configuration")
 
 
 @pulumi.output_type
@@ -941,6 +994,79 @@ class ServiceTag(dict):
 
 @pulumi.output_type
 class VpcConnectorTag(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcIngressConnectionIngressVpcConfiguration(dict):
+    """
+    The configuration of customer’s VPC and related VPC endpoint
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcIngressConnectionIngressVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcIngressConnectionIngressVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcIngressConnectionIngressVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_id: str,
+                 vpc_id: str):
+        """
+        The configuration of customer’s VPC and related VPC endpoint
+        :param str vpc_endpoint_id: The ID of the VPC endpoint that your App Runner service connects to.
+        :param str vpc_id: The ID of the VPC that the VPC endpoint is used in.
+        """
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> str:
+        """
+        The ID of the VPC endpoint that your App Runner service connects to.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the VPC that the VPC endpoint is used in.
+        """
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class VpcIngressConnectionTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):

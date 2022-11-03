@@ -12,6 +12,7 @@ __all__ = [
     'ServiceHealthCheckConfigurationProtocol',
     'ServiceImageRepositoryImageRepositoryType',
     'ServiceSourceCodeVersionType',
+    'VpcIngressConnectionStatus',
 ]
 
 
@@ -40,6 +41,10 @@ class ServiceCodeConfigurationValuesRuntime(str, Enum):
     CORRETTO8 = "CORRETTO_8"
     CORRETTO11 = "CORRETTO_11"
     NODEJS16 = "NODEJS_16"
+    GO1 = "GO_1"
+    DOTNET6 = "DOTNET_6"
+    PHP81 = "PHP_81"
+    RUBY31 = "RUBY_31"
 
 
 class ServiceEgressConfigurationEgressType(str, Enum):
@@ -71,3 +76,17 @@ class ServiceSourceCodeVersionType(str, Enum):
     Source Code Version Type
     """
     BRANCH = "BRANCH"
+
+
+class VpcIngressConnectionStatus(str, Enum):
+    """
+    The current status of the VpcIngressConnection.
+    """
+    AVAILABLE = "AVAILABLE"
+    PENDING_CREATION = "PENDING_CREATION"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    PENDING_DELETION = "PENDING_DELETION"
+    FAILED_CREATION = "FAILED_CREATION"
+    FAILED_UPDATE = "FAILED_UPDATE"
+    FAILED_DELETION = "FAILED_DELETION"
+    DELETED = "DELETED"

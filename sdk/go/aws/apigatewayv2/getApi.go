@@ -21,28 +21,21 @@ func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupApiArgs struct {
-	Id string `pulumi:"id"`
+	ApiId string `pulumi:"apiId"`
 }
 
 type LookupApiResult struct {
-	ApiEndpoint               *string            `pulumi:"apiEndpoint"`
-	ApiKeySelectionExpression *string            `pulumi:"apiKeySelectionExpression"`
-	BasePath                  *string            `pulumi:"basePath"`
-	Body                      interface{}        `pulumi:"body"`
-	BodyS3Location            *ApiBodyS3Location `pulumi:"bodyS3Location"`
-	CorsConfiguration         *ApiCors           `pulumi:"corsConfiguration"`
-	CredentialsArn            *string            `pulumi:"credentialsArn"`
-	Description               *string            `pulumi:"description"`
-	DisableExecuteApiEndpoint *bool              `pulumi:"disableExecuteApiEndpoint"`
-	DisableSchemaValidation   *bool              `pulumi:"disableSchemaValidation"`
-	FailOnWarnings            *bool              `pulumi:"failOnWarnings"`
-	Id                        *string            `pulumi:"id"`
-	Name                      *string            `pulumi:"name"`
-	RouteKey                  *string            `pulumi:"routeKey"`
-	RouteSelectionExpression  *string            `pulumi:"routeSelectionExpression"`
-	Tags                      interface{}        `pulumi:"tags"`
-	Target                    *string            `pulumi:"target"`
-	Version                   *string            `pulumi:"version"`
+	ApiEndpoint               *string  `pulumi:"apiEndpoint"`
+	ApiId                     *string  `pulumi:"apiId"`
+	ApiKeySelectionExpression *string  `pulumi:"apiKeySelectionExpression"`
+	CorsConfiguration         *ApiCors `pulumi:"corsConfiguration"`
+	Description               *string  `pulumi:"description"`
+	DisableExecuteApiEndpoint *bool    `pulumi:"disableExecuteApiEndpoint"`
+	Name                      *string  `pulumi:"name"`
+	RouteSelectionExpression  *string  `pulumi:"routeSelectionExpression"`
+	// This resource type use map for Tags, suggest to use List of Tag
+	Tags    interface{} `pulumi:"tags"`
+	Version *string     `pulumi:"version"`
 }
 
 func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulumi.InvokeOption) LookupApiResultOutput {
@@ -59,7 +52,7 @@ func LookupApiOutput(ctx *pulumi.Context, args LookupApiOutputArgs, opts ...pulu
 }
 
 type LookupApiOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId pulumi.StringInput `pulumi:"apiId"`
 }
 
 func (LookupApiOutputArgs) ElementType() reflect.Type {
@@ -84,28 +77,16 @@ func (o LookupApiResultOutput) ApiEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiEndpoint }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupApiResultOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupApiResultOutput) ApiKeySelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.ApiKeySelectionExpression }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupApiResultOutput) BasePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *string { return v.BasePath }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupApiResultOutput) Body() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupApiResult) interface{} { return v.Body }).(pulumi.AnyOutput)
-}
-
-func (o LookupApiResultOutput) BodyS3Location() ApiBodyS3LocationPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *ApiBodyS3Location { return v.BodyS3Location }).(ApiBodyS3LocationPtrOutput)
-}
-
 func (o LookupApiResultOutput) CorsConfiguration() ApiCorsPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *ApiCors { return v.CorsConfiguration }).(ApiCorsPtrOutput)
-}
-
-func (o LookupApiResultOutput) CredentialsArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *string { return v.CredentialsArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApiResultOutput) Description() pulumi.StringPtrOutput {
@@ -116,36 +97,17 @@ func (o LookupApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v LookupApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-func (o LookupApiResultOutput) DisableSchemaValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *bool { return v.DisableSchemaValidation }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupApiResultOutput) FailOnWarnings() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *bool { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupApiResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 func (o LookupApiResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupApiResultOutput) RouteKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *string { return v.RouteKey }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApiResultOutput) RouteSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiResult) *string { return v.RouteSelectionExpression }).(pulumi.StringPtrOutput)
 }
 
+// This resource type use map for Tags, suggest to use List of Tag
 func (o LookupApiResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupApiResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
-}
-
-func (o LookupApiResultOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupApiResult) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupApiResultOutput) Version() pulumi.StringPtrOutput {

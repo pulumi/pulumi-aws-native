@@ -8,8 +8,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'DataRepositoryAssociationAutoExportPolicyArgs',
+    'DataRepositoryAssociationAutoImportPolicyArgs',
+    'DataRepositoryAssociationS3Args',
+    'DataRepositoryAssociationTagArgs',
     'FileSystemAuditLogConfigurationArgs',
     'FileSystemClientConfigurationsArgs',
     'FileSystemDiskIopsConfigurationArgs',
@@ -35,6 +40,114 @@ __all__ = [
     'VolumeTieringPolicyArgs',
     'VolumeUserAndGroupQuotasArgs',
 ]
+
+@pulumi.input_type
+class DataRepositoryAssociationAutoExportPolicyArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
+        """
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+        """
+        pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
+        pulumi.set(self, "events", value)
+
+
+@pulumi.input_type
+class DataRepositoryAssociationAutoImportPolicyArgs:
+    def __init__(__self__, *,
+                 events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
+        """
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+        """
+        pulumi.set(__self__, "events", events)
+
+    @property
+    @pulumi.getter
+    def events(self) -> pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
+        pulumi.set(self, "events", value)
+
+
+@pulumi.input_type
+class DataRepositoryAssociationS3Args:
+    def __init__(__self__, *,
+                 auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']] = None,
+                 auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']] = None):
+        """
+        The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
+        """
+        if auto_export_policy is not None:
+            pulumi.set(__self__, "auto_export_policy", auto_export_policy)
+        if auto_import_policy is not None:
+            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
+
+    @property
+    @pulumi.getter(name="autoExportPolicy")
+    def auto_export_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']]:
+        return pulumi.get(self, "auto_export_policy")
+
+    @auto_export_policy.setter
+    def auto_export_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']]):
+        pulumi.set(self, "auto_export_policy", value)
+
+    @property
+    @pulumi.getter(name="autoImportPolicy")
+    def auto_import_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]:
+        return pulumi.get(self, "auto_import_policy")
+
+    @auto_import_policy.setter
+    def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]):
+        pulumi.set(self, "auto_import_policy", value)
+
+
+@pulumi.input_type
+class DataRepositoryAssociationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class FileSystemAuditLogConfigurationArgs:

@@ -5,7 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .data_repository_association import *
 from .file_system import *
+from .get_data_repository_association import *
 from .get_file_system import *
 from .get_snapshot import *
 from .get_storage_virtual_machine import *

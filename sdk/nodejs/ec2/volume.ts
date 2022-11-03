@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::Volume
- *
- * @deprecated Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Volume extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Volume {
-        pulumi.log.warn("Volume is deprecated: Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Volume(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,17 +37,54 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    /**
+     * The Availability Zone in which to create the volume.
+     */
     public readonly autoEnableIO!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Availability Zone in which to create the volume.
+     */
     public readonly availabilityZone!: pulumi.Output<string>;
+    /**
+     * Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
+     */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
+    /**
+     * The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
+     */
     public readonly iops!: pulumi.Output<number | undefined>;
+    /**
+     * The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether Amazon EBS Multi-Attach is enabled.
+     */
     public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
     public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
+     * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
+     */
     public readonly size!: pulumi.Output<number | undefined>;
+    /**
+     * The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+     */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
+    /**
+     * The tags to apply to the volume during creation.
+     */
     public readonly tags!: pulumi.Output<outputs.ec2.VolumeTag[] | undefined>;
+    /**
+     * The throughput that the volume supports, in MiB/s.
+     */
     public readonly throughput!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    /**
+     * The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+     */
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
@@ -60,9 +94,7 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Volume is deprecated: Volume is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -81,6 +113,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughput"] = args ? args.throughput : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["autoEnableIO"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
@@ -93,6 +126,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["throughput"] = undefined /*out*/;
+            resourceInputs["volumeId"] = undefined /*out*/;
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,16 +138,52 @@ export class Volume extends pulumi.CustomResource {
  * The set of arguments for constructing a Volume resource.
  */
 export interface VolumeArgs {
+    /**
+     * The Availability Zone in which to create the volume.
+     */
     autoEnableIO?: pulumi.Input<boolean>;
+    /**
+     * The Availability Zone in which to create the volume.
+     */
     availabilityZone: pulumi.Input<string>;
+    /**
+     * Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types.
+     */
     encrypted?: pulumi.Input<boolean>;
+    /**
+     * The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
+     */
     iops?: pulumi.Input<number>;
+    /**
+     * The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+     */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Indicates whether Amazon EBS Multi-Attach is enabled.
+     */
     multiAttachEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost.
+     */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
+     */
     size?: pulumi.Input<number>;
+    /**
+     * The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. 
+     */
     snapshotId?: pulumi.Input<string>;
+    /**
+     * The tags to apply to the volume during creation.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.VolumeTagArgs>[]>;
+    /**
+     * The throughput that the volume supports, in MiB/s.
+     */
     throughput?: pulumi.Input<number>;
+    /**
+     * The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
+     */
     volumeType?: pulumi.Input<string>;
 }

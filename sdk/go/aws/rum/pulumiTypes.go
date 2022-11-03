@@ -26,6 +26,8 @@ type AppMonitorConfiguration struct {
 	IdentityPoolId *string `pulumi:"identityPoolId"`
 	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
 	IncludedPages []string `pulumi:"includedPages"`
+	// An array of structures which define the destinations and the metrics that you want to send.
+	MetricDestinations []AppMonitorMetricDestination `pulumi:"metricDestinations"`
 	// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
 	SessionSampleRate *float64 `pulumi:"sessionSampleRate"`
 	// An array that lists the types of telemetry data that this app monitor is to collect.
@@ -59,6 +61,8 @@ type AppMonitorConfigurationArgs struct {
 	IdentityPoolId pulumi.StringPtrInput `pulumi:"identityPoolId"`
 	// If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
 	IncludedPages pulumi.StringArrayInput `pulumi:"includedPages"`
+	// An array of structures which define the destinations and the metrics that you want to send.
+	MetricDestinations AppMonitorMetricDestinationArrayInput `pulumi:"metricDestinations"`
 	// Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
 	SessionSampleRate pulumi.Float64PtrInput `pulumi:"sessionSampleRate"`
 	// An array that lists the types of telemetry data that this app monitor is to collect.
@@ -178,6 +182,11 @@ func (o AppMonitorConfigurationOutput) IncludedPages() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v AppMonitorConfiguration) []string { return v.IncludedPages }).(pulumi.StringArrayOutput)
 }
 
+// An array of structures which define the destinations and the metrics that you want to send.
+func (o AppMonitorConfigurationOutput) MetricDestinations() AppMonitorMetricDestinationArrayOutput {
+	return o.ApplyT(func(v AppMonitorConfiguration) []AppMonitorMetricDestination { return v.MetricDestinations }).(AppMonitorMetricDestinationArrayOutput)
+}
+
 // Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
 func (o AppMonitorConfigurationOutput) SessionSampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppMonitorConfiguration) *float64 { return v.SessionSampleRate }).(pulumi.Float64PtrOutput)
@@ -282,6 +291,16 @@ func (o AppMonitorConfigurationPtrOutput) IncludedPages() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
+// An array of structures which define the destinations and the metrics that you want to send.
+func (o AppMonitorConfigurationPtrOutput) MetricDestinations() AppMonitorMetricDestinationArrayOutput {
+	return o.ApplyT(func(v *AppMonitorConfiguration) []AppMonitorMetricDestination {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDestinations
+	}).(AppMonitorMetricDestinationArrayOutput)
+}
+
 // Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
 func (o AppMonitorConfigurationPtrOutput) SessionSampleRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AppMonitorConfiguration) *float64 {
@@ -300,6 +319,437 @@ func (o AppMonitorConfigurationPtrOutput) Telemetries() AppMonitorTelemetryArray
 		}
 		return v.Telemetries
 	}).(AppMonitorTelemetryArrayOutput)
+}
+
+// A single metric definition
+type AppMonitorMetricDefinition struct {
+	// Use this field only if you are sending the metric to CloudWatch.
+	//
+	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+	//
+	// "metadata.pageId": "PageId"
+	//
+	// "metadata.browserName": "BrowserName"
+	//
+	// "metadata.deviceType": "DeviceType"
+	//
+	// "metadata.osName": "OSName"
+	//
+	// "metadata.countryCode": "CountryCode"
+	//
+	// "event_details.fileType": "FileType"
+	//
+	// All dimensions listed in this field must also be included in EventPattern.
+	DimensionKeys interface{} `pulumi:"dimensionKeys"`
+	// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+	//
+	// When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+	//
+	// Example event patterns:
+	//
+	// '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+	//
+	// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+	//
+	// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+	//
+	// If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+	EventPattern *string `pulumi:"eventPattern"`
+	// The name for the metric that is defined in this structure. Valid values are the following:
+	//
+	// PerformanceNavigationDuration
+	//
+	// PerformanceResourceDuration
+	//
+	// NavigationSatisfiedTransaction
+	//
+	// NavigationToleratedTransaction
+	//
+	// NavigationFrustratedTransaction
+	//
+	// WebVitalsCumulativeLayoutShift
+	//
+	// WebVitalsFirstInputDelay
+	//
+	// WebVitalsLargestContentfulPaint
+	//
+	// JsErrorCount
+	//
+	// HttpErrorCount
+	//
+	// SessionCount
+	Name string `pulumi:"name"`
+	// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+	UnitLabel *string `pulumi:"unitLabel"`
+	// The field within the event object that the metric value is sourced from.
+	//
+	// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+	//
+	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+	ValueKey *string `pulumi:"valueKey"`
+}
+
+// AppMonitorMetricDefinitionInput is an input type that accepts AppMonitorMetricDefinitionArgs and AppMonitorMetricDefinitionOutput values.
+// You can construct a concrete instance of `AppMonitorMetricDefinitionInput` via:
+//
+//	AppMonitorMetricDefinitionArgs{...}
+type AppMonitorMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDefinitionOutput() AppMonitorMetricDefinitionOutput
+	ToAppMonitorMetricDefinitionOutputWithContext(context.Context) AppMonitorMetricDefinitionOutput
+}
+
+// A single metric definition
+type AppMonitorMetricDefinitionArgs struct {
+	// Use this field only if you are sending the metric to CloudWatch.
+	//
+	// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+	//
+	// "metadata.pageId": "PageId"
+	//
+	// "metadata.browserName": "BrowserName"
+	//
+	// "metadata.deviceType": "DeviceType"
+	//
+	// "metadata.osName": "OSName"
+	//
+	// "metadata.countryCode": "CountryCode"
+	//
+	// "event_details.fileType": "FileType"
+	//
+	// All dimensions listed in this field must also be included in EventPattern.
+	DimensionKeys pulumi.Input `pulumi:"dimensionKeys"`
+	// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+	//
+	// When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+	//
+	// Example event patterns:
+	//
+	// '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+	//
+	// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+	//
+	// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+	//
+	// If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
+	// The name for the metric that is defined in this structure. Valid values are the following:
+	//
+	// PerformanceNavigationDuration
+	//
+	// PerformanceResourceDuration
+	//
+	// NavigationSatisfiedTransaction
+	//
+	// NavigationToleratedTransaction
+	//
+	// NavigationFrustratedTransaction
+	//
+	// WebVitalsCumulativeLayoutShift
+	//
+	// WebVitalsFirstInputDelay
+	//
+	// WebVitalsLargestContentfulPaint
+	//
+	// JsErrorCount
+	//
+	// HttpErrorCount
+	//
+	// SessionCount
+	Name pulumi.StringInput `pulumi:"name"`
+	// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+	UnitLabel pulumi.StringPtrInput `pulumi:"unitLabel"`
+	// The field within the event object that the metric value is sourced from.
+	//
+	// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+	//
+	// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+	ValueKey pulumi.StringPtrInput `pulumi:"valueKey"`
+}
+
+func (AppMonitorMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (i AppMonitorMetricDefinitionArgs) ToAppMonitorMetricDefinitionOutput() AppMonitorMetricDefinitionOutput {
+	return i.ToAppMonitorMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i AppMonitorMetricDefinitionArgs) ToAppMonitorMetricDefinitionOutputWithContext(ctx context.Context) AppMonitorMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorMetricDefinitionOutput)
+}
+
+// AppMonitorMetricDefinitionArrayInput is an input type that accepts AppMonitorMetricDefinitionArray and AppMonitorMetricDefinitionArrayOutput values.
+// You can construct a concrete instance of `AppMonitorMetricDefinitionArrayInput` via:
+//
+//	AppMonitorMetricDefinitionArray{ AppMonitorMetricDefinitionArgs{...} }
+type AppMonitorMetricDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDefinitionArrayOutput() AppMonitorMetricDefinitionArrayOutput
+	ToAppMonitorMetricDefinitionArrayOutputWithContext(context.Context) AppMonitorMetricDefinitionArrayOutput
+}
+
+type AppMonitorMetricDefinitionArray []AppMonitorMetricDefinitionInput
+
+func (AppMonitorMetricDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (i AppMonitorMetricDefinitionArray) ToAppMonitorMetricDefinitionArrayOutput() AppMonitorMetricDefinitionArrayOutput {
+	return i.ToAppMonitorMetricDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i AppMonitorMetricDefinitionArray) ToAppMonitorMetricDefinitionArrayOutputWithContext(ctx context.Context) AppMonitorMetricDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorMetricDefinitionArrayOutput)
+}
+
+// A single metric definition
+type AppMonitorMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDefinitionOutput) ToAppMonitorMetricDefinitionOutput() AppMonitorMetricDefinitionOutput {
+	return o
+}
+
+func (o AppMonitorMetricDefinitionOutput) ToAppMonitorMetricDefinitionOutputWithContext(ctx context.Context) AppMonitorMetricDefinitionOutput {
+	return o
+}
+
+// Use this field only if you are sending the metric to CloudWatch.
+//
+// This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. Valid values for the entries in this field are the following:
+//
+// "metadata.pageId": "PageId"
+//
+// "metadata.browserName": "BrowserName"
+//
+// "metadata.deviceType": "DeviceType"
+//
+// "metadata.osName": "OSName"
+//
+// "metadata.countryCode": "CountryCode"
+//
+// "event_details.fileType": "FileType"
+//
+// All dimensions listed in this field must also be included in EventPattern.
+func (o AppMonitorMetricDefinitionOutput) DimensionKeys() pulumi.AnyOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) interface{} { return v.DimensionKeys }).(pulumi.AnyOutput)
+}
+
+// The pattern that defines the metric, specified as a JSON object. RUM checks events that happen in a user's session against the pattern, and events that match the pattern are sent to the metric destination.
+//
+// When you define extended metrics, the metric definition is not valid if EventPattern is omitted.
+//
+// Example event patterns:
+//
+// '{ "event_type": ["com.amazon.rum.js_error_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], } }'
+//
+// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric": [ "<", 2000 ] }] } }'
+//
+// '{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata": { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details": { "duration": [{ "numeric": [ ">=", 2000, "<", 8000 ] }] } }'
+//
+// If the metrics destination' is CloudWatch and the event also matches a value in DimensionKeys, then the metric is published with the specified dimensions.
+func (o AppMonitorMetricDefinitionOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
+}
+
+// The name for the metric that is defined in this structure. Valid values are the following:
+//
+// # PerformanceNavigationDuration
+//
+// # PerformanceResourceDuration
+//
+// # NavigationSatisfiedTransaction
+//
+// # NavigationToleratedTransaction
+//
+// # NavigationFrustratedTransaction
+//
+// # WebVitalsCumulativeLayoutShift
+//
+// # WebVitalsFirstInputDelay
+//
+// # WebVitalsLargestContentfulPaint
+//
+// # JsErrorCount
+//
+// # HttpErrorCount
+//
+// SessionCount
+func (o AppMonitorMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The CloudWatch metric unit to use for this metric. If you omit this field, the metric is recorded with no unit.
+func (o AppMonitorMetricDefinitionOutput) UnitLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.UnitLabel }).(pulumi.StringPtrOutput)
+}
+
+// The field within the event object that the metric value is sourced from.
+//
+// If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
+//
+// If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+func (o AppMonitorMetricDefinitionOutput) ValueKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDefinition) *string { return v.ValueKey }).(pulumi.StringPtrOutput)
+}
+
+type AppMonitorMetricDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppMonitorMetricDefinition)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDefinitionArrayOutput) ToAppMonitorMetricDefinitionArrayOutput() AppMonitorMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AppMonitorMetricDefinitionArrayOutput) ToAppMonitorMetricDefinitionArrayOutputWithContext(ctx context.Context) AppMonitorMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AppMonitorMetricDefinitionArrayOutput) Index(i pulumi.IntInput) AppMonitorMetricDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppMonitorMetricDefinition {
+		return vs[0].([]AppMonitorMetricDefinition)[vs[1].(int)]
+	}).(AppMonitorMetricDefinitionOutput)
+}
+
+// An structure which defines the destination and the metrics that you want to send.
+type AppMonitorMetricDestination struct {
+	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+	Destination AppMonitorMetricDestinationDestination `pulumi:"destination"`
+	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+	//
+	// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+	IamRoleArn *string `pulumi:"iamRoleArn"`
+	// An array of structures which define the metrics that you want to send.
+	MetricDefinitions []AppMonitorMetricDefinition `pulumi:"metricDefinitions"`
+}
+
+// AppMonitorMetricDestinationInput is an input type that accepts AppMonitorMetricDestinationArgs and AppMonitorMetricDestinationOutput values.
+// You can construct a concrete instance of `AppMonitorMetricDestinationInput` via:
+//
+//	AppMonitorMetricDestinationArgs{...}
+type AppMonitorMetricDestinationInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDestinationOutput() AppMonitorMetricDestinationOutput
+	ToAppMonitorMetricDestinationOutputWithContext(context.Context) AppMonitorMetricDestinationOutput
+}
+
+// An structure which defines the destination and the metrics that you want to send.
+type AppMonitorMetricDestinationArgs struct {
+	// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+	Destination AppMonitorMetricDestinationDestinationInput `pulumi:"destination"`
+	// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+	//
+	// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+	IamRoleArn pulumi.StringPtrInput `pulumi:"iamRoleArn"`
+	// An array of structures which define the metrics that you want to send.
+	MetricDefinitions AppMonitorMetricDefinitionArrayInput `pulumi:"metricDefinitions"`
+}
+
+func (AppMonitorMetricDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDestination)(nil)).Elem()
+}
+
+func (i AppMonitorMetricDestinationArgs) ToAppMonitorMetricDestinationOutput() AppMonitorMetricDestinationOutput {
+	return i.ToAppMonitorMetricDestinationOutputWithContext(context.Background())
+}
+
+func (i AppMonitorMetricDestinationArgs) ToAppMonitorMetricDestinationOutputWithContext(ctx context.Context) AppMonitorMetricDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorMetricDestinationOutput)
+}
+
+// AppMonitorMetricDestinationArrayInput is an input type that accepts AppMonitorMetricDestinationArray and AppMonitorMetricDestinationArrayOutput values.
+// You can construct a concrete instance of `AppMonitorMetricDestinationArrayInput` via:
+//
+//	AppMonitorMetricDestinationArray{ AppMonitorMetricDestinationArgs{...} }
+type AppMonitorMetricDestinationArrayInput interface {
+	pulumi.Input
+
+	ToAppMonitorMetricDestinationArrayOutput() AppMonitorMetricDestinationArrayOutput
+	ToAppMonitorMetricDestinationArrayOutputWithContext(context.Context) AppMonitorMetricDestinationArrayOutput
+}
+
+type AppMonitorMetricDestinationArray []AppMonitorMetricDestinationInput
+
+func (AppMonitorMetricDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppMonitorMetricDestination)(nil)).Elem()
+}
+
+func (i AppMonitorMetricDestinationArray) ToAppMonitorMetricDestinationArrayOutput() AppMonitorMetricDestinationArrayOutput {
+	return i.ToAppMonitorMetricDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i AppMonitorMetricDestinationArray) ToAppMonitorMetricDestinationArrayOutputWithContext(ctx context.Context) AppMonitorMetricDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorMetricDestinationArrayOutput)
+}
+
+// An structure which defines the destination and the metrics that you want to send.
+type AppMonitorMetricDestinationOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorMetricDestination)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDestinationOutput) ToAppMonitorMetricDestinationOutput() AppMonitorMetricDestinationOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationOutput) ToAppMonitorMetricDestinationOutputWithContext(ctx context.Context) AppMonitorMetricDestinationOutput {
+	return o
+}
+
+// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+func (o AppMonitorMetricDestinationOutput) Destination() AppMonitorMetricDestinationDestinationOutput {
+	return o.ApplyT(func(v AppMonitorMetricDestination) AppMonitorMetricDestinationDestination { return v.Destination }).(AppMonitorMetricDestinationDestinationOutput)
+}
+
+// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+func (o AppMonitorMetricDestinationOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDestination) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+//
+// This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
+func (o AppMonitorMetricDestinationOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppMonitorMetricDestination) *string { return v.IamRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// An array of structures which define the metrics that you want to send.
+func (o AppMonitorMetricDestinationOutput) MetricDefinitions() AppMonitorMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v AppMonitorMetricDestination) []AppMonitorMetricDefinition { return v.MetricDefinitions }).(AppMonitorMetricDefinitionArrayOutput)
+}
+
+type AppMonitorMetricDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorMetricDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppMonitorMetricDestination)(nil)).Elem()
+}
+
+func (o AppMonitorMetricDestinationArrayOutput) ToAppMonitorMetricDestinationArrayOutput() AppMonitorMetricDestinationArrayOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationArrayOutput) ToAppMonitorMetricDestinationArrayOutputWithContext(ctx context.Context) AppMonitorMetricDestinationArrayOutput {
+	return o
+}
+
+func (o AppMonitorMetricDestinationArrayOutput) Index(i pulumi.IntInput) AppMonitorMetricDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppMonitorMetricDestination {
+		return vs[0].([]AppMonitorMetricDestination)[vs[1].(int)]
+	}).(AppMonitorMetricDestinationOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -414,10 +864,18 @@ func (o AppMonitorTagArrayOutput) Index(i pulumi.IntInput) AppMonitorTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationPtrInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionInput)(nil)).Elem(), AppMonitorMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionArrayInput)(nil)).Elem(), AppMonitorMetricDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationArrayInput)(nil)).Elem(), AppMonitorMetricDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTagInput)(nil)).Elem(), AppMonitorTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTagArrayInput)(nil)).Elem(), AppMonitorTagArray{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationOutput{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AppMonitorMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(AppMonitorMetricDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(AppMonitorMetricDestinationOutput{})
+	pulumi.RegisterOutputType(AppMonitorMetricDestinationArrayOutput{})
 	pulumi.RegisterOutputType(AppMonitorTagOutput{})
 	pulumi.RegisterOutputType(AppMonitorTagArrayOutput{})
 }

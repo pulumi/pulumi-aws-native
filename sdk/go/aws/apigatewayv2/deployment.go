@@ -12,14 +12,13 @@ import (
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::Deployment
-//
-// Deprecated: Deployment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	ApiId       pulumi.StringOutput    `pulumi:"apiId"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	StageName   pulumi.StringPtrOutput `pulumi:"stageName"`
+	ApiId        pulumi.StringOutput    `pulumi:"apiId"`
+	DeploymentId pulumi.StringOutput    `pulumi:"deploymentId"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	StageName    pulumi.StringPtrOutput `pulumi:"stageName"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +114,10 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 
 func (o DeploymentOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
+}
+
+func (o DeploymentOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
 }
 
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {

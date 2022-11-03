@@ -2931,8 +2931,8 @@ func (o DataflowEndpointGroupSocketAddressPtrOutput) Port() pulumi.IntPtrOutput 
 }
 
 type DataflowEndpointGroupTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // DataflowEndpointGroupTagInput is an input type that accepts DataflowEndpointGroupTagArgs and DataflowEndpointGroupTagOutput values.
@@ -2947,8 +2947,8 @@ type DataflowEndpointGroupTagInput interface {
 }
 
 type DataflowEndpointGroupTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (DataflowEndpointGroupTagArgs) ElementType() reflect.Type {
@@ -3002,12 +3002,12 @@ func (o DataflowEndpointGroupTagOutput) ToDataflowEndpointGroupTagOutputWithCont
 	return o
 }
 
-func (o DataflowEndpointGroupTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataflowEndpointGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o DataflowEndpointGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DataflowEndpointGroupTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataflowEndpointGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o DataflowEndpointGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type DataflowEndpointGroupTagArrayOutput struct{ *pulumi.OutputState }

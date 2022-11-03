@@ -54,6 +54,10 @@ export interface GetDBClusterResult {
      */
     readonly copyTagsToSnapshot?: boolean;
     /**
+     * The Amazon Resource Name (ARN) for the DB cluster.
+     */
+    readonly dBClusterArn?: string;
+    /**
      * The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.
      */
     readonly dBClusterInstanceClass?: string;

@@ -1598,7 +1598,8 @@ func (o ServerWorkflowDetailArrayOutput) Index(i pulumi.IntInput) ServerWorkflow
 }
 
 type ServerWorkflowDetails struct {
-	OnUpload []ServerWorkflowDetail `pulumi:"onUpload"`
+	OnPartialUpload []ServerWorkflowDetail `pulumi:"onPartialUpload"`
+	OnUpload        []ServerWorkflowDetail `pulumi:"onUpload"`
 }
 
 // ServerWorkflowDetailsInput is an input type that accepts ServerWorkflowDetailsArgs and ServerWorkflowDetailsOutput values.
@@ -1613,7 +1614,8 @@ type ServerWorkflowDetailsInput interface {
 }
 
 type ServerWorkflowDetailsArgs struct {
-	OnUpload ServerWorkflowDetailArrayInput `pulumi:"onUpload"`
+	OnPartialUpload ServerWorkflowDetailArrayInput `pulumi:"onPartialUpload"`
+	OnUpload        ServerWorkflowDetailArrayInput `pulumi:"onUpload"`
 }
 
 func (ServerWorkflowDetailsArgs) ElementType() reflect.Type {
@@ -1693,6 +1695,10 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
+func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v ServerWorkflowDetails) []ServerWorkflowDetail { return v.OnPartialUpload }).(ServerWorkflowDetailArrayOutput)
+}
+
 func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailArrayOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) []ServerWorkflowDetail { return v.OnUpload }).(ServerWorkflowDetailArrayOutput)
 }
@@ -1719,6 +1725,15 @@ func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
 		var ret ServerWorkflowDetails
 		return ret
 	}).(ServerWorkflowDetailsOutput)
+}
+
+func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetails) []ServerWorkflowDetail {
+		if v == nil {
+			return nil
+		}
+		return v.OnPartialUpload
+	}).(ServerWorkflowDetailArrayOutput)
 }
 
 func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailArrayOutput {

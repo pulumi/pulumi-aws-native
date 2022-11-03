@@ -1696,7 +1696,8 @@ class DataSourceCredentialPairArgs:
 class DataSourceCredentialsArgs:
     def __init__(__self__, *,
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
-                 credential_pair: Optional[pulumi.Input['DataSourceCredentialPairArgs']] = None):
+                 credential_pair: Optional[pulumi.Input['DataSourceCredentialPairArgs']] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
         """
         <p>Data source credentials. This is a variant type structure. For this structure to be
                     valid, only one of the attributes can be non-null.</p>
@@ -1704,11 +1705,14 @@ class DataSourceCredentialsArgs:
                            want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
                            data source in the ARN is used as the credentials for the
                            <code>DataSourceCredentials</code> structure.</p>
+        :param pulumi.Input[str] secret_arn: <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
             pulumi.set(__self__, "credential_pair", credential_pair)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
 
     @property
     @pulumi.getter(name="copySourceArn")
@@ -1733,6 +1737,18 @@ class DataSourceCredentialsArgs:
     @credential_pair.setter
     def credential_pair(self, value: Optional[pulumi.Input['DataSourceCredentialPairArgs']]):
         pulumi.set(self, "credential_pair", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 @pulumi.input_type

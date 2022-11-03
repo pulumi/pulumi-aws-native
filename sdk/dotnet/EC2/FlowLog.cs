@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.EC2
         /// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         /// </summary>
         [Output("trafficType")]
-        public Output<Pulumi.AwsNative.EC2.FlowLogTrafficType> TrafficType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.EC2.FlowLogTrafficType?> TrafficType { get; private set; } = null!;
 
 
         /// <summary>
@@ -189,8 +189,8 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         /// </summary>
-        [Input("trafficType", required: true)]
-        public Input<Pulumi.AwsNative.EC2.FlowLogTrafficType> TrafficType { get; set; } = null!;
+        [Input("trafficType")]
+        public Input<Pulumi.AwsNative.EC2.FlowLogTrafficType>? TrafficType { get; set; }
 
         public FlowLogArgs()
         {

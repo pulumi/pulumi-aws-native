@@ -20,6 +20,11 @@ export const getVpcConnector: typeof import("./getVpcConnector").getVpcConnector
 export const getVpcConnectorOutput: typeof import("./getVpcConnector").getVpcConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcConnector","getVpcConnectorOutput"], () => require("./getVpcConnector"));
 
+export { GetVpcIngressConnectionArgs, GetVpcIngressConnectionResult, GetVpcIngressConnectionOutputArgs } from "./getVpcIngressConnection";
+export const getVpcIngressConnection: typeof import("./getVpcIngressConnection").getVpcIngressConnection = null as any;
+export const getVpcIngressConnectionOutput: typeof import("./getVpcIngressConnection").getVpcIngressConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcIngressConnection","getVpcIngressConnectionOutput"], () => require("./getVpcIngressConnection"));
+
 export { ObservabilityConfigurationArgs } from "./observabilityConfiguration";
 export type ObservabilityConfiguration = import("./observabilityConfiguration").ObservabilityConfiguration;
 export const ObservabilityConfiguration: typeof import("./observabilityConfiguration").ObservabilityConfiguration = null as any;
@@ -35,6 +40,11 @@ export type VpcConnector = import("./vpcConnector").VpcConnector;
 export const VpcConnector: typeof import("./vpcConnector").VpcConnector = null as any;
 utilities.lazyLoad(exports, ["VpcConnector"], () => require("./vpcConnector"));
 
+export { VpcIngressConnectionArgs } from "./vpcIngressConnection";
+export type VpcIngressConnection = import("./vpcIngressConnection").VpcIngressConnection;
+export const VpcIngressConnection: typeof import("./vpcIngressConnection").VpcIngressConnection = null as any;
+utilities.lazyLoad(exports, ["VpcIngressConnection"], () => require("./vpcIngressConnection"));
+
 
 // Export enums:
 export * from "../types/enums/apprunner";
@@ -49,6 +59,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "aws-native:apprunner:VpcConnector":
                 return new VpcConnector(name, <any>undefined, { urn })
+            case "aws-native:apprunner:VpcIngressConnection":
+                return new VpcIngressConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

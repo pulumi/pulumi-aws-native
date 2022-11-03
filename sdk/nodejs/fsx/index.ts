@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataRepositoryAssociationArgs } from "./dataRepositoryAssociation";
+export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
+export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
+utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
+
 export { FileSystemArgs } from "./fileSystem";
 export type FileSystem = import("./fileSystem").FileSystem;
 export const FileSystem: typeof import("./fileSystem").FileSystem = null as any;
 utilities.lazyLoad(exports, ["FileSystem"], () => require("./fileSystem"));
+
+export { GetDataRepositoryAssociationArgs, GetDataRepositoryAssociationResult, GetDataRepositoryAssociationOutputArgs } from "./getDataRepositoryAssociation";
+export const getDataRepositoryAssociation: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociation = null as any;
+export const getDataRepositoryAssociationOutput: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getDataRepositoryAssociation","getDataRepositoryAssociationOutput"], () => require("./getDataRepositoryAssociation"));
 
 export { GetFileSystemArgs, GetFileSystemResult, GetFileSystemOutputArgs } from "./getFileSystem";
 export const getFileSystem: typeof import("./getFileSystem").getFileSystem = null as any;
@@ -46,10 +56,15 @@ export const Volume: typeof import("./volume").Volume = null as any;
 utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 
+// Export enums:
+export * from "../types/enums/fsx";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:fsx:DataRepositoryAssociation":
+                return new DataRepositoryAssociation(name, <any>undefined, { urn })
             case "aws-native:fsx:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
             case "aws-native:fsx:Snapshot":

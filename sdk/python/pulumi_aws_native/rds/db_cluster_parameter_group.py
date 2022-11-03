@@ -19,6 +19,7 @@ class DBClusterParameterGroupArgs:
                  description: pulumi.Input[str],
                  family: pulumi.Input[str],
                  parameters: Any,
+                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterParameterGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DBClusterParameterGroup resource.
@@ -30,6 +31,8 @@ class DBClusterParameterGroupArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "parameters", parameters)
+        if d_b_cluster_parameter_group_name is not None:
+            pulumi.set(__self__, "d_b_cluster_parameter_group_name", d_b_cluster_parameter_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +73,15 @@ class DBClusterParameterGroupArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="dBClusterParameterGroupName")
+    def d_b_cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "d_b_cluster_parameter_group_name")
+
+    @d_b_cluster_parameter_group_name.setter
+    def d_b_cluster_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_cluster_parameter_group_name", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBClusterParameterGroupTagArgs']]]]:
         """
@@ -87,6 +99,7 @@ class DBClusterParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
@@ -126,6 +139,7 @@ class DBClusterParameterGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[Any] = None,
@@ -139,6 +153,7 @@ class DBClusterParameterGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DBClusterParameterGroupArgs.__new__(DBClusterParameterGroupArgs)
 
+            __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
@@ -149,7 +164,6 @@ class DBClusterParameterGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["d_b_cluster_parameter_group_name"] = None
         super(DBClusterParameterGroup, __self__).__init__(
             'aws-native:rds:DBClusterParameterGroup',
             resource_name,
@@ -181,7 +195,7 @@ class DBClusterParameterGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dBClusterParameterGroupName")
-    def d_b_cluster_parameter_group_name(self) -> pulumi.Output[str]:
+    def d_b_cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "d_b_cluster_parameter_group_name")
 
     @property
