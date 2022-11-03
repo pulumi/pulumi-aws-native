@@ -1,6 +1,26 @@
 ## HEAD (Unreleased)
 
+## 0.40.0 (November 3, 2022)
+
 - Fix updates to write-only properties [#678](https://github.com/pulumi/pulumi-aws-native/pull/678).
+- Breaking changes to some RDS get functions due to upstream spec changes ([see #679](https://github.com/pulumi/pulumi-aws-native/pull/679))
+
+#### New resources:
+
+- `apigatewayv2.Api`
+- `apigatewayv2.Deployment`
+- `apprunner.VpcIngressConnection`
+- `ec2.Volume`
+- `fsx.DataRepositoryAssociation`
+- `supportapp.SlackWorkspaceConfiguration`
+
+#### New functions:
+
+- `apigatewayv2.getApi`
+- `apigatewayv2.getDeployment`
+- `apprunner.getVpcIngressConnection`
+- `ec2.getVolume`
+- `fsx.getDataRepositoryAssociation`
 
 ## 0.39.0 (October 24, 2022)
 
