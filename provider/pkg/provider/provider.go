@@ -848,9 +848,15 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	if err != nil {
 		var oe *smithy.OperationError
 		if errors.As(err, &oe) {
-			if re, ok := oe.Unwrap().(*awshttp.ResponseError); ok && re.HTTPStatusCode() == 404 {
-				// ResourceNotFound means that the resource was deleted.
-				return &pulumirpc.ReadResponse{Id: ""}, nil
+			if re, ok := oe.Unwrap().(*awshttp.ResponseError); ok {
+				statusCode := re.HTTPStatusCode()
+				errorMessage := re.Error()
+				isHttpNotFound := statusCode == 404
+				isResourceNotFound := statusCode == 400 && strings.Contains(errorMessage, "ResourceNotFoundException")
+				if isHttpNotFound || isResourceNotFound {
+					// ResourceNotFound means that the resource was deleted.
+					return &pulumirpc.ReadResponse{Id: ""}, nil
+				}
 			}
 		}
 		return nil, err
