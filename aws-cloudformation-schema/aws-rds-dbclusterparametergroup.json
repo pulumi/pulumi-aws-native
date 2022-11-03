@@ -56,9 +56,8 @@
     "/properties/DBClusterParameterGroupName" : "$lowercase(DBClusterParameterGroupName)"
   },
   "required" : [ "Description", "Family", "Parameters" ],
-  "createOnlyProperties" : [ "/properties/Description", "/properties/Family" ],
+  "createOnlyProperties" : [ "/properties/DBClusterParameterGroupName", "/properties/Description", "/properties/Family" ],
   "writeOnlyProperties" : [ "/properties/Parameters" ],
-  "readOnlyProperties" : [ "/properties/DBClusterParameterGroupName" ],
   "primaryIdentifier" : [ "/properties/DBClusterParameterGroupName" ],
   "handlers" : {
     "create" : {

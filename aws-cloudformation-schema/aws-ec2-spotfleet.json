@@ -17,7 +17,7 @@
       "properties" : {
         "AllocationStrategy" : {
           "type" : "string",
-          "enum" : [ "capacityOptimized", "capacityOptimizedPrioritized", "diversified", "lowestPrice" ]
+          "enum" : [ "capacityOptimized", "capacityOptimizedPrioritized", "diversified", "lowestPrice", "priceCapacityOptimized" ]
         },
         "Context" : {
           "type" : "string"

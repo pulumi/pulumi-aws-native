@@ -80,7 +80,7 @@
     "Description" : {
       "description" : "The permission set description.",
       "type" : "string",
-      "pattern" : "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A0-\\u00FF]*",
+      "pattern" : "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]*",
       "minLength" : 1,
       "maxLength" : 700
     },

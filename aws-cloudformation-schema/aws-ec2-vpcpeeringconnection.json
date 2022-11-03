@@ -57,6 +57,7 @@
   "required" : [ "VpcId", "PeerVpcId" ],
   "createOnlyProperties" : [ "/properties/PeerRegion", "/properties/PeerOwnerId", "/properties/PeerVpcId", "/properties/PeerRoleArn", "/properties/VpcId" ],
   "readOnlyProperties" : [ "/properties/Id" ],
+  "writeOnlyProperties" : [ "/properties/PeerRoleArn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : true,

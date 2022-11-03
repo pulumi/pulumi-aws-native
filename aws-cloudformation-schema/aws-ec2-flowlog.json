@@ -87,7 +87,7 @@
       "required" : [ "FileFormat", "HiveCompatiblePartitions", "PerHourPartition" ]
     }
   },
-  "required" : [ "ResourceType", "ResourceId", "TrafficType" ],
+  "required" : [ "ResourceType", "ResourceId" ],
   "createOnlyProperties" : [ "/properties/DeliverLogsPermissionArn", "/properties/LogGroupName", "/properties/LogDestination", "/properties/ResourceId", "/properties/TrafficType", "/properties/LogDestinationType", "/properties/ResourceType", "/properties/LogFormat", "/properties/MaxAggregationInterval", "/properties/DestinationOptions" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],

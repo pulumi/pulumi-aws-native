@@ -240,6 +240,65 @@
       },
       "required" : [ "TableName", "HashKeyField", "HashKeyValue", "RoleArn" ]
     },
+    "UserProperty" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "required" : [ "Key", "Value" ],
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        }
+      }
+    },
+    "UserProperties" : {
+      "type" : "array",
+      "minItems" : 1,
+      "maxItems" : 100,
+      "items" : {
+        "$ref" : "#/definitions/UserProperty"
+      }
+    },
+    "RepublishActionHeaders" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PayloadFormatIndicator" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "ContentType" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "ResponseTopic" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "CorrelationData" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "MessageExpiry" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 1024
+        },
+        "UserProperties" : {
+          "$ref" : "#/definitions/UserProperties"
+        }
+      }
+    },
     "RepublishAction" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -252,6 +311,9 @@
         },
         "RoleArn" : {
           "type" : "string"
+        },
+        "Headers" : {
+          "$ref" : "#/definitions/RepublishActionHeaders"
         }
       },
       "required" : [ "Topic", "RoleArn" ]
