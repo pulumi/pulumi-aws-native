@@ -236,6 +236,7 @@ AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
 AWS::ElasticBeanstalk::Application
 AWS::ElasticBeanstalk::ApplicationVersion
+AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::EventSchemas::RegistryPolicy

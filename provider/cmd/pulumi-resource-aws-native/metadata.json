@@ -17041,6 +17041,112 @@
                 "sourceBundle"
             ]
         },
+        "aws-native:elasticbeanstalk:Environment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "inputs": {
+                "applicationName": {
+                    "type": "string"
+                },
+                "cNAMEPrefix": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string"
+                },
+                "operationsRole": {
+                    "type": "string"
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    }
+                },
+                "platformArn": {
+                    "type": "string"
+                },
+                "solutionStackName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    }
+                },
+                "templateName": {
+                    "type": "string"
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier"
+                },
+                "versionLabel": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "applicationName": {
+                    "type": "string"
+                },
+                "cNAMEPrefix": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "endpointURL": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string"
+                },
+                "operationsRole": {
+                    "type": "string"
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    }
+                },
+                "platformArn": {
+                    "type": "string"
+                },
+                "solutionStackName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    }
+                },
+                "templateName": {
+                    "type": "string"
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier"
+                },
+                "versionLabel": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "environmentName"
+            },
+            "required": [
+                "applicationName"
+            ],
+            "createOnly": [
+                "applicationName",
+                "cNAMEPrefix",
+                "environmentName",
+                "solutionStackName"
+            ]
+        },
         "aws-native:elasticloadbalancingv2:Listener": {
             "cf": "AWS::ElasticLoadBalancingV2::Listener",
             "inputs": {
@@ -61256,6 +61362,48 @@
                 }
             }
         },
+        "aws-native:elasticbeanstalk:EnvironmentOptionSetting": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string"
+                },
+                "optionName": {
+                    "type": "string"
+                },
+                "resourceName": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:elasticloadbalancingv2:ListenerAction": {
             "type": "object",
             "properties": {
@@ -90836,6 +90984,12 @@
             "cf": "AWS::ElasticBeanstalk::ApplicationVersion",
             "ids": [
                 "applicationName",
+                "id"
+            ]
+        },
+        "aws-native:elasticbeanstalk:getEnvironment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "ids": [
                 "id"
             ]
         },
