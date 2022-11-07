@@ -17041,6 +17041,146 @@
                 "sourceBundle"
             ]
         },
+        "aws-native:elasticbeanstalk:Environment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "inputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the application that is associated with this environment."
+                },
+                "cNAMEPrefix": {
+                    "type": "string",
+                    "description": "If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Your description for this environment."
+                },
+                "environmentName": {
+                    "type": "string",
+                    "description": "A unique name for the environment."
+                },
+                "operationsRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role."
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    },
+                    "description": "Key-value pairs defining configuration options for this environment, such as the instance type."
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform to use with the environment."
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) to use with the environment."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    },
+                    "description": "Specifies the tags applied to resources in the environment."
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk configuration template to use with the environment."
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier",
+                    "description": "Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks."
+                },
+                "versionLabel": {
+                    "type": "string",
+                    "description": "The name of the application version to deploy."
+                }
+            },
+            "outputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the application that is associated with this environment."
+                },
+                "cNAMEPrefix": {
+                    "type": "string",
+                    "description": "If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Your description for this environment."
+                },
+                "endpointURL": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string",
+                    "description": "A unique name for the environment."
+                },
+                "operationsRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role."
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    },
+                    "description": "Key-value pairs defining configuration options for this environment, such as the instance type."
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform to use with the environment."
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) to use with the environment."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    },
+                    "description": "Specifies the tags applied to resources in the environment."
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk configuration template to use with the environment."
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier",
+                    "description": "Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks."
+                },
+                "versionLabel": {
+                    "type": "string",
+                    "description": "The name of the application version to deploy."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "environmentName"
+            },
+            "required": [
+                "applicationName"
+            ],
+            "createOnly": [
+                "applicationName",
+                "cNAMEPrefix",
+                "environmentName",
+                "solutionStackName",
+                "tier/Name",
+                "tier/Type"
+            ],
+            "writeOnly": [
+                "optionSettings",
+                "optionSettings/*/Namespace",
+                "optionSettings/*/OptionName",
+                "optionSettings/*/ResourceName",
+                "optionSettings/*/Value",
+                "templateName"
+            ]
+        },
         "aws-native:elasticloadbalancingv2:Listener": {
             "cf": "AWS::ElasticLoadBalancingV2::Listener",
             "inputs": {
@@ -61256,6 +61396,57 @@
                 }
             }
         },
+        "aws-native:elasticbeanstalk:EnvironmentOptionSetting": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "A unique namespace that identifies the option's associated AWS resource."
+                },
+                "optionName": {
+                    "type": "string",
+                    "description": "The name of the configuration option."
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "A unique resource name for the option setting. Use it for a time–based scaling configuration option."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The current value for the configuration option."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of this environment tier."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of this environment tier."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version."
+                }
+            }
+        },
         "aws-native:elasticloadbalancingv2:ListenerAction": {
             "type": "object",
             "properties": {
@@ -90837,6 +91028,12 @@
             "ids": [
                 "applicationName",
                 "id"
+            ]
+        },
+        "aws-native:elasticbeanstalk:getEnvironment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "ids": [
+                "environmentName"
             ]
         },
         "aws-native:elasticloadbalancingv2:getListener": {
