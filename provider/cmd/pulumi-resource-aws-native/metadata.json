@@ -2095,6 +2095,98 @@
                 "target"
             ]
         },
+        "aws-native:apigatewayv2:Authorizer": {
+            "cf": "AWS::ApiGatewayV2::Authorizer",
+            "inputs": {
+                "apiId": {
+                    "type": "string"
+                },
+                "authorizerCredentialsArn": {
+                    "type": "string"
+                },
+                "authorizerPayloadFormatVersion": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerType": {
+                    "type": "string"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "enableSimpleResponses": {
+                    "type": "boolean"
+                },
+                "identitySource": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "jwtConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:AuthorizerJWTConfiguration"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "apiId": {
+                    "type": "string"
+                },
+                "authorizerCredentialsArn": {
+                    "type": "string"
+                },
+                "authorizerId": {
+                    "type": "string"
+                },
+                "authorizerPayloadFormatVersion": {
+                    "type": "string"
+                },
+                "authorizerResultTtlInSeconds": {
+                    "type": "integer"
+                },
+                "authorizerType": {
+                    "type": "string"
+                },
+                "authorizerUri": {
+                    "type": "string"
+                },
+                "enableSimpleResponses": {
+                    "type": "boolean"
+                },
+                "identitySource": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "identityValidationExpression": {
+                    "type": "string"
+                },
+                "jwtConfiguration": {
+                    "$ref": "#/types/aws-native:apigatewayv2:AuthorizerJWTConfiguration"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "apiId",
+                "authorizerType"
+            ],
+            "createOnly": [
+                "apiId"
+            ]
+        },
         "aws-native:apigatewayv2:Deployment": {
             "cf": "AWS::ApiGatewayV2::Deployment",
             "inputs": {
@@ -3288,6 +3380,9 @@
         "aws-native:appstream:DirectoryConfig": {
             "cf": "AWS::AppStream::DirectoryConfig",
             "inputs": {
+                "certificateBasedAuthProperties": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigCertificateBasedAuthProperties"
+                },
                 "directoryName": {
                     "type": "string"
                 },
@@ -3302,6 +3397,9 @@
                 }
             },
             "outputs": {
+                "certificateBasedAuthProperties": {
+                    "$ref": "#/types/aws-native:appstream:DirectoryConfigCertificateBasedAuthProperties"
+                },
                 "directoryName": {
                     "type": "string"
                 },
@@ -6527,6 +6625,10 @@
                     },
                     "description": "The advanced event selectors that were used to select events for the data store."
                 },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier."
+                },
                 "multiRegionEnabled": {
                     "type": "boolean",
                     "description": "Indicates whether the event data store includes events from all regions, or only from the region in which it was created."
@@ -6569,6 +6671,10 @@
                 "eventDataStoreArn": {
                     "type": "string",
                     "description": "The ARN of the event data store."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier."
                 },
                 "multiRegionEnabled": {
                     "type": "boolean",
@@ -17039,6 +17145,146 @@
             "createOnly": [
                 "applicationName",
                 "sourceBundle"
+            ]
+        },
+        "aws-native:elasticbeanstalk:Environment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "inputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the application that is associated with this environment."
+                },
+                "cNAMEPrefix": {
+                    "type": "string",
+                    "description": "If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Your description for this environment."
+                },
+                "environmentName": {
+                    "type": "string",
+                    "description": "A unique name for the environment."
+                },
+                "operationsRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role."
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    },
+                    "description": "Key-value pairs defining configuration options for this environment, such as the instance type."
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform to use with the environment."
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) to use with the environment."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    },
+                    "description": "Specifies the tags applied to resources in the environment."
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk configuration template to use with the environment."
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier",
+                    "description": "Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks."
+                },
+                "versionLabel": {
+                    "type": "string",
+                    "description": "The name of the application version to deploy."
+                }
+            },
+            "outputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the application that is associated with this environment."
+                },
+                "cNAMEPrefix": {
+                    "type": "string",
+                    "description": "If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Your description for this environment."
+                },
+                "endpointURL": {
+                    "type": "string"
+                },
+                "environmentName": {
+                    "type": "string",
+                    "description": "A unique name for the environment."
+                },
+                "operationsRole": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role."
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentOptionSetting"
+                    },
+                    "description": "Key-value pairs defining configuration options for this environment, such as the instance type."
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform to use with the environment."
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) to use with the environment."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTag"
+                    },
+                    "description": "Specifies the tags applied to resources in the environment."
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk configuration template to use with the environment."
+                },
+                "tier": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:EnvironmentTier",
+                    "description": "Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks."
+                },
+                "versionLabel": {
+                    "type": "string",
+                    "description": "The name of the application version to deploy."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "environmentName"
+            },
+            "required": [
+                "applicationName"
+            ],
+            "createOnly": [
+                "applicationName",
+                "cNAMEPrefix",
+                "environmentName",
+                "solutionStackName",
+                "tier/Name",
+                "tier/Type"
+            ],
+            "writeOnly": [
+                "optionSettings",
+                "optionSettings/*/Namespace",
+                "optionSettings/*/OptionName",
+                "optionSettings/*/ResourceName",
+                "optionSettings/*/Value",
+                "templateName"
             ]
         },
         "aws-native:elasticloadbalancingv2:Listener": {
@@ -31357,6 +31603,10 @@
                     "type": "string",
                     "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
                 },
+                "dataTiering": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterDataTieringStatus",
+                    "description": "Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes."
+                },
                 "description": {
                     "type": "string",
                     "description": "An optional description of the cluster."
@@ -31468,6 +31718,10 @@
                     "type": "string",
                     "description": "The name of the cluster. This value must be unique as it also serves as the cluster identifier."
                 },
+                "dataTiering": {
+                    "$ref": "#/types/aws-native:memorydb:ClusterDataTieringStatus",
+                    "description": "Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes."
+                },
                 "description": {
                     "type": "string",
                     "description": "An optional description of the cluster."
@@ -31575,6 +31829,7 @@
             ],
             "createOnly": [
                 "clusterName",
+                "dataTiering",
                 "kmsKeyId",
                 "port",
                 "snapshotArns",
@@ -34067,6 +34322,235 @@
             "writeOnly": [
                 "customPrivateKey",
                 "engineAttributes"
+            ]
+        },
+        "aws-native:organizations:Account": {
+            "cf": "AWS::Organizations::Account",
+            "inputs": {
+                "accountName": {
+                    "type": "string",
+                    "description": "The friendly name of the member account."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the owner to assign to the new member account."
+                },
+                "parentIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root."
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:AccountTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value."
+                }
+            },
+            "outputs": {
+                "accountId": {
+                    "type": "string",
+                    "description": "If the account was created successfully, the unique identifier (ID) of the new account."
+                },
+                "accountName": {
+                    "type": "string",
+                    "description": "The friendly name of the member account."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the account."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the owner to assign to the new member account."
+                },
+                "joinedMethod": {
+                    "$ref": "#/types/aws-native:organizations:AccountJoinedMethod",
+                    "description": "The method by which the account joined the organization."
+                },
+                "joinedTimestamp": {
+                    "type": "string",
+                    "description": "The date the account became a part of the organization."
+                },
+                "parentIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root."
+                },
+                "roleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:organizations:AccountStatus",
+                    "description": "The status of the account in the organization."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:AccountTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "accountName",
+                "minLength": 1,
+                "maxLength": 50
+            },
+            "required": [
+                "email"
+            ],
+            "writeOnly": [
+                "roleName"
+            ]
+        },
+        "aws-native:organizations:OrganizationalUnit": {
+            "cf": "AWS::Organizations::OrganizationalUnit",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of this OU."
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The unique identifier (ID) of the parent root or OU that you want to create the new OU in."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:OrganizationalUnitTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created OU."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of this OU."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of this OU."
+                },
+                "parentId": {
+                    "type": "string",
+                    "description": "The unique identifier (ID) of the parent root or OU that you want to create the new OU in."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:OrganizationalUnitTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created OU."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "parentId"
+            ],
+            "createOnly": [
+                "parentId"
+            ]
+        },
+        "aws-native:organizations:Policy": {
+            "cf": "AWS::Organizations::Policy",
+            "inputs": {
+                "content": {
+                    "type": "string",
+                    "description": "The Policy text content"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Human readable description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Policy"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:PolicyTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null."
+                },
+                "targetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:organizations:PolicyType",
+                    "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Policy"
+                },
+                "awsManaged": {
+                    "type": "boolean",
+                    "description": "A boolean value that indicates whether the specified policy is an AWS managed policy. If true, then you can attach the policy to roots, OUs, or accounts, but you cannot edit it."
+                },
+                "content": {
+                    "type": "string",
+                    "description": "The Policy text content"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Human readable description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Policy"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:organizations:PolicyTag"
+                    },
+                    "description": "A list of tags that you want to attach to the newly created policy. For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to null."
+                },
+                "targetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of unique identifiers (IDs) of the root, OU, or account that you want to attach the policy to"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:organizations:PolicyType",
+                    "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 128
+            },
+            "required": [
+                "content",
+                "type"
+            ],
+            "createOnly": [
+                "type"
             ]
         },
         "aws-native:panorama:ApplicationInstance": {
@@ -39122,6 +39606,80 @@
                 "tier"
             ]
         },
+        "aws-native:resourceexplorer2:Index": {
+            "cf": "AWS::ResourceExplorer2::Index",
+            "inputs": {
+                "tags": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:IndexTagMap"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:IndexType"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "indexState": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:IndexState"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:IndexTagMap"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:IndexType"
+                }
+            },
+            "required": [
+                "type"
+            ]
+        },
+        "aws-native:resourceexplorer2:View": {
+            "cf": "AWS::ResourceExplorer2::View",
+            "inputs": {
+                "filters": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:ViewFilters"
+                },
+                "includedProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:resourceexplorer2:ViewIncludedProperty"
+                    }
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:ViewTagMap"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "filters": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:ViewFilters"
+                },
+                "includedProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:resourceexplorer2:ViewIncludedProperty"
+                    }
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:resourceexplorer2:ViewTagMap"
+                },
+                "viewArn": {
+                    "type": "string"
+                },
+                "viewName": {
+                    "type": "string"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "viewName"
+            },
+            "createOnly": [
+                "viewName"
+            ]
+        },
         "aws-native:resourcegroups:Group": {
             "cf": "AWS::ResourceGroups::Group",
             "inputs": {
@@ -42381,7 +42939,6 @@
             "createOnly": [
                 "description",
                 "eventTimeFeatureName",
-                "featureDefinitions",
                 "featureGroupName",
                 "offlineStoreConfig",
                 "onlineStoreConfig",
@@ -43812,6 +44369,9 @@
                 },
                 "trackingOptions": {
                     "$ref": "#/types/aws-native:ses:ConfigurationSetTrackingOptions"
+                },
+                "vdmOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetVdmOptions"
                 }
             },
             "outputs": {
@@ -43833,6 +44393,9 @@
                 },
                 "trackingOptions": {
                     "$ref": "#/types/aws-native:ses:ConfigurationSetTrackingOptions"
+                },
+                "vdmOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetVdmOptions"
                 }
             },
             "autoNamingSpec": {
@@ -44064,6 +44627,29 @@
             "createOnly": [
                 "template/TemplateName"
             ]
+        },
+        "aws-native:ses:VdmAttributes": {
+            "cf": "AWS::SES::VdmAttributes",
+            "inputs": {
+                "dashboardAttributes": {
+                    "$ref": "#/types/aws-native:ses:VdmAttributesDashboardAttributes"
+                },
+                "guardianAttributes": {
+                    "$ref": "#/types/aws-native:ses:VdmAttributesGuardianAttributes"
+                }
+            },
+            "outputs": {
+                "dashboardAttributes": {
+                    "$ref": "#/types/aws-native:ses:VdmAttributesDashboardAttributes"
+                },
+                "guardianAttributes": {
+                    "$ref": "#/types/aws-native:ses:VdmAttributesGuardianAttributes"
+                },
+                "vdmAttributesResourceId": {
+                    "type": "string",
+                    "description": "Unique identifier for this resource"
+                }
+            }
         },
         "aws-native:signer:ProfilePermission": {
             "cf": "AWS::Signer::ProfilePermission",
@@ -48625,6 +49211,20 @@
                 }
             }
         },
+        "aws-native:apigatewayv2:AuthorizerJWTConfiguration": {
+            "type": "object",
+            "properties": {
+                "audience": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "issuer": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -50938,6 +51538,17 @@
                     "type": "string"
                 },
                 "tagValue": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:appstream:DirectoryConfigCertificateBasedAuthProperties": {
+            "type": "object",
+            "properties": {
+                "certificateAuthorityArn": {
+                    "type": "string"
+                },
+                "status": {
                     "type": "string"
                 }
             }
@@ -61253,6 +61864,57 @@
                 "s3Key": {
                     "type": "string",
                     "description": "The Amazon S3 key where the data is located."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentOptionSetting": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "A unique namespace that identifies the option's associated AWS resource."
+                },
+                "optionName": {
+                    "type": "string",
+                    "description": "The name of the configuration option."
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "A unique resource name for the option setting. Use it for a time–based scaling configuration option."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The current value for the configuration option."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:EnvironmentTier": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of this environment tier."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of this environment tier."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version."
                 }
             }
         },
@@ -75346,6 +76008,10 @@
                 "encryption": {
                     "$ref": "#/types/aws-native:mediapackage:OriginEndpointHlsEncryption"
                 },
+                "includeDvbSubtitles": {
+                    "type": "boolean",
+                    "description": "When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output."
+                },
                 "includeIframeOnlyStream": {
                     "type": "boolean",
                     "description": "When enabled, an I-Frame only stream will be included in the output."
@@ -75589,6 +76255,25 @@
         "aws-native:mediapackage:PackagingConfigurationDashPackageSegmentTemplateFormat": {
             "type": "string"
         },
+        "aws-native:mediapackage:PackagingConfigurationEncryptionContractConfiguration": {
+            "type": "object",
+            "properties": {
+                "presetSpeke20Audio": {
+                    "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio",
+                    "description": "A collection of audio encryption presets."
+                },
+                "presetSpeke20Video": {
+                    "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video",
+                    "description": "A collection of video encryption presets."
+                }
+            }
+        },
+        "aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio": {
+            "type": "string"
+        },
+        "aws-native:mediapackage:PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video": {
+            "type": "string"
+        },
         "aws-native:mediapackage:PackagingConfigurationHlsEncryption": {
             "type": "object",
             "properties": {
@@ -75651,6 +76336,10 @@
                     },
                     "description": "A list of HLS manifest configurations."
                 },
+                "includeDvbSubtitles": {
+                    "type": "boolean",
+                    "description": "When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output."
+                },
                 "segmentDurationSeconds": {
                     "type": "integer"
                 },
@@ -75700,6 +76389,9 @@
         "aws-native:mediapackage:PackagingConfigurationSpekeKeyProvider": {
             "type": "object",
             "properties": {
+                "encryptionContractConfiguration": {
+                    "$ref": "#/types/aws-native:mediapackage:PackagingConfigurationEncryptionContractConfiguration"
+                },
                 "roleArn": {
                     "type": "string"
                 },
@@ -75924,6 +76616,9 @@
                     "description": "Type of authentication strategy for this user."
                 }
             }
+        },
+        "aws-native:memorydb:ClusterDataTieringStatus": {
+            "type": "string"
         },
         "aws-native:memorydb:ClusterEndpoint": {
             "type": "object",
@@ -77604,6 +78299,54 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:organizations:AccountJoinedMethod": {
+            "type": "string"
+        },
+        "aws-native:organizations:AccountStatus": {
+            "type": "string"
+        },
+        "aws-native:organizations:AccountTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key identifier, or name, of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null."
+                }
+            }
+        },
+        "aws-native:organizations:OrganizationalUnitTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key identifier, or name, of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null."
+                }
+            }
+        },
+        "aws-native:organizations:PolicyTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key identifier, or name, of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null."
+                }
+            }
+        },
+        "aws-native:organizations:PolicyType": {
+            "type": "string"
         },
         "aws-native:panorama:ApplicationInstanceHealthStatus": {
             "type": "string"
@@ -80610,6 +81353,34 @@
         },
         "aws-native:resiliencehub:ResiliencyPolicyTier": {
             "type": "string"
+        },
+        "aws-native:resourceexplorer2:IndexState": {
+            "type": "string"
+        },
+        "aws-native:resourceexplorer2:IndexTagMap": {
+            "type": "object"
+        },
+        "aws-native:resourceexplorer2:IndexType": {
+            "type": "string"
+        },
+        "aws-native:resourceexplorer2:ViewFilters": {
+            "type": "object",
+            "properties": {
+                "filterString": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:resourceexplorer2:ViewIncludedProperty": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:resourceexplorer2:ViewTagMap": {
+            "type": "object"
         },
         "aws-native:resourcegroups:GroupConfigurationItem": {
             "type": "object",
@@ -86009,6 +86780,15 @@
         "aws-native:servicecatalogappregistry:ResourceAssociationResourceType": {
             "type": "string"
         },
+        "aws-native:ses:ConfigurationSetDashboardOptions": {
+            "type": "object",
+            "properties": {
+                "engagementMetrics": {
+                    "type": "string",
+                    "description": "Whether emails sent with this configuration set have engagement tracking enabled."
+                }
+            }
+        },
         "aws-native:ses:ConfigurationSetDeliveryOptions": {
             "type": "object",
             "properties": {
@@ -86104,6 +86884,15 @@
                 }
             }
         },
+        "aws-native:ses:ConfigurationSetGuardianOptions": {
+            "type": "object",
+            "properties": {
+                "optimizedSharedDelivery": {
+                    "type": "string",
+                    "description": "Whether emails sent with this configuration set have optimized delivery algorithm enabled."
+                }
+            }
+        },
         "aws-native:ses:ConfigurationSetReputationOptions": {
             "type": "object",
             "properties": {
@@ -86139,6 +86928,17 @@
                 "customRedirectDomain": {
                     "type": "string",
                     "description": "The domain to use for tracking open and click events."
+                }
+            }
+        },
+        "aws-native:ses:ConfigurationSetVdmOptions": {
+            "type": "object",
+            "properties": {
+                "dashboardOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetDashboardOptions"
+                },
+                "guardianOptions": {
+                    "$ref": "#/types/aws-native:ses:ConfigurationSetGuardianOptions"
                 }
             }
         },
@@ -86248,6 +87048,24 @@
                 "textPart": {
                     "type": "string",
                     "description": "The email body that is visible to recipients whose email clients do not display HTML content."
+                }
+            }
+        },
+        "aws-native:ses:VdmAttributesDashboardAttributes": {
+            "type": "object",
+            "properties": {
+                "engagementMetrics": {
+                    "type": "string",
+                    "description": "Whether emails sent from this account have engagement tracking enabled."
+                }
+            }
+        },
+        "aws-native:ses:VdmAttributesGuardianAttributes": {
+            "type": "object",
+            "properties": {
+                "optimizedSharedDelivery": {
+                    "type": "string",
+                    "description": "Whether emails sent from this account have optimized delivery algorithm enabled."
                 }
             }
         },
@@ -89611,6 +90429,13 @@
                 "apiId"
             ]
         },
+        "aws-native:apigatewayv2:getAuthorizer": {
+            "cf": "AWS::ApiGatewayV2::Authorizer",
+            "ids": [
+                "authorizerId",
+                "apiId"
+            ]
+        },
         "aws-native:apigatewayv2:getDeployment": {
             "cf": "AWS::ApiGatewayV2::Deployment",
             "ids": [
@@ -90837,6 +91662,12 @@
             "ids": [
                 "applicationName",
                 "id"
+            ]
+        },
+        "aws-native:elasticbeanstalk:getEnvironment": {
+            "cf": "AWS::ElasticBeanstalk::Environment",
+            "ids": [
+                "environmentName"
             ]
         },
         "aws-native:elasticloadbalancingv2:getListener": {
@@ -92117,6 +92948,24 @@
                 "serverName"
             ]
         },
+        "aws-native:organizations:getAccount": {
+            "cf": "AWS::Organizations::Account",
+            "ids": [
+                "accountId"
+            ]
+        },
+        "aws-native:organizations:getOrganizationalUnit": {
+            "cf": "AWS::Organizations::OrganizationalUnit",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:organizations:getPolicy": {
+            "cf": "AWS::Organizations::Policy",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:panorama:getApplicationInstance": {
             "cf": "AWS::Panorama::ApplicationInstance",
             "ids": [
@@ -92394,6 +93243,18 @@
             "cf": "AWS::ResilienceHub::ResiliencyPolicy",
             "ids": [
                 "policyArn"
+            ]
+        },
+        "aws-native:resourceexplorer2:getIndex": {
+            "cf": "AWS::ResourceExplorer2::Index",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:resourceexplorer2:getView": {
+            "cf": "AWS::ResourceExplorer2::View",
+            "ids": [
+                "viewArn"
             ]
         },
         "aws-native:resourcegroups:getGroup": {
@@ -92682,6 +93543,12 @@
                 "domainId"
             ]
         },
+        "aws-native:sagemaker:getFeatureGroup": {
+            "cf": "AWS::SageMaker::FeatureGroup",
+            "ids": [
+                "featureGroupName"
+            ]
+        },
         "aws-native:sagemaker:getImage": {
             "cf": "AWS::SageMaker::Image",
             "ids": [
@@ -92813,6 +93680,12 @@
             "cf": "AWS::SES::Template",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:ses:getVdmAttributes": {
+            "cf": "AWS::SES::VdmAttributes",
+            "ids": [
+                "vdmAttributesResourceId"
             ]
         },
         "aws-native:signer:getSigningProfile": {

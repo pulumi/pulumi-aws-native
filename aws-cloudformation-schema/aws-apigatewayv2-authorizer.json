@@ -31,13 +31,13 @@
     "AuthorizerPayloadFormatVersion" : {
       "type" : "string"
     },
-    "Id" : {
+    "ApiId" : {
       "type" : "string"
     },
     "EnableSimpleResponses" : {
       "type" : "boolean"
     },
-    "ApiId" : {
+    "AuthorizerId" : {
       "type" : "string"
     },
     "Name" : {
@@ -64,6 +64,29 @@
   },
   "required" : [ "AuthorizerType", "ApiId", "Name" ],
   "createOnlyProperties" : [ "/properties/ApiId" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/AuthorizerId", "/properties/ApiId" ],
+  "readOnlyProperties" : [ "/properties/AuthorizerId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "apigateway:POST" ]
+    },
+    "update" : {
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
+    },
+    "read" : {
+      "permissions" : [ "apigateway:GET" ]
+    },
+    "delete" : {
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
+    },
+    "list" : {
+      "permissions" : [ "apigateway:GET" ]
+    }
+  }
 }

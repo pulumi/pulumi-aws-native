@@ -27,6 +27,7 @@ AWS::ApiGateway::Stage
 AWS::ApiGateway::UsagePlan
 AWS::ApiGateway::UsagePlanKey
 AWS::ApiGatewayV2::Api
+AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::VpcLink
@@ -236,6 +237,7 @@ AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
 AWS::ElasticBeanstalk::Application
 AWS::ElasticBeanstalk::ApplicationVersion
+AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::EventSchemas::RegistryPolicy
@@ -449,6 +451,9 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
+AWS::Organizations::Account
+AWS::Organizations::OrganizationalUnit
+AWS::Organizations::Policy
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -494,6 +499,8 @@ AWS::Rekognition::Project
 AWS::Rekognition::StreamProcessor
 AWS::ResilienceHub::App
 AWS::ResilienceHub::ResiliencyPolicy
+AWS::ResourceExplorer2::Index
+AWS::ResourceExplorer2::View
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
@@ -543,6 +550,7 @@ AWS::SES::ContactList
 AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
 AWS::SES::Template
+AWS::SES::VdmAttributes
 AWS::SNS::Topic
 AWS::SQS::Queue
 AWS::SSM::Association
