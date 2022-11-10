@@ -40,6 +40,9 @@
     },
     "UnmanagedvCpus" : {
       "type" : "integer"
+    },
+    "EksConfiguration" : {
+      "$ref" : "#/definitions/EksConfiguration"
     }
   },
   "definitions" : {
@@ -141,6 +144,9 @@
         },
         "ImageType" : {
           "type" : "string"
+        },
+        "ImageKubernetesVersion" : {
+          "type" : "string"
         }
       },
       "required" : [ "ImageType" ]
@@ -173,6 +179,21 @@
           "default" : 30
         }
       }
+    },
+    "EksConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EksClusterArn" : {
+          "type" : "string",
+          "default" : false
+        },
+        "KubernetesNamespace" : {
+          "type" : "string",
+          "default" : false
+        }
+      },
+      "required" : [ "EksClusterArn", "KubernetesNamespace" ]
     }
   },
   "tagging" : {
@@ -183,14 +204,14 @@
     "tagProperty" : "/properties/Tags"
   },
   "required" : [ "Type" ],
-  "createOnlyProperties" : [ "/properties/ComputeResources/SpotIamFleetRole", "/properties/ComputeEnvironmentName", "/properties/Tags", "/properties/Type" ],
+  "createOnlyProperties" : [ "/properties/ComputeResources/SpotIamFleetRole", "/properties/ComputeEnvironmentName", "/properties/Tags", "/properties/Type", "/properties/EksConfiguration" ],
   "conditionalCreateOnlyProperties" : [ "/properties/ComputeResources/AllocationStrategy", "/properties/ComputeResources/BidPercentage", "/properties/ComputeResources/Ec2Configuration", "/properties/ComputeResources/Ec2KeyPair", "/properties/ComputeResources/ImageId", "/properties/ComputeResources/InstanceRole", "/properties/ComputeResources/InstanceTypes", "/properties/ComputeResources/LaunchTemplate", "/properties/ComputeResources/PlacementGroup", "/properties/ComputeResources/SecurityGroupIds", "/properties/ComputeResources/Subnets", "/properties/ComputeResources/Tags", "/properties/ComputeResources/Type" ],
   "writeOnlyProperties" : [ "/properties/ComputeResources/UpdateToLatestImageVersion", "/properties/ReplaceComputeEnvironment" ],
   "primaryIdentifier" : [ "/properties/ComputeEnvironmentArn" ],
   "readOnlyProperties" : [ "/properties/ComputeEnvironmentArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole" ]
+      "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole", "Eks:DescribeCluster" ]
     },
     "read" : {
       "permissions" : [ "Batch:DescribeComputeEnvironments" ]

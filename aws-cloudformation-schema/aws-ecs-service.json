@@ -22,7 +22,6 @@
   "typeName" : "AWS::ECS::Service",
   "readOnlyProperties" : [ "/properties/ServiceArn", "/properties/Name" ],
   "description" : "Resource Type definition for AWS::ECS::Service",
-  "writeOnlyProperties" : [ ],
   "createOnlyProperties" : [ "/properties/Cluster", "/properties/DeploymentController", "/properties/LaunchType", "/properties/Role", "/properties/SchedulingStrategy", "/properties/ServiceName" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/ServiceArn", "/properties/Cluster" ],
