@@ -9,6 +9,7 @@ AWS::Amplify::App
 AWS::Amplify::Branch
 AWS::Amplify::Domain
 AWS::AmplifyUIBuilder::Component
+AWS::AmplifyUIBuilder::Form
 AWS::AmplifyUIBuilder::Theme
 AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
@@ -236,6 +237,7 @@ AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
 AWS::ElasticBeanstalk::Application
 AWS::ElasticBeanstalk::ApplicationVersion
+AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
 AWS::EventSchemas::RegistryPolicy
@@ -449,6 +451,9 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
+AWS::Organizations::Account
+AWS::Organizations::OrganizationalUnit
+AWS::Organizations::Policy
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -494,6 +499,9 @@ AWS::Rekognition::Project
 AWS::Rekognition::StreamProcessor
 AWS::ResilienceHub::App
 AWS::ResilienceHub::ResiliencyPolicy
+AWS::ResourceExplorer2::DefaultViewAssociation
+AWS::ResourceExplorer2::Index
+AWS::ResourceExplorer2::View
 AWS::ResourceGroups::Group
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
@@ -543,6 +551,7 @@ AWS::SES::ContactList
 AWS::SES::DedicatedIpPool
 AWS::SES::EmailIdentity
 AWS::SES::Template
+AWS::SES::VdmAttributes
 AWS::SNS::Topic
 AWS::SQS::Queue
 AWS::SSM::Association
@@ -573,6 +582,8 @@ AWS::SageMaker::MonitoringSchedule
 AWS::SageMaker::Pipeline
 AWS::SageMaker::Project
 AWS::SageMaker::UserProfile
+AWS::Scheduler::Schedule
+AWS::Scheduler::ScheduleGroup
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
 AWS::ServiceCatalog::ServiceActionAssociation
@@ -609,6 +620,7 @@ AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
 AWS::WorkSpaces::ConnectionAlias
 AWS::XRay::Group
+AWS::XRay::ResourcePolicy
 AWS::XRay::SamplingRule
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
@@ -617,6 +629,7 @@ AWSQS::Kubernetes::Resource
 Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
+AwsCommunity::S3::DeleteBucketContents
 BigID::DataSource::DynamoDB
 BigID::DataSource::S3
 ConfluentCloud::IAM::ServiceAccount
@@ -628,8 +641,13 @@ Datadog::SLOs::SLO
 FireEye::CloudIntegrations::Cloudwatch
 Generic::Database::Schema
 Generic::Transcribe::Vocabulary
+Lacework::Alerts::Channel
+Lacework::Alerts::Profile
+Lacework::Alerts::Rule
+Lacework::Queries::Query
 MongoDB::Atlas::Project
 MongoDb::Atlas::AwsIamDatabaseUser
+Okta::Group::Group
 PaloAltoNetworks::CloudNGFW::NGFW
 PaloAltoNetworks::CloudNGFW::RuleStack
 Snyk::Container::Helm

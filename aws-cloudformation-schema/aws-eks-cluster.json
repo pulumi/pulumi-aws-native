@@ -156,6 +156,17 @@
         }
       }
     },
+    "ControlPlanePlacement" : {
+      "description" : "Specify the placement group of the control plane machines for your cluster.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "GroupName" : {
+          "description" : "Specify the placement group name of the control place machines for your cluster.",
+          "type" : "string"
+        }
+      }
+    },
     "OutpostConfig" : {
       "description" : "An object representing the Outpost configuration to use for AWS EKS outpost cluster.",
       "additionalProperties" : false,
@@ -173,6 +184,10 @@
         "ControlPlaneInstanceType" : {
           "description" : "Specify the Instance type of the machines that should be used to create your cluster.",
           "type" : "string"
+        },
+        "ControlPlanePlacement" : {
+          "description" : "Specify the placement group of the control plane machines for your cluster.",
+          "$ref" : "#/definitions/ControlPlanePlacement"
         }
       },
       "required" : [ "OutpostArns", "ControlPlaneInstanceType" ]

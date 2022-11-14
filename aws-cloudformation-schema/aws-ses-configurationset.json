@@ -70,6 +70,45 @@
           }
         }
       }
+    },
+    "DashboardOptions" : {
+      "type" : "object",
+      "description" : "Preferences regarding the Dashboard feature.",
+      "additionalProperties" : false,
+      "properties" : {
+        "EngagementMetrics" : {
+          "type" : "string",
+          "description" : "Whether emails sent with this configuration set have engagement tracking enabled.",
+          "pattern" : "ENABLED|DISABLED"
+        }
+      },
+      "required" : [ "EngagementMetrics" ]
+    },
+    "GuardianOptions" : {
+      "type" : "object",
+      "description" : "Preferences regarding the Guardian feature.",
+      "additionalProperties" : false,
+      "properties" : {
+        "OptimizedSharedDelivery" : {
+          "type" : "string",
+          "description" : "Whether emails sent with this configuration set have optimized delivery algorithm enabled.",
+          "pattern" : "ENABLED|DISABLED"
+        }
+      },
+      "required" : [ "OptimizedSharedDelivery" ]
+    },
+    "VdmOptions" : {
+      "description" : "An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DashboardOptions" : {
+          "$ref" : "#/definitions/DashboardOptions"
+        },
+        "GuardianOptions" : {
+          "$ref" : "#/definitions/GuardianOptions"
+        }
+      }
     }
   },
   "properties" : {
@@ -92,6 +131,9 @@
     },
     "SuppressionOptions" : {
       "$ref" : "#/definitions/SuppressionOptions"
+    },
+    "VdmOptions" : {
+      "$ref" : "#/definitions/VdmOptions"
     }
   },
   "createOnlyProperties" : [ "/properties/Name" ],
@@ -106,7 +148,7 @@
       "permissions" : [ "ses:GetConfigurationSet", "ses:DescribeConfigurationSet" ]
     },
     "update" : {
-      "permissions" : [ "ses:PutConfigurationSetTrackingOptions", "ses:PutConfigurationSetDeliveryOptions", "ses:PutConfigurationSetReputationOptions", "ses:PutConfigurationSetSendingOptions", "ses:PutConfigurationSetSuppressionOptions" ]
+      "permissions" : [ "ses:PutConfigurationSetTrackingOptions", "ses:PutConfigurationSetDeliveryOptions", "ses:PutConfigurationSetReputationOptions", "ses:PutConfigurationSetSendingOptions", "ses:PutConfigurationSetSuppressionOptions", "ses:PutConfigurationSetVdmOptions" ]
     },
     "delete" : {
       "permissions" : [ "ses:DeleteConfigurationSet" ]
