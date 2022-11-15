@@ -42,7 +42,7 @@
     }
   },
   "required" : [ "Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/EventSourceName", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/EventSourceName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Policy", "/properties/Arn" ]
 }
