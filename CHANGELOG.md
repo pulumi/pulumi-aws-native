@@ -1,5 +1,45 @@
 ## HEAD (Unreleased)
-(None)
+
+## 0.41.0 (November 17, 2022)
+
+Breaking Changes:
+
+- Function `aws-native:apigateway:getBasePathMapping` no longer has output "id"
+
+New resources:
+
+- `amplifyuibuilder.Form`
+- `apigatewayv2.Authorizer`
+- `elasticbeanstalk.Environment`
+- `organizations.Account`
+- `organizations.OrganizationalUnit`
+- `organizations.Policy`
+- `resourceexplorer2.DefaultViewAssociation`
+- `resourceexplorer2.Index`
+- `resourceexplorer2.View`
+- `scheduler.Schedule`
+- `scheduler.ScheduleGroup`
+- `ses.VdmAttributes`
+- `ssm.ResourcePolicy`
+- `xray.ResourcePolicy`
+
+New functions:
+
+- `amplifyuibuilder.getForm`
+- `apigatewayv2.getAuthorizer`
+- `elasticbeanstalk.getEnvironment`
+- `organizations.getAccount`
+- `organizations.getOrganizationalUnit`
+- `organizations.getPolicy`
+- `resourceexplorer2.getDefaultViewAssociation`
+- `resourceexplorer2.getIndex`
+- `resourceexplorer2.getView`
+- `sagemaker.getFeatureGroup`
+- `scheduler.getSchedule`
+- `scheduler.getScheduleGroup`
+- `ses.getVdmAttributes`
+- `ssm.getResourcePolicy`
+- `xray.getResourcePolicy`
 
 ## 0.40.2 (November 3, 2022)
 - Republish due to `nuget push` silently failing
