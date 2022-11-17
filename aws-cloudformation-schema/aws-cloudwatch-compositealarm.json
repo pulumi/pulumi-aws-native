@@ -81,7 +81,7 @@
       "minimum" : 0
     }
   },
-  "required" : [ "AlarmName", "AlarmRule" ],
+  "required" : [ "AlarmRule" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/AlarmName" ],
   "primaryIdentifier" : [ "/properties/AlarmName" ],
@@ -102,5 +102,8 @@
     "list" : {
       "permissions" : [ "cloudwatch:DescribeAlarms" ]
     }
+  },
+  "tagging" : {
+    "taggable" : false
   }
 }

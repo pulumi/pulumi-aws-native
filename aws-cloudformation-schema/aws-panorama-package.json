@@ -20,7 +20,7 @@
       "minLength" : 1,
       "maxLength" : 255
     },
-    "CreatedTime" : {
+    "Timestamp" : {
       "type" : "integer"
     },
     "StorageLocation" : {
@@ -86,7 +86,7 @@
       "$ref" : "#/definitions/StorageLocation"
     },
     "CreatedTime" : {
-      "$ref" : "#/definitions/CreatedTime"
+      "$ref" : "#/definitions/Timestamp"
     },
     "Tags" : {
       "$ref" : "#/definitions/TagList"
@@ -95,7 +95,7 @@
   "additionalProperties" : false,
   "taggable" : true,
   "required" : [ "PackageName" ],
-  "readOnlyProperties" : [ "/properties/PackageId", "/properties/Arn", "/properties/CreatedTime", "/properties/StorageLocation", "/properties/StorageLocation/Bucket", "/properties/StorageLocation/RepoPrefixLocation", "/properties/StorageLocation/GeneratedPrefixLocation", "/properties/StorageLocation/BinaryPrefixLocation", "/properties/StorageLocation/ManifestPrefixLocation" ],
+  "readOnlyProperties" : [ "/properties/PackageId", "/properties/Arn", "/properties/CreatedTime", "/properties/StorageLocation/Bucket", "/properties/StorageLocation/RepoPrefixLocation", "/properties/StorageLocation/GeneratedPrefixLocation", "/properties/StorageLocation/BinaryPrefixLocation", "/properties/StorageLocation/ManifestPrefixLocation" ],
   "createOnlyProperties" : [ "/properties/PackageName" ],
   "primaryIdentifier" : [ "/properties/PackageId" ],
   "handlers" : {
