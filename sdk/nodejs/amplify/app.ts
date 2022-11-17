@@ -53,6 +53,7 @@ export class App extends pulumi.CustomResource {
     public readonly iAMServiceRole!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly oauthToken!: pulumi.Output<string | undefined>;
+    public readonly platform!: pulumi.Output<enums.amplify.AppPlatform | undefined>;
     public readonly repository!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplify.AppTag[] | undefined>;
 
@@ -79,6 +80,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["iAMServiceRole"] = args ? args.iAMServiceRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args ? args.oauthToken : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["appId"] = undefined /*out*/;
@@ -102,6 +104,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["iAMServiceRole"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["oauthToken"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
             resourceInputs["repository"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -126,6 +129,7 @@ export interface AppArgs {
     iAMServiceRole?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     oauthToken?: pulumi.Input<string>;
+    platform?: pulumi.Input<enums.amplify.AppPlatform>;
     repository?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.amplify.AppTagArgs>[]>;
 }

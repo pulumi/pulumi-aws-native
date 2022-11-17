@@ -95,6 +95,11 @@ export const getEndpointConfig: typeof import("./getEndpointConfig").getEndpoint
 export const getEndpointConfigOutput: typeof import("./getEndpointConfig").getEndpointConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpointConfig","getEndpointConfigOutput"], () => require("./getEndpointConfig"));
 
+export { GetFeatureGroupArgs, GetFeatureGroupResult, GetFeatureGroupOutputArgs } from "./getFeatureGroup";
+export const getFeatureGroup: typeof import("./getFeatureGroup").getFeatureGroup = null as any;
+export const getFeatureGroupOutput: typeof import("./getFeatureGroup").getFeatureGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFeatureGroup","getFeatureGroupOutput"], () => require("./getFeatureGroup"));
+
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;

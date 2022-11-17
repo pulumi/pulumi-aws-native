@@ -14,12 +14,12 @@ import (
 type Package struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput          `pulumi:"arn"`
-	CreatedTime     pulumi.IntOutput             `pulumi:"createdTime"`
-	PackageId       pulumi.StringOutput          `pulumi:"packageId"`
-	PackageName     pulumi.StringOutput          `pulumi:"packageName"`
-	StorageLocation PackageStorageLocationOutput `pulumi:"storageLocation"`
-	Tags            PackageTagArrayOutput        `pulumi:"tags"`
+	Arn             pulumi.StringOutput             `pulumi:"arn"`
+	CreatedTime     pulumi.IntOutput                `pulumi:"createdTime"`
+	PackageId       pulumi.StringOutput             `pulumi:"packageId"`
+	PackageName     pulumi.StringOutput             `pulumi:"packageName"`
+	StorageLocation PackageStorageLocationPtrOutput `pulumi:"storageLocation"`
+	Tags            PackageTagArrayOutput           `pulumi:"tags"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -61,14 +61,16 @@ func (PackageState) ElementType() reflect.Type {
 }
 
 type packageArgs struct {
-	PackageName *string      `pulumi:"packageName"`
-	Tags        []PackageTag `pulumi:"tags"`
+	PackageName     *string                 `pulumi:"packageName"`
+	StorageLocation *PackageStorageLocation `pulumi:"storageLocation"`
+	Tags            []PackageTag            `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Package resource.
 type PackageArgs struct {
-	PackageName pulumi.StringPtrInput
-	Tags        PackageTagArrayInput
+	PackageName     pulumi.StringPtrInput
+	StorageLocation PackageStorageLocationPtrInput
+	Tags            PackageTagArrayInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -124,8 +126,8 @@ func (o PackageOutput) PackageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
 }
 
-func (o PackageOutput) StorageLocation() PackageStorageLocationOutput {
-	return o.ApplyT(func(v *Package) PackageStorageLocationOutput { return v.StorageLocation }).(PackageStorageLocationOutput)
+func (o PackageOutput) StorageLocation() PackageStorageLocationPtrOutput {
+	return o.ApplyT(func(v *Package) PackageStorageLocationPtrOutput { return v.StorageLocation }).(PackageStorageLocationPtrOutput)
 }
 
 func (o PackageOutput) Tags() PackageTagArrayOutput {

@@ -5,8 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'ClusterDataTieringStatus',
     'UserAuthenticationModePropertiesType',
 ]
+
+
+class ClusterDataTieringStatus(str, Enum):
+    TRUE = "true"
+    FALSE = "false"
 
 
 class UserAuthenticationModePropertiesType(str, Enum):

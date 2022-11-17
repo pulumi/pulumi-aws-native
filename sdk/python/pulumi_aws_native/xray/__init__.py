@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_group import *
+from .get_resource_policy import *
 from .get_sampling_rule import *
 from .group import *
+from .resource_policy import *
 from .sampling_rule import *
 from ._inputs import *
 from . import outputs

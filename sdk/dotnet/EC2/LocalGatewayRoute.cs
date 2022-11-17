@@ -19,19 +19,25 @@ namespace Pulumi.AwsNative.EC2
         /// The CIDR block used for destination matches.
         /// </summary>
         [Output("destinationCidrBlock")]
-        public Output<string> DestinationCidrBlock { get; private set; } = null!;
+        public Output<string?> DestinationCidrBlock { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the local gateway route table.
         /// </summary>
         [Output("localGatewayRouteTableId")]
-        public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
+        public Output<string?> LocalGatewayRouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the virtual interface group.
         /// </summary>
         [Output("localGatewayVirtualInterfaceGroupId")]
-        public Output<string> LocalGatewayVirtualInterfaceGroupId { get; private set; } = null!;
+        public Output<string?> LocalGatewayVirtualInterfaceGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
+        [Output("networkInterfaceId")]
+        public Output<string?> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
         /// The state of the route.
@@ -53,7 +59,7 @@ namespace Pulumi.AwsNative.EC2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public LocalGatewayRoute(string name, LocalGatewayRouteArgs args, CustomResourceOptions? options = null)
+        public LocalGatewayRoute(string name, LocalGatewayRouteArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ec2:LocalGatewayRoute", name, args ?? new LocalGatewayRouteArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -93,20 +99,26 @@ namespace Pulumi.AwsNative.EC2
         /// <summary>
         /// The CIDR block used for destination matches.
         /// </summary>
-        [Input("destinationCidrBlock", required: true)]
-        public Input<string> DestinationCidrBlock { get; set; } = null!;
+        [Input("destinationCidrBlock")]
+        public Input<string>? DestinationCidrBlock { get; set; }
 
         /// <summary>
         /// The ID of the local gateway route table.
         /// </summary>
-        [Input("localGatewayRouteTableId", required: true)]
-        public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
+        [Input("localGatewayRouteTableId")]
+        public Input<string>? LocalGatewayRouteTableId { get; set; }
 
         /// <summary>
         /// The ID of the virtual interface group.
         /// </summary>
-        [Input("localGatewayVirtualInterfaceGroupId", required: true)]
-        public Input<string> LocalGatewayVirtualInterfaceGroupId { get; set; } = null!;
+        [Input("localGatewayVirtualInterfaceGroupId")]
+        public Input<string>? LocalGatewayVirtualInterfaceGroupId { get; set; }
+
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
+        [Input("networkInterfaceId")]
+        public Input<string>? NetworkInterfaceId { get; set; }
 
         public LocalGatewayRouteArgs()
         {

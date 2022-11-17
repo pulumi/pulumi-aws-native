@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.SES
         [Output("trackingOptions")]
         public Output<Outputs.ConfigurationSetTrackingOptions?> TrackingOptions { get; private set; } = null!;
 
+        [Output("vdmOptions")]
+        public Output<Outputs.ConfigurationSetVdmOptions?> VdmOptions { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -101,6 +104,9 @@ namespace Pulumi.AwsNative.SES
 
         [Input("trackingOptions")]
         public Input<Inputs.ConfigurationSetTrackingOptionsArgs>? TrackingOptions { get; set; }
+
+        [Input("vdmOptions")]
+        public Input<Inputs.ConfigurationSetVdmOptionsArgs>? VdmOptions { get; set; }
 
         public ConfigurationSetArgs()
         {

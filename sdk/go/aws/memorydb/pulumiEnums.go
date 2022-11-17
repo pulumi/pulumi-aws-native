@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ClusterDataTieringStatus string
+
+const (
+	ClusterDataTieringStatusTrue  = ClusterDataTieringStatus("true")
+	ClusterDataTieringStatusFalse = ClusterDataTieringStatus("false")
+)
+
+func (ClusterDataTieringStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDataTieringStatus)(nil)).Elem()
+}
+
+func (e ClusterDataTieringStatus) ToClusterDataTieringStatusOutput() ClusterDataTieringStatusOutput {
+	return pulumi.ToOutput(e).(ClusterDataTieringStatusOutput)
+}
+
+func (e ClusterDataTieringStatus) ToClusterDataTieringStatusOutputWithContext(ctx context.Context) ClusterDataTieringStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterDataTieringStatusOutput)
+}
+
+func (e ClusterDataTieringStatus) ToClusterDataTieringStatusPtrOutput() ClusterDataTieringStatusPtrOutput {
+	return e.ToClusterDataTieringStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterDataTieringStatus) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
+	return ClusterDataTieringStatus(e).ToClusterDataTieringStatusOutputWithContext(ctx).ToClusterDataTieringStatusPtrOutputWithContext(ctx)
+}
+
+func (e ClusterDataTieringStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterDataTieringStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterDataTieringStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterDataTieringStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterDataTieringStatusOutput struct{ *pulumi.OutputState }
+
+func (ClusterDataTieringStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterDataTieringStatus)(nil)).Elem()
+}
+
+func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusOutput() ClusterDataTieringStatusOutput {
+	return o
+}
+
+func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusOutputWithContext(ctx context.Context) ClusterDataTieringStatusOutput {
+	return o
+}
+
+func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusPtrOutput() ClusterDataTieringStatusPtrOutput {
+	return o.ToClusterDataTieringStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterDataTieringStatus) *ClusterDataTieringStatus {
+		return &v
+	}).(ClusterDataTieringStatusPtrOutput)
+}
+
+func (o ClusterDataTieringStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterDataTieringStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterDataTieringStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterDataTieringStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDataTieringStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterDataTieringStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterDataTieringStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterDataTieringStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterDataTieringStatus)(nil)).Elem()
+}
+
+func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutput() ClusterDataTieringStatusPtrOutput {
+	return o
+}
+
+func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
+	return o
+}
+
+func (o ClusterDataTieringStatusPtrOutput) Elem() ClusterDataTieringStatusOutput {
+	return o.ApplyT(func(v *ClusterDataTieringStatus) ClusterDataTieringStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterDataTieringStatus
+		return ret
+	}).(ClusterDataTieringStatusOutput)
+}
+
+func (o ClusterDataTieringStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterDataTieringStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterDataTieringStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterDataTieringStatusInput is an input type that accepts ClusterDataTieringStatusArgs and ClusterDataTieringStatusOutput values.
+// You can construct a concrete instance of `ClusterDataTieringStatusInput` via:
+//
+//	ClusterDataTieringStatusArgs{...}
+type ClusterDataTieringStatusInput interface {
+	pulumi.Input
+
+	ToClusterDataTieringStatusOutput() ClusterDataTieringStatusOutput
+	ToClusterDataTieringStatusOutputWithContext(context.Context) ClusterDataTieringStatusOutput
+}
+
+var clusterDataTieringStatusPtrType = reflect.TypeOf((**ClusterDataTieringStatus)(nil)).Elem()
+
+type ClusterDataTieringStatusPtrInput interface {
+	pulumi.Input
+
+	ToClusterDataTieringStatusPtrOutput() ClusterDataTieringStatusPtrOutput
+	ToClusterDataTieringStatusPtrOutputWithContext(context.Context) ClusterDataTieringStatusPtrOutput
+}
+
+type clusterDataTieringStatusPtr string
+
+func ClusterDataTieringStatusPtr(v string) ClusterDataTieringStatusPtrInput {
+	return (*clusterDataTieringStatusPtr)(&v)
+}
+
+func (*clusterDataTieringStatusPtr) ElementType() reflect.Type {
+	return clusterDataTieringStatusPtrType
+}
+
+func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutput() ClusterDataTieringStatusPtrOutput {
+	return pulumi.ToOutput(in).(ClusterDataTieringStatusPtrOutput)
+}
+
+func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterDataTieringStatusPtrOutput)
+}
+
 // Type of authentication strategy for this user.
 type UserAuthenticationModePropertiesType string
 
@@ -175,8 +339,12 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusPtrInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
+	pulumi.RegisterOutputType(ClusterDataTieringStatusOutput{})
+	pulumi.RegisterOutputType(ClusterDataTieringStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 }

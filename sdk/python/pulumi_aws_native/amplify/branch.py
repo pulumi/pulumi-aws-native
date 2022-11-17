@@ -26,6 +26,7 @@ class BranchArgs:
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None):
@@ -49,6 +50,8 @@ class BranchArgs:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
@@ -138,6 +141,15 @@ class BranchArgs:
         pulumi.set(self, "environment_variables", value)
 
     @property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework", value)
+
+    @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "pull_request_environment_name")
@@ -179,6 +191,7 @@ class Branch(pulumi.CustomResource):
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
@@ -222,6 +235,7 @@ class Branch(pulumi.CustomResource):
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
@@ -245,6 +259,7 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["enable_performance_mode"] = enable_performance_mode
             __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
             __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
             __props__.__dict__["stage"] = stage
             __props__.__dict__["tags"] = tags
@@ -281,6 +296,7 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["enable_performance_mode"] = None
         __props__.__dict__["enable_pull_request_preview"] = None
         __props__.__dict__["environment_variables"] = None
+        __props__.__dict__["framework"] = None
         __props__.__dict__["pull_request_environment_name"] = None
         __props__.__dict__["stage"] = None
         __props__.__dict__["tags"] = None
@@ -335,6 +351,11 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.BranchEnvironmentVariable']]]:
         return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def framework(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "framework")
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")

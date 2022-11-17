@@ -260,6 +260,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly storageEncrypted!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the storage throughput for the DB instance.
+     */
+    public readonly storageThroughput!: pulumi.Output<number | undefined>;
+    /**
      * Specifies the storage type to be associated with the DB instance.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
@@ -351,6 +355,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["sourceDBInstanceIdentifier"] = args ? args.sourceDBInstanceIdentifier : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
+            resourceInputs["storageThroughput"] = args ? args.storageThroughput : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tdeCredentialArn"] = args ? args.tdeCredentialArn : undefined;
@@ -415,6 +420,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["sourceDBInstanceIdentifier"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageThroughput"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tdeCredentialArn"] = undefined /*out*/;
@@ -646,6 +652,10 @@ export interface DBInstanceArgs {
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
+    /**
+     * Specifies the storage throughput for the DB instance.
+     */
+    storageThroughput?: pulumi.Input<number>;
     /**
      * Specifies the storage type to be associated with the DB instance.
      */

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClusterDataTieringStatus = {
+    True: "true",
+    False: "false",
+} as const;
+
+export type ClusterDataTieringStatus = (typeof ClusterDataTieringStatus)[keyof typeof ClusterDataTieringStatus];
+
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
 } as const;

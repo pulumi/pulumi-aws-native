@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 
     public sealed class EnvironmentTierArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of this environment tier.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The type of this environment tier.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        /// <summary>
+        /// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

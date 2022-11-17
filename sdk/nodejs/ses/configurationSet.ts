@@ -46,6 +46,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     public readonly sendingOptions!: pulumi.Output<outputs.ses.ConfigurationSetSendingOptions | undefined>;
     public readonly suppressionOptions!: pulumi.Output<outputs.ses.ConfigurationSetSuppressionOptions | undefined>;
     public readonly trackingOptions!: pulumi.Output<outputs.ses.ConfigurationSetTrackingOptions | undefined>;
+    public readonly vdmOptions!: pulumi.Output<outputs.ses.ConfigurationSetVdmOptions | undefined>;
 
     /**
      * Create a ConfigurationSet resource with the given unique name, arguments, and options.
@@ -64,6 +65,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["sendingOptions"] = args ? args.sendingOptions : undefined;
             resourceInputs["suppressionOptions"] = args ? args.suppressionOptions : undefined;
             resourceInputs["trackingOptions"] = args ? args.trackingOptions : undefined;
+            resourceInputs["vdmOptions"] = args ? args.vdmOptions : undefined;
         } else {
             resourceInputs["deliveryOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -71,6 +73,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
             resourceInputs["sendingOptions"] = undefined /*out*/;
             resourceInputs["suppressionOptions"] = undefined /*out*/;
             resourceInputs["trackingOptions"] = undefined /*out*/;
+            resourceInputs["vdmOptions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
@@ -90,4 +93,5 @@ export interface ConfigurationSetArgs {
     sendingOptions?: pulumi.Input<inputs.ses.ConfigurationSetSendingOptionsArgs>;
     suppressionOptions?: pulumi.Input<inputs.ses.ConfigurationSetSuppressionOptionsArgs>;
     trackingOptions?: pulumi.Input<inputs.ses.ConfigurationSetTrackingOptionsArgs>;
+    vdmOptions?: pulumi.Input<inputs.ses.ConfigurationSetVdmOptionsArgs>;
 }

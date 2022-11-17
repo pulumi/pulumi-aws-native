@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, container_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, timeout=None, type=None):
+    def __init__(__self__, container_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, timeout=None, type=None):
         if container_properties and not isinstance(container_properties, dict):
             raise TypeError("Expected argument 'container_properties' to be a dict")
         pulumi.set(__self__, "container_properties", container_properties)
+        if eks_properties and not isinstance(eks_properties, dict):
+            raise TypeError("Expected argument 'eks_properties' to be a dict")
+        pulumi.set(__self__, "eks_properties", eks_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,11 @@ class GetJobDefinitionResult:
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> Optional['outputs.JobDefinitionContainerProperties']:
         return pulumi.get(self, "container_properties")
+
+    @property
+    @pulumi.getter(name="eksProperties")
+    def eks_properties(self) -> Optional['outputs.JobDefinitionEksProperties']:
+        return pulumi.get(self, "eks_properties")
 
     @property
     @pulumi.getter
@@ -109,6 +117,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             yield self
         return GetJobDefinitionResult(
             container_properties=self.container_properties,
+            eks_properties=self.eks_properties,
             id=self.id,
             node_properties=self.node_properties,
             parameters=self.parameters,
@@ -132,6 +141,7 @@ def get_job_definition(id: Optional[str] = None,
 
     return AwaitableGetJobDefinitionResult(
         container_properties=__ret__.container_properties,
+        eks_properties=__ret__.eks_properties,
         id=__ret__.id,
         node_properties=__ret__.node_properties,
         parameters=__ret__.parameters,

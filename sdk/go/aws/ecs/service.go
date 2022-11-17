@@ -33,6 +33,7 @@ type Service struct {
 	Role                          pulumi.StringPtrOutput                         `pulumi:"role"`
 	SchedulingStrategy            ServiceSchedulingStrategyPtrOutput             `pulumi:"schedulingStrategy"`
 	ServiceArn                    pulumi.StringOutput                            `pulumi:"serviceArn"`
+	ServiceConnectConfiguration   ServiceConnectConfigurationPtrOutput           `pulumi:"serviceConnectConfiguration"`
 	ServiceName                   pulumi.StringPtrOutput                         `pulumi:"serviceName"`
 	ServiceRegistries             ServiceRegistryArrayOutput                     `pulumi:"serviceRegistries"`
 	Tags                          ServiceTagArrayOutput                          `pulumi:"tags"`
@@ -95,6 +96,7 @@ type serviceArgs struct {
 	PropagateTags                 *ServicePropagateTags                 `pulumi:"propagateTags"`
 	Role                          *string                               `pulumi:"role"`
 	SchedulingStrategy            *ServiceSchedulingStrategy            `pulumi:"schedulingStrategy"`
+	ServiceConnectConfiguration   *ServiceConnectConfiguration          `pulumi:"serviceConnectConfiguration"`
 	ServiceName                   *string                               `pulumi:"serviceName"`
 	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
 	Tags                          []ServiceTag                          `pulumi:"tags"`
@@ -120,6 +122,7 @@ type ServiceArgs struct {
 	PropagateTags                 ServicePropagateTagsPtrInput
 	Role                          pulumi.StringPtrInput
 	SchedulingStrategy            ServiceSchedulingStrategyPtrInput
+	ServiceConnectConfiguration   ServiceConnectConfigurationPtrInput
 	ServiceName                   pulumi.StringPtrInput
 	ServiceRegistries             ServiceRegistryArrayInput
 	Tags                          ServiceTagArrayInput
@@ -237,6 +240,10 @@ func (o ServiceOutput) SchedulingStrategy() ServiceSchedulingStrategyPtrOutput {
 
 func (o ServiceOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceOutput) ServiceConnectConfiguration() ServiceConnectConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceConnectConfigurationPtrOutput { return v.ServiceConnectConfiguration }).(ServiceConnectConfigurationPtrOutput)
 }
 
 func (o ServiceOutput) ServiceName() pulumi.StringPtrOutput {

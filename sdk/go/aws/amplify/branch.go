@@ -25,6 +25,7 @@ type Branch struct {
 	EnablePerformanceMode      pulumi.BoolPtrOutput                 `pulumi:"enablePerformanceMode"`
 	EnablePullRequestPreview   pulumi.BoolPtrOutput                 `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
+	Framework                  pulumi.StringPtrOutput               `pulumi:"framework"`
 	PullRequestEnvironmentName pulumi.StringPtrOutput               `pulumi:"pullRequestEnvironmentName"`
 	Stage                      BranchStagePtrOutput                 `pulumi:"stage"`
 	Tags                       BranchTagArrayOutput                 `pulumi:"tags"`
@@ -81,6 +82,7 @@ type branchArgs struct {
 	EnablePerformanceMode      *bool                       `pulumi:"enablePerformanceMode"`
 	EnablePullRequestPreview   *bool                       `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       []BranchEnvironmentVariable `pulumi:"environmentVariables"`
+	Framework                  *string                     `pulumi:"framework"`
 	PullRequestEnvironmentName *string                     `pulumi:"pullRequestEnvironmentName"`
 	Stage                      *BranchStage                `pulumi:"stage"`
 	Tags                       []BranchTag                 `pulumi:"tags"`
@@ -97,6 +99,7 @@ type BranchArgs struct {
 	EnablePerformanceMode      pulumi.BoolPtrInput
 	EnablePullRequestPreview   pulumi.BoolPtrInput
 	EnvironmentVariables       BranchEnvironmentVariableArrayInput
+	Framework                  pulumi.StringPtrInput
 	PullRequestEnvironmentName pulumi.StringPtrInput
 	Stage                      BranchStagePtrInput
 	Tags                       BranchTagArrayInput
@@ -177,6 +180,10 @@ func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 
 func (o BranchOutput) EnvironmentVariables() BranchEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *Branch) BranchEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(BranchEnvironmentVariableArrayOutput)
+}
+
+func (o BranchOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.Framework }).(pulumi.StringPtrOutput)
 }
 
 func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {

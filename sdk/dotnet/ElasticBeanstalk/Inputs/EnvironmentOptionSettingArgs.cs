@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Inputs
 
     public sealed class EnvironmentOptionSettingArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique namespace that identifies the option's associated AWS resource.
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the configuration option.
+        /// </summary>
         [Input("optionName", required: true)]
         public Input<string> OptionName { get; set; } = null!;
 
+        /// <summary>
+        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
+        /// <summary>
+        /// The current value for the configuration option.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

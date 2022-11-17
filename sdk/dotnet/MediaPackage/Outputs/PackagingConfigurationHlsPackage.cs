@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// A list of HLS manifest configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackagingConfigurationHlsManifest> HlsManifests;
+        /// <summary>
+        /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        /// </summary>
+        public readonly bool? IncludeDvbSubtitles;
         public readonly int? SegmentDurationSeconds;
         /// <summary>
         /// When enabled, audio streams will be placed in rendition groups in the output.
@@ -33,12 +37,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             ImmutableArray<Outputs.PackagingConfigurationHlsManifest> hlsManifests,
 
+            bool? includeDvbSubtitles,
+
             int? segmentDurationSeconds,
 
             bool? useAudioRenditionGroup)
         {
             Encryption = encryption;
             HlsManifests = hlsManifests;
+            IncludeDvbSubtitles = includeDvbSubtitles;
             SegmentDurationSeconds = segmentDurationSeconds;
             UseAudioRenditionGroup = useAudioRenditionGroup;
         }

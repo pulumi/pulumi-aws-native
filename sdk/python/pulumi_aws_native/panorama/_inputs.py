@@ -14,6 +14,7 @@ __all__ = [
     'ApplicationInstanceManifestOverridesPayloadArgs',
     'ApplicationInstanceManifestPayloadArgs',
     'ApplicationInstanceTagArgs',
+    'PackageStorageLocationArgs',
     'PackageTagArgs',
 ]
 
@@ -86,6 +87,71 @@ class ApplicationInstanceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PackageStorageLocationArgs:
+    def __init__(__self__, *,
+                 binary_prefix_location: Optional[pulumi.Input[str]] = None,
+                 bucket: Optional[pulumi.Input[str]] = None,
+                 generated_prefix_location: Optional[pulumi.Input[str]] = None,
+                 manifest_prefix_location: Optional[pulumi.Input[str]] = None,
+                 repo_prefix_location: Optional[pulumi.Input[str]] = None):
+        if binary_prefix_location is not None:
+            pulumi.set(__self__, "binary_prefix_location", binary_prefix_location)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if generated_prefix_location is not None:
+            pulumi.set(__self__, "generated_prefix_location", generated_prefix_location)
+        if manifest_prefix_location is not None:
+            pulumi.set(__self__, "manifest_prefix_location", manifest_prefix_location)
+        if repo_prefix_location is not None:
+            pulumi.set(__self__, "repo_prefix_location", repo_prefix_location)
+
+    @property
+    @pulumi.getter(name="binaryPrefixLocation")
+    def binary_prefix_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "binary_prefix_location")
+
+    @binary_prefix_location.setter
+    def binary_prefix_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "binary_prefix_location", value)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="generatedPrefixLocation")
+    def generated_prefix_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "generated_prefix_location")
+
+    @generated_prefix_location.setter
+    def generated_prefix_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "generated_prefix_location", value)
+
+    @property
+    @pulumi.getter(name="manifestPrefixLocation")
+    def manifest_prefix_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "manifest_prefix_location")
+
+    @manifest_prefix_location.setter
+    def manifest_prefix_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "manifest_prefix_location", value)
+
+    @property
+    @pulumi.getter(name="repoPrefixLocation")
+    def repo_prefix_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "repo_prefix_location")
+
+    @repo_prefix_location.setter
+    def repo_prefix_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repo_prefix_location", value)
 
 
 @pulumi.input_type

@@ -2228,6 +2228,8 @@ type OriginEndpointHlsPackage struct {
 	AdTriggers                []OriginEndpointHlsPackageAdTriggersItem `pulumi:"adTriggers"`
 	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
 	Encryption                *OriginEndpointHlsEncryption             `pulumi:"encryption"`
+	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	IncludeDvbSubtitles *bool `pulumi:"includeDvbSubtitles"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
@@ -2262,6 +2264,8 @@ type OriginEndpointHlsPackageArgs struct {
 	AdTriggers                OriginEndpointHlsPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
 	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput  `pulumi:"adsOnDeliveryRestrictions"`
 	Encryption                OriginEndpointHlsEncryptionPtrInput              `pulumi:"encryption"`
+	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	IncludeDvbSubtitles pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
@@ -2375,6 +2379,11 @@ func (o OriginEndpointHlsPackageOutput) Encryption() OriginEndpointHlsEncryption
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsEncryption { return v.Encryption }).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
+// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+func (o OriginEndpointHlsPackageOutput) IncludeDvbSubtitles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsPackage) *bool { return v.IncludeDvbSubtitles }).(pulumi.BoolPtrOutput)
+}
+
 // When enabled, an I-Frame only stream will be included in the output.
 func (o OriginEndpointHlsPackageOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
@@ -2469,6 +2478,16 @@ func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncrypt
 		}
 		return v.Encryption
 	}).(OriginEndpointHlsEncryptionPtrOutput)
+}
+
+// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+func (o OriginEndpointHlsPackagePtrOutput) IncludeDvbSubtitles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointHlsPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDvbSubtitles
+	}).(pulumi.BoolPtrOutput)
 }
 
 // When enabled, an I-Frame only stream will be included in the output.
@@ -4219,6 +4238,169 @@ func (o PackagingConfigurationDashPackagePtrOutput) SegmentTemplateFormat() Pack
 	}).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type PackagingConfigurationEncryptionContractConfiguration struct {
+	// A collection of audio encryption presets.
+	PresetSpeke20Audio PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio `pulumi:"presetSpeke20Audio"`
+	// A collection of video encryption presets.
+	PresetSpeke20Video PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video `pulumi:"presetSpeke20Video"`
+}
+
+// PackagingConfigurationEncryptionContractConfigurationInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationArgs and PackagingConfigurationEncryptionContractConfigurationOutput values.
+// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationInput` via:
+//
+//	PackagingConfigurationEncryptionContractConfigurationArgs{...}
+type PackagingConfigurationEncryptionContractConfigurationInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationOutput() PackagingConfigurationEncryptionContractConfigurationOutput
+	ToPackagingConfigurationEncryptionContractConfigurationOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationOutput
+}
+
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type PackagingConfigurationEncryptionContractConfigurationArgs struct {
+	// A collection of audio encryption presets.
+	PresetSpeke20Audio PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput `pulumi:"presetSpeke20Audio"`
+	// A collection of video encryption presets.
+	PresetSpeke20Video PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput `pulumi:"presetSpeke20Video"`
+}
+
+func (PackagingConfigurationEncryptionContractConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingConfigurationEncryptionContractConfigurationOutput() PackagingConfigurationEncryptionContractConfigurationOutput {
+	return i.ToPackagingConfigurationEncryptionContractConfigurationOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingConfigurationEncryptionContractConfigurationOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationEncryptionContractConfigurationOutput)
+}
+
+func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return i.ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationEncryptionContractConfigurationOutput).ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx)
+}
+
+// PackagingConfigurationEncryptionContractConfigurationPtrInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationArgs, PackagingConfigurationEncryptionContractConfigurationPtr and PackagingConfigurationEncryptionContractConfigurationPtrOutput values.
+// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationPtrInput` via:
+//
+//	        PackagingConfigurationEncryptionContractConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PackagingConfigurationEncryptionContractConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput
+	ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput
+}
+
+type packagingConfigurationEncryptionContractConfigurationPtrType PackagingConfigurationEncryptionContractConfigurationArgs
+
+func PackagingConfigurationEncryptionContractConfigurationPtr(v *PackagingConfigurationEncryptionContractConfigurationArgs) PackagingConfigurationEncryptionContractConfigurationPtrInput {
+	return (*packagingConfigurationEncryptionContractConfigurationPtrType)(v)
+}
+
+func (*packagingConfigurationEncryptionContractConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (i *packagingConfigurationEncryptionContractConfigurationPtrType) ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return i.ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *packagingConfigurationEncryptionContractConfigurationPtrType) ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
+}
+
+// The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+type PackagingConfigurationEncryptionContractConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToPackagingConfigurationEncryptionContractConfigurationOutput() PackagingConfigurationEncryptionContractConfigurationOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToPackagingConfigurationEncryptionContractConfigurationOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o.ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationEncryptionContractConfiguration) *PackagingConfigurationEncryptionContractConfiguration {
+		return &v
+	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
+}
+
+// A collection of audio encryption presets.
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) PresetSpeke20Audio() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return o.ApplyT(func(v PackagingConfigurationEncryptionContractConfiguration) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio {
+		return v.PresetSpeke20Audio
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput)
+}
+
+// A collection of video encryption presets.
+func (o PackagingConfigurationEncryptionContractConfigurationOutput) PresetSpeke20Video() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return o.ApplyT(func(v PackagingConfigurationEncryptionContractConfiguration) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video {
+		return v.PresetSpeke20Video
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput)
+}
+
+type PackagingConfigurationEncryptionContractConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationEncryptionContractConfiguration)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationOutput {
+	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfiguration) PackagingConfigurationEncryptionContractConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationEncryptionContractConfiguration
+		return ret
+	}).(PackagingConfigurationEncryptionContractConfigurationOutput)
+}
+
+// A collection of audio encryption presets.
+func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) PresetSpeke20Audio() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfiguration) *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio {
+		if v == nil {
+			return nil
+		}
+		return &v.PresetSpeke20Audio
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+// A collection of video encryption presets.
+func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) PresetSpeke20Video() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfiguration) *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video {
+		if v == nil {
+			return nil
+		}
+		return &v.PresetSpeke20Video
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
 // An HTTP Live Streaming (HLS) encryption configuration.
 type PackagingConfigurationHlsEncryption struct {
 	// An HTTP Live Streaming (HLS) encryption configuration.
@@ -4544,8 +4726,10 @@ func (o PackagingConfigurationHlsManifestArrayOutput) Index(i pulumi.IntInput) P
 type PackagingConfigurationHlsPackage struct {
 	Encryption *PackagingConfigurationHlsEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
-	HlsManifests           []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
-	SegmentDurationSeconds *int                                `pulumi:"segmentDurationSeconds"`
+	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
+	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	IncludeDvbSubtitles    *bool `pulumi:"includeDvbSubtitles"`
+	SegmentDurationSeconds *int  `pulumi:"segmentDurationSeconds"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup *bool `pulumi:"useAudioRenditionGroup"`
 }
@@ -4565,8 +4749,10 @@ type PackagingConfigurationHlsPackageInput interface {
 type PackagingConfigurationHlsPackageArgs struct {
 	Encryption PackagingConfigurationHlsEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
-	HlsManifests           PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
-	SegmentDurationSeconds pulumi.IntPtrInput                          `pulumi:"segmentDurationSeconds"`
+	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
+	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+	IncludeDvbSubtitles    pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
+	SegmentDurationSeconds pulumi.IntPtrInput  `pulumi:"segmentDurationSeconds"`
 	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup pulumi.BoolPtrInput `pulumi:"useAudioRenditionGroup"`
 }
@@ -4658,6 +4844,11 @@ func (o PackagingConfigurationHlsPackageOutput) HlsManifests() PackagingConfigur
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) []PackagingConfigurationHlsManifest { return v.HlsManifests }).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
+// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+func (o PackagingConfigurationHlsPackageOutput) IncludeDvbSubtitles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *bool { return v.IncludeDvbSubtitles }).(pulumi.BoolPtrOutput)
+}
+
 func (o PackagingConfigurationHlsPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4708,6 +4899,16 @@ func (o PackagingConfigurationHlsPackagePtrOutput) HlsManifests() PackagingConfi
 		}
 		return v.HlsManifests
 	}).(PackagingConfigurationHlsManifestArrayOutput)
+}
+
+// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+func (o PackagingConfigurationHlsPackagePtrOutput) IncludeDvbSubtitles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeDvbSubtitles
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o PackagingConfigurationHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
@@ -5144,7 +5345,8 @@ func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulu
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProvider struct {
-	RoleArn string `pulumi:"roleArn"`
+	EncryptionContractConfiguration *PackagingConfigurationEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
+	RoleArn                         string                                                 `pulumi:"roleArn"`
 	// The system IDs to include in key requests.
 	SystemIds []string `pulumi:"systemIds"`
 	// The URL of the external key provider service.
@@ -5164,7 +5366,8 @@ type PackagingConfigurationSpekeKeyProviderInput interface {
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderArgs struct {
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	EncryptionContractConfiguration PackagingConfigurationEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
+	RoleArn                         pulumi.StringInput                                            `pulumi:"roleArn"`
 	// The system IDs to include in key requests.
 	SystemIds pulumi.StringArrayInput `pulumi:"systemIds"`
 	// The URL of the external key provider service.
@@ -5249,6 +5452,12 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
+func (o PackagingConfigurationSpekeKeyProviderOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
+		return v.EncryptionContractConfiguration
+	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
+}
+
 func (o PackagingConfigurationSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5285,6 +5494,15 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigu
 		var ret PackagingConfigurationSpekeKeyProvider
 		return ret
 	}).(PackagingConfigurationSpekeKeyProviderOutput)
+}
+
+func (o PackagingConfigurationSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionContractConfiguration
+	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
 }
 
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutput {
@@ -6034,6 +6252,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashManifestArrayInput)(nil)).Elem(), PackagingConfigurationDashManifestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackageInput)(nil)).Elem(), PackagingConfigurationDashPackageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePtrInput)(nil)).Elem(), PackagingConfigurationDashPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPtrInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsEncryptionInput)(nil)).Elem(), PackagingConfigurationHlsEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsEncryptionPtrInput)(nil)).Elem(), PackagingConfigurationHlsEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsManifestInput)(nil)).Elem(), PackagingConfigurationHlsManifestArgs{})
@@ -6108,6 +6328,8 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationDashManifestArrayOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackageOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsEncryptionOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsManifestOutput{})

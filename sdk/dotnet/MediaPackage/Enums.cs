@@ -779,6 +779,79 @@ namespace Pulumi.AwsNative.MediaPackage
     }
 
     /// <summary>
+    /// A collection of audio encryption presets.
+    /// </summary>
+    [EnumType]
+    public readonly struct PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio : IEquatable<PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio>
+    {
+        private readonly string _value;
+
+        private PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio PresetAudio1 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio PresetAudio2 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-2");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio PresetAudio3 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-3");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio Shared { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("SHARED");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio Unencrypted { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("UNENCRYPTED");
+
+        public static bool operator ==(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio left, PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio right) => left.Equals(right);
+        public static bool operator !=(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio left, PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio right) => !left.Equals(right);
+
+        public static explicit operator string(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio other && Equals(other);
+        public bool Equals(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A collection of video encryption presets.
+    /// </summary>
+    [EnumType]
+    public readonly struct PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video : IEquatable<PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video>
+    {
+        private readonly string _value;
+
+        private PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo1 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo2 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-2");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo3 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-3");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo4 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-4");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo5 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-5");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo6 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-6");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo7 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-7");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video PresetVideo8 { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-8");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video Shared { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("SHARED");
+        public static PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video Unencrypted { get; } = new PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("UNENCRYPTED");
+
+        public static bool operator ==(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video left, PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video right) => left.Equals(right);
+        public static bool operator !=(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video left, PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video right) => !left.Equals(right);
+
+        public static explicit operator string(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video other && Equals(other);
+        public bool Equals(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The encryption method to use.
     /// </summary>
     [EnumType]

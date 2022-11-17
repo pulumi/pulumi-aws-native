@@ -288,20 +288,21 @@ func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Enabled() pul
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurations struct {
-	AuthenticatedCognitoRoleOverlyPermissiveCheck   *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	CaCertificateExpiringCheck                      *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
-	CaCertificateKeyQualityCheck                    *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
-	ConflictingClientIdsCheck                       *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
-	DeviceCertificateExpiringCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
-	DeviceCertificateKeyQualityCheck                *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
-	DeviceCertificateSharedCheck                    *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
-	IotPolicyOverlyPermissiveCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	IotRoleAliasAllowsAccessToUnusedServicesCheck   *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	IotRoleAliasOverlyPermissiveCheck               *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	LoggingDisabledCheck                            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
-	RevokedCaCertificateStillActiveCheck            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
-	RevokedDeviceCertificateStillActiveCheck        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	AuthenticatedCognitoRoleOverlyPermissiveCheck         *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	CaCertificateExpiringCheck                            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
+	CaCertificateKeyQualityCheck                          *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
+	ConflictingClientIdsCheck                             *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
+	DeviceCertificateExpiringCheck                        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
+	DeviceCertificateKeyQualityCheck                      *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateSharedCheck                          *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
+	IntermediateCaRevokedForActiveDeviceCertificatesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
+	IotPolicyOverlyPermissiveCheck                        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck         *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasOverlyPermissiveCheck                     *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	LoggingDisabledCheck                                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
+	RevokedCaCertificateStillActiveCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck              *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck       *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 // AccountAuditConfigurationAuditCheckConfigurationsInput is an input type that accepts AccountAuditConfigurationAuditCheckConfigurationsArgs and AccountAuditConfigurationAuditCheckConfigurationsOutput values.
@@ -317,20 +318,21 @@ type AccountAuditConfigurationAuditCheckConfigurationsInput interface {
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
-	AuthenticatedCognitoRoleOverlyPermissiveCheck   AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	CaCertificateExpiringCheck                      AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
-	CaCertificateKeyQualityCheck                    AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
-	ConflictingClientIdsCheck                       AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
-	DeviceCertificateExpiringCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
-	DeviceCertificateKeyQualityCheck                AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
-	DeviceCertificateSharedCheck                    AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
-	IotPolicyOverlyPermissiveCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	IotRoleAliasAllowsAccessToUnusedServicesCheck   AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	IotRoleAliasOverlyPermissiveCheck               AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	LoggingDisabledCheck                            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
-	RevokedCaCertificateStillActiveCheck            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
-	RevokedDeviceCertificateStillActiveCheck        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	UnauthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
+	AuthenticatedCognitoRoleOverlyPermissiveCheck         AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	CaCertificateExpiringCheck                            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
+	CaCertificateKeyQualityCheck                          AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
+	ConflictingClientIdsCheck                             AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
+	DeviceCertificateExpiringCheck                        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
+	DeviceCertificateKeyQualityCheck                      AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateSharedCheck                          AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
+	IntermediateCaRevokedForActiveDeviceCertificatesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
+	IotPolicyOverlyPermissiveCheck                        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck         AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasOverlyPermissiveCheck                     AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	LoggingDisabledCheck                                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
+	RevokedCaCertificateStillActiveCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck              AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
+	UnauthenticatedCognitoRoleOverlyPermissiveCheck       AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
 func (AccountAuditConfigurationAuditCheckConfigurationsArgs) ElementType() reflect.Type {
@@ -399,6 +401,12 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertifica
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateSharedCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
@@ -528,6 +536,15 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 			return nil
 		}
 		return v.DeviceCertificateSharedCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 

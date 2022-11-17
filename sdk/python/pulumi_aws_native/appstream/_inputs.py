@@ -15,6 +15,7 @@ __all__ = [
     'AppBlockTagArgs',
     'ApplicationS3LocationArgs',
     'ApplicationTagArgs',
+    'DirectoryConfigCertificateBasedAuthPropertiesArgs',
     'DirectoryConfigServiceAccountCredentialsArgs',
     'EntitlementAttributeArgs',
     'FleetComputeCapacityArgs',
@@ -190,6 +191,35 @@ class ApplicationTagArgs:
     @tag_value.setter
     def tag_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "tag_value", value)
+
+
+@pulumi.input_type
+class DirectoryConfigCertificateBasedAuthPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

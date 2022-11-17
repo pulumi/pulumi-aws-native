@@ -10,6 +10,146 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Preferences regarding the Dashboard feature.
+type ConfigurationSetDashboardOptions struct {
+	// Whether emails sent with this configuration set have engagement tracking enabled.
+	EngagementMetrics string `pulumi:"engagementMetrics"`
+}
+
+// ConfigurationSetDashboardOptionsInput is an input type that accepts ConfigurationSetDashboardOptionsArgs and ConfigurationSetDashboardOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetDashboardOptionsInput` via:
+//
+//	ConfigurationSetDashboardOptionsArgs{...}
+type ConfigurationSetDashboardOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDashboardOptionsOutput() ConfigurationSetDashboardOptionsOutput
+	ToConfigurationSetDashboardOptionsOutputWithContext(context.Context) ConfigurationSetDashboardOptionsOutput
+}
+
+// Preferences regarding the Dashboard feature.
+type ConfigurationSetDashboardOptionsArgs struct {
+	// Whether emails sent with this configuration set have engagement tracking enabled.
+	EngagementMetrics pulumi.StringInput `pulumi:"engagementMetrics"`
+}
+
+func (ConfigurationSetDashboardOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDashboardOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetDashboardOptionsArgs) ToConfigurationSetDashboardOptionsOutput() ConfigurationSetDashboardOptionsOutput {
+	return i.ToConfigurationSetDashboardOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDashboardOptionsArgs) ToConfigurationSetDashboardOptionsOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDashboardOptionsOutput)
+}
+
+func (i ConfigurationSetDashboardOptionsArgs) ToConfigurationSetDashboardOptionsPtrOutput() ConfigurationSetDashboardOptionsPtrOutput {
+	return i.ToConfigurationSetDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetDashboardOptionsArgs) ToConfigurationSetDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDashboardOptionsOutput).ToConfigurationSetDashboardOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetDashboardOptionsPtrInput is an input type that accepts ConfigurationSetDashboardOptionsArgs, ConfigurationSetDashboardOptionsPtr and ConfigurationSetDashboardOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetDashboardOptionsPtrInput` via:
+//
+//	        ConfigurationSetDashboardOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetDashboardOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetDashboardOptionsPtrOutput() ConfigurationSetDashboardOptionsPtrOutput
+	ToConfigurationSetDashboardOptionsPtrOutputWithContext(context.Context) ConfigurationSetDashboardOptionsPtrOutput
+}
+
+type configurationSetDashboardOptionsPtrType ConfigurationSetDashboardOptionsArgs
+
+func ConfigurationSetDashboardOptionsPtr(v *ConfigurationSetDashboardOptionsArgs) ConfigurationSetDashboardOptionsPtrInput {
+	return (*configurationSetDashboardOptionsPtrType)(v)
+}
+
+func (*configurationSetDashboardOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDashboardOptions)(nil)).Elem()
+}
+
+func (i *configurationSetDashboardOptionsPtrType) ToConfigurationSetDashboardOptionsPtrOutput() ConfigurationSetDashboardOptionsPtrOutput {
+	return i.ToConfigurationSetDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetDashboardOptionsPtrType) ToConfigurationSetDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetDashboardOptionsPtrOutput)
+}
+
+// Preferences regarding the Dashboard feature.
+type ConfigurationSetDashboardOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDashboardOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetDashboardOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDashboardOptionsOutput) ToConfigurationSetDashboardOptionsOutput() ConfigurationSetDashboardOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDashboardOptionsOutput) ToConfigurationSetDashboardOptionsOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetDashboardOptionsOutput) ToConfigurationSetDashboardOptionsPtrOutput() ConfigurationSetDashboardOptionsPtrOutput {
+	return o.ToConfigurationSetDashboardOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetDashboardOptionsOutput) ToConfigurationSetDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetDashboardOptions) *ConfigurationSetDashboardOptions {
+		return &v
+	}).(ConfigurationSetDashboardOptionsPtrOutput)
+}
+
+// Whether emails sent with this configuration set have engagement tracking enabled.
+func (o ConfigurationSetDashboardOptionsOutput) EngagementMetrics() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetDashboardOptions) string { return v.EngagementMetrics }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetDashboardOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetDashboardOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetDashboardOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetDashboardOptionsPtrOutput) ToConfigurationSetDashboardOptionsPtrOutput() ConfigurationSetDashboardOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDashboardOptionsPtrOutput) ToConfigurationSetDashboardOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDashboardOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetDashboardOptionsPtrOutput) Elem() ConfigurationSetDashboardOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetDashboardOptions) ConfigurationSetDashboardOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetDashboardOptions
+		return ret
+	}).(ConfigurationSetDashboardOptionsOutput)
+}
+
+// Whether emails sent with this configuration set have engagement tracking enabled.
+func (o ConfigurationSetDashboardOptionsPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDashboardOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EngagementMetrics
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 type ConfigurationSetDeliveryOptions struct {
 	// The name of the dedicated IP pool to associate with the configuration set.
@@ -911,6 +1051,146 @@ func (o ConfigurationSetEventDestinationSnsDestinationPtrOutput) TopicARN() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Preferences regarding the Guardian feature.
+type ConfigurationSetGuardianOptions struct {
+	// Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+	OptimizedSharedDelivery string `pulumi:"optimizedSharedDelivery"`
+}
+
+// ConfigurationSetGuardianOptionsInput is an input type that accepts ConfigurationSetGuardianOptionsArgs and ConfigurationSetGuardianOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetGuardianOptionsInput` via:
+//
+//	ConfigurationSetGuardianOptionsArgs{...}
+type ConfigurationSetGuardianOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetGuardianOptionsOutput() ConfigurationSetGuardianOptionsOutput
+	ToConfigurationSetGuardianOptionsOutputWithContext(context.Context) ConfigurationSetGuardianOptionsOutput
+}
+
+// Preferences regarding the Guardian feature.
+type ConfigurationSetGuardianOptionsArgs struct {
+	// Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+	OptimizedSharedDelivery pulumi.StringInput `pulumi:"optimizedSharedDelivery"`
+}
+
+func (ConfigurationSetGuardianOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetGuardianOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetGuardianOptionsArgs) ToConfigurationSetGuardianOptionsOutput() ConfigurationSetGuardianOptionsOutput {
+	return i.ToConfigurationSetGuardianOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetGuardianOptionsArgs) ToConfigurationSetGuardianOptionsOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetGuardianOptionsOutput)
+}
+
+func (i ConfigurationSetGuardianOptionsArgs) ToConfigurationSetGuardianOptionsPtrOutput() ConfigurationSetGuardianOptionsPtrOutput {
+	return i.ToConfigurationSetGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetGuardianOptionsArgs) ToConfigurationSetGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetGuardianOptionsOutput).ToConfigurationSetGuardianOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetGuardianOptionsPtrInput is an input type that accepts ConfigurationSetGuardianOptionsArgs, ConfigurationSetGuardianOptionsPtr and ConfigurationSetGuardianOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetGuardianOptionsPtrInput` via:
+//
+//	        ConfigurationSetGuardianOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetGuardianOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetGuardianOptionsPtrOutput() ConfigurationSetGuardianOptionsPtrOutput
+	ToConfigurationSetGuardianOptionsPtrOutputWithContext(context.Context) ConfigurationSetGuardianOptionsPtrOutput
+}
+
+type configurationSetGuardianOptionsPtrType ConfigurationSetGuardianOptionsArgs
+
+func ConfigurationSetGuardianOptionsPtr(v *ConfigurationSetGuardianOptionsArgs) ConfigurationSetGuardianOptionsPtrInput {
+	return (*configurationSetGuardianOptionsPtrType)(v)
+}
+
+func (*configurationSetGuardianOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetGuardianOptions)(nil)).Elem()
+}
+
+func (i *configurationSetGuardianOptionsPtrType) ToConfigurationSetGuardianOptionsPtrOutput() ConfigurationSetGuardianOptionsPtrOutput {
+	return i.ToConfigurationSetGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetGuardianOptionsPtrType) ToConfigurationSetGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetGuardianOptionsPtrOutput)
+}
+
+// Preferences regarding the Guardian feature.
+type ConfigurationSetGuardianOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetGuardianOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetGuardianOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetGuardianOptionsOutput) ToConfigurationSetGuardianOptionsOutput() ConfigurationSetGuardianOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetGuardianOptionsOutput) ToConfigurationSetGuardianOptionsOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetGuardianOptionsOutput) ToConfigurationSetGuardianOptionsPtrOutput() ConfigurationSetGuardianOptionsPtrOutput {
+	return o.ToConfigurationSetGuardianOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetGuardianOptionsOutput) ToConfigurationSetGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetGuardianOptions) *ConfigurationSetGuardianOptions {
+		return &v
+	}).(ConfigurationSetGuardianOptionsPtrOutput)
+}
+
+// Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+func (o ConfigurationSetGuardianOptionsOutput) OptimizedSharedDelivery() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationSetGuardianOptions) string { return v.OptimizedSharedDelivery }).(pulumi.StringOutput)
+}
+
+type ConfigurationSetGuardianOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetGuardianOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetGuardianOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetGuardianOptionsPtrOutput) ToConfigurationSetGuardianOptionsPtrOutput() ConfigurationSetGuardianOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetGuardianOptionsPtrOutput) ToConfigurationSetGuardianOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetGuardianOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetGuardianOptionsPtrOutput) Elem() ConfigurationSetGuardianOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetGuardianOptions) ConfigurationSetGuardianOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetGuardianOptions
+		return ret
+	}).(ConfigurationSetGuardianOptionsOutput)
+}
+
+// Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+func (o ConfigurationSetGuardianOptionsPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetGuardianOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OptimizedSharedDelivery
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
 type ConfigurationSetReputationOptions struct {
 	// If true , tracking of reputation metrics is enabled for the configuration set. If false , tracking of reputation metrics is disabled for the configuration set.
@@ -1465,6 +1745,157 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 		}
 		return v.CustomRedirectDomain
 	}).(pulumi.StringPtrOutput)
+}
+
+// An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+type ConfigurationSetVdmOptions struct {
+	DashboardOptions *ConfigurationSetDashboardOptions `pulumi:"dashboardOptions"`
+	GuardianOptions  *ConfigurationSetGuardianOptions  `pulumi:"guardianOptions"`
+}
+
+// ConfigurationSetVdmOptionsInput is an input type that accepts ConfigurationSetVdmOptionsArgs and ConfigurationSetVdmOptionsOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsInput` via:
+//
+//	ConfigurationSetVdmOptionsArgs{...}
+type ConfigurationSetVdmOptionsInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput
+	ToConfigurationSetVdmOptionsOutputWithContext(context.Context) ConfigurationSetVdmOptionsOutput
+}
+
+// An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+type ConfigurationSetVdmOptionsArgs struct {
+	DashboardOptions ConfigurationSetDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
+	GuardianOptions  ConfigurationSetGuardianOptionsPtrInput  `pulumi:"guardianOptions"`
+}
+
+func (ConfigurationSetVdmOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput {
+	return i.ToConfigurationSetVdmOptionsOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsOutput)
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationSetVdmOptionsArgs) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsOutput).ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx)
+}
+
+// ConfigurationSetVdmOptionsPtrInput is an input type that accepts ConfigurationSetVdmOptionsArgs, ConfigurationSetVdmOptionsPtr and ConfigurationSetVdmOptionsPtrOutput values.
+// You can construct a concrete instance of `ConfigurationSetVdmOptionsPtrInput` via:
+//
+//	        ConfigurationSetVdmOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationSetVdmOptionsPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput
+	ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Context) ConfigurationSetVdmOptionsPtrOutput
+}
+
+type configurationSetVdmOptionsPtrType ConfigurationSetVdmOptionsArgs
+
+func ConfigurationSetVdmOptionsPtr(v *ConfigurationSetVdmOptionsArgs) ConfigurationSetVdmOptionsPtrInput {
+	return (*configurationSetVdmOptionsPtrType)(v)
+}
+
+func (*configurationSetVdmOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (i *configurationSetVdmOptionsPtrType) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return i.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationSetVdmOptionsPtrType) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetVdmOptionsPtrOutput)
+}
+
+// An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+type ConfigurationSetVdmOptionsOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsOutput() ConfigurationSetVdmOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return o.ToConfigurationSetVdmOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptions {
+		return &v
+	}).(ConfigurationSetVdmOptionsPtrOutput)
+}
+
+func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions { return v.DashboardOptions }).(ConfigurationSetDashboardOptionsPtrOutput)
+}
+
+func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions { return v.GuardianOptions }).(ConfigurationSetGuardianOptionsPtrOutput)
+}
+
+type ConfigurationSetVdmOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationSetVdmOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationSetVdmOptions)(nil)).Elem()
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutput() ConfigurationSetVdmOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) ToConfigurationSetVdmOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetVdmOptionsPtrOutput {
+	return o
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) ConfigurationSetVdmOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetVdmOptions
+		return ret
+	}).(ConfigurationSetVdmOptionsOutput)
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetDashboardOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetDashboardOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DashboardOptions
+	}).(ConfigurationSetDashboardOptionsPtrOutput)
+}
+
+func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetGuardianOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetGuardianOptions {
+		if v == nil {
+			return nil
+		}
+		return v.GuardianOptions
+	}).(ConfigurationSetGuardianOptionsPtrOutput)
 }
 
 type ContactListTag struct {
@@ -4165,7 +4596,289 @@ func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Preferences regarding the Dashboard feature.
+type VdmAttributesDashboardAttributes struct {
+	// Whether emails sent from this account have engagement tracking enabled.
+	EngagementMetrics *string `pulumi:"engagementMetrics"`
+}
+
+// VdmAttributesDashboardAttributesInput is an input type that accepts VdmAttributesDashboardAttributesArgs and VdmAttributesDashboardAttributesOutput values.
+// You can construct a concrete instance of `VdmAttributesDashboardAttributesInput` via:
+//
+//	VdmAttributesDashboardAttributesArgs{...}
+type VdmAttributesDashboardAttributesInput interface {
+	pulumi.Input
+
+	ToVdmAttributesDashboardAttributesOutput() VdmAttributesDashboardAttributesOutput
+	ToVdmAttributesDashboardAttributesOutputWithContext(context.Context) VdmAttributesDashboardAttributesOutput
+}
+
+// Preferences regarding the Dashboard feature.
+type VdmAttributesDashboardAttributesArgs struct {
+	// Whether emails sent from this account have engagement tracking enabled.
+	EngagementMetrics pulumi.StringPtrInput `pulumi:"engagementMetrics"`
+}
+
+func (VdmAttributesDashboardAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (i VdmAttributesDashboardAttributesArgs) ToVdmAttributesDashboardAttributesOutput() VdmAttributesDashboardAttributesOutput {
+	return i.ToVdmAttributesDashboardAttributesOutputWithContext(context.Background())
+}
+
+func (i VdmAttributesDashboardAttributesArgs) ToVdmAttributesDashboardAttributesOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesDashboardAttributesOutput)
+}
+
+func (i VdmAttributesDashboardAttributesArgs) ToVdmAttributesDashboardAttributesPtrOutput() VdmAttributesDashboardAttributesPtrOutput {
+	return i.ToVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i VdmAttributesDashboardAttributesArgs) ToVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesDashboardAttributesOutput).ToVdmAttributesDashboardAttributesPtrOutputWithContext(ctx)
+}
+
+// VdmAttributesDashboardAttributesPtrInput is an input type that accepts VdmAttributesDashboardAttributesArgs, VdmAttributesDashboardAttributesPtr and VdmAttributesDashboardAttributesPtrOutput values.
+// You can construct a concrete instance of `VdmAttributesDashboardAttributesPtrInput` via:
+//
+//	        VdmAttributesDashboardAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VdmAttributesDashboardAttributesPtrInput interface {
+	pulumi.Input
+
+	ToVdmAttributesDashboardAttributesPtrOutput() VdmAttributesDashboardAttributesPtrOutput
+	ToVdmAttributesDashboardAttributesPtrOutputWithContext(context.Context) VdmAttributesDashboardAttributesPtrOutput
+}
+
+type vdmAttributesDashboardAttributesPtrType VdmAttributesDashboardAttributesArgs
+
+func VdmAttributesDashboardAttributesPtr(v *VdmAttributesDashboardAttributesArgs) VdmAttributesDashboardAttributesPtrInput {
+	return (*vdmAttributesDashboardAttributesPtrType)(v)
+}
+
+func (*vdmAttributesDashboardAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (i *vdmAttributesDashboardAttributesPtrType) ToVdmAttributesDashboardAttributesPtrOutput() VdmAttributesDashboardAttributesPtrOutput {
+	return i.ToVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *vdmAttributesDashboardAttributesPtrType) ToVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesDashboardAttributesPtrOutput)
+}
+
+// Preferences regarding the Dashboard feature.
+type VdmAttributesDashboardAttributesOutput struct{ *pulumi.OutputState }
+
+func (VdmAttributesDashboardAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (o VdmAttributesDashboardAttributesOutput) ToVdmAttributesDashboardAttributesOutput() VdmAttributesDashboardAttributesOutput {
+	return o
+}
+
+func (o VdmAttributesDashboardAttributesOutput) ToVdmAttributesDashboardAttributesOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesOutput {
+	return o
+}
+
+func (o VdmAttributesDashboardAttributesOutput) ToVdmAttributesDashboardAttributesPtrOutput() VdmAttributesDashboardAttributesPtrOutput {
+	return o.ToVdmAttributesDashboardAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o VdmAttributesDashboardAttributesOutput) ToVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VdmAttributesDashboardAttributes) *VdmAttributesDashboardAttributes {
+		return &v
+	}).(VdmAttributesDashboardAttributesPtrOutput)
+}
+
+// Whether emails sent from this account have engagement tracking enabled.
+func (o VdmAttributesDashboardAttributesOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VdmAttributesDashboardAttributes) *string { return v.EngagementMetrics }).(pulumi.StringPtrOutput)
+}
+
+type VdmAttributesDashboardAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (VdmAttributesDashboardAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VdmAttributesDashboardAttributes)(nil)).Elem()
+}
+
+func (o VdmAttributesDashboardAttributesPtrOutput) ToVdmAttributesDashboardAttributesPtrOutput() VdmAttributesDashboardAttributesPtrOutput {
+	return o
+}
+
+func (o VdmAttributesDashboardAttributesPtrOutput) ToVdmAttributesDashboardAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesDashboardAttributesPtrOutput {
+	return o
+}
+
+func (o VdmAttributesDashboardAttributesPtrOutput) Elem() VdmAttributesDashboardAttributesOutput {
+	return o.ApplyT(func(v *VdmAttributesDashboardAttributes) VdmAttributesDashboardAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret VdmAttributesDashboardAttributes
+		return ret
+	}).(VdmAttributesDashboardAttributesOutput)
+}
+
+// Whether emails sent from this account have engagement tracking enabled.
+func (o VdmAttributesDashboardAttributesPtrOutput) EngagementMetrics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VdmAttributesDashboardAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EngagementMetrics
+	}).(pulumi.StringPtrOutput)
+}
+
+// Preferences regarding the Guardian feature.
+type VdmAttributesGuardianAttributes struct {
+	// Whether emails sent from this account have optimized delivery algorithm enabled.
+	OptimizedSharedDelivery *string `pulumi:"optimizedSharedDelivery"`
+}
+
+// VdmAttributesGuardianAttributesInput is an input type that accepts VdmAttributesGuardianAttributesArgs and VdmAttributesGuardianAttributesOutput values.
+// You can construct a concrete instance of `VdmAttributesGuardianAttributesInput` via:
+//
+//	VdmAttributesGuardianAttributesArgs{...}
+type VdmAttributesGuardianAttributesInput interface {
+	pulumi.Input
+
+	ToVdmAttributesGuardianAttributesOutput() VdmAttributesGuardianAttributesOutput
+	ToVdmAttributesGuardianAttributesOutputWithContext(context.Context) VdmAttributesGuardianAttributesOutput
+}
+
+// Preferences regarding the Guardian feature.
+type VdmAttributesGuardianAttributesArgs struct {
+	// Whether emails sent from this account have optimized delivery algorithm enabled.
+	OptimizedSharedDelivery pulumi.StringPtrInput `pulumi:"optimizedSharedDelivery"`
+}
+
+func (VdmAttributesGuardianAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (i VdmAttributesGuardianAttributesArgs) ToVdmAttributesGuardianAttributesOutput() VdmAttributesGuardianAttributesOutput {
+	return i.ToVdmAttributesGuardianAttributesOutputWithContext(context.Background())
+}
+
+func (i VdmAttributesGuardianAttributesArgs) ToVdmAttributesGuardianAttributesOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesGuardianAttributesOutput)
+}
+
+func (i VdmAttributesGuardianAttributesArgs) ToVdmAttributesGuardianAttributesPtrOutput() VdmAttributesGuardianAttributesPtrOutput {
+	return i.ToVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i VdmAttributesGuardianAttributesArgs) ToVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesGuardianAttributesOutput).ToVdmAttributesGuardianAttributesPtrOutputWithContext(ctx)
+}
+
+// VdmAttributesGuardianAttributesPtrInput is an input type that accepts VdmAttributesGuardianAttributesArgs, VdmAttributesGuardianAttributesPtr and VdmAttributesGuardianAttributesPtrOutput values.
+// You can construct a concrete instance of `VdmAttributesGuardianAttributesPtrInput` via:
+//
+//	        VdmAttributesGuardianAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VdmAttributesGuardianAttributesPtrInput interface {
+	pulumi.Input
+
+	ToVdmAttributesGuardianAttributesPtrOutput() VdmAttributesGuardianAttributesPtrOutput
+	ToVdmAttributesGuardianAttributesPtrOutputWithContext(context.Context) VdmAttributesGuardianAttributesPtrOutput
+}
+
+type vdmAttributesGuardianAttributesPtrType VdmAttributesGuardianAttributesArgs
+
+func VdmAttributesGuardianAttributesPtr(v *VdmAttributesGuardianAttributesArgs) VdmAttributesGuardianAttributesPtrInput {
+	return (*vdmAttributesGuardianAttributesPtrType)(v)
+}
+
+func (*vdmAttributesGuardianAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (i *vdmAttributesGuardianAttributesPtrType) ToVdmAttributesGuardianAttributesPtrOutput() VdmAttributesGuardianAttributesPtrOutput {
+	return i.ToVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *vdmAttributesGuardianAttributesPtrType) ToVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VdmAttributesGuardianAttributesPtrOutput)
+}
+
+// Preferences regarding the Guardian feature.
+type VdmAttributesGuardianAttributesOutput struct{ *pulumi.OutputState }
+
+func (VdmAttributesGuardianAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (o VdmAttributesGuardianAttributesOutput) ToVdmAttributesGuardianAttributesOutput() VdmAttributesGuardianAttributesOutput {
+	return o
+}
+
+func (o VdmAttributesGuardianAttributesOutput) ToVdmAttributesGuardianAttributesOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesOutput {
+	return o
+}
+
+func (o VdmAttributesGuardianAttributesOutput) ToVdmAttributesGuardianAttributesPtrOutput() VdmAttributesGuardianAttributesPtrOutput {
+	return o.ToVdmAttributesGuardianAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o VdmAttributesGuardianAttributesOutput) ToVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VdmAttributesGuardianAttributes) *VdmAttributesGuardianAttributes {
+		return &v
+	}).(VdmAttributesGuardianAttributesPtrOutput)
+}
+
+// Whether emails sent from this account have optimized delivery algorithm enabled.
+func (o VdmAttributesGuardianAttributesOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VdmAttributesGuardianAttributes) *string { return v.OptimizedSharedDelivery }).(pulumi.StringPtrOutput)
+}
+
+type VdmAttributesGuardianAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (VdmAttributesGuardianAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VdmAttributesGuardianAttributes)(nil)).Elem()
+}
+
+func (o VdmAttributesGuardianAttributesPtrOutput) ToVdmAttributesGuardianAttributesPtrOutput() VdmAttributesGuardianAttributesPtrOutput {
+	return o
+}
+
+func (o VdmAttributesGuardianAttributesPtrOutput) ToVdmAttributesGuardianAttributesPtrOutputWithContext(ctx context.Context) VdmAttributesGuardianAttributesPtrOutput {
+	return o
+}
+
+func (o VdmAttributesGuardianAttributesPtrOutput) Elem() VdmAttributesGuardianAttributesOutput {
+	return o.ApplyT(func(v *VdmAttributesGuardianAttributes) VdmAttributesGuardianAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret VdmAttributesGuardianAttributes
+		return ret
+	}).(VdmAttributesGuardianAttributesOutput)
+}
+
+// Whether emails sent from this account have optimized delivery algorithm enabled.
+func (o VdmAttributesGuardianAttributesPtrOutput) OptimizedSharedDelivery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VdmAttributesGuardianAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizedSharedDelivery
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDashboardOptionsPtrInput)(nil)).Elem(), ConfigurationSetDashboardOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetDeliveryOptionsPtrInput)(nil)).Elem(), ConfigurationSetDeliveryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationCloudWatchDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationCloudWatchDestinationArgs{})
@@ -4177,6 +4890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetEventDestinationSnsDestinationPtrInput)(nil)).Elem(), ConfigurationSetEventDestinationSnsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetGuardianOptionsInput)(nil)).Elem(), ConfigurationSetGuardianOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetGuardianOptionsPtrInput)(nil)).Elem(), ConfigurationSetGuardianOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetReputationOptionsPtrInput)(nil)).Elem(), ConfigurationSetReputationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSendingOptionsInput)(nil)).Elem(), ConfigurationSetSendingOptionsArgs{})
@@ -4185,6 +4900,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetSuppressionOptionsPtrInput)(nil)).Elem(), ConfigurationSetSuppressionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetTrackingOptionsPtrInput)(nil)).Elem(), ConfigurationSetTrackingOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationSetVdmOptionsPtrInput)(nil)).Elem(), ConfigurationSetVdmOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagInput)(nil)).Elem(), ContactListTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTagArrayInput)(nil)).Elem(), ContactListTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactListTopicInput)(nil)).Elem(), ContactListTopicArgs{})
@@ -4220,6 +4937,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleWorkmailActionPtrInput)(nil)).Elem(), ReceiptRuleWorkmailActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesPtrInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
+	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetDashboardOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetDeliveryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationCloudWatchDestinationOutput{})
@@ -4232,6 +4955,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationKinesisFirehoseDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetEventDestinationSnsDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetGuardianOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetGuardianOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetReputationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetSendingOptionsOutput{})
@@ -4240,6 +4965,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSetSuppressionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsOutput{})
 	pulumi.RegisterOutputType(ConfigurationSetTrackingOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsOutput{})
+	pulumi.RegisterOutputType(ConfigurationSetVdmOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ContactListTagOutput{})
 	pulumi.RegisterOutputType(ContactListTagArrayOutput{})
 	pulumi.RegisterOutputType(ContactListTopicOutput{})
@@ -4276,4 +5003,8 @@ func init() {
 	pulumi.RegisterOutputType(ReceiptRuleWorkmailActionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesOutput{})
+	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesPtrOutput{})
+	pulumi.RegisterOutputType(VdmAttributesGuardianAttributesOutput{})
+	pulumi.RegisterOutputType(VdmAttributesGuardianAttributesPtrOutput{})
 }

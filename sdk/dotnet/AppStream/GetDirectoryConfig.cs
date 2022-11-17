@@ -51,15 +51,19 @@ namespace Pulumi.AwsNative.AppStream
     [OutputType]
     public sealed class GetDirectoryConfigResult
     {
+        public readonly Outputs.DirectoryConfigCertificateBasedAuthProperties? CertificateBasedAuthProperties;
         public readonly ImmutableArray<string> OrganizationalUnitDistinguishedNames;
         public readonly Outputs.DirectoryConfigServiceAccountCredentials? ServiceAccountCredentials;
 
         [OutputConstructor]
         private GetDirectoryConfigResult(
+            Outputs.DirectoryConfigCertificateBasedAuthProperties? certificateBasedAuthProperties,
+
             ImmutableArray<string> organizationalUnitDistinguishedNames,
 
             Outputs.DirectoryConfigServiceAccountCredentials? serviceAccountCredentials)
         {
+            CertificateBasedAuthProperties = certificateBasedAuthProperties;
             OrganizationalUnitDistinguishedNames = organizationalUnitDistinguishedNames;
             ServiceAccountCredentials = serviceAccountCredentials;
         }

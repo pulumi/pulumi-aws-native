@@ -11,16 +11,19 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ConfigurationSetDashboardOptions',
     'ConfigurationSetDeliveryOptions',
     'ConfigurationSetEventDestinationCloudWatchDestination',
     'ConfigurationSetEventDestinationDimensionConfiguration',
     'ConfigurationSetEventDestinationEventDestination',
     'ConfigurationSetEventDestinationKinesisFirehoseDestination',
     'ConfigurationSetEventDestinationSnsDestination',
+    'ConfigurationSetGuardianOptions',
     'ConfigurationSetReputationOptions',
     'ConfigurationSetSendingOptions',
     'ConfigurationSetSuppressionOptions',
     'ConfigurationSetTrackingOptions',
+    'ConfigurationSetVdmOptions',
     'ContactListTag',
     'ContactListTopic',
     'EmailIdentityConfigurationSetAttributes',
@@ -40,7 +43,48 @@ __all__ = [
     'ReceiptRuleStopAction',
     'ReceiptRuleWorkmailAction',
     'Template',
+    'VdmAttributesDashboardAttributes',
+    'VdmAttributesGuardianAttributes',
 ]
+
+@pulumi.output_type
+class ConfigurationSetDashboardOptions(dict):
+    """
+    Preferences regarding the Dashboard feature.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "engagementMetrics":
+            suggest = "engagement_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetDashboardOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetDashboardOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetDashboardOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engagement_metrics: str):
+        """
+        Preferences regarding the Dashboard feature.
+        :param str engagement_metrics: Whether emails sent with this configuration set have engagement tracking enabled.
+        """
+        pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> str:
+        """
+        Whether emails sent with this configuration set have engagement tracking enabled.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
 
 @pulumi.output_type
 class ConfigurationSetDeliveryOptions(dict):
@@ -390,6 +434,45 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
 
 
 @pulumi.output_type
+class ConfigurationSetGuardianOptions(dict):
+    """
+    Preferences regarding the Guardian feature.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optimizedSharedDelivery":
+            suggest = "optimized_shared_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetGuardianOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetGuardianOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetGuardianOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 optimized_shared_delivery: str):
+        """
+        Preferences regarding the Guardian feature.
+        :param str optimized_shared_delivery: Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+        """
+        pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> str:
+        """
+        Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+
+@pulumi.output_type
 class ConfigurationSetReputationOptions(dict):
     """
     An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
@@ -543,6 +626,52 @@ class ConfigurationSetTrackingOptions(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+
+@pulumi.output_type
+class ConfigurationSetVdmOptions(dict):
+    """
+    An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashboardOptions":
+            suggest = "dashboard_options"
+        elif key == "guardianOptions":
+            suggest = "guardian_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetVdmOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationSetVdmOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationSetVdmOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dashboard_options: Optional['outputs.ConfigurationSetDashboardOptions'] = None,
+                 guardian_options: Optional['outputs.ConfigurationSetGuardianOptions'] = None):
+        """
+        An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+        """
+        if dashboard_options is not None:
+            pulumi.set(__self__, "dashboard_options", dashboard_options)
+        if guardian_options is not None:
+            pulumi.set(__self__, "guardian_options", guardian_options)
+
+    @property
+    @pulumi.getter(name="dashboardOptions")
+    def dashboard_options(self) -> Optional['outputs.ConfigurationSetDashboardOptions']:
+        return pulumi.get(self, "dashboard_options")
+
+    @property
+    @pulumi.getter(name="guardianOptions")
+    def guardian_options(self) -> Optional['outputs.ConfigurationSetGuardianOptions']:
+        return pulumi.get(self, "guardian_options")
 
 
 @pulumi.output_type
@@ -1495,5 +1624,85 @@ class Template(dict):
         The email body that is visible to recipients whose email clients do not display HTML content.
         """
         return pulumi.get(self, "text_part")
+
+
+@pulumi.output_type
+class VdmAttributesDashboardAttributes(dict):
+    """
+    Preferences regarding the Dashboard feature.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "engagementMetrics":
+            suggest = "engagement_metrics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VdmAttributesDashboardAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VdmAttributesDashboardAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VdmAttributesDashboardAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[str] = None):
+        """
+        Preferences regarding the Dashboard feature.
+        :param str engagement_metrics: Whether emails sent from this account have engagement tracking enabled.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[str]:
+        """
+        Whether emails sent from this account have engagement tracking enabled.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+
+@pulumi.output_type
+class VdmAttributesGuardianAttributes(dict):
+    """
+    Preferences regarding the Guardian feature.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optimizedSharedDelivery":
+            suggest = "optimized_shared_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VdmAttributesGuardianAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VdmAttributesGuardianAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VdmAttributesGuardianAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[str] = None):
+        """
+        Preferences regarding the Guardian feature.
+        :param str optimized_shared_delivery: Whether emails sent from this account have optimized delivery algorithm enabled.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[str]:
+        """
+        Whether emails sent from this account have optimized delivery algorithm enabled.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
 
 

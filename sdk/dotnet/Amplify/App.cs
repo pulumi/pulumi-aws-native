@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Amplify
         [Output("oauthToken")]
         public Output<string?> OauthToken { get; private set; } = null!;
 
+        [Output("platform")]
+        public Output<Pulumi.AwsNative.Amplify.AppPlatform?> Platform { get; private set; } = null!;
+
         [Output("repository")]
         public Output<string?> Repository { get; private set; } = null!;
 
@@ -159,6 +162,9 @@ namespace Pulumi.AwsNative.Amplify
 
         [Input("oauthToken")]
         public Input<string>? OauthToken { get; set; }
+
+        [Input("platform")]
+        public Input<Pulumi.AwsNative.Amplify.AppPlatform>? Platform { get; set; }
 
         [Input("repository")]
         public Input<string>? Repository { get; set; }

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        [Input("groupId")]
+        public Input<string>? GroupId { get; set; }
+
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 

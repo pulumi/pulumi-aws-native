@@ -1612,6 +1612,396 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ServiceCapacityProviderStrategyItemOutput)
 }
 
+type ServiceConnectClientAlias struct {
+	DnsName *string `pulumi:"dnsName"`
+	Port    int     `pulumi:"port"`
+}
+
+// ServiceConnectClientAliasInput is an input type that accepts ServiceConnectClientAliasArgs and ServiceConnectClientAliasOutput values.
+// You can construct a concrete instance of `ServiceConnectClientAliasInput` via:
+//
+//	ServiceConnectClientAliasArgs{...}
+type ServiceConnectClientAliasInput interface {
+	pulumi.Input
+
+	ToServiceConnectClientAliasOutput() ServiceConnectClientAliasOutput
+	ToServiceConnectClientAliasOutputWithContext(context.Context) ServiceConnectClientAliasOutput
+}
+
+type ServiceConnectClientAliasArgs struct {
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	Port    pulumi.IntInput       `pulumi:"port"`
+}
+
+func (ServiceConnectClientAliasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectClientAlias)(nil)).Elem()
+}
+
+func (i ServiceConnectClientAliasArgs) ToServiceConnectClientAliasOutput() ServiceConnectClientAliasOutput {
+	return i.ToServiceConnectClientAliasOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectClientAliasArgs) ToServiceConnectClientAliasOutputWithContext(ctx context.Context) ServiceConnectClientAliasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectClientAliasOutput)
+}
+
+// ServiceConnectClientAliasArrayInput is an input type that accepts ServiceConnectClientAliasArray and ServiceConnectClientAliasArrayOutput values.
+// You can construct a concrete instance of `ServiceConnectClientAliasArrayInput` via:
+//
+//	ServiceConnectClientAliasArray{ ServiceConnectClientAliasArgs{...} }
+type ServiceConnectClientAliasArrayInput interface {
+	pulumi.Input
+
+	ToServiceConnectClientAliasArrayOutput() ServiceConnectClientAliasArrayOutput
+	ToServiceConnectClientAliasArrayOutputWithContext(context.Context) ServiceConnectClientAliasArrayOutput
+}
+
+type ServiceConnectClientAliasArray []ServiceConnectClientAliasInput
+
+func (ServiceConnectClientAliasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectClientAlias)(nil)).Elem()
+}
+
+func (i ServiceConnectClientAliasArray) ToServiceConnectClientAliasArrayOutput() ServiceConnectClientAliasArrayOutput {
+	return i.ToServiceConnectClientAliasArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectClientAliasArray) ToServiceConnectClientAliasArrayOutputWithContext(ctx context.Context) ServiceConnectClientAliasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectClientAliasArrayOutput)
+}
+
+type ServiceConnectClientAliasOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectClientAliasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectClientAlias)(nil)).Elem()
+}
+
+func (o ServiceConnectClientAliasOutput) ToServiceConnectClientAliasOutput() ServiceConnectClientAliasOutput {
+	return o
+}
+
+func (o ServiceConnectClientAliasOutput) ToServiceConnectClientAliasOutputWithContext(ctx context.Context) ServiceConnectClientAliasOutput {
+	return o
+}
+
+func (o ServiceConnectClientAliasOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectClientAlias) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectClientAliasOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceConnectClientAlias) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type ServiceConnectClientAliasArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectClientAliasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectClientAlias)(nil)).Elem()
+}
+
+func (o ServiceConnectClientAliasArrayOutput) ToServiceConnectClientAliasArrayOutput() ServiceConnectClientAliasArrayOutput {
+	return o
+}
+
+func (o ServiceConnectClientAliasArrayOutput) ToServiceConnectClientAliasArrayOutputWithContext(ctx context.Context) ServiceConnectClientAliasArrayOutput {
+	return o
+}
+
+func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceConnectClientAliasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceConnectClientAlias {
+		return vs[0].([]ServiceConnectClientAlias)[vs[1].(int)]
+	}).(ServiceConnectClientAliasOutput)
+}
+
+type ServiceConnectConfiguration struct {
+	Enabled          bool                     `pulumi:"enabled"`
+	LogConfiguration *ServiceLogConfiguration `pulumi:"logConfiguration"`
+	Namespace        *string                  `pulumi:"namespace"`
+	Services         []ServiceConnectService  `pulumi:"services"`
+}
+
+// ServiceConnectConfigurationInput is an input type that accepts ServiceConnectConfigurationArgs and ServiceConnectConfigurationOutput values.
+// You can construct a concrete instance of `ServiceConnectConfigurationInput` via:
+//
+//	ServiceConnectConfigurationArgs{...}
+type ServiceConnectConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceConnectConfigurationOutput() ServiceConnectConfigurationOutput
+	ToServiceConnectConfigurationOutputWithContext(context.Context) ServiceConnectConfigurationOutput
+}
+
+type ServiceConnectConfigurationArgs struct {
+	Enabled          pulumi.BoolInput                `pulumi:"enabled"`
+	LogConfiguration ServiceLogConfigurationPtrInput `pulumi:"logConfiguration"`
+	Namespace        pulumi.StringPtrInput           `pulumi:"namespace"`
+	Services         ServiceConnectServiceArrayInput `pulumi:"services"`
+}
+
+func (ServiceConnectConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectConfiguration)(nil)).Elem()
+}
+
+func (i ServiceConnectConfigurationArgs) ToServiceConnectConfigurationOutput() ServiceConnectConfigurationOutput {
+	return i.ToServiceConnectConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectConfigurationArgs) ToServiceConnectConfigurationOutputWithContext(ctx context.Context) ServiceConnectConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectConfigurationOutput)
+}
+
+func (i ServiceConnectConfigurationArgs) ToServiceConnectConfigurationPtrOutput() ServiceConnectConfigurationPtrOutput {
+	return i.ToServiceConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectConfigurationArgs) ToServiceConnectConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectConfigurationOutput).ToServiceConnectConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceConnectConfigurationPtrInput is an input type that accepts ServiceConnectConfigurationArgs, ServiceConnectConfigurationPtr and ServiceConnectConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceConnectConfigurationPtrInput` via:
+//
+//	        ServiceConnectConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceConnectConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceConnectConfigurationPtrOutput() ServiceConnectConfigurationPtrOutput
+	ToServiceConnectConfigurationPtrOutputWithContext(context.Context) ServiceConnectConfigurationPtrOutput
+}
+
+type serviceConnectConfigurationPtrType ServiceConnectConfigurationArgs
+
+func ServiceConnectConfigurationPtr(v *ServiceConnectConfigurationArgs) ServiceConnectConfigurationPtrInput {
+	return (*serviceConnectConfigurationPtrType)(v)
+}
+
+func (*serviceConnectConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectConfiguration)(nil)).Elem()
+}
+
+func (i *serviceConnectConfigurationPtrType) ToServiceConnectConfigurationPtrOutput() ServiceConnectConfigurationPtrOutput {
+	return i.ToServiceConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceConnectConfigurationPtrType) ToServiceConnectConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectConfigurationPtrOutput)
+}
+
+type ServiceConnectConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationOutput() ServiceConnectConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationOutputWithContext(ctx context.Context) ServiceConnectConfigurationOutput {
+	return o
+}
+
+func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutput() ServiceConnectConfigurationPtrOutput {
+	return o.ToServiceConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceConnectConfiguration) *ServiceConnectConfiguration {
+		return &v
+	}).(ServiceConnectConfigurationPtrOutput)
+}
+
+func (o ServiceConnectConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o ServiceConnectConfigurationOutput) LogConfiguration() ServiceLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) *ServiceLogConfiguration { return v.LogConfiguration }).(ServiceLogConfigurationPtrOutput)
+}
+
+func (o ServiceConnectConfigurationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectConfigurationOutput) Services() ServiceConnectServiceArrayOutput {
+	return o.ApplyT(func(v ServiceConnectConfiguration) []ServiceConnectService { return v.Services }).(ServiceConnectServiceArrayOutput)
+}
+
+type ServiceConnectConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceConnectConfiguration)(nil)).Elem()
+}
+
+func (o ServiceConnectConfigurationPtrOutput) ToServiceConnectConfigurationPtrOutput() ServiceConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectConfigurationPtrOutput) ToServiceConnectConfigurationPtrOutputWithContext(ctx context.Context) ServiceConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceConnectConfigurationPtrOutput) Elem() ServiceConnectConfigurationOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) ServiceConnectConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceConnectConfiguration
+		return ret
+	}).(ServiceConnectConfigurationOutput)
+}
+
+func (o ServiceConnectConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceConnectConfigurationPtrOutput) LogConfiguration() ServiceLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) *ServiceLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(ServiceLogConfigurationPtrOutput)
+}
+
+func (o ServiceConnectConfigurationPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectConfigurationPtrOutput) Services() ServiceConnectServiceArrayOutput {
+	return o.ApplyT(func(v *ServiceConnectConfiguration) []ServiceConnectService {
+		if v == nil {
+			return nil
+		}
+		return v.Services
+	}).(ServiceConnectServiceArrayOutput)
+}
+
+type ServiceConnectService struct {
+	ClientAliases       []ServiceConnectClientAlias `pulumi:"clientAliases"`
+	DiscoveryName       *string                     `pulumi:"discoveryName"`
+	IngressPortOverride *int                        `pulumi:"ingressPortOverride"`
+	PortName            string                      `pulumi:"portName"`
+}
+
+// ServiceConnectServiceInput is an input type that accepts ServiceConnectServiceArgs and ServiceConnectServiceOutput values.
+// You can construct a concrete instance of `ServiceConnectServiceInput` via:
+//
+//	ServiceConnectServiceArgs{...}
+type ServiceConnectServiceInput interface {
+	pulumi.Input
+
+	ToServiceConnectServiceOutput() ServiceConnectServiceOutput
+	ToServiceConnectServiceOutputWithContext(context.Context) ServiceConnectServiceOutput
+}
+
+type ServiceConnectServiceArgs struct {
+	ClientAliases       ServiceConnectClientAliasArrayInput `pulumi:"clientAliases"`
+	DiscoveryName       pulumi.StringPtrInput               `pulumi:"discoveryName"`
+	IngressPortOverride pulumi.IntPtrInput                  `pulumi:"ingressPortOverride"`
+	PortName            pulumi.StringInput                  `pulumi:"portName"`
+}
+
+func (ServiceConnectServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectService)(nil)).Elem()
+}
+
+func (i ServiceConnectServiceArgs) ToServiceConnectServiceOutput() ServiceConnectServiceOutput {
+	return i.ToServiceConnectServiceOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectServiceArgs) ToServiceConnectServiceOutputWithContext(ctx context.Context) ServiceConnectServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectServiceOutput)
+}
+
+// ServiceConnectServiceArrayInput is an input type that accepts ServiceConnectServiceArray and ServiceConnectServiceArrayOutput values.
+// You can construct a concrete instance of `ServiceConnectServiceArrayInput` via:
+//
+//	ServiceConnectServiceArray{ ServiceConnectServiceArgs{...} }
+type ServiceConnectServiceArrayInput interface {
+	pulumi.Input
+
+	ToServiceConnectServiceArrayOutput() ServiceConnectServiceArrayOutput
+	ToServiceConnectServiceArrayOutputWithContext(context.Context) ServiceConnectServiceArrayOutput
+}
+
+type ServiceConnectServiceArray []ServiceConnectServiceInput
+
+func (ServiceConnectServiceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectService)(nil)).Elem()
+}
+
+func (i ServiceConnectServiceArray) ToServiceConnectServiceArrayOutput() ServiceConnectServiceArrayOutput {
+	return i.ToServiceConnectServiceArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceConnectServiceArray) ToServiceConnectServiceArrayOutputWithContext(ctx context.Context) ServiceConnectServiceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectServiceArrayOutput)
+}
+
+type ServiceConnectServiceOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceConnectService)(nil)).Elem()
+}
+
+func (o ServiceConnectServiceOutput) ToServiceConnectServiceOutput() ServiceConnectServiceOutput {
+	return o
+}
+
+func (o ServiceConnectServiceOutput) ToServiceConnectServiceOutputWithContext(ctx context.Context) ServiceConnectServiceOutput {
+	return o
+}
+
+func (o ServiceConnectServiceOutput) ClientAliases() ServiceConnectClientAliasArrayOutput {
+	return o.ApplyT(func(v ServiceConnectService) []ServiceConnectClientAlias { return v.ClientAliases }).(ServiceConnectClientAliasArrayOutput)
+}
+
+func (o ServiceConnectServiceOutput) DiscoveryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceConnectService) *string { return v.DiscoveryName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceConnectServiceOutput) IngressPortOverride() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceConnectService) *int { return v.IngressPortOverride }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceConnectServiceOutput) PortName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceConnectService) string { return v.PortName }).(pulumi.StringOutput)
+}
+
+type ServiceConnectServiceArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceConnectServiceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceConnectService)(nil)).Elem()
+}
+
+func (o ServiceConnectServiceArrayOutput) ToServiceConnectServiceArrayOutput() ServiceConnectServiceArrayOutput {
+	return o
+}
+
+func (o ServiceConnectServiceArrayOutput) ToServiceConnectServiceArrayOutputWithContext(ctx context.Context) ServiceConnectServiceArrayOutput {
+	return o
+}
+
+func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnectServiceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceConnectService {
+		return vs[0].([]ServiceConnectService)[vs[1].(int)]
+	}).(ServiceConnectServiceOutput)
+}
+
 type ServiceDeploymentCircuitBreaker struct {
 	Enable   bool `pulumi:"enable"`
 	Rollback bool `pulumi:"rollback"`
@@ -2170,6 +2560,169 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 	}).(ServiceLoadBalancerOutput)
 }
 
+type ServiceLogConfiguration struct {
+	LogDriver     *string         `pulumi:"logDriver"`
+	Options       interface{}     `pulumi:"options"`
+	SecretOptions []ServiceSecret `pulumi:"secretOptions"`
+}
+
+// ServiceLogConfigurationInput is an input type that accepts ServiceLogConfigurationArgs and ServiceLogConfigurationOutput values.
+// You can construct a concrete instance of `ServiceLogConfigurationInput` via:
+//
+//	ServiceLogConfigurationArgs{...}
+type ServiceLogConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceLogConfigurationOutput() ServiceLogConfigurationOutput
+	ToServiceLogConfigurationOutputWithContext(context.Context) ServiceLogConfigurationOutput
+}
+
+type ServiceLogConfigurationArgs struct {
+	LogDriver     pulumi.StringPtrInput   `pulumi:"logDriver"`
+	Options       pulumi.Input            `pulumi:"options"`
+	SecretOptions ServiceSecretArrayInput `pulumi:"secretOptions"`
+}
+
+func (ServiceLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLogConfiguration)(nil)).Elem()
+}
+
+func (i ServiceLogConfigurationArgs) ToServiceLogConfigurationOutput() ServiceLogConfigurationOutput {
+	return i.ToServiceLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceLogConfigurationArgs) ToServiceLogConfigurationOutputWithContext(ctx context.Context) ServiceLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLogConfigurationOutput)
+}
+
+func (i ServiceLogConfigurationArgs) ToServiceLogConfigurationPtrOutput() ServiceLogConfigurationPtrOutput {
+	return i.ToServiceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceLogConfigurationArgs) ToServiceLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLogConfigurationOutput).ToServiceLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceLogConfigurationPtrInput is an input type that accepts ServiceLogConfigurationArgs, ServiceLogConfigurationPtr and ServiceLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceLogConfigurationPtrInput` via:
+//
+//	        ServiceLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceLogConfigurationPtrOutput() ServiceLogConfigurationPtrOutput
+	ToServiceLogConfigurationPtrOutputWithContext(context.Context) ServiceLogConfigurationPtrOutput
+}
+
+type serviceLogConfigurationPtrType ServiceLogConfigurationArgs
+
+func ServiceLogConfigurationPtr(v *ServiceLogConfigurationArgs) ServiceLogConfigurationPtrInput {
+	return (*serviceLogConfigurationPtrType)(v)
+}
+
+func (*serviceLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLogConfiguration)(nil)).Elem()
+}
+
+func (i *serviceLogConfigurationPtrType) ToServiceLogConfigurationPtrOutput() ServiceLogConfigurationPtrOutput {
+	return i.ToServiceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceLogConfigurationPtrType) ToServiceLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLogConfigurationPtrOutput)
+}
+
+type ServiceLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationOutput() ServiceLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationOutputWithContext(ctx context.Context) ServiceLogConfigurationOutput {
+	return o
+}
+
+func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationPtrOutput() ServiceLogConfigurationPtrOutput {
+	return o.ToServiceLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceLogConfigurationOutput) ToServiceLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLogConfiguration) *ServiceLogConfiguration {
+		return &v
+	}).(ServiceLogConfigurationPtrOutput)
+}
+
+func (o ServiceLogConfigurationOutput) LogDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLogConfiguration) *string { return v.LogDriver }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLogConfigurationOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v ServiceLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+}
+
+func (o ServiceLogConfigurationOutput) SecretOptions() ServiceSecretArrayOutput {
+	return o.ApplyT(func(v ServiceLogConfiguration) []ServiceSecret { return v.SecretOptions }).(ServiceSecretArrayOutput)
+}
+
+type ServiceLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceLogConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLogConfigurationPtrOutput) ToServiceLogConfigurationPtrOutput() ServiceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLogConfigurationPtrOutput) ToServiceLogConfigurationPtrOutputWithContext(ctx context.Context) ServiceLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceLogConfigurationPtrOutput) Elem() ServiceLogConfigurationOutput {
+	return o.ApplyT(func(v *ServiceLogConfiguration) ServiceLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceLogConfiguration
+		return ret
+	}).(ServiceLogConfigurationOutput)
+}
+
+func (o ServiceLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogDriver
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ServiceLogConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.AnyOutput)
+}
+
+func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutput {
+	return o.ApplyT(func(v *ServiceLogConfiguration) []ServiceSecret {
+		if v == nil {
+			return nil
+		}
+		return v.SecretOptions
+	}).(ServiceSecretArrayOutput)
+}
+
 type ServiceNetworkConfiguration struct {
 	AwsvpcConfiguration *ServiceAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
@@ -2613,6 +3166,106 @@ func (o ServiceRegistryArrayOutput) Index(i pulumi.IntInput) ServiceRegistryOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceRegistry {
 		return vs[0].([]ServiceRegistry)[vs[1].(int)]
 	}).(ServiceRegistryOutput)
+}
+
+type ServiceSecret struct {
+	Name      string `pulumi:"name"`
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// ServiceSecretInput is an input type that accepts ServiceSecretArgs and ServiceSecretOutput values.
+// You can construct a concrete instance of `ServiceSecretInput` via:
+//
+//	ServiceSecretArgs{...}
+type ServiceSecretInput interface {
+	pulumi.Input
+
+	ToServiceSecretOutput() ServiceSecretOutput
+	ToServiceSecretOutputWithContext(context.Context) ServiceSecretOutput
+}
+
+type ServiceSecretArgs struct {
+	Name      pulumi.StringInput `pulumi:"name"`
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (ServiceSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceSecret)(nil)).Elem()
+}
+
+func (i ServiceSecretArgs) ToServiceSecretOutput() ServiceSecretOutput {
+	return i.ToServiceSecretOutputWithContext(context.Background())
+}
+
+func (i ServiceSecretArgs) ToServiceSecretOutputWithContext(ctx context.Context) ServiceSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecretOutput)
+}
+
+// ServiceSecretArrayInput is an input type that accepts ServiceSecretArray and ServiceSecretArrayOutput values.
+// You can construct a concrete instance of `ServiceSecretArrayInput` via:
+//
+//	ServiceSecretArray{ ServiceSecretArgs{...} }
+type ServiceSecretArrayInput interface {
+	pulumi.Input
+
+	ToServiceSecretArrayOutput() ServiceSecretArrayOutput
+	ToServiceSecretArrayOutputWithContext(context.Context) ServiceSecretArrayOutput
+}
+
+type ServiceSecretArray []ServiceSecretInput
+
+func (ServiceSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceSecret)(nil)).Elem()
+}
+
+func (i ServiceSecretArray) ToServiceSecretArrayOutput() ServiceSecretArrayOutput {
+	return i.ToServiceSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceSecretArray) ToServiceSecretArrayOutputWithContext(ctx context.Context) ServiceSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecretArrayOutput)
+}
+
+type ServiceSecretOutput struct{ *pulumi.OutputState }
+
+func (ServiceSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceSecret)(nil)).Elem()
+}
+
+func (o ServiceSecretOutput) ToServiceSecretOutput() ServiceSecretOutput {
+	return o
+}
+
+func (o ServiceSecretOutput) ToServiceSecretOutputWithContext(ctx context.Context) ServiceSecretOutput {
+	return o
+}
+
+func (o ServiceSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServiceSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type ServiceSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceSecret)(nil)).Elem()
+}
+
+func (o ServiceSecretArrayOutput) ToServiceSecretArrayOutput() ServiceSecretArrayOutput {
+	return o
+}
+
+func (o ServiceSecretArrayOutput) ToServiceSecretArrayOutputWithContext(ctx context.Context) ServiceSecretArrayOutput {
+	return o
+}
+
+func (o ServiceSecretArrayOutput) Index(i pulumi.IntInput) ServiceSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceSecret {
+		return vs[0].([]ServiceSecret)[vs[1].(int)]
+	}).(ServiceSecretOutput)
 }
 
 type ServiceTag struct {
@@ -7701,6 +8354,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCapacityProviderStrategyItemArrayInput)(nil)).Elem(), ServiceCapacityProviderStrategyItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectClientAliasInput)(nil)).Elem(), ServiceConnectClientAliasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectClientAliasArrayInput)(nil)).Elem(), ServiceConnectClientAliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceInput)(nil)).Elem(), ServiceConnectServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceArrayInput)(nil)).Elem(), ServiceConnectServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerPtrInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
@@ -7709,6 +8368,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerArrayInput)(nil)).Elem(), ServiceLoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationPtrInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintInput)(nil)).Elem(), ServicePlacementConstraintArgs{})
@@ -7717,6 +8378,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementStrategyArrayInput)(nil)).Elem(), ServicePlacementStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegistryInput)(nil)).Elem(), ServiceRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegistryArrayInput)(nil)).Elem(), ServiceRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecretInput)(nil)).Elem(), ServiceSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecretArrayInput)(nil)).Elem(), ServiceSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
@@ -7815,6 +8478,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemArrayOutput{})
+	pulumi.RegisterOutputType(ServiceConnectClientAliasOutput{})
+	pulumi.RegisterOutputType(ServiceConnectClientAliasArrayOutput{})
+	pulumi.RegisterOutputType(ServiceConnectConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceConnectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceConnectServiceOutput{})
+	pulumi.RegisterOutputType(ServiceConnectServiceArrayOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationOutput{})
@@ -7823,6 +8492,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintOutput{})
@@ -7831,6 +8502,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ServiceRegistryOutput{})
 	pulumi.RegisterOutputType(ServiceRegistryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceSecretOutput{})
+	pulumi.RegisterOutputType(ServiceSecretArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})

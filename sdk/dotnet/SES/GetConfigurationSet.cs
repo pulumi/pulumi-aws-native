@@ -62,6 +62,7 @@ namespace Pulumi.AwsNative.SES
         public readonly Outputs.ConfigurationSetSendingOptions? SendingOptions;
         public readonly Outputs.ConfigurationSetSuppressionOptions? SuppressionOptions;
         public readonly Outputs.ConfigurationSetTrackingOptions? TrackingOptions;
+        public readonly Outputs.ConfigurationSetVdmOptions? VdmOptions;
 
         [OutputConstructor]
         private GetConfigurationSetResult(
@@ -73,13 +74,16 @@ namespace Pulumi.AwsNative.SES
 
             Outputs.ConfigurationSetSuppressionOptions? suppressionOptions,
 
-            Outputs.ConfigurationSetTrackingOptions? trackingOptions)
+            Outputs.ConfigurationSetTrackingOptions? trackingOptions,
+
+            Outputs.ConfigurationSetVdmOptions? vdmOptions)
         {
             DeliveryOptions = deliveryOptions;
             ReputationOptions = reputationOptions;
             SendingOptions = sendingOptions;
             SuppressionOptions = suppressionOptions;
             TrackingOptions = trackingOptions;
+            VdmOptions = vdmOptions;
         }
     }
 }

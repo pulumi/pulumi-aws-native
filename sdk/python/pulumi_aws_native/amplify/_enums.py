@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AppAutoBranchCreationConfigStage',
+    'AppPlatform',
     'BranchStage',
 ]
 
@@ -16,6 +17,12 @@ class AppAutoBranchCreationConfigStage(str, Enum):
     PULL_REQUEST = "PULL_REQUEST"
     PRODUCTION = "PRODUCTION"
     DEVELOPMENT = "DEVELOPMENT"
+
+
+class AppPlatform(str, Enum):
+    WEB = "WEB"
+    WEB_DYNAMIC = "WEB_DYNAMIC"
+    WEB_COMPUTE = "WEB_COMPUTE"
 
 
 class BranchStage(str, Enum):

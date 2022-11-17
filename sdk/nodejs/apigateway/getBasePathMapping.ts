@@ -31,7 +31,6 @@ export interface GetBasePathMappingArgs {
 }
 
 export interface GetBasePathMappingResult {
-    readonly id?: string;
     /**
      * The ID of the API.
      */

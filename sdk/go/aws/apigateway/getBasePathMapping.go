@@ -28,7 +28,6 @@ type LookupBasePathMappingArgs struct {
 }
 
 type LookupBasePathMappingResult struct {
-	Id *string `pulumi:"id"`
 	// The ID of the API.
 	RestApiId *string `pulumi:"restApiId"`
 	// The name of the API's stage.
@@ -71,10 +70,6 @@ func (o LookupBasePathMappingResultOutput) ToLookupBasePathMappingResultOutput()
 
 func (o LookupBasePathMappingResultOutput) ToLookupBasePathMappingResultOutputWithContext(ctx context.Context) LookupBasePathMappingResultOutput {
 	return o
-}
-
-func (o LookupBasePathMappingResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupBasePathMappingResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the API.

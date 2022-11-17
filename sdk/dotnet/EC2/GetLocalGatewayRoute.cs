@@ -70,6 +70,14 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetLocalGatewayRouteResult
     {
         /// <summary>
+        /// The ID of the virtual interface group.
+        /// </summary>
+        public readonly string? LocalGatewayVirtualInterfaceGroupId;
+        /// <summary>
+        /// The ID of the network interface.
+        /// </summary>
+        public readonly string? NetworkInterfaceId;
+        /// <summary>
         /// The state of the route.
         /// </summary>
         public readonly string? State;
@@ -80,10 +88,16 @@ namespace Pulumi.AwsNative.EC2
 
         [OutputConstructor]
         private GetLocalGatewayRouteResult(
+            string? localGatewayVirtualInterfaceGroupId,
+
+            string? networkInterfaceId,
+
             string? state,
 
             string? type)
         {
+            LocalGatewayVirtualInterfaceGroupId = localGatewayVirtualInterfaceGroupId;
+            NetworkInterfaceId = networkInterfaceId;
             State = state;
             Type = type;
         }

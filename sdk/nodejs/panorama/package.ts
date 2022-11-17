@@ -41,7 +41,7 @@ export class Package extends pulumi.CustomResource {
     public /*out*/ readonly createdTime!: pulumi.Output<number>;
     public /*out*/ readonly packageId!: pulumi.Output<string>;
     public readonly packageName!: pulumi.Output<string>;
-    public /*out*/ readonly storageLocation!: pulumi.Output<outputs.panorama.PackageStorageLocation>;
+    public readonly storageLocation!: pulumi.Output<outputs.panorama.PackageStorageLocation | undefined>;
     public readonly tags!: pulumi.Output<outputs.panorama.PackageTag[] | undefined>;
 
     /**
@@ -56,11 +56,11 @@ export class Package extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["packageId"] = undefined /*out*/;
-            resourceInputs["storageLocation"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -79,5 +79,6 @@ export class Package extends pulumi.CustomResource {
  */
 export interface PackageArgs {
     packageName?: pulumi.Input<string>;
+    storageLocation?: pulumi.Input<inputs.panorama.PackageStorageLocationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.panorama.PackageTagArgs>[]>;
 }

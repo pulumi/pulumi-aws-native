@@ -8961,8 +8961,11 @@ func (o PolicyStatusPropertiesPtrOutput) IsPublic() MultiRegionAccessPointPolicy
 
 // Account-level metrics configurations.
 type StorageLensAccountLevel struct {
-	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	BucketLevel     StorageLensBucketLevel      `pulumi:"bucketLevel"`
+	ActivityMetrics                 *StorageLensActivityMetrics                 `pulumi:"activityMetrics"`
+	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
+	AdvancedDataProtectionMetrics   *StorageLensAdvancedDataProtectionMetrics   `pulumi:"advancedDataProtectionMetrics"`
+	BucketLevel                     StorageLensBucketLevel                      `pulumi:"bucketLevel"`
+	DetailedStatusCodesMetrics      *StorageLensDetailedStatusCodesMetrics      `pulumi:"detailedStatusCodesMetrics"`
 }
 
 // StorageLensAccountLevelInput is an input type that accepts StorageLensAccountLevelArgs and StorageLensAccountLevelOutput values.
@@ -8978,8 +8981,11 @@ type StorageLensAccountLevelInput interface {
 
 // Account-level metrics configurations.
 type StorageLensAccountLevelArgs struct {
-	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	BucketLevel     StorageLensBucketLevelInput        `pulumi:"bucketLevel"`
+	ActivityMetrics                 StorageLensActivityMetricsPtrInput                 `pulumi:"activityMetrics"`
+	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
+	AdvancedDataProtectionMetrics   StorageLensAdvancedDataProtectionMetricsPtrInput   `pulumi:"advancedDataProtectionMetrics"`
+	BucketLevel                     StorageLensBucketLevelInput                        `pulumi:"bucketLevel"`
+	DetailedStatusCodesMetrics      StorageLensDetailedStatusCodesMetricsPtrInput      `pulumi:"detailedStatusCodesMetrics"`
 }
 
 func (StorageLensAccountLevelArgs) ElementType() reflect.Type {
@@ -9013,8 +9019,26 @@ func (o StorageLensAccountLevelOutput) ActivityMetrics() StorageLensActivityMetr
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
 }
 
+func (o StorageLensAccountLevelOutput) AdvancedCostOptimizationMetrics() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedCostOptimizationMetrics {
+		return v.AdvancedCostOptimizationMetrics
+	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
+}
+
+func (o StorageLensAccountLevelOutput) AdvancedDataProtectionMetrics() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedDataProtectionMetrics {
+		return v.AdvancedDataProtectionMetrics
+	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
 func (o StorageLensAccountLevelOutput) BucketLevel() StorageLensBucketLevelOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) StorageLensBucketLevel { return v.BucketLevel }).(StorageLensBucketLevelOutput)
+}
+
+func (o StorageLensAccountLevelOutput) DetailedStatusCodesMetrics() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensDetailedStatusCodesMetrics {
+		return v.DetailedStatusCodesMetrics
+	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
 // Enables activity metrics.
@@ -9150,6 +9174,286 @@ func (o StorageLensActivityMetricsPtrOutput) Elem() StorageLensActivityMetricsOu
 // Specifies whether activity metrics are enabled or disabled.
 func (o StorageLensActivityMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensActivityMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables advanced cost optimization metrics.
+type StorageLensAdvancedCostOptimizationMetrics struct {
+	// Specifies whether advanced cost optimization metrics are enabled or disabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// StorageLensAdvancedCostOptimizationMetricsInput is an input type that accepts StorageLensAdvancedCostOptimizationMetricsArgs and StorageLensAdvancedCostOptimizationMetricsOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedCostOptimizationMetricsInput` via:
+//
+//	StorageLensAdvancedCostOptimizationMetricsArgs{...}
+type StorageLensAdvancedCostOptimizationMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedCostOptimizationMetricsOutput() StorageLensAdvancedCostOptimizationMetricsOutput
+	ToStorageLensAdvancedCostOptimizationMetricsOutputWithContext(context.Context) StorageLensAdvancedCostOptimizationMetricsOutput
+}
+
+// Enables advanced cost optimization metrics.
+type StorageLensAdvancedCostOptimizationMetricsArgs struct {
+	// Specifies whether advanced cost optimization metrics are enabled or disabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensAdvancedCostOptimizationMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedCostOptimizationMetrics)(nil)).Elem()
+}
+
+func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCostOptimizationMetricsOutput() StorageLensAdvancedCostOptimizationMetricsOutput {
+	return i.ToStorageLensAdvancedCostOptimizationMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCostOptimizationMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedCostOptimizationMetricsOutput)
+}
+
+func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return i.ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedCostOptimizationMetricsOutput).ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensAdvancedCostOptimizationMetricsPtrInput is an input type that accepts StorageLensAdvancedCostOptimizationMetricsArgs, StorageLensAdvancedCostOptimizationMetricsPtr and StorageLensAdvancedCostOptimizationMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedCostOptimizationMetricsPtrInput` via:
+//
+//	        StorageLensAdvancedCostOptimizationMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensAdvancedCostOptimizationMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput
+	ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput
+}
+
+type storageLensAdvancedCostOptimizationMetricsPtrType StorageLensAdvancedCostOptimizationMetricsArgs
+
+func StorageLensAdvancedCostOptimizationMetricsPtr(v *StorageLensAdvancedCostOptimizationMetricsArgs) StorageLensAdvancedCostOptimizationMetricsPtrInput {
+	return (*storageLensAdvancedCostOptimizationMetricsPtrType)(v)
+}
+
+func (*storageLensAdvancedCostOptimizationMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedCostOptimizationMetrics)(nil)).Elem()
+}
+
+func (i *storageLensAdvancedCostOptimizationMetricsPtrType) ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return i.ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAdvancedCostOptimizationMetricsPtrType) ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
+}
+
+// Enables advanced cost optimization metrics.
+type StorageLensAdvancedCostOptimizationMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedCostOptimizationMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedCostOptimizationMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToStorageLensAdvancedCostOptimizationMetricsOutput() StorageLensAdvancedCostOptimizationMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToStorageLensAdvancedCostOptimizationMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o.ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensAdvancedCostOptimizationMetrics) *StorageLensAdvancedCostOptimizationMetrics {
+		return &v
+	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
+}
+
+// Specifies whether advanced cost optimization metrics are enabled or disabled.
+func (o StorageLensAdvancedCostOptimizationMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensAdvancedCostOptimizationMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensAdvancedCostOptimizationMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedCostOptimizationMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedCostOptimizationMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) Elem() StorageLensAdvancedCostOptimizationMetricsOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedCostOptimizationMetrics) StorageLensAdvancedCostOptimizationMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensAdvancedCostOptimizationMetrics
+		return ret
+	}).(StorageLensAdvancedCostOptimizationMetricsOutput)
+}
+
+// Specifies whether advanced cost optimization metrics are enabled or disabled.
+func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedCostOptimizationMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables advanced data protection metrics.
+type StorageLensAdvancedDataProtectionMetrics struct {
+	// Specifies whether advanced data protection metrics are enabled or disabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// StorageLensAdvancedDataProtectionMetricsInput is an input type that accepts StorageLensAdvancedDataProtectionMetricsArgs and StorageLensAdvancedDataProtectionMetricsOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedDataProtectionMetricsInput` via:
+//
+//	StorageLensAdvancedDataProtectionMetricsArgs{...}
+type StorageLensAdvancedDataProtectionMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedDataProtectionMetricsOutput() StorageLensAdvancedDataProtectionMetricsOutput
+	ToStorageLensAdvancedDataProtectionMetricsOutputWithContext(context.Context) StorageLensAdvancedDataProtectionMetricsOutput
+}
+
+// Enables advanced data protection metrics.
+type StorageLensAdvancedDataProtectionMetricsArgs struct {
+	// Specifies whether advanced data protection metrics are enabled or disabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensAdvancedDataProtectionMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedDataProtectionMetrics)(nil)).Elem()
+}
+
+func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataProtectionMetricsOutput() StorageLensAdvancedDataProtectionMetricsOutput {
+	return i.ToStorageLensAdvancedDataProtectionMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataProtectionMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedDataProtectionMetricsOutput)
+}
+
+func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return i.ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedDataProtectionMetricsOutput).ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensAdvancedDataProtectionMetricsPtrInput is an input type that accepts StorageLensAdvancedDataProtectionMetricsArgs, StorageLensAdvancedDataProtectionMetricsPtr and StorageLensAdvancedDataProtectionMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedDataProtectionMetricsPtrInput` via:
+//
+//	        StorageLensAdvancedDataProtectionMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensAdvancedDataProtectionMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput
+	ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput
+}
+
+type storageLensAdvancedDataProtectionMetricsPtrType StorageLensAdvancedDataProtectionMetricsArgs
+
+func StorageLensAdvancedDataProtectionMetricsPtr(v *StorageLensAdvancedDataProtectionMetricsArgs) StorageLensAdvancedDataProtectionMetricsPtrInput {
+	return (*storageLensAdvancedDataProtectionMetricsPtrType)(v)
+}
+
+func (*storageLensAdvancedDataProtectionMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedDataProtectionMetrics)(nil)).Elem()
+}
+
+func (i *storageLensAdvancedDataProtectionMetricsPtrType) ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return i.ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAdvancedDataProtectionMetricsPtrType) ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
+// Enables advanced data protection metrics.
+type StorageLensAdvancedDataProtectionMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedDataProtectionMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedDataProtectionMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsOutput) ToStorageLensAdvancedDataProtectionMetricsOutput() StorageLensAdvancedDataProtectionMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsOutput) ToStorageLensAdvancedDataProtectionMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsOutput) ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o.ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsOutput) ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensAdvancedDataProtectionMetrics) *StorageLensAdvancedDataProtectionMetrics {
+		return &v
+	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
+// Specifies whether advanced data protection metrics are enabled or disabled.
+func (o StorageLensAdvancedDataProtectionMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensAdvancedDataProtectionMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensAdvancedDataProtectionMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedDataProtectionMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedDataProtectionMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) Elem() StorageLensAdvancedDataProtectionMetricsOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedDataProtectionMetrics) StorageLensAdvancedDataProtectionMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensAdvancedDataProtectionMetrics
+		return ret
+	}).(StorageLensAdvancedDataProtectionMetricsOutput)
+}
+
+// Specifies whether advanced data protection metrics are enabled or disabled.
+func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedDataProtectionMetrics) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9295,8 +9599,11 @@ func (o StorageLensAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // Bucket-level metrics configurations.
 type StorageLensBucketLevel struct {
-	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	PrefixLevel     *StorageLensPrefixLevel     `pulumi:"prefixLevel"`
+	ActivityMetrics                 *StorageLensActivityMetrics                 `pulumi:"activityMetrics"`
+	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
+	AdvancedDataProtectionMetrics   *StorageLensAdvancedDataProtectionMetrics   `pulumi:"advancedDataProtectionMetrics"`
+	DetailedStatusCodesMetrics      *StorageLensDetailedStatusCodesMetrics      `pulumi:"detailedStatusCodesMetrics"`
+	PrefixLevel                     *StorageLensPrefixLevel                     `pulumi:"prefixLevel"`
 }
 
 // StorageLensBucketLevelInput is an input type that accepts StorageLensBucketLevelArgs and StorageLensBucketLevelOutput values.
@@ -9312,8 +9619,11 @@ type StorageLensBucketLevelInput interface {
 
 // Bucket-level metrics configurations.
 type StorageLensBucketLevelArgs struct {
-	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	PrefixLevel     StorageLensPrefixLevelPtrInput     `pulumi:"prefixLevel"`
+	ActivityMetrics                 StorageLensActivityMetricsPtrInput                 `pulumi:"activityMetrics"`
+	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
+	AdvancedDataProtectionMetrics   StorageLensAdvancedDataProtectionMetricsPtrInput   `pulumi:"advancedDataProtectionMetrics"`
+	DetailedStatusCodesMetrics      StorageLensDetailedStatusCodesMetricsPtrInput      `pulumi:"detailedStatusCodesMetrics"`
+	PrefixLevel                     StorageLensPrefixLevelPtrInput                     `pulumi:"prefixLevel"`
 }
 
 func (StorageLensBucketLevelArgs) ElementType() reflect.Type {
@@ -9345,6 +9655,24 @@ func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutputWithContext(
 
 func (o StorageLensBucketLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
+}
+
+func (o StorageLensBucketLevelOutput) AdvancedCostOptimizationMetrics() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedCostOptimizationMetrics {
+		return v.AdvancedCostOptimizationMetrics
+	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
+}
+
+func (o StorageLensBucketLevelOutput) AdvancedDataProtectionMetrics() StorageLensAdvancedDataProtectionMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedDataProtectionMetrics {
+		return v.AdvancedDataProtectionMetrics
+	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
+func (o StorageLensBucketLevelOutput) DetailedStatusCodesMetrics() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensDetailedStatusCodesMetrics {
+		return v.DetailedStatusCodesMetrics
+	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
 func (o StorageLensBucketLevelOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
@@ -9891,6 +10219,146 @@ func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3Bucke
 		}
 		return v.S3BucketDestination
 	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+// Enables detailed status codes metrics.
+type StorageLensDetailedStatusCodesMetrics struct {
+	// Specifies whether detailed status codes metrics are enabled or disabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// StorageLensDetailedStatusCodesMetricsInput is an input type that accepts StorageLensDetailedStatusCodesMetricsArgs and StorageLensDetailedStatusCodesMetricsOutput values.
+// You can construct a concrete instance of `StorageLensDetailedStatusCodesMetricsInput` via:
+//
+//	StorageLensDetailedStatusCodesMetricsArgs{...}
+type StorageLensDetailedStatusCodesMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensDetailedStatusCodesMetricsOutput() StorageLensDetailedStatusCodesMetricsOutput
+	ToStorageLensDetailedStatusCodesMetricsOutputWithContext(context.Context) StorageLensDetailedStatusCodesMetricsOutput
+}
+
+// Enables detailed status codes metrics.
+type StorageLensDetailedStatusCodesMetricsArgs struct {
+	// Specifies whether detailed status codes metrics are enabled or disabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensDetailedStatusCodesMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensDetailedStatusCodesMetrics)(nil)).Elem()
+}
+
+func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCodesMetricsOutput() StorageLensDetailedStatusCodesMetricsOutput {
+	return i.ToStorageLensDetailedStatusCodesMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCodesMetricsOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDetailedStatusCodesMetricsOutput)
+}
+
+func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return i.ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDetailedStatusCodesMetricsOutput).ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensDetailedStatusCodesMetricsPtrInput is an input type that accepts StorageLensDetailedStatusCodesMetricsArgs, StorageLensDetailedStatusCodesMetricsPtr and StorageLensDetailedStatusCodesMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensDetailedStatusCodesMetricsPtrInput` via:
+//
+//	        StorageLensDetailedStatusCodesMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensDetailedStatusCodesMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput
+	ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput
+}
+
+type storageLensDetailedStatusCodesMetricsPtrType StorageLensDetailedStatusCodesMetricsArgs
+
+func StorageLensDetailedStatusCodesMetricsPtr(v *StorageLensDetailedStatusCodesMetricsArgs) StorageLensDetailedStatusCodesMetricsPtrInput {
+	return (*storageLensDetailedStatusCodesMetricsPtrType)(v)
+}
+
+func (*storageLensDetailedStatusCodesMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensDetailedStatusCodesMetrics)(nil)).Elem()
+}
+
+func (i *storageLensDetailedStatusCodesMetricsPtrType) ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return i.ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensDetailedStatusCodesMetricsPtrType) ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDetailedStatusCodesMetricsPtrOutput)
+}
+
+// Enables detailed status codes metrics.
+type StorageLensDetailedStatusCodesMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensDetailedStatusCodesMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensDetailedStatusCodesMetrics)(nil)).Elem()
+}
+
+func (o StorageLensDetailedStatusCodesMetricsOutput) ToStorageLensDetailedStatusCodesMetricsOutput() StorageLensDetailedStatusCodesMetricsOutput {
+	return o
+}
+
+func (o StorageLensDetailedStatusCodesMetricsOutput) ToStorageLensDetailedStatusCodesMetricsOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsOutput {
+	return o
+}
+
+func (o StorageLensDetailedStatusCodesMetricsOutput) ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o.ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensDetailedStatusCodesMetricsOutput) ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensDetailedStatusCodesMetrics) *StorageLensDetailedStatusCodesMetrics {
+		return &v
+	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
+}
+
+// Specifies whether detailed status codes metrics are enabled or disabled.
+func (o StorageLensDetailedStatusCodesMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensDetailedStatusCodesMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensDetailedStatusCodesMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensDetailedStatusCodesMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensDetailedStatusCodesMetrics)(nil)).Elem()
+}
+
+func (o StorageLensDetailedStatusCodesMetricsPtrOutput) ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensDetailedStatusCodesMetricsPtrOutput) ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensDetailedStatusCodesMetricsPtrOutput) Elem() StorageLensDetailedStatusCodesMetricsOutput {
+	return o.ApplyT(func(v *StorageLensDetailedStatusCodesMetrics) StorageLensDetailedStatusCodesMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensDetailedStatusCodesMetrics
+		return ret
+	}).(StorageLensDetailedStatusCodesMetricsOutput)
+}
+
+// Specifies whether detailed status codes metrics are enabled or disabled.
+func (o StorageLensDetailedStatusCodesMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensDetailedStatusCodesMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
@@ -10941,6 +11409,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAccountLevelInput)(nil)).Elem(), StorageLensAccountLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensActivityMetricsInput)(nil)).Elem(), StorageLensActivityMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensActivityMetricsPtrInput)(nil)).Elem(), StorageLensActivityMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedCostOptimizationMetricsInput)(nil)).Elem(), StorageLensAdvancedCostOptimizationMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedCostOptimizationMetricsPtrInput)(nil)).Elem(), StorageLensAdvancedCostOptimizationMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedDataProtectionMetricsInput)(nil)).Elem(), StorageLensAdvancedDataProtectionMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedDataProtectionMetricsPtrInput)(nil)).Elem(), StorageLensAdvancedDataProtectionMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAwsOrgInput)(nil)).Elem(), StorageLensAwsOrgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAwsOrgPtrInput)(nil)).Elem(), StorageLensAwsOrgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensBucketLevelInput)(nil)).Elem(), StorageLensBucketLevelArgs{})
@@ -10951,6 +11423,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationInput)(nil)).Elem(), StorageLensConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDataExportInput)(nil)).Elem(), StorageLensDataExportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDataExportPtrInput)(nil)).Elem(), StorageLensDataExportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDetailedStatusCodesMetricsInput)(nil)).Elem(), StorageLensDetailedStatusCodesMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDetailedStatusCodesMetricsPtrInput)(nil)).Elem(), StorageLensDetailedStatusCodesMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionInput)(nil)).Elem(), StorageLensEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionPtrInput)(nil)).Elem(), StorageLensEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelInput)(nil)).Elem(), StorageLensPrefixLevelArgs{})
@@ -11090,6 +11564,10 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensAccountLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensActivityMetricsOutput{})
 	pulumi.RegisterOutputType(StorageLensActivityMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedCostOptimizationMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedCostOptimizationMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedDataProtectionMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedDataProtectionMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensAwsOrgOutput{})
 	pulumi.RegisterOutputType(StorageLensAwsOrgPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketLevelOutput{})
@@ -11100,6 +11578,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageLensDataExportOutput{})
 	pulumi.RegisterOutputType(StorageLensDataExportPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensDetailedStatusCodesMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensDetailedStatusCodesMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelOutput{})

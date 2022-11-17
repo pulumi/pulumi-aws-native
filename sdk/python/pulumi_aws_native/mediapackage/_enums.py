@@ -29,6 +29,8 @@ __all__ = [
     'PackagingConfigurationDashManifestScteMarkersSource',
     'PackagingConfigurationDashPackagePeriodTriggersItem',
     'PackagingConfigurationDashPackageSegmentTemplateFormat',
+    'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio',
+    'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video',
     'PackagingConfigurationHlsEncryptionEncryptionMethod',
     'PackagingConfigurationHlsManifestAdMarkers',
     'PackagingConfigurationStreamSelectionStreamOrder',
@@ -252,6 +254,33 @@ class PackagingConfigurationDashPackageSegmentTemplateFormat(str, Enum):
     NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE"
     TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE"
     NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION"
+
+
+class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio(str, Enum):
+    """
+    A collection of audio encryption presets.
+    """
+    PRESET_AUDIO1 = "PRESET-AUDIO-1"
+    PRESET_AUDIO2 = "PRESET-AUDIO-2"
+    PRESET_AUDIO3 = "PRESET-AUDIO-3"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
+
+
+class PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video(str, Enum):
+    """
+    A collection of video encryption presets.
+    """
+    PRESET_VIDEO1 = "PRESET-VIDEO-1"
+    PRESET_VIDEO2 = "PRESET-VIDEO-2"
+    PRESET_VIDEO3 = "PRESET-VIDEO-3"
+    PRESET_VIDEO4 = "PRESET-VIDEO-4"
+    PRESET_VIDEO5 = "PRESET-VIDEO-5"
+    PRESET_VIDEO6 = "PRESET-VIDEO-6"
+    PRESET_VIDEO7 = "PRESET-VIDEO-7"
+    PRESET_VIDEO8 = "PRESET-VIDEO-8"
+    SHARED = "SHARED"
+    UNENCRYPTED = "UNENCRYPTED"
 
 
 class PackagingConfigurationHlsEncryptionEncryptionMethod(str, Enum):

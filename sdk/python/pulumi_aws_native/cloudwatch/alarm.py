@@ -39,6 +39,27 @@ class AlarmArgs:
                  unit: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alarm resource.
+        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold.
+        :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
+        :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+        :param pulumi.Input[str] alarm_description: The description of the alarm.
+        :param pulumi.Input[str] alarm_name: The name of the alarm.
+        :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles.
+        :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+        :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input['AlarmMetricDataQueryArgs']]] metrics: An array that enables you to create an alarm based on the result of a metric math expression.
+        :param pulumi.Input[str] namespace: The namespace of the metric associated with the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: The actions to execute when this alarm transitions to the OK state from any other state.
+        :param pulumi.Input[int] period: The period in seconds, over which the statistic is applied.
+        :param pulumi.Input[str] statistic: The statistic for the metric associated with the alarm, other than percentile.
+        :param pulumi.Input[float] threshold: In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        :param pulumi.Input[str] threshold_metric_id: In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        :param pulumi.Input[str] unit: The unit of the metric associated with the alarm.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "evaluation_periods", evaluation_periods)
@@ -84,6 +105,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> pulumi.Input[str]:
+        """
+        The arithmetic operation to use when comparing the specified statistic and threshold.
+        """
         return pulumi.get(self, "comparison_operator")
 
     @comparison_operator.setter
@@ -93,6 +117,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="evaluationPeriods")
     def evaluation_periods(self) -> pulumi.Input[int]:
+        """
+        The number of periods over which data is compared to the specified threshold.
+        """
         return pulumi.get(self, "evaluation_periods")
 
     @evaluation_periods.setter
@@ -102,6 +129,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        """
         return pulumi.get(self, "actions_enabled")
 
     @actions_enabled.setter
@@ -111,6 +141,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+        """
         return pulumi.get(self, "alarm_actions")
 
     @alarm_actions.setter
@@ -120,6 +153,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the alarm.
+        """
         return pulumi.get(self, "alarm_description")
 
     @alarm_description.setter
@@ -129,6 +165,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the alarm.
+        """
         return pulumi.get(self, "alarm_name")
 
     @alarm_name.setter
@@ -138,6 +177,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of datapoints that must be breaching to trigger the alarm.
+        """
         return pulumi.get(self, "datapoints_to_alarm")
 
     @datapoints_to_alarm.setter
@@ -147,6 +189,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]]:
+        """
+        The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -156,6 +201,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="evaluateLowSampleCountPercentile")
     def evaluate_low_sample_count_percentile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used only for alarms based on percentiles.
+        """
         return pulumi.get(self, "evaluate_low_sample_count_percentile")
 
     @evaluate_low_sample_count_percentile.setter
@@ -165,6 +213,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="extendedStatistic")
     def extended_statistic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+        """
         return pulumi.get(self, "extended_statistic")
 
     @extended_statistic.setter
@@ -174,6 +225,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+        """
         return pulumi.get(self, "insufficient_data_actions")
 
     @insufficient_data_actions.setter
@@ -183,6 +237,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the metric associated with the alarm.
+        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -192,6 +249,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlarmMetricDataQueryArgs']]]]:
+        """
+        An array that enables you to create an alarm based on the result of a metric math expression.
+        """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
@@ -201,6 +261,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace of the metric associated with the alarm.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -210,6 +273,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="oKActions")
     def o_k_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The actions to execute when this alarm transitions to the OK state from any other state.
+        """
         return pulumi.get(self, "o_k_actions")
 
     @o_k_actions.setter
@@ -219,6 +285,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The period in seconds, over which the statistic is applied.
+        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -228,6 +297,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The statistic for the metric associated with the alarm, other than percentile.
+        """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
@@ -237,6 +309,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
@@ -246,6 +321,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="thresholdMetricId")
     def threshold_metric_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        """
         return pulumi.get(self, "threshold_metric_id")
 
     @threshold_metric_id.setter
@@ -255,6 +333,9 @@ class AlarmArgs:
     @property
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        """
         return pulumi.get(self, "treat_missing_data")
 
     @treat_missing_data.setter
@@ -264,6 +345,9 @@ class AlarmArgs:
     @property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of the metric associated with the alarm.
+        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -308,6 +392,27 @@ class Alarm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+        :param pulumi.Input[str] alarm_description: The description of the alarm.
+        :param pulumi.Input[str] alarm_name: The name of the alarm.
+        :param pulumi.Input[str] comparison_operator: The arithmetic operation to use when comparing the specified statistic and threshold.
+        :param pulumi.Input[int] datapoints_to_alarm: The number of datapoints that must be breaching to trigger the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmDimensionArgs']]]] dimensions: The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+        :param pulumi.Input[str] evaluate_low_sample_count_percentile: Used only for alarms based on percentiles.
+        :param pulumi.Input[int] evaluation_periods: The number of periods over which data is compared to the specified threshold.
+        :param pulumi.Input[str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+        :param pulumi.Input[str] metric_name: The name of the metric associated with the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlarmMetricDataQueryArgs']]]] metrics: An array that enables you to create an alarm based on the result of a metric math expression.
+        :param pulumi.Input[str] namespace: The namespace of the metric associated with the alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: The actions to execute when this alarm transitions to the OK state from any other state.
+        :param pulumi.Input[int] period: The period in seconds, over which the statistic is applied.
+        :param pulumi.Input[str] statistic: The statistic for the metric associated with the alarm, other than percentile.
+        :param pulumi.Input[float] threshold: In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        :param pulumi.Input[str] threshold_metric_id: In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        :param pulumi.Input[str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        :param pulumi.Input[str] unit: The unit of the metric associated with the alarm.
         """
         ...
     @overload
@@ -439,110 +544,176 @@ class Alarm(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        """
         return pulumi.get(self, "actions_enabled")
 
     @property
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of actions to execute when this alarm transitions into an ALARM state from any other state.
+        """
         return pulumi.get(self, "alarm_actions")
 
     @property
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the alarm.
+        """
         return pulumi.get(self, "alarm_description")
 
     @property
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the alarm.
+        """
         return pulumi.get(self, "alarm_name")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name is a unique name for each resource.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> pulumi.Output[str]:
+        """
+        The arithmetic operation to use when comparing the specified statistic and threshold.
+        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="datapointsToAlarm")
     def datapoints_to_alarm(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of datapoints that must be breaching to trigger the alarm.
+        """
         return pulumi.get(self, "datapoints_to_alarm")
 
     @property
     @pulumi.getter
     def dimensions(self) -> pulumi.Output[Optional[Sequence['outputs.AlarmDimension']]]:
+        """
+        The dimensions for the metric associated with the alarm. For an alarm based on a math expression, you can't specify Dimensions. Instead, you use Metrics.
+        """
         return pulumi.get(self, "dimensions")
 
     @property
     @pulumi.getter(name="evaluateLowSampleCountPercentile")
     def evaluate_low_sample_count_percentile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Used only for alarms based on percentiles.
+        """
         return pulumi.get(self, "evaluate_low_sample_count_percentile")
 
     @property
     @pulumi.getter(name="evaluationPeriods")
     def evaluation_periods(self) -> pulumi.Output[int]:
+        """
+        The number of periods over which data is compared to the specified threshold.
+        """
         return pulumi.get(self, "evaluation_periods")
 
     @property
     @pulumi.getter(name="extendedStatistic")
     def extended_statistic(self) -> pulumi.Output[Optional[str]]:
+        """
+        The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
+        """
         return pulumi.get(self, "extended_statistic")
 
     @property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
+        """
         return pulumi.get(self, "insufficient_data_actions")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the metric associated with the alarm.
+        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
     def metrics(self) -> pulumi.Output[Optional[Sequence['outputs.AlarmMetricDataQuery']]]:
+        """
+        An array that enables you to create an alarm based on the result of a metric math expression.
+        """
         return pulumi.get(self, "metrics")
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[str]]:
+        """
+        The namespace of the metric associated with the alarm.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="oKActions")
     def o_k_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The actions to execute when this alarm transitions to the OK state from any other state.
+        """
         return pulumi.get(self, "o_k_actions")
 
     @property
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The period in seconds, over which the statistic is applied.
+        """
         return pulumi.get(self, "period")
 
     @property
     @pulumi.getter
     def statistic(self) -> pulumi.Output[Optional[str]]:
+        """
+        The statistic for the metric associated with the alarm, other than percentile.
+        """
         return pulumi.get(self, "statistic")
 
     @property
     @pulumi.getter
     def threshold(self) -> pulumi.Output[Optional[float]]:
+        """
+        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        """
         return pulumi.get(self, "threshold")
 
     @property
     @pulumi.getter(name="thresholdMetricId")
     def threshold_metric_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        In an alarm based on an anomaly detection model, this is the ID of the ANOMALY_DETECTION_BAND function used as the threshold for the alarm.
+        """
         return pulumi.get(self, "threshold_metric_id")
 
     @property
     @pulumi.getter(name="treatMissingData")
     def treat_missing_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        """
         return pulumi.get(self, "treat_missing_data")
 
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unit of the metric associated with the alarm.
+        """
         return pulumi.get(self, "unit")
 

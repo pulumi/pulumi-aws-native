@@ -33,6 +33,7 @@ __all__ = [
     'PackagingConfigurationDashEncryptionArgs',
     'PackagingConfigurationDashManifestArgs',
     'PackagingConfigurationDashPackageArgs',
+    'PackagingConfigurationEncryptionContractConfigurationArgs',
     'PackagingConfigurationHlsEncryptionArgs',
     'PackagingConfigurationHlsManifestArgs',
     'PackagingConfigurationHlsPackageArgs',
@@ -887,6 +888,7 @@ class OriginEndpointHlsPackageArgs:
                  ad_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]]] = None,
                  ads_on_delivery_restrictions: Optional[pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions']] = None,
                  encryption: Optional[pulumi.Input['OriginEndpointHlsEncryptionArgs']] = None,
+                 include_dvb_subtitles: Optional[pulumi.Input[bool]] = None,
                  include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
                  playlist_type: Optional[pulumi.Input['OriginEndpointHlsPackagePlaylistType']] = None,
                  playlist_window_seconds: Optional[pulumi.Input[int]] = None,
@@ -898,6 +900,7 @@ class OriginEndpointHlsPackageArgs:
         An HTTP Live Streaming (HLS) packaging configuration.
         :param pulumi.Input['OriginEndpointHlsPackageAdMarkers'] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input[bool] include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input['OriginEndpointHlsPackagePlaylistType'] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         :param pulumi.Input[int] playlist_window_seconds: Time window (in seconds) contained in each parent manifest.
@@ -913,6 +916,8 @@ class OriginEndpointHlsPackageArgs:
             pulumi.set(__self__, "ads_on_delivery_restrictions", ads_on_delivery_restrictions)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if include_dvb_subtitles is not None:
+            pulumi.set(__self__, "include_dvb_subtitles", include_dvb_subtitles)
         if include_iframe_only_stream is not None:
             pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if playlist_type is not None:
@@ -969,6 +974,18 @@ class OriginEndpointHlsPackageArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['OriginEndpointHlsEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="includeDvbSubtitles")
+    def include_dvb_subtitles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        """
+        return pulumi.get(self, "include_dvb_subtitles")
+
+    @include_dvb_subtitles.setter
+    def include_dvb_subtitles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_dvb_subtitles", value)
 
     @property
     @pulumi.getter(name="includeIframeOnlyStream")
@@ -1607,6 +1624,44 @@ class PackagingConfigurationDashPackageArgs:
 
 
 @pulumi.input_type
+class PackagingConfigurationEncryptionContractConfigurationArgs:
+    def __init__(__self__, *,
+                 preset_speke20_audio: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio'],
+                 preset_speke20_video: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video']):
+        """
+        The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+        :param pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio'] preset_speke20_audio: A collection of audio encryption presets.
+        :param pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video'] preset_speke20_video: A collection of video encryption presets.
+        """
+        pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
+        pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
+
+    @property
+    @pulumi.getter(name="presetSpeke20Audio")
+    def preset_speke20_audio(self) -> pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio']:
+        """
+        A collection of audio encryption presets.
+        """
+        return pulumi.get(self, "preset_speke20_audio")
+
+    @preset_speke20_audio.setter
+    def preset_speke20_audio(self, value: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio']):
+        pulumi.set(self, "preset_speke20_audio", value)
+
+    @property
+    @pulumi.getter(name="presetSpeke20Video")
+    def preset_speke20_video(self) -> pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video']:
+        """
+        A collection of video encryption presets.
+        """
+        return pulumi.get(self, "preset_speke20_video")
+
+    @preset_speke20_video.setter
+    def preset_speke20_video(self, value: pulumi.Input['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video']):
+        pulumi.set(self, "preset_speke20_video", value)
+
+
+@pulumi.input_type
 class PackagingConfigurationHlsEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'],
@@ -1758,16 +1813,20 @@ class PackagingConfigurationHlsPackageArgs:
     def __init__(__self__, *,
                  hls_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]],
                  encryption: Optional[pulumi.Input['PackagingConfigurationHlsEncryptionArgs']] = None,
+                 include_dvb_subtitles: Optional[pulumi.Input[bool]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  use_audio_rendition_group: Optional[pulumi.Input[bool]] = None):
         """
         An HTTP Live Streaming (HLS) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations.
+        :param pulumi.Input[bool] include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         :param pulumi.Input[bool] use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
         """
         pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if include_dvb_subtitles is not None:
+            pulumi.set(__self__, "include_dvb_subtitles", include_dvb_subtitles)
         if segment_duration_seconds is not None:
             pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if use_audio_rendition_group is not None:
@@ -1793,6 +1852,18 @@ class PackagingConfigurationHlsPackageArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['PackagingConfigurationHlsEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="includeDvbSubtitles")
+    def include_dvb_subtitles(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        """
+        return pulumi.get(self, "include_dvb_subtitles")
+
+    @include_dvb_subtitles.setter
+    def include_dvb_subtitles(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_dvb_subtitles", value)
 
     @property
     @pulumi.getter(name="segmentDurationSeconds")
@@ -1919,7 +1990,8 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  system_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 url: pulumi.Input[str]):
+                 url: pulumi.Input[str],
+                 encryption_contract_configuration: Optional[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs']] = None):
         """
         A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: The system IDs to include in key requests.
@@ -1928,6 +2000,8 @@ class PackagingConfigurationSpekeKeyProviderArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "system_ids", system_ids)
         pulumi.set(__self__, "url", url)
+        if encryption_contract_configuration is not None:
+            pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1961,6 +2035,15 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="encryptionContractConfiguration")
+    def encryption_contract_configuration(self) -> Optional[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs']]:
+        return pulumi.get(self, "encryption_contract_configuration")
+
+    @encryption_contract_configuration.setter
+    def encryption_contract_configuration(self, value: Optional[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs']]):
+        pulumi.set(self, "encryption_contract_configuration", value)
 
 
 @pulumi.input_type

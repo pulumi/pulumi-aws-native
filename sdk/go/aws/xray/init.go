@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:xray:Group":
 		r = &Group{}
+	case "aws-native:xray:ResourcePolicy":
+		r = &ResourcePolicy{}
 	case "aws-native:xray:SamplingRule":
 		r = &SamplingRule{}
 	default:

@@ -37,15 +37,19 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
      * The CIDR block used for destination matches.
      */
-    public readonly destinationCidrBlock!: pulumi.Output<string>;
+    public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
     /**
      * The ID of the local gateway route table.
      */
-    public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    public readonly localGatewayRouteTableId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the virtual interface group.
      */
-    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the network interface.
+     */
+    public readonly networkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * The state of the route.
      */
@@ -62,28 +66,21 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: LocalGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: LocalGatewayRouteArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destinationCidrBlock'");
-            }
-            if ((!args || args.localGatewayRouteTableId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'localGatewayRouteTableId'");
-            }
-            if ((!args || args.localGatewayVirtualInterfaceGroupId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'localGatewayVirtualInterfaceGroupId'");
-            }
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["localGatewayRouteTableId"] = undefined /*out*/;
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -99,13 +96,17 @@ export interface LocalGatewayRouteArgs {
     /**
      * The CIDR block used for destination matches.
      */
-    destinationCidrBlock: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the local gateway route table.
      */
-    localGatewayRouteTableId: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the virtual interface group.
      */
-    localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
+    /**
+     * The ID of the network interface.
+     */
+    networkInterfaceId?: pulumi.Input<string>;
 }

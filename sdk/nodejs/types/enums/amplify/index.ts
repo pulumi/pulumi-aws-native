@@ -12,6 +12,14 @@ export const AppAutoBranchCreationConfigStage = {
 
 export type AppAutoBranchCreationConfigStage = (typeof AppAutoBranchCreationConfigStage)[keyof typeof AppAutoBranchCreationConfigStage];
 
+export const AppPlatform = {
+    Web: "WEB",
+    WebDynamic: "WEB_DYNAMIC",
+    WebCompute: "WEB_COMPUTE",
+} as const;
+
+export type AppPlatform = (typeof AppPlatform)[keyof typeof AppPlatform];
+
 export const BranchStage = {
     Experimental: "EXPERIMENTAL",
     Beta: "BETA",

@@ -60,6 +60,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
+     * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+     */
+    public readonly dataTiering!: pulumi.Output<enums.memorydb.ClusterDataTieringStatus | undefined>;
+    /**
      * An optional description of the cluster.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -171,6 +175,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["dataTiering"] = args ? args.dataTiering : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
@@ -200,6 +205,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["clusterEndpoint"] = undefined /*out*/;
             resourceInputs["clusterName"] = undefined /*out*/;
+            resourceInputs["dataTiering"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["finalSnapshotName"] = undefined /*out*/;
@@ -250,6 +256,10 @@ export interface ClusterArgs {
      * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+     */
+    dataTiering?: pulumi.Input<enums.memorydb.ClusterDataTieringStatus>;
     /**
      * An optional description of the cluster.
      */

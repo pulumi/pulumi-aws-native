@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Panorama
         public Output<string> PackageName { get; private set; } = null!;
 
         [Output("storageLocation")]
-        public Output<Outputs.PackageStorageLocation> StorageLocation { get; private set; } = null!;
+        public Output<Outputs.PackageStorageLocation?> StorageLocation { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PackageTag>> Tags { get; private set; } = null!;
@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.Panorama
     {
         [Input("packageName")]
         public Input<string>? PackageName { get; set; }
+
+        [Input("storageLocation")]
+        public Input<Inputs.PackageStorageLocationArgs>? StorageLocation { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PackageTagArgs>? _tags;

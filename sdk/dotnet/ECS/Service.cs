@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.ECS
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
+        [Output("serviceConnectConfiguration")]
+        public Output<Outputs.ServiceConnectConfiguration?> ServiceConnectConfiguration { get; private set; } = null!;
+
         [Output("serviceName")]
         public Output<string?> ServiceName { get; private set; } = null!;
 
@@ -199,6 +202,9 @@ namespace Pulumi.AwsNative.ECS
 
         [Input("schedulingStrategy")]
         public Input<Pulumi.AwsNative.ECS.ServiceSchedulingStrategy>? SchedulingStrategy { get; set; }
+
+        [Input("serviceConnectConfiguration")]
+        public Input<Inputs.ServiceConnectConfigurationArgs>? ServiceConnectConfiguration { get; set; }
 
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }

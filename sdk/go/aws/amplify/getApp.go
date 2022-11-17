@@ -37,6 +37,7 @@ type LookupAppResult struct {
 	EnvironmentVariables     []AppEnvironmentVariable `pulumi:"environmentVariables"`
 	IAMServiceRole           *string                  `pulumi:"iAMServiceRole"`
 	Name                     *string                  `pulumi:"name"`
+	Platform                 *AppPlatform             `pulumi:"platform"`
 	Repository               *string                  `pulumi:"repository"`
 	Tags                     []AppTag                 `pulumi:"tags"`
 }
@@ -122,6 +123,10 @@ func (o LookupAppResultOutput) IAMServiceRole() pulumi.StringPtrOutput {
 
 func (o LookupAppResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAppResultOutput) Platform() AppPlatformPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *AppPlatform { return v.Platform }).(AppPlatformPtrOutput)
 }
 
 func (o LookupAppResultOutput) Repository() pulumi.StringPtrOutput {

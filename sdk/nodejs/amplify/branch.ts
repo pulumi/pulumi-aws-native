@@ -47,6 +47,7 @@ export class Branch extends pulumi.CustomResource {
     public readonly enablePerformanceMode!: pulumi.Output<boolean | undefined>;
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
+    public readonly framework!: pulumi.Output<string | undefined>;
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
     public readonly stage!: pulumi.Output<enums.amplify.BranchStage | undefined>;
     public readonly tags!: pulumi.Output<outputs.amplify.BranchTag[] | undefined>;
@@ -74,6 +75,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
             resourceInputs["stage"] = args ? args.stage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -89,6 +91,7 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enablePerformanceMode"] = undefined /*out*/;
             resourceInputs["enablePullRequestPreview"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["framework"] = undefined /*out*/;
             resourceInputs["pullRequestEnvironmentName"] = undefined /*out*/;
             resourceInputs["stage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -111,6 +114,7 @@ export interface BranchArgs {
     enablePerformanceMode?: pulumi.Input<boolean>;
     enablePullRequestPreview?: pulumi.Input<boolean>;
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[]>;
+    framework?: pulumi.Input<string>;
     pullRequestEnvironmentName?: pulumi.Input<string>;
     stage?: pulumi.Input<enums.amplify.BranchStage>;
     tags?: pulumi.Input<pulumi.Input<inputs.amplify.BranchTagArgs>[]>;

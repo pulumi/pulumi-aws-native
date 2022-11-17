@@ -17,24 +17,42 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getEnvironment", {
-        "id": args.id,
+        "environmentName": args.environmentName,
     }, opts);
 }
 
 export interface GetEnvironmentArgs {
-    id: string;
+    /**
+     * A unique name for the environment.
+     */
+    environmentName: string;
 }
 
 export interface GetEnvironmentResult {
+    /**
+     * Your description for this environment.
+     */
     readonly description?: string;
     readonly endpointURL?: string;
-    readonly id?: string;
+    /**
+     * The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+     */
     readonly operationsRole?: string;
-    readonly optionSettings?: outputs.elasticbeanstalk.EnvironmentOptionSetting[];
+    /**
+     * The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+     */
     readonly platformArn?: string;
+    /**
+     * Specifies the tags applied to resources in the environment.
+     */
     readonly tags?: outputs.elasticbeanstalk.EnvironmentTag[];
-    readonly templateName?: string;
+    /**
+     * Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+     */
     readonly tier?: outputs.elasticbeanstalk.EnvironmentTier;
+    /**
+     * The name of the application version to deploy.
+     */
     readonly versionLabel?: string;
 }
 
@@ -43,5 +61,8 @@ export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulu
 }
 
 export interface GetEnvironmentOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A unique name for the environment.
+     */
+    environmentName: pulumi.Input<string>;
 }

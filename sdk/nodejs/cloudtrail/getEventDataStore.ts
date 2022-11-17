@@ -42,6 +42,10 @@ export interface GetEventDataStoreResult {
      */
     readonly eventDataStoreArn?: string;
     /**
+     * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+     */
+    readonly kmsKeyId?: string;
+    /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */
     readonly multiRegionEnabled?: boolean;

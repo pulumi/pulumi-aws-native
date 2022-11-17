@@ -4232,6 +4232,347 @@ func (in *packagingConfigurationDashPackageSegmentTemplateFormatPtr) ToPackaging
 	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput)
 }
 
+// A collection of audio encryption presets.
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio string
+
+const (
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio1 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio2 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-2")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPresetAudio3 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-3")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioShared       = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("SHARED")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioUnencrypted  = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("UNENCRYPTED")
+)
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio)(nil)).Elem()
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return pulumi.ToOutput(e).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return e.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio(e).ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutputWithContext(ctx).ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio {
+		return &v
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput {
+	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio
+		return ret
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioArgs and PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput values.
+// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput` via:
+//
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioArgs{...}
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput
+}
+
+var packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrType = reflect.TypeOf((**PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio)(nil)).Elem()
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput
+}
+
+type packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr string
+
+func PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr(v string) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrInput {
+	return (*packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr)(&v)
+}
+
+func (*packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ElementType() reflect.Type {
+	return packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrType
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return pulumi.ToOutput(in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput)
+}
+
+// A collection of video encryption presets.
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video string
+
+const (
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo1 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo2 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-2")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo3 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-3")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo4 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-4")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo5 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-5")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo6 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-6")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo7 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-7")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPresetVideo8 = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-8")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoShared       = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("SHARED")
+	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoUnencrypted  = PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("UNENCRYPTED")
+)
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video)(nil)).Elem()
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return pulumi.ToOutput(e).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return e.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video(e).ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutputWithContext(ctx).ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o.ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video {
+		return &v
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video)(nil)).Elem()
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return o
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput {
+	return o.ApplyT(func(v *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video {
+		if v != nil {
+			return *v
+		}
+		var ret PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video
+		return ret
+	}).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput)
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput is an input type that accepts PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoArgs and PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput values.
+// You can construct a concrete instance of `PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput` via:
+//
+//	PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoArgs{...}
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput
+}
+
+var packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrType = reflect.TypeOf((**PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video)(nil)).Elem()
+
+type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
+	ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput
+}
+
+type packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr string
+
+func PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr(v string) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrInput {
+	return (*packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr)(&v)
+}
+
+func (*packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ElementType() reflect.Type {
+	return packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrType
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput() PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return pulumi.ToOutput(in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
+func (in *packagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtr) ToPackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput)
+}
+
 // The encryption method to use.
 type PackagingConfigurationHlsEncryptionEncryptionMethod string
 
@@ -4783,6 +5124,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackagePeriodTriggersItemArrayInput)(nil)).Elem(), PackagingConfigurationDashPackagePeriodTriggersItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackageSegmentTemplateFormatInput)(nil)).Elem(), PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationDashPackageSegmentTemplateFormatPtrInput)(nil)).Elem(), PackagingConfigurationDashPackageSegmentTemplateFormat("NUMBER_WITH_TIMELINE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio("PRESET-AUDIO-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrInput)(nil)).Elem(), PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video("PRESET-VIDEO-1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsEncryptionEncryptionMethodInput)(nil)).Elem(), PackagingConfigurationHlsEncryptionEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsEncryptionEncryptionMethodPtrInput)(nil)).Elem(), PackagingConfigurationHlsEncryptionEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PackagingConfigurationHlsManifestAdMarkersInput)(nil)).Elem(), PackagingConfigurationHlsManifestAdMarkers("NONE"))
@@ -4842,6 +5187,10 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackageSegmentTemplateFormatOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationDashPackageSegmentTemplateFormatPtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20AudioPtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationEncryptionContractConfigurationPresetSpeke20VideoPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsEncryptionEncryptionMethodOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationHlsManifestAdMarkersOutput{})

@@ -19,6 +19,7 @@ class ComputeEnvironmentArgs:
                  type: pulumi.Input[str],
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
+                 eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,8 @@ class ComputeEnvironmentArgs:
             pulumi.set(__self__, "compute_environment_name", compute_environment_name)
         if compute_resources is not None:
             pulumi.set(__self__, "compute_resources", compute_resources)
+        if eks_configuration is not None:
+            pulumi.set(__self__, "eks_configuration", eks_configuration)
         if replace_compute_environment is not None:
             pulumi.set(__self__, "replace_compute_environment", replace_compute_environment)
         if service_role is not None:
@@ -73,6 +76,15 @@ class ComputeEnvironmentArgs:
     @compute_resources.setter
     def compute_resources(self, value: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']]):
         pulumi.set(self, "compute_resources", value)
+
+    @property
+    @pulumi.getter(name="eksConfiguration")
+    def eks_configuration(self) -> Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']]:
+        return pulumi.get(self, "eks_configuration")
+
+    @eks_configuration.setter
+    def eks_configuration(self, value: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']]):
+        pulumi.set(self, "eks_configuration", value)
 
     @property
     @pulumi.getter(name="replaceComputeEnvironment")
@@ -139,6 +151,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
+                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -180,6 +193,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
+                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
                  replace_compute_environment: Optional[pulumi.Input[bool]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -198,6 +212,7 @@ class ComputeEnvironment(pulumi.CustomResource):
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
             __props__.__dict__["compute_resources"] = compute_resources
+            __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["replace_compute_environment"] = replace_compute_environment
             __props__.__dict__["service_role"] = service_role
             __props__.__dict__["state"] = state
@@ -233,6 +248,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         __props__.__dict__["compute_environment_arn"] = None
         __props__.__dict__["compute_environment_name"] = None
         __props__.__dict__["compute_resources"] = None
+        __props__.__dict__["eks_configuration"] = None
         __props__.__dict__["replace_compute_environment"] = None
         __props__.__dict__["service_role"] = None
         __props__.__dict__["state"] = None
@@ -256,6 +272,11 @@ class ComputeEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentComputeResources']]:
         return pulumi.get(self, "compute_resources")
+
+    @property
+    @pulumi.getter(name="eksConfiguration")
+    def eks_configuration(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentEksConfiguration']]:
+        return pulumi.get(self, "eks_configuration")
 
     @property
     @pulumi.getter(name="replaceComputeEnvironment")

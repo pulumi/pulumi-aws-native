@@ -48,6 +48,12 @@ namespace Pulumi.AwsNative.MemoryDB
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+        /// </summary>
+        [Output("dataTiering")]
+        public Output<Pulumi.AwsNative.MemoryDB.ClusterDataTieringStatus?> DataTiering { get; private set; } = null!;
+
+        /// <summary>
         /// An optional description of the cluster.
         /// </summary>
         [Output("description")]
@@ -251,6 +257,12 @@ namespace Pulumi.AwsNative.MemoryDB
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+        /// </summary>
+        [Input("dataTiering")]
+        public Input<Pulumi.AwsNative.MemoryDB.ClusterDataTieringStatus>? DataTiering { get; set; }
 
         /// <summary>
         /// An optional description of the cluster.

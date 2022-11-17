@@ -27,6 +27,8 @@ type Cluster struct {
 	ClusterEndpoint ClusterEndpointPtrOutput `pulumi:"clusterEndpoint"`
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+	DataTiering ClusterDataTieringStatusPtrOutput `pulumi:"dataTiering"`
 	// An optional description of the cluster.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Redis engine version used by the cluster.
@@ -130,6 +132,8 @@ type clusterArgs struct {
 	ClusterEndpoint *ClusterEndpoint `pulumi:"clusterEndpoint"`
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
 	ClusterName *string `pulumi:"clusterName"`
+	// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+	DataTiering *ClusterDataTieringStatus `pulumi:"dataTiering"`
 	// An optional description of the cluster.
 	Description *string `pulumi:"description"`
 	// The Redis engine version used by the cluster.
@@ -186,6 +190,8 @@ type ClusterArgs struct {
 	ClusterEndpoint ClusterEndpointPtrInput
 	// The name of the cluster. This value must be unique as it also serves as the cluster identifier.
 	ClusterName pulumi.StringPtrInput
+	// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+	DataTiering ClusterDataTieringStatusPtrInput
 	// An optional description of the cluster.
 	Description pulumi.StringPtrInput
 	// The Redis engine version used by the cluster.
@@ -292,6 +298,11 @@ func (o ClusterOutput) ClusterEndpoint() ClusterEndpointPtrOutput {
 // The name of the cluster. This value must be unique as it also serves as the cluster identifier.
 func (o ClusterOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+func (o ClusterOutput) DataTiering() ClusterDataTieringStatusPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterDataTieringStatusPtrOutput { return v.DataTiering }).(ClusterDataTieringStatusPtrOutput)
 }
 
 // An optional description of the cluster.

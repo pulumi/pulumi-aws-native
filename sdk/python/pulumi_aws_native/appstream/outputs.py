@@ -16,6 +16,7 @@ __all__ = [
     'AppBlockTag',
     'ApplicationS3Location',
     'ApplicationTag',
+    'DirectoryConfigCertificateBasedAuthProperties',
     'DirectoryConfigServiceAccountCredentials',
     'EntitlementAttribute',
     'FleetComputeCapacity',
@@ -242,6 +243,44 @@ class ApplicationTag(dict):
     @pulumi.getter(name="tagValue")
     def tag_value(self) -> str:
         return pulumi.get(self, "tag_value")
+
+
+@pulumi.output_type
+class DirectoryConfigCertificateBasedAuthProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryConfigCertificateBasedAuthProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryConfigCertificateBasedAuthProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryConfigCertificateBasedAuthProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[str] = None,
+                 status: Optional[str] = None):
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

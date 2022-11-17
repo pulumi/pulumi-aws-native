@@ -31,6 +31,7 @@ type LookupConfigurationSetResult struct {
 	SendingOptions     *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	TrackingOptions    *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
+	VdmOptions         *ConfigurationSetVdmOptions         `pulumi:"vdmOptions"`
 }
 
 func LookupConfigurationSetOutput(ctx *pulumi.Context, args LookupConfigurationSetOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetResultOutput {
@@ -87,6 +88,10 @@ func (o LookupConfigurationSetResultOutput) SuppressionOptions() ConfigurationSe
 
 func (o LookupConfigurationSetResultOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetTrackingOptions { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+func (o LookupConfigurationSetResultOutput) VdmOptions() ConfigurationSetVdmOptionsPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationSetResult) *ConfigurationSetVdmOptions { return v.VdmOptions }).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
 func init() {

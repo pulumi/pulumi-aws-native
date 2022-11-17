@@ -61,7 +61,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
     /**
      * The name of the Composite Alarm
      */
-    public readonly alarmName!: pulumi.Output<string>;
+    public readonly alarmName!: pulumi.Output<string | undefined>;
     /**
      * Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
      */
@@ -90,9 +90,6 @@ export class CompositeAlarm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alarmName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'alarmName'");
-            }
             if ((!args || args.alarmRule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alarmRule'");
             }
@@ -156,7 +153,7 @@ export interface CompositeAlarmArgs {
     /**
      * The name of the Composite Alarm
      */
-    alarmName: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string>;
     /**
      * Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
      */

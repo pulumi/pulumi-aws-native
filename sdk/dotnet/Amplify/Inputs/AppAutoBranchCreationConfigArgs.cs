@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.Amplify.Inputs
             set => _environmentVariables = value;
         }
 
+        [Input("framework")]
+        public Input<string>? Framework { get; set; }
+
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
 

@@ -37,6 +37,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === DirectoryConfig.__pulumiType;
     }
 
+    public readonly certificateBasedAuthProperties!: pulumi.Output<outputs.appstream.DirectoryConfigCertificateBasedAuthProperties | undefined>;
     public readonly directoryName!: pulumi.Output<string>;
     public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
     public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
@@ -61,10 +62,12 @@ export class DirectoryConfig extends pulumi.CustomResource {
             if ((!args || args.serviceAccountCredentials === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountCredentials'");
             }
+            resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
             resourceInputs["directoryName"] = args ? args.directoryName : undefined;
             resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
             resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
         } else {
+            resourceInputs["certificateBasedAuthProperties"] = undefined /*out*/;
             resourceInputs["directoryName"] = undefined /*out*/;
             resourceInputs["organizationalUnitDistinguishedNames"] = undefined /*out*/;
             resourceInputs["serviceAccountCredentials"] = undefined /*out*/;
@@ -78,6 +81,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a DirectoryConfig resource.
  */
 export interface DirectoryConfigArgs {
+    certificateBasedAuthProperties?: pulumi.Input<inputs.appstream.DirectoryConfigCertificateBasedAuthPropertiesArgs>;
     directoryName: pulumi.Input<string>;
     organizationalUnitDistinguishedNames: pulumi.Input<pulumi.Input<string>[]>;
     serviceAccountCredentials: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentialsArgs>;

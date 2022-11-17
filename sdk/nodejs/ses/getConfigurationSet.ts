@@ -34,6 +34,7 @@ export interface GetConfigurationSetResult {
     readonly sendingOptions?: outputs.ses.ConfigurationSetSendingOptions;
     readonly suppressionOptions?: outputs.ses.ConfigurationSetSuppressionOptions;
     readonly trackingOptions?: outputs.ses.ConfigurationSetTrackingOptions;
+    readonly vdmOptions?: outputs.ses.ConfigurationSetVdmOptions;
 }
 
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {

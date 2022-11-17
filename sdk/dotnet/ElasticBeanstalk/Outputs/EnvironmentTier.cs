@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class EnvironmentTier
     {
+        /// <summary>
+        /// The name of this environment tier.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The type of this environment tier.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

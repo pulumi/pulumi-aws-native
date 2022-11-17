@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("imageIdOverride")]
         public Input<string>? ImageIdOverride { get; set; }
 
+        [Input("imageKubernetesVersion")]
+        public Input<string>? ImageKubernetesVersion { get; set; }
+
         [Input("imageType", required: true)]
         public Input<string> ImageType { get; set; } = null!;
 

@@ -128,6 +128,8 @@ type DBInstance struct {
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	// Specifies the storage throughput for the DB instance.
+	StorageThroughput pulumi.IntPtrOutput `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
@@ -293,6 +295,8 @@ type dbinstanceArgs struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
+	// Specifies the storage throughput for the DB instance.
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
@@ -421,6 +425,8 @@ type DBInstanceArgs struct {
 	SourceRegion pulumi.StringPtrInput
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
+	// Specifies the storage throughput for the DB instance.
+	StorageThroughput pulumi.IntPtrInput
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType pulumi.StringPtrInput
 	// Tags to assign to the DB instance.
@@ -748,6 +754,11 @@ func (o DBInstanceOutput) SourceRegion() pulumi.StringPtrOutput {
 // A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
 func (o DBInstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the storage throughput for the DB instance.
+func (o DBInstanceOutput) StorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.IntPtrOutput { return v.StorageThroughput }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the storage type to be associated with the DB instance.

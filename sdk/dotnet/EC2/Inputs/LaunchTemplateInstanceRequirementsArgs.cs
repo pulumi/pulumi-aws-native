@@ -42,6 +42,14 @@ namespace Pulumi.AwsNative.EC2.Inputs
             set => _acceleratorTypes = value;
         }
 
+        [Input("allowedInstanceTypes")]
+        private InputList<string>? _allowedInstanceTypes;
+        public InputList<string> AllowedInstanceTypes
+        {
+            get => _allowedInstanceTypes ?? (_allowedInstanceTypes = new InputList<string>());
+            set => _allowedInstanceTypes = value;
+        }
+
         [Input("bareMetal")]
         public Input<string>? BareMetal { get; set; }
 
@@ -91,6 +99,9 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("memoryMiB")]
         public Input<Inputs.LaunchTemplateMemoryMiBArgs>? MemoryMiB { get; set; }
+
+        [Input("networkBandwidthGbps")]
+        public Input<Inputs.LaunchTemplateNetworkBandwidthGbpsArgs>? NetworkBandwidthGbps { get; set; }
 
         [Input("networkInterfaceCount")]
         public Input<Inputs.LaunchTemplateNetworkInterfaceCountArgs>? NetworkInterfaceCount { get; set; }

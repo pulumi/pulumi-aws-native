@@ -210,6 +210,7 @@ import * as nimblestudio from "./nimblestudio";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
+import * as organizations from "./organizations";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
@@ -223,6 +224,7 @@ import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
 import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
+import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
@@ -235,6 +237,7 @@ import * as s3 from "./s3";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as scheduler from "./scheduler";
 import * as sdb from "./sdb";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
@@ -413,6 +416,7 @@ export {
     opensearchservice,
     opsworks,
     opsworkscm,
+    organizations,
     panorama,
     personalize,
     pinpoint,
@@ -426,6 +430,7 @@ export {
     refactorspaces,
     rekognition,
     resiliencehub,
+    resourceexplorer2,
     resourcegroups,
     robomaker,
     rolesanywhere,
@@ -438,6 +443,7 @@ export {
     s3objectlambda,
     s3outposts,
     sagemaker,
+    scheduler,
     sdb,
     secretsmanager,
     securityhub,

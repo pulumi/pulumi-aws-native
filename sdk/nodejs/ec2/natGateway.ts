@@ -40,6 +40,7 @@ export class NatGateway extends pulumi.CustomResource {
     public readonly allocationId!: pulumi.Output<string | undefined>;
     public readonly connectivityType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
+    public readonly privateIpAddress!: pulumi.Output<string | undefined>;
     public readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.NatGatewayTag[] | undefined>;
 
@@ -59,6 +60,7 @@ export class NatGateway extends pulumi.CustomResource {
             }
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
+            resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["natGatewayId"] = undefined /*out*/;
@@ -66,6 +68,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["connectivityType"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -80,6 +83,7 @@ export class NatGateway extends pulumi.CustomResource {
 export interface NatGatewayArgs {
     allocationId?: pulumi.Input<string>;
     connectivityType?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string>;
     subnetId: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayTagArgs>[]>;
 }

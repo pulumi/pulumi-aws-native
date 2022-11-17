@@ -319,6 +319,8 @@ if typing.TYPE_CHECKING:
     opsworks = __opsworks
     import pulumi_aws_native.opsworkscm as __opsworkscm
     opsworkscm = __opsworkscm
+    import pulumi_aws_native.organizations as __organizations
+    organizations = __organizations
     import pulumi_aws_native.panorama as __panorama
     panorama = __panorama
     import pulumi_aws_native.personalize as __personalize
@@ -345,6 +347,8 @@ if typing.TYPE_CHECKING:
     rekognition = __rekognition
     import pulumi_aws_native.resiliencehub as __resiliencehub
     resiliencehub = __resiliencehub
+    import pulumi_aws_native.resourceexplorer2 as __resourceexplorer2
+    resourceexplorer2 = __resourceexplorer2
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws_native.robomaker as __robomaker
@@ -369,6 +373,8 @@ if typing.TYPE_CHECKING:
     s3outposts = __s3outposts
     import pulumi_aws_native.sagemaker as __sagemaker
     sagemaker = __sagemaker
+    import pulumi_aws_native.scheduler as __scheduler
+    scheduler = __scheduler
     import pulumi_aws_native.sdb as __sdb
     sdb = __sdb
     import pulumi_aws_native.secretsmanager as __secretsmanager
@@ -571,6 +577,7 @@ else:
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
+    organizations = _utilities.lazy_import('pulumi_aws_native.organizations')
     panorama = _utilities.lazy_import('pulumi_aws_native.panorama')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
@@ -584,6 +591,7 @@ else:
     refactorspaces = _utilities.lazy_import('pulumi_aws_native.refactorspaces')
     rekognition = _utilities.lazy_import('pulumi_aws_native.rekognition')
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
+    resourceexplorer2 = _utilities.lazy_import('pulumi_aws_native.resourceexplorer2')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
     robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
@@ -596,6 +604,7 @@ else:
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
+    scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     sdb = _utilities.lazy_import('pulumi_aws_native.sdb')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws_native.securityhub')
@@ -671,6 +680,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.amplifyuibuilder",
   "classes": {
    "aws-native:amplifyuibuilder:Component": "Component",
+   "aws-native:amplifyuibuilder:Form": "Form",
    "aws-native:amplifyuibuilder:Theme": "Theme"
   }
  },
@@ -2390,6 +2400,16 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "organizations",
+  "fqn": "pulumi_aws_native.organizations",
+  "classes": {
+   "aws-native:organizations:Account": "Account",
+   "aws-native:organizations:OrganizationalUnit": "OrganizationalUnit",
+   "aws-native:organizations:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "panorama",
   "fqn": "pulumi_aws_native.panorama",
   "classes": {
@@ -2553,6 +2573,16 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "resourceexplorer2",
+  "fqn": "pulumi_aws_native.resourceexplorer2",
+  "classes": {
+   "aws-native:resourceexplorer2:DefaultViewAssociation": "DefaultViewAssociation",
+   "aws-native:resourceexplorer2:Index": "Index",
+   "aws-native:resourceexplorer2:View": "View"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "resourcegroups",
   "fqn": "pulumi_aws_native.resourcegroups",
   "classes": {
@@ -2710,6 +2740,15 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "scheduler",
+  "fqn": "pulumi_aws_native.scheduler",
+  "classes": {
+   "aws-native:scheduler:Schedule": "Schedule",
+   "aws-native:scheduler:ScheduleGroup": "ScheduleGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "sdb",
   "fqn": "pulumi_aws_native.sdb",
   "classes": {
@@ -2794,7 +2833,8 @@ _utilities.register(
    "aws-native:ses:ReceiptFilter": "ReceiptFilter",
    "aws-native:ses:ReceiptRule": "ReceiptRule",
    "aws-native:ses:ReceiptRuleSet": "ReceiptRuleSet",
-   "aws-native:ses:Template": "Template"
+   "aws-native:ses:Template": "Template",
+   "aws-native:ses:VdmAttributes": "VdmAttributes"
   }
  },
  {
@@ -2837,7 +2877,8 @@ _utilities.register(
    "aws-native:ssm:MaintenanceWindowTask": "MaintenanceWindowTask",
    "aws-native:ssm:Parameter": "Parameter",
    "aws-native:ssm:PatchBaseline": "PatchBaseline",
-   "aws-native:ssm:ResourceDataSync": "ResourceDataSync"
+   "aws-native:ssm:ResourceDataSync": "ResourceDataSync",
+   "aws-native:ssm:ResourcePolicy": "ResourcePolicy"
   }
  },
  {
@@ -2998,6 +3039,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.xray",
   "classes": {
    "aws-native:xray:Group": "Group",
+   "aws-native:xray:ResourcePolicy": "ResourcePolicy",
    "aws-native:xray:SamplingRule": "SamplingRule"
   }
  }

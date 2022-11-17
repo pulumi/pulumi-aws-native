@@ -12,46 +12,81 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     /// <summary>
     /// Resource Type definition for AWS::ElasticBeanstalk::Environment
     /// </summary>
-    [Obsolete(@"Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:elasticbeanstalk:Environment")]
     public partial class Environment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the application that is associated with this environment.
+        /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
+        /// <summary>
+        /// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        /// </summary>
         [Output("cNAMEPrefix")]
         public Output<string?> CNAMEPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// Your description for this environment.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("endpointURL")]
         public Output<string> EndpointURL { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique name for the environment.
+        /// </summary>
         [Output("environmentName")]
         public Output<string?> EnvironmentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        /// </summary>
         [Output("operationsRole")]
         public Output<string?> OperationsRole { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value pairs defining configuration options for this environment, such as the instance type.
+        /// </summary>
         [Output("optionSettings")]
         public Output<ImmutableArray<Outputs.EnvironmentOptionSetting>> OptionSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        /// </summary>
         [Output("platformArn")]
         public Output<string?> PlatformArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        /// </summary>
         [Output("solutionStackName")]
         public Output<string?> SolutionStackName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the tags applied to resources in the environment.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EnvironmentTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Elastic Beanstalk configuration template to use with the environment.
+        /// </summary>
         [Output("templateName")]
         public Output<string?> TemplateName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        /// </summary>
         [Output("tier")]
         public Output<Outputs.EnvironmentTier?> Tier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the application version to deploy.
+        /// </summary>
         [Output("versionLabel")]
         public Output<string?> VersionLabel { get; private set; } = null!;
 
@@ -100,49 +135,87 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the application that is associated with this environment.
+        /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
 
+        /// <summary>
+        /// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        /// </summary>
         [Input("cNAMEPrefix")]
         public Input<string>? CNAMEPrefix { get; set; }
 
+        /// <summary>
+        /// Your description for this environment.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A unique name for the environment.
+        /// </summary>
         [Input("environmentName")]
         public Input<string>? EnvironmentName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        /// </summary>
         [Input("operationsRole")]
         public Input<string>? OperationsRole { get; set; }
 
         [Input("optionSettings")]
         private InputList<Inputs.EnvironmentOptionSettingArgs>? _optionSettings;
+
+        /// <summary>
+        /// Key-value pairs defining configuration options for this environment, such as the instance type.
+        /// </summary>
         public InputList<Inputs.EnvironmentOptionSettingArgs> OptionSettings
         {
             get => _optionSettings ?? (_optionSettings = new InputList<Inputs.EnvironmentOptionSettingArgs>());
             set => _optionSettings = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        /// </summary>
         [Input("platformArn")]
         public Input<string>? PlatformArn { get; set; }
 
+        /// <summary>
+        /// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.EnvironmentTagArgs>? _tags;
+
+        /// <summary>
+        /// Specifies the tags applied to resources in the environment.
+        /// </summary>
         public InputList<Inputs.EnvironmentTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.EnvironmentTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the Elastic Beanstalk configuration template to use with the environment.
+        /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }
 
+        /// <summary>
+        /// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        /// </summary>
         [Input("tier")]
         public Input<Inputs.EnvironmentTierArgs>? Tier { get; set; }
 
+        /// <summary>
+        /// The name of the application version to deploy.
+        /// </summary>
         [Input("versionLabel")]
         public Input<string>? VersionLabel { get; set; }
 

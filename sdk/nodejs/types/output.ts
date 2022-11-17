@@ -386,6 +386,7 @@ export namespace amplify {
         enablePerformanceMode?: boolean;
         enablePullRequestPreview?: boolean;
         environmentVariables?: outputs.amplify.AppEnvironmentVariable[];
+        framework?: string;
         pullRequestEnvironmentName?: string;
         stage?: enums.amplify.AppAutoBranchCreationConfigStage;
     }
@@ -469,6 +470,45 @@ export namespace amplifyuibuilder {
     }
 
     export interface ComponentVariantValues {
+    }
+
+    export interface FormButton {
+        children?: string;
+        excluded?: boolean;
+        position?: outputs.amplifyuibuilder.FormFieldPosition;
+    }
+
+    export interface FormCTA {
+        cancel?: outputs.amplifyuibuilder.FormButton;
+        clear?: outputs.amplifyuibuilder.FormButton;
+        position?: enums.amplifyuibuilder.FormButtonsPosition;
+        submit?: outputs.amplifyuibuilder.FormButton;
+    }
+
+    export interface FormDataTypeConfig {
+        dataSourceType: enums.amplifyuibuilder.FormDataSourceType;
+        dataTypeName: string;
+    }
+
+    export interface FormFieldPosition {
+    }
+
+    export interface FormFieldsMap {
+    }
+
+    export interface FormSectionalElementMap {
+    }
+
+    export interface FormStyle {
+        horizontalGap?: outputs.amplifyuibuilder.FormStyleConfig;
+        outerPadding?: outputs.amplifyuibuilder.FormStyleConfig;
+        verticalGap?: outputs.amplifyuibuilder.FormStyleConfig;
+    }
+
+    export interface FormStyleConfig {
+    }
+
+    export interface FormTags {
     }
 
     export interface ThemeTags {
@@ -3477,6 +3517,11 @@ export namespace appstream {
         tagValue: string;
     }
 
+    export interface DirectoryConfigCertificateBasedAuthProperties {
+        certificateAuthorityArn?: string;
+        status?: string;
+    }
+
     export interface DirectoryConfigServiceAccountCredentials {
         accountName: string;
         accountPassword: string;
@@ -4475,7 +4520,13 @@ export namespace batch {
 
     export interface ComputeEnvironmentEc2ConfigurationObject {
         imageIdOverride?: string;
+        imageKubernetesVersion?: string;
         imageType: string;
+    }
+
+    export interface ComputeEnvironmentEksConfiguration {
+        eksClusterArn: string;
+        kubernetesNamespace: string;
     }
 
     export interface ComputeEnvironmentLaunchTemplateSpecification {
@@ -4531,6 +4582,45 @@ export namespace batch {
         transitEncryptionPort?: number;
     }
 
+    export interface JobDefinitionEksContainer {
+        args?: string[];
+        command?: string[];
+        env?: outputs.batch.JobDefinitionEksContainerEnvironmentVariable[];
+        image: string;
+        imagePullPolicy?: string;
+        name?: string;
+        resources?: outputs.batch.JobDefinitionResources;
+        securityContext?: outputs.batch.JobDefinitionSecurityContext;
+        volumeMounts?: outputs.batch.JobDefinitionEksContainerVolumeMount[];
+    }
+
+    export interface JobDefinitionEksContainerEnvironmentVariable {
+        name: string;
+        value?: string;
+    }
+
+    export interface JobDefinitionEksContainerVolumeMount {
+        mountPath?: string;
+        name?: string;
+        readOnly?: boolean;
+    }
+
+    export interface JobDefinitionEksProperties {
+        podProperties?: outputs.batch.JobDefinitionPodProperties;
+    }
+
+    export interface JobDefinitionEksVolume {
+        emptyDir?: outputs.batch.JobDefinitionEmptyDir;
+        hostPath?: outputs.batch.JobDefinitionHostPath;
+        name: string;
+        secret?: outputs.batch.JobDefinitionSecret;
+    }
+
+    export interface JobDefinitionEmptyDir {
+        medium?: string;
+        sizeLimit?: string;
+    }
+
     export interface JobDefinitionEnvironment {
         name?: string;
         value?: string;
@@ -4545,6 +4635,10 @@ export namespace batch {
 
     export interface JobDefinitionFargatePlatformConfiguration {
         platformVersion?: string;
+    }
+
+    export interface JobDefinitionHostPath {
+        path?: string;
     }
 
     export interface JobDefinitionLinuxParameters {
@@ -4583,9 +4677,22 @@ export namespace batch {
         targetNodes: string;
     }
 
+    export interface JobDefinitionPodProperties {
+        containers?: outputs.batch.JobDefinitionEksContainer[];
+        dnsPolicy?: string;
+        hostNetwork?: boolean;
+        serviceAccountName?: string;
+        volumes?: outputs.batch.JobDefinitionEksVolume[];
+    }
+
     export interface JobDefinitionResourceRequirement {
         type?: string;
         value?: string;
+    }
+
+    export interface JobDefinitionResources {
+        limits?: any;
+        requests?: any;
     }
 
     export interface JobDefinitionRetryStrategy {
@@ -4596,6 +4703,14 @@ export namespace batch {
     export interface JobDefinitionSecret {
         name: string;
         valueFrom: string;
+    }
+
+    export interface JobDefinitionSecurityContext {
+        privileged?: boolean;
+        readOnlyRootFilesystem?: boolean;
+        runAsGroup?: number;
+        runAsNonRoot?: boolean;
+        runAsUser?: number;
     }
 
     export interface JobDefinitionTimeout {
@@ -5604,31 +5719,91 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    /**
+     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+     */
     export interface AlarmDimension {
+        /**
+         * The name of the dimension.
+         */
         name: string;
+        /**
+         * The value for the dimension.
+         */
         value: string;
     }
 
+    /**
+     * The Metric property type represents a specific metric.
+     */
     export interface AlarmMetric {
+        /**
+         * The dimensions for the metric.
+         */
         dimensions?: outputs.cloudwatch.AlarmDimension[];
+        /**
+         * The name of the metric.
+         */
         metricName?: string;
+        /**
+         * The namespace of the metric.
+         */
         namespace?: string;
     }
 
+    /**
+     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+     */
     export interface AlarmMetricDataQuery {
+        /**
+         * The ID of the account where the metrics are located, if this is a cross-account alarm.
+         */
         accountId?: string;
+        /**
+         * The math expression to be performed on the returned data.
+         */
         expression?: string;
+        /**
+         * A short name used to tie this object to the results in the response.
+         */
         id: string;
+        /**
+         * A human-readable label for this metric or expression.
+         */
         label?: string;
+        /**
+         * The metric to be returned, along with statistics, period, and units.
+         */
         metricStat?: outputs.cloudwatch.AlarmMetricStat;
+        /**
+         * The period in seconds, over which the statistic is applied.
+         */
         period?: number;
+        /**
+         * This option indicates whether to return the timestamps and raw data values of this metric.
+         */
         returnData?: boolean;
     }
 
+    /**
+     * This structure defines the metric to be returned, along with the statistics, period, and units.
+     */
     export interface AlarmMetricStat {
+        /**
+         * The metric to return, including the metric name, namespace, and dimensions.
+         */
         metric: outputs.cloudwatch.AlarmMetric;
+        /**
+         * The granularity, in seconds, of the returned data points.
+         */
         period: number;
+        /**
+         * The statistic to return.
+         */
         stat: string;
+        /**
+         * The unit to use for the returned data points.
+         */
         unit?: string;
     }
 
@@ -10324,6 +10499,7 @@ export namespace ec2 {
         acceleratorNames?: string[];
         acceleratorTotalMemoryMiB?: outputs.ec2.LaunchTemplateAcceleratorTotalMemoryMiB;
         acceleratorTypes?: string[];
+        allowedInstanceTypes?: string[];
         bareMetal?: string;
         baselineEbsBandwidthMbps?: outputs.ec2.LaunchTemplateBaselineEbsBandwidthMbps;
         burstablePerformance?: string;
@@ -10334,6 +10510,7 @@ export namespace ec2 {
         localStorageTypes?: string[];
         memoryGiBPerVCpu?: outputs.ec2.LaunchTemplateMemoryGiBPerVCpu;
         memoryMiB?: outputs.ec2.LaunchTemplateMemoryMiB;
+        networkBandwidthGbps?: outputs.ec2.LaunchTemplateNetworkBandwidthGbps;
         networkInterfaceCount?: outputs.ec2.LaunchTemplateNetworkInterfaceCount;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
@@ -10384,6 +10561,11 @@ export namespace ec2 {
         enabled?: boolean;
     }
 
+    export interface LaunchTemplateNetworkBandwidthGbps {
+        max?: number;
+        min?: number;
+    }
+
     export interface LaunchTemplateNetworkInterface {
         associateCarrierIpAddress?: boolean;
         associatePublicIpAddress?: boolean;
@@ -10414,6 +10596,7 @@ export namespace ec2 {
     export interface LaunchTemplatePlacement {
         affinity?: string;
         availabilityZone?: string;
+        groupId?: string;
         groupName?: string;
         hostId?: string;
         hostResourceGroupArn?: string;
@@ -11354,6 +11537,25 @@ export namespace ecs {
         weight?: number;
     }
 
+    export interface ServiceConnectClientAlias {
+        dnsName?: string;
+        port: number;
+    }
+
+    export interface ServiceConnectConfiguration {
+        enabled: boolean;
+        logConfiguration?: outputs.ecs.ServiceLogConfiguration;
+        namespace?: string;
+        services?: outputs.ecs.ServiceConnectService[];
+    }
+
+    export interface ServiceConnectService {
+        clientAliases?: outputs.ecs.ServiceConnectClientAlias[];
+        discoveryName?: string;
+        ingressPortOverride?: number;
+        portName: string;
+    }
+
     export interface ServiceDeploymentCircuitBreaker {
         enable: boolean;
         rollback: boolean;
@@ -11376,6 +11578,12 @@ export namespace ecs {
         targetGroupArn?: string;
     }
 
+    export interface ServiceLogConfiguration {
+        logDriver?: string;
+        options?: any;
+        secretOptions?: outputs.ecs.ServiceSecret[];
+    }
+
     export interface ServiceNetworkConfiguration {
         awsvpcConfiguration?: outputs.ecs.ServiceAwsVpcConfiguration;
     }
@@ -11395,6 +11603,11 @@ export namespace ecs {
         containerPort?: number;
         port?: number;
         registryArn?: string;
+    }
+
+    export interface ServiceSecret {
+        name: string;
+        valueFrom: string;
     }
 
     export interface ServiceTag {
@@ -11811,6 +12024,16 @@ export namespace eks {
     }
 
     /**
+     * Specify the placement group of the control plane machines for your cluster.
+     */
+    export interface ClusterControlPlanePlacement {
+        /**
+         * Specify the placement group name of the control place machines for your cluster.
+         */
+        groupName?: string;
+    }
+
+    /**
      * The encryption configuration for the cluster
      */
     export interface ClusterEncryptionConfig {
@@ -11860,6 +12083,10 @@ export namespace eks {
          * Specify the Instance type of the machines that should be used to create your cluster.
          */
         controlPlaneInstanceType: string;
+        /**
+         * Specify the placement group of the control plane machines for your cluster.
+         */
+        controlPlanePlacement?: outputs.eks.ClusterControlPlanePlacement;
         /**
          * Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
          */
@@ -12253,20 +12480,47 @@ export namespace elasticbeanstalk {
     }
 
     export interface EnvironmentOptionSetting {
+        /**
+         * A unique namespace that identifies the option's associated AWS resource.
+         */
         namespace: string;
+        /**
+         * The name of the configuration option.
+         */
         optionName: string;
+        /**
+         * A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+         */
         resourceName?: string;
+        /**
+         * The current value for the configuration option.
+         */
         value?: string;
     }
 
     export interface EnvironmentTag {
+        /**
+         * The key name of the tag.
+         */
         key: string;
+        /**
+         * The value for the tag.
+         */
         value: string;
     }
 
     export interface EnvironmentTier {
+        /**
+         * The name of this environment tier.
+         */
         name?: string;
+        /**
+         * The type of this environment tier.
+         */
         type?: string;
+        /**
+         * The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+         */
         version?: string;
     }
 
@@ -16345,6 +16599,7 @@ export namespace iot {
         deviceCertificateExpiringCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         deviceCertificateKeyQualityCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         deviceCertificateSharedCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
+        intermediateCaRevokedForActiveDeviceCertificatesCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotPolicyOverlyPermissiveCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotRoleAliasAllowsAccessToUnusedServicesCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotRoleAliasOverlyPermissiveCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
@@ -24858,6 +25113,10 @@ export namespace mediapackage {
         adsOnDeliveryRestrictions?: enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions;
         encryption?: outputs.mediapackage.OriginEndpointHlsEncryption;
         /**
+         * When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+         */
+        includeDvbSubtitles?: boolean;
+        /**
          * When enabled, an I-Frame only stream will be included in the output.
          */
         includeIframeOnlyStream?: boolean;
@@ -25036,6 +25295,20 @@ export namespace mediapackage {
     }
 
     /**
+     * The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
+     */
+    export interface PackagingConfigurationEncryptionContractConfiguration {
+        /**
+         * A collection of audio encryption presets.
+         */
+        presetSpeke20Audio: enums.mediapackage.PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio;
+        /**
+         * A collection of video encryption presets.
+         */
+        presetSpeke20Video: enums.mediapackage.PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video;
+    }
+
+    /**
      * An HTTP Live Streaming (HLS) encryption configuration.
      */
     export interface PackagingConfigurationHlsEncryption {
@@ -25083,6 +25356,10 @@ export namespace mediapackage {
          * A list of HLS manifest configurations.
          */
         hlsManifests: outputs.mediapackage.PackagingConfigurationHlsManifest[];
+        /**
+         * When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+         */
+        includeDvbSubtitles?: boolean;
         segmentDurationSeconds?: number;
         /**
          * When enabled, audio streams will be placed in rendition groups in the output.
@@ -25121,6 +25398,7 @@ export namespace mediapackage {
      * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
      */
     export interface PackagingConfigurationSpekeKeyProvider {
+        encryptionContractConfiguration?: outputs.mediapackage.PackagingConfigurationEncryptionContractConfiguration;
         roleArn: string;
         /**
          * The system IDs to include in key requests.
@@ -26469,6 +26747,51 @@ export namespace opsworkscm {
 
     export interface ServerTag {
         key: string;
+        value: string;
+    }
+
+}
+
+export namespace organizations {
+    /**
+     * A custom key-value pair associated with a resource within your organization.
+     */
+    export interface AccountTag {
+        /**
+         * The key identifier, or name, of the tag.
+         */
+        key: string;
+        /**
+         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+         */
+        value: string;
+    }
+
+    /**
+     * A custom key-value pair associated with a resource within your organization.
+     */
+    export interface OrganizationalUnitTag {
+        /**
+         * The key identifier, or name, of the tag.
+         */
+        key: string;
+        /**
+         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+         */
+        value: string;
+    }
+
+    /**
+     * A custom key-value pair associated with a resource within your organization.
+     */
+    export interface PolicyTag {
+        /**
+         * The key identifier, or name, of the tag.
+         */
+        key: string;
+        /**
+         * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+         */
         value: string;
     }
 
@@ -29410,6 +29733,23 @@ export namespace resiliencehub {
 
 }
 
+export namespace resourceexplorer2 {
+    export interface IndexTagMap {
+    }
+
+    export interface ViewFilters {
+        filterString: string;
+    }
+
+    export interface ViewIncludedProperty {
+        name: string;
+    }
+
+    export interface ViewTagMap {
+    }
+
+}
+
 export namespace resourcegroups {
     export interface GroupConfigurationItem {
         parameters?: outputs.resourcegroups.GroupConfigurationParameter[];
@@ -30953,7 +31293,10 @@ export namespace s3 {
      */
     export interface StorageLensAccountLevel {
         activityMetrics?: outputs.s3.StorageLensActivityMetrics;
+        advancedCostOptimizationMetrics?: outputs.s3.StorageLensAdvancedCostOptimizationMetrics;
+        advancedDataProtectionMetrics?: outputs.s3.StorageLensAdvancedDataProtectionMetrics;
         bucketLevel: outputs.s3.StorageLensBucketLevel;
+        detailedStatusCodesMetrics?: outputs.s3.StorageLensDetailedStatusCodesMetrics;
     }
 
     /**
@@ -30962,6 +31305,26 @@ export namespace s3 {
     export interface StorageLensActivityMetrics {
         /**
          * Specifies whether activity metrics are enabled or disabled.
+         */
+        isEnabled?: boolean;
+    }
+
+    /**
+     * Enables advanced cost optimization metrics.
+     */
+    export interface StorageLensAdvancedCostOptimizationMetrics {
+        /**
+         * Specifies whether advanced cost optimization metrics are enabled or disabled.
+         */
+        isEnabled?: boolean;
+    }
+
+    /**
+     * Enables advanced data protection metrics.
+     */
+    export interface StorageLensAdvancedDataProtectionMetrics {
+        /**
+         * Specifies whether advanced data protection metrics are enabled or disabled.
          */
         isEnabled?: boolean;
     }
@@ -30978,6 +31341,9 @@ export namespace s3 {
      */
     export interface StorageLensBucketLevel {
         activityMetrics?: outputs.s3.StorageLensActivityMetrics;
+        advancedCostOptimizationMetrics?: outputs.s3.StorageLensAdvancedCostOptimizationMetrics;
+        advancedDataProtectionMetrics?: outputs.s3.StorageLensAdvancedDataProtectionMetrics;
+        detailedStatusCodesMetrics?: outputs.s3.StorageLensDetailedStatusCodesMetrics;
         prefixLevel?: outputs.s3.StorageLensPrefixLevel;
     }
 
@@ -31025,6 +31391,16 @@ export namespace s3 {
     export interface StorageLensDataExport {
         cloudWatchMetrics?: outputs.s3.StorageLensCloudWatchMetrics;
         s3BucketDestination?: outputs.s3.StorageLensS3BucketDestination;
+    }
+
+    /**
+     * Enables detailed status codes metrics.
+     */
+    export interface StorageLensDetailedStatusCodesMetrics {
+        /**
+         * Specifies whether detailed status codes metrics are enabled or disabled.
+         */
+        isEnabled?: boolean;
     }
 
     /**
@@ -33949,6 +34325,259 @@ export namespace sagemaker {
 
 }
 
+export namespace scheduler {
+    /**
+     * This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+     */
+    export interface ScheduleAwsVpcConfiguration {
+        assignPublicIp?: enums.scheduler.ScheduleAssignPublicIp;
+        /**
+         * Specifies the security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         */
+        securityGroups?: string[];
+        /**
+         * Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         */
+        subnets: string[];
+    }
+
+    /**
+     * The details of a capacity provider strategy.
+     */
+    export interface ScheduleCapacityProviderStrategyItem {
+        /**
+         * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+         */
+        base?: number;
+        /**
+         * The short name of the capacity provider.
+         */
+        capacityProvider: string;
+        /**
+         * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+         */
+        weight?: number;
+    }
+
+    /**
+     * A DeadLetterConfig object that contains information about a dead-letter queue configuration.
+     */
+    export interface ScheduleDeadLetterConfig {
+        /**
+         * The ARN of the SQS queue specified as the target for the dead-letter queue.
+         */
+        arn?: string;
+    }
+
+    /**
+     * The custom parameters to be used when the target is an Amazon ECS task.
+     */
+    export interface ScheduleEcsParameters {
+        /**
+         * The capacity provider strategy to use for the task.
+         */
+        capacityProviderStrategy?: outputs.scheduler.ScheduleCapacityProviderStrategyItem[];
+        /**
+         * Specifies whether to enable Amazon ECS managed tags for the task. For more information, see Tagging Your Amazon ECS Resources in the Amazon Elastic Container Service Developer Guide.
+         */
+        enableECSManagedTags?: boolean;
+        /**
+         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+         */
+        enableExecuteCommand?: boolean;
+        /**
+         * Specifies an ECS task group for the task. The maximum length is 255 characters.
+         */
+        group?: string;
+        launchType?: enums.scheduler.ScheduleLaunchType;
+        networkConfiguration?: outputs.scheduler.ScheduleNetworkConfiguration;
+        /**
+         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
+         */
+        placementConstraints?: outputs.scheduler.SchedulePlacementConstraint[];
+        /**
+         * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+         */
+        placementStrategy?: outputs.scheduler.SchedulePlacementStrategy[];
+        /**
+         * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
+         */
+        platformVersion?: string;
+        propagateTags?: enums.scheduler.SchedulePropagateTags;
+        /**
+         * The reference ID to use for the task.
+         */
+        referenceId?: string;
+        /**
+         * The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
+         */
+        tags?: outputs.scheduler.ScheduleTagMap[];
+        /**
+         * The number of tasks to create based on TaskDefinition. The default is 1.
+         */
+        taskCount?: number;
+        /**
+         * The ARN of the task definition to use if the event target is an Amazon ECS task.
+         */
+        taskDefinitionArn: string;
+    }
+
+    /**
+     * EventBridge PutEvent predefined target type.
+     */
+    export interface ScheduleEventBridgeParameters {
+        /**
+         * Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         */
+        detailType: string;
+        /**
+         * The source of the event.
+         */
+        source: string;
+    }
+
+    /**
+     * Flexible time window allows configuration of a window within which a schedule can be invoked
+     */
+    export interface ScheduleFlexibleTimeWindow {
+        /**
+         * The maximum time window during which a schedule can be invoked.
+         */
+        maximumWindowInMinutes?: number;
+        mode: enums.scheduler.ScheduleFlexibleTimeWindowMode;
+    }
+
+    /**
+     * Tag to associate with the resource.
+     */
+    export interface ScheduleGroupTag {
+        /**
+         * Key for the tag
+         */
+        key: string;
+        /**
+         * Value for the tag
+         */
+        value: string;
+    }
+
+    /**
+     * The custom parameter you can use to control the shard to which EventBridge Scheduler sends the event.
+     */
+    export interface ScheduleKinesisParameters {
+        /**
+         * The custom parameter used as the Kinesis partition key. For more information, see Amazon Kinesis Streams Key Concepts in the Amazon Kinesis Streams Developer Guide.
+         */
+        partitionKey: string;
+    }
+
+    /**
+     * This structure specifies the network configuration for an ECS task.
+     */
+    export interface ScheduleNetworkConfiguration {
+        awsvpcConfiguration?: outputs.scheduler.ScheduleAwsVpcConfiguration;
+    }
+
+    /**
+     * An object representing a constraint on task placement.
+     */
+    export interface SchedulePlacementConstraint {
+        /**
+         * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. To learn more, see Cluster Query Language in the Amazon Elastic Container Service Developer Guide.
+         */
+        expression?: string;
+        type?: enums.scheduler.SchedulePlacementConstraintType;
+    }
+
+    /**
+     * The task placement strategy for a task or service.
+     */
+    export interface SchedulePlacementStrategy {
+        /**
+         * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used.
+         */
+        field?: string;
+        type?: enums.scheduler.SchedulePlacementStrategyType;
+    }
+
+    /**
+     * A RetryPolicy object that includes information about the retry policy settings.
+     */
+    export interface ScheduleRetryPolicy {
+        /**
+         * The maximum amount of time, in seconds, to continue to make retry attempts.
+         */
+        maximumEventAgeInSeconds?: number;
+        /**
+         * The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the MaximumEventAgeInSeconds is reached.
+         */
+        maximumRetryAttempts?: number;
+    }
+
+    /**
+     * Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+     */
+    export interface ScheduleSageMakerPipelineParameter {
+        /**
+         * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         */
+        name: string;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline.
+         */
+        value: string;
+    }
+
+    /**
+     * These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on AWS EventBridge Scheduler schedules.
+     */
+    export interface ScheduleSageMakerPipelineParameters {
+        /**
+         * List of Parameter names and values for SageMaker Model Building Pipeline execution.
+         */
+        pipelineParameterList?: outputs.scheduler.ScheduleSageMakerPipelineParameter[];
+    }
+
+    /**
+     * Contains the message group ID to use when the target is a FIFO queue. If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
+     */
+    export interface ScheduleSqsParameters {
+        /**
+         * The FIFO message group ID to use as the target.
+         */
+        messageGroupId?: string;
+    }
+
+    export interface ScheduleTagMap {
+    }
+
+    /**
+     * The schedule target.
+     */
+    export interface ScheduleTarget {
+        /**
+         * The Amazon Resource Name (ARN) of the target.
+         */
+        arn: string;
+        deadLetterConfig?: outputs.scheduler.ScheduleDeadLetterConfig;
+        ecsParameters?: outputs.scheduler.ScheduleEcsParameters;
+        eventBridgeParameters?: outputs.scheduler.ScheduleEventBridgeParameters;
+        /**
+         * The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target, the input must be a well-formed JSON. For all other target types, a JSON is not required. If you do not specify anything for this field, EventBridge Scheduler delivers a default notification to the target.
+         */
+        input?: string;
+        kinesisParameters?: outputs.scheduler.ScheduleKinesisParameters;
+        retryPolicy?: outputs.scheduler.ScheduleRetryPolicy;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the schedule is triggered.
+         */
+        roleArn: string;
+        sageMakerPipelineParameters?: outputs.scheduler.ScheduleSageMakerPipelineParameters;
+        sqsParameters?: outputs.scheduler.ScheduleSqsParameters;
+    }
+
+}
+
 export namespace secretsmanager {
     export interface RotationScheduleHostedRotationLambda {
         excludeCharacters?: string;
@@ -34118,6 +34747,16 @@ export namespace servicediscovery {
 
 export namespace ses {
     /**
+     * Preferences regarding the Dashboard feature.
+     */
+    export interface ConfigurationSetDashboardOptions {
+        /**
+         * Whether emails sent with this configuration set have engagement tracking enabled.
+         */
+        engagementMetrics: string;
+    }
+
+    /**
      * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
      */
     export interface ConfigurationSetDeliveryOptions {
@@ -34208,6 +34847,16 @@ export namespace ses {
     }
 
     /**
+     * Preferences regarding the Guardian feature.
+     */
+    export interface ConfigurationSetGuardianOptions {
+        /**
+         * Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+         */
+        optimizedSharedDelivery: string;
+    }
+
+    /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
     export interface ConfigurationSetReputationOptions {
@@ -34242,6 +34891,14 @@ export namespace ses {
          * The domain to use for tracking open and click events.
          */
         customRedirectDomain?: string;
+    }
+
+    /**
+     * An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+     */
+    export interface ConfigurationSetVdmOptions {
+        dashboardOptions?: outputs.ses.ConfigurationSetDashboardOptions;
+        guardianOptions?: outputs.ses.ConfigurationSetGuardianOptions;
     }
 
     export interface ContactListTag {
@@ -34417,6 +35074,26 @@ export namespace ses {
          * The email body that is visible to recipients whose email clients do not display HTML content.
          */
         textPart?: string;
+    }
+
+    /**
+     * Preferences regarding the Dashboard feature.
+     */
+    export interface VdmAttributesDashboardAttributes {
+        /**
+         * Whether emails sent from this account have engagement tracking enabled.
+         */
+        engagementMetrics?: string;
+    }
+
+    /**
+     * Preferences regarding the Guardian feature.
+     */
+    export interface VdmAttributesGuardianAttributes {
+        /**
+         * Whether emails sent from this account have optimized delivery algorithm enabled.
+         */
+        optimizedSharedDelivery?: string;
     }
 
 }

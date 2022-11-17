@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReceiptRuleSet{}
 	case "aws-native:ses:Template":
 		r = &Template{}
+	case "aws-native:ses:VdmAttributes":
+		r = &VdmAttributes{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

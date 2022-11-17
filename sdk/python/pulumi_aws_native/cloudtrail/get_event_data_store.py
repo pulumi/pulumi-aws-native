@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventDataStoreResult:
-    def __init__(__self__, advanced_event_selectors=None, created_timestamp=None, event_data_store_arn=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
+    def __init__(__self__, advanced_event_selectors=None, created_timestamp=None, event_data_store_arn=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -29,6 +29,9 @@ class GetEventDataStoreResult:
         if event_data_store_arn and not isinstance(event_data_store_arn, str):
             raise TypeError("Expected argument 'event_data_store_arn' to be a str")
         pulumi.set(__self__, "event_data_store_arn", event_data_store_arn)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_region_enabled and not isinstance(multi_region_enabled, bool):
             raise TypeError("Expected argument 'multi_region_enabled' to be a bool")
         pulumi.set(__self__, "multi_region_enabled", multi_region_enabled)
@@ -77,6 +80,14 @@ class GetEventDataStoreResult:
         The ARN of the event data store.
         """
         return pulumi.get(self, "event_data_store_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="multiRegionEnabled")
@@ -149,6 +160,7 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
             advanced_event_selectors=self.advanced_event_selectors,
             created_timestamp=self.created_timestamp,
             event_data_store_arn=self.event_data_store_arn,
+            kms_key_id=self.kms_key_id,
             multi_region_enabled=self.multi_region_enabled,
             name=self.name,
             organization_enabled=self.organization_enabled,
@@ -176,6 +188,7 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
         advanced_event_selectors=__ret__.advanced_event_selectors,
         created_timestamp=__ret__.created_timestamp,
         event_data_store_arn=__ret__.event_data_store_arn,
+        kms_key_id=__ret__.kms_key_id,
         multi_region_enabled=__ret__.multi_region_enabled,
         name=__ret__.name,
         organization_enabled=__ret__.organization_enabled,

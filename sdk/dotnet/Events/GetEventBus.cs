@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.Events
         public readonly string? Arn;
         public readonly string? Id;
         public readonly string? Policy;
+        public readonly ImmutableArray<Outputs.EventBusTagEntry> Tags;
 
         [OutputConstructor]
         private GetEventBusResult(
@@ -61,11 +62,14 @@ namespace Pulumi.AwsNative.Events
 
             string? id,
 
-            string? policy)
+            string? policy,
+
+            ImmutableArray<Outputs.EventBusTagEntry> tags)
         {
             Arn = arn;
             Id = id;
             Policy = policy;
+            Tags = tags;
         }
     }
 }

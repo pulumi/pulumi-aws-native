@@ -21,6 +21,7 @@ type ConfigurationSet struct {
 	SendingOptions     ConfigurationSetSendingOptionsPtrOutput     `pulumi:"sendingOptions"`
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
 	TrackingOptions    ConfigurationSetTrackingOptionsPtrOutput    `pulumi:"trackingOptions"`
+	VdmOptions         ConfigurationSetVdmOptionsPtrOutput         `pulumi:"vdmOptions"`
 }
 
 // NewConfigurationSet registers a new resource with the given unique name, arguments, and options.
@@ -69,6 +70,7 @@ type configurationSetArgs struct {
 	SendingOptions     *ConfigurationSetSendingOptions     `pulumi:"sendingOptions"`
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	TrackingOptions    *ConfigurationSetTrackingOptions    `pulumi:"trackingOptions"`
+	VdmOptions         *ConfigurationSetVdmOptions         `pulumi:"vdmOptions"`
 }
 
 // The set of arguments for constructing a ConfigurationSet resource.
@@ -80,6 +82,7 @@ type ConfigurationSetArgs struct {
 	SendingOptions     ConfigurationSetSendingOptionsPtrInput
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
 	TrackingOptions    ConfigurationSetTrackingOptionsPtrInput
+	VdmOptions         ConfigurationSetVdmOptionsPtrInput
 }
 
 func (ConfigurationSetArgs) ElementType() reflect.Type {
@@ -142,6 +145,10 @@ func (o ConfigurationSetOutput) SuppressionOptions() ConfigurationSetSuppression
 
 func (o ConfigurationSetOutput) TrackingOptions() ConfigurationSetTrackingOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetTrackingOptionsPtrOutput { return v.TrackingOptions }).(ConfigurationSetTrackingOptionsPtrOutput)
+}
+
+func (o ConfigurationSetOutput) VdmOptions() ConfigurationSetVdmOptionsPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetVdmOptionsPtrOutput { return v.VdmOptions }).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
 func init() {

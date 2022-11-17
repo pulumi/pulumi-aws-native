@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class ComputeEnvironmentEc2ConfigurationObject
     {
         public readonly string? ImageIdOverride;
+        public readonly string? ImageKubernetesVersion;
         public readonly string ImageType;
 
         [OutputConstructor]
         private ComputeEnvironmentEc2ConfigurationObject(
             string? imageIdOverride,
 
+            string? imageKubernetesVersion,
+
             string imageType)
         {
             ImageIdOverride = imageIdOverride;
+            ImageKubernetesVersion = imageKubernetesVersion;
             ImageType = imageType;
         }
     }

@@ -18,6 +18,7 @@ type NatGateway struct {
 	AllocationId     pulumi.StringPtrOutput   `pulumi:"allocationId"`
 	ConnectivityType pulumi.StringPtrOutput   `pulumi:"connectivityType"`
 	NatGatewayId     pulumi.StringOutput      `pulumi:"natGatewayId"`
+	PrivateIpAddress pulumi.StringPtrOutput   `pulumi:"privateIpAddress"`
 	SubnetId         pulumi.StringOutput      `pulumi:"subnetId"`
 	Tags             NatGatewayTagArrayOutput `pulumi:"tags"`
 }
@@ -66,6 +67,7 @@ func (NatGatewayState) ElementType() reflect.Type {
 type natGatewayArgs struct {
 	AllocationId     *string         `pulumi:"allocationId"`
 	ConnectivityType *string         `pulumi:"connectivityType"`
+	PrivateIpAddress *string         `pulumi:"privateIpAddress"`
 	SubnetId         string          `pulumi:"subnetId"`
 	Tags             []NatGatewayTag `pulumi:"tags"`
 }
@@ -74,6 +76,7 @@ type natGatewayArgs struct {
 type NatGatewayArgs struct {
 	AllocationId     pulumi.StringPtrInput
 	ConnectivityType pulumi.StringPtrInput
+	PrivateIpAddress pulumi.StringPtrInput
 	SubnetId         pulumi.StringInput
 	Tags             NatGatewayTagArrayInput
 }
@@ -125,6 +128,10 @@ func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 
 func (o NatGatewayOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
+}
+
+func (o NatGatewayOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
 func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {

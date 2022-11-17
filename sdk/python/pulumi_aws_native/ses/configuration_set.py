@@ -21,7 +21,8 @@ class ConfigurationSetArgs:
                  reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
                  sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
                  suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
-                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
+                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
+                 vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
         :param pulumi.Input[str] name: The name of the configuration set.
@@ -38,6 +39,8 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "suppression_options", suppression_options)
         if tracking_options is not None:
             pulumi.set(__self__, "tracking_options", tracking_options)
+        if vdm_options is not None:
+            pulumi.set(__self__, "vdm_options", vdm_options)
 
     @property
     @pulumi.getter(name="deliveryOptions")
@@ -96,6 +99,15 @@ class ConfigurationSetArgs:
     def tracking_options(self, value: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]):
         pulumi.set(self, "tracking_options", value)
 
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]:
+        return pulumi.get(self, "vdm_options")
+
+    @vdm_options.setter
+    def vdm_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]):
+        pulumi.set(self, "vdm_options", value)
+
 
 class ConfigurationSet(pulumi.CustomResource):
     @overload
@@ -108,6 +120,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
+                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ConfigurationSet.
@@ -146,6 +159,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
                  suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
+                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,6 +175,7 @@ class ConfigurationSet(pulumi.CustomResource):
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["suppression_options"] = suppression_options
             __props__.__dict__["tracking_options"] = tracking_options
+            __props__.__dict__["vdm_options"] = vdm_options
         super(ConfigurationSet, __self__).__init__(
             'aws-native:ses:ConfigurationSet',
             resource_name,
@@ -189,6 +204,7 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["sending_options"] = None
         __props__.__dict__["suppression_options"] = None
         __props__.__dict__["tracking_options"] = None
+        __props__.__dict__["vdm_options"] = None
         return ConfigurationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -223,4 +239,9 @@ class ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetTrackingOptions']]:
         return pulumi.get(self, "tracking_options")
+
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetVdmOptions']]:
+        return pulumi.get(self, "vdm_options")
 

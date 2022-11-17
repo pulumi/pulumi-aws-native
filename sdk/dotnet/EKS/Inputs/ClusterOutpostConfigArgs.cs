@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.EKS.Inputs
         [Input("controlPlaneInstanceType", required: true)]
         public Input<string> ControlPlaneInstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// Specify the placement group of the control plane machines for your cluster.
+        /// </summary>
+        [Input("controlPlanePlacement")]
+        public Input<Inputs.ClusterControlPlanePlacementArgs>? ControlPlanePlacement { get; set; }
+
         [Input("outpostArns", required: true)]
         private InputList<string>? _outpostArns;
 

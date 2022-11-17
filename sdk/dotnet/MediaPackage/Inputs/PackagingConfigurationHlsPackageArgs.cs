@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
             set => _hlsManifests = value;
         }
 
+        /// <summary>
+        /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        /// </summary>
+        [Input("includeDvbSubtitles")]
+        public Input<bool>? IncludeDvbSubtitles { get; set; }
+
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 

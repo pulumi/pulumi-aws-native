@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AddonTagArgs',
+    'ClusterControlPlanePlacementArgs',
     'ClusterEncryptionConfigArgs',
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterLoggingArgs',
@@ -68,6 +69,30 @@ class AddonTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClusterControlPlanePlacementArgs:
+    def __init__(__self__, *,
+                 group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specify the placement group of the control plane machines for your cluster.
+        :param pulumi.Input[str] group_name: Specify the placement group name of the control place machines for your cluster.
+        """
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the placement group name of the control place machines for your cluster.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
 
 
 @pulumi.input_type
@@ -194,14 +219,18 @@ class ClusterLoggingArgs:
 class ClusterOutpostConfigArgs:
     def __init__(__self__, *,
                  control_plane_instance_type: pulumi.Input[str],
-                 outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 control_plane_placement: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']] = None):
         """
         An object representing the Outpost configuration to use for AWS EKS outpost cluster.
         :param pulumi.Input[str] control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        :param pulumi.Input['ClusterControlPlanePlacementArgs'] control_plane_placement: Specify the placement group of the control plane machines for your cluster.
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
+        if control_plane_placement is not None:
+            pulumi.set(__self__, "control_plane_placement", control_plane_placement)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -226,6 +255,18 @@ class ClusterOutpostConfigArgs:
     @outpost_arns.setter
     def outpost_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "outpost_arns", value)
+
+    @property
+    @pulumi.getter(name="controlPlanePlacement")
+    def control_plane_placement(self) -> Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]:
+        """
+        Specify the placement group of the control plane machines for your cluster.
+        """
+        return pulumi.get(self, "control_plane_placement")
+
+    @control_plane_placement.setter
+    def control_plane_placement(self, value: Optional[pulumi.Input['ClusterControlPlanePlacementArgs']]):
+        pulumi.set(self, "control_plane_placement", value)
 
 
 @pulumi.input_type

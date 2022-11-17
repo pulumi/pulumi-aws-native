@@ -10,10 +10,20 @@ export type Component = import("./component").Component;
 export const Component: typeof import("./component").Component = null as any;
 utilities.lazyLoad(exports, ["Component"], () => require("./component"));
 
+export { FormArgs } from "./form";
+export type Form = import("./form").Form;
+export const Form: typeof import("./form").Form = null as any;
+utilities.lazyLoad(exports, ["Form"], () => require("./form"));
+
 export { GetComponentArgs, GetComponentResult, GetComponentOutputArgs } from "./getComponent";
 export const getComponent: typeof import("./getComponent").getComponent = null as any;
 export const getComponentOutput: typeof import("./getComponent").getComponentOutput = null as any;
 utilities.lazyLoad(exports, ["getComponent","getComponentOutput"], () => require("./getComponent"));
+
+export { GetFormArgs, GetFormResult, GetFormOutputArgs } from "./getForm";
+export const getForm: typeof import("./getForm").getForm = null as any;
+export const getFormOutput: typeof import("./getForm").getFormOutput = null as any;
+utilities.lazyLoad(exports, ["getForm","getFormOutput"], () => require("./getForm"));
 
 export { GetThemeArgs, GetThemeResult, GetThemeOutputArgs } from "./getTheme";
 export const getTheme: typeof import("./getTheme").getTheme = null as any;
@@ -26,12 +36,17 @@ export const Theme: typeof import("./theme").Theme = null as any;
 utilities.lazyLoad(exports, ["Theme"], () => require("./theme"));
 
 
+// Export enums:
+export * from "../types/enums/amplifyuibuilder";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
             case "aws-native:amplifyuibuilder:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "aws-native:amplifyuibuilder:Form":
+                return new Form(name, <any>undefined, { urn })
             case "aws-native:amplifyuibuilder:Theme":
                 return new Theme(name, <any>undefined, { urn })
             default:

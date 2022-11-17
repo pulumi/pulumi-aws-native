@@ -197,7 +197,13 @@
   "required" : [ "RestApiId" ],
   "createOnlyProperties" : [ "/properties/RestApiId", "/properties/StageName" ],
   "primaryIdentifier" : [ "/properties/RestApiId", "/properties/StageName" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "apigateway:POST", "apigateway:PATCH", "apigateway:GET" ]

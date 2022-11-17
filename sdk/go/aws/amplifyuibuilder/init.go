@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:amplifyuibuilder:Component":
 		r = &Component{}
+	case "aws-native:amplifyuibuilder:Form":
+		r = &Form{}
 	case "aws-native:amplifyuibuilder:Theme":
 		r = &Theme{}
 	default:

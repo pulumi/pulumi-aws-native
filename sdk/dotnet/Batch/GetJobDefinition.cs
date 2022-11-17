@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.Batch
     public sealed class GetJobDefinitionResult
     {
         public readonly Outputs.JobDefinitionContainerProperties? ContainerProperties;
+        public readonly Outputs.JobDefinitionEksProperties? EksProperties;
         public readonly string? Id;
         public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
         public readonly object? Parameters;
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.Batch
         [OutputConstructor]
         private GetJobDefinitionResult(
             Outputs.JobDefinitionContainerProperties? containerProperties,
+
+            Outputs.JobDefinitionEksProperties? eksProperties,
 
             string? id,
 
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Batch
             string? type)
         {
             ContainerProperties = containerProperties;
+            EksProperties = eksProperties;
             Id = id;
             NodeProperties = nodeProperties;
             Parameters = parameters;

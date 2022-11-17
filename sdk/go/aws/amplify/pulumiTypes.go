@@ -19,6 +19,7 @@ type AppAutoBranchCreationConfig struct {
 	EnablePerformanceMode      *bool                             `pulumi:"enablePerformanceMode"`
 	EnablePullRequestPreview   *bool                             `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       []AppEnvironmentVariable          `pulumi:"environmentVariables"`
+	Framework                  *string                           `pulumi:"framework"`
 	PullRequestEnvironmentName *string                           `pulumi:"pullRequestEnvironmentName"`
 	Stage                      *AppAutoBranchCreationConfigStage `pulumi:"stage"`
 }
@@ -43,6 +44,7 @@ type AppAutoBranchCreationConfigArgs struct {
 	EnablePerformanceMode      pulumi.BoolPtrInput                      `pulumi:"enablePerformanceMode"`
 	EnablePullRequestPreview   pulumi.BoolPtrInput                      `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       AppEnvironmentVariableArrayInput         `pulumi:"environmentVariables"`
+	Framework                  pulumi.StringPtrInput                    `pulumi:"framework"`
 	PullRequestEnvironmentName pulumi.StringPtrInput                    `pulumi:"pullRequestEnvironmentName"`
 	Stage                      AppAutoBranchCreationConfigStagePtrInput `pulumi:"stage"`
 }
@@ -156,6 +158,10 @@ func (o AppAutoBranchCreationConfigOutput) EnvironmentVariables() AppEnvironment
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
+func (o AppAutoBranchCreationConfigOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.Framework }).(pulumi.StringPtrOutput)
+}
+
 func (o AppAutoBranchCreationConfigOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
@@ -258,6 +264,15 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironm
 		}
 		return v.EnvironmentVariables
 	}).(AppEnvironmentVariableArrayOutput)
+}
+
+func (o AppAutoBranchCreationConfigPtrOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Framework
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {

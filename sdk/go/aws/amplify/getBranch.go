@@ -32,6 +32,7 @@ type LookupBranchResult struct {
 	EnablePerformanceMode      *bool                       `pulumi:"enablePerformanceMode"`
 	EnablePullRequestPreview   *bool                       `pulumi:"enablePullRequestPreview"`
 	EnvironmentVariables       []BranchEnvironmentVariable `pulumi:"environmentVariables"`
+	Framework                  *string                     `pulumi:"framework"`
 	PullRequestEnvironmentName *string                     `pulumi:"pullRequestEnvironmentName"`
 	Stage                      *BranchStage                `pulumi:"stage"`
 	Tags                       []BranchTag                 `pulumi:"tags"`
@@ -98,6 +99,10 @@ func (o LookupBranchResultOutput) EnablePullRequestPreview() pulumi.BoolPtrOutpu
 
 func (o LookupBranchResultOutput) EnvironmentVariables() BranchEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupBranchResult) []BranchEnvironmentVariable { return v.EnvironmentVariables }).(BranchEnvironmentVariableArrayOutput)
+}
+
+func (o LookupBranchResultOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *string { return v.Framework }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupBranchResultOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {

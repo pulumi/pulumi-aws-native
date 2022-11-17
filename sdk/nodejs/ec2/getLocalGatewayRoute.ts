@@ -32,6 +32,14 @@ export interface GetLocalGatewayRouteArgs {
 
 export interface GetLocalGatewayRouteResult {
     /**
+     * The ID of the virtual interface group.
+     */
+    readonly localGatewayVirtualInterfaceGroupId?: string;
+    /**
+     * The ID of the network interface.
+     */
+    readonly networkInterfaceId?: string;
+    /**
      * The state of the route.
      */
     readonly state?: string;

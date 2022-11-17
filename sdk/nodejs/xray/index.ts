@@ -10,6 +10,11 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { GetSamplingRuleArgs, GetSamplingRuleResult, GetSamplingRuleOutputArgs } from "./getSamplingRule";
 export const getSamplingRule: typeof import("./getSamplingRule").getSamplingRule = null as any;
 export const getSamplingRuleOutput: typeof import("./getSamplingRule").getSamplingRuleOutput = null as any;
@@ -19,6 +24,11 @@ export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
 
 export { SamplingRuleArgs } from "./samplingRule";
 export type SamplingRule = import("./samplingRule").SamplingRule;
@@ -32,6 +42,8 @@ const _module = {
         switch (type) {
             case "aws-native:xray:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws-native:xray:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:xray:SamplingRule":
                 return new SamplingRule(name, <any>undefined, { urn })
             default:

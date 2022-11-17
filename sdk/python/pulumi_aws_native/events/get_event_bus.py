@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetEventBusResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventBusResult:
-    def __init__(__self__, arn=None, id=None, policy=None):
+    def __init__(__self__, arn=None, id=None, policy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,6 +29,9 @@ class GetEventBusResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -44,6 +48,11 @@ class GetEventBusResult:
     def policy(self) -> Optional[str]:
         return pulumi.get(self, "policy")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.EventBusTagEntry']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetEventBusResult(GetEventBusResult):
     # pylint: disable=using-constant-test
@@ -53,7 +62,8 @@ class AwaitableGetEventBusResult(GetEventBusResult):
         return GetEventBusResult(
             arn=self.arn,
             id=self.id,
-            policy=self.policy)
+            policy=self.policy,
+            tags=self.tags)
 
 
 def get_event_bus(id: Optional[str] = None,
@@ -69,7 +79,8 @@ def get_event_bus(id: Optional[str] = None,
     return AwaitableGetEventBusResult(
         arn=__ret__.arn,
         id=__ret__.id,
-        policy=__ret__.policy)
+        policy=__ret__.policy,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_event_bus)

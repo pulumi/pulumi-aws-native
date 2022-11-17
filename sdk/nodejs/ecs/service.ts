@@ -56,6 +56,7 @@ export class Service extends pulumi.CustomResource {
     public readonly role!: pulumi.Output<string | undefined>;
     public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
+    public readonly serviceConnectConfiguration!: pulumi.Output<outputs.ecs.ServiceConnectConfiguration | undefined>;
     public readonly serviceName!: pulumi.Output<string | undefined>;
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.ServiceTag[] | undefined>;
@@ -89,6 +90,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            resourceInputs["serviceConnectConfiguration"] = args ? args.serviceConnectConfiguration : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -115,6 +117,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["schedulingStrategy"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
+            resourceInputs["serviceConnectConfiguration"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
             resourceInputs["serviceRegistries"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export interface ServiceArgs {
     propagateTags?: pulumi.Input<enums.ecs.ServicePropagateTags>;
     role?: pulumi.Input<string>;
     schedulingStrategy?: pulumi.Input<enums.ecs.ServiceSchedulingStrategy>;
+    serviceConnectConfiguration?: pulumi.Input<inputs.ecs.ServiceConnectConfigurationArgs>;
     serviceName?: pulumi.Input<string>;
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceRegistryArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;

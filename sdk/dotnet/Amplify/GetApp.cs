@@ -63,6 +63,7 @@ namespace Pulumi.AwsNative.Amplify
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
         public readonly string? IAMServiceRole;
         public readonly string? Name;
+        public readonly Pulumi.AwsNative.Amplify.AppPlatform? Platform;
         public readonly string? Repository;
         public readonly ImmutableArray<Outputs.AppTag> Tags;
 
@@ -92,6 +93,8 @@ namespace Pulumi.AwsNative.Amplify
 
             string? name,
 
+            Pulumi.AwsNative.Amplify.AppPlatform? platform,
+
             string? repository,
 
             ImmutableArray<Outputs.AppTag> tags)
@@ -108,6 +111,7 @@ namespace Pulumi.AwsNative.Amplify
             EnvironmentVariables = environmentVariables;
             IAMServiceRole = iAMServiceRole;
             Name = name;
+            Platform = platform;
             Repository = repository;
             Tags = tags;
         }

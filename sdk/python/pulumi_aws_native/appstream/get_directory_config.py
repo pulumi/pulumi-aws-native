@@ -19,13 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryConfigResult:
-    def __init__(__self__, organizational_unit_distinguished_names=None, service_account_credentials=None):
+    def __init__(__self__, certificate_based_auth_properties=None, organizational_unit_distinguished_names=None, service_account_credentials=None):
+        if certificate_based_auth_properties and not isinstance(certificate_based_auth_properties, dict):
+            raise TypeError("Expected argument 'certificate_based_auth_properties' to be a dict")
+        pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
         if organizational_unit_distinguished_names and not isinstance(organizational_unit_distinguished_names, list):
             raise TypeError("Expected argument 'organizational_unit_distinguished_names' to be a list")
         pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         if service_account_credentials and not isinstance(service_account_credentials, dict):
             raise TypeError("Expected argument 'service_account_credentials' to be a dict")
         pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']:
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedNames")
@@ -44,6 +52,7 @@ class AwaitableGetDirectoryConfigResult(GetDirectoryConfigResult):
         if False:
             yield self
         return GetDirectoryConfigResult(
+            certificate_based_auth_properties=self.certificate_based_auth_properties,
             organizational_unit_distinguished_names=self.organizational_unit_distinguished_names,
             service_account_credentials=self.service_account_credentials)
 
@@ -59,6 +68,7 @@ def get_directory_config(directory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appstream:getDirectoryConfig', __args__, opts=opts, typ=GetDirectoryConfigResult).value
 
     return AwaitableGetDirectoryConfigResult(
+        certificate_based_auth_properties=__ret__.certificate_based_auth_properties,
         organizational_unit_distinguished_names=__ret__.organizational_unit_distinguished_names,
         service_account_credentials=__ret__.service_account_credentials)
 

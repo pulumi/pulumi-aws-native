@@ -178,9 +178,17 @@ export interface GetDBInstanceResult {
      */
     readonly promotionTier?: number;
     /**
+     * Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+     */
+    readonly publiclyAccessible?: boolean;
+    /**
      * The open mode of an Oracle read replica. The default is open-read-only.
      */
     readonly replicaMode?: string;
+    /**
+     * Specifies the storage throughput for the DB instance.
+     */
+    readonly storageThroughput?: number;
     /**
      * Specifies the storage type to be associated with the DB instance.
      */

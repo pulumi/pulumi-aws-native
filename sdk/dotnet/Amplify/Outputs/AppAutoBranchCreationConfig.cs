@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
         public readonly bool? EnablePerformanceMode;
         public readonly bool? EnablePullRequestPreview;
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
+        public readonly string? Framework;
         public readonly string? PullRequestEnvironmentName;
         public readonly Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage? Stage;
 
@@ -42,6 +43,8 @@ namespace Pulumi.AwsNative.Amplify.Outputs
 
             ImmutableArray<Outputs.AppEnvironmentVariable> environmentVariables,
 
+            string? framework,
+
             string? pullRequestEnvironmentName,
 
             Pulumi.AwsNative.Amplify.AppAutoBranchCreationConfigStage? stage)
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
             EnablePerformanceMode = enablePerformanceMode;
             EnablePullRequestPreview = enablePullRequestPreview;
             EnvironmentVariables = environmentVariables;
+            Framework = framework;
             PullRequestEnvironmentName = pullRequestEnvironmentName;
             Stage = stage;
         }

@@ -177,6 +177,171 @@ func (in *appAutoBranchCreationConfigStagePtr) ToAppAutoBranchCreationConfigStag
 	return pulumi.ToOutputWithContext(ctx, in).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
+type AppPlatform string
+
+const (
+	AppPlatformWeb        = AppPlatform("WEB")
+	AppPlatformWebDynamic = AppPlatform("WEB_DYNAMIC")
+	AppPlatformWebCompute = AppPlatform("WEB_COMPUTE")
+)
+
+func (AppPlatform) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPlatform)(nil)).Elem()
+}
+
+func (e AppPlatform) ToAppPlatformOutput() AppPlatformOutput {
+	return pulumi.ToOutput(e).(AppPlatformOutput)
+}
+
+func (e AppPlatform) ToAppPlatformOutputWithContext(ctx context.Context) AppPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppPlatformOutput)
+}
+
+func (e AppPlatform) ToAppPlatformPtrOutput() AppPlatformPtrOutput {
+	return e.ToAppPlatformPtrOutputWithContext(context.Background())
+}
+
+func (e AppPlatform) ToAppPlatformPtrOutputWithContext(ctx context.Context) AppPlatformPtrOutput {
+	return AppPlatform(e).ToAppPlatformOutputWithContext(ctx).ToAppPlatformPtrOutputWithContext(ctx)
+}
+
+func (e AppPlatform) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppPlatform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppPlatform) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppPlatform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppPlatformOutput struct{ *pulumi.OutputState }
+
+func (AppPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppPlatform)(nil)).Elem()
+}
+
+func (o AppPlatformOutput) ToAppPlatformOutput() AppPlatformOutput {
+	return o
+}
+
+func (o AppPlatformOutput) ToAppPlatformOutputWithContext(ctx context.Context) AppPlatformOutput {
+	return o
+}
+
+func (o AppPlatformOutput) ToAppPlatformPtrOutput() AppPlatformPtrOutput {
+	return o.ToAppPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o AppPlatformOutput) ToAppPlatformPtrOutputWithContext(ctx context.Context) AppPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppPlatform) *AppPlatform {
+		return &v
+	}).(AppPlatformPtrOutput)
+}
+
+func (o AppPlatformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppPlatformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppPlatform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppPlatformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppPlatformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppPlatform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (AppPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppPlatform)(nil)).Elem()
+}
+
+func (o AppPlatformPtrOutput) ToAppPlatformPtrOutput() AppPlatformPtrOutput {
+	return o
+}
+
+func (o AppPlatformPtrOutput) ToAppPlatformPtrOutputWithContext(ctx context.Context) AppPlatformPtrOutput {
+	return o
+}
+
+func (o AppPlatformPtrOutput) Elem() AppPlatformOutput {
+	return o.ApplyT(func(v *AppPlatform) AppPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret AppPlatform
+		return ret
+	}).(AppPlatformOutput)
+}
+
+func (o AppPlatformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppPlatform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppPlatformInput is an input type that accepts AppPlatformArgs and AppPlatformOutput values.
+// You can construct a concrete instance of `AppPlatformInput` via:
+//
+//	AppPlatformArgs{...}
+type AppPlatformInput interface {
+	pulumi.Input
+
+	ToAppPlatformOutput() AppPlatformOutput
+	ToAppPlatformOutputWithContext(context.Context) AppPlatformOutput
+}
+
+var appPlatformPtrType = reflect.TypeOf((**AppPlatform)(nil)).Elem()
+
+type AppPlatformPtrInput interface {
+	pulumi.Input
+
+	ToAppPlatformPtrOutput() AppPlatformPtrOutput
+	ToAppPlatformPtrOutputWithContext(context.Context) AppPlatformPtrOutput
+}
+
+type appPlatformPtr string
+
+func AppPlatformPtr(v string) AppPlatformPtrInput {
+	return (*appPlatformPtr)(&v)
+}
+
+func (*appPlatformPtr) ElementType() reflect.Type {
+	return appPlatformPtrType
+}
+
+func (in *appPlatformPtr) ToAppPlatformPtrOutput() AppPlatformPtrOutput {
+	return pulumi.ToOutput(in).(AppPlatformPtrOutput)
+}
+
+func (in *appPlatformPtr) ToAppPlatformPtrOutputWithContext(ctx context.Context) AppPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppPlatformPtrOutput)
+}
+
 type BranchStage string
 
 const (
@@ -347,10 +512,14 @@ func (in *branchStagePtr) ToBranchStagePtrOutputWithContext(ctx context.Context)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStageInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigStagePtrInput)(nil)).Elem(), AppAutoBranchCreationConfigStage("EXPERIMENTAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformInput)(nil)).Elem(), AppPlatform("WEB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppPlatformPtrInput)(nil)).Elem(), AppPlatform("WEB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStageInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchStagePtrInput)(nil)).Elem(), BranchStage("EXPERIMENTAL"))
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStageOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigStagePtrOutput{})
+	pulumi.RegisterOutputType(AppPlatformOutput{})
+	pulumi.RegisterOutputType(AppPlatformPtrOutput{})
 	pulumi.RegisterOutputType(BranchStageOutput{})
 	pulumi.RegisterOutputType(BranchStagePtrOutput{})
 }

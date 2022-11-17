@@ -996,10 +996,14 @@ func (o ConfigurationTemplateSourceConfigurationPtrOutput) TemplateName() pulumi
 }
 
 type EnvironmentOptionSetting struct {
-	Namespace    string  `pulumi:"namespace"`
-	OptionName   string  `pulumi:"optionName"`
+	// A unique namespace that identifies the option's associated AWS resource.
+	Namespace string `pulumi:"namespace"`
+	// The name of the configuration option.
+	OptionName string `pulumi:"optionName"`
+	// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 	ResourceName *string `pulumi:"resourceName"`
-	Value        *string `pulumi:"value"`
+	// The current value for the configuration option.
+	Value *string `pulumi:"value"`
 }
 
 // EnvironmentOptionSettingInput is an input type that accepts EnvironmentOptionSettingArgs and EnvironmentOptionSettingOutput values.
@@ -1014,10 +1018,14 @@ type EnvironmentOptionSettingInput interface {
 }
 
 type EnvironmentOptionSettingArgs struct {
-	Namespace    pulumi.StringInput    `pulumi:"namespace"`
-	OptionName   pulumi.StringInput    `pulumi:"optionName"`
+	// A unique namespace that identifies the option's associated AWS resource.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The name of the configuration option.
+	OptionName pulumi.StringInput `pulumi:"optionName"`
+	// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	Value        pulumi.StringPtrInput `pulumi:"value"`
+	// The current value for the configuration option.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (EnvironmentOptionSettingArgs) ElementType() reflect.Type {
@@ -1071,18 +1079,22 @@ func (o EnvironmentOptionSettingOutput) ToEnvironmentOptionSettingOutputWithCont
 	return o
 }
 
+// A unique namespace that identifies the option's associated AWS resource.
 func (o EnvironmentOptionSettingOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentOptionSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The name of the configuration option.
 func (o EnvironmentOptionSettingOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentOptionSetting) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
+// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 func (o EnvironmentOptionSettingOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentOptionSetting) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
+// The current value for the configuration option.
 func (o EnvironmentOptionSettingOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentOptionSetting) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1108,7 +1120,9 @@ func (o EnvironmentOptionSettingArrayOutput) Index(i pulumi.IntInput) Environmen
 }
 
 type EnvironmentTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -1124,7 +1138,9 @@ type EnvironmentTagInput interface {
 }
 
 type EnvironmentTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1179,10 +1195,12 @@ func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The key name of the tag.
 func (o EnvironmentTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag.
 func (o EnvironmentTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1208,8 +1226,11 @@ func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput
 }
 
 type EnvironmentTier struct {
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
+	// The name of this environment tier.
+	Name *string `pulumi:"name"`
+	// The type of this environment tier.
+	Type *string `pulumi:"type"`
+	// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 	Version *string `pulumi:"version"`
 }
 
@@ -1225,8 +1246,11 @@ type EnvironmentTierInput interface {
 }
 
 type EnvironmentTierArgs struct {
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	// The name of this environment tier.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of this environment tier.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1307,14 +1331,17 @@ func (o EnvironmentTierOutput) ToEnvironmentTierPtrOutputWithContext(ctx context
 	}).(EnvironmentTierPtrOutput)
 }
 
+// The name of this environment tier.
 func (o EnvironmentTierOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentTier) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The type of this environment tier.
 func (o EnvironmentTierOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentTier) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 func (o EnvironmentTierOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentTier) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1343,6 +1370,7 @@ func (o EnvironmentTierPtrOutput) Elem() EnvironmentTierOutput {
 	}).(EnvironmentTierOutput)
 }
 
+// The name of this environment tier.
 func (o EnvironmentTierPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTier) *string {
 		if v == nil {
@@ -1352,6 +1380,7 @@ func (o EnvironmentTierPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of this environment tier.
 func (o EnvironmentTierPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTier) *string {
 		if v == nil {
@@ -1361,6 +1390,7 @@ func (o EnvironmentTierPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
 func (o EnvironmentTierPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentTier) *string {
 		if v == nil {

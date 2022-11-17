@@ -17,12 +17,15 @@ __all__ = ['PackageArgs', 'Package']
 class PackageArgs:
     def __init__(__self__, *,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input['PackageStorageLocationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackageTagArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
         """
         if package_name is not None:
             pulumi.set(__self__, "package_name", package_name)
+        if storage_location is not None:
+            pulumi.set(__self__, "storage_location", storage_location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -34,6 +37,15 @@ class PackageArgs:
     @package_name.setter
     def package_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "package_name", value)
+
+    @property
+    @pulumi.getter(name="storageLocation")
+    def storage_location(self) -> Optional[pulumi.Input['PackageStorageLocationArgs']]:
+        return pulumi.get(self, "storage_location")
+
+    @storage_location.setter
+    def storage_location(self, value: Optional[pulumi.Input['PackageStorageLocationArgs']]):
+        pulumi.set(self, "storage_location", value)
 
     @property
     @pulumi.getter
@@ -51,6 +63,7 @@ class Package(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input[pulumi.InputType['PackageStorageLocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackageTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -84,6 +97,7 @@ class Package(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 storage_location: Optional[pulumi.Input[pulumi.InputType['PackageStorageLocationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackageTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -95,11 +109,11 @@ class Package(pulumi.CustomResource):
             __props__ = PackageArgs.__new__(PackageArgs)
 
             __props__.__dict__["package_name"] = package_name
+            __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["package_id"] = None
-            __props__.__dict__["storage_location"] = None
         super(Package, __self__).__init__(
             'aws-native:panorama:Package',
             resource_name,
@@ -152,7 +166,7 @@ class Package(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageLocation")
-    def storage_location(self) -> pulumi.Output['outputs.PackageStorageLocation']:
+    def storage_location(self) -> pulumi.Output[Optional['outputs.PackageStorageLocation']]:
         return pulumi.get(self, "storage_location")
 
     @property

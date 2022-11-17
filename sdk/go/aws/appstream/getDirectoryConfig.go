@@ -25,8 +25,9 @@ type LookupDirectoryConfigArgs struct {
 }
 
 type LookupDirectoryConfigResult struct {
-	OrganizationalUnitDistinguishedNames []string                                  `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            *DirectoryConfigServiceAccountCredentials      `pulumi:"serviceAccountCredentials"`
 }
 
 func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryConfigResultOutput {
@@ -62,6 +63,12 @@ func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutput()
 
 func (o LookupDirectoryConfigResultOutput) ToLookupDirectoryConfigResultOutputWithContext(ctx context.Context) LookupDirectoryConfigResultOutput {
 	return o
+}
+
+func (o LookupDirectoryConfigResultOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupDirectoryConfigResult) *DirectoryConfigCertificateBasedAuthProperties {
+		return v.CertificateBasedAuthProperties
+	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
 func (o LookupDirectoryConfigResultOutput) OrganizationalUnitDistinguishedNames() pulumi.StringArrayOutput {

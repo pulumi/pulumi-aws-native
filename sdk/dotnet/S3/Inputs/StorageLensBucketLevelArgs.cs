@@ -18,6 +18,15 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensActivityMetricsArgs>? ActivityMetrics { get; set; }
 
+        [Input("advancedCostOptimizationMetrics")]
+        public Input<Inputs.StorageLensAdvancedCostOptimizationMetricsArgs>? AdvancedCostOptimizationMetrics { get; set; }
+
+        [Input("advancedDataProtectionMetrics")]
+        public Input<Inputs.StorageLensAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
+
+        [Input("detailedStatusCodesMetrics")]
+        public Input<Inputs.StorageLensDetailedStatusCodesMetricsArgs>? DetailedStatusCodesMetrics { get; set; }
+
         [Input("prefixLevel")]
         public Input<Inputs.StorageLensPrefixLevelArgs>? PrefixLevel { get; set; }
 

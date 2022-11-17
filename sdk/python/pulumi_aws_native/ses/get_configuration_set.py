@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationSetResult:
-    def __init__(__self__, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tracking_options=None):
+    def __init__(__self__, delivery_options=None, reputation_options=None, sending_options=None, suppression_options=None, tracking_options=None, vdm_options=None):
         if delivery_options and not isinstance(delivery_options, dict):
             raise TypeError("Expected argument 'delivery_options' to be a dict")
         pulumi.set(__self__, "delivery_options", delivery_options)
@@ -35,6 +35,9 @@ class GetConfigurationSetResult:
         if tracking_options and not isinstance(tracking_options, dict):
             raise TypeError("Expected argument 'tracking_options' to be a dict")
         pulumi.set(__self__, "tracking_options", tracking_options)
+        if vdm_options and not isinstance(vdm_options, dict):
+            raise TypeError("Expected argument 'vdm_options' to be a dict")
+        pulumi.set(__self__, "vdm_options", vdm_options)
 
     @property
     @pulumi.getter(name="deliveryOptions")
@@ -61,6 +64,11 @@ class GetConfigurationSetResult:
     def tracking_options(self) -> Optional['outputs.ConfigurationSetTrackingOptions']:
         return pulumi.get(self, "tracking_options")
 
+    @property
+    @pulumi.getter(name="vdmOptions")
+    def vdm_options(self) -> Optional['outputs.ConfigurationSetVdmOptions']:
+        return pulumi.get(self, "vdm_options")
+
 
 class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
     # pylint: disable=using-constant-test
@@ -72,7 +80,8 @@ class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
             reputation_options=self.reputation_options,
             sending_options=self.sending_options,
             suppression_options=self.suppression_options,
-            tracking_options=self.tracking_options)
+            tracking_options=self.tracking_options,
+            vdm_options=self.vdm_options)
 
 
 def get_configuration_set(name: Optional[str] = None,
@@ -93,7 +102,8 @@ def get_configuration_set(name: Optional[str] = None,
         reputation_options=__ret__.reputation_options,
         sending_options=__ret__.sending_options,
         suppression_options=__ret__.suppression_options,
-        tracking_options=__ret__.tracking_options)
+        tracking_options=__ret__.tracking_options,
+        vdm_options=__ret__.vdm_options)
 
 
 @_utilities.lift_output_func(get_configuration_set)

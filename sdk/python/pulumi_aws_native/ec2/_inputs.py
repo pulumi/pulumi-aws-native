@@ -105,6 +105,7 @@ __all__ = [
     'LaunchTemplateMemoryMiBArgs',
     'LaunchTemplateMetadataOptionsArgs',
     'LaunchTemplateMonitoringArgs',
+    'LaunchTemplateNetworkBandwidthGbpsArgs',
     'LaunchTemplateNetworkInterfaceCountArgs',
     'LaunchTemplateNetworkInterfaceArgs',
     'LaunchTemplatePlacementArgs',
@@ -3775,6 +3776,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_total_memory_mi_b: Optional[pulumi.Input['LaunchTemplateAcceleratorTotalMemoryMiBArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
@@ -3785,6 +3787,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['LaunchTemplateMemoryGiBPerVCpuArgs']] = None,
                  memory_mi_b: Optional[pulumi.Input['LaunchTemplateMemoryMiBArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['LaunchTemplateNetworkInterfaceCountArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -3801,6 +3804,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -3821,6 +3826,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
             pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -3878,6 +3885,15 @@ class LaunchTemplateInstanceRequirementsArgs:
     @accelerator_types.setter
     def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -3968,6 +3984,15 @@ class LaunchTemplateInstanceRequirementsArgs:
     @memory_mi_b.setter
     def memory_mi_b(self, value: Optional[pulumi.Input['LaunchTemplateMemoryMiBArgs']]):
         pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgs']]:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['LaunchTemplateNetworkBandwidthGbpsArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -4250,6 +4275,35 @@ class LaunchTemplateMonitoringArgs:
 
 
 @pulumi.input_type
+class LaunchTemplateNetworkBandwidthGbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
 class LaunchTemplateNetworkInterfaceCountArgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
@@ -4516,6 +4570,7 @@ class LaunchTemplatePlacementArgs:
     def __init__(__self__, *,
                  affinity: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 group_id: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  host_id: Optional[pulumi.Input[str]] = None,
                  host_resource_group_arn: Optional[pulumi.Input[str]] = None,
@@ -4526,6 +4581,8 @@ class LaunchTemplatePlacementArgs:
             pulumi.set(__self__, "affinity", affinity)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if host_id is not None:
@@ -4556,6 +4613,15 @@ class LaunchTemplatePlacementArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_id", value)
 
     @property
     @pulumi.getter(name="groupName")

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ComponentBindingPropertiesArgs',
@@ -19,6 +20,15 @@ __all__ = [
     'ComponentTagsArgs',
     'ComponentVariantValuesArgs',
     'ComponentVariantArgs',
+    'FormButtonArgs',
+    'FormCTAArgs',
+    'FormDataTypeConfigArgs',
+    'FormFieldPositionArgs',
+    'FormFieldsMapArgs',
+    'FormSectionalElementMapArgs',
+    'FormStyleConfigArgs',
+    'FormStyleArgs',
+    'FormTagsArgs',
     'ThemeTagsArgs',
     'ThemeValuesArgs',
     'ThemeValueArgs',
@@ -155,6 +165,198 @@ class ComponentVariantArgs:
     @variant_values.setter
     def variant_values(self, value: Optional[pulumi.Input['ComponentVariantValuesArgs']]):
         pulumi.set(self, "variant_values", value)
+
+
+@pulumi.input_type
+class FormButtonArgs:
+    def __init__(__self__, *,
+                 children: Optional[pulumi.Input[str]] = None,
+                 excluded: Optional[pulumi.Input[bool]] = None,
+                 position: Optional[pulumi.Input['FormFieldPositionArgs']] = None):
+        if children is not None:
+            pulumi.set(__self__, "children", children)
+        if excluded is not None:
+            pulumi.set(__self__, "excluded", excluded)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter
+    def children(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "children")
+
+    @children.setter
+    def children(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "children", value)
+
+    @property
+    @pulumi.getter
+    def excluded(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "excluded")
+
+    @excluded.setter
+    def excluded(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "excluded", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input['FormFieldPositionArgs']]:
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input['FormFieldPositionArgs']]):
+        pulumi.set(self, "position", value)
+
+
+@pulumi.input_type
+class FormCTAArgs:
+    def __init__(__self__, *,
+                 cancel: Optional[pulumi.Input['FormButtonArgs']] = None,
+                 clear: Optional[pulumi.Input['FormButtonArgs']] = None,
+                 position: Optional[pulumi.Input['FormButtonsPosition']] = None,
+                 submit: Optional[pulumi.Input['FormButtonArgs']] = None):
+        if cancel is not None:
+            pulumi.set(__self__, "cancel", cancel)
+        if clear is not None:
+            pulumi.set(__self__, "clear", clear)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if submit is not None:
+            pulumi.set(__self__, "submit", submit)
+
+    @property
+    @pulumi.getter
+    def cancel(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        return pulumi.get(self, "cancel")
+
+    @cancel.setter
+    def cancel(self, value: Optional[pulumi.Input['FormButtonArgs']]):
+        pulumi.set(self, "cancel", value)
+
+    @property
+    @pulumi.getter
+    def clear(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        return pulumi.get(self, "clear")
+
+    @clear.setter
+    def clear(self, value: Optional[pulumi.Input['FormButtonArgs']]):
+        pulumi.set(self, "clear", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input['FormButtonsPosition']]:
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input['FormButtonsPosition']]):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def submit(self) -> Optional[pulumi.Input['FormButtonArgs']]:
+        return pulumi.get(self, "submit")
+
+    @submit.setter
+    def submit(self, value: Optional[pulumi.Input['FormButtonArgs']]):
+        pulumi.set(self, "submit", value)
+
+
+@pulumi.input_type
+class FormDataTypeConfigArgs:
+    def __init__(__self__, *,
+                 data_source_type: pulumi.Input['FormDataSourceType'],
+                 data_type_name: pulumi.Input[str]):
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        pulumi.set(__self__, "data_type_name", data_type_name)
+
+    @property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> pulumi.Input['FormDataSourceType']:
+        return pulumi.get(self, "data_source_type")
+
+    @data_source_type.setter
+    def data_source_type(self, value: pulumi.Input['FormDataSourceType']):
+        pulumi.set(self, "data_source_type", value)
+
+    @property
+    @pulumi.getter(name="dataTypeName")
+    def data_type_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_type_name")
+
+    @data_type_name.setter
+    def data_type_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_type_name", value)
+
+
+@pulumi.input_type
+class FormFieldPositionArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class FormFieldsMapArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class FormSectionalElementMapArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class FormStyleConfigArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class FormStyleArgs:
+    def __init__(__self__, *,
+                 horizontal_gap: Optional[pulumi.Input['FormStyleConfigArgs']] = None,
+                 outer_padding: Optional[pulumi.Input['FormStyleConfigArgs']] = None,
+                 vertical_gap: Optional[pulumi.Input['FormStyleConfigArgs']] = None):
+        if horizontal_gap is not None:
+            pulumi.set(__self__, "horizontal_gap", horizontal_gap)
+        if outer_padding is not None:
+            pulumi.set(__self__, "outer_padding", outer_padding)
+        if vertical_gap is not None:
+            pulumi.set(__self__, "vertical_gap", vertical_gap)
+
+    @property
+    @pulumi.getter(name="horizontalGap")
+    def horizontal_gap(self) -> Optional[pulumi.Input['FormStyleConfigArgs']]:
+        return pulumi.get(self, "horizontal_gap")
+
+    @horizontal_gap.setter
+    def horizontal_gap(self, value: Optional[pulumi.Input['FormStyleConfigArgs']]):
+        pulumi.set(self, "horizontal_gap", value)
+
+    @property
+    @pulumi.getter(name="outerPadding")
+    def outer_padding(self) -> Optional[pulumi.Input['FormStyleConfigArgs']]:
+        return pulumi.get(self, "outer_padding")
+
+    @outer_padding.setter
+    def outer_padding(self, value: Optional[pulumi.Input['FormStyleConfigArgs']]):
+        pulumi.set(self, "outer_padding", value)
+
+    @property
+    @pulumi.getter(name="verticalGap")
+    def vertical_gap(self) -> Optional[pulumi.Input['FormStyleConfigArgs']]:
+        return pulumi.get(self, "vertical_gap")
+
+    @vertical_gap.setter
+    def vertical_gap(self, value: Optional[pulumi.Input['FormStyleConfigArgs']]):
+        pulumi.set(self, "vertical_gap", value)
+
+
+@pulumi.input_type
+class FormTagsArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

@@ -23,14 +23,19 @@ __all__ = [
     'ClusterTagArgs',
     'ServiceAwsVpcConfigurationArgs',
     'ServiceCapacityProviderStrategyItemArgs',
+    'ServiceConnectClientAliasArgs',
+    'ServiceConnectConfigurationArgs',
+    'ServiceConnectServiceArgs',
     'ServiceDeploymentCircuitBreakerArgs',
     'ServiceDeploymentConfigurationArgs',
     'ServiceDeploymentControllerArgs',
     'ServiceLoadBalancerArgs',
+    'ServiceLogConfigurationArgs',
     'ServiceNetworkConfigurationArgs',
     'ServicePlacementConstraintArgs',
     'ServicePlacementStrategyArgs',
     'ServiceRegistryArgs',
+    'ServiceSecretArgs',
     'ServiceTagArgs',
     'TaskDefinitionAuthorizationConfigArgs',
     'TaskDefinitionContainerDefinitionArgs',
@@ -570,6 +575,138 @@ class ServiceCapacityProviderStrategyItemArgs:
 
 
 @pulumi.input_type
+class ServiceConnectClientAliasArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 dns_name: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "port", port)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_name", value)
+
+
+@pulumi.input_type
+class ServiceConnectConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 log_configuration: Optional[pulumi.Input['ServiceLogConfigurationArgs']] = None,
+                 namespace: Optional[pulumi.Input[str]] = None,
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectServiceArgs']]]] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ServiceLogConfigurationArgs']]:
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ServiceLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectServiceArgs']]]]:
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectServiceArgs']]]]):
+        pulumi.set(self, "services", value)
+
+
+@pulumi.input_type
+class ServiceConnectServiceArgs:
+    def __init__(__self__, *,
+                 port_name: pulumi.Input[str],
+                 client_aliases: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectClientAliasArgs']]]] = None,
+                 discovery_name: Optional[pulumi.Input[str]] = None,
+                 ingress_port_override: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "port_name", port_name)
+        if client_aliases is not None:
+            pulumi.set(__self__, "client_aliases", client_aliases)
+        if discovery_name is not None:
+            pulumi.set(__self__, "discovery_name", discovery_name)
+        if ingress_port_override is not None:
+            pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "port_name")
+
+    @port_name.setter
+    def port_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "port_name", value)
+
+    @property
+    @pulumi.getter(name="clientAliases")
+    def client_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectClientAliasArgs']]]]:
+        return pulumi.get(self, "client_aliases")
+
+    @client_aliases.setter
+    def client_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConnectClientAliasArgs']]]]):
+        pulumi.set(self, "client_aliases", value)
+
+    @property
+    @pulumi.getter(name="discoveryName")
+    def discovery_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "discovery_name")
+
+    @discovery_name.setter
+    def discovery_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "discovery_name", value)
+
+    @property
+    @pulumi.getter(name="ingressPortOverride")
+    def ingress_port_override(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ingress_port_override")
+
+    @ingress_port_override.setter
+    def ingress_port_override(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ingress_port_override", value)
+
+
+@pulumi.input_type
 class ServiceDeploymentCircuitBreakerArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
@@ -708,6 +845,47 @@ class ServiceLoadBalancerArgs:
 
 
 @pulumi.input_type
+class ServiceLogConfigurationArgs:
+    def __init__(__self__, *,
+                 log_driver: Optional[pulumi.Input[str]] = None,
+                 options: Optional[Any] = None,
+                 secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceSecretArgs']]]] = None):
+        if log_driver is not None:
+            pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_driver")
+
+    @log_driver.setter
+    def log_driver(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_driver", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Any]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[Any]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceSecretArgs']]]]:
+        return pulumi.get(self, "secret_options")
+
+    @secret_options.setter
+    def secret_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceSecretArgs']]]]):
+        pulumi.set(self, "secret_options", value)
+
+
+@pulumi.input_type
 class ServiceNetworkConfigurationArgs:
     def __init__(__self__, *,
                  awsvpc_configuration: Optional[pulumi.Input['ServiceAwsVpcConfigurationArgs']] = None):
@@ -831,6 +1009,33 @@ class ServiceRegistryArgs:
     @registry_arn.setter
     def registry_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_arn", value)
+
+
+@pulumi.input_type
+class ServiceSecretArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value_from: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value_from")
+
+    @value_from.setter
+    def value_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_from", value)
 
 
 @pulumi.input_type

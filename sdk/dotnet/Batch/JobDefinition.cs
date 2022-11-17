@@ -19,6 +19,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("containerProperties")]
         public Output<Outputs.JobDefinitionContainerProperties?> ContainerProperties { get; private set; } = null!;
 
+        [Output("eksProperties")]
+        public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
+
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.Batch
     {
         [Input("containerProperties")]
         public Input<Inputs.JobDefinitionContainerPropertiesArgs>? ContainerProperties { get; set; }
+
+        [Input("eksProperties")]
+        public Input<Inputs.JobDefinitionEksPropertiesArgs>? EksProperties { get; set; }
 
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }

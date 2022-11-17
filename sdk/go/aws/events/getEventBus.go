@@ -25,9 +25,10 @@ type LookupEventBusArgs struct {
 }
 
 type LookupEventBusResult struct {
-	Arn    *string `pulumi:"arn"`
-	Id     *string `pulumi:"id"`
-	Policy *string `pulumi:"policy"`
+	Arn    *string            `pulumi:"arn"`
+	Id     *string            `pulumi:"id"`
+	Policy *string            `pulumi:"policy"`
+	Tags   []EventBusTagEntry `pulumi:"tags"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -75,6 +76,10 @@ func (o LookupEventBusResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupEventBusResultOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventBusResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEventBusResultOutput) Tags() EventBusTagEntryArrayOutput {
+	return o.ApplyT(func(v LookupEventBusResult) []EventBusTagEntry { return v.Tags }).(EventBusTagEntryArrayOutput)
 }
 
 func init() {

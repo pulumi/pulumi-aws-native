@@ -10,17 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
+    /// <summary>
+    /// This structure defines the metric to be returned, along with the statistics, period, and units.
+    /// </summary>
     public sealed class AlarmMetricStatArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The metric to return, including the metric name, namespace, and dimensions.
+        /// </summary>
         [Input("metric", required: true)]
         public Input<Inputs.AlarmMetricArgs> Metric { get; set; } = null!;
 
+        /// <summary>
+        /// The granularity, in seconds, of the returned data points.
+        /// </summary>
         [Input("period", required: true)]
         public Input<int> Period { get; set; } = null!;
 
+        /// <summary>
+        /// The statistic to return.
+        /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;
 
+        /// <summary>
+        /// The unit to use for the returned data points.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

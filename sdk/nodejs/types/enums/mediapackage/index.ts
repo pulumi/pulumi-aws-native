@@ -269,6 +269,37 @@ export const PackagingConfigurationDashPackageSegmentTemplateFormat = {
  */
 export type PackagingConfigurationDashPackageSegmentTemplateFormat = (typeof PackagingConfigurationDashPackageSegmentTemplateFormat)[keyof typeof PackagingConfigurationDashPackageSegmentTemplateFormat];
 
+export const PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio = {
+    PresetAudio1: "PRESET-AUDIO-1",
+    PresetAudio2: "PRESET-AUDIO-2",
+    PresetAudio3: "PRESET-AUDIO-3",
+    Shared: "SHARED",
+    Unencrypted: "UNENCRYPTED",
+} as const;
+
+/**
+ * A collection of audio encryption presets.
+ */
+export type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio = (typeof PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio)[keyof typeof PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio];
+
+export const PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video = {
+    PresetVideo1: "PRESET-VIDEO-1",
+    PresetVideo2: "PRESET-VIDEO-2",
+    PresetVideo3: "PRESET-VIDEO-3",
+    PresetVideo4: "PRESET-VIDEO-4",
+    PresetVideo5: "PRESET-VIDEO-5",
+    PresetVideo6: "PRESET-VIDEO-6",
+    PresetVideo7: "PRESET-VIDEO-7",
+    PresetVideo8: "PRESET-VIDEO-8",
+    Shared: "SHARED",
+    Unencrypted: "UNENCRYPTED",
+} as const;
+
+/**
+ * A collection of video encryption presets.
+ */
+export type PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video = (typeof PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video)[keyof typeof PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video];
+
 export const PackagingConfigurationHlsEncryptionEncryptionMethod = {
     Aes128: "AES_128",
     SampleAes: "SAMPLE_AES",

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBranchResult:
-    def __init__(__self__, arn=None, build_spec=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, environment_variables=None, pull_request_environment_name=None, stage=None, tags=None):
+    def __init__(__self__, arn=None, build_spec=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, environment_variables=None, framework=None, pull_request_environment_name=None, stage=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetBranchResult:
         if environment_variables and not isinstance(environment_variables, list):
             raise TypeError("Expected argument 'environment_variables' to be a list")
         pulumi.set(__self__, "environment_variables", environment_variables)
+        if framework and not isinstance(framework, str):
+            raise TypeError("Expected argument 'framework' to be a str")
+        pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name and not isinstance(pull_request_environment_name, str):
             raise TypeError("Expected argument 'pull_request_environment_name' to be a str")
         pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
@@ -88,6 +91,11 @@ class GetBranchResult:
         return pulumi.get(self, "environment_variables")
 
     @property
+    @pulumi.getter
+    def framework(self) -> Optional[str]:
+        return pulumi.get(self, "framework")
+
+    @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[str]:
         return pulumi.get(self, "pull_request_environment_name")
@@ -116,6 +124,7 @@ class AwaitableGetBranchResult(GetBranchResult):
             enable_performance_mode=self.enable_performance_mode,
             enable_pull_request_preview=self.enable_pull_request_preview,
             environment_variables=self.environment_variables,
+            framework=self.framework,
             pull_request_environment_name=self.pull_request_environment_name,
             stage=self.stage,
             tags=self.tags)
@@ -139,6 +148,7 @@ def get_branch(arn: Optional[str] = None,
         enable_performance_mode=__ret__.enable_performance_mode,
         enable_pull_request_preview=__ret__.enable_pull_request_preview,
         environment_variables=__ret__.environment_variables,
+        framework=__ret__.framework,
         pull_request_environment_name=__ret__.pull_request_environment_name,
         stage=__ret__.stage,
         tags=__ret__.tags)

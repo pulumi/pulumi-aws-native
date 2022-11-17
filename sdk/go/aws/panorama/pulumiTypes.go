@@ -306,6 +306,78 @@ type PackageStorageLocation struct {
 	RepoPrefixLocation      *string `pulumi:"repoPrefixLocation"`
 }
 
+// PackageStorageLocationInput is an input type that accepts PackageStorageLocationArgs and PackageStorageLocationOutput values.
+// You can construct a concrete instance of `PackageStorageLocationInput` via:
+//
+//	PackageStorageLocationArgs{...}
+type PackageStorageLocationInput interface {
+	pulumi.Input
+
+	ToPackageStorageLocationOutput() PackageStorageLocationOutput
+	ToPackageStorageLocationOutputWithContext(context.Context) PackageStorageLocationOutput
+}
+
+type PackageStorageLocationArgs struct {
+	BinaryPrefixLocation    pulumi.StringPtrInput `pulumi:"binaryPrefixLocation"`
+	Bucket                  pulumi.StringPtrInput `pulumi:"bucket"`
+	GeneratedPrefixLocation pulumi.StringPtrInput `pulumi:"generatedPrefixLocation"`
+	ManifestPrefixLocation  pulumi.StringPtrInput `pulumi:"manifestPrefixLocation"`
+	RepoPrefixLocation      pulumi.StringPtrInput `pulumi:"repoPrefixLocation"`
+}
+
+func (PackageStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackageStorageLocation)(nil)).Elem()
+}
+
+func (i PackageStorageLocationArgs) ToPackageStorageLocationOutput() PackageStorageLocationOutput {
+	return i.ToPackageStorageLocationOutputWithContext(context.Background())
+}
+
+func (i PackageStorageLocationArgs) ToPackageStorageLocationOutputWithContext(ctx context.Context) PackageStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationOutput)
+}
+
+func (i PackageStorageLocationArgs) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
+	return i.ToPackageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i PackageStorageLocationArgs) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationOutput).ToPackageStorageLocationPtrOutputWithContext(ctx)
+}
+
+// PackageStorageLocationPtrInput is an input type that accepts PackageStorageLocationArgs, PackageStorageLocationPtr and PackageStorageLocationPtrOutput values.
+// You can construct a concrete instance of `PackageStorageLocationPtrInput` via:
+//
+//	        PackageStorageLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PackageStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput
+	ToPackageStorageLocationPtrOutputWithContext(context.Context) PackageStorageLocationPtrOutput
+}
+
+type packageStorageLocationPtrType PackageStorageLocationArgs
+
+func PackageStorageLocationPtr(v *PackageStorageLocationArgs) PackageStorageLocationPtrInput {
+	return (*packageStorageLocationPtrType)(v)
+}
+
+func (*packageStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PackageStorageLocation)(nil)).Elem()
+}
+
+func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
+	return i.ToPackageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationPtrOutput)
+}
+
 type PackageStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (PackageStorageLocationOutput) ElementType() reflect.Type {
@@ -318,6 +390,16 @@ func (o PackageStorageLocationOutput) ToPackageStorageLocationOutput() PackageSt
 
 func (o PackageStorageLocationOutput) ToPackageStorageLocationOutputWithContext(ctx context.Context) PackageStorageLocationOutput {
 	return o
+}
+
+func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
+	return o.ToPackageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageStorageLocation) *PackageStorageLocation {
+		return &v
+	}).(PackageStorageLocationPtrOutput)
 }
 
 func (o PackageStorageLocationOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
@@ -515,6 +597,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceManifestPayloadInput)(nil)).Elem(), ApplicationInstanceManifestPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagInput)(nil)).Elem(), ApplicationInstanceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInstanceTagArrayInput)(nil)).Elem(), ApplicationInstanceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationInput)(nil)).Elem(), PackageStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PackageStorageLocationPtrInput)(nil)).Elem(), PackageStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagInput)(nil)).Elem(), PackageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PackageTagArrayInput)(nil)).Elem(), PackageTagArray{})
 	pulumi.RegisterOutputType(ApplicationInstanceManifestOverridesPayloadOutput{})

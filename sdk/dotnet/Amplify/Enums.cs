@@ -39,6 +39,35 @@ namespace Pulumi.AwsNative.Amplify
     }
 
     [EnumType]
+    public readonly struct AppPlatform : IEquatable<AppPlatform>
+    {
+        private readonly string _value;
+
+        private AppPlatform(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppPlatform Web { get; } = new AppPlatform("WEB");
+        public static AppPlatform WebDynamic { get; } = new AppPlatform("WEB_DYNAMIC");
+        public static AppPlatform WebCompute { get; } = new AppPlatform("WEB_COMPUTE");
+
+        public static bool operator ==(AppPlatform left, AppPlatform right) => left.Equals(right);
+        public static bool operator !=(AppPlatform left, AppPlatform right) => !left.Equals(right);
+
+        public static explicit operator string(AppPlatform value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppPlatform other && Equals(other);
+        public bool Equals(AppPlatform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct BranchStage : IEquatable<BranchStage>
     {
         private readonly string _value;

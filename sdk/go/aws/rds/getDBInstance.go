@@ -100,8 +100,12 @@ type LookupDBInstanceResult struct {
 	ProcessorFeatures []DBInstanceProcessorFeature `pulumi:"processorFeatures"`
 	// A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
 	PromotionTier *int `pulumi:"promotionTier"`
+	// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode *string `pulumi:"replicaMode"`
+	// Specifies the storage throughput for the DB instance.
+	StorageThroughput *int `pulumi:"storageThroughput"`
 	// Specifies the storage type to be associated with the DB instance.
 	StorageType *string `pulumi:"storageType"`
 	// Tags to assign to the DB instance.
@@ -335,9 +339,19 @@ func (o LookupDBInstanceResultOutput) PromotionTier() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *int { return v.PromotionTier }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+func (o LookupDBInstanceResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
 // The open mode of an Oracle read replica. The default is open-read-only.
 func (o LookupDBInstanceResultOutput) ReplicaMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.ReplicaMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the storage throughput for the DB instance.
+func (o LookupDBInstanceResultOutput) StorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *int { return v.StorageThroughput }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the storage type to be associated with the DB instance.

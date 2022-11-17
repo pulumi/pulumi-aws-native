@@ -21,20 +21,24 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
-	Id string `pulumi:"id"`
+	// A unique name for the environment.
+	EnvironmentName string `pulumi:"environmentName"`
 }
 
 type LookupEnvironmentResult struct {
-	Description    *string                    `pulumi:"description"`
-	EndpointURL    *string                    `pulumi:"endpointURL"`
-	Id             *string                    `pulumi:"id"`
-	OperationsRole *string                    `pulumi:"operationsRole"`
-	OptionSettings []EnvironmentOptionSetting `pulumi:"optionSettings"`
-	PlatformArn    *string                    `pulumi:"platformArn"`
-	Tags           []EnvironmentTag           `pulumi:"tags"`
-	TemplateName   *string                    `pulumi:"templateName"`
-	Tier           *EnvironmentTier           `pulumi:"tier"`
-	VersionLabel   *string                    `pulumi:"versionLabel"`
+	// Your description for this environment.
+	Description *string `pulumi:"description"`
+	EndpointURL *string `pulumi:"endpointURL"`
+	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+	OperationsRole *string `pulumi:"operationsRole"`
+	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+	PlatformArn *string `pulumi:"platformArn"`
+	// Specifies the tags applied to resources in the environment.
+	Tags []EnvironmentTag `pulumi:"tags"`
+	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+	Tier *EnvironmentTier `pulumi:"tier"`
+	// The name of the application version to deploy.
+	VersionLabel *string `pulumi:"versionLabel"`
 }
 
 func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentResultOutput {
@@ -51,7 +55,8 @@ func LookupEnvironmentOutput(ctx *pulumi.Context, args LookupEnvironmentOutputAr
 }
 
 type LookupEnvironmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A unique name for the environment.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
 }
 
 func (LookupEnvironmentOutputArgs) ElementType() reflect.Type {
@@ -72,6 +77,7 @@ func (o LookupEnvironmentResultOutput) ToLookupEnvironmentResultOutputWithContex
 	return o
 }
 
+// Your description for this environment.
 func (o LookupEnvironmentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -80,34 +86,27 @@ func (o LookupEnvironmentResultOutput) EndpointURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.EndpointURL }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
 func (o LookupEnvironmentResultOutput) OperationsRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.OperationsRole }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupEnvironmentResultOutput) OptionSettings() EnvironmentOptionSettingArrayOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentOptionSetting { return v.OptionSettings }).(EnvironmentOptionSettingArrayOutput)
-}
-
+// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
 func (o LookupEnvironmentResultOutput) PlatformArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.PlatformArn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the tags applied to resources in the environment.
 func (o LookupEnvironmentResultOutput) Tags() EnvironmentTagArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) []EnvironmentTag { return v.Tags }).(EnvironmentTagArrayOutput)
 }
 
-func (o LookupEnvironmentResultOutput) TemplateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
-}
-
+// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
 func (o LookupEnvironmentResultOutput) Tier() EnvironmentTierPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentTier { return v.Tier }).(EnvironmentTierPtrOutput)
 }
 
+// The name of the application version to deploy.
 func (o LookupEnvironmentResultOutput) VersionLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.VersionLabel }).(pulumi.StringPtrOutput)
 }

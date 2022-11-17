@@ -206,9 +206,17 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly int? PromotionTier;
         /// <summary>
+        /// Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        /// </summary>
+        public readonly bool? PubliclyAccessible;
+        /// <summary>
         /// The open mode of an Oracle read replica. The default is open-read-only.
         /// </summary>
         public readonly string? ReplicaMode;
+        /// <summary>
+        /// Specifies the storage throughput for the DB instance.
+        /// </summary>
+        public readonly int? StorageThroughput;
         /// <summary>
         /// Specifies the storage type to be associated with the DB instance.
         /// </summary>
@@ -306,7 +314,11 @@ namespace Pulumi.AwsNative.RDS
 
             int? promotionTier,
 
+            bool? publiclyAccessible,
+
             string? replicaMode,
+
+            int? storageThroughput,
 
             string? storageType,
 
@@ -355,7 +367,9 @@ namespace Pulumi.AwsNative.RDS
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ProcessorFeatures = processorFeatures;
             PromotionTier = promotionTier;
+            PubliclyAccessible = publiclyAccessible;
             ReplicaMode = replicaMode;
+            StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;
             TdeCredentialArn = tdeCredentialArn;

@@ -40,6 +40,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
     public /*out*/ readonly computeEnvironmentArn!: pulumi.Output<string>;
     public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
+    public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     public readonly replaceComputeEnvironment!: pulumi.Output<boolean | undefined>;
     public readonly serviceRole!: pulumi.Output<string | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
@@ -67,6 +68,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             }
             resourceInputs["computeEnvironmentName"] = args ? args.computeEnvironmentName : undefined;
             resourceInputs["computeResources"] = args ? args.computeResources : undefined;
+            resourceInputs["eksConfiguration"] = args ? args.eksConfiguration : undefined;
             resourceInputs["replaceComputeEnvironment"] = args ? args.replaceComputeEnvironment : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
@@ -79,6 +81,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["computeEnvironmentArn"] = undefined /*out*/;
             resourceInputs["computeEnvironmentName"] = undefined /*out*/;
             resourceInputs["computeResources"] = undefined /*out*/;
+            resourceInputs["eksConfiguration"] = undefined /*out*/;
             resourceInputs["replaceComputeEnvironment"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -98,6 +101,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
 export interface ComputeEnvironmentArgs {
     computeEnvironmentName?: pulumi.Input<string>;
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesArgs>;
+    eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfigurationArgs>;
     replaceComputeEnvironment?: pulumi.Input<boolean>;
     serviceRole?: pulumi.Input<string>;
     state?: pulumi.Input<string>;

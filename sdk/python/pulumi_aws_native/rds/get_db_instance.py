@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, replica_mode=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -132,9 +132,15 @@ class GetDBInstanceResult:
         if promotion_tier and not isinstance(promotion_tier, int):
             raise TypeError("Expected argument 'promotion_tier' to be a int")
         pulumi.set(__self__, "promotion_tier", promotion_tier)
+        if publicly_accessible and not isinstance(publicly_accessible, bool):
+            raise TypeError("Expected argument 'publicly_accessible' to be a bool")
+        pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if replica_mode and not isinstance(replica_mode, str):
             raise TypeError("Expected argument 'replica_mode' to be a str")
         pulumi.set(__self__, "replica_mode", replica_mode)
+        if storage_throughput and not isinstance(storage_throughput, int):
+            raise TypeError("Expected argument 'storage_throughput' to be a int")
+        pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -448,12 +454,28 @@ class GetDBInstanceResult:
         return pulumi.get(self, "promotion_tier")
 
     @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[bool]:
+        """
+        Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
+        """
+        return pulumi.get(self, "publicly_accessible")
+
+    @property
     @pulumi.getter(name="replicaMode")
     def replica_mode(self) -> Optional[str]:
         """
         The open mode of an Oracle read replica. The default is open-read-only.
         """
         return pulumi.get(self, "replica_mode")
+
+    @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> Optional[int]:
+        """
+        Specifies the storage throughput for the DB instance.
+        """
+        return pulumi.get(self, "storage_throughput")
 
     @property
     @pulumi.getter(name="storageType")
@@ -539,7 +561,9 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             preferred_maintenance_window=self.preferred_maintenance_window,
             processor_features=self.processor_features,
             promotion_tier=self.promotion_tier,
+            publicly_accessible=self.publicly_accessible,
             replica_mode=self.replica_mode,
+            storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
             tde_credential_arn=self.tde_credential_arn,
@@ -598,7 +622,9 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         preferred_maintenance_window=__ret__.preferred_maintenance_window,
         processor_features=__ret__.processor_features,
         promotion_tier=__ret__.promotion_tier,
+        publicly_accessible=__ret__.publicly_accessible,
         replica_mode=__ret__.replica_mode,
+        storage_throughput=__ret__.storage_throughput,
         storage_type=__ret__.storage_type,
         tags=__ret__.tags,
         tde_credential_arn=__ret__.tde_credential_arn,

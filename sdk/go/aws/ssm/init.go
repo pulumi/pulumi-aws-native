@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PatchBaseline{}
 	case "aws-native:ssm:ResourceDataSync":
 		r = &ResourceDataSync{}
+	case "aws-native:ssm:ResourcePolicy":
+		r = &ResourcePolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

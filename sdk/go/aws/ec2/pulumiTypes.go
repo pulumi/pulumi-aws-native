@@ -11811,6 +11811,7 @@ type LaunchTemplateInstanceRequirements struct {
 	AcceleratorNames                          []string                                 `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          []string                                 `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      []string                                 `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 *string                                  `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  *LaunchTemplateBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      *string                                  `pulumi:"burstablePerformance"`
@@ -11821,6 +11822,7 @@ type LaunchTemplateInstanceRequirements struct {
 	LocalStorageTypes                         []string                                 `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          *LaunchTemplateMemoryGiBPerVCpu          `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 *LaunchTemplateMemoryMiB                 `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      *LaunchTemplateNetworkBandwidthGbps      `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     *LaunchTemplateNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice *int                                     `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                    `pulumi:"requireHibernateSupport"`
@@ -11846,6 +11848,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	AcceleratorNames                          pulumi.StringArrayInput                         `pulumi:"acceleratorNames"`
 	AcceleratorTotalMemoryMiB                 LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
 	AcceleratorTypes                          pulumi.StringArrayInput                         `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                      pulumi.StringArrayInput                         `pulumi:"allowedInstanceTypes"`
 	BareMetal                                 pulumi.StringPtrInput                           `pulumi:"bareMetal"`
 	BaselineEbsBandwidthMbps                  LaunchTemplateBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
 	BurstablePerformance                      pulumi.StringPtrInput                           `pulumi:"burstablePerformance"`
@@ -11856,6 +11859,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	LocalStorageTypes                         pulumi.StringArrayInput                         `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          LaunchTemplateMemoryGiBPerVCpuPtrInput          `pulumi:"memoryGiBPerVCpu"`
 	MemoryMiB                                 LaunchTemplateMemoryMiBPtrInput                 `pulumi:"memoryMiB"`
+	NetworkBandwidthGbps                      LaunchTemplateNetworkBandwidthGbpsPtrInput      `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     LaunchTemplateNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                             `pulumi:"requireHibernateSupport"`
@@ -11963,6 +11967,10 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.Stri
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
 }
 
+func (o LaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
 func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
@@ -12003,6 +12011,12 @@ func (o LaunchTemplateInstanceRequirementsOutput) MemoryGiBPerVCpu() LaunchTempl
 
 func (o LaunchTemplateInstanceRequirementsOutput) MemoryMiB() LaunchTemplateMemoryMiBPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateMemoryMiB { return v.MemoryMiB }).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) NetworkBandwidthGbps() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkBandwidthGbps {
+		return v.NetworkBandwidthGbps
+	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
@@ -12102,6 +12116,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -12190,6 +12213,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMiB() LaunchTemplateM
 		}
 		return v.MemoryMiB
 	}).(LaunchTemplateMemoryMiBPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkBandwidthGbps() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateNetworkBandwidthGbps {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkBandwidthGbps
+	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
 }
 
 func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() LaunchTemplateNetworkInterfaceCountPtrOutput {
@@ -13377,6 +13409,154 @@ func (o LaunchTemplateMonitoringPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type LaunchTemplateNetworkBandwidthGbps struct {
+	Max *float64 `pulumi:"max"`
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateNetworkBandwidthGbpsInput is an input type that accepts LaunchTemplateNetworkBandwidthGbpsArgs and LaunchTemplateNetworkBandwidthGbpsOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkBandwidthGbpsInput` via:
+//
+//	LaunchTemplateNetworkBandwidthGbpsArgs{...}
+type LaunchTemplateNetworkBandwidthGbpsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkBandwidthGbpsOutput() LaunchTemplateNetworkBandwidthGbpsOutput
+	ToLaunchTemplateNetworkBandwidthGbpsOutputWithContext(context.Context) LaunchTemplateNetworkBandwidthGbpsOutput
+}
+
+type LaunchTemplateNetworkBandwidthGbpsArgs struct {
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateNetworkBandwidthGbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkBandwidthGbpsArgs) ToLaunchTemplateNetworkBandwidthGbpsOutput() LaunchTemplateNetworkBandwidthGbpsOutput {
+	return i.ToLaunchTemplateNetworkBandwidthGbpsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkBandwidthGbpsArgs) ToLaunchTemplateNetworkBandwidthGbpsOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkBandwidthGbpsOutput)
+}
+
+func (i LaunchTemplateNetworkBandwidthGbpsArgs) ToLaunchTemplateNetworkBandwidthGbpsPtrOutput() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return i.ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkBandwidthGbpsArgs) ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkBandwidthGbpsOutput).ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkBandwidthGbpsPtrInput is an input type that accepts LaunchTemplateNetworkBandwidthGbpsArgs, LaunchTemplateNetworkBandwidthGbpsPtr and LaunchTemplateNetworkBandwidthGbpsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkBandwidthGbpsPtrInput` via:
+//
+//	        LaunchTemplateNetworkBandwidthGbpsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkBandwidthGbpsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkBandwidthGbpsPtrOutput() LaunchTemplateNetworkBandwidthGbpsPtrOutput
+	ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(context.Context) LaunchTemplateNetworkBandwidthGbpsPtrOutput
+}
+
+type launchTemplateNetworkBandwidthGbpsPtrType LaunchTemplateNetworkBandwidthGbpsArgs
+
+func LaunchTemplateNetworkBandwidthGbpsPtr(v *LaunchTemplateNetworkBandwidthGbpsArgs) LaunchTemplateNetworkBandwidthGbpsPtrInput {
+	return (*launchTemplateNetworkBandwidthGbpsPtrType)(v)
+}
+
+func (*launchTemplateNetworkBandwidthGbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkBandwidthGbpsPtrType) ToLaunchTemplateNetworkBandwidthGbpsPtrOutput() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return i.ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkBandwidthGbpsPtrType) ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
+}
+
+type LaunchTemplateNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwidthGbpsOutput() LaunchTemplateNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwidthGbpsOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwidthGbpsPtrOutput() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o.ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkBandwidthGbps) *LaunchTemplateNetworkBandwidthGbps {
+		return &v
+	}).(LaunchTemplateNetworkBandwidthGbpsPtrOutput)
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkBandwidthGbps) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateNetworkBandwidthGbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkBandwidthGbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkBandwidthGbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) ToLaunchTemplateNetworkBandwidthGbpsPtrOutput() LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) ToLaunchTemplateNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkBandwidthGbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Elem() LaunchTemplateNetworkBandwidthGbpsOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) LaunchTemplateNetworkBandwidthGbps {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkBandwidthGbps
+		return ret
+	}).(LaunchTemplateNetworkBandwidthGbpsOutput)
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchTemplateNetworkBandwidthGbpsPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkBandwidthGbps) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
 type LaunchTemplateNetworkInterface struct {
 	AssociateCarrierIpAddress      *bool                                   `pulumi:"associateCarrierIpAddress"`
 	AssociatePublicIpAddress       *bool                                   `pulumi:"associatePublicIpAddress"`
@@ -13730,6 +13910,7 @@ func (o LaunchTemplateNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput 
 type LaunchTemplatePlacement struct {
 	Affinity             *string `pulumi:"affinity"`
 	AvailabilityZone     *string `pulumi:"availabilityZone"`
+	GroupId              *string `pulumi:"groupId"`
 	GroupName            *string `pulumi:"groupName"`
 	HostId               *string `pulumi:"hostId"`
 	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
@@ -13752,6 +13933,7 @@ type LaunchTemplatePlacementInput interface {
 type LaunchTemplatePlacementArgs struct {
 	Affinity             pulumi.StringPtrInput `pulumi:"affinity"`
 	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	GroupId              pulumi.StringPtrInput `pulumi:"groupId"`
 	GroupName            pulumi.StringPtrInput `pulumi:"groupName"`
 	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
 	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
@@ -13845,6 +14027,10 @@ func (o LaunchTemplatePlacementOutput) AvailabilityZone() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+func (o LaunchTemplatePlacementOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
 func (o LaunchTemplatePlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplatePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
 }
@@ -13908,6 +14094,15 @@ func (o LaunchTemplatePlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOut
 			return nil
 		}
 		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplatePlacementPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplatePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -26931,6 +27126,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsPtrInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringPtrInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkBandwidthGbpsInput)(nil)).Elem(), LaunchTemplateNetworkBandwidthGbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkBandwidthGbpsPtrInput)(nil)).Elem(), LaunchTemplateNetworkBandwidthGbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceCountInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceCountArgs{})
@@ -27291,6 +27488,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkBandwidthGbpsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkBandwidthGbpsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceCountOutput{})

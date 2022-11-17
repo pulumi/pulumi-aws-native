@@ -32,6 +32,8 @@ type LookupEventDataStoreResult struct {
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
 	EventDataStoreArn *string `pulumi:"eventDataStoreArn"`
+	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
 	MultiRegionEnabled *bool `pulumi:"multiRegionEnabled"`
 	// The name of the event data store.
@@ -100,6 +102,11 @@ func (o LookupEventDataStoreResultOutput) CreatedTimestamp() pulumi.StringPtrOut
 // The ARN of the event data store.
 func (o LookupEventDataStoreResultOutput) EventDataStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.EventDataStoreArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+func (o LookupEventDataStoreResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the event data store includes events from all regions, or only from the region in which it was created.

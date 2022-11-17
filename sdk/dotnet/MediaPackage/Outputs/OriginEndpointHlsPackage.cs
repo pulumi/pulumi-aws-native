@@ -27,6 +27,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         public readonly Outputs.OriginEndpointHlsEncryption? Encryption;
         /// <summary>
+        /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        /// </summary>
+        public readonly bool? IncludeDvbSubtitles;
+        /// <summary>
         /// When enabled, an I-Frame only stream will be included in the output.
         /// </summary>
         public readonly bool? IncludeIframeOnlyStream;
@@ -62,6 +66,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             Outputs.OriginEndpointHlsEncryption? encryption,
 
+            bool? includeDvbSubtitles,
+
             bool? includeIframeOnlyStream,
 
             Pulumi.AwsNative.MediaPackage.OriginEndpointHlsPackagePlaylistType? playlistType,
@@ -80,6 +86,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             AdTriggers = adTriggers;
             AdsOnDeliveryRestrictions = adsOnDeliveryRestrictions;
             Encryption = encryption;
+            IncludeDvbSubtitles = includeDvbSubtitles;
             IncludeIframeOnlyStream = includeIframeOnlyStream;
             PlaylistType = playlistType;
             PlaylistWindowSeconds = playlistWindowSeconds;

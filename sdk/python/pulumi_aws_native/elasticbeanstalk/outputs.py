@@ -413,6 +413,12 @@ class EnvironmentOptionSetting(dict):
                  option_name: str,
                  resource_name: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str namespace: A unique namespace that identifies the option's associated AWS resource.
+        :param str option_name: The name of the configuration option.
+        :param str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        :param str value: The current value for the configuration option.
+        """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "option_name", option_name)
         if resource_name is not None:
@@ -423,21 +429,33 @@ class EnvironmentOptionSetting(dict):
     @property
     @pulumi.getter
     def namespace(self) -> str:
+        """
+        A unique namespace that identifies the option's associated AWS resource.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="optionName")
     def option_name(self) -> str:
+        """
+        The name of the configuration option.
+        """
         return pulumi.get(self, "option_name")
 
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[str]:
+        """
+        A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        """
         return pulumi.get(self, "resource_name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The current value for the configuration option.
+        """
         return pulumi.get(self, "value")
 
 
@@ -446,17 +464,27 @@ class EnvironmentTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        :param str key: The key name of the tag.
+        :param str value: The value for the tag.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of the tag.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the tag.
+        """
         return pulumi.get(self, "value")
 
 
@@ -466,6 +494,11 @@ class EnvironmentTier(dict):
                  name: Optional[str] = None,
                  type: Optional[str] = None,
                  version: Optional[str] = None):
+        """
+        :param str name: The name of this environment tier.
+        :param str type: The type of this environment tier.
+        :param str version: The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
@@ -476,16 +509,25 @@ class EnvironmentTier(dict):
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of this environment tier.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The type of this environment tier.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        """
         return pulumi.get(self, "version")
 
 

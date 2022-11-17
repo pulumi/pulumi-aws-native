@@ -33,6 +33,7 @@ class AppAutoBranchCreationConfigArgs:
                  enable_performance_mode: Optional[pulumi.Input[bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input['AppAutoBranchCreationConfigStage']] = None):
         if auto_branch_creation_patterns is not None:
@@ -51,6 +52,8 @@ class AppAutoBranchCreationConfigArgs:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
         if stage is not None:
@@ -127,6 +130,15 @@ class AppAutoBranchCreationConfigArgs:
     @environment_variables.setter
     def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework", value)
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")

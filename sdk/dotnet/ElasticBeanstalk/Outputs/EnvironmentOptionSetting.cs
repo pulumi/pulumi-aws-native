@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class EnvironmentOptionSetting
     {
+        /// <summary>
+        /// A unique namespace that identifies the option's associated AWS resource.
+        /// </summary>
         public readonly string Namespace;
+        /// <summary>
+        /// The name of the configuration option.
+        /// </summary>
         public readonly string OptionName;
+        /// <summary>
+        /// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        /// </summary>
         public readonly string? ResourceName;
+        /// <summary>
+        /// The current value for the configuration option.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

@@ -41,6 +41,7 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
+    public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     public readonly parameters!: pulumi.Output<any | undefined>;
@@ -69,6 +70,7 @@ export class JobDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["containerProperties"] = args ? args.containerProperties : undefined;
+            resourceInputs["eksProperties"] = args ? args.eksProperties : undefined;
             resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
             resourceInputs["nodeProperties"] = args ? args.nodeProperties : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
@@ -81,6 +83,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
         } else {
             resourceInputs["containerProperties"] = undefined /*out*/;
+            resourceInputs["eksProperties"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["nodeProperties"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
@@ -102,6 +105,7 @@ export class JobDefinition extends pulumi.CustomResource {
  */
 export interface JobDefinitionArgs {
     containerProperties?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesArgs>;
+    eksProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPropertiesArgs>;
     jobDefinitionName?: pulumi.Input<string>;
     nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs>;
     parameters?: any;

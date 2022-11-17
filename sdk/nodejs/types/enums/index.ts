@@ -3,6 +3,7 @@
 
 // Export sub-modules:
 import * as amplify from "./amplify";
+import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
@@ -81,6 +82,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
+import * as organizations from "./organizations";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
@@ -90,6 +92,7 @@ import * as redshift from "./redshift";
 import * as redshiftserverless from "./redshiftserverless";
 import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
+import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
 import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
@@ -100,6 +103,7 @@ import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as scheduler from "./scheduler";
 import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as signer from "./signer";
@@ -117,6 +121,7 @@ import * as workspaces from "./workspaces";
 
 export {
     amplify,
+    amplifyuibuilder,
     apigateway,
     appflow,
     applicationinsights,
@@ -195,6 +200,7 @@ export {
     mwaa,
     networkfirewall,
     nimblestudio,
+    organizations,
     panorama,
     personalize,
     pinpoint,
@@ -204,6 +210,7 @@ export {
     redshiftserverless,
     refactorspaces,
     resiliencehub,
+    resourceexplorer2,
     resourcegroups,
     robomaker,
     rolesanywhere,
@@ -214,6 +221,7 @@ export {
     s3,
     s3outposts,
     sagemaker,
+    scheduler,
     servicecatalog,
     servicecatalogappregistry,
     signer,

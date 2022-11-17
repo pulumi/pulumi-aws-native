@@ -55,6 +55,11 @@ export const getResourceDataSync: typeof import("./getResourceDataSync").getReso
 export const getResourceDataSyncOutput: typeof import("./getResourceDataSync").getResourceDataSyncOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceDataSync","getResourceDataSyncOutput"], () => require("./getResourceDataSync"));
 
+export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
+export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
+export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
 export { MaintenanceWindowArgs } from "./maintenanceWindow";
 export type MaintenanceWindow = import("./maintenanceWindow").MaintenanceWindow;
 export const MaintenanceWindow: typeof import("./maintenanceWindow").MaintenanceWindow = null as any;
@@ -85,6 +90,11 @@ export type ResourceDataSync = import("./resourceDataSync").ResourceDataSync;
 export const ResourceDataSync: typeof import("./resourceDataSync").ResourceDataSync = null as any;
 utilities.lazyLoad(exports, ["ResourceDataSync"], () => require("./resourceDataSync"));
 
+export { ResourcePolicyArgs } from "./resourcePolicy";
+export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
+export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
 
 // Export enums:
 export * from "../types/enums/ssm";
@@ -109,6 +119,8 @@ const _module = {
                 return new PatchBaseline(name, <any>undefined, { urn })
             case "aws-native:ssm:ResourceDataSync":
                 return new ResourceDataSync(name, <any>undefined, { urn })
+            case "aws-native:ssm:ResourcePolicy":
+                return new ResourcePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

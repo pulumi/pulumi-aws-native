@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -21,6 +22,7 @@ class ClusterArgs:
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -49,6 +51,7 @@ class ClusterArgs:
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
         :param pulumi.Input['ClusterEndpointArgs'] cluster_endpoint: The cluster endpoint.
         :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
+        :param pulumi.Input['ClusterDataTieringStatus'] data_tiering: Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         :param pulumi.Input[str] description: An optional description of the cluster.
         :param pulumi.Input[str] engine_version: The Redis engine version used by the cluster.
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -79,6 +82,8 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if data_tiering is not None:
+            pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine_version is not None:
@@ -179,6 +184,18 @@ class ClusterArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> Optional[pulumi.Input['ClusterDataTieringStatus']]:
+        """
+        Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+        """
+        return pulumi.get(self, "data_tiering")
+
+    @data_tiering.setter
+    def data_tiering(self, value: Optional[pulumi.Input['ClusterDataTieringStatus']]):
+        pulumi.set(self, "data_tiering", value)
 
     @property
     @pulumi.getter
@@ -420,6 +437,7 @@ class Cluster(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -452,6 +470,7 @@ class Cluster(pulumi.CustomResource):
                You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
         :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] cluster_endpoint: The cluster endpoint.
         :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
+        :param pulumi.Input['ClusterDataTieringStatus'] data_tiering: Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         :param pulumi.Input[str] description: An optional description of the cluster.
         :param pulumi.Input[str] engine_version: The Redis engine version used by the cluster.
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -503,6 +522,7 @@ class Cluster(pulumi.CustomResource):
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  cluster_endpoint: Optional[pulumi.Input[pulumi.InputType['ClusterEndpointArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
@@ -538,6 +558,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["data_tiering"] = data_tiering
             __props__.__dict__["description"] = description
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
@@ -590,6 +611,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["cluster_endpoint"] = None
         __props__.__dict__["cluster_name"] = None
+        __props__.__dict__["data_tiering"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["final_snapshot_name"] = None
@@ -655,6 +677,14 @@ class Cluster(pulumi.CustomResource):
         The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter(name="dataTiering")
+    def data_tiering(self) -> pulumi.Output[Optional['ClusterDataTieringStatus']]:
+        """
+        Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
+        """
+        return pulumi.get(self, "data_tiering")
 
     @property
     @pulumi.getter

@@ -26,6 +26,7 @@ export interface GetDirectoryConfigArgs {
 }
 
 export interface GetDirectoryConfigResult {
+    readonly certificateBasedAuthProperties?: outputs.appstream.DirectoryConfigCertificateBasedAuthProperties;
     readonly organizationalUnitDistinguishedNames?: string[];
     readonly serviceAccountCredentials?: outputs.appstream.DirectoryConfigServiceAccountCredentials;
 }

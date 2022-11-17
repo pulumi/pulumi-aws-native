@@ -76,12 +76,15 @@ __all__ = [
     'PolicyStatusProperties',
     'StorageLensAccountLevel',
     'StorageLensActivityMetrics',
+    'StorageLensAdvancedCostOptimizationMetrics',
+    'StorageLensAdvancedDataProtectionMetrics',
     'StorageLensAwsOrg',
     'StorageLensBucketLevel',
     'StorageLensBucketsAndRegions',
     'StorageLensCloudWatchMetrics',
     'StorageLensConfiguration',
     'StorageLensDataExport',
+    'StorageLensDetailedStatusCodesMetrics',
     'StorageLensEncryption',
     'StorageLensPrefixLevel',
     'StorageLensPrefixLevelStorageMetrics',
@@ -3145,6 +3148,12 @@ class StorageLensAccountLevel(dict):
             suggest = "bucket_level"
         elif key == "activityMetrics":
             suggest = "activity_metrics"
+        elif key == "advancedCostOptimizationMetrics":
+            suggest = "advanced_cost_optimization_metrics"
+        elif key == "advancedDataProtectionMetrics":
+            suggest = "advanced_data_protection_metrics"
+        elif key == "detailedStatusCodesMetrics":
+            suggest = "detailed_status_codes_metrics"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StorageLensAccountLevel. Access the value via the '{suggest}' property getter instead.")
@@ -3159,13 +3168,22 @@ class StorageLensAccountLevel(dict):
 
     def __init__(__self__, *,
                  bucket_level: 'outputs.StorageLensBucketLevel',
-                 activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None):
+                 activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None,
+                 advanced_cost_optimization_metrics: Optional['outputs.StorageLensAdvancedCostOptimizationMetrics'] = None,
+                 advanced_data_protection_metrics: Optional['outputs.StorageLensAdvancedDataProtectionMetrics'] = None,
+                 detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None):
         """
         Account-level metrics configurations.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
+        if advanced_cost_optimization_metrics is not None:
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+        if advanced_data_protection_metrics is not None:
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if detailed_status_codes_metrics is not None:
+            pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
 
     @property
     @pulumi.getter(name="bucketLevel")
@@ -3176,6 +3194,21 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
         return pulumi.get(self, "activity_metrics")
+
+    @property
+    @pulumi.getter(name="advancedCostOptimizationMetrics")
+    def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensAdvancedCostOptimizationMetrics']:
+        return pulumi.get(self, "advanced_cost_optimization_metrics")
+
+    @property
+    @pulumi.getter(name="advancedDataProtectionMetrics")
+    def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensAdvancedDataProtectionMetrics']:
+        return pulumi.get(self, "advanced_data_protection_metrics")
+
+    @property
+    @pulumi.getter(name="detailedStatusCodesMetrics")
+    def detailed_status_codes_metrics(self) -> Optional['outputs.StorageLensDetailedStatusCodesMetrics']:
+        return pulumi.get(self, "detailed_status_codes_metrics")
 
 
 @pulumi.output_type
@@ -3219,6 +3252,86 @@ class StorageLensActivityMetrics(dict):
 
 
 @pulumi.output_type
+class StorageLensAdvancedCostOptimizationMetrics(dict):
+    """
+    Enables advanced cost optimization metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensAdvancedCostOptimizationMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensAdvancedCostOptimizationMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensAdvancedCostOptimizationMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: Optional[bool] = None):
+        """
+        Enables advanced cost optimization metrics.
+        :param bool is_enabled: Specifies whether advanced cost optimization metrics are enabled or disabled.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether advanced cost optimization metrics are enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+
+@pulumi.output_type
+class StorageLensAdvancedDataProtectionMetrics(dict):
+    """
+    Enables advanced data protection metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensAdvancedDataProtectionMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensAdvancedDataProtectionMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensAdvancedDataProtectionMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: Optional[bool] = None):
+        """
+        Enables advanced data protection metrics.
+        :param bool is_enabled: Specifies whether advanced data protection metrics are enabled or disabled.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether advanced data protection metrics are enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+
+@pulumi.output_type
 class StorageLensAwsOrg(dict):
     """
     The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
@@ -3246,6 +3359,12 @@ class StorageLensBucketLevel(dict):
         suggest = None
         if key == "activityMetrics":
             suggest = "activity_metrics"
+        elif key == "advancedCostOptimizationMetrics":
+            suggest = "advanced_cost_optimization_metrics"
+        elif key == "advancedDataProtectionMetrics":
+            suggest = "advanced_data_protection_metrics"
+        elif key == "detailedStatusCodesMetrics":
+            suggest = "detailed_status_codes_metrics"
         elif key == "prefixLevel":
             suggest = "prefix_level"
 
@@ -3262,12 +3381,21 @@ class StorageLensBucketLevel(dict):
 
     def __init__(__self__, *,
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None,
+                 advanced_cost_optimization_metrics: Optional['outputs.StorageLensAdvancedCostOptimizationMetrics'] = None,
+                 advanced_data_protection_metrics: Optional['outputs.StorageLensAdvancedDataProtectionMetrics'] = None,
+                 detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None,
                  prefix_level: Optional['outputs.StorageLensPrefixLevel'] = None):
         """
         Bucket-level metrics configurations.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
+        if advanced_cost_optimization_metrics is not None:
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+        if advanced_data_protection_metrics is not None:
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if detailed_status_codes_metrics is not None:
+            pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
         if prefix_level is not None:
             pulumi.set(__self__, "prefix_level", prefix_level)
 
@@ -3275,6 +3403,21 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
         return pulumi.get(self, "activity_metrics")
+
+    @property
+    @pulumi.getter(name="advancedCostOptimizationMetrics")
+    def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensAdvancedCostOptimizationMetrics']:
+        return pulumi.get(self, "advanced_cost_optimization_metrics")
+
+    @property
+    @pulumi.getter(name="advancedDataProtectionMetrics")
+    def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensAdvancedDataProtectionMetrics']:
+        return pulumi.get(self, "advanced_data_protection_metrics")
+
+    @property
+    @pulumi.getter(name="detailedStatusCodesMetrics")
+    def detailed_status_codes_metrics(self) -> Optional['outputs.StorageLensDetailedStatusCodesMetrics']:
+        return pulumi.get(self, "detailed_status_codes_metrics")
 
     @property
     @pulumi.getter(name="prefixLevel")
@@ -3497,6 +3640,46 @@ class StorageLensDataExport(dict):
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional['outputs.StorageLensS3BucketDestination']:
         return pulumi.get(self, "s3_bucket_destination")
+
+
+@pulumi.output_type
+class StorageLensDetailedStatusCodesMetrics(dict):
+    """
+    Enables detailed status codes metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensDetailedStatusCodesMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensDetailedStatusCodesMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensDetailedStatusCodesMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: Optional[bool] = None):
+        """
+        Enables detailed status codes metrics.
+        :param bool is_enabled: Specifies whether detailed status codes metrics are enabled or disabled.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether detailed status codes metrics are enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
 
 
 @pulumi.output_type

@@ -14,24 +14,35 @@ from ._enums import *
 __all__ = [
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentEc2ConfigurationObject',
+    'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentLaunchTemplateSpecification',
     'ComputeEnvironmentUpdatePolicy',
     'JobDefinitionAuthorizationConfig',
     'JobDefinitionContainerProperties',
     'JobDefinitionDevice',
     'JobDefinitionEfsVolumeConfiguration',
+    'JobDefinitionEksContainer',
+    'JobDefinitionEksContainerEnvironmentVariable',
+    'JobDefinitionEksContainerVolumeMount',
+    'JobDefinitionEksProperties',
+    'JobDefinitionEksVolume',
+    'JobDefinitionEmptyDir',
     'JobDefinitionEnvironment',
     'JobDefinitionEvaluateOnExit',
     'JobDefinitionFargatePlatformConfiguration',
+    'JobDefinitionHostPath',
     'JobDefinitionLinuxParameters',
     'JobDefinitionLogConfiguration',
     'JobDefinitionMountPoints',
     'JobDefinitionNetworkConfiguration',
     'JobDefinitionNodeProperties',
     'JobDefinitionNodeRangeProperty',
+    'JobDefinitionPodProperties',
     'JobDefinitionResourceRequirement',
+    'JobDefinitionResources',
     'JobDefinitionRetryStrategy',
     'JobDefinitionSecret',
+    'JobDefinitionSecurityContext',
     'JobDefinitionTimeout',
     'JobDefinitionTmpfs',
     'JobDefinitionUlimit',
@@ -248,6 +259,8 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
             suggest = "image_type"
         elif key == "imageIdOverride":
             suggest = "image_id_override"
+        elif key == "imageKubernetesVersion":
+            suggest = "image_kubernetes_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEc2ConfigurationObject. Access the value via the '{suggest}' property getter instead.")
@@ -262,10 +275,13 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
 
     def __init__(__self__, *,
                  image_type: str,
-                 image_id_override: Optional[str] = None):
+                 image_id_override: Optional[str] = None,
+                 image_kubernetes_version: Optional[str] = None):
         pulumi.set(__self__, "image_type", image_type)
         if image_id_override is not None:
             pulumi.set(__self__, "image_id_override", image_id_override)
+        if image_kubernetes_version is not None:
+            pulumi.set(__self__, "image_kubernetes_version", image_kubernetes_version)
 
     @property
     @pulumi.getter(name="imageType")
@@ -276,6 +292,49 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
     @pulumi.getter(name="imageIdOverride")
     def image_id_override(self) -> Optional[str]:
         return pulumi.get(self, "image_id_override")
+
+    @property
+    @pulumi.getter(name="imageKubernetesVersion")
+    def image_kubernetes_version(self) -> Optional[str]:
+        return pulumi.get(self, "image_kubernetes_version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentEksConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eksClusterArn":
+            suggest = "eks_cluster_arn"
+        elif key == "kubernetesNamespace":
+            suggest = "kubernetes_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEksConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentEksConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentEksConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 eks_cluster_arn: str,
+                 kubernetes_namespace: str):
+        pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
+        pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
+
+    @property
+    @pulumi.getter(name="eksClusterArn")
+    def eks_cluster_arn(self) -> str:
+        return pulumi.get(self, "eks_cluster_arn")
+
+    @property
+    @pulumi.getter(name="kubernetesNamespace")
+    def kubernetes_namespace(self) -> str:
+        return pulumi.get(self, "kubernetes_namespace")
 
 
 @pulumi.output_type
@@ -721,6 +780,294 @@ class JobDefinitionEfsVolumeConfiguration(dict):
 
 
 @pulumi.output_type
+class JobDefinitionEksContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imagePullPolicy":
+            suggest = "image_pull_policy"
+        elif key == "securityContext":
+            suggest = "security_context"
+        elif key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: str,
+                 args: Optional[Sequence[str]] = None,
+                 command: Optional[Sequence[str]] = None,
+                 env: Optional[Sequence['outputs.JobDefinitionEksContainerEnvironmentVariable']] = None,
+                 image_pull_policy: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resources: Optional['outputs.JobDefinitionResources'] = None,
+                 security_context: Optional['outputs.JobDefinitionSecurityContext'] = None,
+                 volume_mounts: Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']] = None):
+        pulumi.set(__self__, "image", image)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if env is not None:
+            pulumi.set(__self__, "env", env)
+        if image_pull_policy is not None:
+            pulumi.set(__self__, "image_pull_policy", image_pull_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter
+    def env(self) -> Optional[Sequence['outputs.JobDefinitionEksContainerEnvironmentVariable']]:
+        return pulumi.get(self, "env")
+
+    @property
+    @pulumi.getter(name="imagePullPolicy")
+    def image_pull_policy(self) -> Optional[str]:
+        return pulumi.get(self, "image_pull_policy")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.JobDefinitionResources']:
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.JobDefinitionSecurityContext']:
+        return pulumi.get(self, "security_context")
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']]:
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class JobDefinitionEksContainerEnvironmentVariable(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobDefinitionEksContainerVolumeMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksContainerVolumeMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksContainerVolumeMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksContainerVolumeMount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: Optional[str] = None,
+                 name: Optional[str] = None,
+                 read_only: Optional[bool] = None):
+        if mount_path is not None:
+            pulumi.set(__self__, "mount_path", mount_path)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> Optional[str]:
+        return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only")
+
+
+@pulumi.output_type
+class JobDefinitionEksProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "podProperties":
+            suggest = "pod_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None):
+        if pod_properties is not None:
+            pulumi.set(__self__, "pod_properties", pod_properties)
+
+    @property
+    @pulumi.getter(name="podProperties")
+    def pod_properties(self) -> Optional['outputs.JobDefinitionPodProperties']:
+        return pulumi.get(self, "pod_properties")
+
+
+@pulumi.output_type
+class JobDefinitionEksVolume(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emptyDir":
+            suggest = "empty_dir"
+        elif key == "hostPath":
+            suggest = "host_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEksVolume. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEksVolume.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEksVolume.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 empty_dir: Optional['outputs.JobDefinitionEmptyDir'] = None,
+                 host_path: Optional['outputs.JobDefinitionHostPath'] = None,
+                 secret: Optional['outputs.JobDefinitionSecret'] = None):
+        pulumi.set(__self__, "name", name)
+        if empty_dir is not None:
+            pulumi.set(__self__, "empty_dir", empty_dir)
+        if host_path is not None:
+            pulumi.set(__self__, "host_path", host_path)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="emptyDir")
+    def empty_dir(self) -> Optional['outputs.JobDefinitionEmptyDir']:
+        return pulumi.get(self, "empty_dir")
+
+    @property
+    @pulumi.getter(name="hostPath")
+    def host_path(self) -> Optional['outputs.JobDefinitionHostPath']:
+        return pulumi.get(self, "host_path")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional['outputs.JobDefinitionSecret']:
+        return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class JobDefinitionEmptyDir(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sizeLimit":
+            suggest = "size_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionEmptyDir. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionEmptyDir.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionEmptyDir.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 medium: Optional[str] = None,
+                 size_limit: Optional[str] = None):
+        if medium is not None:
+            pulumi.set(__self__, "medium", medium)
+        if size_limit is not None:
+            pulumi.set(__self__, "size_limit", size_limit)
+
+    @property
+    @pulumi.getter
+    def medium(self) -> Optional[str]:
+        return pulumi.get(self, "medium")
+
+    @property
+    @pulumi.getter(name="sizeLimit")
+    def size_limit(self) -> Optional[str]:
+        return pulumi.get(self, "size_limit")
+
+
+@pulumi.output_type
 class JobDefinitionEnvironment(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
@@ -826,6 +1173,19 @@ class JobDefinitionFargatePlatformConfiguration(dict):
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[str]:
         return pulumi.get(self, "platform_version")
+
+
+@pulumi.output_type
+class JobDefinitionHostPath(dict):
+    def __init__(__self__, *,
+                 path: Optional[str] = None):
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        return pulumi.get(self, "path")
 
 
 @pulumi.output_type
@@ -1114,6 +1474,72 @@ class JobDefinitionNodeRangeProperty(dict):
 
 
 @pulumi.output_type
+class JobDefinitionPodProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPolicy":
+            suggest = "dns_policy"
+        elif key == "hostNetwork":
+            suggest = "host_network"
+        elif key == "serviceAccountName":
+            suggest = "service_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionPodProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionPodProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionPodProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
+                 dns_policy: Optional[str] = None,
+                 host_network: Optional[bool] = None,
+                 service_account_name: Optional[str] = None,
+                 volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None):
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if dns_policy is not None:
+            pulumi.set(__self__, "dns_policy", dns_policy)
+        if host_network is not None:
+            pulumi.set(__self__, "host_network", host_network)
+        if service_account_name is not None:
+            pulumi.set(__self__, "service_account_name", service_account_name)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.JobDefinitionEksContainer']]:
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="dnsPolicy")
+    def dns_policy(self) -> Optional[str]:
+        return pulumi.get(self, "dns_policy")
+
+    @property
+    @pulumi.getter(name="hostNetwork")
+    def host_network(self) -> Optional[bool]:
+        return pulumi.get(self, "host_network")
+
+    @property
+    @pulumi.getter(name="serviceAccountName")
+    def service_account_name(self) -> Optional[str]:
+        return pulumi.get(self, "service_account_name")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksVolume']]:
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
 class JobDefinitionResourceRequirement(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
@@ -1132,6 +1558,27 @@ class JobDefinitionResourceRequirement(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobDefinitionResources(dict):
+    def __init__(__self__, *,
+                 limits: Optional[Any] = None,
+                 requests: Optional[Any] = None):
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
+
+    @property
+    @pulumi.getter
+    def limits(self) -> Optional[Any]:
+        return pulumi.get(self, "limits")
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[Any]:
+        return pulumi.get(self, "requests")
 
 
 @pulumi.output_type
@@ -1206,6 +1653,74 @@ class JobDefinitionSecret(dict):
     @pulumi.getter(name="valueFrom")
     def value_from(self) -> str:
         return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class JobDefinitionSecurityContext(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readOnlyRootFilesystem":
+            suggest = "read_only_root_filesystem"
+        elif key == "runAsGroup":
+            suggest = "run_as_group"
+        elif key == "runAsNonRoot":
+            suggest = "run_as_non_root"
+        elif key == "runAsUser":
+            suggest = "run_as_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDefinitionSecurityContext. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDefinitionSecurityContext.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDefinitionSecurityContext.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 privileged: Optional[bool] = None,
+                 read_only_root_filesystem: Optional[bool] = None,
+                 run_as_group: Optional[int] = None,
+                 run_as_non_root: Optional[bool] = None,
+                 run_as_user: Optional[int] = None):
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if read_only_root_filesystem is not None:
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_non_root is not None:
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        return pulumi.get(self, "privileged")
+
+    @property
+    @pulumi.getter(name="readOnlyRootFilesystem")
+    def read_only_root_filesystem(self) -> Optional[bool]:
+        return pulumi.get(self, "read_only_root_filesystem")
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[int]:
+        return pulumi.get(self, "run_as_group")
+
+    @property
+    @pulumi.getter(name="runAsNonRoot")
+    def run_as_non_root(self) -> Optional[bool]:
+        return pulumi.get(self, "run_as_non_root")
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[int]:
+        return pulumi.get(self, "run_as_user")
 
 
 @pulumi.output_type

@@ -18,6 +18,7 @@ type ComputeEnvironment struct {
 	ComputeEnvironmentArn     pulumi.StringOutput                         `pulumi:"computeEnvironmentArn"`
 	ComputeEnvironmentName    pulumi.StringPtrOutput                      `pulumi:"computeEnvironmentName"`
 	ComputeResources          ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
+	EksConfiguration          ComputeEnvironmentEksConfigurationPtrOutput `pulumi:"eksConfiguration"`
 	ReplaceComputeEnvironment pulumi.BoolPtrOutput                        `pulumi:"replaceComputeEnvironment"`
 	ServiceRole               pulumi.StringPtrOutput                      `pulumi:"serviceRole"`
 	State                     pulumi.StringPtrOutput                      `pulumi:"state"`
@@ -72,6 +73,7 @@ func (ComputeEnvironmentState) ElementType() reflect.Type {
 type computeEnvironmentArgs struct {
 	ComputeEnvironmentName    *string                             `pulumi:"computeEnvironmentName"`
 	ComputeResources          *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
+	EksConfiguration          *ComputeEnvironmentEksConfiguration `pulumi:"eksConfiguration"`
 	ReplaceComputeEnvironment *bool                               `pulumi:"replaceComputeEnvironment"`
 	ServiceRole               *string                             `pulumi:"serviceRole"`
 	State                     *string                             `pulumi:"state"`
@@ -86,6 +88,7 @@ type computeEnvironmentArgs struct {
 type ComputeEnvironmentArgs struct {
 	ComputeEnvironmentName    pulumi.StringPtrInput
 	ComputeResources          ComputeEnvironmentComputeResourcesPtrInput
+	EksConfiguration          ComputeEnvironmentEksConfigurationPtrInput
 	ReplaceComputeEnvironment pulumi.BoolPtrInput
 	ServiceRole               pulumi.StringPtrInput
 	State                     pulumi.StringPtrInput
@@ -143,6 +146,10 @@ func (o ComputeEnvironmentOutput) ComputeEnvironmentName() pulumi.StringPtrOutpu
 
 func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentComputeResourcesPtrOutput { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) EksConfiguration() ComputeEnvironmentEksConfigurationPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentEksConfigurationPtrOutput { return v.EksConfiguration }).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
 func (o ComputeEnvironmentOutput) ReplaceComputeEnvironment() pulumi.BoolPtrOutput {

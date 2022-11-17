@@ -10,16 +10,19 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ConfigurationSetDashboardOptionsArgs',
     'ConfigurationSetDeliveryOptionsArgs',
     'ConfigurationSetEventDestinationCloudWatchDestinationArgs',
     'ConfigurationSetEventDestinationDimensionConfigurationArgs',
     'ConfigurationSetEventDestinationEventDestinationArgs',
     'ConfigurationSetEventDestinationKinesisFirehoseDestinationArgs',
     'ConfigurationSetEventDestinationSnsDestinationArgs',
+    'ConfigurationSetGuardianOptionsArgs',
     'ConfigurationSetReputationOptionsArgs',
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetTrackingOptionsArgs',
+    'ConfigurationSetVdmOptionsArgs',
     'ContactListTagArgs',
     'ContactListTopicArgs',
     'EmailIdentityConfigurationSetAttributesArgs',
@@ -39,7 +42,32 @@ __all__ = [
     'ReceiptRuleStopActionArgs',
     'ReceiptRuleWorkmailActionArgs',
     'TemplateArgs',
+    'VdmAttributesDashboardAttributesArgs',
+    'VdmAttributesGuardianAttributesArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationSetDashboardOptionsArgs:
+    def __init__(__self__, *,
+                 engagement_metrics: pulumi.Input[str]):
+        """
+        Preferences regarding the Dashboard feature.
+        :param pulumi.Input[str] engagement_metrics: Whether emails sent with this configuration set have engagement tracking enabled.
+        """
+        pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> pulumi.Input[str]:
+        """
+        Whether emails sent with this configuration set have engagement tracking enabled.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+    @engagement_metrics.setter
+    def engagement_metrics(self, value: pulumi.Input[str]):
+        pulumi.set(self, "engagement_metrics", value)
+
 
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
@@ -318,6 +346,29 @@ class ConfigurationSetEventDestinationSnsDestinationArgs:
 
 
 @pulumi.input_type
+class ConfigurationSetGuardianOptionsArgs:
+    def __init__(__self__, *,
+                 optimized_shared_delivery: pulumi.Input[str]):
+        """
+        Preferences regarding the Guardian feature.
+        :param pulumi.Input[str] optimized_shared_delivery: Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+        """
+        pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> pulumi.Input[str]:
+        """
+        Whether emails sent with this configuration set have optimized delivery algorithm enabled.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+    @optimized_shared_delivery.setter
+    def optimized_shared_delivery(self, value: pulumi.Input[str]):
+        pulumi.set(self, "optimized_shared_delivery", value)
+
+
+@pulumi.input_type
 class ConfigurationSetReputationOptionsArgs:
     def __init__(__self__, *,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None):
@@ -407,6 +458,38 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
+
+
+@pulumi.input_type
+class ConfigurationSetVdmOptionsArgs:
+    def __init__(__self__, *,
+                 dashboard_options: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']] = None,
+                 guardian_options: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']] = None):
+        """
+        An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
+        """
+        if dashboard_options is not None:
+            pulumi.set(__self__, "dashboard_options", dashboard_options)
+        if guardian_options is not None:
+            pulumi.set(__self__, "guardian_options", guardian_options)
+
+    @property
+    @pulumi.getter(name="dashboardOptions")
+    def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']]:
+        return pulumi.get(self, "dashboard_options")
+
+    @dashboard_options.setter
+    def dashboard_options(self, value: Optional[pulumi.Input['ConfigurationSetDashboardOptionsArgs']]):
+        pulumi.set(self, "dashboard_options", value)
+
+    @property
+    @pulumi.getter(name="guardianOptions")
+    def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]:
+        return pulumi.get(self, "guardian_options")
+
+    @guardian_options.setter
+    def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetGuardianOptionsArgs']]):
+        pulumi.set(self, "guardian_options", value)
 
 
 @pulumi.input_type
@@ -1224,5 +1307,53 @@ class TemplateArgs:
     @text_part.setter
     def text_part(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_part", value)
+
+
+@pulumi.input_type
+class VdmAttributesDashboardAttributesArgs:
+    def __init__(__self__, *,
+                 engagement_metrics: Optional[pulumi.Input[str]] = None):
+        """
+        Preferences regarding the Dashboard feature.
+        :param pulumi.Input[str] engagement_metrics: Whether emails sent from this account have engagement tracking enabled.
+        """
+        if engagement_metrics is not None:
+            pulumi.set(__self__, "engagement_metrics", engagement_metrics)
+
+    @property
+    @pulumi.getter(name="engagementMetrics")
+    def engagement_metrics(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether emails sent from this account have engagement tracking enabled.
+        """
+        return pulumi.get(self, "engagement_metrics")
+
+    @engagement_metrics.setter
+    def engagement_metrics(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engagement_metrics", value)
+
+
+@pulumi.input_type
+class VdmAttributesGuardianAttributesArgs:
+    def __init__(__self__, *,
+                 optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
+        """
+        Preferences regarding the Guardian feature.
+        :param pulumi.Input[str] optimized_shared_delivery: Whether emails sent from this account have optimized delivery algorithm enabled.
+        """
+        if optimized_shared_delivery is not None:
+            pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
+
+    @property
+    @pulumi.getter(name="optimizedSharedDelivery")
+    def optimized_shared_delivery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether emails sent from this account have optimized delivery algorithm enabled.
+        """
+        return pulumi.get(self, "optimized_shared_delivery")
+
+    @optimized_shared_delivery.setter
+    def optimized_shared_delivery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "optimized_shared_delivery", value)
 
 

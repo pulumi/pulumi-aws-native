@@ -34,6 +34,7 @@ class ServiceArgs:
                  propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: Optional[pulumi.Input['ServiceConnectConfigurationArgs']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
@@ -75,6 +76,8 @@ class ServiceArgs:
             pulumi.set(__self__, "role", role)
         if scheduling_strategy is not None:
             pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
+        if service_connect_configuration is not None:
+            pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_registries is not None:
@@ -238,6 +241,15 @@ class ServiceArgs:
         pulumi.set(self, "scheduling_strategy", value)
 
     @property
+    @pulumi.getter(name="serviceConnectConfiguration")
+    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceConnectConfigurationArgs']]:
+        return pulumi.get(self, "service_connect_configuration")
+
+    @service_connect_configuration.setter
+    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceConnectConfigurationArgs']]):
+        pulumi.set(self, "service_connect_configuration", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "service_name")
@@ -296,6 +308,7 @@ class Service(pulumi.CustomResource):
                  propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceConnectConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -348,6 +361,7 @@ class Service(pulumi.CustomResource):
                  propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceConnectConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
@@ -378,6 +392,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["role"] = role
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
+            __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
@@ -425,6 +440,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["role"] = None
         __props__.__dict__["scheduling_strategy"] = None
         __props__.__dict__["service_arn"] = None
+        __props__.__dict__["service_connect_configuration"] = None
         __props__.__dict__["service_name"] = None
         __props__.__dict__["service_registries"] = None
         __props__.__dict__["tags"] = None
@@ -525,6 +541,11 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "service_arn")
+
+    @property
+    @pulumi.getter(name="serviceConnectConfiguration")
+    def service_connect_configuration(self) -> pulumi.Output[Optional['outputs.ServiceConnectConfiguration']]:
+        return pulumi.get(self, "service_connect_configuration")
 
     @property
     @pulumi.getter(name="serviceName")

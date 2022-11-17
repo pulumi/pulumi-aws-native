@@ -69,7 +69,6 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetBasePathMappingResult
     {
-        public readonly string? Id;
         /// <summary>
         /// The ID of the API.
         /// </summary>
@@ -81,13 +80,10 @@ namespace Pulumi.AwsNative.ApiGateway
 
         [OutputConstructor]
         private GetBasePathMappingResult(
-            string? id,
-
             string? restApiId,
 
             string? stage)
         {
-            Id = id;
             RestApiId = restApiId;
             Stage = stage;
         }

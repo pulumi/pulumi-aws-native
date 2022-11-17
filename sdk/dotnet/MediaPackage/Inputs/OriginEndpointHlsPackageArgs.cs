@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<Inputs.OriginEndpointHlsEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+        /// </summary>
+        [Input("includeDvbSubtitles")]
+        public Input<bool>? IncludeDvbSubtitles { get; set; }
+
+        /// <summary>
         /// When enabled, an I-Frame only stream will be included in the output.
         /// </summary>
         [Input("includeIframeOnlyStream")]

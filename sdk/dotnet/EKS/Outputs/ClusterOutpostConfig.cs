@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.EKS.Outputs
         /// </summary>
         public readonly string ControlPlaneInstanceType;
         /// <summary>
+        /// Specify the placement group of the control plane machines for your cluster.
+        /// </summary>
+        public readonly Outputs.ClusterControlPlanePlacement? ControlPlanePlacement;
+        /// <summary>
         /// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
         /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.EKS.Outputs
         private ClusterOutpostConfig(
             string controlPlaneInstanceType,
 
+            Outputs.ClusterControlPlanePlacement? controlPlanePlacement,
+
             ImmutableArray<string> outpostArns)
         {
             ControlPlaneInstanceType = controlPlaneInstanceType;
+            ControlPlanePlacement = controlPlanePlacement;
             OutpostArns = outpostArns;
         }
     }

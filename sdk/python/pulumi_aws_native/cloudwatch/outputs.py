@@ -32,25 +32,42 @@ __all__ = [
 
 @pulumi.output_type
 class AlarmDimension(dict):
+    """
+    Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+    """
     def __init__(__self__, *,
                  name: str,
                  value: str):
+        """
+        Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
+        :param str name: The name of the dimension.
+        :param str value: The value for the dimension.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the dimension.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the dimension.
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class AlarmMetric(dict):
+    """
+    The Metric property type represents a specific metric.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -72,6 +89,12 @@ class AlarmMetric(dict):
                  dimensions: Optional[Sequence['outputs.AlarmDimension']] = None,
                  metric_name: Optional[str] = None,
                  namespace: Optional[str] = None):
+        """
+        The Metric property type represents a specific metric.
+        :param Sequence['AlarmDimension'] dimensions: The dimensions for the metric.
+        :param str metric_name: The name of the metric.
+        :param str namespace: The namespace of the metric.
+        """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if metric_name is not None:
@@ -82,21 +105,33 @@ class AlarmMetric(dict):
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.AlarmDimension']]:
+        """
+        The dimensions for the metric.
+        """
         return pulumi.get(self, "dimensions")
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> Optional[str]:
+        """
+        The name of the metric.
+        """
         return pulumi.get(self, "metric_name")
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[str]:
+        """
+        The namespace of the metric.
+        """
         return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type
 class AlarmMetricDataQuery(dict):
+    """
+    This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -126,6 +161,16 @@ class AlarmMetricDataQuery(dict):
                  metric_stat: Optional['outputs.AlarmMetricStat'] = None,
                  period: Optional[int] = None,
                  return_data: Optional[bool] = None):
+        """
+        This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
+        :param str id: A short name used to tie this object to the results in the response.
+        :param str account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
+        :param str expression: The math expression to be performed on the returned data.
+        :param str label: A human-readable label for this metric or expression.
+        :param 'AlarmMetricStat' metric_stat: The metric to be returned, along with statistics, period, and units.
+        :param int period: The period in seconds, over which the statistic is applied.
+        :param bool return_data: This option indicates whether to return the timestamps and raw data values of this metric.
+        """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -143,46 +188,77 @@ class AlarmMetricDataQuery(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        A short name used to tie this object to the results in the response.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
+        """
+        The ID of the account where the metrics are located, if this is a cross-account alarm.
+        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
+        """
+        The math expression to be performed on the returned data.
+        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def label(self) -> Optional[str]:
+        """
+        A human-readable label for this metric or expression.
+        """
         return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional['outputs.AlarmMetricStat']:
+        """
+        The metric to be returned, along with statistics, period, and units.
+        """
         return pulumi.get(self, "metric_stat")
 
     @property
     @pulumi.getter
     def period(self) -> Optional[int]:
+        """
+        The period in seconds, over which the statistic is applied.
+        """
         return pulumi.get(self, "period")
 
     @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
+        """
+        This option indicates whether to return the timestamps and raw data values of this metric.
+        """
         return pulumi.get(self, "return_data")
 
 
 @pulumi.output_type
 class AlarmMetricStat(dict):
+    """
+    This structure defines the metric to be returned, along with the statistics, period, and units.
+    """
     def __init__(__self__, *,
                  metric: 'outputs.AlarmMetric',
                  period: int,
                  stat: str,
                  unit: Optional[str] = None):
+        """
+        This structure defines the metric to be returned, along with the statistics, period, and units.
+        :param 'AlarmMetric' metric: The metric to return, including the metric name, namespace, and dimensions.
+        :param int period: The granularity, in seconds, of the returned data points.
+        :param str stat: The statistic to return.
+        :param str unit: The unit to use for the returned data points.
+        """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "stat", stat)
@@ -192,21 +268,33 @@ class AlarmMetricStat(dict):
     @property
     @pulumi.getter
     def metric(self) -> 'outputs.AlarmMetric':
+        """
+        The metric to return, including the metric name, namespace, and dimensions.
+        """
         return pulumi.get(self, "metric")
 
     @property
     @pulumi.getter
     def period(self) -> int:
+        """
+        The granularity, in seconds, of the returned data points.
+        """
         return pulumi.get(self, "period")
 
     @property
     @pulumi.getter
     def stat(self) -> str:
+        """
+        The statistic to return.
+        """
         return pulumi.get(self, "stat")
 
     @property
     @pulumi.getter
     def unit(self) -> Optional[str]:
+        """
+        The unit to use for the returned data points.
+        """
         return pulumi.get(self, "unit")
 
 

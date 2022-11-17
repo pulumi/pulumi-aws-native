@@ -28,6 +28,10 @@ type LookupLocalGatewayRouteArgs struct {
 }
 
 type LookupLocalGatewayRouteResult struct {
+	// The ID of the virtual interface group.
+	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The state of the route.
 	State *string `pulumi:"state"`
 	// The route type.
@@ -70,6 +74,16 @@ func (o LookupLocalGatewayRouteResultOutput) ToLookupLocalGatewayRouteResultOutp
 
 func (o LookupLocalGatewayRouteResultOutput) ToLookupLocalGatewayRouteResultOutputWithContext(ctx context.Context) LookupLocalGatewayRouteResultOutput {
 	return o
+}
+
+// The ID of the virtual interface group.
+func (o LookupLocalGatewayRouteResultOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteResult) *string { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the network interface.
+func (o LookupLocalGatewayRouteResultOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteResult) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The state of the route.

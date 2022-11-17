@@ -29,6 +29,7 @@ class AppArgs:
                  i_am_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['AppPlatform']] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None):
         """
@@ -58,6 +59,8 @@ class AppArgs:
             pulumi.set(__self__, "name", name)
         if oauth_token is not None:
             pulumi.set(__self__, "oauth_token", oauth_token)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if tags is not None:
@@ -173,6 +176,15 @@ class AppArgs:
 
     @property
     @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['AppPlatform']]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['AppPlatform']]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "repository")
 
@@ -207,6 +219,7 @@ class App(pulumi.CustomResource):
                  i_am_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['AppPlatform']] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  __props__=None):
@@ -252,6 +265,7 @@ class App(pulumi.CustomResource):
                  i_am_service_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  oauth_token: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['AppPlatform']] = None,
                  repository: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
                  __props__=None):
@@ -275,6 +289,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["i_am_service_role"] = i_am_service_role
             __props__.__dict__["name"] = name
             __props__.__dict__["oauth_token"] = oauth_token
+            __props__.__dict__["platform"] = platform
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_id"] = None
@@ -319,6 +334,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["i_am_service_role"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["oauth_token"] = None
+        __props__.__dict__["platform"] = None
         __props__.__dict__["repository"] = None
         __props__.__dict__["tags"] = None
         return App(resource_name, opts=opts, __props__=__props__)
@@ -402,6 +418,11 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="oauthToken")
     def oauth_token(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "oauth_token")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> pulumi.Output[Optional['AppPlatform']]:
+        return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter

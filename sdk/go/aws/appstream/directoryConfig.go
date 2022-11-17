@@ -15,9 +15,10 @@ import (
 type DirectoryConfig struct {
 	pulumi.CustomResourceState
 
-	DirectoryName                        pulumi.StringOutput                            `pulumi:"directoryName"`
-	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput                       `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrOutput `pulumi:"certificateBasedAuthProperties"`
+	DirectoryName                        pulumi.StringOutput                                    `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput                               `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsOutput         `pulumi:"serviceAccountCredentials"`
 }
 
 // NewDirectoryConfig registers a new resource with the given unique name, arguments, and options.
@@ -68,13 +69,15 @@ func (DirectoryConfigState) ElementType() reflect.Type {
 }
 
 type directoryConfigArgs struct {
-	DirectoryName                        string                                   `pulumi:"directoryName"`
-	OrganizationalUnitDistinguishedNames []string                                 `pulumi:"organizationalUnitDistinguishedNames"`
-	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
+	CertificateBasedAuthProperties       *DirectoryConfigCertificateBasedAuthProperties `pulumi:"certificateBasedAuthProperties"`
+	DirectoryName                        string                                         `pulumi:"directoryName"`
+	OrganizationalUnitDistinguishedNames []string                                       `pulumi:"organizationalUnitDistinguishedNames"`
+	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentials       `pulumi:"serviceAccountCredentials"`
 }
 
 // The set of arguments for constructing a DirectoryConfig resource.
 type DirectoryConfigArgs struct {
+	CertificateBasedAuthProperties       DirectoryConfigCertificateBasedAuthPropertiesPtrInput
 	DirectoryName                        pulumi.StringInput
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
 	ServiceAccountCredentials            DirectoryConfigServiceAccountCredentialsInput
@@ -115,6 +118,12 @@ func (o DirectoryConfigOutput) ToDirectoryConfigOutput() DirectoryConfigOutput {
 
 func (o DirectoryConfigOutput) ToDirectoryConfigOutputWithContext(ctx context.Context) DirectoryConfigOutput {
 	return o
+}
+
+func (o DirectoryConfigOutput) CertificateBasedAuthProperties() DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigCertificateBasedAuthPropertiesPtrOutput {
+		return v.CertificateBasedAuthProperties
+	}).(DirectoryConfigCertificateBasedAuthPropertiesPtrOutput)
 }
 
 func (o DirectoryConfigOutput) DirectoryName() pulumi.StringOutput {

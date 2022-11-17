@@ -269,6 +269,9 @@
         },
         "HostResourceGroupArn" : {
           "type" : "string"
+        },
+        "GroupId" : {
+          "type" : "string"
         }
       }
     },
@@ -576,6 +579,18 @@
         }
       }
     },
+    "NetworkBandwidthGbps" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "number"
+        },
+        "Min" : {
+          "type" : "number"
+        }
+      }
+    },
     "AcceleratorCount" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -672,6 +687,13 @@
             "type" : "string"
           }
         },
+        "AllowedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "LocalStorage" : {
           "type" : "string"
         },
@@ -684,6 +706,9 @@
         },
         "AcceleratorCount" : {
           "$ref" : "#/definitions/AcceleratorCount"
+        },
+        "NetworkBandwidthGbps" : {
+          "$ref" : "#/definitions/NetworkBandwidthGbps"
         },
         "BareMetal" : {
           "type" : "string"

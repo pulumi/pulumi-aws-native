@@ -70,6 +70,11 @@ export const getTemplate: typeof import("./getTemplate").getTemplate = null as a
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
 
+export { GetVdmAttributesArgs, GetVdmAttributesResult, GetVdmAttributesOutputArgs } from "./getVdmAttributes";
+export const getVdmAttributes: typeof import("./getVdmAttributes").getVdmAttributes = null as any;
+export const getVdmAttributesOutput: typeof import("./getVdmAttributes").getVdmAttributesOutput = null as any;
+utilities.lazyLoad(exports, ["getVdmAttributes","getVdmAttributesOutput"], () => require("./getVdmAttributes"));
+
 export { ReceiptFilterArgs } from "./receiptFilter";
 export type ReceiptFilter = import("./receiptFilter").ReceiptFilter;
 export const ReceiptFilter: typeof import("./receiptFilter").ReceiptFilter = null as any;
@@ -89,6 +94,11 @@ export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
 utilities.lazyLoad(exports, ["Template"], () => require("./template"));
+
+export { VdmAttributesArgs } from "./vdmAttributes";
+export type VdmAttributes = import("./vdmAttributes").VdmAttributes;
+export const VdmAttributes: typeof import("./vdmAttributes").VdmAttributes = null as any;
+utilities.lazyLoad(exports, ["VdmAttributes"], () => require("./vdmAttributes"));
 
 
 const _module = {
@@ -113,6 +123,8 @@ const _module = {
                 return new ReceiptRuleSet(name, <any>undefined, { urn })
             case "aws-native:ses:Template":
                 return new Template(name, <any>undefined, { urn })
+            case "aws-native:ses:VdmAttributes":
+                return new VdmAttributes(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetAppResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppResult:
-    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, i_am_service_role=None, name=None, repository=None, tags=None):
+    def __init__(__self__, app_id=None, app_name=None, arn=None, build_spec=None, custom_headers=None, custom_rules=None, default_domain=None, description=None, enable_branch_auto_deletion=None, environment_variables=None, i_am_service_role=None, name=None, platform=None, repository=None, tags=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -56,6 +57,9 @@ class GetAppResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if platform and not isinstance(platform, str):
+            raise TypeError("Expected argument 'platform' to be a str")
+        pulumi.set(__self__, "platform", platform)
         if repository and not isinstance(repository, str):
             raise TypeError("Expected argument 'repository' to be a str")
         pulumi.set(__self__, "repository", repository)
@@ -125,6 +129,11 @@ class GetAppResult:
 
     @property
     @pulumi.getter
+    def platform(self) -> Optional['AppPlatform']:
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[str]:
         return pulumi.get(self, "repository")
 
@@ -152,6 +161,7 @@ class AwaitableGetAppResult(GetAppResult):
             environment_variables=self.environment_variables,
             i_am_service_role=self.i_am_service_role,
             name=self.name,
+            platform=self.platform,
             repository=self.repository,
             tags=self.tags)
 
@@ -179,6 +189,7 @@ def get_app(arn: Optional[str] = None,
         environment_variables=__ret__.environment_variables,
         i_am_service_role=__ret__.i_am_service_role,
         name=__ret__.name,
+        platform=__ret__.platform,
         repository=__ret__.repository,
         tags=__ret__.tags)
 

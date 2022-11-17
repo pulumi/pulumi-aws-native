@@ -33,6 +33,7 @@ export interface GetBranchResult {
     readonly enablePerformanceMode?: boolean;
     readonly enablePullRequestPreview?: boolean;
     readonly environmentVariables?: outputs.amplify.BranchEnvironmentVariable[];
+    readonly framework?: string;
     readonly pullRequestEnvironmentName?: string;
     readonly stage?: enums.amplify.BranchStage;
     readonly tags?: outputs.amplify.BranchTag[];

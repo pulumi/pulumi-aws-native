@@ -34,10 +34,16 @@ namespace Pulumi.AwsNative.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS account ID associated with the S3 bucket associated with this access point.
+        /// </summary>
+        [Output("bucketAccountId")]
+        public Output<string?> BucketAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
@@ -116,6 +122,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID associated with the S3 bucket associated with this access point.
+        /// </summary>
+        [Input("bucketAccountId")]
+        public Input<string>? BucketAccountId { get; set; }
 
         /// <summary>
         /// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.

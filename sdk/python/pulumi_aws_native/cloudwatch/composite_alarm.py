@@ -14,7 +14,6 @@ __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
 @pulumi.input_type
 class CompositeAlarmArgs:
     def __init__(__self__, *,
-                 alarm_name: pulumi.Input[str],
                  alarm_rule: pulumi.Input[str],
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
                  actions_suppressor: Optional[pulumi.Input[str]] = None,
@@ -22,11 +21,11 @@ class CompositeAlarmArgs:
                  actions_suppressor_wait_period: Optional[pulumi.Input[int]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  alarm_description: Optional[pulumi.Input[str]] = None,
+                 alarm_name: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
-        :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
         :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         :param pulumi.Input[str] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
@@ -34,10 +33,10 @@ class CompositeAlarmArgs:
         :param pulumi.Input[int] actions_suppressor_wait_period: Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] alarm_description: The description of the alarm
+        :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
-        pulumi.set(__self__, "alarm_name", alarm_name)
         pulumi.set(__self__, "alarm_rule", alarm_rule)
         if actions_enabled is not None:
             pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -51,22 +50,12 @@ class CompositeAlarmArgs:
             pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
             pulumi.set(__self__, "alarm_description", alarm_description)
+        if alarm_name is not None:
+            pulumi.set(__self__, "alarm_name", alarm_name)
         if insufficient_data_actions is not None:
             pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
         if o_k_actions is not None:
             pulumi.set(__self__, "o_k_actions", o_k_actions)
-
-    @property
-    @pulumi.getter(name="alarmName")
-    def alarm_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Composite Alarm
-        """
-        return pulumi.get(self, "alarm_name")
-
-    @alarm_name.setter
-    def alarm_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alarm_name", value)
 
     @property
     @pulumi.getter(name="alarmRule")
@@ -151,6 +140,18 @@ class CompositeAlarmArgs:
     @alarm_description.setter
     def alarm_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alarm_description", value)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Composite Alarm
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alarm_name", value)
 
     @property
     @pulumi.getter(name="insufficientDataActions")
@@ -258,8 +259,6 @@ class CompositeAlarm(pulumi.CustomResource):
             __props__.__dict__["actions_suppressor_wait_period"] = actions_suppressor_wait_period
             __props__.__dict__["alarm_actions"] = alarm_actions
             __props__.__dict__["alarm_description"] = alarm_description
-            if alarm_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alarm_name'")
             __props__.__dict__["alarm_name"] = alarm_name
             if alarm_rule is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_rule'")
@@ -352,7 +351,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alarmName")
-    def alarm_name(self) -> pulumi.Output[str]:
+    def alarm_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the Composite Alarm
         """

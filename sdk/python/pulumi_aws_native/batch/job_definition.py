@@ -18,6 +18,7 @@ class JobDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  container_properties: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
+                 eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']] = None,
                  parameters: Optional[Any] = None,
@@ -33,6 +34,8 @@ class JobDefinitionArgs:
         pulumi.set(__self__, "type", type)
         if container_properties is not None:
             pulumi.set(__self__, "container_properties", container_properties)
+        if eks_properties is not None:
+            pulumi.set(__self__, "eks_properties", eks_properties)
         if job_definition_name is not None:
             pulumi.set(__self__, "job_definition_name", job_definition_name)
         if node_properties is not None:
@@ -69,6 +72,15 @@ class JobDefinitionArgs:
     @container_properties.setter
     def container_properties(self, value: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]):
         pulumi.set(self, "container_properties", value)
+
+    @property
+    @pulumi.getter(name="eksProperties")
+    def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
+        return pulumi.get(self, "eks_properties")
+
+    @eks_properties.setter
+    def eks_properties(self, value: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]):
+        pulumi.set(self, "eks_properties", value)
 
     @property
     @pulumi.getter(name="jobDefinitionName")
@@ -163,6 +175,7 @@ class JobDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionContainerPropertiesArgs']]] = None,
+                 eks_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionNodePropertiesArgs']]] = None,
                  parameters: Optional[Any] = None,
@@ -205,6 +218,7 @@ class JobDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionContainerPropertiesArgs']]] = None,
+                 eks_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionEksPropertiesArgs']]] = None,
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  node_properties: Optional[pulumi.Input[pulumi.InputType['JobDefinitionNodePropertiesArgs']]] = None,
                  parameters: Optional[Any] = None,
@@ -226,6 +240,7 @@ class JobDefinition(pulumi.CustomResource):
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
             __props__.__dict__["container_properties"] = container_properties
+            __props__.__dict__["eks_properties"] = eks_properties
             __props__.__dict__["job_definition_name"] = job_definition_name
             __props__.__dict__["node_properties"] = node_properties
             __props__.__dict__["parameters"] = parameters
@@ -261,6 +276,7 @@ class JobDefinition(pulumi.CustomResource):
         __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
         __props__.__dict__["container_properties"] = None
+        __props__.__dict__["eks_properties"] = None
         __props__.__dict__["job_definition_name"] = None
         __props__.__dict__["node_properties"] = None
         __props__.__dict__["parameters"] = None
@@ -277,6 +293,11 @@ class JobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="containerProperties")
     def container_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionContainerProperties']]:
         return pulumi.get(self, "container_properties")
+
+    @property
+    @pulumi.getter(name="eksProperties")
+    def eks_properties(self) -> pulumi.Output[Optional['outputs.JobDefinitionEksProperties']]:
+        return pulumi.get(self, "eks_properties")
 
     @property
     @pulumi.getter(name="jobDefinitionName")

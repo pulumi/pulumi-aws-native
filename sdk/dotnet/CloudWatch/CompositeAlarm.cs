@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The name of the Composite Alarm
         /// </summary>
         [Output("alarmName")]
-        public Output<string> AlarmName { get; private set; } = null!;
+        public Output<string?> AlarmName { get; private set; } = null!;
 
         /// <summary>
         /// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
@@ -171,8 +171,8 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The name of the Composite Alarm
         /// </summary>
-        [Input("alarmName", required: true)]
-        public Input<string> AlarmName { get; set; } = null!;
+        [Input("alarmName")]
+        public Input<string>? AlarmName { get; set; }
 
         /// <summary>
         /// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)

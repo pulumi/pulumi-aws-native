@@ -30,6 +30,18 @@ class EnvironmentArgs:
                  version_label: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
+        :param pulumi.Input[str] application_name: The name of the application that is associated with this environment.
+        :param pulumi.Input[str] c_name_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        :param pulumi.Input[str] description: Your description for this environment.
+        :param pulumi.Input[str] environment_name: A unique name for the environment.
+        :param pulumi.Input[str] operations_role: The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]] option_settings: Key-value pairs defining configuration options for this environment, such as the instance type.
+        :param pulumi.Input[str] platform_arn: The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        :param pulumi.Input[str] solution_stack_name: The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] tags: Specifies the tags applied to resources in the environment.
+        :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk configuration template to use with the environment.
+        :param pulumi.Input['EnvironmentTierArgs'] tier: Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        :param pulumi.Input[str] version_label: The name of the application version to deploy.
         """
         pulumi.set(__self__, "application_name", application_name)
         if c_name_prefix is not None:
@@ -58,6 +70,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
+        """
+        The name of the application that is associated with this environment.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -67,6 +82,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="cNAMEPrefix")
     def c_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        """
         return pulumi.get(self, "c_name_prefix")
 
     @c_name_prefix.setter
@@ -76,6 +94,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your description for this environment.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -85,6 +106,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique name for the environment.
+        """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
@@ -94,6 +118,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="operationsRole")
     def operations_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        """
         return pulumi.get(self, "operations_role")
 
     @operations_role.setter
@@ -103,6 +130,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]]:
+        """
+        Key-value pairs defining configuration options for this environment, such as the instance type.
+        """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
@@ -112,6 +142,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="platformArn")
     def platform_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        """
         return pulumi.get(self, "platform_arn")
 
     @platform_arn.setter
@@ -121,6 +154,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="solutionStackName")
     def solution_stack_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        """
         return pulumi.get(self, "solution_stack_name")
 
     @solution_stack_name.setter
@@ -130,6 +166,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]]:
+        """
+        Specifies the tags applied to resources in the environment.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -139,6 +178,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Elastic Beanstalk configuration template to use with the environment.
+        """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
@@ -148,6 +190,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input['EnvironmentTierArgs']]:
+        """
+        Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        """
         return pulumi.get(self, "tier")
 
     @tier.setter
@@ -157,6 +202,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="versionLabel")
     def version_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the application version to deploy.
+        """
         return pulumi.get(self, "version_label")
 
     @version_label.setter
@@ -164,12 +212,7 @@ class EnvironmentArgs:
         pulumi.set(self, "version_label", value)
 
 
-warnings.warn("""Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Environment(pulumi.CustomResource):
-    warnings.warn("""Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,6 +235,18 @@ class Environment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_name: The name of the application that is associated with this environment.
+        :param pulumi.Input[str] c_name_prefix: If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        :param pulumi.Input[str] description: Your description for this environment.
+        :param pulumi.Input[str] environment_name: A unique name for the environment.
+        :param pulumi.Input[str] operations_role: The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentOptionSettingArgs']]]] option_settings: Key-value pairs defining configuration options for this environment, such as the instance type.
+        :param pulumi.Input[str] platform_arn: The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        :param pulumi.Input[str] solution_stack_name: The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentTagArgs']]]] tags: Specifies the tags applied to resources in the environment.
+        :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk configuration template to use with the environment.
+        :param pulumi.Input[pulumi.InputType['EnvironmentTierArgs']] tier: Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        :param pulumi.Input[str] version_label: The name of the application version to deploy.
         """
         ...
     @overload
@@ -230,7 +285,6 @@ class Environment(pulumi.CustomResource):
                  tier: Optional[pulumi.Input[pulumi.InputType['EnvironmentTierArgs']]] = None,
                  version_label: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Environment is deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -294,16 +348,25 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
+        """
+        The name of the application that is associated with this environment.
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="cNAMEPrefix")
     def c_name_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+        """
         return pulumi.get(self, "c_name_prefix")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Your description for this environment.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -314,45 +377,72 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="environmentName")
     def environment_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A unique name for the environment.
+        """
         return pulumi.get(self, "environment_name")
 
     @property
     @pulumi.getter(name="operationsRole")
     def operations_role(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        """
         return pulumi.get(self, "operations_role")
 
     @property
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentOptionSetting']]]:
+        """
+        Key-value pairs defining configuration options for this environment, such as the instance type.
+        """
         return pulumi.get(self, "option_settings")
 
     @property
     @pulumi.getter(name="platformArn")
     def platform_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        """
         return pulumi.get(self, "platform_arn")
 
     @property
     @pulumi.getter(name="solutionStackName")
     def solution_stack_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+        """
         return pulumi.get(self, "solution_stack_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentTag']]]:
+        """
+        Specifies the tags applied to resources in the environment.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Elastic Beanstalk configuration template to use with the environment.
+        """
         return pulumi.get(self, "template_name")
 
     @property
     @pulumi.getter
     def tier(self) -> pulumi.Output[Optional['outputs.EnvironmentTier']]:
+        """
+        Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        """
         return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter(name="versionLabel")
     def version_label(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the application version to deploy.
+        """
         return pulumi.get(self, "version_label")
 

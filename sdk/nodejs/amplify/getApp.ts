@@ -38,6 +38,7 @@ export interface GetAppResult {
     readonly environmentVariables?: outputs.amplify.AppEnvironmentVariable[];
     readonly iAMServiceRole?: string;
     readonly name?: string;
+    readonly platform?: enums.amplify.AppPlatform;
     readonly repository?: string;
     readonly tags?: outputs.amplify.AppTag[];
 }

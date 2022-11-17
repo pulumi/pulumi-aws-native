@@ -30,6 +30,7 @@ type App struct {
 	IAMServiceRole           pulumi.StringPtrOutput               `pulumi:"iAMServiceRole"`
 	Name                     pulumi.StringOutput                  `pulumi:"name"`
 	OauthToken               pulumi.StringPtrOutput               `pulumi:"oauthToken"`
+	Platform                 AppPlatformPtrOutput                 `pulumi:"platform"`
 	Repository               pulumi.StringPtrOutput               `pulumi:"repository"`
 	Tags                     AppTagArrayOutput                    `pulumi:"tags"`
 }
@@ -85,6 +86,7 @@ type appArgs struct {
 	IAMServiceRole           *string                      `pulumi:"iAMServiceRole"`
 	Name                     *string                      `pulumi:"name"`
 	OauthToken               *string                      `pulumi:"oauthToken"`
+	Platform                 *AppPlatform                 `pulumi:"platform"`
 	Repository               *string                      `pulumi:"repository"`
 	Tags                     []AppTag                     `pulumi:"tags"`
 }
@@ -103,6 +105,7 @@ type AppArgs struct {
 	IAMServiceRole           pulumi.StringPtrInput
 	Name                     pulumi.StringPtrInput
 	OauthToken               pulumi.StringPtrInput
+	Platform                 AppPlatformPtrInput
 	Repository               pulumi.StringPtrInput
 	Tags                     AppTagArrayInput
 }
@@ -206,6 +209,10 @@ func (o AppOutput) Name() pulumi.StringOutput {
 
 func (o AppOutput) OauthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.OauthToken }).(pulumi.StringPtrOutput)
+}
+
+func (o AppOutput) Platform() AppPlatformPtrOutput {
+	return o.ApplyT(func(v *App) AppPlatformPtrOutput { return v.Platform }).(AppPlatformPtrOutput)
 }
 
 func (o AppOutput) Repository() pulumi.StringPtrOutput {

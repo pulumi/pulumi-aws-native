@@ -346,6 +346,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the storage throughput for the DB instance.
+        /// </summary>
+        [Output("storageThroughput")]
+        public Output<int?> StorageThroughput { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage type to be associated with the DB instance.
         /// </summary>
         [Output("storageType")]
@@ -773,6 +779,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
+
+        /// <summary>
+        /// Specifies the storage throughput for the DB instance.
+        /// </summary>
+        [Input("storageThroughput")]
+        public Input<int>? StorageThroughput { get; set; }
 
         /// <summary>
         /// Specifies the storage type to be associated with the DB instance.

@@ -18,21 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetBasePathMappingResult:
-    def __init__(__self__, id=None, rest_api_id=None, stage=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, rest_api_id=None, stage=None):
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if stage and not isinstance(stage, str):
             raise TypeError("Expected argument 'stage' to be a str")
         pulumi.set(__self__, "stage", stage)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="restApiId")
@@ -57,7 +49,6 @@ class AwaitableGetBasePathMappingResult(GetBasePathMappingResult):
         if False:
             yield self
         return GetBasePathMappingResult(
-            id=self.id,
             rest_api_id=self.rest_api_id,
             stage=self.stage)
 
@@ -79,7 +70,6 @@ def get_base_path_mapping(base_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getBasePathMapping', __args__, opts=opts, typ=GetBasePathMappingResult).value
 
     return AwaitableGetBasePathMappingResult(
-        id=__ret__.id,
         rest_api_id=__ret__.rest_api_id,
         stage=__ret__.stage)
 

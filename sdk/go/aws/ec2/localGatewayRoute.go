@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,11 +15,13 @@ type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
 
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId pulumi.StringPtrOutput `pulumi:"localGatewayRouteTableId"`
 	// The ID of the virtual interface group.
-	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrOutput `pulumi:"networkInterfaceId"`
 	// The state of the route.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The route type.
@@ -31,18 +32,9 @@ type LocalGatewayRoute struct {
 func NewLocalGatewayRoute(ctx *pulumi.Context,
 	name string, args *LocalGatewayRouteArgs, opts ...pulumi.ResourceOption) (*LocalGatewayRoute, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &LocalGatewayRouteArgs{}
 	}
 
-	if args.DestinationCidrBlock == nil {
-		return nil, errors.New("invalid value for required argument 'DestinationCidrBlock'")
-	}
-	if args.LocalGatewayRouteTableId == nil {
-		return nil, errors.New("invalid value for required argument 'LocalGatewayRouteTableId'")
-	}
-	if args.LocalGatewayVirtualInterfaceGroupId == nil {
-		return nil, errors.New("invalid value for required argument 'LocalGatewayVirtualInterfaceGroupId'")
-	}
 	var resource LocalGatewayRoute
 	err := ctx.RegisterResource("aws-native:ec2:LocalGatewayRoute", name, args, &resource, opts...)
 	if err != nil {
@@ -76,21 +68,25 @@ func (LocalGatewayRouteState) ElementType() reflect.Type {
 
 type localGatewayRouteArgs struct {
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
+	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
+	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// The ID of the virtual interface group.
-	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// The ID of the network interface.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
 
 // The set of arguments for constructing a LocalGatewayRoute resource.
 type LocalGatewayRouteArgs struct {
 	// The CIDR block used for destination matches.
-	DestinationCidrBlock pulumi.StringInput
+	DestinationCidrBlock pulumi.StringPtrInput
 	// The ID of the local gateway route table.
-	LocalGatewayRouteTableId pulumi.StringInput
+	LocalGatewayRouteTableId pulumi.StringPtrInput
 	// The ID of the virtual interface group.
-	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
+	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrInput
+	// The ID of the network interface.
+	NetworkInterfaceId pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteArgs) ElementType() reflect.Type {
@@ -131,18 +127,23 @@ func (o LocalGatewayRouteOutput) ToLocalGatewayRouteOutputWithContext(ctx contex
 }
 
 // The CIDR block used for destination matches.
-func (o LocalGatewayRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
+func (o LocalGatewayRouteOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringPtrOutput { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the local gateway route table.
-func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringPtrOutput { return v.LocalGatewayRouteTableId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the virtual interface group.
-func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
+func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringPtrOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the network interface.
+func (o LocalGatewayRouteOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringPtrOutput { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
 }
 
 // The state of the route.

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Batch
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
+        [Output("eksConfiguration")]
+        public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
+
         [Output("replaceComputeEnvironment")]
         public Output<bool?> ReplaceComputeEnvironment { get; private set; } = null!;
 
@@ -98,6 +101,9 @@ namespace Pulumi.AwsNative.Batch
 
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
+
+        [Input("eksConfiguration")]
+        public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }
 
         [Input("replaceComputeEnvironment")]
         public Input<bool>? ReplaceComputeEnvironment { get; set; }

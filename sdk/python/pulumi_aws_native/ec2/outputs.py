@@ -106,6 +106,7 @@ __all__ = [
     'LaunchTemplateMemoryMiB',
     'LaunchTemplateMetadataOptions',
     'LaunchTemplateMonitoring',
+    'LaunchTemplateNetworkBandwidthGbps',
     'LaunchTemplateNetworkInterface',
     'LaunchTemplateNetworkInterfaceCount',
     'LaunchTemplatePlacement',
@@ -3768,6 +3769,8 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "accelerator_total_memory_mi_b"
         elif key == "acceleratorTypes":
             suggest = "accelerator_types"
+        elif key == "allowedInstanceTypes":
+            suggest = "allowed_instance_types"
         elif key == "bareMetal":
             suggest = "bare_metal"
         elif key == "baselineEbsBandwidthMbps":
@@ -3788,6 +3791,8 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "memory_gi_b_per_v_cpu"
         elif key == "memoryMiB":
             suggest = "memory_mi_b"
+        elif key == "networkBandwidthGbps":
+            suggest = "network_bandwidth_gbps"
         elif key == "networkInterfaceCount":
             suggest = "network_interface_count"
         elif key == "onDemandMaxPricePercentageOverLowestPrice":
@@ -3818,6 +3823,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  accelerator_names: Optional[Sequence[str]] = None,
                  accelerator_total_memory_mi_b: Optional['outputs.LaunchTemplateAcceleratorTotalMemoryMiB'] = None,
                  accelerator_types: Optional[Sequence[str]] = None,
+                 allowed_instance_types: Optional[Sequence[str]] = None,
                  bare_metal: Optional[str] = None,
                  baseline_ebs_bandwidth_mbps: Optional['outputs.LaunchTemplateBaselineEbsBandwidthMbps'] = None,
                  burstable_performance: Optional[str] = None,
@@ -3828,6 +3834,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  local_storage_types: Optional[Sequence[str]] = None,
                  memory_gi_b_per_v_cpu: Optional['outputs.LaunchTemplateMemoryGiBPerVCpu'] = None,
                  memory_mi_b: Optional['outputs.LaunchTemplateMemoryMiB'] = None,
+                 network_bandwidth_gbps: Optional['outputs.LaunchTemplateNetworkBandwidthGbps'] = None,
                  network_interface_count: Optional['outputs.LaunchTemplateNetworkInterfaceCount'] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
@@ -3844,6 +3851,8 @@ class LaunchTemplateInstanceRequirements(dict):
             pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -3864,6 +3873,8 @@ class LaunchTemplateInstanceRequirements(dict):
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
             pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -3901,6 +3912,11 @@ class LaunchTemplateInstanceRequirements(dict):
     @pulumi.getter(name="acceleratorTypes")
     def accelerator_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "accelerator_types")
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_instance_types")
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -3951,6 +3967,11 @@ class LaunchTemplateInstanceRequirements(dict):
     @pulumi.getter(name="memoryMiB")
     def memory_mi_b(self) -> Optional['outputs.LaunchTemplateMemoryMiB']:
         return pulumi.get(self, "memory_mi_b")
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional['outputs.LaunchTemplateNetworkBandwidthGbps']:
+        return pulumi.get(self, "network_bandwidth_gbps")
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -4259,6 +4280,27 @@ class LaunchTemplateMonitoring(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateNetworkBandwidthGbps(dict):
+    def __init__(__self__, *,
+                 max: Optional[float] = None,
+                 min: Optional[float] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[float]:
+        return pulumi.get(self, "max")
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[float]:
+        return pulumi.get(self, "min")
+
+
+@pulumi.output_type
 class LaunchTemplateNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4492,6 +4534,8 @@ class LaunchTemplatePlacement(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "groupId":
+            suggest = "group_id"
         elif key == "groupName":
             suggest = "group_name"
         elif key == "hostId":
@@ -4517,6 +4561,7 @@ class LaunchTemplatePlacement(dict):
     def __init__(__self__, *,
                  affinity: Optional[str] = None,
                  availability_zone: Optional[str] = None,
+                 group_id: Optional[str] = None,
                  group_name: Optional[str] = None,
                  host_id: Optional[str] = None,
                  host_resource_group_arn: Optional[str] = None,
@@ -4527,6 +4572,8 @@ class LaunchTemplatePlacement(dict):
             pulumi.set(__self__, "affinity", affinity)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if host_id is not None:
@@ -4549,6 +4596,11 @@ class LaunchTemplatePlacement(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="groupName")

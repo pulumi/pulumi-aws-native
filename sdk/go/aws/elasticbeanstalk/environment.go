@@ -12,24 +12,34 @@ import (
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::Environment
-//
-// Deprecated: Environment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	ApplicationName   pulumi.StringOutput                 `pulumi:"applicationName"`
-	CNAMEPrefix       pulumi.StringPtrOutput              `pulumi:"cNAMEPrefix"`
-	Description       pulumi.StringPtrOutput              `pulumi:"description"`
-	EndpointURL       pulumi.StringOutput                 `pulumi:"endpointURL"`
-	EnvironmentName   pulumi.StringPtrOutput              `pulumi:"environmentName"`
-	OperationsRole    pulumi.StringPtrOutput              `pulumi:"operationsRole"`
-	OptionSettings    EnvironmentOptionSettingArrayOutput `pulumi:"optionSettings"`
-	PlatformArn       pulumi.StringPtrOutput              `pulumi:"platformArn"`
-	SolutionStackName pulumi.StringPtrOutput              `pulumi:"solutionStackName"`
-	Tags              EnvironmentTagArrayOutput           `pulumi:"tags"`
-	TemplateName      pulumi.StringPtrOutput              `pulumi:"templateName"`
-	Tier              EnvironmentTierPtrOutput            `pulumi:"tier"`
-	VersionLabel      pulumi.StringPtrOutput              `pulumi:"versionLabel"`
+	// The name of the application that is associated with this environment.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+	CNAMEPrefix pulumi.StringPtrOutput `pulumi:"cNAMEPrefix"`
+	// Your description for this environment.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	EndpointURL pulumi.StringOutput    `pulumi:"endpointURL"`
+	// A unique name for the environment.
+	EnvironmentName pulumi.StringPtrOutput `pulumi:"environmentName"`
+	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+	OperationsRole pulumi.StringPtrOutput `pulumi:"operationsRole"`
+	// Key-value pairs defining configuration options for this environment, such as the instance type.
+	OptionSettings EnvironmentOptionSettingArrayOutput `pulumi:"optionSettings"`
+	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+	PlatformArn pulumi.StringPtrOutput `pulumi:"platformArn"`
+	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+	SolutionStackName pulumi.StringPtrOutput `pulumi:"solutionStackName"`
+	// Specifies the tags applied to resources in the environment.
+	Tags EnvironmentTagArrayOutput `pulumi:"tags"`
+	// The name of the Elastic Beanstalk configuration template to use with the environment.
+	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
+	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+	Tier EnvironmentTierPtrOutput `pulumi:"tier"`
+	// The name of the application version to deploy.
+	VersionLabel pulumi.StringPtrOutput `pulumi:"versionLabel"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -74,34 +84,58 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	ApplicationName   string                     `pulumi:"applicationName"`
-	CNAMEPrefix       *string                    `pulumi:"cNAMEPrefix"`
-	Description       *string                    `pulumi:"description"`
-	EnvironmentName   *string                    `pulumi:"environmentName"`
-	OperationsRole    *string                    `pulumi:"operationsRole"`
-	OptionSettings    []EnvironmentOptionSetting `pulumi:"optionSettings"`
-	PlatformArn       *string                    `pulumi:"platformArn"`
-	SolutionStackName *string                    `pulumi:"solutionStackName"`
-	Tags              []EnvironmentTag           `pulumi:"tags"`
-	TemplateName      *string                    `pulumi:"templateName"`
-	Tier              *EnvironmentTier           `pulumi:"tier"`
-	VersionLabel      *string                    `pulumi:"versionLabel"`
+	// The name of the application that is associated with this environment.
+	ApplicationName string `pulumi:"applicationName"`
+	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+	CNAMEPrefix *string `pulumi:"cNAMEPrefix"`
+	// Your description for this environment.
+	Description *string `pulumi:"description"`
+	// A unique name for the environment.
+	EnvironmentName *string `pulumi:"environmentName"`
+	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+	OperationsRole *string `pulumi:"operationsRole"`
+	// Key-value pairs defining configuration options for this environment, such as the instance type.
+	OptionSettings []EnvironmentOptionSetting `pulumi:"optionSettings"`
+	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+	PlatformArn *string `pulumi:"platformArn"`
+	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
+	SolutionStackName *string `pulumi:"solutionStackName"`
+	// Specifies the tags applied to resources in the environment.
+	Tags []EnvironmentTag `pulumi:"tags"`
+	// The name of the Elastic Beanstalk configuration template to use with the environment.
+	TemplateName *string `pulumi:"templateName"`
+	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+	Tier *EnvironmentTier `pulumi:"tier"`
+	// The name of the application version to deploy.
+	VersionLabel *string `pulumi:"versionLabel"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	ApplicationName   pulumi.StringInput
-	CNAMEPrefix       pulumi.StringPtrInput
-	Description       pulumi.StringPtrInput
-	EnvironmentName   pulumi.StringPtrInput
-	OperationsRole    pulumi.StringPtrInput
-	OptionSettings    EnvironmentOptionSettingArrayInput
-	PlatformArn       pulumi.StringPtrInput
+	// The name of the application that is associated with this environment.
+	ApplicationName pulumi.StringInput
+	// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
+	CNAMEPrefix pulumi.StringPtrInput
+	// Your description for this environment.
+	Description pulumi.StringPtrInput
+	// A unique name for the environment.
+	EnvironmentName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+	OperationsRole pulumi.StringPtrInput
+	// Key-value pairs defining configuration options for this environment, such as the instance type.
+	OptionSettings EnvironmentOptionSettingArrayInput
+	// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+	PlatformArn pulumi.StringPtrInput
+	// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 	SolutionStackName pulumi.StringPtrInput
-	Tags              EnvironmentTagArrayInput
-	TemplateName      pulumi.StringPtrInput
-	Tier              EnvironmentTierPtrInput
-	VersionLabel      pulumi.StringPtrInput
+	// Specifies the tags applied to resources in the environment.
+	Tags EnvironmentTagArrayInput
+	// The name of the Elastic Beanstalk configuration template to use with the environment.
+	TemplateName pulumi.StringPtrInput
+	// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+	Tier EnvironmentTierPtrInput
+	// The name of the application version to deploy.
+	VersionLabel pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {
@@ -141,14 +175,17 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The name of the application that is associated with this environment.
 func (o EnvironmentOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
+// If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
 func (o EnvironmentOutput) CNAMEPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.CNAMEPrefix }).(pulumi.StringPtrOutput)
 }
 
+// Your description for this environment.
 func (o EnvironmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -157,38 +194,47 @@ func (o EnvironmentOutput) EndpointURL() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointURL }).(pulumi.StringOutput)
 }
 
+// A unique name for the environment.
 func (o EnvironmentOutput) EnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
 func (o EnvironmentOutput) OperationsRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.OperationsRole }).(pulumi.StringPtrOutput)
 }
 
+// Key-value pairs defining configuration options for this environment, such as the instance type.
 func (o EnvironmentOutput) OptionSettings() EnvironmentOptionSettingArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentOptionSettingArrayOutput { return v.OptionSettings }).(EnvironmentOptionSettingArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
 func (o EnvironmentOutput) PlatformArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.PlatformArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
 func (o EnvironmentOutput) SolutionStackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.SolutionStackName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the tags applied to resources in the environment.
 func (o EnvironmentOutput) Tags() EnvironmentTagArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentTagArrayOutput { return v.Tags }).(EnvironmentTagArrayOutput)
 }
 
+// The name of the Elastic Beanstalk configuration template to use with the environment.
 func (o EnvironmentOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
 func (o EnvironmentOutput) Tier() EnvironmentTierPtrOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentTierPtrOutput { return v.Tier }).(EnvironmentTierPtrOutput)
 }
 
+// The name of the application version to deploy.
 func (o EnvironmentOutput) VersionLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.VersionLabel }).(pulumi.StringPtrOutput)
 }

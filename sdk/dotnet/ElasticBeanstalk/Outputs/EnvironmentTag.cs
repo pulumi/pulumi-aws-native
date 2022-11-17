@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class EnvironmentTag
     {
+        /// <summary>
+        /// The key name of the tag.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value for the tag.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

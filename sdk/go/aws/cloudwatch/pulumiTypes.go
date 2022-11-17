@@ -10,8 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
 type AlarmDimension struct {
-	Name  string `pulumi:"name"`
+	// The name of the dimension.
+	Name string `pulumi:"name"`
+	// The value for the dimension.
 	Value string `pulumi:"value"`
 }
 
@@ -26,8 +29,11 @@ type AlarmDimensionInput interface {
 	ToAlarmDimensionOutputWithContext(context.Context) AlarmDimensionOutput
 }
 
+// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
 type AlarmDimensionArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value for the dimension.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -68,6 +74,7 @@ func (i AlarmDimensionArray) ToAlarmDimensionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmDimensionArrayOutput)
 }
 
+// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
 type AlarmDimensionOutput struct{ *pulumi.OutputState }
 
 func (AlarmDimensionOutput) ElementType() reflect.Type {
@@ -82,10 +89,12 @@ func (o AlarmDimensionOutput) ToAlarmDimensionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The name of the dimension.
 func (o AlarmDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value for the dimension.
 func (o AlarmDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -110,10 +119,14 @@ func (o AlarmDimensionArrayOutput) Index(i pulumi.IntInput) AlarmDimensionOutput
 	}).(AlarmDimensionOutput)
 }
 
+// The Metric property type represents a specific metric.
 type AlarmMetric struct {
+	// The dimensions for the metric.
 	Dimensions []AlarmDimension `pulumi:"dimensions"`
-	MetricName *string          `pulumi:"metricName"`
-	Namespace  *string          `pulumi:"namespace"`
+	// The name of the metric.
+	MetricName *string `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace *string `pulumi:"namespace"`
 }
 
 // AlarmMetricInput is an input type that accepts AlarmMetricArgs and AlarmMetricOutput values.
@@ -127,10 +140,14 @@ type AlarmMetricInput interface {
 	ToAlarmMetricOutputWithContext(context.Context) AlarmMetricOutput
 }
 
+// The Metric property type represents a specific metric.
 type AlarmMetricArgs struct {
+	// The dimensions for the metric.
 	Dimensions AlarmDimensionArrayInput `pulumi:"dimensions"`
-	MetricName pulumi.StringPtrInput    `pulumi:"metricName"`
-	Namespace  pulumi.StringPtrInput    `pulumi:"namespace"`
+	// The name of the metric.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (AlarmMetricArgs) ElementType() reflect.Type {
@@ -186,6 +203,7 @@ func (i *alarmMetricPtrType) ToAlarmMetricPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricPtrOutput)
 }
 
+// The Metric property type represents a specific metric.
 type AlarmMetricOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricOutput) ElementType() reflect.Type {
@@ -210,14 +228,17 @@ func (o AlarmMetricOutput) ToAlarmMetricPtrOutputWithContext(ctx context.Context
 	}).(AlarmMetricPtrOutput)
 }
 
+// The dimensions for the metric.
 func (o AlarmMetricOutput) Dimensions() AlarmDimensionArrayOutput {
 	return o.ApplyT(func(v AlarmMetric) []AlarmDimension { return v.Dimensions }).(AlarmDimensionArrayOutput)
 }
 
+// The name of the metric.
 func (o AlarmMetricOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
+// The namespace of the metric.
 func (o AlarmMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -246,6 +267,7 @@ func (o AlarmMetricPtrOutput) Elem() AlarmMetricOutput {
 	}).(AlarmMetricOutput)
 }
 
+// The dimensions for the metric.
 func (o AlarmMetricPtrOutput) Dimensions() AlarmDimensionArrayOutput {
 	return o.ApplyT(func(v *AlarmMetric) []AlarmDimension {
 		if v == nil {
@@ -255,6 +277,7 @@ func (o AlarmMetricPtrOutput) Dimensions() AlarmDimensionArrayOutput {
 	}).(AlarmDimensionArrayOutput)
 }
 
+// The name of the metric.
 func (o AlarmMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetric) *string {
 		if v == nil {
@@ -264,6 +287,7 @@ func (o AlarmMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The namespace of the metric.
 func (o AlarmMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetric) *string {
 		if v == nil {
@@ -273,14 +297,22 @@ func (o AlarmMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
 type AlarmMetricDataQuery struct {
-	AccountId  *string          `pulumi:"accountId"`
-	Expression *string          `pulumi:"expression"`
-	Id         string           `pulumi:"id"`
-	Label      *string          `pulumi:"label"`
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
+	AccountId *string `pulumi:"accountId"`
+	// The math expression to be performed on the returned data.
+	Expression *string `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response.
+	Id string `pulumi:"id"`
+	// A human-readable label for this metric or expression.
+	Label *string `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units.
 	MetricStat *AlarmMetricStat `pulumi:"metricStat"`
-	Period     *int             `pulumi:"period"`
-	ReturnData *bool            `pulumi:"returnData"`
+	// The period in seconds, over which the statistic is applied.
+	Period *int `pulumi:"period"`
+	// This option indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData *bool `pulumi:"returnData"`
 }
 
 // AlarmMetricDataQueryInput is an input type that accepts AlarmMetricDataQueryArgs and AlarmMetricDataQueryOutput values.
@@ -294,14 +326,22 @@ type AlarmMetricDataQueryInput interface {
 	ToAlarmMetricDataQueryOutputWithContext(context.Context) AlarmMetricDataQueryOutput
 }
 
+// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
 type AlarmMetricDataQueryArgs struct {
-	AccountId  pulumi.StringPtrInput   `pulumi:"accountId"`
-	Expression pulumi.StringPtrInput   `pulumi:"expression"`
-	Id         pulumi.StringInput      `pulumi:"id"`
-	Label      pulumi.StringPtrInput   `pulumi:"label"`
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
+	// The math expression to be performed on the returned data.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A short name used to tie this object to the results in the response.
+	Id pulumi.StringInput `pulumi:"id"`
+	// A human-readable label for this metric or expression.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The metric to be returned, along with statistics, period, and units.
 	MetricStat AlarmMetricStatPtrInput `pulumi:"metricStat"`
-	Period     pulumi.IntPtrInput      `pulumi:"period"`
-	ReturnData pulumi.BoolPtrInput     `pulumi:"returnData"`
+	// The period in seconds, over which the statistic is applied.
+	Period pulumi.IntPtrInput `pulumi:"period"`
+	// This option indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
 }
 
 func (AlarmMetricDataQueryArgs) ElementType() reflect.Type {
@@ -341,6 +381,7 @@ func (i AlarmMetricDataQueryArray) ToAlarmMetricDataQueryArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricDataQueryArrayOutput)
 }
 
+// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
 type AlarmMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricDataQueryOutput) ElementType() reflect.Type {
@@ -355,30 +396,37 @@ func (o AlarmMetricDataQueryOutput) ToAlarmMetricDataQueryOutputWithContext(ctx 
 	return o
 }
 
+// The ID of the account where the metrics are located, if this is a cross-account alarm.
 func (o AlarmMetricDataQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
+// The math expression to be performed on the returned data.
 func (o AlarmMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
+// A short name used to tie this object to the results in the response.
 func (o AlarmMetricDataQueryOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A human-readable label for this metric or expression.
 func (o AlarmMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The metric to be returned, along with statistics, period, and units.
 func (o AlarmMetricDataQueryOutput) MetricStat() AlarmMetricStatPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *AlarmMetricStat { return v.MetricStat }).(AlarmMetricStatPtrOutput)
 }
 
+// The period in seconds, over which the statistic is applied.
 func (o AlarmMetricDataQueryOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *int { return v.Period }).(pulumi.IntPtrOutput)
 }
 
+// This option indicates whether to return the timestamps and raw data values of this metric.
 func (o AlarmMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlarmMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
 }
@@ -403,11 +451,16 @@ func (o AlarmMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AlarmMetricDat
 	}).(AlarmMetricDataQueryOutput)
 }
 
+// This structure defines the metric to be returned, along with the statistics, period, and units.
 type AlarmMetricStat struct {
+	// The metric to return, including the metric name, namespace, and dimensions.
 	Metric AlarmMetric `pulumi:"metric"`
-	Period int         `pulumi:"period"`
-	Stat   string      `pulumi:"stat"`
-	Unit   *string     `pulumi:"unit"`
+	// The granularity, in seconds, of the returned data points.
+	Period int `pulumi:"period"`
+	// The statistic to return.
+	Stat string `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit *string `pulumi:"unit"`
 }
 
 // AlarmMetricStatInput is an input type that accepts AlarmMetricStatArgs and AlarmMetricStatOutput values.
@@ -421,11 +474,16 @@ type AlarmMetricStatInput interface {
 	ToAlarmMetricStatOutputWithContext(context.Context) AlarmMetricStatOutput
 }
 
+// This structure defines the metric to be returned, along with the statistics, period, and units.
 type AlarmMetricStatArgs struct {
-	Metric AlarmMetricInput      `pulumi:"metric"`
-	Period pulumi.IntInput       `pulumi:"period"`
-	Stat   pulumi.StringInput    `pulumi:"stat"`
-	Unit   pulumi.StringPtrInput `pulumi:"unit"`
+	// The metric to return, including the metric name, namespace, and dimensions.
+	Metric AlarmMetricInput `pulumi:"metric"`
+	// The granularity, in seconds, of the returned data points.
+	Period pulumi.IntInput `pulumi:"period"`
+	// The statistic to return.
+	Stat pulumi.StringInput `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (AlarmMetricStatArgs) ElementType() reflect.Type {
@@ -481,6 +539,7 @@ func (i *alarmMetricStatPtrType) ToAlarmMetricStatPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricStatPtrOutput)
 }
 
+// This structure defines the metric to be returned, along with the statistics, period, and units.
 type AlarmMetricStatOutput struct{ *pulumi.OutputState }
 
 func (AlarmMetricStatOutput) ElementType() reflect.Type {
@@ -505,18 +564,22 @@ func (o AlarmMetricStatOutput) ToAlarmMetricStatPtrOutputWithContext(ctx context
 	}).(AlarmMetricStatPtrOutput)
 }
 
+// The metric to return, including the metric name, namespace, and dimensions.
 func (o AlarmMetricStatOutput) Metric() AlarmMetricOutput {
 	return o.ApplyT(func(v AlarmMetricStat) AlarmMetric { return v.Metric }).(AlarmMetricOutput)
 }
 
+// The granularity, in seconds, of the returned data points.
 func (o AlarmMetricStatOutput) Period() pulumi.IntOutput {
 	return o.ApplyT(func(v AlarmMetricStat) int { return v.Period }).(pulumi.IntOutput)
 }
 
+// The statistic to return.
 func (o AlarmMetricStatOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v AlarmMetricStat) string { return v.Stat }).(pulumi.StringOutput)
 }
 
+// The unit to use for the returned data points.
 func (o AlarmMetricStatOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlarmMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -545,6 +608,7 @@ func (o AlarmMetricStatPtrOutput) Elem() AlarmMetricStatOutput {
 	}).(AlarmMetricStatOutput)
 }
 
+// The metric to return, including the metric name, namespace, and dimensions.
 func (o AlarmMetricStatPtrOutput) Metric() AlarmMetricPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *AlarmMetric {
 		if v == nil {
@@ -554,6 +618,7 @@ func (o AlarmMetricStatPtrOutput) Metric() AlarmMetricPtrOutput {
 	}).(AlarmMetricPtrOutput)
 }
 
+// The granularity, in seconds, of the returned data points.
 func (o AlarmMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *int {
 		if v == nil {
@@ -563,6 +628,7 @@ func (o AlarmMetricStatPtrOutput) Period() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The statistic to return.
 func (o AlarmMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *string {
 		if v == nil {
@@ -572,6 +638,7 @@ func (o AlarmMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit to use for the returned data points.
 func (o AlarmMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlarmMetricStat) *string {
 		if v == nil {

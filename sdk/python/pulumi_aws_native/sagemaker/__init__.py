@@ -24,6 +24,7 @@ from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *
 from .get_endpoint_config import *
+from .get_feature_group import *
 from .get_image import *
 from .get_image_version import *
 from .get_model import *

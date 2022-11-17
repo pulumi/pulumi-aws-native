@@ -18,13 +18,16 @@ class DirectoryConfigArgs:
     def __init__(__self__, *,
                  directory_name: pulumi.Input[str],
                  organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']):
+                 service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
+                 certificate_based_auth_properties: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
         """
         pulumi.set(__self__, "directory_name", directory_name)
         pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+        if certificate_based_auth_properties is not None:
+            pulumi.set(__self__, "certificate_based_auth_properties", certificate_based_auth_properties)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -53,12 +56,22 @@ class DirectoryConfigArgs:
     def service_account_credentials(self, value: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']):
         pulumi.set(self, "service_account_credentials", value)
 
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]:
+        return pulumi.get(self, "certificate_based_auth_properties")
+
+    @certificate_based_auth_properties.setter
+    def certificate_based_auth_properties(self, value: Optional[pulumi.Input['DirectoryConfigCertificateBasedAuthPropertiesArgs']]):
+        pulumi.set(self, "certificate_based_auth_properties", value)
+
 
 class DirectoryConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigCertificateBasedAuthPropertiesArgs']]] = None,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None,
@@ -93,6 +106,7 @@ class DirectoryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_based_auth_properties: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigCertificateBasedAuthPropertiesArgs']]] = None,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None,
@@ -105,6 +119,7 @@ class DirectoryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DirectoryConfigArgs.__new__(DirectoryConfigArgs)
 
+            __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
             if directory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_name'")
             __props__.__dict__["directory_name"] = directory_name
@@ -136,10 +151,16 @@ class DirectoryConfig(pulumi.CustomResource):
 
         __props__ = DirectoryConfigArgs.__new__(DirectoryConfigArgs)
 
+        __props__.__dict__["certificate_based_auth_properties"] = None
         __props__.__dict__["directory_name"] = None
         __props__.__dict__["organizational_unit_distinguished_names"] = None
         __props__.__dict__["service_account_credentials"] = None
         return DirectoryConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="certificateBasedAuthProperties")
+    def certificate_based_auth_properties(self) -> pulumi.Output[Optional['outputs.DirectoryConfigCertificateBasedAuthProperties']]:
+        return pulumi.get(self, "certificate_based_auth_properties")
 
     @property
     @pulumi.getter(name="directoryName")

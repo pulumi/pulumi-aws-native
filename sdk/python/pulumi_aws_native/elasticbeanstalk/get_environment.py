@@ -19,31 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, description=None, endpoint_url=None, id=None, operations_role=None, option_settings=None, platform_arn=None, tags=None, template_name=None, tier=None, version_label=None):
+    def __init__(__self__, description=None, endpoint_url=None, operations_role=None, platform_arn=None, tags=None, tier=None, version_label=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if endpoint_url and not isinstance(endpoint_url, str):
             raise TypeError("Expected argument 'endpoint_url' to be a str")
         pulumi.set(__self__, "endpoint_url", endpoint_url)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if operations_role and not isinstance(operations_role, str):
             raise TypeError("Expected argument 'operations_role' to be a str")
         pulumi.set(__self__, "operations_role", operations_role)
-        if option_settings and not isinstance(option_settings, list):
-            raise TypeError("Expected argument 'option_settings' to be a list")
-        pulumi.set(__self__, "option_settings", option_settings)
         if platform_arn and not isinstance(platform_arn, str):
             raise TypeError("Expected argument 'platform_arn' to be a str")
         pulumi.set(__self__, "platform_arn", platform_arn)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if template_name and not isinstance(template_name, str):
-            raise TypeError("Expected argument 'template_name' to be a str")
-        pulumi.set(__self__, "template_name", template_name)
         if tier and not isinstance(tier, dict):
             raise TypeError("Expected argument 'tier' to be a dict")
         pulumi.set(__self__, "tier", tier)
@@ -54,6 +45,9 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Your description for this environment.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -62,43 +56,43 @@ class GetEnvironmentResult:
         return pulumi.get(self, "endpoint_url")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="operationsRole")
     def operations_role(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        """
         return pulumi.get(self, "operations_role")
-
-    @property
-    @pulumi.getter(name="optionSettings")
-    def option_settings(self) -> Optional[Sequence['outputs.EnvironmentOptionSetting']]:
-        return pulumi.get(self, "option_settings")
 
     @property
     @pulumi.getter(name="platformArn")
     def platform_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        """
         return pulumi.get(self, "platform_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.EnvironmentTag']]:
+        """
+        Specifies the tags applied to resources in the environment.
+        """
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[str]:
-        return pulumi.get(self, "template_name")
 
     @property
     @pulumi.getter
     def tier(self) -> Optional['outputs.EnvironmentTier']:
+        """
+        Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        """
         return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter(name="versionLabel")
     def version_label(self) -> Optional[str]:
+        """
+        The name of the application version to deploy.
+        """
         return pulumi.get(self, "version_label")
 
 
@@ -110,43 +104,43 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         return GetEnvironmentResult(
             description=self.description,
             endpoint_url=self.endpoint_url,
-            id=self.id,
             operations_role=self.operations_role,
-            option_settings=self.option_settings,
             platform_arn=self.platform_arn,
             tags=self.tags,
-            template_name=self.template_name,
             tier=self.tier,
             version_label=self.version_label)
 
 
-def get_environment(id: Optional[str] = None,
+def get_environment(environment_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
     Resource Type definition for AWS::ElasticBeanstalk::Environment
+
+
+    :param str environment_name: A unique name for the environment.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['environmentName'] = environment_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:elasticbeanstalk:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
         description=__ret__.description,
         endpoint_url=__ret__.endpoint_url,
-        id=__ret__.id,
         operations_role=__ret__.operations_role,
-        option_settings=__ret__.option_settings,
         platform_arn=__ret__.platform_arn,
         tags=__ret__.tags,
-        template_name=__ret__.template_name,
         tier=__ret__.tier,
         version_label=__ret__.version_label)
 
 
 @_utilities.lift_output_func(get_environment)
-def get_environment_output(id: Optional[pulumi.Input[str]] = None,
+def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::Environment
+
+
+    :param str environment_name: A unique name for the environment.
     """
     ...

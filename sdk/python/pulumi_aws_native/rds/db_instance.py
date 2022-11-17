@@ -69,6 +69,7 @@ class DBInstanceArgs:
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
@@ -136,6 +137,7 @@ class DBInstanceArgs:
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
         :param pulumi.Input[Sequence[pulumi.Input['DBInstanceTagArgs']]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
@@ -248,6 +250,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
+        if storage_throughput is not None:
+            pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -894,6 +898,18 @@ class DBInstanceArgs:
         pulumi.set(self, "storage_encrypted", value)
 
     @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the storage throughput for the DB instance.
+        """
+        return pulumi.get(self, "storage_throughput")
+
+    @storage_throughput.setter
+    def storage_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_throughput", value)
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1035,6 +1051,7 @@ class DBInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
@@ -1106,6 +1123,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
+        :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
         :param pulumi.Input[str] storage_type: Specifies the storage type to be associated with the DB instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[str] tde_credential_arn: The ARN from the key store with which to associate the instance for TDE encryption.
@@ -1190,6 +1208,7 @@ class DBInstance(pulumi.CustomResource):
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
+                 storage_throughput: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBInstanceTagArgs']]]]] = None,
                  tde_credential_arn: Optional[pulumi.Input[str]] = None,
@@ -1258,6 +1277,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
             __props__.__dict__["source_region"] = source_region
             __props__.__dict__["storage_encrypted"] = storage_encrypted
+            __props__.__dict__["storage_throughput"] = storage_throughput
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tde_credential_arn"] = tde_credential_arn
@@ -1343,6 +1363,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["source_db_instance_identifier"] = None
         __props__.__dict__["source_region"] = None
         __props__.__dict__["storage_encrypted"] = None
+        __props__.__dict__["storage_throughput"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tde_credential_arn"] = None
@@ -1789,6 +1810,14 @@ class DBInstance(pulumi.CustomResource):
         A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @property
+    @pulumi.getter(name="storageThroughput")
+    def storage_throughput(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specifies the storage throughput for the DB instance.
+        """
+        return pulumi.get(self, "storage_throughput")
 
     @property
     @pulumi.getter(name="storageType")

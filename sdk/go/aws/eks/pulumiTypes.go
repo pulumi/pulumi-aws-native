@@ -119,6 +119,146 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 	}).(AddonTagOutput)
 }
 
+// Specify the placement group of the control plane machines for your cluster.
+type ClusterControlPlanePlacement struct {
+	// Specify the placement group name of the control place machines for your cluster.
+	GroupName *string `pulumi:"groupName"`
+}
+
+// ClusterControlPlanePlacementInput is an input type that accepts ClusterControlPlanePlacementArgs and ClusterControlPlanePlacementOutput values.
+// You can construct a concrete instance of `ClusterControlPlanePlacementInput` via:
+//
+//	ClusterControlPlanePlacementArgs{...}
+type ClusterControlPlanePlacementInput interface {
+	pulumi.Input
+
+	ToClusterControlPlanePlacementOutput() ClusterControlPlanePlacementOutput
+	ToClusterControlPlanePlacementOutputWithContext(context.Context) ClusterControlPlanePlacementOutput
+}
+
+// Specify the placement group of the control plane machines for your cluster.
+type ClusterControlPlanePlacementArgs struct {
+	// Specify the placement group name of the control place machines for your cluster.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+}
+
+func (ClusterControlPlanePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlanePlacement)(nil)).Elem()
+}
+
+func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementOutput() ClusterControlPlanePlacementOutput {
+	return i.ToClusterControlPlanePlacementOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementOutputWithContext(ctx context.Context) ClusterControlPlanePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementOutput)
+}
+
+func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput {
+	return i.ToClusterControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlanePlacementArgs) ToClusterControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterControlPlanePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementOutput).ToClusterControlPlanePlacementPtrOutputWithContext(ctx)
+}
+
+// ClusterControlPlanePlacementPtrInput is an input type that accepts ClusterControlPlanePlacementArgs, ClusterControlPlanePlacementPtr and ClusterControlPlanePlacementPtrOutput values.
+// You can construct a concrete instance of `ClusterControlPlanePlacementPtrInput` via:
+//
+//	        ClusterControlPlanePlacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterControlPlanePlacementPtrInput interface {
+	pulumi.Input
+
+	ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput
+	ToClusterControlPlanePlacementPtrOutputWithContext(context.Context) ClusterControlPlanePlacementPtrOutput
+}
+
+type clusterControlPlanePlacementPtrType ClusterControlPlanePlacementArgs
+
+func ClusterControlPlanePlacementPtr(v *ClusterControlPlanePlacementArgs) ClusterControlPlanePlacementPtrInput {
+	return (*clusterControlPlanePlacementPtrType)(v)
+}
+
+func (*clusterControlPlanePlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlanePlacement)(nil)).Elem()
+}
+
+func (i *clusterControlPlanePlacementPtrType) ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput {
+	return i.ToClusterControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterControlPlanePlacementPtrType) ToClusterControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterControlPlanePlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlanePlacementPtrOutput)
+}
+
+// Specify the placement group of the control plane machines for your cluster.
+type ClusterControlPlanePlacementOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlanePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlanePlacement)(nil)).Elem()
+}
+
+func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementOutput() ClusterControlPlanePlacementOutput {
+	return o
+}
+
+func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementOutputWithContext(ctx context.Context) ClusterControlPlanePlacementOutput {
+	return o
+}
+
+func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput {
+	return o.ToClusterControlPlanePlacementPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterControlPlanePlacementOutput) ToClusterControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterControlPlanePlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterControlPlanePlacement) *ClusterControlPlanePlacement {
+		return &v
+	}).(ClusterControlPlanePlacementPtrOutput)
+}
+
+// Specify the placement group name of the control place machines for your cluster.
+func (o ClusterControlPlanePlacementOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterControlPlanePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+type ClusterControlPlanePlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlanePlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlanePlacement)(nil)).Elem()
+}
+
+func (o ClusterControlPlanePlacementPtrOutput) ToClusterControlPlanePlacementPtrOutput() ClusterControlPlanePlacementPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlanePlacementPtrOutput) ToClusterControlPlanePlacementPtrOutputWithContext(ctx context.Context) ClusterControlPlanePlacementPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlanePlacementPtrOutput) Elem() ClusterControlPlanePlacementOutput {
+	return o.ApplyT(func(v *ClusterControlPlanePlacement) ClusterControlPlanePlacement {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterControlPlanePlacement
+		return ret
+	}).(ClusterControlPlanePlacementOutput)
+}
+
+// Specify the placement group name of the control place machines for your cluster.
+func (o ClusterControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterControlPlanePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The encryption configuration for the cluster
 type ClusterEncryptionConfig struct {
 	// The encryption provider for the cluster.
@@ -550,6 +690,8 @@ func (o ClusterLoggingPtrOutput) ClusterLogging() ClusterLoggingPtrOutput {
 type ClusterOutpostConfig struct {
 	// Specify the Instance type of the machines that should be used to create your cluster.
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
+	// Specify the placement group of the control plane machines for your cluster.
+	ControlPlanePlacement *ClusterControlPlanePlacement `pulumi:"controlPlanePlacement"`
 	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
 	OutpostArns []string `pulumi:"outpostArns"`
 }
@@ -569,6 +711,8 @@ type ClusterOutpostConfigInput interface {
 type ClusterOutpostConfigArgs struct {
 	// Specify the Instance type of the machines that should be used to create your cluster.
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
+	// Specify the placement group of the control plane machines for your cluster.
+	ControlPlanePlacement ClusterControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
 	// Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
@@ -656,6 +800,11 @@ func (o ClusterOutpostConfigOutput) ControlPlaneInstanceType() pulumi.StringOutp
 	return o.ApplyT(func(v ClusterOutpostConfig) string { return v.ControlPlaneInstanceType }).(pulumi.StringOutput)
 }
 
+// Specify the placement group of the control plane machines for your cluster.
+func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterControlPlanePlacementPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterControlPlanePlacement { return v.ControlPlanePlacement }).(ClusterControlPlanePlacementPtrOutput)
+}
+
 // Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
 func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
@@ -693,6 +842,16 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlaneInstanceType() pulumi.StringP
 		}
 		return &v.ControlPlaneInstanceType
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specify the placement group of the control plane machines for your cluster.
+func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterControlPlanePlacementPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterControlPlanePlacement {
+		if v == nil {
+			return nil
+		}
+		return v.ControlPlanePlacement
+	}).(ClusterControlPlanePlacementPtrOutput)
 }
 
 // Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
@@ -2658,6 +2817,8 @@ func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float6
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagInput)(nil)).Elem(), AddonTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagArrayInput)(nil)).Elem(), AddonTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementPtrInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigArrayInput)(nil)).Elem(), ClusterEncryptionConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
@@ -2695,6 +2856,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterOutputType(AddonTagOutput{})
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlanePlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})

@@ -28,7 +28,7 @@ type CompositeAlarm struct {
 	// The description of the alarm
 	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
 	// The name of the Composite Alarm
-	AlarmName pulumi.StringOutput `pulumi:"alarmName"`
+	AlarmName pulumi.StringPtrOutput `pulumi:"alarmName"`
 	// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
 	AlarmRule pulumi.StringOutput `pulumi:"alarmRule"`
 	// Amazon Resource Name (ARN) of the alarm
@@ -46,9 +46,6 @@ func NewCompositeAlarm(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AlarmName == nil {
-		return nil, errors.New("invalid value for required argument 'AlarmName'")
-	}
 	if args.AlarmRule == nil {
 		return nil, errors.New("invalid value for required argument 'AlarmRule'")
 	}
@@ -97,7 +94,7 @@ type compositeAlarmArgs struct {
 	// The description of the alarm
 	AlarmDescription *string `pulumi:"alarmDescription"`
 	// The name of the Composite Alarm
-	AlarmName string `pulumi:"alarmName"`
+	AlarmName *string `pulumi:"alarmName"`
 	// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
 	AlarmRule string `pulumi:"alarmRule"`
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -121,7 +118,7 @@ type CompositeAlarmArgs struct {
 	// The description of the alarm
 	AlarmDescription pulumi.StringPtrInput
 	// The name of the Composite Alarm
-	AlarmName pulumi.StringInput
+	AlarmName pulumi.StringPtrInput
 	// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
 	AlarmRule pulumi.StringInput
 	// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
@@ -198,8 +195,8 @@ func (o CompositeAlarmOutput) AlarmDescription() pulumi.StringPtrOutput {
 }
 
 // The name of the Composite Alarm
-func (o CompositeAlarmOutput) AlarmName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringOutput { return v.AlarmName }).(pulumi.StringOutput)
+func (o CompositeAlarmOutput) AlarmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CompositeAlarm) pulumi.StringPtrOutput { return v.AlarmName }).(pulumi.StringPtrOutput)
 }
 
 // Expression which aggregates the state of other Alarms (Metric or Composite Alarms)

@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetEnvironmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A unique name for the environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
 
         public GetEnvironmentArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetEnvironmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A unique name for the environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         public GetEnvironmentInvokeArgs()
         {
@@ -51,15 +57,30 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     [OutputType]
     public sealed class GetEnvironmentResult
     {
+        /// <summary>
+        /// Your description for this environment.
+        /// </summary>
         public readonly string? Description;
         public readonly string? EndpointURL;
-        public readonly string? Id;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+        /// </summary>
         public readonly string? OperationsRole;
-        public readonly ImmutableArray<Outputs.EnvironmentOptionSetting> OptionSettings;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        /// </summary>
         public readonly string? PlatformArn;
+        /// <summary>
+        /// Specifies the tags applied to resources in the environment.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentTag> Tags;
-        public readonly string? TemplateName;
+        /// <summary>
+        /// Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
+        /// </summary>
         public readonly Outputs.EnvironmentTier? Tier;
+        /// <summary>
+        /// The name of the application version to deploy.
+        /// </summary>
         public readonly string? VersionLabel;
 
         [OutputConstructor]
@@ -68,17 +89,11 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
             string? endpointURL,
 
-            string? id,
-
             string? operationsRole,
-
-            ImmutableArray<Outputs.EnvironmentOptionSetting> optionSettings,
 
             string? platformArn,
 
             ImmutableArray<Outputs.EnvironmentTag> tags,
-
-            string? templateName,
 
             Outputs.EnvironmentTier? tier,
 
@@ -86,12 +101,9 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         {
             Description = description;
             EndpointURL = endpointURL;
-            Id = id;
             OperationsRole = operationsRole;
-            OptionSettings = optionSettings;
             PlatformArn = platformArn;
             Tags = tags;
-            TemplateName = templateName;
             Tier = tier;
             VersionLabel = versionLabel;
         }

@@ -18,9 +18,11 @@ from .get_receipt_filter import *
 from .get_receipt_rule import *
 from .get_receipt_rule_set import *
 from .get_template import *
+from .get_vdm_attributes import *
 from .receipt_filter import *
 from .receipt_rule import *
 from .receipt_rule_set import *
 from .template import *
+from .vdm_attributes import *
 from ._inputs import *
 from . import outputs

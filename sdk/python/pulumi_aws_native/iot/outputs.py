@@ -179,6 +179,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             suggest = "device_certificate_key_quality_check"
         elif key == "deviceCertificateSharedCheck":
             suggest = "device_certificate_shared_check"
+        elif key == "intermediateCaRevokedForActiveDeviceCertificatesCheck":
+            suggest = "intermediate_ca_revoked_for_active_device_certificates_check"
         elif key == "iotPolicyOverlyPermissiveCheck":
             suggest = "iot_policy_overly_permissive_check"
         elif key == "iotRoleAliasAllowsAccessToUnusedServicesCheck":
@@ -213,6 +215,7 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
                  device_certificate_expiring_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  device_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  device_certificate_shared_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 intermediate_ca_revoked_for_active_device_certificates_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_policy_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_role_alias_allows_access_to_unused_services_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_role_alias_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
@@ -237,6 +240,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             pulumi.set(__self__, "device_certificate_key_quality_check", device_certificate_key_quality_check)
         if device_certificate_shared_check is not None:
             pulumi.set(__self__, "device_certificate_shared_check", device_certificate_shared_check)
+        if intermediate_ca_revoked_for_active_device_certificates_check is not None:
+            pulumi.set(__self__, "intermediate_ca_revoked_for_active_device_certificates_check", intermediate_ca_revoked_for_active_device_certificates_check)
         if iot_policy_overly_permissive_check is not None:
             pulumi.set(__self__, "iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
         if iot_role_alias_allows_access_to_unused_services_check is not None:
@@ -286,6 +291,11 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
     @pulumi.getter(name="deviceCertificateSharedCheck")
     def device_certificate_shared_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
         return pulumi.get(self, "device_certificate_shared_check")
+
+    @property
+    @pulumi.getter(name="intermediateCaRevokedForActiveDeviceCertificatesCheck")
+    def intermediate_ca_revoked_for_active_device_certificates_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        return pulumi.get(self, "intermediate_ca_revoked_for_active_device_certificates_check")
 
     @property
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")

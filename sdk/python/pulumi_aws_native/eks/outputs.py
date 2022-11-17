@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AddonTag',
+    'ClusterControlPlanePlacement',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLogging',
@@ -64,6 +65,46 @@ class AddonTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClusterControlPlanePlacement(dict):
+    """
+    Specify the placement group of the control plane machines for your cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupName":
+            suggest = "group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterControlPlanePlacement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterControlPlanePlacement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterControlPlanePlacement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_name: Optional[str] = None):
+        """
+        Specify the placement group of the control plane machines for your cluster.
+        :param str group_name: Specify the placement group name of the control place machines for your cluster.
+        """
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        """
+        Specify the placement group name of the control place machines for your cluster.
+        """
+        return pulumi.get(self, "group_name")
 
 
 @pulumi.output_type
@@ -221,6 +262,8 @@ class ClusterOutpostConfig(dict):
             suggest = "control_plane_instance_type"
         elif key == "outpostArns":
             suggest = "outpost_arns"
+        elif key == "controlPlanePlacement":
+            suggest = "control_plane_placement"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterOutpostConfig. Access the value via the '{suggest}' property getter instead.")
@@ -235,14 +278,18 @@ class ClusterOutpostConfig(dict):
 
     def __init__(__self__, *,
                  control_plane_instance_type: str,
-                 outpost_arns: Sequence[str]):
+                 outpost_arns: Sequence[str],
+                 control_plane_placement: Optional['outputs.ClusterControlPlanePlacement'] = None):
         """
         An object representing the Outpost configuration to use for AWS EKS outpost cluster.
         :param str control_plane_instance_type: Specify the Instance type of the machines that should be used to create your cluster.
         :param Sequence[str] outpost_arns: Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+        :param 'ClusterControlPlanePlacement' control_plane_placement: Specify the placement group of the control plane machines for your cluster.
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
+        if control_plane_placement is not None:
+            pulumi.set(__self__, "control_plane_placement", control_plane_placement)
 
     @property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -259,6 +306,14 @@ class ClusterOutpostConfig(dict):
         Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
         """
         return pulumi.get(self, "outpost_arns")
+
+    @property
+    @pulumi.getter(name="controlPlanePlacement")
+    def control_plane_placement(self) -> Optional['outputs.ClusterControlPlanePlacement']:
+        """
+        Specify the placement group of the control plane machines for your cluster.
+        """
+        return pulumi.get(self, "control_plane_placement")
 
 
 @pulumi.output_type

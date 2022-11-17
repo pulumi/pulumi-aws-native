@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     /// </summary>
     public sealed class PackagingConfigurationSpekeKeyProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("encryptionContractConfiguration")]
+        public Input<Inputs.PackagingConfigurationEncryptionContractConfigurationArgs>? EncryptionContractConfiguration { get; set; }
+
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

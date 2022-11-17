@@ -24,14 +24,19 @@ __all__ = [
     'ClusterTag',
     'ServiceAwsVpcConfiguration',
     'ServiceCapacityProviderStrategyItem',
+    'ServiceConnectClientAlias',
+    'ServiceConnectConfiguration',
+    'ServiceConnectService',
     'ServiceDeploymentCircuitBreaker',
     'ServiceDeploymentConfiguration',
     'ServiceDeploymentController',
     'ServiceLoadBalancer',
+    'ServiceLogConfiguration',
     'ServiceNetworkConfiguration',
     'ServicePlacementConstraint',
     'ServicePlacementStrategy',
     'ServiceRegistry',
+    'ServiceSecret',
     'ServiceTag',
     'TaskDefinitionAuthorizationConfig',
     'TaskDefinitionContainerDefinition',
@@ -627,6 +632,155 @@ class ServiceCapacityProviderStrategyItem(dict):
 
 
 @pulumi.output_type
+class ServiceConnectClientAlias(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectClientAlias. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectClientAlias.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectClientAlias.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: int,
+                 dns_name: Optional[str] = None):
+        pulumi.set(__self__, "port", port)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        return pulumi.get(self, "dns_name")
+
+
+@pulumi.output_type
+class ServiceConnectConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logConfiguration":
+            suggest = "log_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 log_configuration: Optional['outputs.ServiceLogConfiguration'] = None,
+                 namespace: Optional[str] = None,
+                 services: Optional[Sequence['outputs.ServiceConnectService']] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.ServiceLogConfiguration']:
+        return pulumi.get(self, "log_configuration")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Sequence['outputs.ServiceConnectService']]:
+        return pulumi.get(self, "services")
+
+
+@pulumi.output_type
+class ServiceConnectService(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portName":
+            suggest = "port_name"
+        elif key == "clientAliases":
+            suggest = "client_aliases"
+        elif key == "discoveryName":
+            suggest = "discovery_name"
+        elif key == "ingressPortOverride":
+            suggest = "ingress_port_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceConnectService. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceConnectService.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceConnectService.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_name: str,
+                 client_aliases: Optional[Sequence['outputs.ServiceConnectClientAlias']] = None,
+                 discovery_name: Optional[str] = None,
+                 ingress_port_override: Optional[int] = None):
+        pulumi.set(__self__, "port_name", port_name)
+        if client_aliases is not None:
+            pulumi.set(__self__, "client_aliases", client_aliases)
+        if discovery_name is not None:
+            pulumi.set(__self__, "discovery_name", discovery_name)
+        if ingress_port_override is not None:
+            pulumi.set(__self__, "ingress_port_override", ingress_port_override)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> str:
+        return pulumi.get(self, "port_name")
+
+    @property
+    @pulumi.getter(name="clientAliases")
+    def client_aliases(self) -> Optional[Sequence['outputs.ServiceConnectClientAlias']]:
+        return pulumi.get(self, "client_aliases")
+
+    @property
+    @pulumi.getter(name="discoveryName")
+    def discovery_name(self) -> Optional[str]:
+        return pulumi.get(self, "discovery_name")
+
+    @property
+    @pulumi.getter(name="ingressPortOverride")
+    def ingress_port_override(self) -> Optional[int]:
+        return pulumi.get(self, "ingress_port_override")
+
+
+@pulumi.output_type
 class ServiceDeploymentCircuitBreaker(dict):
     def __init__(__self__, *,
                  enable: bool,
@@ -769,6 +923,54 @@ class ServiceLoadBalancer(dict):
 
 
 @pulumi.output_type
+class ServiceLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriver":
+            suggest = "log_driver"
+        elif key == "secretOptions":
+            suggest = "secret_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_driver: Optional[str] = None,
+                 options: Optional[Any] = None,
+                 secret_options: Optional[Sequence['outputs.ServiceSecret']] = None):
+        if log_driver is not None:
+            pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> Optional[str]:
+        return pulumi.get(self, "log_driver")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Any]:
+        return pulumi.get(self, "options")
+
+    @property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[Sequence['outputs.ServiceSecret']]:
+        return pulumi.get(self, "secret_options")
+
+
+@pulumi.output_type
 class ServiceNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -894,6 +1096,42 @@ class ServiceRegistry(dict):
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[str]:
         return pulumi.get(self, "registry_arn")
+
+
+@pulumi.output_type
+class ServiceSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 value_from: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> str:
+        return pulumi.get(self, "value_from")
 
 
 @pulumi.output_type

@@ -332,6 +332,12 @@ class EnvironmentOptionSettingArgs:
                  option_name: pulumi.Input[str],
                  resource_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] namespace: A unique namespace that identifies the option's associated AWS resource.
+        :param pulumi.Input[str] option_name: The name of the configuration option.
+        :param pulumi.Input[str] resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        :param pulumi.Input[str] value: The current value for the configuration option.
+        """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "option_name", option_name)
         if resource_name is not None:
@@ -342,6 +348,9 @@ class EnvironmentOptionSettingArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
+        """
+        A unique namespace that identifies the option's associated AWS resource.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -351,6 +360,9 @@ class EnvironmentOptionSettingArgs:
     @property
     @pulumi.getter(name="optionName")
     def option_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration option.
+        """
         return pulumi.get(self, "option_name")
 
     @option_name.setter
@@ -360,6 +372,9 @@ class EnvironmentOptionSettingArgs:
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique resource name for the option setting. Use it for a time–based scaling configuration option.
+        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -369,6 +384,9 @@ class EnvironmentOptionSettingArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current value for the configuration option.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -381,12 +399,19 @@ class EnvironmentTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key name of the tag.
+        :param pulumi.Input[str] value: The value for the tag.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -396,6 +421,9 @@ class EnvironmentTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -409,6 +437,11 @@ class EnvironmentTierArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of this environment tier.
+        :param pulumi.Input[str] type: The type of this environment tier.
+        :param pulumi.Input[str] version: The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
@@ -419,6 +452,9 @@ class EnvironmentTierArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of this environment tier.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -428,6 +464,9 @@ class EnvironmentTierArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of this environment tier.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -437,6 +476,9 @@ class EnvironmentTierArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+        """
         return pulumi.get(self, "version")
 
     @version.setter

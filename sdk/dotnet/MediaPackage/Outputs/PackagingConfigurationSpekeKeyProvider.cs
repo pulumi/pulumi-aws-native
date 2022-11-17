@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     [OutputType]
     public sealed class PackagingConfigurationSpekeKeyProvider
     {
+        public readonly Outputs.PackagingConfigurationEncryptionContractConfiguration? EncryptionContractConfiguration;
         public readonly string RoleArn;
         /// <summary>
         /// The system IDs to include in key requests.
@@ -28,12 +29,15 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
         [OutputConstructor]
         private PackagingConfigurationSpekeKeyProvider(
+            Outputs.PackagingConfigurationEncryptionContractConfiguration? encryptionContractConfiguration,
+
             string roleArn,
 
             ImmutableArray<string> systemIds,
 
             string url)
         {
+            EncryptionContractConfiguration = encryptionContractConfiguration;
             RoleArn = roleArn;
             SystemIds = systemIds;
             Url = url;

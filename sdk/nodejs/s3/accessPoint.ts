@@ -50,9 +50,13 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
+     * The AWS account ID associated with the S3 bucket associated with this access point.
+     */
+    public readonly bucketAccountId!: pulumi.Output<string | undefined>;
+    /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
      */
@@ -86,6 +90,7 @@ export class AccessPoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bucket'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["bucketAccountId"] = args ? args.bucketAccountId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["policyStatus"] = args ? args.policyStatus : undefined;
@@ -98,6 +103,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["bucketAccountId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkOrigin"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
@@ -118,6 +124,10 @@ export interface AccessPointArgs {
      * The name of the bucket that you want to associate this Access Point with.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * The AWS account ID associated with the S3 bucket associated with this access point.
+     */
+    bucketAccountId?: pulumi.Input<string>;
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
      */

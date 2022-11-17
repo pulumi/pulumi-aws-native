@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly string? EventDataStoreArn;
         /// <summary>
+        /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
+        /// </summary>
+        public readonly string? KmsKeyId;
+        /// <summary>
         /// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         /// </summary>
         public readonly bool? MultiRegionEnabled;
@@ -107,6 +111,8 @@ namespace Pulumi.AwsNative.CloudTrail
 
             string? eventDataStoreArn,
 
+            string? kmsKeyId,
+
             bool? multiRegionEnabled,
 
             string? name,
@@ -126,6 +132,7 @@ namespace Pulumi.AwsNative.CloudTrail
             AdvancedEventSelectors = advancedEventSelectors;
             CreatedTimestamp = createdTimestamp;
             EventDataStoreArn = eventDataStoreArn;
+            KmsKeyId = kmsKeyId;
             MultiRegionEnabled = multiRegionEnabled;
             Name = name;
             OrganizationEnabled = organizationEnabled;

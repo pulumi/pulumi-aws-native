@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Amplify
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.BranchEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
 
+        [Output("framework")]
+        public Output<string?> Framework { get; private set; } = null!;
+
         [Output("pullRequestEnvironmentName")]
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
 
@@ -130,6 +133,9 @@ namespace Pulumi.AwsNative.Amplify
             get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.BranchEnvironmentVariableArgs>());
             set => _environmentVariables = value;
         }
+
+        [Input("framework")]
+        public Input<string>? Framework { get; set; }
 
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }

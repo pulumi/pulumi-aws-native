@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppStream
     [AwsNativeResourceType("aws-native:appstream:DirectoryConfig")]
     public partial class DirectoryConfig : global::Pulumi.CustomResource
     {
+        [Output("certificateBasedAuthProperties")]
+        public Output<Outputs.DirectoryConfigCertificateBasedAuthProperties?> CertificateBasedAuthProperties { get; private set; } = null!;
+
         [Output("directoryName")]
         public Output<string> DirectoryName { get; private set; } = null!;
 
@@ -69,6 +72,9 @@ namespace Pulumi.AwsNative.AppStream
 
     public sealed class DirectoryConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificateBasedAuthProperties")]
+        public Input<Inputs.DirectoryConfigCertificateBasedAuthPropertiesArgs>? CertificateBasedAuthProperties { get; set; }
+
         [Input("directoryName", required: true)]
         public Input<string> DirectoryName { get; set; } = null!;
 
