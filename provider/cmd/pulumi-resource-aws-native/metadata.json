@@ -2243,6 +2243,9 @@
                 "authorizerCredentialsArn": {
                     "type": "string"
                 },
+                "authorizerId": {
+                    "type": "string"
+                },
                 "authorizerPayloadFormatVersion": {
                     "type": "string"
                 },
@@ -15487,6 +15490,9 @@
                         "$ref": "#/types/aws-native:ecs:ClusterCapacityProviderStrategyItem"
                     }
                 },
+                "serviceConnectDefaults": {
+                    "$ref": "#/types/aws-native:ecs:ClusterServiceConnectDefaults"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -15523,6 +15529,9 @@
                     "items": {
                         "$ref": "#/types/aws-native:ecs:ClusterCapacityProviderStrategyItem"
                     }
+                },
+                "serviceConnectDefaults": {
+                    "$ref": "#/types/aws-native:ecs:ClusterServiceConnectDefaults"
                 },
                 "tags": {
                     "type": "array",
@@ -17061,6 +17070,9 @@
                     "type": "string",
                     "description": "Access permissions string used for this user account."
                 },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:elasticache:AuthenticationModeProperties"
+                },
                 "engine": {
                     "$ref": "#/types/aws-native:elasticache:UserEngine",
                     "description": "Must be redis."
@@ -17093,6 +17105,9 @@
                 "arn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the user account."
+                },
+                "authenticationMode": {
+                    "$ref": "#/types/aws-native:elasticache:AuthenticationModeProperties"
                 },
                 "engine": {
                     "$ref": "#/types/aws-native:elasticache:UserEngine",
@@ -17136,6 +17151,7 @@
             ],
             "writeOnly": [
                 "accessString",
+                "authenticationMode",
                 "noPasswordRequired",
                 "passwords"
             ]
@@ -17552,6 +17568,214 @@
                 "actions/*/AuthenticateOidcConfig/ClientSecret",
                 "actions/*/ForwardConfig",
                 "actions/*/TargetGroupArn"
+            ]
+        },
+        "aws-native:elasticloadbalancingv2:TargetGroup": {
+            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "inputs": {
+                "healthCheckEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
+                },
+                "healthCheckIntervalSeconds": {
+                    "type": "integer",
+                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
+                },
+                "healthCheckPath": {
+                    "type": "string",
+                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
+                },
+                "healthCheckPort": {
+                    "type": "string",
+                    "description": "The port the load balancer uses when performing health checks on targets. "
+                },
+                "healthCheckProtocol": {
+                    "type": "string",
+                    "description": "The protocol the load balancer uses when performing health checks on targets. "
+                },
+                "healthCheckTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
+                },
+                "healthyThresholdCount": {
+                    "type": "integer",
+                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
+                },
+                "ipAddressType": {
+                    "type": "string",
+                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
+                },
+                "matcher": {
+                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
+                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the target group."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol to use for routing traffic to the targets."
+                },
+                "protocolVersion": {
+                    "type": "string",
+                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
+                    },
+                    "description": "The tags."
+                },
+                "targetGroupAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
+                    },
+                    "description": "The attributes."
+                },
+                "targetType": {
+                    "type": "string",
+                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
+                    },
+                    "description": "The targets."
+                },
+                "unhealthyThresholdCount": {
+                    "type": "integer",
+                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
+                }
+            },
+            "outputs": {
+                "healthCheckEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
+                },
+                "healthCheckIntervalSeconds": {
+                    "type": "integer",
+                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
+                },
+                "healthCheckPath": {
+                    "type": "string",
+                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
+                },
+                "healthCheckPort": {
+                    "type": "string",
+                    "description": "The port the load balancer uses when performing health checks on targets. "
+                },
+                "healthCheckProtocol": {
+                    "type": "string",
+                    "description": "The protocol the load balancer uses when performing health checks on targets. "
+                },
+                "healthCheckTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
+                },
+                "healthyThresholdCount": {
+                    "type": "integer",
+                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
+                },
+                "ipAddressType": {
+                    "type": "string",
+                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
+                },
+                "loadBalancerArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group."
+                },
+                "matcher": {
+                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
+                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the target group."
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "The protocol to use for routing traffic to the targets."
+                },
+                "protocolVersion": {
+                    "type": "string",
+                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
+                    },
+                    "description": "The tags."
+                },
+                "targetGroupArn": {
+                    "type": "string",
+                    "description": "The ARN of the Target Group"
+                },
+                "targetGroupAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
+                    },
+                    "description": "The attributes."
+                },
+                "targetGroupFullName": {
+                    "type": "string",
+                    "description": "The full name of the target group."
+                },
+                "targetGroupName": {
+                    "type": "string",
+                    "description": "The name of the target group."
+                },
+                "targetType": {
+                    "type": "string",
+                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
+                },
+                "targets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
+                    },
+                    "description": "The targets."
+                },
+                "unhealthyThresholdCount": {
+                    "type": "integer",
+                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "ipAddressType",
+                "name",
+                "port",
+                "protocol",
+                "protocolVersion",
+                "targetType",
+                "vpcId"
             ]
         },
         "aws-native:emr:SecurityConfiguration": {
@@ -24805,6 +25029,10 @@
                     "$ref": "pulumi.json#/Any",
                     "description": "An map of the property definitions in the component type. Each property definition's key must be unique to this map."
                 },
+                "propertyGroups": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of the property groups in the component type. Each property group's key must be unique to this map."
+                },
                 "tags": {
                     "$ref": "pulumi.json#/Any",
                     "description": "A map of key-value pairs to associate with a resource."
@@ -24857,6 +25085,10 @@
                 "propertyDefinitions": {
                     "$ref": "pulumi.json#/Any",
                     "description": "An map of the property definitions in the component type. Each property definition's key must be unique to this map."
+                },
+                "propertyGroups": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "An map of the property groups in the component type. Each property group's key must be unique to this map."
                 },
                 "status": {
                     "$ref": "#/types/aws-native:iottwinmaker:ComponentTypeStatus",
@@ -25955,6 +26187,10 @@
                     "type": "string",
                     "description": "Recording Configuration Name."
                 },
+                "recordingReconnectWindowSeconds": {
+                    "type": "integer",
+                    "description": "Recording Reconnect Window Seconds. (0 means disabled)"
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -25977,6 +26213,10 @@
                 "name": {
                     "type": "string",
                     "description": "Recording Configuration Name."
+                },
+                "recordingReconnectWindowSeconds": {
+                    "type": "integer",
+                    "description": "Recording Reconnect Window Seconds. (0 means disabled)"
                 },
                 "state": {
                     "$ref": "#/types/aws-native:ivs:RecordingConfigurationState",
@@ -26005,6 +26245,7 @@
                 "destinationConfiguration/S3",
                 "destinationConfiguration/S3/BucketName",
                 "name",
+                "recordingReconnectWindowSeconds",
                 "thumbnailConfiguration",
                 "thumbnailConfiguration/RecordingMode",
                 "thumbnailConfiguration/TargetIntervalSeconds"
@@ -26641,6 +26882,9 @@
         "aws-native:kinesisfirehose:DeliveryStream": {
             "cf": "AWS::KinesisFirehose::DeliveryStream",
             "inputs": {
+                "amazonOpenSearchServerlessDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration"
+                },
                 "amazonopensearchserviceDestinationConfiguration": {
                     "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfiguration"
                 },
@@ -26682,6 +26926,9 @@
                 }
             },
             "outputs": {
+                "amazonOpenSearchServerlessDestinationConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration"
+                },
                 "amazonopensearchserviceDestinationConfiguration": {
                     "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceDestinationConfiguration"
                 },
@@ -26731,6 +26978,7 @@
                 "maxLength": 64
             },
             "createOnly": [
+                "amazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration",
                 "amazonopensearchserviceDestinationConfiguration/VpcConfiguration",
                 "deliveryStreamName",
                 "deliveryStreamType",
@@ -43507,9 +43755,6 @@
                 "sourceAlgorithmSpecification": {
                     "$ref": "#/types/aws-native:sagemaker:ModelPackageSourceAlgorithmSpecification"
                 },
-                "tag": {
-                    "$ref": "#/types/aws-native:sagemaker:ModelPackageTag"
-                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -43614,9 +43859,6 @@
                 },
                 "sourceAlgorithmSpecification": {
                     "$ref": "#/types/aws-native:sagemaker:ModelPackageSourceAlgorithmSpecification"
-                },
-                "tag": {
-                    "$ref": "#/types/aws-native:sagemaker:ModelPackageTag"
                 },
                 "tags": {
                     "type": "array",
@@ -60925,6 +61167,15 @@
                 }
             }
         },
+        "aws-native:ecs:ClusterServiceConnectDefaults": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "Service Connect Namespace Name or ARN default for all services or tasks within this cluster"
+                }
+            }
+        },
         "aws-native:ecs:ClusterSettings": {
             "type": "object",
             "properties": {
@@ -62306,6 +62557,22 @@
                 }
             }
         },
+        "aws-native:elasticache:AuthenticationModeProperties": {
+            "type": "object",
+            "properties": {
+                "passwords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Passwords used for this user account. You can create up to two passwords for each user."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:elasticache:UserAuthenticationModePropertiesType",
+                    "description": "Authentication Type"
+                }
+            }
+        },
         "aws-native:elasticache:GlobalReplicationGroupMember": {
             "type": "object",
             "properties": {
@@ -62372,6 +62639,9 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:elasticache:UserAuthenticationModePropertiesType": {
+            "type": "string"
         },
         "aws-native:elasticache:UserEngine": {
             "type": "string"
@@ -62964,6 +63234,62 @@
                 },
                 "weight": {
                     "type": "integer"
+                }
+            }
+        },
+        "aws-native:elasticloadbalancingv2:TargetGroupAttribute": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The value of the attribute."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The name of the attribute."
+                }
+            }
+        },
+        "aws-native:elasticloadbalancingv2:TargetGroupMatcher": {
+            "type": "object",
+            "properties": {
+                "grpcCode": {
+                    "type": "string",
+                    "description": "You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12."
+                },
+                "httpCode": {
+                    "type": "string",
+                    "description": "For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. "
+                }
+            }
+        },
+        "aws-native:elasticloadbalancingv2:TargetGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The value for the tag. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The key name of the tag. "
+                }
+            }
+        },
+        "aws-native:elasticloadbalancingv2:TargetGroupTargetDescription": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. "
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function."
                 }
             }
         },
@@ -72428,6 +72754,63 @@
         },
         "aws-native:kinesisanalyticsv2:ApplicationZeppelinMonitoringConfigurationLogLevel": {
             "type": "string"
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessBufferingHints": {
+            "type": "object",
+            "properties": {
+                "intervalInSeconds": {
+                    "type": "integer"
+                },
+                "sizeInMBs": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration": {
+            "type": "object",
+            "properties": {
+                "bufferingHints": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessBufferingHints"
+                },
+                "cloudWatchLoggingOptions": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamCloudWatchLoggingOptions"
+                },
+                "collectionEndpoint": {
+                    "type": "string"
+                },
+                "indexName": {
+                    "type": "string"
+                },
+                "processingConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamProcessingConfiguration"
+                },
+                "retryOptions": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessRetryOptions"
+                },
+                "roleARN": {
+                    "type": "string"
+                },
+                "s3BackupMode": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode"
+                },
+                "s3Configuration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamS3DestinationConfiguration"
+                },
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws-native:kinesisfirehose:DeliveryStreamVpcConfiguration"
+                }
+            }
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode": {
+            "type": "string"
+        },
+        "aws-native:kinesisfirehose:DeliveryStreamAmazonOpenSearchServerlessRetryOptions": {
+            "type": "object",
+            "properties": {
+                "durationInSeconds": {
+                    "type": "integer"
+                }
+            }
         },
         "aws-native:kinesisfirehose:DeliveryStreamAmazonopensearchserviceBufferingHints": {
             "type": "object",
@@ -91382,7 +91765,8 @@
         "aws-native:apigatewayv2:getAuthorizer": {
             "cf": "AWS::ApiGatewayV2::Authorizer",
             "ids": [
-                "id"
+                "authorizerId",
+                "apiId"
             ]
         },
         "aws-native:apigatewayv2:getDeployment": {
@@ -92629,6 +93013,12 @@
             "cf": "AWS::ElasticLoadBalancingV2::ListenerRule",
             "ids": [
                 "ruleArn"
+            ]
+        },
+        "aws-native:elasticloadbalancingv2:getTargetGroup": {
+            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
+            "ids": [
+                "targetGroupArn"
             ]
         },
         "aws-native:emr:getStudio": {
