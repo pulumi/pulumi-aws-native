@@ -16,6 +16,9 @@
     "EbsRootVolumeSize" : {
       "type" : "integer"
     },
+    "OSReleaseLabel" : {
+      "type" : "string"
+    },
     "Name" : {
       "type" : "string"
     },
@@ -723,7 +726,7 @@
     }
   },
   "required" : [ "Instances", "ServiceRole", "JobFlowRole", "Name" ],
-  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/KerberosAttributes", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/JobFlowRole", "/properties/AdditionalInfo", "/properties/LogUri", "/properties/CustomAmiId", "/properties/AutoScalingRole", "/properties/Applications" ],
+  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/KerberosAttributes", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/JobFlowRole", "/properties/AdditionalInfo", "/properties/LogUri", "/properties/CustomAmiId", "/properties/OSReleaseLabel", "/properties/AutoScalingRole", "/properties/Applications" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/MasterPublicDNS" ]
 }

@@ -297,6 +297,18 @@
         }
       }
     },
+    "NetworkBandwidthGbpsRequest" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Max" : {
+          "type" : "number"
+        },
+        "Min" : {
+          "type" : "number"
+        }
+      }
+    },
     "BaselineEbsBandwidthMbpsRequest" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -441,6 +453,13 @@
         "VCpuCount" : {
           "$ref" : "#/definitions/VCpuCountRequest"
         },
+        "AllowedInstanceTypes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
         "LocalStorage" : {
           "type" : "string"
         },
@@ -453,6 +472,9 @@
         },
         "AcceleratorCount" : {
           "$ref" : "#/definitions/AcceleratorCountRequest"
+        },
+        "NetworkBandwidthGbps" : {
+          "$ref" : "#/definitions/NetworkBandwidthGbpsRequest"
         },
         "BareMetal" : {
           "type" : "string"
