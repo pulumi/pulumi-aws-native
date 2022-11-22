@@ -35,6 +35,9 @@
     "TransitEncryptionEnabled" : {
       "type" : "boolean"
     },
+    "NetworkType" : {
+      "type" : "string"
+    },
     "PreferredAvailabilityZones" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -96,6 +99,9 @@
       "type" : "integer"
     },
     "ConfigurationEndpointPort" : {
+      "type" : "string"
+    },
+    "IpDiscovery" : {
       "type" : "string"
     },
     "LogDeliveryConfigurations" : {
@@ -179,7 +185,7 @@
     }
   },
   "required" : [ "CacheNodeType", "NumCacheNodes", "Engine" ],
-  "createOnlyProperties" : [ "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/CacheSubnetGroupName", "/properties/ClusterName", "/properties/Engine" ],
+  "createOnlyProperties" : [ "/properties/Port", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/CacheSubnetGroupName", "/properties/ClusterName", "/properties/NetworkType", "/properties/Engine" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ConfigurationEndpoint.Address", "/properties/Id", "/properties/ConfigurationEndpoint.Port", "/properties/RedisEndpoint.Port", "/properties/RedisEndpoint.Address" ]
 }

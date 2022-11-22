@@ -1,459 +1,296 @@
 {
-  "sourceUrl" : "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html",
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : true
-  },
-  "propertyTransform" : {
-    "/properties/TaskRoleArn" : "$split(TaskRoleArn, \"role/\")[-1]"
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "ecs:DescribeTaskDefinition" ]
-    },
-    "create" : {
-      "permissions" : [ "ecs:RegisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
-    },
-    "update" : {
-      "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
-    },
-    "list" : {
-      "permissions" : [ "ecs:ListTaskDefinitions", "ecs:DescribeTaskDefinition" ]
-    },
-    "delete" : {
-      "permissions" : [ "ecs:DeregisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
-    }
-  },
   "typeName" : "AWS::ECS::TaskDefinition",
-  "readOnlyProperties" : [ "/properties/TaskDefinitionArn" ],
   "description" : "Resource Schema describing various properties for ECS TaskDefinition",
-  "createOnlyProperties" : [ "/properties/Family", "/properties/ContainerDefinitions", "/properties/Cpu", "/properties/ExecutionRoleArn", "/properties/InferenceAccelerators", "/properties/Memory", "/properties/NetworkMode", "/properties/PlacementConstraints", "/properties/ProxyConfiguration", "/properties/RequiresCompatibilities", "/properties/RuntimePlatform", "/properties/TaskRoleArn", "/properties/Volumes", "/properties/PidMode", "/properties/IpcMode", "/properties/EphemeralStorage" ],
-  "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/TaskDefinitionArn" ],
+  "sourceUrl" : "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html",
   "definitions" : {
-    "VolumeFrom" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "ReadOnly" : {
-          "type" : "boolean"
-        },
-        "SourceContainer" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ContainerDependency" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Condition" : {
-          "type" : "string"
-        },
-        "ContainerName" : {
-          "type" : "string"
-        }
-      }
-    },
-    "HealthCheck" : {
-      "description" : "The health check command and associated configuration parameters for the container.",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Command" : {
-          "description" : "A string array representing the command that the container runs to determine if it is healthy.",
-          "insertionOrder" : true,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Timeout" : {
-          "description" : "The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.",
-          "type" : "integer"
-        },
-        "Retries" : {
-          "description" : "The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.",
-          "type" : "integer"
-        },
-        "Interval" : {
-          "description" : "The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.",
-          "type" : "integer"
-        },
-        "StartPeriod" : {
-          "description" : "The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.",
-          "type" : "integer"
-        }
-      }
-    },
-    "HostEntry" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Hostname" : {
-          "type" : "string"
-        },
-        "IpAddress" : {
-          "type" : "string"
-        }
-      }
-    },
     "ContainerDefinition" : {
       "description" : "List of container definitions that are passed to the Docker daemon on a container instance",
-      "additionalProperties" : false,
       "type" : "object",
       "required" : [ "Name", "Image" ],
       "properties" : {
-        "User" : {
-          "type" : "string"
-        },
-        "Secrets" : {
-          "insertionOrder" : false,
+        "Command" : {
           "type" : "array",
+          "insertionOrder" : true,
           "items" : {
-            "$ref" : "#/definitions/Secret"
-          }
-        },
-        "Memory" : {
-          "description" : "The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.",
-          "type" : "integer"
-        },
-        "Privileged" : {
-          "type" : "boolean"
-        },
-        "HealthCheck" : {
-          "$ref" : "#/definitions/HealthCheck"
-        },
-        "StartTimeout" : {
-          "type" : "integer"
-        },
-        "VolumesFrom" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/VolumeFrom"
+            "type" : "string"
           }
         },
         "Cpu" : {
           "type" : "integer"
         },
-        "EntryPoint" : {
-          "insertionOrder" : true,
+        "DependsOn" : {
           "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/ContainerDependency"
+          }
+        },
+        "DisableNetworking" : {
+          "type" : "boolean"
+        },
+        "DnsSearchDomains" : {
+          "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
         },
         "DnsServers" : {
-          "insertionOrder" : false,
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "type" : "string"
           }
         },
-        "ReadonlyRootFilesystem" : {
+        "DockerLabels" : {
+          "type" : "object",
+          "patternProperties" : {
+            ".{1,}" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        },
+        "DockerSecurityOptions" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "EntryPoint" : {
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Environment" : {
+          "description" : "The environment variables to pass to a container",
+          "type" : "array",
+          "insertionOrder" : true,
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/KeyValuePair"
+          }
+        },
+        "EnvironmentFiles" : {
+          "description" : "The list of one or more files that contain the environment variables to pass to a container",
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "$ref" : "#/definitions/EnvironmentFile"
+          }
+        },
+        "Essential" : {
           "type" : "boolean"
+        },
+        "ExtraHosts" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/HostEntry"
+          }
+        },
+        "FirelensConfiguration" : {
+          "$ref" : "#/definitions/FirelensConfiguration"
+        },
+        "HealthCheck" : {
+          "$ref" : "#/definitions/HealthCheck"
+        },
+        "Hostname" : {
+          "type" : "string"
         },
         "Image" : {
           "description" : "The image used to start a container. This string is passed directly to the Docker daemon.",
           "type" : "string"
         },
-        "Essential" : {
-          "type" : "boolean"
+        "Links" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "LinuxParameters" : {
+          "$ref" : "#/definitions/LinuxParameters"
         },
         "LogConfiguration" : {
           "$ref" : "#/definitions/LogConfiguration"
         },
-        "ResourceRequirements" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ResourceRequirement"
-          }
+        "Memory" : {
+          "description" : "The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.",
+          "type" : "integer"
         },
-        "EnvironmentFiles" : {
-          "description" : "The list of one or more files that contain the environment variables to pass to a container",
-          "insertionOrder" : true,
+        "MemoryReservation" : {
+          "type" : "integer"
+        },
+        "MountPoints" : {
           "type" : "array",
+          "insertionOrder" : true,
+          "uniqueItems" : true,
           "items" : {
-            "$ref" : "#/definitions/EnvironmentFile"
+            "$ref" : "#/definitions/MountPoint"
           }
         },
         "Name" : {
           "description" : "The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed",
           "type" : "string"
         },
-        "FirelensConfiguration" : {
-          "$ref" : "#/definitions/FirelensConfiguration"
-        },
-        "DockerSecurityOptions" : {
-          "insertionOrder" : false,
+        "PortMappings" : {
+          "description" : "Port mappings allow containers to access ports on the host container instance to send or receive traffic.",
           "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
           "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/PortMapping"
           }
         },
-        "SystemControls" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/SystemControl"
-          }
-        },
-        "Interactive" : {
+        "Privileged" : {
           "type" : "boolean"
         },
-        "DnsSearchDomains" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Ulimits" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Ulimit"
-          }
-        },
-        "StopTimeout" : {
-          "type" : "integer"
-        },
-        "WorkingDirectory" : {
-          "type" : "string"
-        },
-        "MemoryReservation" : {
-          "type" : "integer"
+        "ReadonlyRootFilesystem" : {
+          "type" : "boolean"
         },
         "RepositoryCredentials" : {
           "$ref" : "#/definitions/RepositoryCredentials"
         },
-        "ExtraHosts" : {
-          "insertionOrder" : false,
+        "ResourceRequirements" : {
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
-            "$ref" : "#/definitions/HostEntry"
+            "$ref" : "#/definitions/ResourceRequirement"
           }
         },
-        "Hostname" : {
+        "Secrets" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Secret"
+          }
+        },
+        "StartTimeout" : {
+          "type" : "integer"
+        },
+        "StopTimeout" : {
+          "type" : "integer"
+        },
+        "Ulimits" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Ulimit"
+          }
+        },
+        "User" : {
           "type" : "string"
         },
-        "LinuxParameters" : {
-          "$ref" : "#/definitions/LinuxParameters"
+        "VolumesFrom" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/VolumeFrom"
+          }
         },
-        "DisableNetworking" : {
+        "WorkingDirectory" : {
+          "type" : "string"
+        },
+        "Interactive" : {
           "type" : "boolean"
         },
         "PseudoTerminal" : {
           "type" : "boolean"
         },
-        "MountPoints" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
+        "SystemControls" : {
           "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/MountPoint"
-          }
-        },
-        "DependsOn" : {
           "insertionOrder" : false,
-          "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/ContainerDependency"
-          }
-        },
-        "DockerLabels" : {
-          "patternProperties" : {
-            ".{1,}" : {
-              "type" : "string"
-            }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
-        },
-        "PortMappings" : {
-          "uniqueItems" : true,
-          "description" : "Port mappings allow containers to access ports on the host container instance to send or receive traffic.",
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/PortMapping"
-          }
-        },
-        "Command" : {
-          "insertionOrder" : true,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Environment" : {
-          "uniqueItems" : true,
-          "description" : "The environment variables to pass to a container",
-          "insertionOrder" : true,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/KeyValuePair"
-          }
-        },
-        "Links" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
+            "$ref" : "#/definitions/SystemControl"
           }
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "SystemControl" : {
-      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
-        "Value" : {
-          "type" : "string"
-        },
         "Namespace" : {
           "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "DockerVolumeConfiguration" : {
-      "additionalProperties" : false,
+    "ContainerDependency" : {
       "type" : "object",
       "properties" : {
-        "DriverOpts" : {
-          "patternProperties" : {
-            ".{1,}" : {
-              "type" : "string"
-            }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
-        },
-        "Scope" : {
+        "ContainerName" : {
           "type" : "string"
         },
+        "Condition" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Device" : {
+      "type" : "object",
+      "properties" : {
+        "ContainerPath" : {
+          "type" : "string"
+        },
+        "HostPath" : {
+          "type" : "string"
+        },
+        "Permissions" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
+    "DockerVolumeConfiguration" : {
+      "type" : "object",
+      "properties" : {
         "Autoprovision" : {
           "type" : "boolean"
         },
         "Driver" : {
           "type" : "string"
         },
+        "DriverOpts" : {
+          "type" : "object",
+          "patternProperties" : {
+            ".{1,}" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        },
         "Labels" : {
+          "type" : "object",
           "patternProperties" : {
             ".{1,}" : {
               "type" : "string"
             }
           },
-          "additionalProperties" : false,
-          "type" : "object"
-        }
-      }
-    },
-    "LogConfiguration" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "required" : [ "LogDriver" ],
-      "properties" : {
-        "SecretOptions" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Secret"
-          }
+          "additionalProperties" : false
         },
-        "Options" : {
-          "patternProperties" : {
-            ".{1,}" : {
-              "type" : "string"
-            }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
-        },
-        "LogDriver" : {
+        "Scope" : {
           "type" : "string"
         }
-      }
-    },
-    "FirelensConfiguration" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Options" : {
-          "patternProperties" : {
-            ".{1,}" : {
-              "type" : "string"
-            }
-          },
-          "additionalProperties" : false,
-          "type" : "object"
-        },
-        "Type" : {
-          "type" : "string"
-        }
-      }
-    },
-    "RuntimePlatform" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "OperatingSystemFamily" : {
-          "type" : "string"
-        },
-        "CpuArchitecture" : {
-          "type" : "string"
-        }
-      }
-    },
-    "KernelCapabilities" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Add" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Drop" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
-    },
-    "Tmpfs" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "required" : [ "Size" ],
-      "properties" : {
-        "Size" : {
-          "type" : "integer"
-        },
-        "ContainerPath" : {
-          "type" : "string"
-        },
-        "MountOptions" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "type" : "string"
-          }
-        }
-      }
+      },
+      "additionalProperties" : false
     },
     "AuthorizationConfig" : {
-      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "IAM" : {
@@ -463,123 +300,176 @@
         "AccessPointId" : {
           "type" : "string"
         }
-      }
-    },
-    "PortMapping" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "HostPort" : {
-          "type" : "integer"
-        },
-        "ContainerPort" : {
-          "type" : "integer"
-        },
-        "Protocol" : {
-          "type" : "string"
-        }
-      }
-    },
-    "TaskDefinitionPlacementConstraint" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "required" : [ "Type" ],
-      "properties" : {
-        "Type" : {
-          "type" : "string"
-        },
-        "Expression" : {
-          "type" : "string"
-        }
-      }
+      },
+      "additionalProperties" : false
     },
     "EFSVolumeConfiguration" : {
-      "additionalProperties" : false,
       "type" : "object",
       "required" : [ "FilesystemId" ],
       "properties" : {
         "FilesystemId" : {
           "type" : "string"
         },
+        "RootDirectory" : {
+          "type" : "string"
+        },
         "TransitEncryption" : {
           "type" : "string",
           "enum" : [ "ENABLED", "DISABLED" ]
         },
-        "AuthorizationConfig" : {
-          "$ref" : "#/definitions/AuthorizationConfig"
-        },
-        "RootDirectory" : {
-          "type" : "string"
-        },
         "TransitEncryptionPort" : {
           "type" : "integer"
+        },
+        "AuthorizationConfig" : {
+          "$ref" : "#/definitions/AuthorizationConfig"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "RepositoryCredentials" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "CredentialsParameter" : {
-          "type" : "string"
-        }
-      }
-    },
-    "KeyValuePair" : {
-      "additionalProperties" : false,
+    "EnvironmentFile" : {
       "type" : "object",
       "properties" : {
         "Value" : {
           "type" : "string"
         },
-        "Name" : {
+        "Type" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "Device" : {
-      "additionalProperties" : false,
+    "EphemeralStorage" : {
       "type" : "object",
       "properties" : {
-        "HostPath" : {
+        "SizeInGiB" : {
+          "type" : "integer"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "FirelensConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Type" : {
           "type" : "string"
         },
-        "Permissions" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
+        "Options" : {
+          "type" : "object",
+          "patternProperties" : {
+            ".{1,}" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "HealthCheck" : {
+      "description" : "The health check command and associated configuration parameters for the container.",
+      "type" : "object",
+      "properties" : {
+        "Command" : {
+          "description" : "A string array representing the command that the container runs to determine if it is healthy.",
           "type" : "array",
+          "insertionOrder" : true,
           "items" : {
             "type" : "string"
           }
         },
-        "ContainerPath" : {
+        "Interval" : {
+          "description" : "The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.",
+          "type" : "integer"
+        },
+        "Timeout" : {
+          "description" : "The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.",
+          "type" : "integer"
+        },
+        "Retries" : {
+          "description" : "The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.",
+          "type" : "integer"
+        },
+        "StartPeriod" : {
+          "description" : "The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.",
+          "type" : "integer"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "HostEntry" : {
+      "type" : "object",
+      "properties" : {
+        "Hostname" : {
+          "type" : "string"
+        },
+        "IpAddress" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
+    },
+    "HostVolumeProperties" : {
+      "type" : "object",
+      "properties" : {
+        "SourcePath" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "InferenceAccelerator" : {
+      "type" : "object",
+      "properties" : {
+        "DeviceName" : {
+          "type" : "string"
+        },
+        "DeviceType" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "KernelCapabilities" : {
+      "type" : "object",
+      "properties" : {
+        "Add" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Drop" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
+    "KeyValuePair" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     },
     "LinuxParameters" : {
-      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "Capabilities" : {
           "$ref" : "#/definitions/KernelCapabilities"
         },
-        "Swappiness" : {
-          "type" : "integer"
-        },
-        "Tmpfs" : {
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Tmpfs"
-          }
-        },
-        "SharedMemorySize" : {
-          "type" : "integer"
-        },
         "Devices" : {
-          "insertionOrder" : false,
           "type" : "array",
+          "insertionOrder" : false,
           "items" : {
             "$ref" : "#/definitions/Device"
           }
@@ -589,115 +479,117 @@
         },
         "MaxSwap" : {
           "type" : "integer"
+        },
+        "SharedMemorySize" : {
+          "type" : "integer"
+        },
+        "Swappiness" : {
+          "type" : "integer"
+        },
+        "Tmpfs" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Tmpfs"
+          }
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "Ulimit" : {
-      "additionalProperties" : false,
+    "LogConfiguration" : {
       "type" : "object",
-      "required" : [ "HardLimit", "Name", "SoftLimit" ],
+      "required" : [ "LogDriver" ],
       "properties" : {
-        "SoftLimit" : {
-          "type" : "integer"
+        "LogDriver" : {
+          "type" : "string"
         },
-        "HardLimit" : {
-          "type" : "integer"
+        "Options" : {
+          "type" : "object",
+          "patternProperties" : {
+            ".{1,}" : {
+              "type" : "string"
+            }
+          },
+          "additionalProperties" : false
         },
+        "SecretOptions" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/Secret"
+          }
+        }
+      },
+      "additionalProperties" : false
+    },
+    "PortMapping" : {
+      "type" : "object",
+      "properties" : {
         "Name" : {
           "type" : "string"
-        }
-      }
-    },
-    "HostVolumeProperties" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "SourcePath" : {
+        },
+        "ContainerPort" : {
+          "type" : "integer"
+        },
+        "HostPort" : {
+          "type" : "integer"
+        },
+        "Protocol" : {
           "type" : "string"
+        },
+        "AppProtocol" : {
+          "type" : "string",
+          "enum" : [ "http", "http2", "grpc" ]
         }
-      }
+      },
+      "additionalProperties" : false
     },
     "MountPoint" : {
-      "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "ContainerPath" : {
+          "type" : "string"
+        },
         "ReadOnly" : {
           "type" : "boolean"
         },
         "SourceVolume" : {
           "type" : "string"
-        },
-        "ContainerPath" : {
-          "type" : "string"
         }
-      }
-    },
-    "Secret" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "required" : [ "Name", "ValueFrom" ],
-      "properties" : {
-        "ValueFrom" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      }
+      },
+      "additionalProperties" : false
     },
     "ProxyConfiguration" : {
-      "additionalProperties" : false,
       "type" : "object",
       "required" : [ "ContainerName" ],
       "properties" : {
+        "ContainerName" : {
+          "type" : "string"
+        },
         "ProxyConfigurationProperties" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
           "items" : {
             "$ref" : "#/definitions/KeyValuePair"
           }
         },
         "Type" : {
           "type" : "string"
-        },
-        "ContainerName" : {
-          "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "Volume" : {
-      "additionalProperties" : false,
+    "RepositoryCredentials" : {
       "type" : "object",
       "properties" : {
-        "EFSVolumeConfiguration" : {
-          "$ref" : "#/definitions/EFSVolumeConfiguration"
-        },
-        "Host" : {
-          "$ref" : "#/definitions/HostVolumeProperties"
-        },
-        "DockerVolumeConfiguration" : {
-          "$ref" : "#/definitions/DockerVolumeConfiguration"
-        },
-        "Name" : {
+        "CredentialsParameter" : {
           "type" : "string"
         }
-      }
-    },
-    "EnvironmentFile" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "Type" : {
-          "type" : "string"
-        },
-        "Value" : {
-          "type" : "string"
-        }
-      }
+      },
+      "additionalProperties" : false
     },
     "ResourceRequirement" : {
-      "additionalProperties" : false,
       "type" : "object",
       "required" : [ "Type", "Value" ],
       "properties" : {
@@ -707,53 +599,156 @@
         "Value" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "InferenceAccelerator" : {
-      "additionalProperties" : false,
+    "RuntimePlatform" : {
       "type" : "object",
       "properties" : {
-        "DeviceType" : {
+        "CpuArchitecture" : {
           "type" : "string"
         },
-        "DeviceName" : {
+        "OperatingSystemFamily" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "Tag" : {
-      "additionalProperties" : false,
+    "Secret" : {
       "type" : "object",
+      "required" : [ "Name", "ValueFrom" ],
       "properties" : {
-        "Value" : {
+        "Name" : {
           "type" : "string"
         },
-        "Key" : {
+        "ValueFrom" : {
           "type" : "string"
         }
-      }
+      },
+      "additionalProperties" : false
     },
-    "EphemeralStorage" : {
-      "additionalProperties" : false,
+    "TaskDefinitionPlacementConstraint" : {
       "type" : "object",
+      "required" : [ "Type" ],
       "properties" : {
-        "SizeInGiB" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "Expression" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tmpfs" : {
+      "type" : "object",
+      "required" : [ "Size" ],
+      "properties" : {
+        "ContainerPath" : {
+          "type" : "string"
+        },
+        "MountOptions" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Size" : {
           "type" : "integer"
         }
-      }
+      },
+      "additionalProperties" : false
+    },
+    "Ulimit" : {
+      "type" : "object",
+      "required" : [ "HardLimit", "Name", "SoftLimit" ],
+      "properties" : {
+        "HardLimit" : {
+          "type" : "integer"
+        },
+        "Name" : {
+          "type" : "string"
+        },
+        "SoftLimit" : {
+          "type" : "integer"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Volume" : {
+      "type" : "object",
+      "properties" : {
+        "DockerVolumeConfiguration" : {
+          "$ref" : "#/definitions/DockerVolumeConfiguration"
+        },
+        "EFSVolumeConfiguration" : {
+          "$ref" : "#/definitions/EFSVolumeConfiguration"
+        },
+        "Host" : {
+          "$ref" : "#/definitions/HostVolumeProperties"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "VolumeFrom" : {
+      "type" : "object",
+      "properties" : {
+        "ReadOnly" : {
+          "type" : "boolean"
+        },
+        "SourceContainer" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      },
+      "additionalProperties" : false
     }
   },
+  "additionalProperties" : false,
   "properties" : {
-    "TaskRoleArn" : {
+    "TaskDefinitionArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the Amazon ECS task definition",
       "type" : "string"
     },
-    "IpcMode" : {
+    "Family" : {
       "type" : "string"
+    },
+    "ContainerDefinitions" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/ContainerDefinition"
+      }
+    },
+    "Cpu" : {
+      "type" : "string"
+    },
+    "ExecutionRoleArn" : {
+      "type" : "string"
+    },
+    "EphemeralStorage" : {
+      "$ref" : "#/definitions/EphemeralStorage"
     },
     "InferenceAccelerators" : {
-      "uniqueItems" : true,
-      "insertionOrder" : false,
       "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/InferenceAccelerator"
       }
@@ -761,72 +756,84 @@
     "Memory" : {
       "type" : "string"
     },
+    "NetworkMode" : {
+      "type" : "string"
+    },
     "PlacementConstraints" : {
-      "uniqueItems" : true,
-      "insertionOrder" : false,
       "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/TaskDefinitionPlacementConstraint"
       }
     },
-    "Cpu" : {
-      "type" : "string"
+    "ProxyConfiguration" : {
+      "$ref" : "#/definitions/ProxyConfiguration"
     },
     "RequiresCompatibilities" : {
-      "uniqueItems" : true,
-      "insertionOrder" : false,
       "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
       "items" : {
         "type" : "string"
       }
     },
-    "NetworkMode" : {
+    "TaskRoleArn" : {
       "type" : "string"
+    },
+    "Volumes" : {
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/Volume"
+      }
     },
     "PidMode" : {
-      "type" : "string"
-    },
-    "ExecutionRoleArn" : {
       "type" : "string"
     },
     "RuntimePlatform" : {
       "$ref" : "#/definitions/RuntimePlatform"
     },
-    "ProxyConfiguration" : {
-      "$ref" : "#/definitions/ProxyConfiguration"
-    },
-    "Volumes" : {
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Volume"
-      }
-    },
-    "ContainerDefinitions" : {
-      "uniqueItems" : true,
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/ContainerDefinition"
-      }
-    },
-    "Family" : {
+    "IpcMode" : {
       "type" : "string"
     },
-    "EphemeralStorage" : {
-      "$ref" : "#/definitions/EphemeralStorage"
-    },
     "Tags" : {
-      "insertionOrder" : false,
       "type" : "array",
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
+  "createOnlyProperties" : [ "/properties/Family", "/properties/ContainerDefinitions", "/properties/Cpu", "/properties/ExecutionRoleArn", "/properties/InferenceAccelerators", "/properties/Memory", "/properties/NetworkMode", "/properties/PlacementConstraints", "/properties/ProxyConfiguration", "/properties/RequiresCompatibilities", "/properties/RuntimePlatform", "/properties/TaskRoleArn", "/properties/Volumes", "/properties/PidMode", "/properties/IpcMode", "/properties/EphemeralStorage" ],
+  "readOnlyProperties" : [ "/properties/TaskDefinitionArn" ],
+  "primaryIdentifier" : [ "/properties/TaskDefinitionArn" ],
+  "propertyTransform" : {
+    "/properties/TaskRoleArn" : "$split(TaskRoleArn, \"role/\")[-1]"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ecs:RegisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
     },
-    "TaskDefinitionArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the Amazon ECS task definition",
-      "type" : "string"
+    "read" : {
+      "permissions" : [ "ecs:DescribeTaskDefinition" ]
+    },
+    "update" : {
+      "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
+    },
+    "delete" : {
+      "permissions" : [ "ecs:DeregisterTaskDefinition", "iam:GetRole", "iam:PassRole" ]
+    },
+    "list" : {
+      "permissions" : [ "ecs:ListTaskDefinitions", "ecs:DescribeTaskDefinition" ]
     }
   }
 }
