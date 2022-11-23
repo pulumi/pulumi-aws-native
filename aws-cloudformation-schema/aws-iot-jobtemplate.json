@@ -125,21 +125,6 @@
       },
       "required" : [ "Action", "FailureType", "MinNumberOfExecutedThings", "ThresholdPercentage" ]
     },
-    "RetryCriteria" : {
-      "description" : "Specifies how many times a failure type should be retried.",
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "FailureType" : {
-          "$ref" : "#/definitions/JobRetryFailureType"
-        },
-        "NumberOfRetries" : {
-          "maximum" : 10,
-          "type" : "integer",
-          "minimum" : 0
-        }
-      }
-    },
     "NumberOfSucceededThings" : {
       "type" : "integer",
       "minimum" : 1
@@ -171,10 +156,6 @@
     "MinNumberOfExecutedThings" : {
       "type" : "integer",
       "minimum" : 1
-    },
-    "JobRetryFailureType" : {
-      "type" : "string",
-      "enum" : [ "FAILED", "TIMED_OUT", "ALL" ]
     }
   },
   "properties" : {
@@ -213,21 +194,6 @@
       "description" : "A description of the Job Template.",
       "type" : "string",
       "maxLength" : 2028
-    },
-    "JobExecutionsRetryConfig" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "RetryCriteriaList" : {
-          "minItems" : 1,
-          "maxItems" : 2,
-          "insertionOrder" : false,
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/RetryCriteria"
-          }
-        }
-      }
     },
     "DocumentSource" : {
       "minLength" : 1,

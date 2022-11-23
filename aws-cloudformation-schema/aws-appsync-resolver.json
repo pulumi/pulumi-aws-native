@@ -24,7 +24,16 @@
     "SyncConfig" : {
       "$ref" : "#/definitions/SyncConfig"
     },
+    "Code" : {
+      "type" : "string"
+    },
     "ResponseMappingTemplateS3Location" : {
+      "type" : "string"
+    },
+    "Runtime" : {
+      "$ref" : "#/definitions/AppSyncRuntime"
+    },
+    "CodeS3Location" : {
       "type" : "string"
     },
     "DataSourceName" : {
@@ -50,6 +59,19 @@
     }
   },
   "definitions" : {
+    "AppSyncRuntime" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RuntimeVersion" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "RuntimeVersion", "Name" ]
+    },
     "PipelineConfig" : {
       "type" : "object",
       "additionalProperties" : false,
