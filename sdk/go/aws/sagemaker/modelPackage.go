@@ -42,7 +42,6 @@ type ModelPackage struct {
 	ModelPackageVersion                        pulumi.IntPtrOutput                                               `pulumi:"modelPackageVersion"`
 	SamplePayloadUrl                           pulumi.StringPtrOutput                                            `pulumi:"samplePayloadUrl"`
 	SourceAlgorithmSpecification               ModelPackageSourceAlgorithmSpecificationPtrOutput                 `pulumi:"sourceAlgorithmSpecification"`
-	Tag                                        ModelPackageTagPtrOutput                                          `pulumi:"tag"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayOutput                   `pulumi:"tags"`
 	Task                    pulumi.StringPtrOutput                       `pulumi:"task"`
@@ -113,7 +112,6 @@ type modelPackageArgs struct {
 	ModelPackageVersion                        *int                                                     `pulumi:"modelPackageVersion"`
 	SamplePayloadUrl                           *string                                                  `pulumi:"samplePayloadUrl"`
 	SourceAlgorithmSpecification               *ModelPackageSourceAlgorithmSpecification                `pulumi:"sourceAlgorithmSpecification"`
-	Tag                                        *ModelPackageTag                                         `pulumi:"tag"`
 	// An array of key-value pairs to apply to this resource.
 	Tags                    []ModelPackageTag                    `pulumi:"tags"`
 	Task                    *string                              `pulumi:"task"`
@@ -147,7 +145,6 @@ type ModelPackageArgs struct {
 	ModelPackageVersion                        pulumi.IntPtrInput
 	SamplePayloadUrl                           pulumi.StringPtrInput
 	SourceAlgorithmSpecification               ModelPackageSourceAlgorithmSpecificationPtrInput
-	Tag                                        ModelPackageTagPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags                    ModelPackageTagArrayInput
 	Task                    pulumi.StringPtrInput
@@ -311,10 +308,6 @@ func (o ModelPackageOutput) SourceAlgorithmSpecification() ModelPackageSourceAlg
 	return o.ApplyT(func(v *ModelPackage) ModelPackageSourceAlgorithmSpecificationPtrOutput {
 		return v.SourceAlgorithmSpecification
 	}).(ModelPackageSourceAlgorithmSpecificationPtrOutput)
-}
-
-func (o ModelPackageOutput) Tag() ModelPackageTagPtrOutput {
-	return o.ApplyT(func(v *ModelPackage) ModelPackageTagPtrOutput { return v.Tag }).(ModelPackageTagPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

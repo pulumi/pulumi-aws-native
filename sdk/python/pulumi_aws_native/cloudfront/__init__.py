@@ -8,10 +8,12 @@ import typing
 from ._enums import *
 from .cache_policy import *
 from .cloud_front_origin_access_identity import *
+from .continuous_deployment_policy import *
 from .distribution import *
 from .function import *
 from .get_cache_policy import *
 from .get_cloud_front_origin_access_identity import *
+from .get_continuous_deployment_policy import *
 from .get_distribution import *
 from .get_function import *
 from .get_key_group import *

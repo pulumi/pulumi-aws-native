@@ -17,6 +17,7 @@ __all__ = [
     'ServiceSchedulingStrategy',
     'TaskDefinitionAuthorizationConfigIAM',
     'TaskDefinitionEFSVolumeConfigurationTransitEncryption',
+    'TaskDefinitionPortMappingAppProtocol',
     'TaskSetAwsVpcConfigurationAssignPublicIp',
     'TaskSetLaunchType',
     'TaskSetScaleUnit',
@@ -84,6 +85,12 @@ class TaskDefinitionAuthorizationConfigIAM(str, Enum):
 class TaskDefinitionEFSVolumeConfigurationTransitEncryption(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class TaskDefinitionPortMappingAppProtocol(str, Enum):
+    HTTP = "http"
+    HTTP2 = "http2"
+    GRPC = "grpc"
 
 
 class TaskSetAwsVpcConfigurationAssignPublicIp(str, Enum):

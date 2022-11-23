@@ -20209,47 +20209,6 @@ func (i ModelPackageTagArgs) ToModelPackageTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagOutput)
 }
 
-func (i ModelPackageTagArgs) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
-	return i.ToModelPackageTagPtrOutputWithContext(context.Background())
-}
-
-func (i ModelPackageTagArgs) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagOutput).ToModelPackageTagPtrOutputWithContext(ctx)
-}
-
-// ModelPackageTagPtrInput is an input type that accepts ModelPackageTagArgs, ModelPackageTagPtr and ModelPackageTagPtrOutput values.
-// You can construct a concrete instance of `ModelPackageTagPtrInput` via:
-//
-//	        ModelPackageTagArgs{...}
-//
-//	or:
-//
-//	        nil
-type ModelPackageTagPtrInput interface {
-	pulumi.Input
-
-	ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput
-	ToModelPackageTagPtrOutputWithContext(context.Context) ModelPackageTagPtrOutput
-}
-
-type modelPackageTagPtrType ModelPackageTagArgs
-
-func ModelPackageTagPtr(v *ModelPackageTagArgs) ModelPackageTagPtrInput {
-	return (*modelPackageTagPtrType)(v)
-}
-
-func (*modelPackageTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageTag)(nil)).Elem()
-}
-
-func (i *modelPackageTagPtrType) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
-	return i.ToModelPackageTagPtrOutputWithContext(context.Background())
-}
-
-func (i *modelPackageTagPtrType) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageTagPtrOutput)
-}
-
 // ModelPackageTagArrayInput is an input type that accepts ModelPackageTagArray and ModelPackageTagArrayOutput values.
 // You can construct a concrete instance of `ModelPackageTagArrayInput` via:
 //
@@ -20290,16 +20249,6 @@ func (o ModelPackageTagOutput) ToModelPackageTagOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ModelPackageTagOutput) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
-	return o.ToModelPackageTagPtrOutputWithContext(context.Background())
-}
-
-func (o ModelPackageTagOutput) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageTag) *ModelPackageTag {
-		return &v
-	}).(ModelPackageTagPtrOutput)
-}
-
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ModelPackageTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPackageTag) string { return v.Key }).(pulumi.StringOutput)
@@ -20308,50 +20257,6 @@ func (o ModelPackageTagOutput) Key() pulumi.StringOutput {
 // The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o ModelPackageTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPackageTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type ModelPackageTagPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelPackageTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageTag)(nil)).Elem()
-}
-
-func (o ModelPackageTagPtrOutput) ToModelPackageTagPtrOutput() ModelPackageTagPtrOutput {
-	return o
-}
-
-func (o ModelPackageTagPtrOutput) ToModelPackageTagPtrOutputWithContext(ctx context.Context) ModelPackageTagPtrOutput {
-	return o
-}
-
-func (o ModelPackageTagPtrOutput) Elem() ModelPackageTagOutput {
-	return o.ApplyT(func(v *ModelPackageTag) ModelPackageTag {
-		if v != nil {
-			return *v
-		}
-		var ret ModelPackageTag
-		return ret
-	}).(ModelPackageTagOutput)
-}
-
-// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelPackageTagPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelPackageTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-func (o ModelPackageTagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ModelPackageTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type ModelPackageTagArrayOutput struct{ *pulumi.OutputState }
@@ -30993,7 +30898,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemPtrInput)(nil)).Elem(), ModelPackageStatusItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageStatusItemArrayInput)(nil)).Elem(), ModelPackageStatusItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagInput)(nil)).Elem(), ModelPackageTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagPtrInput)(nil)).Elem(), ModelPackageTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTagArrayInput)(nil)).Elem(), ModelPackageTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformInputInput)(nil)).Elem(), ModelPackageTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageTransformJobDefinitionInput)(nil)).Elem(), ModelPackageTransformJobDefinitionArgs{})
@@ -31398,7 +31302,6 @@ func init() {
 	pulumi.RegisterOutputType(ModelPackageStatusItemPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageStatusItemArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageTagOutput{})
-	pulumi.RegisterOutputType(ModelPackageTagPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelPackageTransformJobDefinitionOutput{})

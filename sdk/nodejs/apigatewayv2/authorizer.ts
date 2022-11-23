@@ -39,6 +39,7 @@ export class Authorizer extends pulumi.CustomResource {
 
     public readonly apiId!: pulumi.Output<string>;
     public readonly authorizerCredentialsArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly authorizerId!: pulumi.Output<string>;
     public readonly authorizerPayloadFormatVersion!: pulumi.Output<string | undefined>;
     public readonly authorizerResultTtlInSeconds!: pulumi.Output<number | undefined>;
     public readonly authorizerType!: pulumi.Output<string>;
@@ -77,9 +78,11 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
             resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["authorizerId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["authorizerCredentialsArn"] = undefined /*out*/;
+            resourceInputs["authorizerId"] = undefined /*out*/;
             resourceInputs["authorizerPayloadFormatVersion"] = undefined /*out*/;
             resourceInputs["authorizerResultTtlInSeconds"] = undefined /*out*/;
             resourceInputs["authorizerType"] = undefined /*out*/;

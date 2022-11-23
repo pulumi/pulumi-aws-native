@@ -45,6 +45,7 @@ export class User extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the user account.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly authenticationMode!: pulumi.Output<outputs.elasticache.AuthenticationModeProperties | undefined>;
     /**
      * Must be redis.
      */
@@ -88,6 +89,7 @@ export class User extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userId'");
             }
             resourceInputs["accessString"] = args ? args.accessString : undefined;
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             resourceInputs["passwords"] = args ? args.passwords : undefined;
@@ -98,6 +100,7 @@ export class User extends pulumi.CustomResource {
         } else {
             resourceInputs["accessString"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authenticationMode"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["noPasswordRequired"] = undefined /*out*/;
             resourceInputs["passwords"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export interface UserArgs {
      * Access permissions string used for this user account.
      */
     accessString?: pulumi.Input<string>;
+    authenticationMode?: pulumi.Input<inputs.elasticache.AuthenticationModePropertiesArgs>;
     /**
      * Must be redis.
      */

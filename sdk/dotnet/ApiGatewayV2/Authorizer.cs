@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [Output("authorizerCredentialsArn")]
         public Output<string?> AuthorizerCredentialsArn { get; private set; } = null!;
 
+        [Output("authorizerId")]
+        public Output<string> AuthorizerId { get; private set; } = null!;
+
         [Output("authorizerPayloadFormatVersion")]
         public Output<string?> AuthorizerPayloadFormatVersion { get; private set; } = null!;
 

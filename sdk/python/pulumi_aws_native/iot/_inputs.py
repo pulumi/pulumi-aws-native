@@ -25,12 +25,10 @@ __all__ = [
     'DomainConfigurationTagArgs',
     'FleetMetricAggregationTypeArgs',
     'FleetMetricTagArgs',
-    'JobExecutionsRetryConfigPropertiesArgs',
     'JobExecutionsRolloutConfigPropertiesArgs',
     'JobTemplateAbortCriteriaArgs',
     'JobTemplateExponentialRolloutRateArgs',
     'JobTemplateRateIncreaseCriteriaArgs',
-    'JobTemplateRetryCriteriaArgs',
     'JobTemplateTagArgs',
     'MitigationActionActionParamsArgs',
     'MitigationActionAddThingsToThingGroupParamsArgs',
@@ -127,6 +125,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
                  device_certificate_key_quality_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  device_certificate_shared_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  intermediate_ca_revoked_for_active_device_certificates_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
+                 io_t_policy_potential_mis_configuration_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  iot_policy_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  iot_role_alias_allows_access_to_unused_services_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
                  iot_role_alias_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None,
@@ -153,6 +152,8 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
             pulumi.set(__self__, "device_certificate_shared_check", device_certificate_shared_check)
         if intermediate_ca_revoked_for_active_device_certificates_check is not None:
             pulumi.set(__self__, "intermediate_ca_revoked_for_active_device_certificates_check", intermediate_ca_revoked_for_active_device_certificates_check)
+        if io_t_policy_potential_mis_configuration_check is not None:
+            pulumi.set(__self__, "io_t_policy_potential_mis_configuration_check", io_t_policy_potential_mis_configuration_check)
         if iot_policy_overly_permissive_check is not None:
             pulumi.set(__self__, "iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
         if iot_role_alias_allows_access_to_unused_services_check is not None:
@@ -239,6 +240,15 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @intermediate_ca_revoked_for_active_device_certificates_check.setter
     def intermediate_ca_revoked_for_active_device_certificates_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
         pulumi.set(self, "intermediate_ca_revoked_for_active_device_certificates_check", value)
+
+    @property
+    @pulumi.getter(name="ioTPolicyPotentialMisConfigurationCheck")
+    def io_t_policy_potential_mis_configuration_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
+        return pulumi.get(self, "io_t_policy_potential_mis_configuration_check")
+
+    @io_t_policy_potential_mis_configuration_check.setter
+    def io_t_policy_potential_mis_configuration_check(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]):
+        pulumi.set(self, "io_t_policy_potential_mis_configuration_check", value)
 
     @property
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
@@ -718,23 +728,6 @@ class FleetMetricTagArgs:
 
 
 @pulumi.input_type
-class JobExecutionsRetryConfigPropertiesArgs:
-    def __init__(__self__, *,
-                 retry_criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None):
-        if retry_criteria_list is not None:
-            pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
-
-    @property
-    @pulumi.getter(name="retryCriteriaList")
-    def retry_criteria_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]:
-        return pulumi.get(self, "retry_criteria_list")
-
-    @retry_criteria_list.setter
-    def retry_criteria_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]):
-        pulumi.set(self, "retry_criteria_list", value)
-
-
-@pulumi.input_type
 class JobExecutionsRolloutConfigPropertiesArgs:
     def __init__(__self__, *,
                  exponential_rollout_rate: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']] = None,
@@ -922,38 +915,6 @@ class JobTemplateRateIncreaseCriteriaArgs:
     @number_of_succeeded_things.setter
     def number_of_succeeded_things(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_succeeded_things", value)
-
-
-@pulumi.input_type
-class JobTemplateRetryCriteriaArgs:
-    def __init__(__self__, *,
-                 failure_type: Optional[pulumi.Input['JobTemplateJobRetryFailureType']] = None,
-                 number_of_retries: Optional[pulumi.Input[int]] = None):
-        """
-        Specifies how many times a failure type should be retried.
-        """
-        if failure_type is not None:
-            pulumi.set(__self__, "failure_type", failure_type)
-        if number_of_retries is not None:
-            pulumi.set(__self__, "number_of_retries", number_of_retries)
-
-    @property
-    @pulumi.getter(name="failureType")
-    def failure_type(self) -> Optional[pulumi.Input['JobTemplateJobRetryFailureType']]:
-        return pulumi.get(self, "failure_type")
-
-    @failure_type.setter
-    def failure_type(self, value: Optional[pulumi.Input['JobTemplateJobRetryFailureType']]):
-        pulumi.set(self, "failure_type", value)
-
-    @property
-    @pulumi.getter(name="numberOfRetries")
-    def number_of_retries(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "number_of_retries")
-
-    @number_of_retries.setter
-    def number_of_retries(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "number_of_retries", value)
 
 
 @pulumi.input_type

@@ -31,9 +31,11 @@ type ReplicationGroup struct {
 	Engine                       pulumi.StringPtrOutput                                     `pulumi:"engine"`
 	EngineVersion                pulumi.StringPtrOutput                                     `pulumi:"engineVersion"`
 	GlobalReplicationGroupId     pulumi.StringPtrOutput                                     `pulumi:"globalReplicationGroupId"`
+	IpDiscovery                  pulumi.StringPtrOutput                                     `pulumi:"ipDiscovery"`
 	KmsKeyId                     pulumi.StringPtrOutput                                     `pulumi:"kmsKeyId"`
 	LogDeliveryConfigurations    ReplicationGroupLogDeliveryConfigurationRequestArrayOutput `pulumi:"logDeliveryConfigurations"`
 	MultiAZEnabled               pulumi.BoolPtrOutput                                       `pulumi:"multiAZEnabled"`
+	NetworkType                  pulumi.StringPtrOutput                                     `pulumi:"networkType"`
 	NodeGroupConfiguration       ReplicationGroupNodeGroupConfigurationArrayOutput          `pulumi:"nodeGroupConfiguration"`
 	NotificationTopicArn         pulumi.StringPtrOutput                                     `pulumi:"notificationTopicArn"`
 	NumCacheClusters             pulumi.IntPtrOutput                                        `pulumi:"numCacheClusters"`
@@ -120,9 +122,11 @@ type replicationGroupArgs struct {
 	Engine                       *string                                           `pulumi:"engine"`
 	EngineVersion                *string                                           `pulumi:"engineVersion"`
 	GlobalReplicationGroupId     *string                                           `pulumi:"globalReplicationGroupId"`
+	IpDiscovery                  *string                                           `pulumi:"ipDiscovery"`
 	KmsKeyId                     *string                                           `pulumi:"kmsKeyId"`
 	LogDeliveryConfigurations    []ReplicationGroupLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
 	MultiAZEnabled               *bool                                             `pulumi:"multiAZEnabled"`
+	NetworkType                  *string                                           `pulumi:"networkType"`
 	NodeGroupConfiguration       []ReplicationGroupNodeGroupConfiguration          `pulumi:"nodeGroupConfiguration"`
 	NotificationTopicArn         *string                                           `pulumi:"notificationTopicArn"`
 	NumCacheClusters             *int                                              `pulumi:"numCacheClusters"`
@@ -169,9 +173,11 @@ type ReplicationGroupArgs struct {
 	Engine                       pulumi.StringPtrInput
 	EngineVersion                pulumi.StringPtrInput
 	GlobalReplicationGroupId     pulumi.StringPtrInput
+	IpDiscovery                  pulumi.StringPtrInput
 	KmsKeyId                     pulumi.StringPtrInput
 	LogDeliveryConfigurations    ReplicationGroupLogDeliveryConfigurationRequestArrayInput
 	MultiAZEnabled               pulumi.BoolPtrInput
+	NetworkType                  pulumi.StringPtrInput
 	NodeGroupConfiguration       ReplicationGroupNodeGroupConfigurationArrayInput
 	NotificationTopicArn         pulumi.StringPtrInput
 	NumCacheClusters             pulumi.IntPtrInput
@@ -295,6 +301,10 @@ func (o ReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.GlobalReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
+func (o ReplicationGroupOutput) IpDiscovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.IpDiscovery }).(pulumi.StringPtrOutput)
+}
+
 func (o ReplicationGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -307,6 +317,10 @@ func (o ReplicationGroupOutput) LogDeliveryConfigurations() ReplicationGroupLogD
 
 func (o ReplicationGroupOutput) MultiAZEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.MultiAZEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ReplicationGroupOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 func (o ReplicationGroupOutput) NodeGroupConfiguration() ReplicationGroupNodeGroupConfigurationArrayOutput {

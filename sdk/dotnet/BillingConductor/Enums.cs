@@ -92,6 +92,38 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
     /// <summary>
+    /// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+    /// </summary>
+    [EnumType]
+    public readonly struct PricingRuleBillingEntity : IEquatable<PricingRuleBillingEntity>
+    {
+        private readonly string _value;
+
+        private PricingRuleBillingEntity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PricingRuleBillingEntity Aws { get; } = new PricingRuleBillingEntity("AWS");
+        public static PricingRuleBillingEntity AWSMarketplace { get; } = new PricingRuleBillingEntity("AWS Marketplace");
+        public static PricingRuleBillingEntity Aispl { get; } = new PricingRuleBillingEntity("AISPL");
+
+        public static bool operator ==(PricingRuleBillingEntity left, PricingRuleBillingEntity right) => left.Equals(right);
+        public static bool operator !=(PricingRuleBillingEntity left, PricingRuleBillingEntity right) => !left.Equals(right);
+
+        public static explicit operator string(PricingRuleBillingEntity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PricingRuleBillingEntity other && Equals(other);
+        public bool Equals(PricingRuleBillingEntity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A term used to categorize the granularity of a Pricing Rule.
     /// </summary>
     [EnumType]
@@ -106,6 +138,7 @@ namespace Pulumi.AwsNative.BillingConductor
 
         public static PricingRuleScope Global { get; } = new PricingRuleScope("GLOBAL");
         public static PricingRuleScope Service { get; } = new PricingRuleScope("SERVICE");
+        public static PricingRuleScope BillingEntity { get; } = new PricingRuleScope("BILLING_ENTITY");
 
         public static bool operator ==(PricingRuleScope left, PricingRuleScope right) => left.Equals(right);
         public static bool operator !=(PricingRuleScope left, PricingRuleScope right) => !left.Equals(right);

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("authenticationMode")]
+        public Output<Outputs.AuthenticationModeProperties?> AuthenticationMode { get; private set; } = null!;
+
         /// <summary>
         /// Must be redis.
         /// </summary>
@@ -113,6 +116,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
+
+        [Input("authenticationMode")]
+        public Input<Inputs.AuthenticationModePropertiesArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
         /// Must be redis.

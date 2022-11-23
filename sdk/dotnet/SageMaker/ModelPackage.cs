@@ -99,9 +99,6 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("sourceAlgorithmSpecification")]
         public Output<Outputs.ModelPackageSourceAlgorithmSpecification?> SourceAlgorithmSpecification { get; private set; } = null!;
 
-        [Output("tag")]
-        public Output<Outputs.ModelPackageTag?> Tag { get; private set; } = null!;
-
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -243,9 +240,6 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Input("sourceAlgorithmSpecification")]
         public Input<Inputs.ModelPackageSourceAlgorithmSpecificationArgs>? SourceAlgorithmSpecification { get; set; }
-
-        [Input("tag")]
-        public Input<Inputs.ModelPackageTagArgs>? Tag { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ModelPackageTagArgs>? _tags;

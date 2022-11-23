@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, description=None, desired_ec2_instances=None, e_c2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None):
+    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, e_c2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None):
+        if anywhere_configuration and not isinstance(anywhere_configuration, dict):
+            raise TypeError("Expected argument 'anywhere_configuration' to be a dict")
+        pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -57,6 +60,14 @@ class GetFleetResult:
         if runtime_configuration and not isinstance(runtime_configuration, dict):
             raise TypeError("Expected argument 'runtime_configuration' to be a dict")
         pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+
+    @property
+    @pulumi.getter(name="anywhereConfiguration")
+    def anywhere_configuration(self) -> Optional['outputs.FleetAnywhereConfiguration']:
+        """
+        Configuration for Anywhere fleet.
+        """
+        return pulumi.get(self, "anywhere_configuration")
 
     @property
     @pulumi.getter
@@ -160,6 +171,7 @@ class AwaitableGetFleetResult(GetFleetResult):
         if False:
             yield self
         return GetFleetResult(
+            anywhere_configuration=self.anywhere_configuration,
             description=self.description,
             desired_ec2_instances=self.desired_ec2_instances,
             e_c2_inbound_permissions=self.e_c2_inbound_permissions,
@@ -177,7 +189,7 @@ class AwaitableGetFleetResult(GetFleetResult):
 def get_fleet(fleet_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
-    The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+    The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 
 
     :param str fleet_id: Unique fleet ID
@@ -188,6 +200,7 @@ def get_fleet(fleet_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
+        anywhere_configuration=__ret__.anywhere_configuration,
         description=__ret__.description,
         desired_ec2_instances=__ret__.desired_ec2_instances,
         e_c2_inbound_permissions=__ret__.e_c2_inbound_permissions,
@@ -206,7 +219,7 @@ def get_fleet(fleet_id: Optional[str] = None,
 def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
     """
-    The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+    The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 
 
     :param str fleet_id: Unique fleet ID

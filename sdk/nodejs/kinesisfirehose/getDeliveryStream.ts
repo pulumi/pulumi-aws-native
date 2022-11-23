@@ -26,6 +26,7 @@ export interface GetDeliveryStreamArgs {
 }
 
 export interface GetDeliveryStreamResult {
+    readonly amazonOpenSearchServerlessDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration;
     readonly amazonopensearchserviceDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration;
     readonly arn?: string;
     readonly deliveryStreamEncryptionConfigurationInput?: outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput;

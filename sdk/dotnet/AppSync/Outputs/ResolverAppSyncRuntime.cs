@@ -7,18 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Outputs
+namespace Pulumi.AwsNative.AppSync.Outputs
 {
 
     [OutputType]
-    public sealed class JobExecutionsRetryConfigProperties
+    public sealed class ResolverAppSyncRuntime
     {
-        public readonly ImmutableArray<Outputs.JobTemplateRetryCriteria> RetryCriteriaList;
+        public readonly string Name;
+        public readonly string RuntimeVersion;
 
         [OutputConstructor]
-        private JobExecutionsRetryConfigProperties(ImmutableArray<Outputs.JobTemplateRetryCriteria> retryCriteriaList)
+        private ResolverAppSyncRuntime(
+            string name,
+
+            string runtimeVersion)
         {
-            RetryCriteriaList = retryCriteriaList;
+            Name = name;
+            RuntimeVersion = runtimeVersion;
         }
     }
 }

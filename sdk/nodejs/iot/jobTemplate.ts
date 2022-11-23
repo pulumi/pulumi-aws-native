@@ -58,7 +58,6 @@ export class JobTemplate extends pulumi.CustomResource {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     public readonly jobArn!: pulumi.Output<string | undefined>;
-    public readonly jobExecutionsRetryConfig!: pulumi.Output<outputs.iot.JobExecutionsRetryConfigProperties | undefined>;
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -99,7 +98,6 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["document"] = args ? args.document : undefined;
             resourceInputs["documentSource"] = args ? args.documentSource : undefined;
             resourceInputs["jobArn"] = args ? args.jobArn : undefined;
-            resourceInputs["jobExecutionsRetryConfig"] = args ? args.jobExecutionsRetryConfig : undefined;
             resourceInputs["jobExecutionsRolloutConfig"] = args ? args.jobExecutionsRolloutConfig : undefined;
             resourceInputs["jobTemplateId"] = args ? args.jobTemplateId : undefined;
             resourceInputs["presignedUrlConfig"] = args ? args.presignedUrlConfig : undefined;
@@ -113,7 +111,6 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["document"] = undefined /*out*/;
             resourceInputs["documentSource"] = undefined /*out*/;
             resourceInputs["jobArn"] = undefined /*out*/;
-            resourceInputs["jobExecutionsRetryConfig"] = undefined /*out*/;
             resourceInputs["jobExecutionsRolloutConfig"] = undefined /*out*/;
             resourceInputs["jobTemplateId"] = undefined /*out*/;
             resourceInputs["presignedUrlConfig"] = undefined /*out*/;
@@ -149,7 +146,6 @@ export interface JobTemplateArgs {
      * Optional for copying a JobTemplate from a pre-existing Job configuration.
      */
     jobArn?: pulumi.Input<string>;
-    jobExecutionsRetryConfig?: pulumi.Input<inputs.iot.JobExecutionsRetryConfigPropertiesArgs>;
     /**
      * Allows you to create a staged rollout of a job.
      */

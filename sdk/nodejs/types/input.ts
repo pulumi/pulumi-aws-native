@@ -4319,6 +4319,11 @@ export namespace appsync {
         relationalDatabaseSourceType: pulumi.Input<string>;
     }
 
+    export interface FunctionConfigurationAppSyncRuntimeArgs {
+        name: pulumi.Input<string>;
+        runtimeVersion: pulumi.Input<string>;
+    }
+
     export interface FunctionConfigurationLambdaConflictHandlerConfigArgs {
         lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
@@ -4371,6 +4376,11 @@ export namespace appsync {
         awsRegion?: pulumi.Input<string>;
         defaultAction?: pulumi.Input<string>;
         userPoolId?: pulumi.Input<string>;
+    }
+
+    export interface ResolverAppSyncRuntimeArgs {
+        name: pulumi.Input<string>;
+        runtimeVersion: pulumi.Input<string>;
     }
 
     export interface ResolverCachingConfigArgs {
@@ -4605,6 +4615,7 @@ export namespace autoscaling {
         acceleratorNames?: pulumi.Input<pulumi.Input<string>[]>;
         acceleratorTotalMemoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs>;
         acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         bareMetal?: pulumi.Input<string>;
         baselineEbsBandwidthMbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs>;
         burstablePerformance?: pulumi.Input<string>;
@@ -4615,6 +4626,7 @@ export namespace autoscaling {
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequestArgs>;
         memoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryMiBRequestArgs>;
+        networkBandwidthGbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequestArgs>;
         networkInterfaceCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequestArgs>;
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
@@ -4678,6 +4690,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupMixedInstancesPolicyArgs {
         instancesDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstancesDistributionArgs>;
         launchTemplate: pulumi.Input<inputs.autoscaling.AutoScalingGroupLaunchTemplateArgs>;
+    }
+
+    export interface AutoScalingGroupNetworkBandwidthGbpsRequestArgs {
+        max?: pulumi.Input<number>;
+        min?: pulumi.Input<number>;
     }
 
     export interface AutoScalingGroupNetworkInterfaceCountRequestArgs {
@@ -5818,6 +5835,33 @@ export namespace cloudfront {
         comment: pulumi.Input<string>;
     }
 
+    export interface ContinuousDeploymentPolicyConfigArgs {
+        enabled: pulumi.Input<boolean>;
+        stagingDistributionDnsNames: pulumi.Input<pulumi.Input<string>[]>;
+        trafficConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfigArgs>;
+    }
+
+    export interface ContinuousDeploymentPolicySessionStickinessConfigArgs {
+        idleTTL: pulumi.Input<number>;
+        maximumTTL: pulumi.Input<number>;
+    }
+
+    export interface ContinuousDeploymentPolicySingleHeaderConfigArgs {
+        header: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ContinuousDeploymentPolicySingleWeightConfigArgs {
+        sessionStickinessConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicySessionStickinessConfigArgs>;
+        weight: pulumi.Input<number>;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfigArgs {
+        singleHeaderConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicySingleHeaderConfigArgs>;
+        singleWeightConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicySingleWeightConfigArgs>;
+        type: pulumi.Input<enums.cloudfront.ContinuousDeploymentPolicyTrafficConfigType>;
+    }
+
     export interface DistributionCacheBehaviorArgs {
         allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
         cachePolicyId?: pulumi.Input<string>;
@@ -5846,6 +5890,7 @@ export namespace cloudfront {
         cNAMEs?: pulumi.Input<pulumi.Input<string>[]>;
         cacheBehaviors?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCacheBehaviorArgs>[]>;
         comment?: pulumi.Input<string>;
+        continuousDeploymentPolicyId?: pulumi.Input<string>;
         customErrorResponses?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionCustomErrorResponseArgs>[]>;
         customOrigin?: pulumi.Input<inputs.cloudfront.DistributionLegacyCustomOriginArgs>;
         defaultCacheBehavior: pulumi.Input<inputs.cloudfront.DistributionDefaultCacheBehaviorArgs>;
@@ -5859,6 +5904,7 @@ export namespace cloudfront {
         priceClass?: pulumi.Input<string>;
         restrictions?: pulumi.Input<inputs.cloudfront.DistributionRestrictionsArgs>;
         s3Origin?: pulumi.Input<inputs.cloudfront.DistributionLegacyS3OriginArgs>;
+        staging?: pulumi.Input<boolean>;
         viewerCertificate?: pulumi.Input<inputs.cloudfront.DistributionViewerCertificateArgs>;
         webACLId?: pulumi.Input<string>;
     }
@@ -6338,91 +6384,31 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
-    /**
-     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
-     */
     export interface AlarmDimensionArgs {
-        /**
-         * The name of the dimension.
-         */
         name: pulumi.Input<string>;
-        /**
-         * The value for the dimension.
-         */
         value: pulumi.Input<string>;
     }
 
-    /**
-     * The Metric property type represents a specific metric.
-     */
     export interface AlarmMetricArgs {
-        /**
-         * The dimensions for the metric.
-         */
         dimensions?: pulumi.Input<pulumi.Input<inputs.cloudwatch.AlarmDimensionArgs>[]>;
-        /**
-         * The name of the metric.
-         */
         metricName?: pulumi.Input<string>;
-        /**
-         * The namespace of the metric.
-         */
         namespace?: pulumi.Input<string>;
     }
 
-    /**
-     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
-     */
     export interface AlarmMetricDataQueryArgs {
-        /**
-         * The ID of the account where the metrics are located, if this is a cross-account alarm.
-         */
         accountId?: pulumi.Input<string>;
-        /**
-         * The math expression to be performed on the returned data.
-         */
         expression?: pulumi.Input<string>;
-        /**
-         * A short name used to tie this object to the results in the response.
-         */
         id: pulumi.Input<string>;
-        /**
-         * A human-readable label for this metric or expression.
-         */
         label?: pulumi.Input<string>;
-        /**
-         * The metric to be returned, along with statistics, period, and units.
-         */
         metricStat?: pulumi.Input<inputs.cloudwatch.AlarmMetricStatArgs>;
-        /**
-         * The period in seconds, over which the statistic is applied.
-         */
         period?: pulumi.Input<number>;
-        /**
-         * This option indicates whether to return the timestamps and raw data values of this metric.
-         */
         returnData?: pulumi.Input<boolean>;
     }
 
-    /**
-     * This structure defines the metric to be returned, along with the statistics, period, and units.
-     */
     export interface AlarmMetricStatArgs {
-        /**
-         * The metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: pulumi.Input<inputs.cloudwatch.AlarmMetricArgs>;
-        /**
-         * The granularity, in seconds, of the returned data points.
-         */
         period: pulumi.Input<number>;
-        /**
-         * The statistic to return.
-         */
         stat: pulumi.Input<string>;
-        /**
-         * The unit to use for the returned data points.
-         */
         unit?: pulumi.Input<string>;
     }
 
@@ -11229,6 +11215,16 @@ export namespace ecs {
     }
 
     /**
+     * Service Connect Configuration default for all services or tasks within this cluster
+     */
+    export interface ClusterServiceConnectDefaultsArgs {
+        /**
+         * Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+         */
+        namespace?: pulumi.Input<string>;
+    }
+
+    /**
      * The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
      */
     export interface ClusterSettingsArgs {
@@ -11521,8 +11517,10 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionPortMappingArgs {
+        appProtocol?: pulumi.Input<enums.ecs.TaskDefinitionPortMappingAppProtocol>;
         containerPort?: pulumi.Input<number>;
         hostPort?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
         protocol?: pulumi.Input<string>;
     }
 
@@ -12000,6 +11998,17 @@ export namespace eks {
 }
 
 export namespace elasticache {
+    export interface AuthenticationModePropertiesArgs {
+        /**
+         * Passwords used for this user account. You can create up to two passwords for each user.
+         */
+        passwords?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Authentication Type
+         */
+        type: pulumi.Input<enums.elasticache.UserAuthenticationModePropertiesType>;
+    }
+
     export interface CacheClusterCloudWatchLogsDestinationDetailsArgs {
         logGroup: pulumi.Input<string>;
     }
@@ -12500,23 +12509,50 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttributeArgs {
+        /**
+         * The value of the attribute.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * The name of the attribute.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface TargetGroupMatcherArgs {
+        /**
+         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
+         */
         grpcCode?: pulumi.Input<string>;
+        /**
+         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+         */
         httpCode?: pulumi.Input<string>;
     }
 
     export interface TargetGroupTagArgs {
+        /**
+         * The value for the tag. 
+         */
         key: pulumi.Input<string>;
+        /**
+         * The key name of the tag. 
+         */
         value: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetDescriptionArgs {
+        /**
+         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+         */
         availabilityZone?: pulumi.Input<string>;
+        /**
+         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+         */
         id: pulumi.Input<string>;
+        /**
+         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
+         */
         port?: pulumi.Input<number>;
     }
 }
@@ -14218,6 +14254,16 @@ export namespace gamelift {
         key: pulumi.Input<string>;
         objectVersion?: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for Anywhere fleet.
+     */
+    export interface FleetAnywhereConfigurationArgs {
+        /**
+         * Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+         */
+        cost: pulumi.Input<string>;
     }
 
     /**
@@ -16272,6 +16318,7 @@ export namespace iot {
         deviceCertificateKeyQualityCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
         deviceCertificateSharedCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
         intermediateCaRevokedForActiveDeviceCertificatesCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
+        ioTPolicyPotentialMisConfigurationCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
         iotPolicyOverlyPermissiveCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
         iotRoleAliasAllowsAccessToUnusedServicesCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
         iotRoleAliasOverlyPermissiveCheck?: pulumi.Input<inputs.iot.AccountAuditConfigurationAuditCheckConfigurationArgs>;
@@ -16394,10 +16441,6 @@ export namespace iot {
         value: pulumi.Input<string>;
     }
 
-    export interface JobExecutionsRetryConfigPropertiesArgs {
-        retryCriteriaList?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateRetryCriteriaArgs>[]>;
-    }
-
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -16455,14 +16498,6 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteriaArgs {
         numberOfNotifiedThings?: pulumi.Input<number>;
         numberOfSucceededThings?: pulumi.Input<number>;
-    }
-
-    /**
-     * Specifies how many times a failure type should be retried.
-     */
-    export interface JobTemplateRetryCriteriaArgs {
-        failureType?: pulumi.Input<enums.iot.JobTemplateJobRetryFailureType>;
-        numberOfRetries?: pulumi.Input<number>;
     }
 
     /**
@@ -20379,6 +20414,28 @@ export namespace kinesisanalyticsv2 {
 }
 
 export namespace kinesisfirehose {
+    export interface DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs {
+        intervalInSeconds?: pulumi.Input<number>;
+        sizeInMBs?: pulumi.Input<number>;
+    }
+
+    export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs {
+        bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs>;
+        cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
+        collectionEndpoint?: pulumi.Input<string>;
+        indexName: pulumi.Input<string>;
+        processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
+        retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs>;
+        roleARN: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode>;
+        s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
+        vpcConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamVpcConfigurationArgs>;
+    }
+
+    export interface DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs {
+        durationInSeconds?: pulumi.Input<number>;
+    }
+
     export interface DeliveryStreamAmazonopensearchserviceBufferingHintsArgs {
         intervalInSeconds?: pulumi.Input<number>;
         sizeInMBs?: pulumi.Input<number>;

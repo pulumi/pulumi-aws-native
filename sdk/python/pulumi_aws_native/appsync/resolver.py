@@ -20,6 +20,8 @@ class ResolverArgs:
                  field_name: pulumi.Input[str],
                  type_name: pulumi.Input[str],
                  caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
@@ -28,6 +30,7 @@ class ResolverArgs:
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']] = None,
                  sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a Resolver resource.
@@ -37,6 +40,10 @@ class ResolverArgs:
         pulumi.set(__self__, "type_name", type_name)
         if caching_config is not None:
             pulumi.set(__self__, "caching_config", caching_config)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if code_s3_location is not None:
+            pulumi.set(__self__, "code_s3_location", code_s3_location)
         if data_source_name is not None:
             pulumi.set(__self__, "data_source_name", data_source_name)
         if kind is not None:
@@ -53,6 +60,8 @@ class ResolverArgs:
             pulumi.set(__self__, "response_mapping_template", response_mapping_template)
         if response_mapping_template_s3_location is not None:
             pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
             pulumi.set(__self__, "sync_config", sync_config)
 
@@ -91,6 +100,24 @@ class ResolverArgs:
     @caching_config.setter
     def caching_config(self, value: Optional[pulumi.Input['ResolverCachingConfigArgs']]):
         pulumi.set(self, "caching_config", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "code_s3_location")
+
+    @code_s3_location.setter
+    def code_s3_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_s3_location", value)
 
     @property
     @pulumi.getter(name="dataSourceName")
@@ -165,6 +192,15 @@ class ResolverArgs:
         pulumi.set(self, "response_mapping_template_s3_location", value)
 
     @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
+
+    @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['ResolverSyncConfigArgs']]:
         return pulumi.get(self, "sync_config")
@@ -186,6 +222,8 @@ class Resolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -195,6 +233,7 @@ class Resolver(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverAppSyncRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -230,6 +269,8 @@ class Resolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  caching_config: Optional[pulumi.Input[pulumi.InputType['ResolverCachingConfigArgs']]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  field_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -239,6 +280,7 @@ class Resolver(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['ResolverAppSyncRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['ResolverSyncConfigArgs']]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -255,6 +297,8 @@ class Resolver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["caching_config"] = caching_config
+            __props__.__dict__["code"] = code
+            __props__.__dict__["code_s3_location"] = code_s3_location
             __props__.__dict__["data_source_name"] = data_source_name
             if field_name is None and not opts.urn:
                 raise TypeError("Missing required property 'field_name'")
@@ -266,6 +310,7 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
             __props__.__dict__["response_mapping_template"] = response_mapping_template
             __props__.__dict__["response_mapping_template_s3_location"] = response_mapping_template_s3_location
+            __props__.__dict__["runtime"] = runtime
             __props__.__dict__["sync_config"] = sync_config
             if type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'type_name'")
@@ -295,6 +340,8 @@ class Resolver(pulumi.CustomResource):
 
         __props__.__dict__["api_id"] = None
         __props__.__dict__["caching_config"] = None
+        __props__.__dict__["code"] = None
+        __props__.__dict__["code_s3_location"] = None
         __props__.__dict__["data_source_name"] = None
         __props__.__dict__["field_name"] = None
         __props__.__dict__["kind"] = None
@@ -305,6 +352,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["resolver_arn"] = None
         __props__.__dict__["response_mapping_template"] = None
         __props__.__dict__["response_mapping_template_s3_location"] = None
+        __props__.__dict__["runtime"] = None
         __props__.__dict__["sync_config"] = None
         __props__.__dict__["type_name"] = None
         return Resolver(resource_name, opts=opts, __props__=__props__)
@@ -318,6 +366,16 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> pulumi.Output[Optional['outputs.ResolverCachingConfig']]:
         return pulumi.get(self, "caching_config")
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
@@ -368,6 +426,11 @@ class Resolver(pulumi.CustomResource):
     @pulumi.getter(name="responseMappingTemplateS3Location")
     def response_mapping_template_s3_location(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "response_mapping_template_s3_location")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Output[Optional['outputs.ResolverAppSyncRuntime']]:
+        return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")

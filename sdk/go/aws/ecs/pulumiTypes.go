@@ -1137,6 +1137,146 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Service Connect Configuration default for all services or tasks within this cluster
+type ClusterServiceConnectDefaults struct {
+	// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ClusterServiceConnectDefaultsInput is an input type that accepts ClusterServiceConnectDefaultsArgs and ClusterServiceConnectDefaultsOutput values.
+// You can construct a concrete instance of `ClusterServiceConnectDefaultsInput` via:
+//
+//	ClusterServiceConnectDefaultsArgs{...}
+type ClusterServiceConnectDefaultsInput interface {
+	pulumi.Input
+
+	ToClusterServiceConnectDefaultsOutput() ClusterServiceConnectDefaultsOutput
+	ToClusterServiceConnectDefaultsOutputWithContext(context.Context) ClusterServiceConnectDefaultsOutput
+}
+
+// Service Connect Configuration default for all services or tasks within this cluster
+type ClusterServiceConnectDefaultsArgs struct {
+	// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ClusterServiceConnectDefaultsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServiceConnectDefaults)(nil)).Elem()
+}
+
+func (i ClusterServiceConnectDefaultsArgs) ToClusterServiceConnectDefaultsOutput() ClusterServiceConnectDefaultsOutput {
+	return i.ToClusterServiceConnectDefaultsOutputWithContext(context.Background())
+}
+
+func (i ClusterServiceConnectDefaultsArgs) ToClusterServiceConnectDefaultsOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceConnectDefaultsOutput)
+}
+
+func (i ClusterServiceConnectDefaultsArgs) ToClusterServiceConnectDefaultsPtrOutput() ClusterServiceConnectDefaultsPtrOutput {
+	return i.ToClusterServiceConnectDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServiceConnectDefaultsArgs) ToClusterServiceConnectDefaultsPtrOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceConnectDefaultsOutput).ToClusterServiceConnectDefaultsPtrOutputWithContext(ctx)
+}
+
+// ClusterServiceConnectDefaultsPtrInput is an input type that accepts ClusterServiceConnectDefaultsArgs, ClusterServiceConnectDefaultsPtr and ClusterServiceConnectDefaultsPtrOutput values.
+// You can construct a concrete instance of `ClusterServiceConnectDefaultsPtrInput` via:
+//
+//	        ClusterServiceConnectDefaultsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterServiceConnectDefaultsPtrInput interface {
+	pulumi.Input
+
+	ToClusterServiceConnectDefaultsPtrOutput() ClusterServiceConnectDefaultsPtrOutput
+	ToClusterServiceConnectDefaultsPtrOutputWithContext(context.Context) ClusterServiceConnectDefaultsPtrOutput
+}
+
+type clusterServiceConnectDefaultsPtrType ClusterServiceConnectDefaultsArgs
+
+func ClusterServiceConnectDefaultsPtr(v *ClusterServiceConnectDefaultsArgs) ClusterServiceConnectDefaultsPtrInput {
+	return (*clusterServiceConnectDefaultsPtrType)(v)
+}
+
+func (*clusterServiceConnectDefaultsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServiceConnectDefaults)(nil)).Elem()
+}
+
+func (i *clusterServiceConnectDefaultsPtrType) ToClusterServiceConnectDefaultsPtrOutput() ClusterServiceConnectDefaultsPtrOutput {
+	return i.ToClusterServiceConnectDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServiceConnectDefaultsPtrType) ToClusterServiceConnectDefaultsPtrOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServiceConnectDefaultsPtrOutput)
+}
+
+// Service Connect Configuration default for all services or tasks within this cluster
+type ClusterServiceConnectDefaultsOutput struct{ *pulumi.OutputState }
+
+func (ClusterServiceConnectDefaultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServiceConnectDefaults)(nil)).Elem()
+}
+
+func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsOutput() ClusterServiceConnectDefaultsOutput {
+	return o
+}
+
+func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsOutput {
+	return o
+}
+
+func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrOutput() ClusterServiceConnectDefaultsPtrOutput {
+	return o.ToClusterServiceConnectDefaultsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServiceConnectDefaultsOutput) ToClusterServiceConnectDefaultsPtrOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServiceConnectDefaults) *ClusterServiceConnectDefaults {
+		return &v
+	}).(ClusterServiceConnectDefaultsPtrOutput)
+}
+
+// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+func (o ClusterServiceConnectDefaultsOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterServiceConnectDefaults) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type ClusterServiceConnectDefaultsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterServiceConnectDefaultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServiceConnectDefaults)(nil)).Elem()
+}
+
+func (o ClusterServiceConnectDefaultsPtrOutput) ToClusterServiceConnectDefaultsPtrOutput() ClusterServiceConnectDefaultsPtrOutput {
+	return o
+}
+
+func (o ClusterServiceConnectDefaultsPtrOutput) ToClusterServiceConnectDefaultsPtrOutputWithContext(ctx context.Context) ClusterServiceConnectDefaultsPtrOutput {
+	return o
+}
+
+func (o ClusterServiceConnectDefaultsPtrOutput) Elem() ClusterServiceConnectDefaultsOutput {
+	return o.ApplyT(func(v *ClusterServiceConnectDefaults) ClusterServiceConnectDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServiceConnectDefaults
+		return ret
+	}).(ClusterServiceConnectDefaultsOutput)
+}
+
+// Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+func (o ClusterServiceConnectDefaultsPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterServiceConnectDefaults) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
 // The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
 type ClusterSettings struct {
 	Name  *string `pulumi:"name"`
@@ -6232,9 +6372,11 @@ func (o TaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TaskDefinitionPortMapping struct {
-	ContainerPort *int    `pulumi:"containerPort"`
-	HostPort      *int    `pulumi:"hostPort"`
-	Protocol      *string `pulumi:"protocol"`
+	AppProtocol   *TaskDefinitionPortMappingAppProtocol `pulumi:"appProtocol"`
+	ContainerPort *int                                  `pulumi:"containerPort"`
+	HostPort      *int                                  `pulumi:"hostPort"`
+	Name          *string                               `pulumi:"name"`
+	Protocol      *string                               `pulumi:"protocol"`
 }
 
 // TaskDefinitionPortMappingInput is an input type that accepts TaskDefinitionPortMappingArgs and TaskDefinitionPortMappingOutput values.
@@ -6249,9 +6391,11 @@ type TaskDefinitionPortMappingInput interface {
 }
 
 type TaskDefinitionPortMappingArgs struct {
-	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
-	HostPort      pulumi.IntPtrInput    `pulumi:"hostPort"`
-	Protocol      pulumi.StringPtrInput `pulumi:"protocol"`
+	AppProtocol   TaskDefinitionPortMappingAppProtocolPtrInput `pulumi:"appProtocol"`
+	ContainerPort pulumi.IntPtrInput                           `pulumi:"containerPort"`
+	HostPort      pulumi.IntPtrInput                           `pulumi:"hostPort"`
+	Name          pulumi.StringPtrInput                        `pulumi:"name"`
+	Protocol      pulumi.StringPtrInput                        `pulumi:"protocol"`
 }
 
 func (TaskDefinitionPortMappingArgs) ElementType() reflect.Type {
@@ -6305,12 +6449,20 @@ func (o TaskDefinitionPortMappingOutput) ToTaskDefinitionPortMappingOutputWithCo
 	return o
 }
 
+func (o TaskDefinitionPortMappingOutput) AppProtocol() TaskDefinitionPortMappingAppProtocolPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionPortMapping) *TaskDefinitionPortMappingAppProtocol { return v.AppProtocol }).(TaskDefinitionPortMappingAppProtocolPtrOutput)
+}
+
 func (o TaskDefinitionPortMappingOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
 func (o TaskDefinitionPortMappingOutput) HostPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.HostPort }).(pulumi.IntPtrOutput)
+}
+
+func (o TaskDefinitionPortMappingOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o TaskDefinitionPortMappingOutput) Protocol() pulumi.StringPtrOutput {
@@ -8346,6 +8498,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterExecuteCommandLogConfigurationPtrInput)(nil)).Elem(), ClusterExecuteCommandLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsArrayInput)(nil)).Elem(), ClusterSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
@@ -8470,6 +8624,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsOutput{})
+	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
 	pulumi.RegisterOutputType(ClusterTagOutput{})

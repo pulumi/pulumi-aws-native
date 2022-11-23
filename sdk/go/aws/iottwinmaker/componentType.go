@@ -35,6 +35,8 @@ type ComponentType struct {
 	IsSingleton pulumi.BoolPtrOutput `pulumi:"isSingleton"`
 	// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 	PropertyDefinitions pulumi.AnyOutput `pulumi:"propertyDefinitions"`
+	// An map of the property groups in the component type. Each property group's key must be unique to this map.
+	PropertyGroups pulumi.AnyOutput `pulumi:"propertyGroups"`
 	// The current status of the component type.
 	Status ComponentTypeStatusOutput `pulumi:"status"`
 	// A map of key-value pairs to associate with a resource.
@@ -102,6 +104,8 @@ type componentTypeArgs struct {
 	IsSingleton *bool `pulumi:"isSingleton"`
 	// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 	PropertyDefinitions interface{} `pulumi:"propertyDefinitions"`
+	// An map of the property groups in the component type. Each property group's key must be unique to this map.
+	PropertyGroups interface{} `pulumi:"propertyGroups"`
 	// A map of key-value pairs to associate with a resource.
 	Tags interface{} `pulumi:"tags"`
 	// The ID of the workspace that contains the component type.
@@ -122,6 +126,8 @@ type ComponentTypeArgs struct {
 	IsSingleton pulumi.BoolPtrInput
 	// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 	PropertyDefinitions pulumi.Input
+	// An map of the property groups in the component type. Each property group's key must be unique to this map.
+	PropertyGroups pulumi.Input
 	// A map of key-value pairs to associate with a resource.
 	Tags pulumi.Input
 	// The ID of the workspace that contains the component type.
@@ -213,6 +219,11 @@ func (o ComponentTypeOutput) IsSingleton() pulumi.BoolPtrOutput {
 // An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 func (o ComponentTypeOutput) PropertyDefinitions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.PropertyDefinitions }).(pulumi.AnyOutput)
+}
+
+// An map of the property groups in the component type. Each property group's key must be unique to this map.
+func (o ComponentTypeOutput) PropertyGroups() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.PropertyGroups }).(pulumi.AnyOutput)
 }
 
 // The current status of the component type.

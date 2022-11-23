@@ -35,6 +35,7 @@ export interface GetCacheClusterResult {
     readonly configurationEndpointPort?: string;
     readonly engineVersion?: string;
     readonly id?: string;
+    readonly ipDiscovery?: string;
     readonly logDeliveryConfigurations?: outputs.elasticache.CacheClusterLogDeliveryConfigurationRequest[];
     readonly notificationTopicArn?: string;
     readonly numCacheNodes?: number;

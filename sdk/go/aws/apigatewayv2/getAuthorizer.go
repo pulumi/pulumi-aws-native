@@ -21,17 +21,18 @@ func LookupAuthorizer(ctx *pulumi.Context, args *LookupAuthorizerArgs, opts ...p
 }
 
 type LookupAuthorizerArgs struct {
-	Id string `pulumi:"id"`
+	ApiId        string `pulumi:"apiId"`
+	AuthorizerId string `pulumi:"authorizerId"`
 }
 
 type LookupAuthorizerResult struct {
 	AuthorizerCredentialsArn       *string                     `pulumi:"authorizerCredentialsArn"`
+	AuthorizerId                   *string                     `pulumi:"authorizerId"`
 	AuthorizerPayloadFormatVersion *string                     `pulumi:"authorizerPayloadFormatVersion"`
 	AuthorizerResultTtlInSeconds   *int                        `pulumi:"authorizerResultTtlInSeconds"`
 	AuthorizerType                 *string                     `pulumi:"authorizerType"`
 	AuthorizerUri                  *string                     `pulumi:"authorizerUri"`
 	EnableSimpleResponses          *bool                       `pulumi:"enableSimpleResponses"`
-	Id                             *string                     `pulumi:"id"`
 	IdentitySource                 []string                    `pulumi:"identitySource"`
 	IdentityValidationExpression   *string                     `pulumi:"identityValidationExpression"`
 	JwtConfiguration               *AuthorizerJWTConfiguration `pulumi:"jwtConfiguration"`
@@ -52,7 +53,8 @@ func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs
 }
 
 type LookupAuthorizerOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ApiId        pulumi.StringInput `pulumi:"apiId"`
+	AuthorizerId pulumi.StringInput `pulumi:"authorizerId"`
 }
 
 func (LookupAuthorizerOutputArgs) ElementType() reflect.Type {
@@ -77,6 +79,10 @@ func (o LookupAuthorizerResultOutput) AuthorizerCredentialsArn() pulumi.StringPt
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAuthorizerResultOutput) AuthorizerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupAuthorizerResultOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.AuthorizerPayloadFormatVersion }).(pulumi.StringPtrOutput)
 }
@@ -95,10 +101,6 @@ func (o LookupAuthorizerResultOutput) AuthorizerUri() pulumi.StringPtrOutput {
 
 func (o LookupAuthorizerResultOutput) EnableSimpleResponses() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *bool { return v.EnableSimpleResponses }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupAuthorizerResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAuthorizerResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAuthorizerResultOutput) IdentitySource() pulumi.StringArrayOutput {

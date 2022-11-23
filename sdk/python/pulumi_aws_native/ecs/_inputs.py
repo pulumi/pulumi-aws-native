@@ -19,6 +19,7 @@ __all__ = [
     'ClusterConfigurationArgs',
     'ClusterExecuteCommandConfigurationArgs',
     'ClusterExecuteCommandLogConfigurationArgs',
+    'ClusterServiceConnectDefaultsArgs',
     'ClusterSettingsArgs',
     'ClusterTagArgs',
     'ServiceAwsVpcConfigurationArgs',
@@ -426,6 +427,30 @@ class ClusterExecuteCommandLogConfigurationArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+@pulumi.input_type
+class ClusterServiceConnectDefaultsArgs:
+    def __init__(__self__, *,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Service Connect Configuration default for all services or tasks within this cluster
+        :param pulumi.Input[str] namespace: Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
 
 
 @pulumi.input_type
@@ -2290,15 +2315,30 @@ class TaskDefinitionPlacementConstraintArgs:
 @pulumi.input_type
 class TaskDefinitionPortMappingArgs:
     def __init__(__self__, *,
+                 app_protocol: Optional[pulumi.Input['TaskDefinitionPortMappingAppProtocol']] = None,
                  container_port: Optional[pulumi.Input[int]] = None,
                  host_port: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
+        if app_protocol is not None:
+            pulumi.set(__self__, "app_protocol", app_protocol)
         if container_port is not None:
             pulumi.set(__self__, "container_port", container_port)
         if host_port is not None:
             pulumi.set(__self__, "host_port", host_port)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="appProtocol")
+    def app_protocol(self) -> Optional[pulumi.Input['TaskDefinitionPortMappingAppProtocol']]:
+        return pulumi.get(self, "app_protocol")
+
+    @app_protocol.setter
+    def app_protocol(self, value: Optional[pulumi.Input['TaskDefinitionPortMappingAppProtocol']]):
+        pulumi.set(self, "app_protocol", value)
 
     @property
     @pulumi.getter(name="containerPort")
@@ -2317,6 +2357,15 @@ class TaskDefinitionPortMappingArgs:
     @host_port.setter
     def host_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "host_port", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

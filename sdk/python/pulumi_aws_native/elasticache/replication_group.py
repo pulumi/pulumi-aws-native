@@ -31,9 +31,11 @@ class ReplicationGroupArgs:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationGroupNodeGroupConfigurationArgs']]]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -93,12 +95,16 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_replication_group_id is not None:
             pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_delivery_configurations is not None:
             pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
         if multi_az_enabled is not None:
             pulumi.set(__self__, "multi_az_enabled", multi_az_enabled)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if node_group_configuration is not None:
             pulumi.set(__self__, "node_group_configuration", node_group_configuration)
         if notification_topic_arn is not None:
@@ -290,6 +296,15 @@ class ReplicationGroupArgs:
         pulumi.set(self, "global_replication_group_id", value)
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -315,6 +330,15 @@ class ReplicationGroupArgs:
     @multi_az_enabled.setter
     def multi_az_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az_enabled", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="nodeGroupConfiguration")
@@ -584,9 +608,11 @@ class ReplicationGroup(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupNodeGroupConfigurationArgs']]]]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -660,9 +686,11 @@ class ReplicationGroup(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationRequestArgs']]]]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  node_group_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupNodeGroupConfigurationArgs']]]]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_clusters: Optional[pulumi.Input[int]] = None,
@@ -715,9 +743,11 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_replication_group_id"] = global_replication_group_id
+            __props__.__dict__["ip_discovery"] = ip_discovery
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
             __props__.__dict__["multi_az_enabled"] = multi_az_enabled
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["node_group_configuration"] = node_group_configuration
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             __props__.__dict__["num_cache_clusters"] = num_cache_clusters
@@ -784,9 +814,11 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_replication_group_id"] = None
+        __props__.__dict__["ip_discovery"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_delivery_configurations"] = None
         __props__.__dict__["multi_az_enabled"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["node_group_configuration"] = None
         __props__.__dict__["notification_topic_arn"] = None
         __props__.__dict__["num_cache_clusters"] = None
@@ -888,6 +920,11 @@ class ReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "global_replication_group_id")
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ip_discovery")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -901,6 +938,11 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="multiAZEnabled")
     def multi_az_enabled(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "multi_az_enabled")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="nodeGroupConfiguration")

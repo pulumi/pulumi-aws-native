@@ -10,6 +10,571 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHints struct {
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	SizeInMBs         *int `pulumi:"sizeInMBs"`
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessBufferingHintsInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs and DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessBufferingHintsInput` via:
+//
+//	DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs{...}
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs struct {
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	SizeInMBs         pulumi.IntPtrInput `pulumi:"sizeInMBs"`
+}
+
+func (DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessBufferingHints)(nil)).Elem()
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput)
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput).ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs, DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtr and DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput` via:
+//
+//	        DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput
+}
+
+type deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs
+
+func DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtr(v *DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput {
+	return (*deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType)(v)
+}
+
+func (*deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessBufferingHints)(nil)).Elem()
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrType) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o.ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
+		return &v
+	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput) SizeInMBs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int { return v.SizeInMBs }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessBufferingHints) DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamAmazonOpenSearchServerlessBufferingHints
+		return ret
+	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) SizeInMBs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInMBs
+	}).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration struct {
+	BufferingHints           *DeliveryStreamAmazonOpenSearchServerlessBufferingHints                       `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions                                       `pulumi:"cloudWatchLoggingOptions"`
+	CollectionEndpoint       *string                                                                       `pulumi:"collectionEndpoint"`
+	IndexName                string                                                                        `pulumi:"indexName"`
+	ProcessingConfiguration  *DeliveryStreamProcessingConfiguration                                        `pulumi:"processingConfiguration"`
+	RetryOptions             *DeliveryStreamAmazonOpenSearchServerlessRetryOptions                         `pulumi:"retryOptions"`
+	RoleARN                  string                                                                        `pulumi:"roleARN"`
+	S3BackupMode             *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfiguration                                      `pulumi:"s3Configuration"`
+	VpcConfiguration         *DeliveryStreamVpcConfiguration                                               `pulumi:"vpcConfiguration"`
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs and DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput` via:
+//
+//	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs{...}
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs struct {
+	BufferingHints           DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput                       `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput                                       `pulumi:"cloudWatchLoggingOptions"`
+	CollectionEndpoint       pulumi.StringPtrInput                                                                `pulumi:"collectionEndpoint"`
+	IndexName                pulumi.StringInput                                                                   `pulumi:"indexName"`
+	ProcessingConfiguration  DeliveryStreamProcessingConfigurationPtrInput                                        `pulumi:"processingConfiguration"`
+	RetryOptions             DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput                         `pulumi:"retryOptions"`
+	RoleARN                  pulumi.StringInput                                                                   `pulumi:"roleARN"`
+	S3BackupMode             DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration          DeliveryStreamS3DestinationConfigurationInput                                        `pulumi:"s3Configuration"`
+	VpcConfiguration         DeliveryStreamVpcConfigurationPtrInput                                               `pulumi:"vpcConfiguration"`
+}
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput)
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput).ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs, DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtr and DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput
+}
+
+type deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs
+
+func DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtr(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput {
+	return (*deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrType) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return o.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
+		return &v
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) BufferingHints() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
+		return v.BufferingHints
+	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *string {
+		return v.CollectionEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) IndexName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) RetryOptions() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
+		return v.RetryOptions
+	}).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) RoleARN() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) string { return v.RoleARN }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) S3BackupMode() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode {
+		return v.S3BackupMode
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
+		return v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamVpcConfiguration {
+		return v.VpcConfiguration
+	}).(DeliveryStreamVpcConfigurationPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration
+		return ret
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingHints
+	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingOptions
+	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) CollectionEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CollectionEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ProcessingConfiguration
+	}).(DeliveryStreamProcessingConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
+		if v == nil {
+			return nil
+		}
+		return v.RetryOptions
+	}).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) RoleARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleARN
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) S3BackupMode() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3BackupMode
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Configuration
+	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfiguration
+	}).(DeliveryStreamVpcConfigurationPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptions struct {
+	DurationInSeconds *int `pulumi:"durationInSeconds"`
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessRetryOptionsInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs and DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessRetryOptionsInput` via:
+//
+//	DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs{...}
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs struct {
+	DurationInSeconds pulumi.IntPtrInput `pulumi:"durationInSeconds"`
+}
+
+func (DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessRetryOptions)(nil)).Elem()
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput)
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput).ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs, DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtr and DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput` via:
+//
+//	        DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput
+}
+
+type deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs
+
+func DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtr(v *DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput {
+	return (*deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType)(v)
+}
+
+func (*deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessRetryOptions)(nil)).Elem()
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return i.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrType) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o.ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonOpenSearchServerlessRetryOptions) *DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
+		return &v
+	}).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessRetryOptions) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessRetryOptions)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessRetryOptions) DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamAmazonOpenSearchServerlessRetryOptions
+		return ret
+	}).(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessRetryOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeliveryStreamAmazonopensearchserviceBufferingHints struct {
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	SizeInMBs         *int `pulumi:"sizeInMBs"`
@@ -6993,6 +7558,12 @@ func (o DeliveryStreamVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayO
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessBufferingHintsInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessRetryOptionsInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceBufferingHintsInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs{})
@@ -7073,6 +7644,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTagArrayInput)(nil)).Elem(), DeliveryStreamTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamVpcConfigurationPtrInput)(nil)).Elem(), DeliveryStreamVpcConfigurationArgs{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceBufferingHintsOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput{})

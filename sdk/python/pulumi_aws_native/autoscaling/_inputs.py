@@ -23,6 +23,7 @@ __all__ = [
     'AutoScalingGroupMemoryMiBRequestArgs',
     'AutoScalingGroupMetricsCollectionArgs',
     'AutoScalingGroupMixedInstancesPolicyArgs',
+    'AutoScalingGroupNetworkBandwidthGbpsRequestArgs',
     'AutoScalingGroupNetworkInterfaceCountRequestArgs',
     'AutoScalingGroupNotificationConfigurationArgs',
     'AutoScalingGroupTagPropertyArgs',
@@ -145,6 +146,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_total_memory_mi_b: Optional[pulumi.Input['AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
@@ -155,6 +157,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['AutoScalingGroupMemoryGiBPerVCpuRequestArgs']] = None,
                  memory_mi_b: Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['AutoScalingGroupNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
@@ -171,6 +174,8 @@ class AutoScalingGroupInstanceRequirementsArgs:
             pulumi.set(__self__, "accelerator_total_memory_mi_b", accelerator_total_memory_mi_b)
         if accelerator_types is not None:
             pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if bare_metal is not None:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
@@ -191,6 +196,8 @@ class AutoScalingGroupInstanceRequirementsArgs:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
         if memory_mi_b is not None:
             pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        if network_bandwidth_gbps is not None:
+            pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
@@ -248,6 +255,15 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @accelerator_types.setter
     def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
 
     @property
     @pulumi.getter(name="bareMetal")
@@ -338,6 +354,15 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @memory_mi_b.setter
     def memory_mi_b(self, value: Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']]):
         pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="networkBandwidthGbps")
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']]:
+        return pulumi.get(self, "network_bandwidth_gbps")
+
+    @network_bandwidth_gbps.setter
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']]):
+        pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
@@ -791,6 +816,35 @@ class AutoScalingGroupMixedInstancesPolicyArgs:
     @instances_distribution.setter
     def instances_distribution(self, value: Optional[pulumi.Input['AutoScalingGroupInstancesDistributionArgs']]):
         pulumi.set(self, "instances_distribution", value)
+
+
+@pulumi.input_type
+class AutoScalingGroupNetworkBandwidthGbpsRequestArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type

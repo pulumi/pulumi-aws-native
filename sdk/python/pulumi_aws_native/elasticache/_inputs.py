@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AuthenticationModePropertiesArgs',
     'CacheClusterCloudWatchLogsDestinationDetailsArgs',
     'CacheClusterDestinationDetailsArgs',
     'CacheClusterKinesisFirehoseDestinationDetailsArgs',
@@ -29,6 +30,44 @@ __all__ = [
     'SecurityGroupTagArgs',
     'SubnetGroupTagArgs',
 ]
+
+@pulumi.input_type
+class AuthenticationModePropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['UserAuthenticationModePropertiesType'],
+                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['UserAuthenticationModePropertiesType'] type: Authentication Type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        """
+        pulumi.set(__self__, "type", type)
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['UserAuthenticationModePropertiesType']:
+        """
+        Authentication Type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['UserAuthenticationModePropertiesType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Passwords used for this user account. You can create up to two passwords for each user.
+        """
+        return pulumi.get(self, "passwords")
+
+    @passwords.setter
+    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "passwords", value)
+
 
 @pulumi.input_type
 class CacheClusterCloudWatchLogsDestinationDetailsArgs:

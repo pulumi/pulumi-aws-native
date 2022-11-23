@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
-    /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+    /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
     /// </summary>
     [AwsNativeResourceType("aws-native:gamelift:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configuration for Anywhere fleet.
+        /// </summary>
+        [Output("anywhereConfiguration")]
+        public Output<Outputs.FleetAnywhereConfiguration?> AnywhereConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         /// </summary>
@@ -26,6 +32,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Output("certificateConfiguration")]
         public Output<Outputs.FleetCertificateConfiguration?> CertificateConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// </summary>
+        [Output("computeType")]
+        public Output<Pulumi.AwsNative.GameLift.FleetComputeType?> ComputeType { get; private set; } = null!;
 
         /// <summary>
         /// A human-readable description of a fleet.
@@ -100,7 +112,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
@@ -200,6 +212,12 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for Anywhere fleet.
+        /// </summary>
+        [Input("anywhereConfiguration")]
+        public Input<Inputs.FleetAnywhereConfigurationArgs>? AnywhereConfiguration { get; set; }
+
+        /// <summary>
         /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         /// </summary>
         [Input("buildId")]
@@ -210,6 +228,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("certificateConfiguration")]
         public Input<Inputs.FleetCertificateConfigurationArgs>? CertificateConfiguration { get; set; }
+
+        /// <summary>
+        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// </summary>
+        [Input("computeType")]
+        public Input<Pulumi.AwsNative.GameLift.FleetComputeType>? ComputeType { get; set; }
 
         /// <summary>
         /// A human-readable description of a fleet.

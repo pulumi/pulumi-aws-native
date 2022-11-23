@@ -19,7 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionConfigurationResult:
-    def __init__(__self__, data_source_name=None, description=None, function_arn=None, function_id=None, function_version=None, id=None, max_batch_size=None, name=None, request_mapping_template=None, request_mapping_template_s3_location=None, response_mapping_template=None, response_mapping_template_s3_location=None, sync_config=None):
+    def __init__(__self__, code=None, code_s3_location=None, data_source_name=None, description=None, function_arn=None, function_id=None, function_version=None, id=None, max_batch_size=None, name=None, request_mapping_template=None, request_mapping_template_s3_location=None, response_mapping_template=None, response_mapping_template_s3_location=None, runtime=None, sync_config=None):
+        if code and not isinstance(code, str):
+            raise TypeError("Expected argument 'code' to be a str")
+        pulumi.set(__self__, "code", code)
+        if code_s3_location and not isinstance(code_s3_location, str):
+            raise TypeError("Expected argument 'code_s3_location' to be a str")
+        pulumi.set(__self__, "code_s3_location", code_s3_location)
         if data_source_name and not isinstance(data_source_name, str):
             raise TypeError("Expected argument 'data_source_name' to be a str")
         pulumi.set(__self__, "data_source_name", data_source_name)
@@ -56,9 +62,22 @@ class GetFunctionConfigurationResult:
         if response_mapping_template_s3_location and not isinstance(response_mapping_template_s3_location, str):
             raise TypeError("Expected argument 'response_mapping_template_s3_location' to be a str")
         pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
+        if runtime and not isinstance(runtime, dict):
+            raise TypeError("Expected argument 'runtime' to be a dict")
+        pulumi.set(__self__, "runtime", runtime)
         if sync_config and not isinstance(sync_config, dict):
             raise TypeError("Expected argument 'sync_config' to be a dict")
         pulumi.set(__self__, "sync_config", sync_config)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> Optional[str]:
+        return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
@@ -121,6 +140,11 @@ class GetFunctionConfigurationResult:
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @property
+    @pulumi.getter
+    def runtime(self) -> Optional['outputs.FunctionConfigurationAppSyncRuntime']:
+        return pulumi.get(self, "runtime")
+
+    @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional['outputs.FunctionConfigurationSyncConfig']:
         return pulumi.get(self, "sync_config")
@@ -132,6 +156,8 @@ class AwaitableGetFunctionConfigurationResult(GetFunctionConfigurationResult):
         if False:
             yield self
         return GetFunctionConfigurationResult(
+            code=self.code,
+            code_s3_location=self.code_s3_location,
             data_source_name=self.data_source_name,
             description=self.description,
             function_arn=self.function_arn,
@@ -144,6 +170,7 @@ class AwaitableGetFunctionConfigurationResult(GetFunctionConfigurationResult):
             request_mapping_template_s3_location=self.request_mapping_template_s3_location,
             response_mapping_template=self.response_mapping_template,
             response_mapping_template_s3_location=self.response_mapping_template_s3_location,
+            runtime=self.runtime,
             sync_config=self.sync_config)
 
 
@@ -158,6 +185,8 @@ def get_function_configuration(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getFunctionConfiguration', __args__, opts=opts, typ=GetFunctionConfigurationResult).value
 
     return AwaitableGetFunctionConfigurationResult(
+        code=__ret__.code,
+        code_s3_location=__ret__.code_s3_location,
         data_source_name=__ret__.data_source_name,
         description=__ret__.description,
         function_arn=__ret__.function_arn,
@@ -170,6 +199,7 @@ def get_function_configuration(id: Optional[str] = None,
         request_mapping_template_s3_location=__ret__.request_mapping_template_s3_location,
         response_mapping_template=__ret__.response_mapping_template,
         response_mapping_template_s3_location=__ret__.response_mapping_template_s3_location,
+        runtime=__ret__.runtime,
         sync_config=__ret__.sync_config)
 
 

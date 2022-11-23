@@ -24,7 +24,7 @@ type AccessPoint struct {
 	// The AWS account ID associated with the S3 bucket associated with this access point.
 	BucketAccountId pulumi.StringPtrOutput `pulumi:"bucketAccountId"`
 	// The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
 	NetworkOrigin AccessPointNetworkOriginOutput `pulumi:"networkOrigin"`
 	// The Access Point Policy you want to apply to this access point.
@@ -168,8 +168,8 @@ func (o AccessPointOutput) BucketAccountId() pulumi.StringPtrOutput {
 }
 
 // The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
-func (o AccessPointOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccessPoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o AccessPointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.

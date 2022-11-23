@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetModelPackageResult:
-    def __init__(__self__, additional_inference_specification_definition=None, additional_inference_specifications=None, additional_inference_specifications_to_add=None, approval_description=None, certify_for_marketplace=None, created_by=None, creation_time=None, customer_metadata_properties=None, environment=None, last_modified_by=None, last_modified_time=None, model_approval_status=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_status_item=None, model_package_version=None, tag=None, tags=None):
+    def __init__(__self__, additional_inference_specification_definition=None, additional_inference_specifications=None, additional_inference_specifications_to_add=None, approval_description=None, certify_for_marketplace=None, created_by=None, creation_time=None, customer_metadata_properties=None, environment=None, last_modified_by=None, last_modified_time=None, model_approval_status=None, model_package_arn=None, model_package_name=None, model_package_status=None, model_package_status_details=None, model_package_status_item=None, model_package_version=None, tags=None):
         if additional_inference_specification_definition and not isinstance(additional_inference_specification_definition, dict):
             raise TypeError("Expected argument 'additional_inference_specification_definition' to be a dict")
         pulumi.set(__self__, "additional_inference_specification_definition", additional_inference_specification_definition)
@@ -75,9 +75,6 @@ class GetModelPackageResult:
         if model_package_version and not isinstance(model_package_version, int):
             raise TypeError("Expected argument 'model_package_version' to be a int")
         pulumi.set(__self__, "model_package_version", model_package_version)
-        if tag and not isinstance(tag, dict):
-            raise TypeError("Expected argument 'tag' to be a dict")
-        pulumi.set(__self__, "tag", tag)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -174,11 +171,6 @@ class GetModelPackageResult:
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional['outputs.ModelPackageTag']:
-        return pulumi.get(self, "tag")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ModelPackageTag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -210,7 +202,6 @@ class AwaitableGetModelPackageResult(GetModelPackageResult):
             model_package_status_details=self.model_package_status_details,
             model_package_status_item=self.model_package_status_item,
             model_package_version=self.model_package_version,
-            tag=self.tag,
             tags=self.tags)
 
 
@@ -243,7 +234,6 @@ def get_model_package(model_package_arn: Optional[str] = None,
         model_package_status_details=__ret__.model_package_status_details,
         model_package_status_item=__ret__.model_package_status_item,
         model_package_version=__ret__.model_package_version,
-        tag=__ret__.tag,
         tags=__ret__.tags)
 
 

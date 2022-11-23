@@ -51,6 +51,8 @@ namespace Pulumi.AwsNative.AppSync
     [OutputType]
     public sealed class GetFunctionConfigurationResult
     {
+        public readonly string? Code;
+        public readonly string? CodeS3Location;
         public readonly string? DataSourceName;
         public readonly string? Description;
         public readonly string? FunctionArn;
@@ -63,10 +65,15 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? RequestMappingTemplateS3Location;
         public readonly string? ResponseMappingTemplate;
         public readonly string? ResponseMappingTemplateS3Location;
+        public readonly Outputs.FunctionConfigurationAppSyncRuntime? Runtime;
         public readonly Outputs.FunctionConfigurationSyncConfig? SyncConfig;
 
         [OutputConstructor]
         private GetFunctionConfigurationResult(
+            string? code,
+
+            string? codeS3Location,
+
             string? dataSourceName,
 
             string? description,
@@ -91,8 +98,12 @@ namespace Pulumi.AwsNative.AppSync
 
             string? responseMappingTemplateS3Location,
 
+            Outputs.FunctionConfigurationAppSyncRuntime? runtime,
+
             Outputs.FunctionConfigurationSyncConfig? syncConfig)
         {
+            Code = code;
+            CodeS3Location = codeS3Location;
             DataSourceName = dataSourceName;
             Description = description;
             FunctionArn = functionArn;
@@ -105,6 +116,7 @@ namespace Pulumi.AwsNative.AppSync
             RequestMappingTemplateS3Location = requestMappingTemplateS3Location;
             ResponseMappingTemplate = responseMappingTemplate;
             ResponseMappingTemplateS3Location = responseMappingTemplateS3Location;
+            Runtime = runtime;
             SyncConfig = syncConfig;
         }
     }

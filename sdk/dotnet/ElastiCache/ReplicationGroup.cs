@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("globalReplicationGroupId")]
         public Output<string?> GlobalReplicationGroupId { get; private set; } = null!;
 
+        [Output("ipDiscovery")]
+        public Output<string?> IpDiscovery { get; private set; } = null!;
+
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -66,6 +69,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [Output("multiAZEnabled")]
         public Output<bool?> MultiAZEnabled { get; private set; } = null!;
+
+        [Output("networkType")]
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         [Output("nodeGroupConfiguration")]
         public Output<ImmutableArray<Outputs.ReplicationGroupNodeGroupConfiguration>> NodeGroupConfiguration { get; private set; } = null!;
@@ -243,6 +249,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
 
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -256,6 +265,9 @@ namespace Pulumi.AwsNative.ElastiCache
 
         [Input("multiAZEnabled")]
         public Input<bool>? MultiAZEnabled { get; set; }
+
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         [Input("nodeGroupConfiguration")]
         private InputList<Inputs.ReplicationGroupNodeGroupConfigurationArgs>? _nodeGroupConfiguration;

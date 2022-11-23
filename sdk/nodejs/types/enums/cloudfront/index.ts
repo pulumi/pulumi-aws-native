@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ContinuousDeploymentPolicyTrafficConfigType = {
+    SingleWeight: "SingleWeight",
+    SingleHeader: "SingleHeader",
+} as const;
+
+export type ContinuousDeploymentPolicyTrafficConfigType = (typeof ContinuousDeploymentPolicyTrafficConfigType)[keyof typeof ContinuousDeploymentPolicyTrafficConfigType];
+
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

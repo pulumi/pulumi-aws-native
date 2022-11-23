@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode = {
+    FailedDocumentsOnly: "FailedDocumentsOnly",
+    AllDocuments: "AllDocuments",
+} as const;
+
+export type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode = (typeof DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode)[keyof typeof DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode];
+
 export const DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod = {
     NoRotation: "NoRotation",
     OneHour: "OneHour",

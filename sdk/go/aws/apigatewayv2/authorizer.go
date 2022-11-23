@@ -17,6 +17,7 @@ type Authorizer struct {
 
 	ApiId                          pulumi.StringOutput                 `pulumi:"apiId"`
 	AuthorizerCredentialsArn       pulumi.StringPtrOutput              `pulumi:"authorizerCredentialsArn"`
+	AuthorizerId                   pulumi.StringOutput                 `pulumi:"authorizerId"`
 	AuthorizerPayloadFormatVersion pulumi.StringPtrOutput              `pulumi:"authorizerPayloadFormatVersion"`
 	AuthorizerResultTtlInSeconds   pulumi.IntPtrOutput                 `pulumi:"authorizerResultTtlInSeconds"`
 	AuthorizerType                 pulumi.StringOutput                 `pulumi:"authorizerType"`
@@ -144,6 +145,10 @@ func (o AuthorizerOutput) ApiId() pulumi.StringOutput {
 
 func (o AuthorizerOutput) AuthorizerCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.AuthorizerCredentialsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthorizerOutput) AuthorizerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.AuthorizerId }).(pulumi.StringOutput)
 }
 
 func (o AuthorizerOutput) AuthorizerPayloadFormatVersion() pulumi.StringPtrOutput {

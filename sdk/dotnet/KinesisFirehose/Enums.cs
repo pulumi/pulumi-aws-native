@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.KinesisFirehose
 {
     [EnumType]
+    public readonly struct DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode : IEquatable<DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode FailedDocumentsOnly { get; } = new DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("FailedDocumentsOnly");
+        public static DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode AllDocuments { get; } = new DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("AllDocuments");
+
+        public static bool operator ==(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode left, DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode left, DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode other && Equals(other);
+        public bool Equals(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod : IEquatable<DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>
     {
         private readonly string _value;

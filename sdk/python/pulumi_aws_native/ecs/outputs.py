@@ -20,6 +20,7 @@ __all__ = [
     'ClusterConfiguration',
     'ClusterExecuteCommandConfiguration',
     'ClusterExecuteCommandLogConfiguration',
+    'ClusterServiceConnectDefaults',
     'ClusterSettings',
     'ClusterTag',
     'ServiceAwsVpcConfiguration',
@@ -481,6 +482,29 @@ class ClusterExecuteCommandLogConfiguration(dict):
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[str]:
         return pulumi.get(self, "s3_key_prefix")
+
+
+@pulumi.output_type
+class ClusterServiceConnectDefaults(dict):
+    """
+    Service Connect Configuration default for all services or tasks within this cluster
+    """
+    def __init__(__self__, *,
+                 namespace: Optional[str] = None):
+        """
+        Service Connect Configuration default for all services or tasks within this cluster
+        :param str namespace: Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+        """
+        return pulumi.get(self, "namespace")
 
 
 @pulumi.output_type
@@ -2336,7 +2360,9 @@ class TaskDefinitionPortMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerPort":
+        if key == "appProtocol":
+            suggest = "app_protocol"
+        elif key == "containerPort":
             suggest = "container_port"
         elif key == "hostPort":
             suggest = "host_port"
@@ -2353,15 +2379,26 @@ class TaskDefinitionPortMapping(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 app_protocol: Optional['TaskDefinitionPortMappingAppProtocol'] = None,
                  container_port: Optional[int] = None,
                  host_port: Optional[int] = None,
+                 name: Optional[str] = None,
                  protocol: Optional[str] = None):
+        if app_protocol is not None:
+            pulumi.set(__self__, "app_protocol", app_protocol)
         if container_port is not None:
             pulumi.set(__self__, "container_port", container_port)
         if host_port is not None:
             pulumi.set(__self__, "host_port", host_port)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="appProtocol")
+    def app_protocol(self) -> Optional['TaskDefinitionPortMappingAppProtocol']:
+        return pulumi.get(self, "app_protocol")
 
     @property
     @pulumi.getter(name="containerPort")
@@ -2372,6 +2409,11 @@ class TaskDefinitionPortMapping(dict):
     @pulumi.getter(name="hostPort")
     def host_port(self) -> Optional[int]:
         return pulumi.get(self, "host_port")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

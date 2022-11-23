@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AuthenticationModeProperties',
     'CacheClusterCloudWatchLogsDestinationDetails',
     'CacheClusterDestinationDetails',
     'CacheClusterKinesisFirehoseDestinationDetails',
@@ -30,6 +31,36 @@ __all__ = [
     'SecurityGroupTag',
     'SubnetGroupTag',
 ]
+
+@pulumi.output_type
+class AuthenticationModeProperties(dict):
+    def __init__(__self__, *,
+                 type: 'UserAuthenticationModePropertiesType',
+                 passwords: Optional[Sequence[str]] = None):
+        """
+        :param 'UserAuthenticationModePropertiesType' type: Authentication Type
+        :param Sequence[str] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        """
+        pulumi.set(__self__, "type", type)
+        if passwords is not None:
+            pulumi.set(__self__, "passwords", passwords)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'UserAuthenticationModePropertiesType':
+        """
+        Authentication Type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def passwords(self) -> Optional[Sequence[str]]:
+        """
+        Passwords used for this user account. You can create up to two passwords for each user.
+        """
+        return pulumi.get(self, "passwords")
+
 
 @pulumi.output_type
 class CacheClusterCloudWatchLogsDestinationDetails(dict):

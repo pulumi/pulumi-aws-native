@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? ConfigurationEndPointAddress;
         public readonly string? ConfigurationEndPointPort;
         public readonly string? EngineVersion;
+        public readonly string? IpDiscovery;
         public readonly ImmutableArray<Outputs.ReplicationGroupLogDeliveryConfigurationRequest> LogDeliveryConfigurations;
         public readonly bool? MultiAZEnabled;
         public readonly ImmutableArray<Outputs.ReplicationGroupNodeGroupConfiguration> NodeGroupConfiguration;
@@ -103,6 +104,8 @@ namespace Pulumi.AwsNative.ElastiCache
             string? configurationEndPointPort,
 
             string? engineVersion,
+
+            string? ipDiscovery,
 
             ImmutableArray<Outputs.ReplicationGroupLogDeliveryConfigurationRequest> logDeliveryConfigurations,
 
@@ -159,6 +162,7 @@ namespace Pulumi.AwsNative.ElastiCache
             ConfigurationEndPointAddress = configurationEndPointAddress;
             ConfigurationEndPointPort = configurationEndPointPort;
             EngineVersion = engineVersion;
+            IpDiscovery = ipDiscovery;
             LogDeliveryConfigurations = logDeliveryConfigurations;
             MultiAZEnabled = multiAZEnabled;
             NodeGroupConfiguration = nodeGroupConfiguration;

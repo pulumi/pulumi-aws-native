@@ -354,12 +354,179 @@ func (in *customLineItemTypePtr) ToCustomLineItemTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(CustomLineItemTypePtrOutput)
 }
 
+// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+type PricingRuleBillingEntity string
+
+const (
+	PricingRuleBillingEntityAws            = PricingRuleBillingEntity("AWS")
+	PricingRuleBillingEntityAWSMarketplace = PricingRuleBillingEntity("AWS Marketplace")
+	PricingRuleBillingEntityAispl          = PricingRuleBillingEntity("AISPL")
+)
+
+func (PricingRuleBillingEntity) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingRuleBillingEntity)(nil)).Elem()
+}
+
+func (e PricingRuleBillingEntity) ToPricingRuleBillingEntityOutput() PricingRuleBillingEntityOutput {
+	return pulumi.ToOutput(e).(PricingRuleBillingEntityOutput)
+}
+
+func (e PricingRuleBillingEntity) ToPricingRuleBillingEntityOutputWithContext(ctx context.Context) PricingRuleBillingEntityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PricingRuleBillingEntityOutput)
+}
+
+func (e PricingRuleBillingEntity) ToPricingRuleBillingEntityPtrOutput() PricingRuleBillingEntityPtrOutput {
+	return e.ToPricingRuleBillingEntityPtrOutputWithContext(context.Background())
+}
+
+func (e PricingRuleBillingEntity) ToPricingRuleBillingEntityPtrOutputWithContext(ctx context.Context) PricingRuleBillingEntityPtrOutput {
+	return PricingRuleBillingEntity(e).ToPricingRuleBillingEntityOutputWithContext(ctx).ToPricingRuleBillingEntityPtrOutputWithContext(ctx)
+}
+
+func (e PricingRuleBillingEntity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PricingRuleBillingEntity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PricingRuleBillingEntity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PricingRuleBillingEntity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PricingRuleBillingEntityOutput struct{ *pulumi.OutputState }
+
+func (PricingRuleBillingEntityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingRuleBillingEntity)(nil)).Elem()
+}
+
+func (o PricingRuleBillingEntityOutput) ToPricingRuleBillingEntityOutput() PricingRuleBillingEntityOutput {
+	return o
+}
+
+func (o PricingRuleBillingEntityOutput) ToPricingRuleBillingEntityOutputWithContext(ctx context.Context) PricingRuleBillingEntityOutput {
+	return o
+}
+
+func (o PricingRuleBillingEntityOutput) ToPricingRuleBillingEntityPtrOutput() PricingRuleBillingEntityPtrOutput {
+	return o.ToPricingRuleBillingEntityPtrOutputWithContext(context.Background())
+}
+
+func (o PricingRuleBillingEntityOutput) ToPricingRuleBillingEntityPtrOutputWithContext(ctx context.Context) PricingRuleBillingEntityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PricingRuleBillingEntity) *PricingRuleBillingEntity {
+		return &v
+	}).(PricingRuleBillingEntityPtrOutput)
+}
+
+func (o PricingRuleBillingEntityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PricingRuleBillingEntityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PricingRuleBillingEntity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PricingRuleBillingEntityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PricingRuleBillingEntityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PricingRuleBillingEntity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PricingRuleBillingEntityPtrOutput struct{ *pulumi.OutputState }
+
+func (PricingRuleBillingEntityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PricingRuleBillingEntity)(nil)).Elem()
+}
+
+func (o PricingRuleBillingEntityPtrOutput) ToPricingRuleBillingEntityPtrOutput() PricingRuleBillingEntityPtrOutput {
+	return o
+}
+
+func (o PricingRuleBillingEntityPtrOutput) ToPricingRuleBillingEntityPtrOutputWithContext(ctx context.Context) PricingRuleBillingEntityPtrOutput {
+	return o
+}
+
+func (o PricingRuleBillingEntityPtrOutput) Elem() PricingRuleBillingEntityOutput {
+	return o.ApplyT(func(v *PricingRuleBillingEntity) PricingRuleBillingEntity {
+		if v != nil {
+			return *v
+		}
+		var ret PricingRuleBillingEntity
+		return ret
+	}).(PricingRuleBillingEntityOutput)
+}
+
+func (o PricingRuleBillingEntityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PricingRuleBillingEntityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PricingRuleBillingEntity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PricingRuleBillingEntityInput is an input type that accepts PricingRuleBillingEntityArgs and PricingRuleBillingEntityOutput values.
+// You can construct a concrete instance of `PricingRuleBillingEntityInput` via:
+//
+//	PricingRuleBillingEntityArgs{...}
+type PricingRuleBillingEntityInput interface {
+	pulumi.Input
+
+	ToPricingRuleBillingEntityOutput() PricingRuleBillingEntityOutput
+	ToPricingRuleBillingEntityOutputWithContext(context.Context) PricingRuleBillingEntityOutput
+}
+
+var pricingRuleBillingEntityPtrType = reflect.TypeOf((**PricingRuleBillingEntity)(nil)).Elem()
+
+type PricingRuleBillingEntityPtrInput interface {
+	pulumi.Input
+
+	ToPricingRuleBillingEntityPtrOutput() PricingRuleBillingEntityPtrOutput
+	ToPricingRuleBillingEntityPtrOutputWithContext(context.Context) PricingRuleBillingEntityPtrOutput
+}
+
+type pricingRuleBillingEntityPtr string
+
+func PricingRuleBillingEntityPtr(v string) PricingRuleBillingEntityPtrInput {
+	return (*pricingRuleBillingEntityPtr)(&v)
+}
+
+func (*pricingRuleBillingEntityPtr) ElementType() reflect.Type {
+	return pricingRuleBillingEntityPtrType
+}
+
+func (in *pricingRuleBillingEntityPtr) ToPricingRuleBillingEntityPtrOutput() PricingRuleBillingEntityPtrOutput {
+	return pulumi.ToOutput(in).(PricingRuleBillingEntityPtrOutput)
+}
+
+func (in *pricingRuleBillingEntityPtr) ToPricingRuleBillingEntityPtrOutputWithContext(ctx context.Context) PricingRuleBillingEntityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PricingRuleBillingEntityPtrOutput)
+}
+
 // A term used to categorize the granularity of a Pricing Rule.
 type PricingRuleScope string
 
 const (
-	PricingRuleScopeGlobal  = PricingRuleScope("GLOBAL")
-	PricingRuleScopeService = PricingRuleScope("SERVICE")
+	PricingRuleScopeGlobal        = PricingRuleScope("GLOBAL")
+	PricingRuleScopeService       = PricingRuleScope("SERVICE")
+	PricingRuleScopeBillingEntity = PricingRuleScope("BILLING_ENTITY")
 )
 
 func (PricingRuleScope) ElementType() reflect.Type {
@@ -687,6 +854,8 @@ func (in *pricingRuleTypePtr) ToPricingRuleTypePtrOutputWithContext(ctx context.
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTypeInput)(nil)).Elem(), CustomLineItemType("FEE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTypePtrInput)(nil)).Elem(), CustomLineItemType("FEE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleBillingEntityInput)(nil)).Elem(), PricingRuleBillingEntity("AWS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleBillingEntityPtrInput)(nil)).Elem(), PricingRuleBillingEntity("AWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleScopeInput)(nil)).Elem(), PricingRuleScope("GLOBAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleScopePtrInput)(nil)).Elem(), PricingRuleScope("GLOBAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleTypeInput)(nil)).Elem(), PricingRuleType("MARKUP"))
@@ -697,6 +866,8 @@ func init() {
 	pulumi.RegisterOutputType(CustomLineItemCurrencyCodePtrOutput{})
 	pulumi.RegisterOutputType(CustomLineItemTypeOutput{})
 	pulumi.RegisterOutputType(CustomLineItemTypePtrOutput{})
+	pulumi.RegisterOutputType(PricingRuleBillingEntityOutput{})
+	pulumi.RegisterOutputType(PricingRuleBillingEntityPtrOutput{})
 	pulumi.RegisterOutputType(PricingRuleScopeOutput{})
 	pulumi.RegisterOutputType(PricingRuleScopePtrOutput{})
 	pulumi.RegisterOutputType(PricingRuleTypeOutput{})

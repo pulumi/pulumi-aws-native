@@ -13,20 +13,28 @@ namespace Pulumi.AwsNative.ECS.Outputs
     [OutputType]
     public sealed class TaskDefinitionPortMapping
     {
+        public readonly Pulumi.AwsNative.ECS.TaskDefinitionPortMappingAppProtocol? AppProtocol;
         public readonly int? ContainerPort;
         public readonly int? HostPort;
+        public readonly string? Name;
         public readonly string? Protocol;
 
         [OutputConstructor]
         private TaskDefinitionPortMapping(
+            Pulumi.AwsNative.ECS.TaskDefinitionPortMappingAppProtocol? appProtocol,
+
             int? containerPort,
 
             int? hostPort,
 
+            string? name,
+
             string? protocol)
         {
+            AppProtocol = appProtocol;
             ContainerPort = containerPort;
             HostPort = hostPort;
+            Name = name;
             Protocol = protocol;
         }
     }

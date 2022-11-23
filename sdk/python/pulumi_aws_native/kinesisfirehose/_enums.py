@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
@@ -20,6 +21,11 @@ __all__ = [
     'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
     'DeliveryStreamType',
 ]
+
+
+class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode(str, Enum):
+    FAILED_DOCUMENTS_ONLY = "FailedDocumentsOnly"
+    ALL_DOCUMENTS = "AllDocuments"
 
 
 class DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod(str, Enum):

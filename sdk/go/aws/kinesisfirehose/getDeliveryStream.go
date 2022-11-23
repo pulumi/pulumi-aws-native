@@ -25,16 +25,17 @@ type LookupDeliveryStreamArgs struct {
 }
 
 type LookupDeliveryStreamResult struct {
-	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
-	Arn                                             *string                                                        `pulumi:"arn"`
-	DeliveryStreamEncryptionConfigurationInput      *DeliveryStreamEncryptionConfigurationInputType                `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	ElasticsearchDestinationConfiguration           *DeliveryStreamElasticsearchDestinationConfiguration           `pulumi:"elasticsearchDestinationConfiguration"`
-	ExtendedS3DestinationConfiguration              *DeliveryStreamExtendedS3DestinationConfiguration              `pulumi:"extendedS3DestinationConfiguration"`
-	HttpEndpointDestinationConfiguration            *DeliveryStreamHttpEndpointDestinationConfiguration            `pulumi:"httpEndpointDestinationConfiguration"`
-	RedshiftDestinationConfiguration                *DeliveryStreamRedshiftDestinationConfiguration                `pulumi:"redshiftDestinationConfiguration"`
-	S3DestinationConfiguration                      *DeliveryStreamS3DestinationConfiguration                      `pulumi:"s3DestinationConfiguration"`
-	SplunkDestinationConfiguration                  *DeliveryStreamSplunkDestinationConfiguration                  `pulumi:"splunkDestinationConfiguration"`
-	Tags                                            []DeliveryStreamTag                                            `pulumi:"tags"`
+	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration `pulumi:"amazonOpenSearchServerlessDestinationConfiguration"`
+	AmazonopensearchserviceDestinationConfiguration    *DeliveryStreamAmazonopensearchserviceDestinationConfiguration    `pulumi:"amazonopensearchserviceDestinationConfiguration"`
+	Arn                                                *string                                                           `pulumi:"arn"`
+	DeliveryStreamEncryptionConfigurationInput         *DeliveryStreamEncryptionConfigurationInputType                   `pulumi:"deliveryStreamEncryptionConfigurationInput"`
+	ElasticsearchDestinationConfiguration              *DeliveryStreamElasticsearchDestinationConfiguration              `pulumi:"elasticsearchDestinationConfiguration"`
+	ExtendedS3DestinationConfiguration                 *DeliveryStreamExtendedS3DestinationConfiguration                 `pulumi:"extendedS3DestinationConfiguration"`
+	HttpEndpointDestinationConfiguration               *DeliveryStreamHttpEndpointDestinationConfiguration               `pulumi:"httpEndpointDestinationConfiguration"`
+	RedshiftDestinationConfiguration                   *DeliveryStreamRedshiftDestinationConfiguration                   `pulumi:"redshiftDestinationConfiguration"`
+	S3DestinationConfiguration                         *DeliveryStreamS3DestinationConfiguration                         `pulumi:"s3DestinationConfiguration"`
+	SplunkDestinationConfiguration                     *DeliveryStreamSplunkDestinationConfiguration                     `pulumi:"splunkDestinationConfiguration"`
+	Tags                                               []DeliveryStreamTag                                               `pulumi:"tags"`
 }
 
 func LookupDeliveryStreamOutput(ctx *pulumi.Context, args LookupDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryStreamResultOutput {
@@ -70,6 +71,12 @@ func (o LookupDeliveryStreamResultOutput) ToLookupDeliveryStreamResultOutput() L
 
 func (o LookupDeliveryStreamResultOutput) ToLookupDeliveryStreamResultOutputWithContext(ctx context.Context) LookupDeliveryStreamResultOutput {
 	return o
+}
+
+func (o LookupDeliveryStreamResultOutput) AmazonOpenSearchServerlessDestinationConfiguration() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDeliveryStreamResult) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
+		return v.AmazonOpenSearchServerlessDestinationConfiguration
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
 }
 
 func (o LookupDeliveryStreamResultOutput) AmazonopensearchserviceDestinationConfiguration() DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput {

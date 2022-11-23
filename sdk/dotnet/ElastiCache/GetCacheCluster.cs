@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public readonly string? ConfigurationEndpointPort;
         public readonly string? EngineVersion;
         public readonly string? Id;
+        public readonly string? IpDiscovery;
         public readonly ImmutableArray<Outputs.CacheClusterLogDeliveryConfigurationRequest> LogDeliveryConfigurations;
         public readonly string? NotificationTopicArn;
         public readonly int? NumCacheNodes;
@@ -93,6 +94,8 @@ namespace Pulumi.AwsNative.ElastiCache
             string? engineVersion,
 
             string? id,
+
+            string? ipDiscovery,
 
             ImmutableArray<Outputs.CacheClusterLogDeliveryConfigurationRequest> logDeliveryConfigurations,
 
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.ElastiCache
             ConfigurationEndpointPort = configurationEndpointPort;
             EngineVersion = engineVersion;
             Id = id;
+            IpDiscovery = ipDiscovery;
             LogDeliveryConfigurations = logDeliveryConfigurations;
             NotificationTopicArn = notificationTopicArn;
             NumCacheNodes = numCacheNodes;

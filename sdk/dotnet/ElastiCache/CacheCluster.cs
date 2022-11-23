@@ -49,8 +49,14 @@ namespace Pulumi.AwsNative.ElastiCache
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
+        [Output("ipDiscovery")]
+        public Output<string?> IpDiscovery { get; private set; } = null!;
+
         [Output("logDeliveryConfigurations")]
         public Output<ImmutableArray<Outputs.CacheClusterLogDeliveryConfigurationRequest>> LogDeliveryConfigurations { get; private set; } = null!;
+
+        [Output("networkType")]
+        public Output<string?> NetworkType { get; private set; } = null!;
 
         [Output("notificationTopicArn")]
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
@@ -180,6 +186,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        [Input("ipDiscovery")]
+        public Input<string>? IpDiscovery { get; set; }
+
         [Input("logDeliveryConfigurations")]
         private InputList<Inputs.CacheClusterLogDeliveryConfigurationRequestArgs>? _logDeliveryConfigurations;
         public InputList<Inputs.CacheClusterLogDeliveryConfigurationRequestArgs> LogDeliveryConfigurations
@@ -187,6 +196,9 @@ namespace Pulumi.AwsNative.ElastiCache
             get => _logDeliveryConfigurations ?? (_logDeliveryConfigurations = new InputList<Inputs.CacheClusterLogDeliveryConfigurationRequestArgs>());
             set => _logDeliveryConfigurations = value;
         }
+
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         [Input("notificationTopicArn")]
         public Input<string>? NotificationTopicArn { get; set; }

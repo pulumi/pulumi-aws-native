@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'GlobalReplicationGroupMemberRole',
+    'UserAuthenticationModePropertiesType',
     'UserEngine',
     'UserGroupEngine',
 ]
@@ -17,6 +18,15 @@ class GlobalReplicationGroupMemberRole(str, Enum):
     """
     PRIMARY = "PRIMARY"
     SECONDARY = "SECONDARY"
+
+
+class UserAuthenticationModePropertiesType(str, Enum):
+    """
+    Authentication Type
+    """
+    PASSWORD = "password"
+    NO_PASSWORD_REQUIRED = "no-password-required"
+    IAM = "iam"
 
 
 class UserEngine(str, Enum):

@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode string
+
+const (
+	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeFailedDocumentsOnly = DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("FailedDocumentsOnly")
+	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeAllDocuments        = DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("AllDocuments")
+)
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput)
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput)
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return e.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode(e).ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutputWithContext(ctx).ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o.ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode {
+		return &v
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) Elem() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput {
+	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode
+		return ret
+	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput)
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeArgs and DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput values.
+// You can construct a concrete instance of `DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput` via:
+//
+//	DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeArgs{...}
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput
+}
+
+var deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrType = reflect.TypeOf((**DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode)(nil)).Elem()
+
+type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput
+	ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput
+}
+
+type deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr string
+
+func DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr(v string) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput {
+	return (*deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr)(&v)
+}
+
+func (*deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ElementType() reflect.Type {
+	return deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrType
+}
+
+func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput() DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
+func (in *deliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtr) ToDeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutputWithContext(ctx context.Context) DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
+}
+
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod string
 
 const (
@@ -2320,6 +2484,8 @@ func (in *deliveryStreamTypePtr) ToDeliveryStreamTypePtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("NoRotation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod("NoRotation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
@@ -2348,6 +2514,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHECEndpointTypePtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHECEndpointType("Raw"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypeInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypePtrInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModeOutput{})

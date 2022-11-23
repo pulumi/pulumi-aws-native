@@ -85,6 +85,13 @@
       "type" : "string",
       "enum" : [ "CREATING", "CREATE_FAILED", "ACTIVE" ]
     },
+    "RecordingReconnectWindowSeconds" : {
+      "description" : "Recording Reconnect Window Seconds. (0 means disabled)",
+      "type" : "integer",
+      "default" : 0,
+      "minimum" : 0,
+      "maximum" : 300
+    },
     "DestinationConfiguration" : {
       "$ref" : "#/definitions/DestinationConfiguration"
     },
@@ -106,7 +113,7 @@
   "required" : [ "DestinationConfiguration" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/State" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationConfiguration", "/properties/DestinationConfiguration/S3", "/properties/DestinationConfiguration/S3/BucketName", "/properties/ThumbnailConfiguration", "/properties/ThumbnailConfiguration/RecordingMode", "/properties/ThumbnailConfiguration/TargetIntervalSeconds" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationConfiguration", "/properties/DestinationConfiguration/S3", "/properties/DestinationConfiguration/S3/BucketName", "/properties/RecordingReconnectWindowSeconds", "/properties/ThumbnailConfiguration", "/properties/ThumbnailConfiguration/RecordingMode", "/properties/ThumbnailConfiguration/TargetIntervalSeconds" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ivs:CreateRecordingConfiguration", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "iam:AttachRolePolicy", "s3:ListBucket", "s3:GetBucketLocation", "cloudformation:ListExports" ]

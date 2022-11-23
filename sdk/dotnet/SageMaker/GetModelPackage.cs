@@ -69,7 +69,6 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly Outputs.ModelPackageStatusDetails? ModelPackageStatusDetails;
         public readonly Outputs.ModelPackageStatusItem? ModelPackageStatusItem;
         public readonly int? ModelPackageVersion;
-        public readonly Outputs.ModelPackageTag? Tag;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -113,8 +112,6 @@ namespace Pulumi.AwsNative.SageMaker
 
             int? modelPackageVersion,
 
-            Outputs.ModelPackageTag? tag,
-
             ImmutableArray<Outputs.ModelPackageTag> tags)
         {
             AdditionalInferenceSpecificationDefinition = additionalInferenceSpecificationDefinition;
@@ -135,7 +132,6 @@ namespace Pulumi.AwsNative.SageMaker
             ModelPackageStatusDetails = modelPackageStatusDetails;
             ModelPackageStatusItem = modelPackageStatusItem;
             ModelPackageVersion = modelPackageVersion;
-            Tag = tag;
             Tags = tags;
         }
     }

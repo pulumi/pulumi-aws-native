@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Outputs
 {
 
-    /// <summary>
-    /// The Metric property type represents a specific metric.
-    /// </summary>
     [OutputType]
     public sealed class AlarmMetric
     {
-        /// <summary>
-        /// The dimensions for the metric.
-        /// </summary>
         public readonly ImmutableArray<Outputs.AlarmDimension> Dimensions;
-        /// <summary>
-        /// The name of the metric.
-        /// </summary>
         public readonly string? MetricName;
-        /// <summary>
-        /// The namespace of the metric.
-        /// </summary>
         public readonly string? Namespace;
 
         [OutputConstructor]

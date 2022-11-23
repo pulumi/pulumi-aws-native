@@ -52,6 +52,8 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class GetResolverResult
     {
         public readonly Outputs.ResolverCachingConfig? CachingConfig;
+        public readonly string? Code;
+        public readonly string? CodeS3Location;
         public readonly string? DataSourceName;
         public readonly string? Id;
         public readonly string? Kind;
@@ -62,11 +64,16 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? ResolverArn;
         public readonly string? ResponseMappingTemplate;
         public readonly string? ResponseMappingTemplateS3Location;
+        public readonly Outputs.ResolverAppSyncRuntime? Runtime;
         public readonly Outputs.ResolverSyncConfig? SyncConfig;
 
         [OutputConstructor]
         private GetResolverResult(
             Outputs.ResolverCachingConfig? cachingConfig,
+
+            string? code,
+
+            string? codeS3Location,
 
             string? dataSourceName,
 
@@ -88,9 +95,13 @@ namespace Pulumi.AwsNative.AppSync
 
             string? responseMappingTemplateS3Location,
 
+            Outputs.ResolverAppSyncRuntime? runtime,
+
             Outputs.ResolverSyncConfig? syncConfig)
         {
             CachingConfig = cachingConfig;
+            Code = code;
+            CodeS3Location = codeS3Location;
             DataSourceName = dataSourceName;
             Id = id;
             Kind = kind;
@@ -101,6 +112,7 @@ namespace Pulumi.AwsNative.AppSync
             ResolverArn = resolverArn;
             ResponseMappingTemplate = responseMappingTemplate;
             ResponseMappingTemplateS3Location = responseMappingTemplateS3Location;
+            Runtime = runtime;
             SyncConfig = syncConfig;
         }
     }

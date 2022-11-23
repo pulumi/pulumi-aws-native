@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public Output<object?> PropertyDefinitions { get; private set; } = null!;
 
         /// <summary>
+        /// An map of the property groups in the component type. Each property group's key must be unique to this map.
+        /// </summary>
+        [Output("propertyGroups")]
+        public Output<object?> PropertyGroups { get; private set; } = null!;
+
+        /// <summary>
         /// The current status of the component type.
         /// </summary>
         [Output("status")]
@@ -185,6 +191,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         [Input("propertyDefinitions")]
         public Input<object>? PropertyDefinitions { get; set; }
+
+        /// <summary>
+        /// An map of the property groups in the component type. Each property group's key must be unique to this map.
+        /// </summary>
+        [Input("propertyGroups")]
+        public Input<object>? PropertyGroups { get; set; }
 
         /// <summary>
         /// A map of key-value pairs to associate with a resource.

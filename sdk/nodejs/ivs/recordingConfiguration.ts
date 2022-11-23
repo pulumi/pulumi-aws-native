@@ -47,6 +47,10 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * Recording Reconnect Window Seconds. (0 means disabled)
+     */
+    public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
+    /**
      * Recording Configuration State.
      */
     public /*out*/ readonly state!: pulumi.Output<enums.ivs.RecordingConfigurationState>;
@@ -72,6 +76,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -80,6 +85,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["destinationConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recordingReconnectWindowSeconds"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thumbnailConfiguration"] = undefined /*out*/;
@@ -98,6 +104,10 @@ export interface RecordingConfigurationArgs {
      * Recording Configuration Name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Recording Reconnect Window Seconds. (0 means disabled)
+     */
+    recordingReconnectWindowSeconds?: pulumi.Input<number>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

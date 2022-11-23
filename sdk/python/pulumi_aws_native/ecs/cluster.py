@@ -21,6 +21,7 @@ class ClusterArgs:
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]] = None,
                  configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -36,6 +37,8 @@ class ClusterArgs:
             pulumi.set(__self__, "configuration", configuration)
         if default_capacity_provider_strategy is not None:
             pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
+        if service_connect_defaults is not None:
+            pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,6 +91,15 @@ class ClusterArgs:
         pulumi.set(self, "default_capacity_provider_strategy", value)
 
     @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+        return pulumi.get(self, "service_connect_defaults")
+
+    @service_connect_defaults.setter
+    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+        pulumi.set(self, "service_connect_defaults", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -107,6 +119,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -145,6 +158,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingsArgs']]]]] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderStrategyItemArgs']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -160,6 +174,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_settings"] = cluster_settings
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
+            __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Cluster, __self__).__init__(
@@ -190,6 +205,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_settings"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["default_capacity_provider_strategy"] = None
+        __props__.__dict__["service_connect_defaults"] = None
         __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -228,6 +244,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterCapacityProviderStrategyItem']]]:
         return pulumi.get(self, "default_capacity_provider_strategy")
+
+    @property
+    @pulumi.getter(name="serviceConnectDefaults")
+    def service_connect_defaults(self) -> pulumi.Output[Optional['outputs.ClusterServiceConnectDefaults']]:
+        return pulumi.get(self, "service_connect_defaults")
 
     @property
     @pulumi.getter

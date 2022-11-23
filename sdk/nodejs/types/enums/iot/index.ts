@@ -113,14 +113,6 @@ export const JobTemplateFailureType = {
 
 export type JobTemplateFailureType = (typeof JobTemplateFailureType)[keyof typeof JobTemplateFailureType];
 
-export const JobTemplateJobRetryFailureType = {
-    Failed: "FAILED",
-    TimedOut: "TIMED_OUT",
-    All: "ALL",
-} as const;
-
-export type JobTemplateJobRetryFailureType = (typeof JobTemplateJobRetryFailureType)[keyof typeof JobTemplateJobRetryFailureType];
-
 export const LoggingDefaultLogLevel = {
     Error: "ERROR",
     Warn: "WARN",

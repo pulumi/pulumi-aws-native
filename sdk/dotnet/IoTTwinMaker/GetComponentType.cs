@@ -106,6 +106,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public readonly object? PropertyDefinitions;
         /// <summary>
+        /// An map of the property groups in the component type. Each property group's key must be unique to this map.
+        /// </summary>
+        public readonly object? PropertyGroups;
+        /// <summary>
         /// The current status of the component type.
         /// </summary>
         public readonly Outputs.ComponentTypeStatus? Status;
@@ -138,6 +142,8 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             object? propertyDefinitions,
 
+            object? propertyGroups,
+
             Outputs.ComponentTypeStatus? status,
 
             object? tags,
@@ -153,6 +159,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
             IsSchemaInitialized = isSchemaInitialized;
             IsSingleton = isSingleton;
             PropertyDefinitions = propertyDefinitions;
+            PropertyGroups = propertyGroups;
             Status = status;
             Tags = tags;
             UpdateDateTime = updateDateTime;

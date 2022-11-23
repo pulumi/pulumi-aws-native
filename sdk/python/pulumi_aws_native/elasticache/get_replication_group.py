@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationGroupResult:
-    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, user_group_ids=None):
+    def __init__(__self__, auth_token=None, auto_minor_version_upgrade=None, automatic_failover_enabled=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_end_point_address=None, configuration_end_point_port=None, engine_version=None, ip_discovery=None, log_delivery_configurations=None, multi_az_enabled=None, node_group_configuration=None, notification_topic_arn=None, num_cache_clusters=None, num_node_groups=None, preferred_maintenance_window=None, primary_cluster_id=None, primary_end_point_address=None, primary_end_point_port=None, read_end_point_addresses=None, read_end_point_addresses_list=None, read_end_point_ports=None, read_end_point_ports_list=None, reader_end_point_address=None, reader_end_point_port=None, replication_group_description=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, snapshotting_cluster_id=None, tags=None, user_group_ids=None):
         if auth_token and not isinstance(auth_token, str):
             raise TypeError("Expected argument 'auth_token' to be a str")
         pulumi.set(__self__, "auth_token", auth_token)
@@ -47,6 +47,9 @@ class GetReplicationGroupResult:
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
+        if ip_discovery and not isinstance(ip_discovery, str):
+            raise TypeError("Expected argument 'ip_discovery' to be a str")
+        pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations and not isinstance(log_delivery_configurations, list):
             raise TypeError("Expected argument 'log_delivery_configurations' to be a list")
         pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
@@ -161,6 +164,11 @@ class GetReplicationGroupResult:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[str]:
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[str]:
+        return pulumi.get(self, "ip_discovery")
 
     @property
     @pulumi.getter(name="logDeliveryConfigurations")
@@ -293,6 +301,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             configuration_end_point_address=self.configuration_end_point_address,
             configuration_end_point_port=self.configuration_end_point_port,
             engine_version=self.engine_version,
+            ip_discovery=self.ip_discovery,
             log_delivery_configurations=self.log_delivery_configurations,
             multi_az_enabled=self.multi_az_enabled,
             node_group_configuration=self.node_group_configuration,
@@ -338,6 +347,7 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         configuration_end_point_address=__ret__.configuration_end_point_address,
         configuration_end_point_port=__ret__.configuration_end_point_port,
         engine_version=__ret__.engine_version,
+        ip_discovery=__ret__.ip_discovery,
         log_delivery_configurations=__ret__.log_delivery_configurations,
         multi_az_enabled=__ret__.multi_az_enabled,
         node_group_configuration=__ret__.node_group_configuration,

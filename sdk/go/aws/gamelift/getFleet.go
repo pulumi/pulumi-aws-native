@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.InvokeOption) (*LookupFleetResult, error) {
 	var rv LookupFleetResult
 	err := ctx.Invoke("aws-native:gamelift:getFleet", args, &rv, opts...)
@@ -26,6 +26,8 @@ type LookupFleetArgs struct {
 }
 
 type LookupFleetResult struct {
+	// Configuration for Anywhere fleet.
+	AnywhereConfiguration *FleetAnywhereConfiguration `pulumi:"anywhereConfiguration"`
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -87,6 +89,11 @@ func (o LookupFleetResultOutput) ToLookupFleetResultOutput() LookupFleetResultOu
 
 func (o LookupFleetResultOutput) ToLookupFleetResultOutputWithContext(ctx context.Context) LookupFleetResultOutput {
 	return o
+}
+
+// Configuration for Anywhere fleet.
+func (o LookupFleetResultOutput) AnywhereConfiguration() FleetAnywhereConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFleetResult) *FleetAnywhereConfiguration { return v.AnywhereConfiguration }).(FleetAnywhereConfigurationPtrOutput)
 }
 
 // A human-readable description of a fleet.

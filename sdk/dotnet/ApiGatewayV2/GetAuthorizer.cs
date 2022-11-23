@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetAuthorizerArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public string ApiId { get; set; } = null!;
+
+        [Input("authorizerId", required: true)]
+        public string AuthorizerId { get; set; } = null!;
 
         public GetAuthorizerArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
     public sealed class GetAuthorizerInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("authorizerId", required: true)]
+        public Input<string> AuthorizerId { get; set; } = null!;
 
         public GetAuthorizerInvokeArgs()
         {
@@ -52,12 +58,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class GetAuthorizerResult
     {
         public readonly string? AuthorizerCredentialsArn;
+        public readonly string? AuthorizerId;
         public readonly string? AuthorizerPayloadFormatVersion;
         public readonly int? AuthorizerResultTtlInSeconds;
         public readonly string? AuthorizerType;
         public readonly string? AuthorizerUri;
         public readonly bool? EnableSimpleResponses;
-        public readonly string? Id;
         public readonly ImmutableArray<string> IdentitySource;
         public readonly string? IdentityValidationExpression;
         public readonly Outputs.AuthorizerJWTConfiguration? JwtConfiguration;
@@ -66,6 +72,8 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         [OutputConstructor]
         private GetAuthorizerResult(
             string? authorizerCredentialsArn,
+
+            string? authorizerId,
 
             string? authorizerPayloadFormatVersion,
 
@@ -77,8 +85,6 @@ namespace Pulumi.AwsNative.ApiGatewayV2
 
             bool? enableSimpleResponses,
 
-            string? id,
-
             ImmutableArray<string> identitySource,
 
             string? identityValidationExpression,
@@ -88,12 +94,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
             string? name)
         {
             AuthorizerCredentialsArn = authorizerCredentialsArn;
+            AuthorizerId = authorizerId;
             AuthorizerPayloadFormatVersion = authorizerPayloadFormatVersion;
             AuthorizerResultTtlInSeconds = authorizerResultTtlInSeconds;
             AuthorizerType = authorizerType;
             AuthorizerUri = authorizerUri;
             EnableSimpleResponses = enableSimpleResponses;
-            Id = id;
             IdentitySource = identitySource;
             IdentityValidationExpression = identityValidationExpression;
             JwtConfiguration = jwtConfiguration;

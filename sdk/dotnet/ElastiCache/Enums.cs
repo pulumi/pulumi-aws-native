@@ -39,6 +39,38 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
+    /// Authentication Type
+    /// </summary>
+    [EnumType]
+    public readonly struct UserAuthenticationModePropertiesType : IEquatable<UserAuthenticationModePropertiesType>
+    {
+        private readonly string _value;
+
+        private UserAuthenticationModePropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserAuthenticationModePropertiesType Password { get; } = new UserAuthenticationModePropertiesType("password");
+        public static UserAuthenticationModePropertiesType NoPasswordRequired { get; } = new UserAuthenticationModePropertiesType("no-password-required");
+        public static UserAuthenticationModePropertiesType Iam { get; } = new UserAuthenticationModePropertiesType("iam");
+
+        public static bool operator ==(UserAuthenticationModePropertiesType left, UserAuthenticationModePropertiesType right) => left.Equals(right);
+        public static bool operator !=(UserAuthenticationModePropertiesType left, UserAuthenticationModePropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(UserAuthenticationModePropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserAuthenticationModePropertiesType other && Equals(other);
+        public bool Equals(UserAuthenticationModePropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Must be redis.
     /// </summary>
     [EnumType]

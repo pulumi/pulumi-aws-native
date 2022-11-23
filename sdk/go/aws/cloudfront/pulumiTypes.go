@@ -690,6 +690,735 @@ func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type ContinuousDeploymentPolicyConfig struct {
+	Enabled                     bool                                     `pulumi:"enabled"`
+	StagingDistributionDnsNames []string                                 `pulumi:"stagingDistributionDnsNames"`
+	TrafficConfig               *ContinuousDeploymentPolicyTrafficConfig `pulumi:"trafficConfig"`
+}
+
+// ContinuousDeploymentPolicyConfigInput is an input type that accepts ContinuousDeploymentPolicyConfigArgs and ContinuousDeploymentPolicyConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyConfigInput` via:
+//
+//	ContinuousDeploymentPolicyConfigArgs{...}
+type ContinuousDeploymentPolicyConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyConfigOutput() ContinuousDeploymentPolicyConfigOutput
+	ToContinuousDeploymentPolicyConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyConfigOutput
+}
+
+type ContinuousDeploymentPolicyConfigArgs struct {
+	Enabled                     pulumi.BoolInput                                `pulumi:"enabled"`
+	StagingDistributionDnsNames pulumi.StringArrayInput                         `pulumi:"stagingDistributionDnsNames"`
+	TrafficConfig               ContinuousDeploymentPolicyTrafficConfigPtrInput `pulumi:"trafficConfig"`
+}
+
+func (ContinuousDeploymentPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyConfigArgs) ToContinuousDeploymentPolicyConfigOutput() ContinuousDeploymentPolicyConfigOutput {
+	return i.ToContinuousDeploymentPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyConfigArgs) ToContinuousDeploymentPolicyConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyConfigOutput)
+}
+
+type ContinuousDeploymentPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyConfigOutput) ToContinuousDeploymentPolicyConfigOutput() ContinuousDeploymentPolicyConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyConfigOutput) ToContinuousDeploymentPolicyConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o ContinuousDeploymentPolicyConfigOutput) StagingDistributionDnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) []string { return v.StagingDistributionDnsNames }).(pulumi.StringArrayOutput)
+}
+
+func (o ContinuousDeploymentPolicyConfigOutput) TrafficConfig() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyTrafficConfig {
+		return v.TrafficConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) ToContinuousDeploymentPolicyConfigPtrOutput() ContinuousDeploymentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) ToContinuousDeploymentPolicyConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) Elem() ContinuousDeploymentPolicyConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) ContinuousDeploymentPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyConfig
+		return ret
+	}).(ContinuousDeploymentPolicyConfigOutput)
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) StagingDistributionDnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StagingDistributionDnsNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ContinuousDeploymentPolicyConfigPtrOutput) TrafficConfig() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyConfig) *ContinuousDeploymentPolicyTrafficConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrafficConfig
+	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicySessionStickinessConfig struct {
+	IdleTTL    int `pulumi:"idleTTL"`
+	MaximumTTL int `pulumi:"maximumTTL"`
+}
+
+// ContinuousDeploymentPolicySessionStickinessConfigInput is an input type that accepts ContinuousDeploymentPolicySessionStickinessConfigArgs and ContinuousDeploymentPolicySessionStickinessConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySessionStickinessConfigInput` via:
+//
+//	ContinuousDeploymentPolicySessionStickinessConfigArgs{...}
+type ContinuousDeploymentPolicySessionStickinessConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySessionStickinessConfigOutput() ContinuousDeploymentPolicySessionStickinessConfigOutput
+	ToContinuousDeploymentPolicySessionStickinessConfigOutputWithContext(context.Context) ContinuousDeploymentPolicySessionStickinessConfigOutput
+}
+
+type ContinuousDeploymentPolicySessionStickinessConfigArgs struct {
+	IdleTTL    pulumi.IntInput `pulumi:"idleTTL"`
+	MaximumTTL pulumi.IntInput `pulumi:"maximumTTL"`
+}
+
+func (ContinuousDeploymentPolicySessionStickinessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySessionStickinessConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicySessionStickinessConfigArgs) ToContinuousDeploymentPolicySessionStickinessConfigOutput() ContinuousDeploymentPolicySessionStickinessConfigOutput {
+	return i.ToContinuousDeploymentPolicySessionStickinessConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySessionStickinessConfigArgs) ToContinuousDeploymentPolicySessionStickinessConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySessionStickinessConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicySessionStickinessConfigArgs) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutput() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySessionStickinessConfigArgs) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySessionStickinessConfigOutput).ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicySessionStickinessConfigPtrInput is an input type that accepts ContinuousDeploymentPolicySessionStickinessConfigArgs, ContinuousDeploymentPolicySessionStickinessConfigPtr and ContinuousDeploymentPolicySessionStickinessConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySessionStickinessConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicySessionStickinessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicySessionStickinessConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySessionStickinessConfigPtrOutput() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput
+	ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicySessionStickinessConfigPtrOutput
+}
+
+type continuousDeploymentPolicySessionStickinessConfigPtrType ContinuousDeploymentPolicySessionStickinessConfigArgs
+
+func ContinuousDeploymentPolicySessionStickinessConfigPtr(v *ContinuousDeploymentPolicySessionStickinessConfigArgs) ContinuousDeploymentPolicySessionStickinessConfigPtrInput {
+	return (*continuousDeploymentPolicySessionStickinessConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicySessionStickinessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySessionStickinessConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicySessionStickinessConfigPtrType) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutput() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicySessionStickinessConfigPtrType) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicySessionStickinessConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySessionStickinessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySessionStickinessConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDeploymentPolicySessionStickinessConfigOutput() ContinuousDeploymentPolicySessionStickinessConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDeploymentPolicySessionStickinessConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutput() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicySessionStickinessConfig) *ContinuousDeploymentPolicySessionStickinessConfig {
+		return &v
+	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) IdleTTL() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.IdleTTL }).(pulumi.IntOutput)
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigOutput) MaximumTTL() pulumi.IntOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySessionStickinessConfig) int { return v.MaximumTTL }).(pulumi.IntOutput)
+}
+
+type ContinuousDeploymentPolicySessionStickinessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySessionStickinessConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutput() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) ToContinuousDeploymentPolicySessionStickinessConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) Elem() ContinuousDeploymentPolicySessionStickinessConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) ContinuousDeploymentPolicySessionStickinessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicySessionStickinessConfig
+		return ret
+	}).(ContinuousDeploymentPolicySessionStickinessConfigOutput)
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) IdleTTL() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.IdleTTL
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySessionStickinessConfigPtrOutput) MaximumTTL() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySessionStickinessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumTTL
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContinuousDeploymentPolicySingleHeaderConfig struct {
+	Header string `pulumi:"header"`
+	Value  string `pulumi:"value"`
+}
+
+// ContinuousDeploymentPolicySingleHeaderConfigInput is an input type that accepts ContinuousDeploymentPolicySingleHeaderConfigArgs and ContinuousDeploymentPolicySingleHeaderConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySingleHeaderConfigInput` via:
+//
+//	ContinuousDeploymentPolicySingleHeaderConfigArgs{...}
+type ContinuousDeploymentPolicySingleHeaderConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySingleHeaderConfigOutput() ContinuousDeploymentPolicySingleHeaderConfigOutput
+	ToContinuousDeploymentPolicySingleHeaderConfigOutputWithContext(context.Context) ContinuousDeploymentPolicySingleHeaderConfigOutput
+}
+
+type ContinuousDeploymentPolicySingleHeaderConfigArgs struct {
+	Header pulumi.StringInput `pulumi:"header"`
+	Value  pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContinuousDeploymentPolicySingleHeaderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySingleHeaderConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicySingleHeaderConfigArgs) ToContinuousDeploymentPolicySingleHeaderConfigOutput() ContinuousDeploymentPolicySingleHeaderConfigOutput {
+	return i.ToContinuousDeploymentPolicySingleHeaderConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySingleHeaderConfigArgs) ToContinuousDeploymentPolicySingleHeaderConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleHeaderConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicySingleHeaderConfigArgs) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutput() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySingleHeaderConfigArgs) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleHeaderConfigOutput).ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicySingleHeaderConfigPtrInput is an input type that accepts ContinuousDeploymentPolicySingleHeaderConfigArgs, ContinuousDeploymentPolicySingleHeaderConfigPtr and ContinuousDeploymentPolicySingleHeaderConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySingleHeaderConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicySingleHeaderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicySingleHeaderConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySingleHeaderConfigPtrOutput() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput
+	ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicySingleHeaderConfigPtrOutput
+}
+
+type continuousDeploymentPolicySingleHeaderConfigPtrType ContinuousDeploymentPolicySingleHeaderConfigArgs
+
+func ContinuousDeploymentPolicySingleHeaderConfigPtr(v *ContinuousDeploymentPolicySingleHeaderConfigArgs) ContinuousDeploymentPolicySingleHeaderConfigPtrInput {
+	return (*continuousDeploymentPolicySingleHeaderConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicySingleHeaderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySingleHeaderConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicySingleHeaderConfigPtrType) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutput() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicySingleHeaderConfigPtrType) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicySingleHeaderConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySingleHeaderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySingleHeaderConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) ToContinuousDeploymentPolicySingleHeaderConfigOutput() ContinuousDeploymentPolicySingleHeaderConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) ToContinuousDeploymentPolicySingleHeaderConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutput() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicySingleHeaderConfig) *ContinuousDeploymentPolicySingleHeaderConfig {
+		return &v
+	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySingleHeaderConfig) string { return v.Header }).(pulumi.StringOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySingleHeaderConfig) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContinuousDeploymentPolicySingleHeaderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySingleHeaderConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutput() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) ToContinuousDeploymentPolicySingleHeaderConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Elem() ContinuousDeploymentPolicySingleHeaderConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleHeaderConfig) ContinuousDeploymentPolicySingleHeaderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicySingleHeaderConfig
+		return ret
+	}).(ContinuousDeploymentPolicySingleHeaderConfigOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleHeaderConfigPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleHeaderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContinuousDeploymentPolicySingleWeightConfig struct {
+	SessionStickinessConfig *ContinuousDeploymentPolicySessionStickinessConfig `pulumi:"sessionStickinessConfig"`
+	Weight                  float64                                            `pulumi:"weight"`
+}
+
+// ContinuousDeploymentPolicySingleWeightConfigInput is an input type that accepts ContinuousDeploymentPolicySingleWeightConfigArgs and ContinuousDeploymentPolicySingleWeightConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySingleWeightConfigInput` via:
+//
+//	ContinuousDeploymentPolicySingleWeightConfigArgs{...}
+type ContinuousDeploymentPolicySingleWeightConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySingleWeightConfigOutput() ContinuousDeploymentPolicySingleWeightConfigOutput
+	ToContinuousDeploymentPolicySingleWeightConfigOutputWithContext(context.Context) ContinuousDeploymentPolicySingleWeightConfigOutput
+}
+
+type ContinuousDeploymentPolicySingleWeightConfigArgs struct {
+	SessionStickinessConfig ContinuousDeploymentPolicySessionStickinessConfigPtrInput `pulumi:"sessionStickinessConfig"`
+	Weight                  pulumi.Float64Input                                       `pulumi:"weight"`
+}
+
+func (ContinuousDeploymentPolicySingleWeightConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySingleWeightConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicySingleWeightConfigArgs) ToContinuousDeploymentPolicySingleWeightConfigOutput() ContinuousDeploymentPolicySingleWeightConfigOutput {
+	return i.ToContinuousDeploymentPolicySingleWeightConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySingleWeightConfigArgs) ToContinuousDeploymentPolicySingleWeightConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleWeightConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicySingleWeightConfigArgs) ToContinuousDeploymentPolicySingleWeightConfigPtrOutput() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicySingleWeightConfigArgs) ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleWeightConfigOutput).ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicySingleWeightConfigPtrInput is an input type that accepts ContinuousDeploymentPolicySingleWeightConfigArgs, ContinuousDeploymentPolicySingleWeightConfigPtr and ContinuousDeploymentPolicySingleWeightConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicySingleWeightConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicySingleWeightConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicySingleWeightConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicySingleWeightConfigPtrOutput() ContinuousDeploymentPolicySingleWeightConfigPtrOutput
+	ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicySingleWeightConfigPtrOutput
+}
+
+type continuousDeploymentPolicySingleWeightConfigPtrType ContinuousDeploymentPolicySingleWeightConfigArgs
+
+func ContinuousDeploymentPolicySingleWeightConfigPtr(v *ContinuousDeploymentPolicySingleWeightConfigArgs) ContinuousDeploymentPolicySingleWeightConfigPtrInput {
+	return (*continuousDeploymentPolicySingleWeightConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicySingleWeightConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySingleWeightConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicySingleWeightConfigPtrType) ToContinuousDeploymentPolicySingleWeightConfigPtrOutput() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicySingleWeightConfigPtrType) ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicySingleWeightConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySingleWeightConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicySingleWeightConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) ToContinuousDeploymentPolicySingleWeightConfigOutput() ContinuousDeploymentPolicySingleWeightConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) ToContinuousDeploymentPolicySingleWeightConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) ToContinuousDeploymentPolicySingleWeightConfigPtrOutput() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicySingleWeightConfig) *ContinuousDeploymentPolicySingleWeightConfig {
+		return &v
+	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) SessionStickinessConfig() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySingleWeightConfig) *ContinuousDeploymentPolicySessionStickinessConfig {
+		return v.SessionStickinessConfig
+	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v ContinuousDeploymentPolicySingleWeightConfig) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type ContinuousDeploymentPolicySingleWeightConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicySingleWeightConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicySingleWeightConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) ToContinuousDeploymentPolicySingleWeightConfigPtrOutput() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) ToContinuousDeploymentPolicySingleWeightConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) Elem() ContinuousDeploymentPolicySingleWeightConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleWeightConfig) ContinuousDeploymentPolicySingleWeightConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicySingleWeightConfig
+		return ret
+	}).(ContinuousDeploymentPolicySingleWeightConfigOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) SessionStickinessConfig() ContinuousDeploymentPolicySessionStickinessConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleWeightConfig) *ContinuousDeploymentPolicySessionStickinessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SessionStickinessConfig
+	}).(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicySingleWeightConfigPtrOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicySingleWeightConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Weight
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfig struct {
+	SingleHeaderConfig *ContinuousDeploymentPolicySingleHeaderConfig `pulumi:"singleHeaderConfig"`
+	SingleWeightConfig *ContinuousDeploymentPolicySingleWeightConfig `pulumi:"singleWeightConfig"`
+	Type               ContinuousDeploymentPolicyTrafficConfigType   `pulumi:"type"`
+}
+
+// ContinuousDeploymentPolicyTrafficConfigInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigArgs and ContinuousDeploymentPolicyTrafficConfigOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput
+	ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigOutput
+}
+
+type ContinuousDeploymentPolicyTrafficConfigArgs struct {
+	SingleHeaderConfig ContinuousDeploymentPolicySingleHeaderConfigPtrInput `pulumi:"singleHeaderConfig"`
+	SingleWeightConfig ContinuousDeploymentPolicySingleWeightConfigPtrInput `pulumi:"singleWeightConfig"`
+	Type               ContinuousDeploymentPolicyTrafficConfigTypeInput     `pulumi:"type"`
+}
+
+func (ContinuousDeploymentPolicyTrafficConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigOutput)
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ContinuousDeploymentPolicyTrafficConfigArgs) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigOutput).ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigPtrInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigArgs, ContinuousDeploymentPolicyTrafficConfigPtr and ContinuousDeploymentPolicyTrafficConfigPtrOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigPtrInput` via:
+//
+//	        ContinuousDeploymentPolicyTrafficConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContinuousDeploymentPolicyTrafficConfigPtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigPtrType ContinuousDeploymentPolicyTrafficConfigArgs
+
+func ContinuousDeploymentPolicyTrafficConfigPtr(v *ContinuousDeploymentPolicyTrafficConfigArgs) ContinuousDeploymentPolicyTrafficConfigPtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigPtrType)(v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return i.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *continuousDeploymentPolicyTrafficConfigPtrType) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigOutput() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfig {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleHeaderConfig() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleHeaderConfig {
+		return v.SingleHeaderConfig
+	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) SingleWeightConfig() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleWeightConfig {
+		return v.SingleWeightConfig
+	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigOutput) Type() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfig) ContinuousDeploymentPolicyTrafficConfigType {
+		return v.Type
+	}).(ContinuousDeploymentPolicyTrafficConfigTypeOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfig)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutput() ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) ToContinuousDeploymentPolicyTrafficConfigPtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigPtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) ContinuousDeploymentPolicyTrafficConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfig
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleHeaderConfig() ContinuousDeploymentPolicySingleHeaderConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleHeaderConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SingleHeaderConfig
+	}).(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) SingleWeightConfig() ContinuousDeploymentPolicySingleWeightConfigPtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicySingleWeightConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SingleWeightConfig
+	}).(ContinuousDeploymentPolicySingleWeightConfigPtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigPtrOutput) Type() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfig) *ContinuousDeploymentPolicyTrafficConfigType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
+}
+
 type DistributionCacheBehavior struct {
 	AllowedMethods             []string                                `pulumi:"allowedMethods"`
 	CachePolicyId              *string                                 `pulumi:"cachePolicyId"`
@@ -901,25 +1630,27 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 }
 
 type DistributionConfig struct {
-	Aliases              []string                          `pulumi:"aliases"`
-	CNAMEs               []string                          `pulumi:"cNAMEs"`
-	CacheBehaviors       []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
-	Comment              *string                           `pulumi:"comment"`
-	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
-	DefaultCacheBehavior DistributionDefaultCacheBehavior  `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject    *string                           `pulumi:"defaultRootObject"`
-	Enabled              bool                              `pulumi:"enabled"`
-	HttpVersion          *string                           `pulumi:"httpVersion"`
-	IPV6Enabled          *bool                             `pulumi:"iPV6Enabled"`
-	Logging              *DistributionLogging              `pulumi:"logging"`
-	OriginGroups         *DistributionOriginGroups         `pulumi:"originGroups"`
-	Origins              []DistributionOrigin              `pulumi:"origins"`
-	PriceClass           *string                           `pulumi:"priceClass"`
-	Restrictions         *DistributionRestrictions         `pulumi:"restrictions"`
-	S3Origin             *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
-	ViewerCertificate    *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
-	WebACLId             *string                           `pulumi:"webACLId"`
+	Aliases                      []string                          `pulumi:"aliases"`
+	CNAMEs                       []string                          `pulumi:"cNAMEs"`
+	CacheBehaviors               []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
+	Comment                      *string                           `pulumi:"comment"`
+	ContinuousDeploymentPolicyId *string                           `pulumi:"continuousDeploymentPolicyId"`
+	CustomErrorResponses         []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
+	CustomOrigin                 *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
+	DefaultCacheBehavior         DistributionDefaultCacheBehavior  `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject            *string                           `pulumi:"defaultRootObject"`
+	Enabled                      bool                              `pulumi:"enabled"`
+	HttpVersion                  *string                           `pulumi:"httpVersion"`
+	IPV6Enabled                  *bool                             `pulumi:"iPV6Enabled"`
+	Logging                      *DistributionLogging              `pulumi:"logging"`
+	OriginGroups                 *DistributionOriginGroups         `pulumi:"originGroups"`
+	Origins                      []DistributionOrigin              `pulumi:"origins"`
+	PriceClass                   *string                           `pulumi:"priceClass"`
+	Restrictions                 *DistributionRestrictions         `pulumi:"restrictions"`
+	S3Origin                     *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
+	Staging                      *bool                             `pulumi:"staging"`
+	ViewerCertificate            *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
+	WebACLId                     *string                           `pulumi:"webACLId"`
 }
 
 // DistributionConfigInput is an input type that accepts DistributionConfigArgs and DistributionConfigOutput values.
@@ -934,25 +1665,27 @@ type DistributionConfigInput interface {
 }
 
 type DistributionConfigArgs struct {
-	Aliases              pulumi.StringArrayInput                   `pulumi:"aliases"`
-	CNAMEs               pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
-	CacheBehaviors       DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
-	Comment              pulumi.StringPtrInput                     `pulumi:"comment"`
-	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
-	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
-	DefaultCacheBehavior DistributionDefaultCacheBehaviorInput     `pulumi:"defaultCacheBehavior"`
-	DefaultRootObject    pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
-	Enabled              pulumi.BoolInput                          `pulumi:"enabled"`
-	HttpVersion          pulumi.StringPtrInput                     `pulumi:"httpVersion"`
-	IPV6Enabled          pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
-	Logging              DistributionLoggingPtrInput               `pulumi:"logging"`
-	OriginGroups         DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
-	Origins              DistributionOriginArrayInput              `pulumi:"origins"`
-	PriceClass           pulumi.StringPtrInput                     `pulumi:"priceClass"`
-	Restrictions         DistributionRestrictionsPtrInput          `pulumi:"restrictions"`
-	S3Origin             DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
-	ViewerCertificate    DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
-	WebACLId             pulumi.StringPtrInput                     `pulumi:"webACLId"`
+	Aliases                      pulumi.StringArrayInput                   `pulumi:"aliases"`
+	CNAMEs                       pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
+	CacheBehaviors               DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
+	Comment                      pulumi.StringPtrInput                     `pulumi:"comment"`
+	ContinuousDeploymentPolicyId pulumi.StringPtrInput                     `pulumi:"continuousDeploymentPolicyId"`
+	CustomErrorResponses         DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
+	CustomOrigin                 DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
+	DefaultCacheBehavior         DistributionDefaultCacheBehaviorInput     `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject            pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
+	Enabled                      pulumi.BoolInput                          `pulumi:"enabled"`
+	HttpVersion                  pulumi.StringPtrInput                     `pulumi:"httpVersion"`
+	IPV6Enabled                  pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
+	Logging                      DistributionLoggingPtrInput               `pulumi:"logging"`
+	OriginGroups                 DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
+	Origins                      DistributionOriginArrayInput              `pulumi:"origins"`
+	PriceClass                   pulumi.StringPtrInput                     `pulumi:"priceClass"`
+	Restrictions                 DistributionRestrictionsPtrInput          `pulumi:"restrictions"`
+	S3Origin                     DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
+	Staging                      pulumi.BoolPtrInput                       `pulumi:"staging"`
+	ViewerCertificate            DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
+	WebACLId                     pulumi.StringPtrInput                     `pulumi:"webACLId"`
 }
 
 func (DistributionConfigArgs) ElementType() reflect.Type {
@@ -995,6 +1728,10 @@ func (o DistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArra
 
 func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *string { return v.ContinuousDeploymentPolicyId }).(pulumi.StringPtrOutput)
 }
 
 func (o DistributionConfigOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
@@ -1047,6 +1784,10 @@ func (o DistributionConfigOutput) Restrictions() DistributionRestrictionsPtrOutp
 
 func (o DistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
+}
+
+func (o DistributionConfigOutput) Staging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *bool { return v.Staging }).(pulumi.BoolPtrOutput)
 }
 
 func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
@@ -1114,6 +1855,15 @@ func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) ContinuousDeploymentPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContinuousDeploymentPolicyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1232,6 +1982,15 @@ func (o DistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOut
 		}
 		return v.S3Origin
 	}).(DistributionLegacyS3OriginPtrOutput)
+}
+
+func (o DistributionConfigPtrOutput) Staging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Staging
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
@@ -9145,6 +9904,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyQueryStringsConfigInput)(nil)).Elem(), CachePolicyQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFrontOriginAccessIdentityConfigInput)(nil)).Elem(), CloudFrontOriginAccessIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySessionStickinessConfigInput)(nil)).Elem(), ContinuousDeploymentPolicySessionStickinessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySessionStickinessConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicySessionStickinessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySingleHeaderConfigInput)(nil)).Elem(), ContinuousDeploymentPolicySingleHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySingleHeaderConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicySingleHeaderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySingleWeightConfigInput)(nil)).Elem(), ContinuousDeploymentPolicySingleWeightConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicySingleWeightConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicySingleWeightConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorInput)(nil)).Elem(), DistributionCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheBehaviorArrayInput)(nil)).Elem(), DistributionCacheBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigInput)(nil)).Elem(), DistributionConfigArgs{})
@@ -9259,6 +10027,16 @@ func init() {
 	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySessionStickinessConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySessionStickinessConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySingleHeaderConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySingleHeaderConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySingleWeightConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicySingleWeightConfigPtrOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(DistributionCacheBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigOutput{})

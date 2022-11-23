@@ -18,7 +18,8 @@ type User struct {
 	// Access permissions string used for this user account.
 	AccessString pulumi.StringPtrOutput `pulumi:"accessString"`
 	// The Amazon Resource Name (ARN) of the user account.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                pulumi.StringOutput                   `pulumi:"arn"`
+	AuthenticationMode AuthenticationModePropertiesPtrOutput `pulumi:"authenticationMode"`
 	// Must be redis.
 	Engine UserEngineOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
@@ -79,7 +80,8 @@ func (UserState) ElementType() reflect.Type {
 
 type userArgs struct {
 	// Access permissions string used for this user account.
-	AccessString *string `pulumi:"accessString"`
+	AccessString       *string                       `pulumi:"accessString"`
+	AuthenticationMode *AuthenticationModeProperties `pulumi:"authenticationMode"`
 	// Must be redis.
 	Engine UserEngine `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
@@ -95,7 +97,8 @@ type userArgs struct {
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// Access permissions string used for this user account.
-	AccessString pulumi.StringPtrInput
+	AccessString       pulumi.StringPtrInput
+	AuthenticationMode AuthenticationModePropertiesPtrInput
 	// Must be redis.
 	Engine UserEngineInput
 	// Indicates a password is not required for this user account.
@@ -153,6 +156,10 @@ func (o UserOutput) AccessString() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the user account.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o UserOutput) AuthenticationMode() AuthenticationModePropertiesPtrOutput {
+	return o.ApplyT(func(v *User) AuthenticationModePropertiesPtrOutput { return v.AuthenticationMode }).(AuthenticationModePropertiesPtrOutput)
 }
 
 // Must be redis.

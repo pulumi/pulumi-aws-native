@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.AppSync
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        [Output("code")]
+        public Output<string?> Code { get; private set; } = null!;
+
+        [Output("codeS3Location")]
+        public Output<string?> CodeS3Location { get; private set; } = null!;
+
         [Output("dataSourceName")]
         public Output<string> DataSourceName { get; private set; } = null!;
 
@@ -32,7 +38,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string> FunctionId { get; private set; } = null!;
 
         [Output("functionVersion")]
-        public Output<string> FunctionVersion { get; private set; } = null!;
+        public Output<string?> FunctionVersion { get; private set; } = null!;
 
         [Output("maxBatchSize")]
         public Output<int?> MaxBatchSize { get; private set; } = null!;
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Output("responseMappingTemplateS3Location")]
         public Output<string?> ResponseMappingTemplateS3Location { get; private set; } = null!;
+
+        [Output("runtime")]
+        public Output<Outputs.FunctionConfigurationAppSyncRuntime?> Runtime { get; private set; } = null!;
 
         [Output("syncConfig")]
         public Output<Outputs.FunctionConfigurationSyncConfig?> SyncConfig { get; private set; } = null!;
@@ -103,14 +112,20 @@ namespace Pulumi.AwsNative.AppSync
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        [Input("codeS3Location")]
+        public Input<string>? CodeS3Location { get; set; }
+
         [Input("dataSourceName", required: true)]
         public Input<string> DataSourceName { get; set; } = null!;
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("functionVersion", required: true)]
-        public Input<string> FunctionVersion { get; set; } = null!;
+        [Input("functionVersion")]
+        public Input<string>? FunctionVersion { get; set; }
 
         [Input("maxBatchSize")]
         public Input<int>? MaxBatchSize { get; set; }
@@ -129,6 +144,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("responseMappingTemplateS3Location")]
         public Input<string>? ResponseMappingTemplateS3Location { get; set; }
+
+        [Input("runtime")]
+        public Input<Inputs.FunctionConfigurationAppSyncRuntimeArgs>? Runtime { get; set; }
 
         [Input("syncConfig")]
         public Input<Inputs.FunctionConfigurationSyncConfigArgs>? SyncConfig { get; set; }

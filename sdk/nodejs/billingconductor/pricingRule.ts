@@ -49,6 +49,10 @@ export class PricingRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly associatedPricingPlanCount!: pulumi.Output<number>;
     /**
+     * The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+     */
+    public readonly billingEntity!: pulumi.Output<enums.billingconductor.PricingRuleBillingEntity | undefined>;
+    /**
      * Creation timestamp in UNIX epoch time format
      */
     public /*out*/ readonly creationTime!: pulumi.Output<number>;
@@ -104,6 +108,7 @@ export class PricingRule extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["billingEntity"] = args ? args.billingEntity : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["modifierPercentage"] = args ? args.modifierPercentage : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -118,6 +123,7 @@ export class PricingRule extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedPricingPlanCount"] = undefined /*out*/;
+            resourceInputs["billingEntity"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export class PricingRule extends pulumi.CustomResource {
  * The set of arguments for constructing a PricingRule resource.
  */
 export interface PricingRuleArgs {
+    /**
+     * The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+     */
+    billingEntity?: pulumi.Input<enums.billingconductor.PricingRuleBillingEntity>;
     /**
      * Pricing rule description
      */

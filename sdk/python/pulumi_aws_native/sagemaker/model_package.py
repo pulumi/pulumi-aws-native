@@ -42,7 +42,6 @@ class ModelPackageArgs:
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input['ModelPackageSourceAlgorithmSpecificationArgs']] = None,
-                 tag: Optional[pulumi.Input['ModelPackageTagArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None):
@@ -100,8 +99,6 @@ class ModelPackageArgs:
             pulumi.set(__self__, "sample_payload_url", sample_payload_url)
         if source_algorithm_specification is not None:
             pulumi.set(__self__, "source_algorithm_specification", source_algorithm_specification)
-        if tag is not None:
-            pulumi.set(__self__, "tag", tag)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task is not None:
@@ -336,15 +333,6 @@ class ModelPackageArgs:
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['ModelPackageTagArgs']]:
-        return pulumi.get(self, "tag")
-
-    @tag.setter
-    def tag(self, value: Optional[pulumi.Input['ModelPackageTagArgs']]):
-        pulumi.set(self, "tag", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
@@ -404,7 +392,6 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
-                 tag: Optional[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageValidationSpecificationArgs']]] = None,
@@ -465,7 +452,6 @@ class ModelPackage(pulumi.CustomResource):
                  model_package_version: Optional[pulumi.Input[int]] = None,
                  sample_payload_url: Optional[pulumi.Input[str]] = None,
                  source_algorithm_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageSourceAlgorithmSpecificationArgs']]] = None,
-                 tag: Optional[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelPackageTagArgs']]]]] = None,
                  task: Optional[pulumi.Input[str]] = None,
                  validation_specification: Optional[pulumi.Input[pulumi.InputType['ModelPackageValidationSpecificationArgs']]] = None,
@@ -503,7 +489,6 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
-            __props__.__dict__["tag"] = tag
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task"] = task
             __props__.__dict__["validation_specification"] = validation_specification
@@ -560,7 +545,6 @@ class ModelPackage(pulumi.CustomResource):
         __props__.__dict__["model_package_version"] = None
         __props__.__dict__["sample_payload_url"] = None
         __props__.__dict__["source_algorithm_specification"] = None
-        __props__.__dict__["tag"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task"] = None
         __props__.__dict__["validation_specification"] = None
@@ -705,11 +689,6 @@ class ModelPackage(pulumi.CustomResource):
     @pulumi.getter(name="sourceAlgorithmSpecification")
     def source_algorithm_specification(self) -> pulumi.Output[Optional['outputs.ModelPackageSourceAlgorithmSpecification']]:
         return pulumi.get(self, "source_algorithm_specification")
-
-    @property
-    @pulumi.getter
-    def tag(self) -> pulumi.Output[Optional['outputs.ModelPackageTag']]:
-        return pulumi.get(self, "tag")
 
     @property
     @pulumi.getter

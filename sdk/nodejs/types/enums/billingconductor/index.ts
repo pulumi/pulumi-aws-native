@@ -23,9 +23,21 @@ export const CustomLineItemType = {
 
 export type CustomLineItemType = (typeof CustomLineItemType)[keyof typeof CustomLineItemType];
 
+export const PricingRuleBillingEntity = {
+    Aws: "AWS",
+    AWSMarketplace: "AWS Marketplace",
+    Aispl: "AISPL",
+} as const;
+
+/**
+ * The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+ */
+export type PricingRuleBillingEntity = (typeof PricingRuleBillingEntity)[keyof typeof PricingRuleBillingEntity];
+
 export const PricingRuleScope = {
     Global: "GLOBAL",
     Service: "SERVICE",
+    BillingEntity: "BILLING_ENTITY",
 } as const;
 
 /**

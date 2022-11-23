@@ -46,6 +46,8 @@ type LookupComponentTypeResult struct {
 	IsSingleton *bool `pulumi:"isSingleton"`
 	// An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 	PropertyDefinitions interface{} `pulumi:"propertyDefinitions"`
+	// An map of the property groups in the component type. Each property group's key must be unique to this map.
+	PropertyGroups interface{} `pulumi:"propertyGroups"`
 	// The current status of the component type.
 	Status *ComponentTypeStatus `pulumi:"status"`
 	// A map of key-value pairs to associate with a resource.
@@ -135,6 +137,11 @@ func (o LookupComponentTypeResultOutput) IsSingleton() pulumi.BoolPtrOutput {
 // An map of the property definitions in the component type. Each property definition's key must be unique to this map.
 func (o LookupComponentTypeResultOutput) PropertyDefinitions() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.PropertyDefinitions }).(pulumi.AnyOutput)
+}
+
+// An map of the property groups in the component type. Each property group's key must be unique to this map.
+func (o LookupComponentTypeResultOutput) PropertyGroups() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.PropertyGroups }).(pulumi.AnyOutput)
 }
 
 // The current status of the component type.

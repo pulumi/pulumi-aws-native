@@ -49,6 +49,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly clusterSettings!: pulumi.Output<outputs.ecs.ClusterSettings[] | undefined>;
     public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
     public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderStrategyItem[] | undefined>;
+    public readonly serviceConnectDefaults!: pulumi.Output<outputs.ecs.ClusterServiceConnectDefaults | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.ClusterTag[] | undefined>;
 
     /**
@@ -67,6 +68,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["defaultCapacityProviderStrategy"] = args ? args.defaultCapacityProviderStrategy : undefined;
+            resourceInputs["serviceConnectDefaults"] = args ? args.serviceConnectDefaults : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -76,6 +78,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterSettings"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["defaultCapacityProviderStrategy"] = undefined /*out*/;
+            resourceInputs["serviceConnectDefaults"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,5 +98,6 @@ export interface ClusterArgs {
     clusterSettings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSettingsArgs>[]>;
     configuration?: pulumi.Input<inputs.ecs.ClusterConfigurationArgs>;
     defaultCapacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderStrategyItemArgs>[]>;
+    serviceConnectDefaults?: pulumi.Input<inputs.ecs.ClusterServiceConnectDefaultsArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterTagArgs>[]>;
 }

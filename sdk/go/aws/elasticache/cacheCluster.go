@@ -28,7 +28,9 @@ type CacheCluster struct {
 	ConfigurationEndpointPort    pulumi.StringPtrOutput                                 `pulumi:"configurationEndpointPort"`
 	Engine                       pulumi.StringOutput                                    `pulumi:"engine"`
 	EngineVersion                pulumi.StringPtrOutput                                 `pulumi:"engineVersion"`
+	IpDiscovery                  pulumi.StringPtrOutput                                 `pulumi:"ipDiscovery"`
 	LogDeliveryConfigurations    CacheClusterLogDeliveryConfigurationRequestArrayOutput `pulumi:"logDeliveryConfigurations"`
+	NetworkType                  pulumi.StringPtrOutput                                 `pulumi:"networkType"`
 	NotificationTopicArn         pulumi.StringPtrOutput                                 `pulumi:"notificationTopicArn"`
 	NumCacheNodes                pulumi.IntOutput                                       `pulumi:"numCacheNodes"`
 	Port                         pulumi.IntPtrOutput                                    `pulumi:"port"`
@@ -105,7 +107,9 @@ type cacheClusterArgs struct {
 	ConfigurationEndpointPort    *string                                       `pulumi:"configurationEndpointPort"`
 	Engine                       string                                        `pulumi:"engine"`
 	EngineVersion                *string                                       `pulumi:"engineVersion"`
+	IpDiscovery                  *string                                       `pulumi:"ipDiscovery"`
 	LogDeliveryConfigurations    []CacheClusterLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
+	NetworkType                  *string                                       `pulumi:"networkType"`
 	NotificationTopicArn         *string                                       `pulumi:"notificationTopicArn"`
 	NumCacheNodes                int                                           `pulumi:"numCacheNodes"`
 	Port                         *int                                          `pulumi:"port"`
@@ -136,7 +140,9 @@ type CacheClusterArgs struct {
 	ConfigurationEndpointPort    pulumi.StringPtrInput
 	Engine                       pulumi.StringInput
 	EngineVersion                pulumi.StringPtrInput
+	IpDiscovery                  pulumi.StringPtrInput
 	LogDeliveryConfigurations    CacheClusterLogDeliveryConfigurationRequestArrayInput
+	NetworkType                  pulumi.StringPtrInput
 	NotificationTopicArn         pulumi.StringPtrInput
 	NumCacheNodes                pulumi.IntInput
 	Port                         pulumi.IntPtrInput
@@ -235,10 +241,18 @@ func (o CacheClusterOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
 }
 
+func (o CacheClusterOutput) IpDiscovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.IpDiscovery }).(pulumi.StringPtrOutput)
+}
+
 func (o CacheClusterOutput) LogDeliveryConfigurations() CacheClusterLogDeliveryConfigurationRequestArrayOutput {
 	return o.ApplyT(func(v *CacheCluster) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
 		return v.LogDeliveryConfigurations
 	}).(CacheClusterLogDeliveryConfigurationRequestArrayOutput)
+}
+
+func (o CacheClusterOutput) NetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheCluster) pulumi.StringPtrOutput { return v.NetworkType }).(pulumi.StringPtrOutput)
 }
 
 func (o CacheClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {

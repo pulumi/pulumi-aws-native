@@ -23,6 +23,7 @@ class ComponentTypeArgs:
                  functions: Optional[Any] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
                  property_definitions: Optional[Any] = None,
+                 property_groups: Optional[Any] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a ComponentType resource.
@@ -33,6 +34,7 @@ class ComponentTypeArgs:
         :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
         :param pulumi.Input[bool] is_singleton: A Boolean value that specifies whether an entity can have more than one component of this type.
         :param Any property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
+        :param Any property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
         :param Any tags: A map of key-value pairs to associate with a resource.
         """
         pulumi.set(__self__, "component_type_id", component_type_id)
@@ -47,6 +49,8 @@ class ComponentTypeArgs:
             pulumi.set(__self__, "is_singleton", is_singleton)
         if property_definitions is not None:
             pulumi.set(__self__, "property_definitions", property_definitions)
+        if property_groups is not None:
+            pulumi.set(__self__, "property_groups", property_groups)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -135,6 +139,18 @@ class ComponentTypeArgs:
         pulumi.set(self, "property_definitions", value)
 
     @property
+    @pulumi.getter(name="propertyGroups")
+    def property_groups(self) -> Optional[Any]:
+        """
+        An map of the property groups in the component type. Each property group's key must be unique to this map.
+        """
+        return pulumi.get(self, "property_groups")
+
+    @property_groups.setter
+    def property_groups(self, value: Optional[Any]):
+        pulumi.set(self, "property_groups", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Any]:
         """
@@ -158,6 +174,7 @@ class ComponentType(pulumi.CustomResource):
                  functions: Optional[Any] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
                  property_definitions: Optional[Any] = None,
+                 property_groups: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -172,6 +189,7 @@ class ComponentType(pulumi.CustomResource):
         :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
         :param pulumi.Input[bool] is_singleton: A Boolean value that specifies whether an entity can have more than one component of this type.
         :param Any property_definitions: An map of the property definitions in the component type. Each property definition's key must be unique to this map.
+        :param Any property_groups: An map of the property groups in the component type. Each property group's key must be unique to this map.
         :param Any tags: A map of key-value pairs to associate with a resource.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that contains the component type.
         """
@@ -205,6 +223,7 @@ class ComponentType(pulumi.CustomResource):
                  functions: Optional[Any] = None,
                  is_singleton: Optional[pulumi.Input[bool]] = None,
                  property_definitions: Optional[Any] = None,
+                 property_groups: Optional[Any] = None,
                  tags: Optional[Any] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -224,6 +243,7 @@ class ComponentType(pulumi.CustomResource):
             __props__.__dict__["functions"] = functions
             __props__.__dict__["is_singleton"] = is_singleton
             __props__.__dict__["property_definitions"] = property_definitions
+            __props__.__dict__["property_groups"] = property_groups
             __props__.__dict__["tags"] = tags
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -266,6 +286,7 @@ class ComponentType(pulumi.CustomResource):
         __props__.__dict__["is_schema_initialized"] = None
         __props__.__dict__["is_singleton"] = None
         __props__.__dict__["property_definitions"] = None
+        __props__.__dict__["property_groups"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["update_date_time"] = None
@@ -351,6 +372,14 @@ class ComponentType(pulumi.CustomResource):
         An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         """
         return pulumi.get(self, "property_definitions")
+
+    @property
+    @pulumi.getter(name="propertyGroups")
+    def property_groups(self) -> pulumi.Output[Optional[Any]]:
+        """
+        An map of the property groups in the component type. Each property group's key must be unique to this map.
+        """
+        return pulumi.get(self, "property_groups")
 
     @property
     @pulumi.getter

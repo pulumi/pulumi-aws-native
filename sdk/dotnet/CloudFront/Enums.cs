@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFront
 {
     [EnumType]
+    public readonly struct ContinuousDeploymentPolicyTrafficConfigType : IEquatable<ContinuousDeploymentPolicyTrafficConfigType>
+    {
+        private readonly string _value;
+
+        private ContinuousDeploymentPolicyTrafficConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContinuousDeploymentPolicyTrafficConfigType SingleWeight { get; } = new ContinuousDeploymentPolicyTrafficConfigType("SingleWeight");
+        public static ContinuousDeploymentPolicyTrafficConfigType SingleHeader { get; } = new ContinuousDeploymentPolicyTrafficConfigType("SingleHeader");
+
+        public static bool operator ==(ContinuousDeploymentPolicyTrafficConfigType left, ContinuousDeploymentPolicyTrafficConfigType right) => left.Equals(right);
+        public static bool operator !=(ContinuousDeploymentPolicyTrafficConfigType left, ContinuousDeploymentPolicyTrafficConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(ContinuousDeploymentPolicyTrafficConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContinuousDeploymentPolicyTrafficConfigType other && Equals(other);
+        public bool Equals(ContinuousDeploymentPolicyTrafficConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus : IEquatable<MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus>
     {
         private readonly string _value;

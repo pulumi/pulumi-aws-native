@@ -37,6 +37,7 @@ export interface GetClusterResult {
     readonly clusterSettings?: outputs.ecs.ClusterSettings[];
     readonly configuration?: outputs.ecs.ClusterConfiguration;
     readonly defaultCapacityProviderStrategy?: outputs.ecs.ClusterCapacityProviderStrategyItem[];
+    readonly serviceConnectDefaults?: outputs.ecs.ClusterServiceConnectDefaults;
     readonly tags?: outputs.ecs.ClusterTag[];
 }
 

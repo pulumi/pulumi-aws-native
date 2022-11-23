@@ -27,6 +27,8 @@ export interface GetResolverArgs {
 
 export interface GetResolverResult {
     readonly cachingConfig?: outputs.appsync.ResolverCachingConfig;
+    readonly code?: string;
+    readonly codeS3Location?: string;
     readonly dataSourceName?: string;
     readonly id?: string;
     readonly kind?: string;
@@ -37,6 +39,7 @@ export interface GetResolverResult {
     readonly resolverArn?: string;
     readonly responseMappingTemplate?: string;
     readonly responseMappingTemplateS3Location?: string;
+    readonly runtime?: outputs.appsync.ResolverAppSyncRuntime;
     readonly syncConfig?: outputs.appsync.ResolverSyncConfig;
 }
 

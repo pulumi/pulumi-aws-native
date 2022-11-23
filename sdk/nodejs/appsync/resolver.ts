@@ -42,6 +42,8 @@ export class Resolver extends pulumi.CustomResource {
 
     public readonly apiId!: pulumi.Output<string>;
     public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    public readonly code!: pulumi.Output<string | undefined>;
+    public readonly codeS3Location!: pulumi.Output<string | undefined>;
     public readonly dataSourceName!: pulumi.Output<string | undefined>;
     public readonly fieldName!: pulumi.Output<string>;
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -52,6 +54,7 @@ export class Resolver extends pulumi.CustomResource {
     public /*out*/ readonly resolverArn!: pulumi.Output<string>;
     public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
     public readonly responseMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    public readonly runtime!: pulumi.Output<outputs.appsync.ResolverAppSyncRuntime | undefined>;
     public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
     public readonly typeName!: pulumi.Output<string>;
 
@@ -79,6 +82,8 @@ export class Resolver extends pulumi.CustomResource {
             }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["cachingConfig"] = args ? args.cachingConfig : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
             resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
             resourceInputs["fieldName"] = args ? args.fieldName : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -88,12 +93,15 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
             resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
             resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
             resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
             resourceInputs["typeName"] = args ? args.typeName : undefined;
             resourceInputs["resolverArn"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["cachingConfig"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["codeS3Location"] = undefined /*out*/;
             resourceInputs["dataSourceName"] = undefined /*out*/;
             resourceInputs["fieldName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -104,6 +112,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["resolverArn"] = undefined /*out*/;
             resourceInputs["responseMappingTemplate"] = undefined /*out*/;
             resourceInputs["responseMappingTemplateS3Location"] = undefined /*out*/;
+            resourceInputs["runtime"] = undefined /*out*/;
             resourceInputs["syncConfig"] = undefined /*out*/;
             resourceInputs["typeName"] = undefined /*out*/;
         }
@@ -118,6 +127,8 @@ export class Resolver extends pulumi.CustomResource {
 export interface ResolverArgs {
     apiId: pulumi.Input<string>;
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfigArgs>;
+    code?: pulumi.Input<string>;
+    codeS3Location?: pulumi.Input<string>;
     dataSourceName?: pulumi.Input<string>;
     fieldName: pulumi.Input<string>;
     kind?: pulumi.Input<string>;
@@ -127,6 +138,7 @@ export interface ResolverArgs {
     requestMappingTemplateS3Location?: pulumi.Input<string>;
     responseMappingTemplate?: pulumi.Input<string>;
     responseMappingTemplateS3Location?: pulumi.Input<string>;
+    runtime?: pulumi.Input<inputs.appsync.ResolverAppSyncRuntimeArgs>;
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfigArgs>;
     typeName: pulumi.Input<string>;
 }

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentTypeResult:
-    def __init__(__self__, arn=None, creation_date_time=None, description=None, extends_from=None, functions=None, is_abstract=None, is_schema_initialized=None, is_singleton=None, property_definitions=None, status=None, tags=None, update_date_time=None):
+    def __init__(__self__, arn=None, creation_date_time=None, description=None, extends_from=None, functions=None, is_abstract=None, is_schema_initialized=None, is_singleton=None, property_definitions=None, property_groups=None, status=None, tags=None, update_date_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetComponentTypeResult:
         if property_definitions and not isinstance(property_definitions, dict):
             raise TypeError("Expected argument 'property_definitions' to be a dict")
         pulumi.set(__self__, "property_definitions", property_definitions)
+        if property_groups and not isinstance(property_groups, dict):
+            raise TypeError("Expected argument 'property_groups' to be a dict")
+        pulumi.set(__self__, "property_groups", property_groups)
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
@@ -131,6 +134,14 @@ class GetComponentTypeResult:
         return pulumi.get(self, "property_definitions")
 
     @property
+    @pulumi.getter(name="propertyGroups")
+    def property_groups(self) -> Optional[Any]:
+        """
+        An map of the property groups in the component type. Each property group's key must be unique to this map.
+        """
+        return pulumi.get(self, "property_groups")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional['outputs.ComponentTypeStatus']:
         """
@@ -170,6 +181,7 @@ class AwaitableGetComponentTypeResult(GetComponentTypeResult):
             is_schema_initialized=self.is_schema_initialized,
             is_singleton=self.is_singleton,
             property_definitions=self.property_definitions,
+            property_groups=self.property_groups,
             status=self.status,
             tags=self.tags,
             update_date_time=self.update_date_time)
@@ -201,6 +213,7 @@ def get_component_type(component_type_id: Optional[str] = None,
         is_schema_initialized=__ret__.is_schema_initialized,
         is_singleton=__ret__.is_singleton,
         property_definitions=__ret__.property_definitions,
+        property_groups=__ret__.property_groups,
         status=__ret__.status,
         tags=__ret__.tags,
         update_date_time=__ret__.update_date_time)

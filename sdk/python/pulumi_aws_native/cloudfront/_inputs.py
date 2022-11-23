@@ -17,6 +17,11 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
     'CachePolicyQueryStringsConfigArgs',
     'CloudFrontOriginAccessIdentityConfigArgs',
+    'ContinuousDeploymentPolicyConfigArgs',
+    'ContinuousDeploymentPolicySessionStickinessConfigArgs',
+    'ContinuousDeploymentPolicySingleHeaderConfigArgs',
+    'ContinuousDeploymentPolicySingleWeightConfigArgs',
+    'ContinuousDeploymentPolicyTrafficConfigArgs',
     'DistributionCacheBehaviorArgs',
     'DistributionConfigArgs',
     'DistributionCookiesArgs',
@@ -313,6 +318,167 @@ class CloudFrontOriginAccessIdentityConfigArgs:
 
 
 @pulumi.input_type
+class ContinuousDeploymentPolicyConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 staging_distribution_dns_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "staging_distribution_dns_names", staging_distribution_dns_names)
+        if traffic_config is not None:
+            pulumi.set(__self__, "traffic_config", traffic_config)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="stagingDistributionDnsNames")
+    def staging_distribution_dns_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "staging_distribution_dns_names")
+
+    @staging_distribution_dns_names.setter
+    def staging_distribution_dns_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "staging_distribution_dns_names", value)
+
+    @property
+    @pulumi.getter(name="trafficConfig")
+    def traffic_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]:
+        return pulumi.get(self, "traffic_config")
+
+    @traffic_config.setter
+    def traffic_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']]):
+        pulumi.set(self, "traffic_config", value)
+
+
+@pulumi.input_type
+class ContinuousDeploymentPolicySessionStickinessConfigArgs:
+    def __init__(__self__, *,
+                 idle_ttl: pulumi.Input[int],
+                 maximum_ttl: pulumi.Input[int]):
+        pulumi.set(__self__, "idle_ttl", idle_ttl)
+        pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+
+    @property
+    @pulumi.getter(name="idleTTL")
+    def idle_ttl(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "idle_ttl")
+
+    @idle_ttl.setter
+    def idle_ttl(self, value: pulumi.Input[int]):
+        pulumi.set(self, "idle_ttl", value)
+
+    @property
+    @pulumi.getter(name="maximumTTL")
+    def maximum_ttl(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "maximum_ttl")
+
+    @maximum_ttl.setter
+    def maximum_ttl(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ttl", value)
+
+
+@pulumi.input_type
+class ContinuousDeploymentPolicySingleHeaderConfigArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ContinuousDeploymentPolicySingleWeightConfigArgs:
+    def __init__(__self__, *,
+                 weight: pulumi.Input[float],
+                 session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None):
+        pulumi.set(__self__, "weight", weight)
+        if session_stickiness_config is not None:
+            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[float]):
+        pulumi.set(self, "weight", value)
+
+    @property
+    @pulumi.getter(name="sessionStickinessConfig")
+    def session_stickiness_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']]:
+        return pulumi.get(self, "session_stickiness_config")
+
+    @session_stickiness_config.setter
+    def session_stickiness_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']]):
+        pulumi.set(self, "session_stickiness_config", value)
+
+
+@pulumi.input_type
+class ContinuousDeploymentPolicyTrafficConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType'],
+                 single_header_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']] = None,
+                 single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']] = None):
+        pulumi.set(__self__, "type", type)
+        if single_header_config is not None:
+            pulumi.set(__self__, "single_header_config", single_header_config)
+        if single_weight_config is not None:
+            pulumi.set(__self__, "single_weight_config", single_weight_config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="singleHeaderConfig")
+    def single_header_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']]:
+        return pulumi.get(self, "single_header_config")
+
+    @single_header_config.setter
+    def single_header_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']]):
+        pulumi.set(self, "single_header_config", value)
+
+    @property
+    @pulumi.getter(name="singleWeightConfig")
+    def single_weight_config(self) -> Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']]:
+        return pulumi.get(self, "single_weight_config")
+
+    @single_weight_config.setter
+    def single_weight_config(self, value: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']]):
+        pulumi.set(self, "single_weight_config", value)
+
+
+@pulumi.input_type
 class DistributionCacheBehaviorArgs:
     def __init__(__self__, *,
                  path_pattern: pulumi.Input[str],
@@ -563,6 +729,7 @@ class DistributionConfigArgs:
                  c_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
+                 continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
                  custom_origin: Optional[pulumi.Input['DistributionLegacyCustomOriginArgs']] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
@@ -574,6 +741,7 @@ class DistributionConfigArgs:
                  price_class: Optional[pulumi.Input[str]] = None,
                  restrictions: Optional[pulumi.Input['DistributionRestrictionsArgs']] = None,
                  s3_origin: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']] = None,
+                 staging: Optional[pulumi.Input[bool]] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
@@ -586,6 +754,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if continuous_deployment_policy_id is not None:
+            pulumi.set(__self__, "continuous_deployment_policy_id", continuous_deployment_policy_id)
         if custom_error_responses is not None:
             pulumi.set(__self__, "custom_error_responses", custom_error_responses)
         if custom_origin is not None:
@@ -608,6 +778,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "restrictions", restrictions)
         if s3_origin is not None:
             pulumi.set(__self__, "s3_origin", s3_origin)
+        if staging is not None:
+            pulumi.set(__self__, "staging", staging)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
@@ -666,6 +838,15 @@ class DistributionConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="continuousDeploymentPolicyId")
+    def continuous_deployment_policy_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "continuous_deployment_policy_id")
+
+    @continuous_deployment_policy_id.setter
+    def continuous_deployment_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "continuous_deployment_policy_id", value)
 
     @property
     @pulumi.getter(name="customErrorResponses")
@@ -765,6 +946,15 @@ class DistributionConfigArgs:
     @s3_origin.setter
     def s3_origin(self, value: Optional[pulumi.Input['DistributionLegacyS3OriginArgs']]):
         pulumi.set(self, "s3_origin", value)
+
+    @property
+    @pulumi.getter
+    def staging(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "staging")
+
+    @staging.setter
+    def staging(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "staging", value)
 
     @property
     @pulumi.getter(name="viewerCertificate")

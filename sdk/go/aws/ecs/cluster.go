@@ -22,6 +22,7 @@ type Cluster struct {
 	ClusterSettings                 ClusterSettingsArrayOutput                     `pulumi:"clusterSettings"`
 	Configuration                   ClusterConfigurationPtrOutput                  `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayOutput `pulumi:"defaultCapacityProviderStrategy"`
+	ServiceConnectDefaults          ClusterServiceConnectDefaultsPtrOutput         `pulumi:"serviceConnectDefaults"`
 	Tags                            ClusterTagArrayOutput                          `pulumi:"tags"`
 }
 
@@ -70,6 +71,7 @@ type clusterArgs struct {
 	ClusterSettings                 []ClusterSettings                     `pulumi:"clusterSettings"`
 	Configuration                   *ClusterConfiguration                 `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
+	ServiceConnectDefaults          *ClusterServiceConnectDefaults        `pulumi:"serviceConnectDefaults"`
 	Tags                            []ClusterTag                          `pulumi:"tags"`
 }
 
@@ -81,6 +83,7 @@ type ClusterArgs struct {
 	ClusterSettings                 ClusterSettingsArrayInput
 	Configuration                   ClusterConfigurationPtrInput
 	DefaultCapacityProviderStrategy ClusterCapacityProviderStrategyItemArrayInput
+	ServiceConnectDefaults          ClusterServiceConnectDefaultsPtrInput
 	Tags                            ClusterTagArrayInput
 }
 
@@ -147,6 +150,10 @@ func (o ClusterOutput) DefaultCapacityProviderStrategy() ClusterCapacityProvider
 	return o.ApplyT(func(v *Cluster) ClusterCapacityProviderStrategyItemArrayOutput {
 		return v.DefaultCapacityProviderStrategy
 	}).(ClusterCapacityProviderStrategyItemArrayOutput)
+}
+
+func (o ClusterOutput) ServiceConnectDefaults() ClusterServiceConnectDefaultsPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServiceConnectDefaultsPtrOutput { return v.ServiceConnectDefaults }).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
 func (o ClusterOutput) Tags() ClusterTagArrayOutput {

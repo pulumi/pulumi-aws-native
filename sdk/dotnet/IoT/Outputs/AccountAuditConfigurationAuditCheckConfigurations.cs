@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateKeyQualityCheck;
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? DeviceCertificateSharedCheck;
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IntermediateCaRevokedForActiveDeviceCertificatesCheck;
+        public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IoTPolicyPotentialMisConfigurationCheck;
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotPolicyOverlyPermissiveCheck;
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotRoleAliasAllowsAccessToUnusedServicesCheck;
         public readonly Outputs.AccountAuditConfigurationAuditCheckConfiguration? IotRoleAliasOverlyPermissiveCheck;
@@ -50,6 +51,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.AccountAuditConfigurationAuditCheckConfiguration? intermediateCaRevokedForActiveDeviceCertificatesCheck,
 
+            Outputs.AccountAuditConfigurationAuditCheckConfiguration? ioTPolicyPotentialMisConfigurationCheck,
+
             Outputs.AccountAuditConfigurationAuditCheckConfiguration? iotPolicyOverlyPermissiveCheck,
 
             Outputs.AccountAuditConfigurationAuditCheckConfiguration? iotRoleAliasAllowsAccessToUnusedServicesCheck,
@@ -72,6 +75,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             DeviceCertificateKeyQualityCheck = deviceCertificateKeyQualityCheck;
             DeviceCertificateSharedCheck = deviceCertificateSharedCheck;
             IntermediateCaRevokedForActiveDeviceCertificatesCheck = intermediateCaRevokedForActiveDeviceCertificatesCheck;
+            IoTPolicyPotentialMisConfigurationCheck = ioTPolicyPotentialMisConfigurationCheck;
             IotPolicyOverlyPermissiveCheck = iotPolicyOverlyPermissiveCheck;
             IotRoleAliasAllowsAccessToUnusedServicesCheck = iotRoleAliasAllowsAccessToUnusedServicesCheck;
             IotRoleAliasOverlyPermissiveCheck = iotRoleAliasOverlyPermissiveCheck;

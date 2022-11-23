@@ -296,6 +296,7 @@ type AccountAuditConfigurationAuditCheckConfigurations struct {
 	DeviceCertificateKeyQualityCheck                      *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
 	DeviceCertificateSharedCheck                          *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
+	IoTPolicyPotentialMisConfigurationCheck               *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
 	IotPolicyOverlyPermissiveCheck                        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
 	IotRoleAliasAllowsAccessToUnusedServicesCheck         *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
 	IotRoleAliasOverlyPermissiveCheck                     *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
@@ -326,6 +327,7 @@ type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
 	DeviceCertificateKeyQualityCheck                      AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
 	DeviceCertificateSharedCheck                          AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
+	IoTPolicyPotentialMisConfigurationCheck               AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
 	IotPolicyOverlyPermissiveCheck                        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
 	IotRoleAliasAllowsAccessToUnusedServicesCheck         AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
 	IotRoleAliasOverlyPermissiveCheck                     AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
@@ -407,6 +409,12 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertifica
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		return v.IoTPolicyPotentialMisConfigurationCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
@@ -545,6 +553,15 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Intermediate
 			return nil
 		}
 		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
+	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
+}
+
+func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
+	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.IoTPolicyPotentialMisConfigurationCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
@@ -2084,139 +2101,6 @@ func (o FleetMetricTagArrayOutput) Index(i pulumi.IntInput) FleetMetricTagOutput
 	}).(FleetMetricTagOutput)
 }
 
-type JobExecutionsRetryConfigProperties struct {
-	RetryCriteriaList []JobTemplateRetryCriteria `pulumi:"retryCriteriaList"`
-}
-
-// JobExecutionsRetryConfigPropertiesInput is an input type that accepts JobExecutionsRetryConfigPropertiesArgs and JobExecutionsRetryConfigPropertiesOutput values.
-// You can construct a concrete instance of `JobExecutionsRetryConfigPropertiesInput` via:
-//
-//	JobExecutionsRetryConfigPropertiesArgs{...}
-type JobExecutionsRetryConfigPropertiesInput interface {
-	pulumi.Input
-
-	ToJobExecutionsRetryConfigPropertiesOutput() JobExecutionsRetryConfigPropertiesOutput
-	ToJobExecutionsRetryConfigPropertiesOutputWithContext(context.Context) JobExecutionsRetryConfigPropertiesOutput
-}
-
-type JobExecutionsRetryConfigPropertiesArgs struct {
-	RetryCriteriaList JobTemplateRetryCriteriaArrayInput `pulumi:"retryCriteriaList"`
-}
-
-func (JobExecutionsRetryConfigPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobExecutionsRetryConfigProperties)(nil)).Elem()
-}
-
-func (i JobExecutionsRetryConfigPropertiesArgs) ToJobExecutionsRetryConfigPropertiesOutput() JobExecutionsRetryConfigPropertiesOutput {
-	return i.ToJobExecutionsRetryConfigPropertiesOutputWithContext(context.Background())
-}
-
-func (i JobExecutionsRetryConfigPropertiesArgs) ToJobExecutionsRetryConfigPropertiesOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigPropertiesOutput)
-}
-
-func (i JobExecutionsRetryConfigPropertiesArgs) ToJobExecutionsRetryConfigPropertiesPtrOutput() JobExecutionsRetryConfigPropertiesPtrOutput {
-	return i.ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i JobExecutionsRetryConfigPropertiesArgs) ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigPropertiesOutput).ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(ctx)
-}
-
-// JobExecutionsRetryConfigPropertiesPtrInput is an input type that accepts JobExecutionsRetryConfigPropertiesArgs, JobExecutionsRetryConfigPropertiesPtr and JobExecutionsRetryConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `JobExecutionsRetryConfigPropertiesPtrInput` via:
-//
-//	        JobExecutionsRetryConfigPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobExecutionsRetryConfigPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToJobExecutionsRetryConfigPropertiesPtrOutput() JobExecutionsRetryConfigPropertiesPtrOutput
-	ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(context.Context) JobExecutionsRetryConfigPropertiesPtrOutput
-}
-
-type jobExecutionsRetryConfigPropertiesPtrType JobExecutionsRetryConfigPropertiesArgs
-
-func JobExecutionsRetryConfigPropertiesPtr(v *JobExecutionsRetryConfigPropertiesArgs) JobExecutionsRetryConfigPropertiesPtrInput {
-	return (*jobExecutionsRetryConfigPropertiesPtrType)(v)
-}
-
-func (*jobExecutionsRetryConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobExecutionsRetryConfigProperties)(nil)).Elem()
-}
-
-func (i *jobExecutionsRetryConfigPropertiesPtrType) ToJobExecutionsRetryConfigPropertiesPtrOutput() JobExecutionsRetryConfigPropertiesPtrOutput {
-	return i.ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *jobExecutionsRetryConfigPropertiesPtrType) ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobExecutionsRetryConfigPropertiesPtrOutput)
-}
-
-type JobExecutionsRetryConfigPropertiesOutput struct{ *pulumi.OutputState }
-
-func (JobExecutionsRetryConfigPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobExecutionsRetryConfigProperties)(nil)).Elem()
-}
-
-func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigPropertiesOutput() JobExecutionsRetryConfigPropertiesOutput {
-	return o
-}
-
-func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigPropertiesOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesOutput {
-	return o
-}
-
-func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigPropertiesPtrOutput() JobExecutionsRetryConfigPropertiesPtrOutput {
-	return o.ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionsRetryConfigProperties) *JobExecutionsRetryConfigProperties {
-		return &v
-	}).(JobExecutionsRetryConfigPropertiesPtrOutput)
-}
-
-func (o JobExecutionsRetryConfigPropertiesOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
-	return o.ApplyT(func(v JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria { return v.RetryCriteriaList }).(JobTemplateRetryCriteriaArrayOutput)
-}
-
-type JobExecutionsRetryConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (JobExecutionsRetryConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobExecutionsRetryConfigProperties)(nil)).Elem()
-}
-
-func (o JobExecutionsRetryConfigPropertiesPtrOutput) ToJobExecutionsRetryConfigPropertiesPtrOutput() JobExecutionsRetryConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o JobExecutionsRetryConfigPropertiesPtrOutput) ToJobExecutionsRetryConfigPropertiesPtrOutputWithContext(ctx context.Context) JobExecutionsRetryConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o JobExecutionsRetryConfigPropertiesPtrOutput) Elem() JobExecutionsRetryConfigPropertiesOutput {
-	return o.ApplyT(func(v *JobExecutionsRetryConfigProperties) JobExecutionsRetryConfigProperties {
-		if v != nil {
-			return *v
-		}
-		var ret JobExecutionsRetryConfigProperties
-		return ret
-	}).(JobExecutionsRetryConfigPropertiesOutput)
-}
-
-func (o JobExecutionsRetryConfigPropertiesPtrOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
-	return o.ApplyT(func(v *JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria {
-		if v == nil {
-			return nil
-		}
-		return v.RetryCriteriaList
-	}).(JobTemplateRetryCriteriaArrayOutput)
-}
-
 // Allows you to create a staged rollout of a job.
 type JobExecutionsRolloutConfigProperties struct {
 	// The rate of increase for a job rollout. This parameter allows you to define an exponential rate for a job rollout.
@@ -2831,109 +2715,6 @@ func (o JobTemplateRateIncreaseCriteriaPtrOutput) NumberOfSucceededThings() pulu
 		}
 		return v.NumberOfSucceededThings
 	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies how many times a failure type should be retried.
-type JobTemplateRetryCriteria struct {
-	FailureType     *JobTemplateJobRetryFailureType `pulumi:"failureType"`
-	NumberOfRetries *int                            `pulumi:"numberOfRetries"`
-}
-
-// JobTemplateRetryCriteriaInput is an input type that accepts JobTemplateRetryCriteriaArgs and JobTemplateRetryCriteriaOutput values.
-// You can construct a concrete instance of `JobTemplateRetryCriteriaInput` via:
-//
-//	JobTemplateRetryCriteriaArgs{...}
-type JobTemplateRetryCriteriaInput interface {
-	pulumi.Input
-
-	ToJobTemplateRetryCriteriaOutput() JobTemplateRetryCriteriaOutput
-	ToJobTemplateRetryCriteriaOutputWithContext(context.Context) JobTemplateRetryCriteriaOutput
-}
-
-// Specifies how many times a failure type should be retried.
-type JobTemplateRetryCriteriaArgs struct {
-	FailureType     JobTemplateJobRetryFailureTypePtrInput `pulumi:"failureType"`
-	NumberOfRetries pulumi.IntPtrInput                     `pulumi:"numberOfRetries"`
-}
-
-func (JobTemplateRetryCriteriaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTemplateRetryCriteria)(nil)).Elem()
-}
-
-func (i JobTemplateRetryCriteriaArgs) ToJobTemplateRetryCriteriaOutput() JobTemplateRetryCriteriaOutput {
-	return i.ToJobTemplateRetryCriteriaOutputWithContext(context.Background())
-}
-
-func (i JobTemplateRetryCriteriaArgs) ToJobTemplateRetryCriteriaOutputWithContext(ctx context.Context) JobTemplateRetryCriteriaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateRetryCriteriaOutput)
-}
-
-// JobTemplateRetryCriteriaArrayInput is an input type that accepts JobTemplateRetryCriteriaArray and JobTemplateRetryCriteriaArrayOutput values.
-// You can construct a concrete instance of `JobTemplateRetryCriteriaArrayInput` via:
-//
-//	JobTemplateRetryCriteriaArray{ JobTemplateRetryCriteriaArgs{...} }
-type JobTemplateRetryCriteriaArrayInput interface {
-	pulumi.Input
-
-	ToJobTemplateRetryCriteriaArrayOutput() JobTemplateRetryCriteriaArrayOutput
-	ToJobTemplateRetryCriteriaArrayOutputWithContext(context.Context) JobTemplateRetryCriteriaArrayOutput
-}
-
-type JobTemplateRetryCriteriaArray []JobTemplateRetryCriteriaInput
-
-func (JobTemplateRetryCriteriaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTemplateRetryCriteria)(nil)).Elem()
-}
-
-func (i JobTemplateRetryCriteriaArray) ToJobTemplateRetryCriteriaArrayOutput() JobTemplateRetryCriteriaArrayOutput {
-	return i.ToJobTemplateRetryCriteriaArrayOutputWithContext(context.Background())
-}
-
-func (i JobTemplateRetryCriteriaArray) ToJobTemplateRetryCriteriaArrayOutputWithContext(ctx context.Context) JobTemplateRetryCriteriaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateRetryCriteriaArrayOutput)
-}
-
-// Specifies how many times a failure type should be retried.
-type JobTemplateRetryCriteriaOutput struct{ *pulumi.OutputState }
-
-func (JobTemplateRetryCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTemplateRetryCriteria)(nil)).Elem()
-}
-
-func (o JobTemplateRetryCriteriaOutput) ToJobTemplateRetryCriteriaOutput() JobTemplateRetryCriteriaOutput {
-	return o
-}
-
-func (o JobTemplateRetryCriteriaOutput) ToJobTemplateRetryCriteriaOutputWithContext(ctx context.Context) JobTemplateRetryCriteriaOutput {
-	return o
-}
-
-func (o JobTemplateRetryCriteriaOutput) FailureType() JobTemplateJobRetryFailureTypePtrOutput {
-	return o.ApplyT(func(v JobTemplateRetryCriteria) *JobTemplateJobRetryFailureType { return v.FailureType }).(JobTemplateJobRetryFailureTypePtrOutput)
-}
-
-func (o JobTemplateRetryCriteriaOutput) NumberOfRetries() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobTemplateRetryCriteria) *int { return v.NumberOfRetries }).(pulumi.IntPtrOutput)
-}
-
-type JobTemplateRetryCriteriaArrayOutput struct{ *pulumi.OutputState }
-
-func (JobTemplateRetryCriteriaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobTemplateRetryCriteria)(nil)).Elem()
-}
-
-func (o JobTemplateRetryCriteriaArrayOutput) ToJobTemplateRetryCriteriaArrayOutput() JobTemplateRetryCriteriaArrayOutput {
-	return o
-}
-
-func (o JobTemplateRetryCriteriaArrayOutput) ToJobTemplateRetryCriteriaArrayOutputWithContext(ctx context.Context) JobTemplateRetryCriteriaArrayOutput {
-	return o
-}
-
-func (o JobTemplateRetryCriteriaArrayOutput) Index(i pulumi.IntInput) JobTemplateRetryCriteriaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTemplateRetryCriteria {
-		return vs[0].([]JobTemplateRetryCriteria)[vs[1].(int)]
-	}).(JobTemplateRetryCriteriaOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -12928,8 +12709,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricAggregationTypePtrInput)(nil)).Elem(), FleetMetricAggregationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricTagInput)(nil)).Elem(), FleetMetricTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetMetricTagArrayInput)(nil)).Elem(), FleetMetricTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigPropertiesInput)(nil)).Elem(), JobExecutionsRetryConfigPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRetryConfigPropertiesPtrInput)(nil)).Elem(), JobExecutionsRetryConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigPropertiesInput)(nil)).Elem(), JobExecutionsRolloutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionsRolloutConfigPropertiesPtrInput)(nil)).Elem(), JobExecutionsRolloutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateAbortCriteriaInput)(nil)).Elem(), JobTemplateAbortCriteriaArgs{})
@@ -12938,8 +12717,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateExponentialRolloutRatePtrInput)(nil)).Elem(), JobTemplateExponentialRolloutRateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRateIncreaseCriteriaPtrInput)(nil)).Elem(), JobTemplateRateIncreaseCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaInput)(nil)).Elem(), JobTemplateRetryCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaArrayInput)(nil)).Elem(), JobTemplateRetryCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagInput)(nil)).Elem(), JobTemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagArrayInput)(nil)).Elem(), JobTemplateTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
@@ -13095,8 +12872,6 @@ func init() {
 	pulumi.RegisterOutputType(FleetMetricAggregationTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetMetricTagOutput{})
 	pulumi.RegisterOutputType(FleetMetricTagArrayOutput{})
-	pulumi.RegisterOutputType(JobExecutionsRetryConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(JobExecutionsRetryConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRolloutConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(JobExecutionsRolloutConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateAbortCriteriaOutput{})
@@ -13105,8 +12880,6 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateExponentialRolloutRatePtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaOutput{})
 	pulumi.RegisterOutputType(JobTemplateRateIncreaseCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(JobTemplateRetryCriteriaOutput{})
-	pulumi.RegisterOutputType(JobTemplateRetryCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagArrayOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})

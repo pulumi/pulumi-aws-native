@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+ * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
  */
 export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetFleetResult> {
     if (!opts) {
@@ -29,6 +29,10 @@ export interface GetFleetArgs {
 }
 
 export interface GetFleetResult {
+    /**
+     * Configuration for Anywhere fleet.
+     */
+    readonly anywhereConfiguration?: outputs.gamelift.FleetAnywhereConfiguration;
     /**
      * A human-readable description of a fleet.
      */

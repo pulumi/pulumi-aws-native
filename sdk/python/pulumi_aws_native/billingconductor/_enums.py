@@ -8,6 +8,7 @@ __all__ = [
     'BillingGroupStatus',
     'CustomLineItemCurrencyCode',
     'CustomLineItemType',
+    'PricingRuleBillingEntity',
     'PricingRuleScope',
     'PricingRuleType',
 ]
@@ -28,12 +29,22 @@ class CustomLineItemType(str, Enum):
     CREDIT = "CREDIT"
 
 
+class PricingRuleBillingEntity(str, Enum):
+    """
+    The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+    """
+    AWS = "AWS"
+    AWS_MARKETPLACE = "AWS Marketplace"
+    AISPL = "AISPL"
+
+
 class PricingRuleScope(str, Enum):
     """
     A term used to categorize the granularity of a Pricing Rule.
     """
     GLOBAL_ = "GLOBAL"
     SERVICE = "SERVICE"
+    BILLING_ENTITY = "BILLING_ENTITY"
 
 
 class PricingRuleType(str, Enum):

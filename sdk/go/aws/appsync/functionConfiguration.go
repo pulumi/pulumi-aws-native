@@ -17,19 +17,22 @@ import (
 type FunctionConfiguration struct {
 	pulumi.CustomResourceState
 
-	ApiId                             pulumi.StringOutput                      `pulumi:"apiId"`
-	DataSourceName                    pulumi.StringOutput                      `pulumi:"dataSourceName"`
-	Description                       pulumi.StringPtrOutput                   `pulumi:"description"`
-	FunctionArn                       pulumi.StringOutput                      `pulumi:"functionArn"`
-	FunctionId                        pulumi.StringOutput                      `pulumi:"functionId"`
-	FunctionVersion                   pulumi.StringOutput                      `pulumi:"functionVersion"`
-	MaxBatchSize                      pulumi.IntPtrOutput                      `pulumi:"maxBatchSize"`
-	Name                              pulumi.StringOutput                      `pulumi:"name"`
-	RequestMappingTemplate            pulumi.StringPtrOutput                   `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  pulumi.StringPtrOutput                   `pulumi:"requestMappingTemplateS3Location"`
-	ResponseMappingTemplate           pulumi.StringPtrOutput                   `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location pulumi.StringPtrOutput                   `pulumi:"responseMappingTemplateS3Location"`
-	SyncConfig                        FunctionConfigurationSyncConfigPtrOutput `pulumi:"syncConfig"`
+	ApiId                             pulumi.StringOutput                          `pulumi:"apiId"`
+	Code                              pulumi.StringPtrOutput                       `pulumi:"code"`
+	CodeS3Location                    pulumi.StringPtrOutput                       `pulumi:"codeS3Location"`
+	DataSourceName                    pulumi.StringOutput                          `pulumi:"dataSourceName"`
+	Description                       pulumi.StringPtrOutput                       `pulumi:"description"`
+	FunctionArn                       pulumi.StringOutput                          `pulumi:"functionArn"`
+	FunctionId                        pulumi.StringOutput                          `pulumi:"functionId"`
+	FunctionVersion                   pulumi.StringPtrOutput                       `pulumi:"functionVersion"`
+	MaxBatchSize                      pulumi.IntPtrOutput                          `pulumi:"maxBatchSize"`
+	Name                              pulumi.StringOutput                          `pulumi:"name"`
+	RequestMappingTemplate            pulumi.StringPtrOutput                       `pulumi:"requestMappingTemplate"`
+	RequestMappingTemplateS3Location  pulumi.StringPtrOutput                       `pulumi:"requestMappingTemplateS3Location"`
+	ResponseMappingTemplate           pulumi.StringPtrOutput                       `pulumi:"responseMappingTemplate"`
+	ResponseMappingTemplateS3Location pulumi.StringPtrOutput                       `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           FunctionConfigurationAppSyncRuntimePtrOutput `pulumi:"runtime"`
+	SyncConfig                        FunctionConfigurationSyncConfigPtrOutput     `pulumi:"syncConfig"`
 }
 
 // NewFunctionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -44,9 +47,6 @@ func NewFunctionConfiguration(ctx *pulumi.Context,
 	}
 	if args.DataSourceName == nil {
 		return nil, errors.New("invalid value for required argument 'DataSourceName'")
-	}
-	if args.FunctionVersion == nil {
-		return nil, errors.New("invalid value for required argument 'FunctionVersion'")
 	}
 	var resource FunctionConfiguration
 	err := ctx.RegisterResource("aws-native:appsync:FunctionConfiguration", name, args, &resource, opts...)
@@ -80,31 +80,37 @@ func (FunctionConfigurationState) ElementType() reflect.Type {
 }
 
 type functionConfigurationArgs struct {
-	ApiId                             string                           `pulumi:"apiId"`
-	DataSourceName                    string                           `pulumi:"dataSourceName"`
-	Description                       *string                          `pulumi:"description"`
-	FunctionVersion                   string                           `pulumi:"functionVersion"`
-	MaxBatchSize                      *int                             `pulumi:"maxBatchSize"`
-	Name                              *string                          `pulumi:"name"`
-	RequestMappingTemplate            *string                          `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  *string                          `pulumi:"requestMappingTemplateS3Location"`
-	ResponseMappingTemplate           *string                          `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location *string                          `pulumi:"responseMappingTemplateS3Location"`
-	SyncConfig                        *FunctionConfigurationSyncConfig `pulumi:"syncConfig"`
+	ApiId                             string                               `pulumi:"apiId"`
+	Code                              *string                              `pulumi:"code"`
+	CodeS3Location                    *string                              `pulumi:"codeS3Location"`
+	DataSourceName                    string                               `pulumi:"dataSourceName"`
+	Description                       *string                              `pulumi:"description"`
+	FunctionVersion                   *string                              `pulumi:"functionVersion"`
+	MaxBatchSize                      *int                                 `pulumi:"maxBatchSize"`
+	Name                              *string                              `pulumi:"name"`
+	RequestMappingTemplate            *string                              `pulumi:"requestMappingTemplate"`
+	RequestMappingTemplateS3Location  *string                              `pulumi:"requestMappingTemplateS3Location"`
+	ResponseMappingTemplate           *string                              `pulumi:"responseMappingTemplate"`
+	ResponseMappingTemplateS3Location *string                              `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           *FunctionConfigurationAppSyncRuntime `pulumi:"runtime"`
+	SyncConfig                        *FunctionConfigurationSyncConfig     `pulumi:"syncConfig"`
 }
 
 // The set of arguments for constructing a FunctionConfiguration resource.
 type FunctionConfigurationArgs struct {
 	ApiId                             pulumi.StringInput
+	Code                              pulumi.StringPtrInput
+	CodeS3Location                    pulumi.StringPtrInput
 	DataSourceName                    pulumi.StringInput
 	Description                       pulumi.StringPtrInput
-	FunctionVersion                   pulumi.StringInput
+	FunctionVersion                   pulumi.StringPtrInput
 	MaxBatchSize                      pulumi.IntPtrInput
 	Name                              pulumi.StringPtrInput
 	RequestMappingTemplate            pulumi.StringPtrInput
 	RequestMappingTemplateS3Location  pulumi.StringPtrInput
 	ResponseMappingTemplate           pulumi.StringPtrInput
 	ResponseMappingTemplateS3Location pulumi.StringPtrInput
+	Runtime                           FunctionConfigurationAppSyncRuntimePtrInput
 	SyncConfig                        FunctionConfigurationSyncConfigPtrInput
 }
 
@@ -149,6 +155,14 @@ func (o FunctionConfigurationOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+func (o FunctionConfigurationOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) CodeS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.CodeS3Location }).(pulumi.StringPtrOutput)
+}
+
 func (o FunctionConfigurationOutput) DataSourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.DataSourceName }).(pulumi.StringOutput)
 }
@@ -165,8 +179,8 @@ func (o FunctionConfigurationOutput) FunctionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.FunctionId }).(pulumi.StringOutput)
 }
 
-func (o FunctionConfigurationOutput) FunctionVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringOutput { return v.FunctionVersion }).(pulumi.StringOutput)
+func (o FunctionConfigurationOutput) FunctionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.FunctionVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o FunctionConfigurationOutput) MaxBatchSize() pulumi.IntPtrOutput {
@@ -191,6 +205,10 @@ func (o FunctionConfigurationOutput) ResponseMappingTemplate() pulumi.StringPtrO
 
 func (o FunctionConfigurationOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfiguration) pulumi.StringPtrOutput { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationOutput) Runtime() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o.ApplyT(func(v *FunctionConfiguration) FunctionConfigurationAppSyncRuntimePtrOutput { return v.Runtime }).(FunctionConfigurationAppSyncRuntimePtrOutput)
 }
 
 func (o FunctionConfigurationOutput) SyncConfig() FunctionConfigurationSyncConfigPtrOutput {

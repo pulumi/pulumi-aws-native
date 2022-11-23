@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Inputs
 {
 
-    /// <summary>
-    /// Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
-    /// </summary>
     public sealed class AlarmDimensionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The name of the dimension.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The value for the dimension.
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

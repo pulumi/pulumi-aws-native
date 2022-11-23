@@ -19,6 +19,16 @@ export const FleetCertificateConfigurationCertificateType = {
 
 export type FleetCertificateConfigurationCertificateType = (typeof FleetCertificateConfigurationCertificateType)[keyof typeof FleetCertificateConfigurationCertificateType];
 
+export const FleetComputeType = {
+    Ec2: "EC2",
+    Anywhere: "ANYWHERE",
+} as const;
+
+/**
+ * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+ */
+export type FleetComputeType = (typeof FleetComputeType)[keyof typeof FleetComputeType];
+
 export const FleetIpPermissionProtocol = {
     Tcp: "TCP",
     Udp: "UDP",

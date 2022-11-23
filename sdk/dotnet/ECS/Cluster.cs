@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.ECS
         [Output("defaultCapacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem>> DefaultCapacityProviderStrategy { get; private set; } = null!;
 
+        [Output("serviceConnectDefaults")]
+        public Output<Outputs.ClusterServiceConnectDefaults?> ServiceConnectDefaults { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ClusterTag>> Tags { get; private set; } = null!;
 
@@ -119,6 +122,9 @@ namespace Pulumi.AwsNative.ECS
             get => _defaultCapacityProviderStrategy ?? (_defaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderStrategyItemArgs>());
             set => _defaultCapacityProviderStrategy = value;
         }
+
+        [Input("serviceConnectDefaults")]
+        public Input<Inputs.ClusterServiceConnectDefaultsArgs>? ServiceConnectDefaults { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ClusterTagArgs>? _tags;

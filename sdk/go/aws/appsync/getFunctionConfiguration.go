@@ -25,19 +25,22 @@ type LookupFunctionConfigurationArgs struct {
 }
 
 type LookupFunctionConfigurationResult struct {
-	DataSourceName                    *string                          `pulumi:"dataSourceName"`
-	Description                       *string                          `pulumi:"description"`
-	FunctionArn                       *string                          `pulumi:"functionArn"`
-	FunctionId                        *string                          `pulumi:"functionId"`
-	FunctionVersion                   *string                          `pulumi:"functionVersion"`
-	Id                                *string                          `pulumi:"id"`
-	MaxBatchSize                      *int                             `pulumi:"maxBatchSize"`
-	Name                              *string                          `pulumi:"name"`
-	RequestMappingTemplate            *string                          `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  *string                          `pulumi:"requestMappingTemplateS3Location"`
-	ResponseMappingTemplate           *string                          `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location *string                          `pulumi:"responseMappingTemplateS3Location"`
-	SyncConfig                        *FunctionConfigurationSyncConfig `pulumi:"syncConfig"`
+	Code                              *string                              `pulumi:"code"`
+	CodeS3Location                    *string                              `pulumi:"codeS3Location"`
+	DataSourceName                    *string                              `pulumi:"dataSourceName"`
+	Description                       *string                              `pulumi:"description"`
+	FunctionArn                       *string                              `pulumi:"functionArn"`
+	FunctionId                        *string                              `pulumi:"functionId"`
+	FunctionVersion                   *string                              `pulumi:"functionVersion"`
+	Id                                *string                              `pulumi:"id"`
+	MaxBatchSize                      *int                                 `pulumi:"maxBatchSize"`
+	Name                              *string                              `pulumi:"name"`
+	RequestMappingTemplate            *string                              `pulumi:"requestMappingTemplate"`
+	RequestMappingTemplateS3Location  *string                              `pulumi:"requestMappingTemplateS3Location"`
+	ResponseMappingTemplate           *string                              `pulumi:"responseMappingTemplate"`
+	ResponseMappingTemplateS3Location *string                              `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           *FunctionConfigurationAppSyncRuntime `pulumi:"runtime"`
+	SyncConfig                        *FunctionConfigurationSyncConfig     `pulumi:"syncConfig"`
 }
 
 func LookupFunctionConfigurationOutput(ctx *pulumi.Context, args LookupFunctionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionConfigurationResultOutput {
@@ -73,6 +76,14 @@ func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationRe
 
 func (o LookupFunctionConfigurationResultOutput) ToLookupFunctionConfigurationResultOutputWithContext(ctx context.Context) LookupFunctionConfigurationResultOutput {
 	return o
+}
+
+func (o LookupFunctionConfigurationResultOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionConfigurationResult) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionConfigurationResultOutput) CodeS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionConfigurationResult) *string { return v.CodeS3Location }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionConfigurationResultOutput) DataSourceName() pulumi.StringPtrOutput {
@@ -121,6 +132,10 @@ func (o LookupFunctionConfigurationResultOutput) ResponseMappingTemplate() pulum
 
 func (o LookupFunctionConfigurationResultOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionConfigurationResult) *string { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionConfigurationResultOutput) Runtime() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o.ApplyT(func(v LookupFunctionConfigurationResult) *FunctionConfigurationAppSyncRuntime { return v.Runtime }).(FunctionConfigurationAppSyncRuntimePtrOutput)
 }
 
 func (o LookupFunctionConfigurationResultOutput) SyncConfig() FunctionConfigurationSyncConfigPtrOutput {

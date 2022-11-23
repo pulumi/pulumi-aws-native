@@ -20,6 +20,7 @@ __all__ = [
     'DataSourceOpenSearchServiceConfigArgs',
     'DataSourceRdsHttpEndpointConfigArgs',
     'DataSourceRelationalDatabaseConfigArgs',
+    'FunctionConfigurationAppSyncRuntimeArgs',
     'FunctionConfigurationLambdaConflictHandlerConfigArgs',
     'FunctionConfigurationSyncConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderArgs',
@@ -29,6 +30,7 @@ __all__ = [
     'GraphQLApiOpenIDConnectConfigArgs',
     'GraphQLApiTagArgs',
     'GraphQLApiUserPoolConfigArgs',
+    'ResolverAppSyncRuntimeArgs',
     'ResolverCachingConfigArgs',
     'ResolverLambdaConflictHandlerConfigArgs',
     'ResolverPipelineConfigArgs',
@@ -379,6 +381,33 @@ class DataSourceRelationalDatabaseConfigArgs:
     @rds_http_endpoint_config.setter
     def rds_http_endpoint_config(self, value: Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']]):
         pulumi.set(self, "rds_http_endpoint_config", value)
+
+
+@pulumi.input_type
+class FunctionConfigurationAppSyncRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
 
 
 @pulumi.input_type
@@ -744,6 +773,33 @@ class GraphQLApiUserPoolConfigArgs:
     @user_pool_id.setter
     def user_pool_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_pool_id", value)
+
+
+@pulumi.input_type
+class ResolverAppSyncRuntimeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 runtime_version: pulumi.Input[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "runtime_version")
+
+    @runtime_version.setter
+    def runtime_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime_version", value)
 
 
 @pulumi.input_type

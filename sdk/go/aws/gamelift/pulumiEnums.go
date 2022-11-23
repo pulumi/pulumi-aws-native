@@ -339,6 +339,171 @@ func (in *fleetCertificateConfigurationCertificateTypePtr) ToFleetCertificateCon
 	return pulumi.ToOutputWithContext(ctx, in).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
+// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+type FleetComputeType string
+
+const (
+	FleetComputeTypeEc2      = FleetComputeType("EC2")
+	FleetComputeTypeAnywhere = FleetComputeType("ANYWHERE")
+)
+
+func (FleetComputeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeType)(nil)).Elem()
+}
+
+func (e FleetComputeType) ToFleetComputeTypeOutput() FleetComputeTypeOutput {
+	return pulumi.ToOutput(e).(FleetComputeTypeOutput)
+}
+
+func (e FleetComputeType) ToFleetComputeTypeOutputWithContext(ctx context.Context) FleetComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetComputeTypeOutput)
+}
+
+func (e FleetComputeType) ToFleetComputeTypePtrOutput() FleetComputeTypePtrOutput {
+	return e.ToFleetComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetComputeType) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
+	return FleetComputeType(e).ToFleetComputeTypeOutputWithContext(ctx).ToFleetComputeTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetComputeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetComputeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeType)(nil)).Elem()
+}
+
+func (o FleetComputeTypeOutput) ToFleetComputeTypeOutput() FleetComputeTypeOutput {
+	return o
+}
+
+func (o FleetComputeTypeOutput) ToFleetComputeTypeOutputWithContext(ctx context.Context) FleetComputeTypeOutput {
+	return o
+}
+
+func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutput() FleetComputeTypePtrOutput {
+	return o.ToFleetComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeType) *FleetComputeType {
+		return &v
+	}).(FleetComputeTypePtrOutput)
+}
+
+func (o FleetComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetComputeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetComputeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetComputeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetComputeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetComputeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeType)(nil)).Elem()
+}
+
+func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutput() FleetComputeTypePtrOutput {
+	return o
+}
+
+func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
+	return o
+}
+
+func (o FleetComputeTypePtrOutput) Elem() FleetComputeTypeOutput {
+	return o.ApplyT(func(v *FleetComputeType) FleetComputeType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetComputeType
+		return ret
+	}).(FleetComputeTypeOutput)
+}
+
+func (o FleetComputeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetComputeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetComputeTypeInput is an input type that accepts FleetComputeTypeArgs and FleetComputeTypeOutput values.
+// You can construct a concrete instance of `FleetComputeTypeInput` via:
+//
+//	FleetComputeTypeArgs{...}
+type FleetComputeTypeInput interface {
+	pulumi.Input
+
+	ToFleetComputeTypeOutput() FleetComputeTypeOutput
+	ToFleetComputeTypeOutputWithContext(context.Context) FleetComputeTypeOutput
+}
+
+var fleetComputeTypePtrType = reflect.TypeOf((**FleetComputeType)(nil)).Elem()
+
+type FleetComputeTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetComputeTypePtrOutput() FleetComputeTypePtrOutput
+	ToFleetComputeTypePtrOutputWithContext(context.Context) FleetComputeTypePtrOutput
+}
+
+type fleetComputeTypePtr string
+
+func FleetComputeTypePtr(v string) FleetComputeTypePtrInput {
+	return (*fleetComputeTypePtr)(&v)
+}
+
+func (*fleetComputeTypePtr) ElementType() reflect.Type {
+	return fleetComputeTypePtrType
+}
+
+func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutput() FleetComputeTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetComputeTypePtrOutput)
+}
+
+func (in *fleetComputeTypePtr) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetComputeTypePtrOutput)
+}
+
 // The network communication protocol used by the fleet.
 type FleetIpPermissionProtocol string
 
@@ -1336,6 +1501,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypeInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypePtrInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("EC2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypePtrInput)(nil)).Elem(), FleetComputeType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
@@ -1352,6 +1519,8 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetComputeTypeOutput{})
+	pulumi.RegisterOutputType(FleetComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})

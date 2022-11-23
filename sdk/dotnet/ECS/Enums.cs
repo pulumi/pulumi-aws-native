@@ -346,6 +346,35 @@ namespace Pulumi.AwsNative.ECS
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct TaskDefinitionPortMappingAppProtocol : IEquatable<TaskDefinitionPortMappingAppProtocol>
+    {
+        private readonly string _value;
+
+        private TaskDefinitionPortMappingAppProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskDefinitionPortMappingAppProtocol Http { get; } = new TaskDefinitionPortMappingAppProtocol("http");
+        public static TaskDefinitionPortMappingAppProtocol Http2 { get; } = new TaskDefinitionPortMappingAppProtocol("http2");
+        public static TaskDefinitionPortMappingAppProtocol Grpc { get; } = new TaskDefinitionPortMappingAppProtocol("grpc");
+
+        public static bool operator ==(TaskDefinitionPortMappingAppProtocol left, TaskDefinitionPortMappingAppProtocol right) => left.Equals(right);
+        public static bool operator !=(TaskDefinitionPortMappingAppProtocol left, TaskDefinitionPortMappingAppProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(TaskDefinitionPortMappingAppProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskDefinitionPortMappingAppProtocol other && Equals(other);
+        public bool Equals(TaskDefinitionPortMappingAppProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
     /// </summary>

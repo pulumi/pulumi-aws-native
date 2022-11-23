@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.GameLift
     public static class GetFleet
     {
         /// <summary>
-        /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+        /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+        /// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:gamelift:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
@@ -57,6 +57,10 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetFleetResult
     {
+        /// <summary>
+        /// Configuration for Anywhere fleet.
+        /// </summary>
+        public readonly Outputs.FleetAnywhereConfiguration? AnywhereConfiguration;
         /// <summary>
         /// A human-readable description of a fleet.
         /// </summary>
@@ -107,6 +111,8 @@ namespace Pulumi.AwsNative.GameLift
 
         [OutputConstructor]
         private GetFleetResult(
+            Outputs.FleetAnywhereConfiguration? anywhereConfiguration,
+
             string? description,
 
             int? desiredEC2Instances,
@@ -131,6 +137,7 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.FleetRuntimeConfiguration? runtimeConfiguration)
         {
+            AnywhereConfiguration = anywhereConfiguration;
             Description = description;
             DesiredEC2Instances = desiredEC2Instances;
             EC2InboundPermissions = eC2InboundPermissions;

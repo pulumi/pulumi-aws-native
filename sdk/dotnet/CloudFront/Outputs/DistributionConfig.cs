@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly ImmutableArray<string> CNAMEs;
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
         public readonly string? Comment;
+        public readonly string? ContinuousDeploymentPolicyId;
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
         public readonly Outputs.DistributionLegacyCustomOrigin? CustomOrigin;
         public readonly Outputs.DistributionDefaultCacheBehavior DefaultCacheBehavior;
@@ -30,6 +31,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly string? PriceClass;
         public readonly Outputs.DistributionRestrictions? Restrictions;
         public readonly Outputs.DistributionLegacyS3Origin? S3Origin;
+        public readonly bool? Staging;
         public readonly Outputs.DistributionViewerCertificate? ViewerCertificate;
         public readonly string? WebACLId;
 
@@ -42,6 +44,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             ImmutableArray<Outputs.DistributionCacheBehavior> cacheBehaviors,
 
             string? comment,
+
+            string? continuousDeploymentPolicyId,
 
             ImmutableArray<Outputs.DistributionCustomErrorResponse> customErrorResponses,
 
@@ -69,6 +73,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionLegacyS3Origin? s3Origin,
 
+            bool? staging,
+
             Outputs.DistributionViewerCertificate? viewerCertificate,
 
             string? webACLId)
@@ -77,6 +83,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             CNAMEs = cNAMEs;
             CacheBehaviors = cacheBehaviors;
             Comment = comment;
+            ContinuousDeploymentPolicyId = continuousDeploymentPolicyId;
             CustomErrorResponses = customErrorResponses;
             CustomOrigin = customOrigin;
             DefaultCacheBehavior = defaultCacheBehavior;
@@ -90,6 +97,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             PriceClass = priceClass;
             Restrictions = restrictions;
             S3Origin = s3Origin;
+            Staging = staging;
             ViewerCertificate = viewerCertificate;
             WebACLId = webACLId;
         }

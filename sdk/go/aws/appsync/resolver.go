@@ -19,6 +19,8 @@ type Resolver struct {
 
 	ApiId                             pulumi.StringOutput             `pulumi:"apiId"`
 	CachingConfig                     ResolverCachingConfigPtrOutput  `pulumi:"cachingConfig"`
+	Code                              pulumi.StringPtrOutput          `pulumi:"code"`
+	CodeS3Location                    pulumi.StringPtrOutput          `pulumi:"codeS3Location"`
 	DataSourceName                    pulumi.StringPtrOutput          `pulumi:"dataSourceName"`
 	FieldName                         pulumi.StringOutput             `pulumi:"fieldName"`
 	Kind                              pulumi.StringPtrOutput          `pulumi:"kind"`
@@ -29,6 +31,7 @@ type Resolver struct {
 	ResolverArn                       pulumi.StringOutput             `pulumi:"resolverArn"`
 	ResponseMappingTemplate           pulumi.StringPtrOutput          `pulumi:"responseMappingTemplate"`
 	ResponseMappingTemplateS3Location pulumi.StringPtrOutput          `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           ResolverAppSyncRuntimePtrOutput `pulumi:"runtime"`
 	SyncConfig                        ResolverSyncConfigPtrOutput     `pulumi:"syncConfig"`
 	TypeName                          pulumi.StringOutput             `pulumi:"typeName"`
 }
@@ -83,6 +86,8 @@ func (ResolverState) ElementType() reflect.Type {
 type resolverArgs struct {
 	ApiId                             string                  `pulumi:"apiId"`
 	CachingConfig                     *ResolverCachingConfig  `pulumi:"cachingConfig"`
+	Code                              *string                 `pulumi:"code"`
+	CodeS3Location                    *string                 `pulumi:"codeS3Location"`
 	DataSourceName                    *string                 `pulumi:"dataSourceName"`
 	FieldName                         string                  `pulumi:"fieldName"`
 	Kind                              *string                 `pulumi:"kind"`
@@ -92,6 +97,7 @@ type resolverArgs struct {
 	RequestMappingTemplateS3Location  *string                 `pulumi:"requestMappingTemplateS3Location"`
 	ResponseMappingTemplate           *string                 `pulumi:"responseMappingTemplate"`
 	ResponseMappingTemplateS3Location *string                 `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           *ResolverAppSyncRuntime `pulumi:"runtime"`
 	SyncConfig                        *ResolverSyncConfig     `pulumi:"syncConfig"`
 	TypeName                          string                  `pulumi:"typeName"`
 }
@@ -100,6 +106,8 @@ type resolverArgs struct {
 type ResolverArgs struct {
 	ApiId                             pulumi.StringInput
 	CachingConfig                     ResolverCachingConfigPtrInput
+	Code                              pulumi.StringPtrInput
+	CodeS3Location                    pulumi.StringPtrInput
 	DataSourceName                    pulumi.StringPtrInput
 	FieldName                         pulumi.StringInput
 	Kind                              pulumi.StringPtrInput
@@ -109,6 +117,7 @@ type ResolverArgs struct {
 	RequestMappingTemplateS3Location  pulumi.StringPtrInput
 	ResponseMappingTemplate           pulumi.StringPtrInput
 	ResponseMappingTemplateS3Location pulumi.StringPtrInput
+	Runtime                           ResolverAppSyncRuntimePtrInput
 	SyncConfig                        ResolverSyncConfigPtrInput
 	TypeName                          pulumi.StringInput
 }
@@ -158,6 +167,14 @@ func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
+func (o ResolverOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) CodeS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.CodeS3Location }).(pulumi.StringPtrOutput)
+}
+
 func (o ResolverOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.DataSourceName }).(pulumi.StringPtrOutput)
 }
@@ -196,6 +213,10 @@ func (o ResolverOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
 
 func (o ResolverOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverOutput) Runtime() ResolverAppSyncRuntimePtrOutput {
+	return o.ApplyT(func(v *Resolver) ResolverAppSyncRuntimePtrOutput { return v.Runtime }).(ResolverAppSyncRuntimePtrOutput)
 }
 
 func (o ResolverOutput) SyncConfig() ResolverSyncConfigPtrOutput {

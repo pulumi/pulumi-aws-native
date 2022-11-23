@@ -12,6 +12,17 @@ export const GlobalReplicationGroupMemberRole = {
  */
 export type GlobalReplicationGroupMemberRole = (typeof GlobalReplicationGroupMemberRole)[keyof typeof GlobalReplicationGroupMemberRole];
 
+export const UserAuthenticationModePropertiesType = {
+    Password: "password",
+    NoPasswordRequired: "no-password-required",
+    Iam: "iam",
+} as const;
+
+/**
+ * Authentication Type
+ */
+export type UserAuthenticationModePropertiesType = (typeof UserAuthenticationModePropertiesType)[keyof typeof UserAuthenticationModePropertiesType];
+
 export const UserEngine = {
     Redis: "redis",
 } as const;

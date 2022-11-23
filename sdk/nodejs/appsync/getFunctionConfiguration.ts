@@ -26,6 +26,8 @@ export interface GetFunctionConfigurationArgs {
 }
 
 export interface GetFunctionConfigurationResult {
+    readonly code?: string;
+    readonly codeS3Location?: string;
     readonly dataSourceName?: string;
     readonly description?: string;
     readonly functionArn?: string;
@@ -38,6 +40,7 @@ export interface GetFunctionConfigurationResult {
     readonly requestMappingTemplateS3Location?: string;
     readonly responseMappingTemplate?: string;
     readonly responseMappingTemplateS3Location?: string;
+    readonly runtime?: outputs.appsync.FunctionConfigurationAppSyncRuntime;
     readonly syncConfig?: outputs.appsync.FunctionConfigurationSyncConfig;
 }
 

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CachePolicy{}
 	case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
 		r = &CloudFrontOriginAccessIdentity{}
+	case "aws-native:cloudfront:ContinuousDeploymentPolicy":
+		r = &ContinuousDeploymentPolicy{}
 	case "aws-native:cloudfront:Distribution":
 		r = &Distribution{}
 	case "aws-native:cloudfront:Function":

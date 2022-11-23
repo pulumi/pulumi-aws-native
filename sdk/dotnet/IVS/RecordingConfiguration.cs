@@ -31,6 +31,12 @@ namespace Pulumi.AwsNative.IVS
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Recording Reconnect Window Seconds. (0 means disabled)
+        /// </summary>
+        [Output("recordingReconnectWindowSeconds")]
+        public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Recording Configuration State.
         /// </summary>
         [Output("state")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Recording Reconnect Window Seconds. (0 means disabled)
+        /// </summary>
+        [Input("recordingReconnectWindowSeconds")]
+        public Input<int>? RecordingReconnectWindowSeconds { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RecordingConfigurationTagArgs>? _tags;

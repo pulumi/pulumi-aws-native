@@ -19,10 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverResult:
-    def __init__(__self__, caching_config=None, data_source_name=None, id=None, kind=None, max_batch_size=None, pipeline_config=None, request_mapping_template=None, request_mapping_template_s3_location=None, resolver_arn=None, response_mapping_template=None, response_mapping_template_s3_location=None, sync_config=None):
+    def __init__(__self__, caching_config=None, code=None, code_s3_location=None, data_source_name=None, id=None, kind=None, max_batch_size=None, pipeline_config=None, request_mapping_template=None, request_mapping_template_s3_location=None, resolver_arn=None, response_mapping_template=None, response_mapping_template_s3_location=None, runtime=None, sync_config=None):
         if caching_config and not isinstance(caching_config, dict):
             raise TypeError("Expected argument 'caching_config' to be a dict")
         pulumi.set(__self__, "caching_config", caching_config)
+        if code and not isinstance(code, str):
+            raise TypeError("Expected argument 'code' to be a str")
+        pulumi.set(__self__, "code", code)
+        if code_s3_location and not isinstance(code_s3_location, str):
+            raise TypeError("Expected argument 'code_s3_location' to be a str")
+        pulumi.set(__self__, "code_s3_location", code_s3_location)
         if data_source_name and not isinstance(data_source_name, str):
             raise TypeError("Expected argument 'data_source_name' to be a str")
         pulumi.set(__self__, "data_source_name", data_source_name)
@@ -53,6 +59,9 @@ class GetResolverResult:
         if response_mapping_template_s3_location and not isinstance(response_mapping_template_s3_location, str):
             raise TypeError("Expected argument 'response_mapping_template_s3_location' to be a str")
         pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
+        if runtime and not isinstance(runtime, dict):
+            raise TypeError("Expected argument 'runtime' to be a dict")
+        pulumi.set(__self__, "runtime", runtime)
         if sync_config and not isinstance(sync_config, dict):
             raise TypeError("Expected argument 'sync_config' to be a dict")
         pulumi.set(__self__, "sync_config", sync_config)
@@ -61,6 +70,16 @@ class GetResolverResult:
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional['outputs.ResolverCachingConfig']:
         return pulumi.get(self, "caching_config")
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> Optional[str]:
+        return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
@@ -113,6 +132,11 @@ class GetResolverResult:
         return pulumi.get(self, "response_mapping_template_s3_location")
 
     @property
+    @pulumi.getter
+    def runtime(self) -> Optional['outputs.ResolverAppSyncRuntime']:
+        return pulumi.get(self, "runtime")
+
+    @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional['outputs.ResolverSyncConfig']:
         return pulumi.get(self, "sync_config")
@@ -125,6 +149,8 @@ class AwaitableGetResolverResult(GetResolverResult):
             yield self
         return GetResolverResult(
             caching_config=self.caching_config,
+            code=self.code,
+            code_s3_location=self.code_s3_location,
             data_source_name=self.data_source_name,
             id=self.id,
             kind=self.kind,
@@ -135,6 +161,7 @@ class AwaitableGetResolverResult(GetResolverResult):
             resolver_arn=self.resolver_arn,
             response_mapping_template=self.response_mapping_template,
             response_mapping_template_s3_location=self.response_mapping_template_s3_location,
+            runtime=self.runtime,
             sync_config=self.sync_config)
 
 
@@ -150,6 +177,8 @@ def get_resolver(id: Optional[str] = None,
 
     return AwaitableGetResolverResult(
         caching_config=__ret__.caching_config,
+        code=__ret__.code,
+        code_s3_location=__ret__.code_s3_location,
         data_source_name=__ret__.data_source_name,
         id=__ret__.id,
         kind=__ret__.kind,
@@ -160,6 +189,7 @@ def get_resolver(id: Optional[str] = None,
         resolver_arn=__ret__.resolver_arn,
         response_mapping_template=__ret__.response_mapping_template,
         response_mapping_template_s3_location=__ret__.response_mapping_template_s3_location,
+        runtime=__ret__.runtime,
         sync_config=__ret__.sync_config)
 
 

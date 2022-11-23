@@ -34,6 +34,7 @@ type LookupReplicationGroupResult struct {
 	ConfigurationEndPointAddress *string                                           `pulumi:"configurationEndPointAddress"`
 	ConfigurationEndPointPort    *string                                           `pulumi:"configurationEndPointPort"`
 	EngineVersion                *string                                           `pulumi:"engineVersion"`
+	IpDiscovery                  *string                                           `pulumi:"ipDiscovery"`
 	LogDeliveryConfigurations    []ReplicationGroupLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
 	MultiAZEnabled               *bool                                             `pulumi:"multiAZEnabled"`
 	NodeGroupConfiguration       []ReplicationGroupNodeGroupConfiguration          `pulumi:"nodeGroupConfiguration"`
@@ -128,6 +129,10 @@ func (o LookupReplicationGroupResultOutput) ConfigurationEndPointPort() pulumi.S
 
 func (o LookupReplicationGroupResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupReplicationGroupResultOutput) IpDiscovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) *string { return v.IpDiscovery }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupReplicationGroupResultOutput) LogDeliveryConfigurations() ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {

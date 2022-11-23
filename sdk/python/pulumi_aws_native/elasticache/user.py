@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['UserArgs', 'User']
 
@@ -18,6 +20,7 @@ class UserArgs:
                  engine: pulumi.Input['UserEngine'],
                  user_id: pulumi.Input[str],
                  access_string: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
@@ -34,6 +37,8 @@ class UserArgs:
         pulumi.set(__self__, "user_id", user_id)
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if no_password_required is not None:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
@@ -78,6 +83,15 @@ class UserArgs:
         pulumi.set(self, "access_string", value)
 
     @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input['AuthenticationModePropertiesArgs']]:
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input['AuthenticationModePropertiesArgs']]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -120,6 +134,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -163,6 +178,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['AuthenticationModePropertiesArgs']]] = None,
                  engine: Optional[pulumi.Input['UserEngine']] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -178,6 +194,7 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["access_string"] = access_string
+            __props__.__dict__["authentication_mode"] = authentication_mode
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
@@ -213,6 +230,7 @@ class User(pulumi.CustomResource):
 
         __props__.__dict__["access_string"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["authentication_mode"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["no_password_required"] = None
         __props__.__dict__["passwords"] = None
@@ -236,6 +254,11 @@ class User(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the user account.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> pulumi.Output[Optional['outputs.AuthenticationModeProperties']]:
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter

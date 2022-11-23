@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryStreamResult:
-    def __init__(__self__, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, splunk_destination_configuration=None, tags=None):
+    def __init__(__self__, amazon_open_search_serverless_destination_configuration=None, amazonopensearchservice_destination_configuration=None, arn=None, delivery_stream_encryption_configuration_input=None, elasticsearch_destination_configuration=None, extended_s3_destination_configuration=None, http_endpoint_destination_configuration=None, redshift_destination_configuration=None, s3_destination_configuration=None, splunk_destination_configuration=None, tags=None):
+        if amazon_open_search_serverless_destination_configuration and not isinstance(amazon_open_search_serverless_destination_configuration, dict):
+            raise TypeError("Expected argument 'amazon_open_search_serverless_destination_configuration' to be a dict")
+        pulumi.set(__self__, "amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
         if amazonopensearchservice_destination_configuration and not isinstance(amazonopensearchservice_destination_configuration, dict):
             raise TypeError("Expected argument 'amazonopensearchservice_destination_configuration' to be a dict")
         pulumi.set(__self__, "amazonopensearchservice_destination_configuration", amazonopensearchservice_destination_configuration)
@@ -51,6 +54,11 @@ class GetDeliveryStreamResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="amazonOpenSearchServerlessDestinationConfiguration")
+    def amazon_open_search_serverless_destination_configuration(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration']:
+        return pulumi.get(self, "amazon_open_search_serverless_destination_configuration")
 
     @property
     @pulumi.getter(name="amazonopensearchserviceDestinationConfiguration")
@@ -109,6 +117,7 @@ class AwaitableGetDeliveryStreamResult(GetDeliveryStreamResult):
         if False:
             yield self
         return GetDeliveryStreamResult(
+            amazon_open_search_serverless_destination_configuration=self.amazon_open_search_serverless_destination_configuration,
             amazonopensearchservice_destination_configuration=self.amazonopensearchservice_destination_configuration,
             arn=self.arn,
             delivery_stream_encryption_configuration_input=self.delivery_stream_encryption_configuration_input,
@@ -132,6 +141,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:kinesisfirehose:getDeliveryStream', __args__, opts=opts, typ=GetDeliveryStreamResult).value
 
     return AwaitableGetDeliveryStreamResult(
+        amazon_open_search_serverless_destination_configuration=__ret__.amazon_open_search_serverless_destination_configuration,
         amazonopensearchservice_destination_configuration=__ret__.amazonopensearchservice_destination_configuration,
         arn=__ret__.arn,
         delivery_stream_encryption_configuration_input=__ret__.delivery_stream_encryption_configuration_input,

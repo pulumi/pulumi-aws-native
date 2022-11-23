@@ -17,22 +17,24 @@ export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getAuthorizer", {
-        "id": args.id,
+        "apiId": args.apiId,
+        "authorizerId": args.authorizerId,
     }, opts);
 }
 
 export interface GetAuthorizerArgs {
-    id: string;
+    apiId: string;
+    authorizerId: string;
 }
 
 export interface GetAuthorizerResult {
     readonly authorizerCredentialsArn?: string;
+    readonly authorizerId?: string;
     readonly authorizerPayloadFormatVersion?: string;
     readonly authorizerResultTtlInSeconds?: number;
     readonly authorizerType?: string;
     readonly authorizerUri?: string;
     readonly enableSimpleResponses?: boolean;
-    readonly id?: string;
     readonly identitySource?: string[];
     readonly identityValidationExpression?: string;
     readonly jwtConfiguration?: outputs.apigatewayv2.AuthorizerJWTConfiguration;
@@ -44,5 +46,6 @@ export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi
 }
 
 export interface GetAuthorizerOutputArgs {
-    id: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
+    authorizerId: pulumi.Input<string>;
 }

@@ -89,6 +89,14 @@ export const TaskDefinitionEFSVolumeConfigurationTransitEncryption = {
 
 export type TaskDefinitionEFSVolumeConfigurationTransitEncryption = (typeof TaskDefinitionEFSVolumeConfigurationTransitEncryption)[keyof typeof TaskDefinitionEFSVolumeConfigurationTransitEncryption];
 
+export const TaskDefinitionPortMappingAppProtocol = {
+    Http: "http",
+    Http2: "http2",
+    Grpc: "grpc",
+} as const;
+
+export type TaskDefinitionPortMappingAppProtocol = (typeof TaskDefinitionPortMappingAppProtocol)[keyof typeof TaskDefinitionPortMappingAppProtocol];
+
 export const TaskSetAwsVpcConfigurationAssignPublicIp = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

@@ -34,6 +34,7 @@ type LookupCacheClusterResult struct {
 	ConfigurationEndpointPort    *string                                       `pulumi:"configurationEndpointPort"`
 	EngineVersion                *string                                       `pulumi:"engineVersion"`
 	Id                           *string                                       `pulumi:"id"`
+	IpDiscovery                  *string                                       `pulumi:"ipDiscovery"`
 	LogDeliveryConfigurations    []CacheClusterLogDeliveryConfigurationRequest `pulumi:"logDeliveryConfigurations"`
 	NotificationTopicArn         *string                                       `pulumi:"notificationTopicArn"`
 	NumCacheNodes                *int                                          `pulumi:"numCacheNodes"`
@@ -118,6 +119,10 @@ func (o LookupCacheClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 
 func (o LookupCacheClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCacheClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCacheClusterResultOutput) IpDiscovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCacheClusterResult) *string { return v.IpDiscovery }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupCacheClusterResultOutput) LogDeliveryConfigurations() CacheClusterLogDeliveryConfigurationRequestArrayOutput {

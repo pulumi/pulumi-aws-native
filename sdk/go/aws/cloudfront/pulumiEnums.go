@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ContinuousDeploymentPolicyTrafficConfigType string
+
+const (
+	ContinuousDeploymentPolicyTrafficConfigTypeSingleWeight = ContinuousDeploymentPolicyTrafficConfigType("SingleWeight")
+	ContinuousDeploymentPolicyTrafficConfigTypeSingleHeader = ContinuousDeploymentPolicyTrafficConfigType("SingleHeader")
+)
+
+func (ContinuousDeploymentPolicyTrafficConfigType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigType)(nil)).Elem()
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToContinuousDeploymentPolicyTrafficConfigTypeOutput() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return pulumi.ToOutput(e).(ContinuousDeploymentPolicyTrafficConfigTypeOutput)
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToContinuousDeploymentPolicyTrafficConfigTypeOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContinuousDeploymentPolicyTrafficConfigTypeOutput)
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutput() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return e.ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return ContinuousDeploymentPolicyTrafficConfigType(e).ToContinuousDeploymentPolicyTrafficConfigTypeOutputWithContext(ctx).ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx)
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContinuousDeploymentPolicyTrafficConfigType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigTypeOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigType)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymentPolicyTrafficConfigTypeOutput() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymentPolicyTrafficConfigTypeOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutput() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return o.ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContinuousDeploymentPolicyTrafficConfigType) *ContinuousDeploymentPolicyTrafficConfigType {
+		return &v
+	}).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContinuousDeploymentPolicyTrafficConfigType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContinuousDeploymentPolicyTrafficConfigType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContinuousDeploymentPolicyTrafficConfigTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigType)(nil)).Elem()
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutput() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return o
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigType) ContinuousDeploymentPolicyTrafficConfigType {
+		if v != nil {
+			return *v
+		}
+		var ret ContinuousDeploymentPolicyTrafficConfigType
+		return ret
+	}).(ContinuousDeploymentPolicyTrafficConfigTypeOutput)
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContinuousDeploymentPolicyTrafficConfigType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContinuousDeploymentPolicyTrafficConfigTypeInput is an input type that accepts ContinuousDeploymentPolicyTrafficConfigTypeArgs and ContinuousDeploymentPolicyTrafficConfigTypeOutput values.
+// You can construct a concrete instance of `ContinuousDeploymentPolicyTrafficConfigTypeInput` via:
+//
+//	ContinuousDeploymentPolicyTrafficConfigTypeArgs{...}
+type ContinuousDeploymentPolicyTrafficConfigTypeInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigTypeOutput() ContinuousDeploymentPolicyTrafficConfigTypeOutput
+	ToContinuousDeploymentPolicyTrafficConfigTypeOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigTypeOutput
+}
+
+var continuousDeploymentPolicyTrafficConfigTypePtrType = reflect.TypeOf((**ContinuousDeploymentPolicyTrafficConfigType)(nil)).Elem()
+
+type ContinuousDeploymentPolicyTrafficConfigTypePtrInput interface {
+	pulumi.Input
+
+	ToContinuousDeploymentPolicyTrafficConfigTypePtrOutput() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput
+	ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput
+}
+
+type continuousDeploymentPolicyTrafficConfigTypePtr string
+
+func ContinuousDeploymentPolicyTrafficConfigTypePtr(v string) ContinuousDeploymentPolicyTrafficConfigTypePtrInput {
+	return (*continuousDeploymentPolicyTrafficConfigTypePtr)(&v)
+}
+
+func (*continuousDeploymentPolicyTrafficConfigTypePtr) ElementType() reflect.Type {
+	return continuousDeploymentPolicyTrafficConfigTypePtrType
+}
+
+func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutput() ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return pulumi.ToOutput(in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
+}
+
+func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
+}
+
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
 
 const (
@@ -175,8 +339,12 @@ func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetrics
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypeInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypeOutput{})
+	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
 }

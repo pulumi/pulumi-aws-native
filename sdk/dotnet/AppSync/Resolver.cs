@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppSync
         [Output("cachingConfig")]
         public Output<Outputs.ResolverCachingConfig?> CachingConfig { get; private set; } = null!;
 
+        [Output("code")]
+        public Output<string?> Code { get; private set; } = null!;
+
+        [Output("codeS3Location")]
+        public Output<string?> CodeS3Location { get; private set; } = null!;
+
         [Output("dataSourceName")]
         public Output<string?> DataSourceName { get; private set; } = null!;
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Output("responseMappingTemplateS3Location")]
         public Output<string?> ResponseMappingTemplateS3Location { get; private set; } = null!;
+
+        [Output("runtime")]
+        public Output<Outputs.ResolverAppSyncRuntime?> Runtime { get; private set; } = null!;
 
         [Output("syncConfig")]
         public Output<Outputs.ResolverSyncConfig?> SyncConfig { get; private set; } = null!;
@@ -109,6 +118,12 @@ namespace Pulumi.AwsNative.AppSync
         [Input("cachingConfig")]
         public Input<Inputs.ResolverCachingConfigArgs>? CachingConfig { get; set; }
 
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        [Input("codeS3Location")]
+        public Input<string>? CodeS3Location { get; set; }
+
         [Input("dataSourceName")]
         public Input<string>? DataSourceName { get; set; }
 
@@ -135,6 +150,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("responseMappingTemplateS3Location")]
         public Input<string>? ResponseMappingTemplateS3Location { get; set; }
+
+        [Input("runtime")]
+        public Input<Inputs.ResolverAppSyncRuntimeArgs>? Runtime { get; set; }
 
         [Input("syncConfig")]
         public Input<Inputs.ResolverSyncConfigArgs>? SyncConfig { get; set; }

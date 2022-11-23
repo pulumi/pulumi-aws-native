@@ -10,14 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+// The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 type Fleet struct {
 	pulumi.CustomResourceState
 
+	// Configuration for Anywhere fleet.
+	AnywhereConfiguration FleetAnywhereConfigurationPtrOutput `pulumi:"anywhereConfiguration"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId pulumi.StringPtrOutput `pulumi:"buildId"`
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrOutput `pulumi:"certificateConfiguration"`
+	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+	ComputeType FleetComputeTypePtrOutput `pulumi:"computeType"`
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -42,7 +46,7 @@ type Fleet struct {
 	// [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
 	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
 	// A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
 	NewGameSessionProtectionPolicy FleetNewGameSessionProtectionPolicyPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// A unique identifier for the AWS account with the VPC that you want to peer your Amazon GameLift fleet with. You can find your account ID in the AWS Management Console under account settings.
@@ -104,10 +108,14 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
+	// Configuration for Anywhere fleet.
+	AnywhereConfiguration *FleetAnywhereConfiguration `pulumi:"anywhereConfiguration"`
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId *string `pulumi:"buildId"`
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
+	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+	ComputeType *FleetComputeType `pulumi:"computeType"`
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -155,10 +163,14 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
+	// Configuration for Anywhere fleet.
+	AnywhereConfiguration FleetAnywhereConfigurationPtrInput
 	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 	BuildId pulumi.StringPtrInput
 	// Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
+	// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+	ComputeType FleetComputeTypePtrInput
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrInput
 	// [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
@@ -241,6 +253,11 @@ func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
 }
 
+// Configuration for Anywhere fleet.
+func (o FleetOutput) AnywhereConfiguration() FleetAnywhereConfigurationPtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetAnywhereConfigurationPtrOutput { return v.AnywhereConfiguration }).(FleetAnywhereConfigurationPtrOutput)
+}
+
 // A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
 func (o FleetOutput) BuildId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.BuildId }).(pulumi.StringPtrOutput)
@@ -249,6 +266,11 @@ func (o FleetOutput) BuildId() pulumi.StringPtrOutput {
 // Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
 func (o FleetOutput) CertificateConfiguration() FleetCertificateConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetCertificateConfigurationPtrOutput { return v.CertificateConfiguration }).(FleetCertificateConfigurationPtrOutput)
+}
+
+// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+func (o FleetOutput) ComputeType() FleetComputeTypePtrOutput {
+	return o.ApplyT(func(v *Fleet) FleetComputeTypePtrOutput { return v.ComputeType }).(FleetComputeTypePtrOutput)
 }
 
 // A human-readable description of a fleet.
@@ -311,8 +333,8 @@ func (o FleetOutput) MinSize() pulumi.IntPtrOutput {
 }
 
 // A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
-func (o FleetOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o FleetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.

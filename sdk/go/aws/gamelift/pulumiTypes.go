@@ -312,6 +312,146 @@ func (o BuildS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for Anywhere fleet.
+type FleetAnywhereConfiguration struct {
+	// Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+	Cost string `pulumi:"cost"`
+}
+
+// FleetAnywhereConfigurationInput is an input type that accepts FleetAnywhereConfigurationArgs and FleetAnywhereConfigurationOutput values.
+// You can construct a concrete instance of `FleetAnywhereConfigurationInput` via:
+//
+//	FleetAnywhereConfigurationArgs{...}
+type FleetAnywhereConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetAnywhereConfigurationOutput() FleetAnywhereConfigurationOutput
+	ToFleetAnywhereConfigurationOutputWithContext(context.Context) FleetAnywhereConfigurationOutput
+}
+
+// Configuration for Anywhere fleet.
+type FleetAnywhereConfigurationArgs struct {
+	// Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+	Cost pulumi.StringInput `pulumi:"cost"`
+}
+
+func (FleetAnywhereConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAnywhereConfiguration)(nil)).Elem()
+}
+
+func (i FleetAnywhereConfigurationArgs) ToFleetAnywhereConfigurationOutput() FleetAnywhereConfigurationOutput {
+	return i.ToFleetAnywhereConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetAnywhereConfigurationArgs) ToFleetAnywhereConfigurationOutputWithContext(ctx context.Context) FleetAnywhereConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAnywhereConfigurationOutput)
+}
+
+func (i FleetAnywhereConfigurationArgs) ToFleetAnywhereConfigurationPtrOutput() FleetAnywhereConfigurationPtrOutput {
+	return i.ToFleetAnywhereConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetAnywhereConfigurationArgs) ToFleetAnywhereConfigurationPtrOutputWithContext(ctx context.Context) FleetAnywhereConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAnywhereConfigurationOutput).ToFleetAnywhereConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetAnywhereConfigurationPtrInput is an input type that accepts FleetAnywhereConfigurationArgs, FleetAnywhereConfigurationPtr and FleetAnywhereConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetAnywhereConfigurationPtrInput` via:
+//
+//	        FleetAnywhereConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetAnywhereConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetAnywhereConfigurationPtrOutput() FleetAnywhereConfigurationPtrOutput
+	ToFleetAnywhereConfigurationPtrOutputWithContext(context.Context) FleetAnywhereConfigurationPtrOutput
+}
+
+type fleetAnywhereConfigurationPtrType FleetAnywhereConfigurationArgs
+
+func FleetAnywhereConfigurationPtr(v *FleetAnywhereConfigurationArgs) FleetAnywhereConfigurationPtrInput {
+	return (*fleetAnywhereConfigurationPtrType)(v)
+}
+
+func (*fleetAnywhereConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetAnywhereConfiguration)(nil)).Elem()
+}
+
+func (i *fleetAnywhereConfigurationPtrType) ToFleetAnywhereConfigurationPtrOutput() FleetAnywhereConfigurationPtrOutput {
+	return i.ToFleetAnywhereConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetAnywhereConfigurationPtrType) ToFleetAnywhereConfigurationPtrOutputWithContext(ctx context.Context) FleetAnywhereConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAnywhereConfigurationPtrOutput)
+}
+
+// Configuration for Anywhere fleet.
+type FleetAnywhereConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetAnywhereConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAnywhereConfiguration)(nil)).Elem()
+}
+
+func (o FleetAnywhereConfigurationOutput) ToFleetAnywhereConfigurationOutput() FleetAnywhereConfigurationOutput {
+	return o
+}
+
+func (o FleetAnywhereConfigurationOutput) ToFleetAnywhereConfigurationOutputWithContext(ctx context.Context) FleetAnywhereConfigurationOutput {
+	return o
+}
+
+func (o FleetAnywhereConfigurationOutput) ToFleetAnywhereConfigurationPtrOutput() FleetAnywhereConfigurationPtrOutput {
+	return o.ToFleetAnywhereConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetAnywhereConfigurationOutput) ToFleetAnywhereConfigurationPtrOutputWithContext(ctx context.Context) FleetAnywhereConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetAnywhereConfiguration) *FleetAnywhereConfiguration {
+		return &v
+	}).(FleetAnywhereConfigurationPtrOutput)
+}
+
+// Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+func (o FleetAnywhereConfigurationOutput) Cost() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetAnywhereConfiguration) string { return v.Cost }).(pulumi.StringOutput)
+}
+
+type FleetAnywhereConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetAnywhereConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetAnywhereConfiguration)(nil)).Elem()
+}
+
+func (o FleetAnywhereConfigurationPtrOutput) ToFleetAnywhereConfigurationPtrOutput() FleetAnywhereConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetAnywhereConfigurationPtrOutput) ToFleetAnywhereConfigurationPtrOutputWithContext(ctx context.Context) FleetAnywhereConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetAnywhereConfigurationPtrOutput) Elem() FleetAnywhereConfigurationOutput {
+	return o.ApplyT(func(v *FleetAnywhereConfiguration) FleetAnywhereConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetAnywhereConfiguration
+		return ret
+	}).(FleetAnywhereConfigurationOutput)
+}
+
+// Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+func (o FleetAnywhereConfigurationPtrOutput) Cost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetAnywhereConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Cost
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfiguration struct {
 	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
@@ -3062,6 +3202,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationInput)(nil)).Elem(), BuildS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationPtrInput)(nil)).Elem(), BuildS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationPtrInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationPtrInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionInput)(nil)).Elem(), FleetIpPermissionArgs{})
@@ -3108,6 +3250,8 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationOutput{})
 	pulumi.RegisterOutputType(BuildS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(FleetAnywhereConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetAnywhereConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetIpPermissionOutput{})

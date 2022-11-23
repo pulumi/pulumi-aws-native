@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AliasRoutingStrategyType',
     'FleetCertificateConfigurationCertificateType',
+    'FleetComputeType',
     'FleetIpPermissionProtocol',
     'FleetNewGameSessionProtectionPolicy',
     'FleetType',
@@ -27,6 +28,14 @@ class AliasRoutingStrategyType(str, Enum):
 class FleetCertificateConfigurationCertificateType(str, Enum):
     DISABLED = "DISABLED"
     GENERATED = "GENERATED"
+
+
+class FleetComputeType(str, Enum):
+    """
+    ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    """
+    EC2 = "EC2"
+    ANYWHERE = "ANYWHERE"
 
 
 class FleetIpPermissionProtocol(str, Enum):

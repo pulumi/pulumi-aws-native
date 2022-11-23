@@ -54,9 +54,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<string | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
     public readonly globalReplicationGroupId!: pulumi.Output<string | undefined>;
+    public readonly ipDiscovery!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfigurationRequest[] | undefined>;
     public readonly multiAZEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly networkType!: pulumi.Output<string | undefined>;
     public readonly nodeGroupConfiguration!: pulumi.Output<outputs.elasticache.ReplicationGroupNodeGroupConfiguration[] | undefined>;
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     public readonly numCacheClusters!: pulumi.Output<number | undefined>;
@@ -116,9 +118,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
+            resourceInputs["ipDiscovery"] = args ? args.ipDiscovery : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
             resourceInputs["multiAZEnabled"] = args ? args.multiAZEnabled : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["nodeGroupConfiguration"] = args ? args.nodeGroupConfiguration : undefined;
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["numCacheClusters"] = args ? args.numCacheClusters : undefined;
@@ -162,9 +166,11 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupId"] = undefined /*out*/;
+            resourceInputs["ipDiscovery"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logDeliveryConfigurations"] = undefined /*out*/;
             resourceInputs["multiAZEnabled"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["nodeGroupConfiguration"] = undefined /*out*/;
             resourceInputs["notificationTopicArn"] = undefined /*out*/;
             resourceInputs["numCacheClusters"] = undefined /*out*/;
@@ -217,9 +223,11 @@ export interface ReplicationGroupArgs {
     engine?: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
     globalReplicationGroupId?: pulumi.Input<string>;
+    ipDiscovery?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfigurationRequestArgs>[]>;
     multiAZEnabled?: pulumi.Input<boolean>;
+    networkType?: pulumi.Input<string>;
     nodeGroupConfiguration?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupNodeGroupConfigurationArgs>[]>;
     notificationTopicArn?: pulumi.Input<string>;
     numCacheClusters?: pulumi.Input<number>;

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("continuousDeploymentPolicyId")]
+        public Input<string>? ContinuousDeploymentPolicyId { get; set; }
+
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseArgs>? _customErrorResponses;
         public InputList<Inputs.DistributionCustomErrorResponseArgs> CustomErrorResponses
@@ -87,6 +90,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("s3Origin")]
         public Input<Inputs.DistributionLegacyS3OriginArgs>? S3Origin { get; set; }
+
+        [Input("staging")]
+        public Input<bool>? Staging { get; set; }
 
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateArgs>? ViewerCertificate { get; set; }

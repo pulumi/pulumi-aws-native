@@ -21,6 +21,7 @@ __all__ = [
     'DataSourceOpenSearchServiceConfig',
     'DataSourceRdsHttpEndpointConfig',
     'DataSourceRelationalDatabaseConfig',
+    'FunctionConfigurationAppSyncRuntime',
     'FunctionConfigurationLambdaConflictHandlerConfig',
     'FunctionConfigurationSyncConfig',
     'GraphQLApiAdditionalAuthenticationProvider',
@@ -30,6 +31,7 @@ __all__ = [
     'GraphQLApiOpenIDConnectConfig',
     'GraphQLApiTag',
     'GraphQLApiUserPoolConfig',
+    'ResolverAppSyncRuntime',
     'ResolverCachingConfig',
     'ResolverLambdaConflictHandlerConfig',
     'ResolverPipelineConfig',
@@ -471,6 +473,42 @@ class DataSourceRelationalDatabaseConfig(dict):
 
 
 @pulumi.output_type
+class FunctionConfigurationAppSyncRuntime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionConfigurationAppSyncRuntime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionConfigurationAppSyncRuntime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionConfigurationAppSyncRuntime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 runtime_version: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
 class FunctionConfigurationLambdaConflictHandlerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -893,6 +931,42 @@ class GraphQLApiUserPoolConfig(dict):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[str]:
         return pulumi.get(self, "user_pool_id")
+
+
+@pulumi.output_type
+class ResolverAppSyncRuntime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResolverAppSyncRuntime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResolverAppSyncRuntime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResolverAppSyncRuntime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 runtime_version: str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type

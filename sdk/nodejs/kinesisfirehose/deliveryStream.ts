@@ -37,6 +37,7 @@ export class DeliveryStream extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryStream.__pulumiType;
     }
 
+    public readonly amazonOpenSearchServerlessDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration | undefined>;
     public readonly amazonopensearchserviceDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInput | undefined>;
@@ -62,6 +63,7 @@ export class DeliveryStream extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = args ? args.amazonOpenSearchServerlessDestinationConfiguration : undefined;
             resourceInputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
             resourceInputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
@@ -76,6 +78,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["amazonopensearchserviceDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
@@ -99,6 +102,7 @@ export class DeliveryStream extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliveryStream resource.
  */
 export interface DeliveryStreamArgs {
+    amazonOpenSearchServerlessDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs>;
     amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
     deliveryStreamEncryptionConfigurationInput?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationInputArgs>;
     deliveryStreamName?: pulumi.Input<string>;

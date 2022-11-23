@@ -78,6 +78,10 @@ export class ComponentType extends pulumi.CustomResource {
      */
     public readonly propertyDefinitions!: pulumi.Output<any | undefined>;
     /**
+     * An map of the property groups in the component type. Each property group's key must be unique to this map.
+     */
+    public readonly propertyGroups!: pulumi.Output<any | undefined>;
+    /**
      * The current status of the component type.
      */
     public /*out*/ readonly status!: pulumi.Output<outputs.iottwinmaker.ComponentTypeStatus>;
@@ -117,6 +121,7 @@ export class ComponentType extends pulumi.CustomResource {
             resourceInputs["functions"] = args ? args.functions : undefined;
             resourceInputs["isSingleton"] = args ? args.isSingleton : undefined;
             resourceInputs["propertyDefinitions"] = args ? args.propertyDefinitions : undefined;
+            resourceInputs["propertyGroups"] = args ? args.propertyGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class ComponentType extends pulumi.CustomResource {
             resourceInputs["isSchemaInitialized"] = undefined /*out*/;
             resourceInputs["isSingleton"] = undefined /*out*/;
             resourceInputs["propertyDefinitions"] = undefined /*out*/;
+            resourceInputs["propertyGroups"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateDateTime"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface ComponentTypeArgs {
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
     propertyDefinitions?: any;
+    /**
+     * An map of the property groups in the component type. Each property group's key must be unique to this map.
+     */
+    propertyGroups?: any;
     /**
      * A map of key-value pairs to associate with a resource.
      */

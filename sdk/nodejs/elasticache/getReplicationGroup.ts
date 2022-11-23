@@ -35,6 +35,7 @@ export interface GetReplicationGroupResult {
     readonly configurationEndPointAddress?: string;
     readonly configurationEndPointPort?: string;
     readonly engineVersion?: string;
+    readonly ipDiscovery?: string;
     readonly logDeliveryConfigurations?: outputs.elasticache.ReplicationGroupLogDeliveryConfigurationRequest[];
     readonly multiAZEnabled?: boolean;
     readonly nodeGroupConfiguration?: outputs.elasticache.ReplicationGroupNodeGroupConfiguration[];

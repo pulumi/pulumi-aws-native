@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
     [OutputType]
     public sealed class GetDeliveryStreamResult
     {
+        public readonly Outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration? AmazonOpenSearchServerlessDestinationConfiguration;
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration? AmazonopensearchserviceDestinationConfiguration;
         public readonly string? Arn;
         public readonly Outputs.DeliveryStreamEncryptionConfigurationInput? DeliveryStreamEncryptionConfigurationInput;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
         [OutputConstructor]
         private GetDeliveryStreamResult(
+            Outputs.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration? amazonOpenSearchServerlessDestinationConfiguration,
+
             Outputs.DeliveryStreamAmazonopensearchserviceDestinationConfiguration? amazonopensearchserviceDestinationConfiguration,
 
             string? arn,
@@ -84,6 +87,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
             ImmutableArray<Outputs.DeliveryStreamTag> tags)
         {
+            AmazonOpenSearchServerlessDestinationConfiguration = amazonOpenSearchServerlessDestinationConfiguration;
             AmazonopensearchserviceDestinationConfiguration = amazonopensearchserviceDestinationConfiguration;
             Arn = arn;
             DeliveryStreamEncryptionConfigurationInput = deliveryStreamEncryptionConfigurationInput;

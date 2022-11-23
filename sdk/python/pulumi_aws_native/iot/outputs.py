@@ -27,12 +27,10 @@ __all__ = [
     'DomainConfigurationTag',
     'FleetMetricAggregationType',
     'FleetMetricTag',
-    'JobExecutionsRetryConfigProperties',
     'JobExecutionsRolloutConfigProperties',
     'JobTemplateAbortCriteria',
     'JobTemplateExponentialRolloutRate',
     'JobTemplateRateIncreaseCriteria',
-    'JobTemplateRetryCriteria',
     'JobTemplateTag',
     'MitigationActionActionParams',
     'MitigationActionAddThingsToThingGroupParams',
@@ -181,6 +179,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             suggest = "device_certificate_shared_check"
         elif key == "intermediateCaRevokedForActiveDeviceCertificatesCheck":
             suggest = "intermediate_ca_revoked_for_active_device_certificates_check"
+        elif key == "ioTPolicyPotentialMisConfigurationCheck":
+            suggest = "io_t_policy_potential_mis_configuration_check"
         elif key == "iotPolicyOverlyPermissiveCheck":
             suggest = "iot_policy_overly_permissive_check"
         elif key == "iotRoleAliasAllowsAccessToUnusedServicesCheck":
@@ -216,6 +216,7 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
                  device_certificate_key_quality_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  device_certificate_shared_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  intermediate_ca_revoked_for_active_device_certificates_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
+                 io_t_policy_potential_mis_configuration_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_policy_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_role_alias_allows_access_to_unused_services_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
                  iot_role_alias_overly_permissive_check: Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration'] = None,
@@ -242,6 +243,8 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
             pulumi.set(__self__, "device_certificate_shared_check", device_certificate_shared_check)
         if intermediate_ca_revoked_for_active_device_certificates_check is not None:
             pulumi.set(__self__, "intermediate_ca_revoked_for_active_device_certificates_check", intermediate_ca_revoked_for_active_device_certificates_check)
+        if io_t_policy_potential_mis_configuration_check is not None:
+            pulumi.set(__self__, "io_t_policy_potential_mis_configuration_check", io_t_policy_potential_mis_configuration_check)
         if iot_policy_overly_permissive_check is not None:
             pulumi.set(__self__, "iot_policy_overly_permissive_check", iot_policy_overly_permissive_check)
         if iot_role_alias_allows_access_to_unused_services_check is not None:
@@ -296,6 +299,11 @@ class AccountAuditConfigurationAuditCheckConfigurations(dict):
     @pulumi.getter(name="intermediateCaRevokedForActiveDeviceCertificatesCheck")
     def intermediate_ca_revoked_for_active_device_certificates_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
         return pulumi.get(self, "intermediate_ca_revoked_for_active_device_certificates_check")
+
+    @property
+    @pulumi.getter(name="ioTPolicyPotentialMisConfigurationCheck")
+    def io_t_policy_potential_mis_configuration_check(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfiguration']:
+        return pulumi.get(self, "io_t_policy_potential_mis_configuration_check")
 
     @property
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
@@ -758,36 +766,6 @@ class FleetMetricTag(dict):
 
 
 @pulumi.output_type
-class JobExecutionsRetryConfigProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retryCriteriaList":
-            suggest = "retry_criteria_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobExecutionsRetryConfigProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobExecutionsRetryConfigProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobExecutionsRetryConfigProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 retry_criteria_list: Optional[Sequence['outputs.JobTemplateRetryCriteria']] = None):
-        if retry_criteria_list is not None:
-            pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
-
-    @property
-    @pulumi.getter(name="retryCriteriaList")
-    def retry_criteria_list(self) -> Optional[Sequence['outputs.JobTemplateRetryCriteria']]:
-        return pulumi.get(self, "retry_criteria_list")
-
-
-@pulumi.output_type
 class JobExecutionsRolloutConfigProperties(dict):
     """
     Allows you to create a staged rollout of a job.
@@ -1020,52 +998,6 @@ class JobTemplateRateIncreaseCriteria(dict):
     @pulumi.getter(name="numberOfSucceededThings")
     def number_of_succeeded_things(self) -> Optional[int]:
         return pulumi.get(self, "number_of_succeeded_things")
-
-
-@pulumi.output_type
-class JobTemplateRetryCriteria(dict):
-    """
-    Specifies how many times a failure type should be retried.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "failureType":
-            suggest = "failure_type"
-        elif key == "numberOfRetries":
-            suggest = "number_of_retries"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in JobTemplateRetryCriteria. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        JobTemplateRetryCriteria.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        JobTemplateRetryCriteria.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 failure_type: Optional['JobTemplateJobRetryFailureType'] = None,
-                 number_of_retries: Optional[int] = None):
-        """
-        Specifies how many times a failure type should be retried.
-        """
-        if failure_type is not None:
-            pulumi.set(__self__, "failure_type", failure_type)
-        if number_of_retries is not None:
-            pulumi.set(__self__, "number_of_retries", number_of_retries)
-
-    @property
-    @pulumi.getter(name="failureType")
-    def failure_type(self) -> Optional['JobTemplateJobRetryFailureType']:
-        return pulumi.get(self, "failure_type")
-
-    @property
-    @pulumi.getter(name="numberOfRetries")
-    def number_of_retries(self) -> Optional[int]:
-        return pulumi.get(self, "number_of_retries")
 
 
 @pulumi.output_type

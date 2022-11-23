@@ -15,6 +15,11 @@ export type CloudFrontOriginAccessIdentity = import("./cloudFrontOriginAccessIde
 export const CloudFrontOriginAccessIdentity: typeof import("./cloudFrontOriginAccessIdentity").CloudFrontOriginAccessIdentity = null as any;
 utilities.lazyLoad(exports, ["CloudFrontOriginAccessIdentity"], () => require("./cloudFrontOriginAccessIdentity"));
 
+export { ContinuousDeploymentPolicyArgs } from "./continuousDeploymentPolicy";
+export type ContinuousDeploymentPolicy = import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy;
+export const ContinuousDeploymentPolicy: typeof import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy = null as any;
+utilities.lazyLoad(exports, ["ContinuousDeploymentPolicy"], () => require("./continuousDeploymentPolicy"));
+
 export { DistributionArgs } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
@@ -34,6 +39,11 @@ export { GetCloudFrontOriginAccessIdentityArgs, GetCloudFrontOriginAccessIdentit
 export const getCloudFrontOriginAccessIdentity: typeof import("./getCloudFrontOriginAccessIdentity").getCloudFrontOriginAccessIdentity = null as any;
 export const getCloudFrontOriginAccessIdentityOutput: typeof import("./getCloudFrontOriginAccessIdentity").getCloudFrontOriginAccessIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudFrontOriginAccessIdentity","getCloudFrontOriginAccessIdentityOutput"], () => require("./getCloudFrontOriginAccessIdentity"));
+
+export { GetContinuousDeploymentPolicyArgs, GetContinuousDeploymentPolicyResult, GetContinuousDeploymentPolicyOutputArgs } from "./getContinuousDeploymentPolicy";
+export const getContinuousDeploymentPolicy: typeof import("./getContinuousDeploymentPolicy").getContinuousDeploymentPolicy = null as any;
+export const getContinuousDeploymentPolicyOutput: typeof import("./getContinuousDeploymentPolicy").getContinuousDeploymentPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getContinuousDeploymentPolicy","getContinuousDeploymentPolicyOutput"], () => require("./getContinuousDeploymentPolicy"));
 
 export { GetDistributionArgs, GetDistributionResult, GetDistributionOutputArgs } from "./getDistribution";
 export const getDistribution: typeof import("./getDistribution").getDistribution = null as any;
@@ -137,6 +147,8 @@ const _module = {
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
                 return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:ContinuousDeploymentPolicy":
+                return new ContinuousDeploymentPolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
             case "aws-native:cloudfront:Function":

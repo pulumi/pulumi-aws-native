@@ -26,6 +26,8 @@ type LookupResolverArgs struct {
 
 type LookupResolverResult struct {
 	CachingConfig                     *ResolverCachingConfig  `pulumi:"cachingConfig"`
+	Code                              *string                 `pulumi:"code"`
+	CodeS3Location                    *string                 `pulumi:"codeS3Location"`
 	DataSourceName                    *string                 `pulumi:"dataSourceName"`
 	Id                                *string                 `pulumi:"id"`
 	Kind                              *string                 `pulumi:"kind"`
@@ -36,6 +38,7 @@ type LookupResolverResult struct {
 	ResolverArn                       *string                 `pulumi:"resolverArn"`
 	ResponseMappingTemplate           *string                 `pulumi:"responseMappingTemplate"`
 	ResponseMappingTemplateS3Location *string                 `pulumi:"responseMappingTemplateS3Location"`
+	Runtime                           *ResolverAppSyncRuntime `pulumi:"runtime"`
 	SyncConfig                        *ResolverSyncConfig     `pulumi:"syncConfig"`
 }
 
@@ -78,6 +81,14 @@ func (o LookupResolverResultOutput) CachingConfig() ResolverCachingConfigPtrOutp
 	return o.ApplyT(func(v LookupResolverResult) *ResolverCachingConfig { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
+func (o LookupResolverResultOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverResult) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverResultOutput) CodeS3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverResult) *string { return v.CodeS3Location }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupResolverResultOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.DataSourceName }).(pulumi.StringPtrOutput)
 }
@@ -116,6 +127,10 @@ func (o LookupResolverResultOutput) ResponseMappingTemplate() pulumi.StringPtrOu
 
 func (o LookupResolverResultOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverResultOutput) Runtime() ResolverAppSyncRuntimePtrOutput {
+	return o.ApplyT(func(v LookupResolverResult) *ResolverAppSyncRuntime { return v.Runtime }).(ResolverAppSyncRuntimePtrOutput)
 }
 
 func (o LookupResolverResultOutput) SyncConfig() ResolverSyncConfigPtrOutput {

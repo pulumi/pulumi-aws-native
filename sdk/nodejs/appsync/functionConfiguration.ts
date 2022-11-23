@@ -41,17 +41,20 @@ export class FunctionConfiguration extends pulumi.CustomResource {
     }
 
     public readonly apiId!: pulumi.Output<string>;
+    public readonly code!: pulumi.Output<string | undefined>;
+    public readonly codeS3Location!: pulumi.Output<string | undefined>;
     public readonly dataSourceName!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     public /*out*/ readonly functionId!: pulumi.Output<string>;
-    public readonly functionVersion!: pulumi.Output<string>;
+    public readonly functionVersion!: pulumi.Output<string | undefined>;
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
     public readonly requestMappingTemplateS3Location!: pulumi.Output<string | undefined>;
     public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
     public readonly responseMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    public readonly runtime!: pulumi.Output<outputs.appsync.FunctionConfigurationAppSyncRuntime | undefined>;
     public readonly syncConfig!: pulumi.Output<outputs.appsync.FunctionConfigurationSyncConfig | undefined>;
 
     /**
@@ -73,10 +76,9 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             if ((!args || args.dataSourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceName'");
             }
-            if ((!args || args.functionVersion === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'functionVersion'");
-            }
             resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["codeS3Location"] = args ? args.codeS3Location : undefined;
             resourceInputs["dataSourceName"] = args ? args.dataSourceName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
@@ -86,11 +88,14 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             resourceInputs["requestMappingTemplateS3Location"] = args ? args.requestMappingTemplateS3Location : undefined;
             resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
             resourceInputs["responseMappingTemplateS3Location"] = args ? args.responseMappingTemplateS3Location : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
             resourceInputs["syncConfig"] = args ? args.syncConfig : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionId"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["codeS3Location"] = undefined /*out*/;
             resourceInputs["dataSourceName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class FunctionConfiguration extends pulumi.CustomResource {
             resourceInputs["requestMappingTemplateS3Location"] = undefined /*out*/;
             resourceInputs["responseMappingTemplate"] = undefined /*out*/;
             resourceInputs["responseMappingTemplateS3Location"] = undefined /*out*/;
+            resourceInputs["runtime"] = undefined /*out*/;
             resourceInputs["syncConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,14 +120,17 @@ export class FunctionConfiguration extends pulumi.CustomResource {
  */
 export interface FunctionConfigurationArgs {
     apiId: pulumi.Input<string>;
+    code?: pulumi.Input<string>;
+    codeS3Location?: pulumi.Input<string>;
     dataSourceName: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    functionVersion: pulumi.Input<string>;
+    functionVersion?: pulumi.Input<string>;
     maxBatchSize?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     requestMappingTemplate?: pulumi.Input<string>;
     requestMappingTemplateS3Location?: pulumi.Input<string>;
     responseMappingTemplate?: pulumi.Input<string>;
     responseMappingTemplateS3Location?: pulumi.Input<string>;
+    runtime?: pulumi.Input<inputs.appsync.FunctionConfigurationAppSyncRuntimeArgs>;
     syncConfig?: pulumi.Input<inputs.appsync.FunctionConfigurationSyncConfigArgs>;
 }

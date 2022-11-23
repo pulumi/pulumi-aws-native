@@ -32,6 +32,7 @@ type LookupClusterResult struct {
 	ClusterSettings                 []ClusterSettings                     `pulumi:"clusterSettings"`
 	Configuration                   *ClusterConfiguration                 `pulumi:"configuration"`
 	DefaultCapacityProviderStrategy []ClusterCapacityProviderStrategyItem `pulumi:"defaultCapacityProviderStrategy"`
+	ServiceConnectDefaults          *ClusterServiceConnectDefaults        `pulumi:"serviceConnectDefaults"`
 	Tags                            []ClusterTag                          `pulumi:"tags"`
 }
 
@@ -92,6 +93,10 @@ func (o LookupClusterResultOutput) DefaultCapacityProviderStrategy() ClusterCapa
 	return o.ApplyT(func(v LookupClusterResult) []ClusterCapacityProviderStrategyItem {
 		return v.DefaultCapacityProviderStrategy
 	}).(ClusterCapacityProviderStrategyItemArrayOutput)
+}
+
+func (o LookupClusterResultOutput) ServiceConnectDefaults() ClusterServiceConnectDefaultsPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterServiceConnectDefaults { return v.ServiceConnectDefaults }).(ClusterServiceConnectDefaultsPtrOutput)
 }
 
 func (o LookupClusterResultOutput) Tags() ClusterTagArrayOutput {

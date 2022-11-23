@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers.  A fleet is a set of EC2 instances, each of which can host multiple game sessions.
+ * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration for Anywhere fleet.
+     */
+    public readonly anywhereConfiguration!: pulumi.Output<outputs.gamelift.FleetAnywhereConfiguration | undefined>;
+    /**
      * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
      */
     public readonly buildId!: pulumi.Output<string | undefined>;
@@ -45,6 +49,10 @@ export class Fleet extends pulumi.CustomResource {
      * Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
      */
     public readonly certificateConfiguration!: pulumi.Output<outputs.gamelift.FleetCertificateConfiguration | undefined>;
+    /**
+     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     */
+    public readonly computeType!: pulumi.Output<enums.gamelift.FleetComputeType | undefined>;
     /**
      * A human-readable description of a fleet.
      */
@@ -93,7 +101,7 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * A descriptive label that is associated with a fleet. Fleet names do not need to be unique.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
      */
@@ -142,8 +150,10 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["anywhereConfiguration"] = args ? args.anywhereConfiguration : undefined;
             resourceInputs["buildId"] = args ? args.buildId : undefined;
             resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
+            resourceInputs["computeType"] = args ? args.computeType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["desiredEC2Instances"] = args ? args.desiredEC2Instances : undefined;
             resourceInputs["eC2InboundPermissions"] = args ? args.eC2InboundPermissions : undefined;
@@ -166,8 +176,10 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
             resourceInputs["fleetId"] = undefined /*out*/;
         } else {
+            resourceInputs["anywhereConfiguration"] = undefined /*out*/;
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["certificateConfiguration"] = undefined /*out*/;
+            resourceInputs["computeType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["desiredEC2Instances"] = undefined /*out*/;
             resourceInputs["eC2InboundPermissions"] = undefined /*out*/;
@@ -200,6 +212,10 @@ export class Fleet extends pulumi.CustomResource {
  */
 export interface FleetArgs {
     /**
+     * Configuration for Anywhere fleet.
+     */
+    anywhereConfiguration?: pulumi.Input<inputs.gamelift.FleetAnywhereConfigurationArgs>;
+    /**
      * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
      */
     buildId?: pulumi.Input<string>;
@@ -207,6 +223,10 @@ export interface FleetArgs {
      * Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
      */
     certificateConfiguration?: pulumi.Input<inputs.gamelift.FleetCertificateConfigurationArgs>;
+    /**
+     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     */
+    computeType?: pulumi.Input<enums.gamelift.FleetComputeType>;
     /**
      * A human-readable description of a fleet.
      */

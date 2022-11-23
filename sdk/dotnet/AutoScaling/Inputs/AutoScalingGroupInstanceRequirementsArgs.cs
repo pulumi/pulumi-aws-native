@@ -42,6 +42,14 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
             set => _acceleratorTypes = value;
         }
 
+        [Input("allowedInstanceTypes")]
+        private InputList<string>? _allowedInstanceTypes;
+        public InputList<string> AllowedInstanceTypes
+        {
+            get => _allowedInstanceTypes ?? (_allowedInstanceTypes = new InputList<string>());
+            set => _allowedInstanceTypes = value;
+        }
+
         [Input("bareMetal")]
         public Input<string>? BareMetal { get; set; }
 
@@ -91,6 +99,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
         [Input("memoryMiB")]
         public Input<Inputs.AutoScalingGroupMemoryMiBRequestArgs>? MemoryMiB { get; set; }
+
+        [Input("networkBandwidthGbps")]
+        public Input<Inputs.AutoScalingGroupNetworkBandwidthGbpsRequestArgs>? NetworkBandwidthGbps { get; set; }
 
         [Input("networkInterfaceCount")]
         public Input<Inputs.AutoScalingGroupNetworkInterfaceCountRequestArgs>? NetworkInterfaceCount { get; set; }

@@ -33,6 +33,7 @@ type Cluster struct {
 	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrOutput    `pulumi:"managedScalingPolicy"`
 	MasterPublicDNS       pulumi.StringOutput                     `pulumi:"masterPublicDNS"`
 	Name                  pulumi.StringOutput                     `pulumi:"name"`
+	OSReleaseLabel        pulumi.StringPtrOutput                  `pulumi:"oSReleaseLabel"`
 	ReleaseLabel          pulumi.StringPtrOutput                  `pulumi:"releaseLabel"`
 	ScaleDownBehavior     pulumi.StringPtrOutput                  `pulumi:"scaleDownBehavior"`
 	SecurityConfiguration pulumi.StringPtrOutput                  `pulumi:"securityConfiguration"`
@@ -106,6 +107,7 @@ type clusterArgs struct {
 	LogUri                *string                        `pulumi:"logUri"`
 	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
 	Name                  *string                        `pulumi:"name"`
+	OSReleaseLabel        *string                        `pulumi:"oSReleaseLabel"`
 	ReleaseLabel          *string                        `pulumi:"releaseLabel"`
 	ScaleDownBehavior     *string                        `pulumi:"scaleDownBehavior"`
 	SecurityConfiguration *string                        `pulumi:"securityConfiguration"`
@@ -133,6 +135,7 @@ type ClusterArgs struct {
 	LogUri                pulumi.StringPtrInput
 	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrInput
 	Name                  pulumi.StringPtrInput
+	OSReleaseLabel        pulumi.StringPtrInput
 	ReleaseLabel          pulumi.StringPtrInput
 	ScaleDownBehavior     pulumi.StringPtrInput
 	SecurityConfiguration pulumi.StringPtrInput
@@ -242,6 +245,10 @@ func (o ClusterOutput) MasterPublicDNS() pulumi.StringOutput {
 
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) OSReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OSReleaseLabel }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterOutput) ReleaseLabel() pulumi.StringPtrOutput {

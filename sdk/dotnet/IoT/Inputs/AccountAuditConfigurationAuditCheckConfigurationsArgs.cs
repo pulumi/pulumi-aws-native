@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("intermediateCaRevokedForActiveDeviceCertificatesCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IntermediateCaRevokedForActiveDeviceCertificatesCheck { get; set; }
 
+        [Input("ioTPolicyPotentialMisConfigurationCheck")]
+        public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IoTPolicyPotentialMisConfigurationCheck { get; set; }
+
         [Input("iotPolicyOverlyPermissiveCheck")]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationArgs>? IotPolicyOverlyPermissiveCheck { get; set; }
 

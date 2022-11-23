@@ -1012,6 +1012,7 @@ _utilities.register(
   "classes": {
    "aws-native:cloudfront:CachePolicy": "CachePolicy",
    "aws-native:cloudfront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
+   "aws-native:cloudfront:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy",
    "aws-native:cloudfront:Distribution": "Distribution",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",

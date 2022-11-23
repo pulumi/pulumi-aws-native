@@ -67,6 +67,37 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetComputeType : IEquatable<FleetComputeType>
+    {
+        private readonly string _value;
+
+        private FleetComputeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetComputeType Ec2 { get; } = new FleetComputeType("EC2");
+        public static FleetComputeType Anywhere { get; } = new FleetComputeType("ANYWHERE");
+
+        public static bool operator ==(FleetComputeType left, FleetComputeType right) => left.Equals(right);
+        public static bool operator !=(FleetComputeType left, FleetComputeType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetComputeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetComputeType other && Equals(other);
+        public bool Equals(FleetComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The network communication protocol used by the fleet.
     /// </summary>
     [EnumType]

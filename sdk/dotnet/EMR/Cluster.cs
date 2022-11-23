@@ -64,6 +64,9 @@ namespace Pulumi.AwsNative.EMR
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("oSReleaseLabel")]
+        public Output<string?> OSReleaseLabel { get; private set; } = null!;
+
         [Output("releaseLabel")]
         public Output<string?> ReleaseLabel { get; private set; } = null!;
 
@@ -192,6 +195,9 @@ namespace Pulumi.AwsNative.EMR
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("oSReleaseLabel")]
+        public Input<string>? OSReleaseLabel { get; set; }
 
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }

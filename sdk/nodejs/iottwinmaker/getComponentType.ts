@@ -71,6 +71,10 @@ export interface GetComponentTypeResult {
      */
     readonly propertyDefinitions?: any;
     /**
+     * An map of the property groups in the component type. Each property group's key must be unique to this map.
+     */
+    readonly propertyGroups?: any;
+    /**
      * The current status of the component type.
      */
     readonly status?: outputs.iottwinmaker.ComponentTypeStatus;

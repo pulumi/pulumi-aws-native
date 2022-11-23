@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly ImmutableArray<string> AcceleratorNames;
         public readonly Outputs.AutoScalingGroupAcceleratorTotalMemoryMiBRequest? AcceleratorTotalMemoryMiB;
         public readonly ImmutableArray<string> AcceleratorTypes;
+        public readonly ImmutableArray<string> AllowedInstanceTypes;
         public readonly string? BareMetal;
         public readonly Outputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
         public readonly string? BurstablePerformance;
@@ -28,6 +29,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly ImmutableArray<string> LocalStorageTypes;
         public readonly Outputs.AutoScalingGroupMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         public readonly Outputs.AutoScalingGroupMemoryMiBRequest? MemoryMiB;
+        public readonly Outputs.AutoScalingGroupNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
         public readonly Outputs.AutoScalingGroupNetworkInterfaceCountRequest? NetworkInterfaceCount;
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool? RequireHibernateSupport;
@@ -46,6 +48,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
             Outputs.AutoScalingGroupAcceleratorTotalMemoryMiBRequest? acceleratorTotalMemoryMiB,
 
             ImmutableArray<string> acceleratorTypes,
+
+            ImmutableArray<string> allowedInstanceTypes,
 
             string? bareMetal,
 
@@ -67,6 +71,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             Outputs.AutoScalingGroupMemoryMiBRequest? memoryMiB,
 
+            Outputs.AutoScalingGroupNetworkBandwidthGbpsRequest? networkBandwidthGbps,
+
             Outputs.AutoScalingGroupNetworkInterfaceCountRequest? networkInterfaceCount,
 
             int? onDemandMaxPricePercentageOverLowestPrice,
@@ -84,6 +90,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
             AcceleratorNames = acceleratorNames;
             AcceleratorTotalMemoryMiB = acceleratorTotalMemoryMiB;
             AcceleratorTypes = acceleratorTypes;
+            AllowedInstanceTypes = allowedInstanceTypes;
             BareMetal = bareMetal;
             BaselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
             BurstablePerformance = burstablePerformance;
@@ -94,6 +101,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
             LocalStorageTypes = localStorageTypes;
             MemoryGiBPerVCpu = memoryGiBPerVCpu;
             MemoryMiB = memoryMiB;
+            NetworkBandwidthGbps = networkBandwidthGbps;
             NetworkInterfaceCount = networkInterfaceCount;
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
             RequireHibernateSupport = requireHibernateSupport;

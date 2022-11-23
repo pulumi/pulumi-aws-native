@@ -21,6 +21,8 @@ type PricingRule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of pricing plans associated with pricing rule
 	AssociatedPricingPlanCount pulumi.IntOutput `pulumi:"associatedPricingPlanCount"`
+	// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+	BillingEntity PricingRuleBillingEntityPtrOutput `pulumi:"billingEntity"`
 	// Creation timestamp in UNIX epoch time format
 	CreationTime pulumi.IntOutput `pulumi:"creationTime"`
 	// Pricing rule description
@@ -88,6 +90,8 @@ func (PricingRuleState) ElementType() reflect.Type {
 }
 
 type pricingRuleArgs struct {
+	// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+	BillingEntity *PricingRuleBillingEntity `pulumi:"billingEntity"`
 	// Pricing rule description
 	Description *string `pulumi:"description"`
 	// Pricing rule modifier percentage
@@ -105,6 +109,8 @@ type pricingRuleArgs struct {
 
 // The set of arguments for constructing a PricingRule resource.
 type PricingRuleArgs struct {
+	// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+	BillingEntity PricingRuleBillingEntityPtrInput
 	// Pricing rule description
 	Description pulumi.StringPtrInput
 	// Pricing rule modifier percentage
@@ -165,6 +171,11 @@ func (o PricingRuleOutput) Arn() pulumi.StringOutput {
 // The number of pricing plans associated with pricing rule
 func (o PricingRuleOutput) AssociatedPricingPlanCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *PricingRule) pulumi.IntOutput { return v.AssociatedPricingPlanCount }).(pulumi.IntOutput)
+}
+
+// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+func (o PricingRuleOutput) BillingEntity() PricingRuleBillingEntityPtrOutput {
+	return o.ApplyT(func(v *PricingRule) PricingRuleBillingEntityPtrOutput { return v.BillingEntity }).(PricingRuleBillingEntityPtrOutput)
 }
 
 // Creation timestamp in UNIX epoch time format

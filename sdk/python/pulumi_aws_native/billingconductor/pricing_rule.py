@@ -20,6 +20,7 @@ class PricingRuleArgs:
                  modifier_percentage: pulumi.Input[float],
                  scope: pulumi.Input['PricingRuleScope'],
                  type: pulumi.Input['PricingRuleType'],
+                 billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class PricingRuleArgs:
         :param pulumi.Input[float] modifier_percentage: Pricing rule modifier percentage
         :param pulumi.Input['PricingRuleScope'] scope: A term used to categorize the granularity of a Pricing Rule.
         :param pulumi.Input['PricingRuleType'] type: One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        :param pulumi.Input['PricingRuleBillingEntity'] billing_entity: The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
         :param pulumi.Input[str] description: Pricing rule description
         :param pulumi.Input[str] name: Pricing rule name
         :param pulumi.Input[str] service: The service which a pricing rule is applied on
@@ -36,6 +38,8 @@ class PricingRuleArgs:
         pulumi.set(__self__, "modifier_percentage", modifier_percentage)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "type", type)
+        if billing_entity is not None:
+            pulumi.set(__self__, "billing_entity", billing_entity)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -80,6 +84,18 @@ class PricingRuleArgs:
     @type.setter
     def type(self, value: pulumi.Input['PricingRuleType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="billingEntity")
+    def billing_entity(self) -> Optional[pulumi.Input['PricingRuleBillingEntity']]:
+        """
+        The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+        """
+        return pulumi.get(self, "billing_entity")
+
+    @billing_entity.setter
+    def billing_entity(self, value: Optional[pulumi.Input['PricingRuleBillingEntity']]):
+        pulumi.set(self, "billing_entity", value)
 
     @property
     @pulumi.getter
@@ -137,6 +153,7 @@ class PricingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  modifier_percentage: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -150,6 +167,7 @@ class PricingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['PricingRuleBillingEntity'] billing_entity: The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
         :param pulumi.Input[str] description: Pricing rule description
         :param pulumi.Input[float] modifier_percentage: Pricing rule modifier percentage
         :param pulumi.Input[str] name: Pricing rule name
@@ -181,6 +199,7 @@ class PricingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  modifier_percentage: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -198,6 +217,7 @@ class PricingRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PricingRuleArgs.__new__(PricingRuleArgs)
 
+            __props__.__dict__["billing_entity"] = billing_entity
             __props__.__dict__["description"] = description
             if modifier_percentage is None and not opts.urn:
                 raise TypeError("Missing required property 'modifier_percentage'")
@@ -239,6 +259,7 @@ class PricingRule(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["associated_pricing_plan_count"] = None
+        __props__.__dict__["billing_entity"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["last_modified_time"] = None
@@ -265,6 +286,14 @@ class PricingRule(pulumi.CustomResource):
         The number of pricing plans associated with pricing rule
         """
         return pulumi.get(self, "associated_pricing_plan_count")
+
+    @property
+    @pulumi.getter(name="billingEntity")
+    def billing_entity(self) -> pulumi.Output[Optional['PricingRuleBillingEntity']]:
+        """
+        The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+        """
+        return pulumi.get(self, "billing_entity")
 
     @property
     @pulumi.getter(name="creationTime")

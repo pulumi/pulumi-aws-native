@@ -52,16 +52,11 @@ namespace Pulumi.AwsNative.IoT
     public sealed class GetJobTemplateResult
     {
         public readonly string? Arn;
-        public readonly Outputs.JobExecutionsRetryConfigProperties? JobExecutionsRetryConfig;
 
         [OutputConstructor]
-        private GetJobTemplateResult(
-            string? arn,
-
-            Outputs.JobExecutionsRetryConfigProperties? jobExecutionsRetryConfig)
+        private GetJobTemplateResult(string? arn)
         {
             Arn = arn;
-            JobExecutionsRetryConfig = jobExecutionsRetryConfig;
         }
     }
 }

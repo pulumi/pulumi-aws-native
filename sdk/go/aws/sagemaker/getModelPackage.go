@@ -43,7 +43,6 @@ type LookupModelPackageResult struct {
 	ModelPackageStatusDetails                  *ModelPackageStatusDetails                               `pulumi:"modelPackageStatusDetails"`
 	ModelPackageStatusItem                     *ModelPackageStatusItem                                  `pulumi:"modelPackageStatusItem"`
 	ModelPackageVersion                        *int                                                     `pulumi:"modelPackageVersion"`
-	Tag                                        *ModelPackageTag                                         `pulumi:"tag"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ModelPackageTag `pulumi:"tags"`
 }
@@ -161,10 +160,6 @@ func (o LookupModelPackageResultOutput) ModelPackageStatusItem() ModelPackageSta
 
 func (o LookupModelPackageResultOutput) ModelPackageVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupModelPackageResult) *int { return v.ModelPackageVersion }).(pulumi.IntPtrOutput)
-}
-
-func (o LookupModelPackageResultOutput) Tag() ModelPackageTagPtrOutput {
-	return o.ApplyT(func(v LookupModelPackageResult) *ModelPackageTag { return v.Tag }).(ModelPackageTagPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

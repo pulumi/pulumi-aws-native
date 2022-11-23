@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCacheClusterResult:
-    def __init__(__self__, a_z_mode=None, auto_minor_version_upgrade=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, transit_encryption_enabled=None, vpc_security_group_ids=None):
+    def __init__(__self__, a_z_mode=None, auto_minor_version_upgrade=None, cache_node_type=None, cache_parameter_group_name=None, cache_security_group_names=None, configuration_endpoint_address=None, configuration_endpoint_port=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, notification_topic_arn=None, num_cache_nodes=None, preferred_availability_zone=None, preferred_availability_zones=None, preferred_maintenance_window=None, redis_endpoint_address=None, redis_endpoint_port=None, snapshot_retention_limit=None, snapshot_window=None, tags=None, transit_encryption_enabled=None, vpc_security_group_ids=None):
         if a_z_mode and not isinstance(a_z_mode, str):
             raise TypeError("Expected argument 'a_z_mode' to be a str")
         pulumi.set(__self__, "a_z_mode", a_z_mode)
@@ -47,6 +47,9 @@ class GetCacheClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_discovery and not isinstance(ip_discovery, str):
+            raise TypeError("Expected argument 'ip_discovery' to be a str")
+        pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations and not isinstance(log_delivery_configurations, list):
             raise TypeError("Expected argument 'log_delivery_configurations' to be a list")
         pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
@@ -133,6 +136,11 @@ class GetCacheClusterResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[str]:
+        return pulumi.get(self, "ip_discovery")
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[Sequence['outputs.CacheClusterLogDeliveryConfigurationRequest']]:
         return pulumi.get(self, "log_delivery_configurations")
@@ -213,6 +221,7 @@ class AwaitableGetCacheClusterResult(GetCacheClusterResult):
             configuration_endpoint_port=self.configuration_endpoint_port,
             engine_version=self.engine_version,
             id=self.id,
+            ip_discovery=self.ip_discovery,
             log_delivery_configurations=self.log_delivery_configurations,
             notification_topic_arn=self.notification_topic_arn,
             num_cache_nodes=self.num_cache_nodes,
@@ -248,6 +257,7 @@ def get_cache_cluster(id: Optional[str] = None,
         configuration_endpoint_port=__ret__.configuration_endpoint_port,
         engine_version=__ret__.engine_version,
         id=__ret__.id,
+        ip_discovery=__ret__.ip_discovery,
         log_delivery_configurations=__ret__.log_delivery_configurations,
         notification_topic_arn=__ret__.notification_topic_arn,
         num_cache_nodes=__ret__.num_cache_nodes,

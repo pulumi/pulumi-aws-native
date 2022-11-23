@@ -1582,6 +1582,154 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) RelationalDatabaseSourceTyp
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionConfigurationAppSyncRuntime struct {
+	Name           string `pulumi:"name"`
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+}
+
+// FunctionConfigurationAppSyncRuntimeInput is an input type that accepts FunctionConfigurationAppSyncRuntimeArgs and FunctionConfigurationAppSyncRuntimeOutput values.
+// You can construct a concrete instance of `FunctionConfigurationAppSyncRuntimeInput` via:
+//
+//	FunctionConfigurationAppSyncRuntimeArgs{...}
+type FunctionConfigurationAppSyncRuntimeInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationAppSyncRuntimeOutput() FunctionConfigurationAppSyncRuntimeOutput
+	ToFunctionConfigurationAppSyncRuntimeOutputWithContext(context.Context) FunctionConfigurationAppSyncRuntimeOutput
+}
+
+type FunctionConfigurationAppSyncRuntimeArgs struct {
+	Name           pulumi.StringInput `pulumi:"name"`
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+}
+
+func (FunctionConfigurationAppSyncRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationAppSyncRuntime)(nil)).Elem()
+}
+
+func (i FunctionConfigurationAppSyncRuntimeArgs) ToFunctionConfigurationAppSyncRuntimeOutput() FunctionConfigurationAppSyncRuntimeOutput {
+	return i.ToFunctionConfigurationAppSyncRuntimeOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationAppSyncRuntimeArgs) ToFunctionConfigurationAppSyncRuntimeOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationAppSyncRuntimeOutput)
+}
+
+func (i FunctionConfigurationAppSyncRuntimeArgs) ToFunctionConfigurationAppSyncRuntimePtrOutput() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return i.ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i FunctionConfigurationAppSyncRuntimeArgs) ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationAppSyncRuntimeOutput).ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(ctx)
+}
+
+// FunctionConfigurationAppSyncRuntimePtrInput is an input type that accepts FunctionConfigurationAppSyncRuntimeArgs, FunctionConfigurationAppSyncRuntimePtr and FunctionConfigurationAppSyncRuntimePtrOutput values.
+// You can construct a concrete instance of `FunctionConfigurationAppSyncRuntimePtrInput` via:
+//
+//	        FunctionConfigurationAppSyncRuntimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionConfigurationAppSyncRuntimePtrInput interface {
+	pulumi.Input
+
+	ToFunctionConfigurationAppSyncRuntimePtrOutput() FunctionConfigurationAppSyncRuntimePtrOutput
+	ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(context.Context) FunctionConfigurationAppSyncRuntimePtrOutput
+}
+
+type functionConfigurationAppSyncRuntimePtrType FunctionConfigurationAppSyncRuntimeArgs
+
+func FunctionConfigurationAppSyncRuntimePtr(v *FunctionConfigurationAppSyncRuntimeArgs) FunctionConfigurationAppSyncRuntimePtrInput {
+	return (*functionConfigurationAppSyncRuntimePtrType)(v)
+}
+
+func (*functionConfigurationAppSyncRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationAppSyncRuntime)(nil)).Elem()
+}
+
+func (i *functionConfigurationAppSyncRuntimePtrType) ToFunctionConfigurationAppSyncRuntimePtrOutput() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return i.ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *functionConfigurationAppSyncRuntimePtrType) ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConfigurationAppSyncRuntimePtrOutput)
+}
+
+type FunctionConfigurationAppSyncRuntimeOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationAppSyncRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConfigurationAppSyncRuntime)(nil)).Elem()
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) ToFunctionConfigurationAppSyncRuntimeOutput() FunctionConfigurationAppSyncRuntimeOutput {
+	return o
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) ToFunctionConfigurationAppSyncRuntimeOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimeOutput {
+	return o
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) ToFunctionConfigurationAppSyncRuntimePtrOutput() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o.ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionConfigurationAppSyncRuntime) *FunctionConfigurationAppSyncRuntime {
+		return &v
+	}).(FunctionConfigurationAppSyncRuntimePtrOutput)
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionConfigurationAppSyncRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigurationAppSyncRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionConfigurationAppSyncRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+type FunctionConfigurationAppSyncRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionConfigurationAppSyncRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConfigurationAppSyncRuntime)(nil)).Elem()
+}
+
+func (o FunctionConfigurationAppSyncRuntimePtrOutput) ToFunctionConfigurationAppSyncRuntimePtrOutput() FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationAppSyncRuntimePtrOutput) ToFunctionConfigurationAppSyncRuntimePtrOutputWithContext(ctx context.Context) FunctionConfigurationAppSyncRuntimePtrOutput {
+	return o
+}
+
+func (o FunctionConfigurationAppSyncRuntimePtrOutput) Elem() FunctionConfigurationAppSyncRuntimeOutput {
+	return o.ApplyT(func(v *FunctionConfigurationAppSyncRuntime) FunctionConfigurationAppSyncRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionConfigurationAppSyncRuntime
+		return ret
+	}).(FunctionConfigurationAppSyncRuntimeOutput)
+}
+
+func (o FunctionConfigurationAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationAppSyncRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionConfigurationAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionConfigurationAppSyncRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionConfigurationLambdaConflictHandlerConfig struct {
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
@@ -2943,6 +3091,154 @@ func (o GraphQLApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResolverAppSyncRuntime struct {
+	Name           string `pulumi:"name"`
+	RuntimeVersion string `pulumi:"runtimeVersion"`
+}
+
+// ResolverAppSyncRuntimeInput is an input type that accepts ResolverAppSyncRuntimeArgs and ResolverAppSyncRuntimeOutput values.
+// You can construct a concrete instance of `ResolverAppSyncRuntimeInput` via:
+//
+//	ResolverAppSyncRuntimeArgs{...}
+type ResolverAppSyncRuntimeInput interface {
+	pulumi.Input
+
+	ToResolverAppSyncRuntimeOutput() ResolverAppSyncRuntimeOutput
+	ToResolverAppSyncRuntimeOutputWithContext(context.Context) ResolverAppSyncRuntimeOutput
+}
+
+type ResolverAppSyncRuntimeArgs struct {
+	Name           pulumi.StringInput `pulumi:"name"`
+	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
+}
+
+func (ResolverAppSyncRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverAppSyncRuntime)(nil)).Elem()
+}
+
+func (i ResolverAppSyncRuntimeArgs) ToResolverAppSyncRuntimeOutput() ResolverAppSyncRuntimeOutput {
+	return i.ToResolverAppSyncRuntimeOutputWithContext(context.Background())
+}
+
+func (i ResolverAppSyncRuntimeArgs) ToResolverAppSyncRuntimeOutputWithContext(ctx context.Context) ResolverAppSyncRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverAppSyncRuntimeOutput)
+}
+
+func (i ResolverAppSyncRuntimeArgs) ToResolverAppSyncRuntimePtrOutput() ResolverAppSyncRuntimePtrOutput {
+	return i.ToResolverAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i ResolverAppSyncRuntimeArgs) ToResolverAppSyncRuntimePtrOutputWithContext(ctx context.Context) ResolverAppSyncRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverAppSyncRuntimeOutput).ToResolverAppSyncRuntimePtrOutputWithContext(ctx)
+}
+
+// ResolverAppSyncRuntimePtrInput is an input type that accepts ResolverAppSyncRuntimeArgs, ResolverAppSyncRuntimePtr and ResolverAppSyncRuntimePtrOutput values.
+// You can construct a concrete instance of `ResolverAppSyncRuntimePtrInput` via:
+//
+//	        ResolverAppSyncRuntimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResolverAppSyncRuntimePtrInput interface {
+	pulumi.Input
+
+	ToResolverAppSyncRuntimePtrOutput() ResolverAppSyncRuntimePtrOutput
+	ToResolverAppSyncRuntimePtrOutputWithContext(context.Context) ResolverAppSyncRuntimePtrOutput
+}
+
+type resolverAppSyncRuntimePtrType ResolverAppSyncRuntimeArgs
+
+func ResolverAppSyncRuntimePtr(v *ResolverAppSyncRuntimeArgs) ResolverAppSyncRuntimePtrInput {
+	return (*resolverAppSyncRuntimePtrType)(v)
+}
+
+func (*resolverAppSyncRuntimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverAppSyncRuntime)(nil)).Elem()
+}
+
+func (i *resolverAppSyncRuntimePtrType) ToResolverAppSyncRuntimePtrOutput() ResolverAppSyncRuntimePtrOutput {
+	return i.ToResolverAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (i *resolverAppSyncRuntimePtrType) ToResolverAppSyncRuntimePtrOutputWithContext(ctx context.Context) ResolverAppSyncRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResolverAppSyncRuntimePtrOutput)
+}
+
+type ResolverAppSyncRuntimeOutput struct{ *pulumi.OutputState }
+
+func (ResolverAppSyncRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverAppSyncRuntime)(nil)).Elem()
+}
+
+func (o ResolverAppSyncRuntimeOutput) ToResolverAppSyncRuntimeOutput() ResolverAppSyncRuntimeOutput {
+	return o
+}
+
+func (o ResolverAppSyncRuntimeOutput) ToResolverAppSyncRuntimeOutputWithContext(ctx context.Context) ResolverAppSyncRuntimeOutput {
+	return o
+}
+
+func (o ResolverAppSyncRuntimeOutput) ToResolverAppSyncRuntimePtrOutput() ResolverAppSyncRuntimePtrOutput {
+	return o.ToResolverAppSyncRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o ResolverAppSyncRuntimeOutput) ToResolverAppSyncRuntimePtrOutputWithContext(ctx context.Context) ResolverAppSyncRuntimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverAppSyncRuntime) *ResolverAppSyncRuntime {
+		return &v
+	}).(ResolverAppSyncRuntimePtrOutput)
+}
+
+func (o ResolverAppSyncRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResolverAppSyncRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
+}
+
+type ResolverAppSyncRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverAppSyncRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverAppSyncRuntime)(nil)).Elem()
+}
+
+func (o ResolverAppSyncRuntimePtrOutput) ToResolverAppSyncRuntimePtrOutput() ResolverAppSyncRuntimePtrOutput {
+	return o
+}
+
+func (o ResolverAppSyncRuntimePtrOutput) ToResolverAppSyncRuntimePtrOutputWithContext(ctx context.Context) ResolverAppSyncRuntimePtrOutput {
+	return o
+}
+
+func (o ResolverAppSyncRuntimePtrOutput) Elem() ResolverAppSyncRuntimeOutput {
+	return o.ApplyT(func(v *ResolverAppSyncRuntime) ResolverAppSyncRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverAppSyncRuntime
+		return ret
+	}).(ResolverAppSyncRuntimeOutput)
+}
+
+func (o ResolverAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type ResolverCachingConfig struct {
 	CachingKeys []string `pulumi:"cachingKeys"`
 	Ttl         float64  `pulumi:"ttl"`
@@ -3541,6 +3837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRdsHttpEndpointConfigPtrInput)(nil)).Elem(), DataSourceRdsHttpEndpointConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigPtrInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationAppSyncRuntimeInput)(nil)).Elem(), FunctionConfigurationAppSyncRuntimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationAppSyncRuntimePtrInput)(nil)).Elem(), FunctionConfigurationAppSyncRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfigInput)(nil)).Elem(), FunctionConfigurationLambdaConflictHandlerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfigPtrInput)(nil)).Elem(), FunctionConfigurationLambdaConflictHandlerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationSyncConfigInput)(nil)).Elem(), FunctionConfigurationSyncConfigArgs{})
@@ -3559,6 +3857,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiTagArrayInput)(nil)).Elem(), GraphQLApiTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiUserPoolConfigInput)(nil)).Elem(), GraphQLApiUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiUserPoolConfigPtrInput)(nil)).Elem(), GraphQLApiUserPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverAppSyncRuntimeInput)(nil)).Elem(), ResolverAppSyncRuntimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverAppSyncRuntimePtrInput)(nil)).Elem(), ResolverAppSyncRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverCachingConfigInput)(nil)).Elem(), ResolverCachingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverCachingConfigPtrInput)(nil)).Elem(), ResolverCachingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverLambdaConflictHandlerConfigInput)(nil)).Elem(), ResolverLambdaConflictHandlerConfigArgs{})
@@ -3587,6 +3887,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceRdsHttpEndpointConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationAppSyncRuntimeOutput{})
+	pulumi.RegisterOutputType(FunctionConfigurationAppSyncRuntimePtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationSyncConfigOutput{})
@@ -3605,6 +3907,8 @@ func init() {
 	pulumi.RegisterOutputType(GraphQLApiTagArrayOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiUserPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(ResolverAppSyncRuntimeOutput{})
+	pulumi.RegisterOutputType(ResolverAppSyncRuntimePtrOutput{})
 	pulumi.RegisterOutputType(ResolverCachingConfigOutput{})
 	pulumi.RegisterOutputType(ResolverCachingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverLambdaConflictHandlerConfigOutput{})

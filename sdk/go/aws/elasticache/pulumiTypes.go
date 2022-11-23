@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AuthenticationModeProperties struct {
+	// Passwords used for this user account. You can create up to two passwords for each user.
+	Passwords []string `pulumi:"passwords"`
+	// Authentication Type
+	Type UserAuthenticationModePropertiesType `pulumi:"type"`
+}
+
+// AuthenticationModePropertiesInput is an input type that accepts AuthenticationModePropertiesArgs and AuthenticationModePropertiesOutput values.
+// You can construct a concrete instance of `AuthenticationModePropertiesInput` via:
+//
+//	AuthenticationModePropertiesArgs{...}
+type AuthenticationModePropertiesInput interface {
+	pulumi.Input
+
+	ToAuthenticationModePropertiesOutput() AuthenticationModePropertiesOutput
+	ToAuthenticationModePropertiesOutputWithContext(context.Context) AuthenticationModePropertiesOutput
+}
+
+type AuthenticationModePropertiesArgs struct {
+	// Passwords used for this user account. You can create up to two passwords for each user.
+	Passwords pulumi.StringArrayInput `pulumi:"passwords"`
+	// Authentication Type
+	Type UserAuthenticationModePropertiesTypeInput `pulumi:"type"`
+}
+
+func (AuthenticationModePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutput() AuthenticationModePropertiesOutput {
+	return i.ToAuthenticationModePropertiesOutputWithContext(context.Background())
+}
+
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutputWithContext(ctx context.Context) AuthenticationModePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput)
+}
+
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return i.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput).ToAuthenticationModePropertiesPtrOutputWithContext(ctx)
+}
+
+// AuthenticationModePropertiesPtrInput is an input type that accepts AuthenticationModePropertiesArgs, AuthenticationModePropertiesPtr and AuthenticationModePropertiesPtrOutput values.
+// You can construct a concrete instance of `AuthenticationModePropertiesPtrInput` via:
+//
+//	        AuthenticationModePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AuthenticationModePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput
+	ToAuthenticationModePropertiesPtrOutputWithContext(context.Context) AuthenticationModePropertiesPtrOutput
+}
+
+type authenticationModePropertiesPtrType AuthenticationModePropertiesArgs
+
+func AuthenticationModePropertiesPtr(v *AuthenticationModePropertiesArgs) AuthenticationModePropertiesPtrInput {
+	return (*authenticationModePropertiesPtrType)(v)
+}
+
+func (*authenticationModePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return i.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
+}
+
+type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesOutput() AuthenticationModePropertiesOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesOutputWithContext(ctx context.Context) AuthenticationModePropertiesOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return o.ToAuthenticationModePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthenticationModeProperties) *AuthenticationModeProperties {
+		return &v
+	}).(AuthenticationModePropertiesPtrOutput)
+}
+
+// Passwords used for this user account. You can create up to two passwords for each user.
+func (o AuthenticationModePropertiesOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationModeProperties) []string { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+// Authentication Type
+func (o AuthenticationModePropertiesOutput) Type() UserAuthenticationModePropertiesTypeOutput {
+	return o.ApplyT(func(v AuthenticationModeProperties) UserAuthenticationModePropertiesType { return v.Type }).(UserAuthenticationModePropertiesTypeOutput)
+}
+
+type AuthenticationModePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AuthenticationModePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AuthenticationModeProperties)(nil)).Elem()
+}
+
+func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
+	return o
+}
+
+func (o AuthenticationModePropertiesPtrOutput) Elem() AuthenticationModePropertiesOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) AuthenticationModeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AuthenticationModeProperties
+		return ret
+	}).(AuthenticationModePropertiesOutput)
+}
+
+// Passwords used for this user account. You can create up to two passwords for each user.
+func (o AuthenticationModePropertiesPtrOutput) Passwords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Passwords
+	}).(pulumi.StringArrayOutput)
+}
+
+// Authentication Type
+func (o AuthenticationModePropertiesPtrOutput) Type() UserAuthenticationModePropertiesTypePtrOutput {
+	return o.ApplyT(func(v *AuthenticationModeProperties) *UserAuthenticationModePropertiesType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(UserAuthenticationModePropertiesTypePtrOutput)
+}
+
 type CacheClusterCloudWatchLogsDestinationDetails struct {
 	LogGroup string `pulumi:"logGroup"`
 }
@@ -1848,6 +2004,8 @@ func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationModePropertiesPtrInput)(nil)).Elem(), AuthenticationModePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetailsInput)(nil)).Elem(), CacheClusterCloudWatchLogsDestinationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterCloudWatchLogsDestinationDetailsPtrInput)(nil)).Elem(), CacheClusterCloudWatchLogsDestinationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheClusterDestinationDetailsInput)(nil)).Elem(), CacheClusterDestinationDetailsArgs{})
@@ -1880,6 +2038,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupTagArrayInput)(nil)).Elem(), SecurityGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagInput)(nil)).Elem(), SubnetGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagArrayInput)(nil)).Elem(), SubnetGroupTagArray{})
+	pulumi.RegisterOutputType(AuthenticationModePropertiesOutput{})
+	pulumi.RegisterOutputType(AuthenticationModePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsOutput{})
 	pulumi.RegisterOutputType(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CacheClusterDestinationDetailsOutput{})

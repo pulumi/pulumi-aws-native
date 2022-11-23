@@ -51,7 +51,9 @@ export class CacheCluster extends pulumi.CustomResource {
     public readonly configurationEndpointPort!: pulumi.Output<string | undefined>;
     public readonly engine!: pulumi.Output<string>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
+    public readonly ipDiscovery!: pulumi.Output<string | undefined>;
     public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.CacheClusterLogDeliveryConfigurationRequest[] | undefined>;
+    public readonly networkType!: pulumi.Output<string | undefined>;
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     public readonly numCacheNodes!: pulumi.Output<number>;
     public readonly port!: pulumi.Output<number | undefined>;
@@ -101,7 +103,9 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["configurationEndpointPort"] = args ? args.configurationEndpointPort : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["ipDiscovery"] = args ? args.ipDiscovery : undefined;
             resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["notificationTopicArn"] = args ? args.notificationTopicArn : undefined;
             resourceInputs["numCacheNodes"] = args ? args.numCacheNodes : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
@@ -129,7 +133,9 @@ export class CacheCluster extends pulumi.CustomResource {
             resourceInputs["configurationEndpointPort"] = undefined /*out*/;
             resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["ipDiscovery"] = undefined /*out*/;
             resourceInputs["logDeliveryConfigurations"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["notificationTopicArn"] = undefined /*out*/;
             resourceInputs["numCacheNodes"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
@@ -166,7 +172,9 @@ export interface CacheClusterArgs {
     configurationEndpointPort?: pulumi.Input<string>;
     engine: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
+    ipDiscovery?: pulumi.Input<string>;
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.CacheClusterLogDeliveryConfigurationRequestArgs>[]>;
+    networkType?: pulumi.Input<string>;
     notificationTopicArn?: pulumi.Input<string>;
     numCacheNodes: pulumi.Input<number>;
     port?: pulumi.Input<number>;

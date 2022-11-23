@@ -44,7 +44,6 @@ export interface GetModelPackageResult {
     readonly modelPackageStatusDetails?: outputs.sagemaker.ModelPackageStatusDetails;
     readonly modelPackageStatusItem?: outputs.sagemaker.ModelPackageStatusItem;
     readonly modelPackageVersion?: number;
-    readonly tag?: outputs.sagemaker.ModelPackageTag;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -65,7 +65,6 @@ export class ModelPackage extends pulumi.CustomResource {
     public readonly modelPackageVersion!: pulumi.Output<number | undefined>;
     public readonly samplePayloadUrl!: pulumi.Output<string | undefined>;
     public readonly sourceAlgorithmSpecification!: pulumi.Output<outputs.sagemaker.ModelPackageSourceAlgorithmSpecification | undefined>;
-    public readonly tag!: pulumi.Output<outputs.sagemaker.ModelPackageTag | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -109,7 +108,6 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageVersion"] = args ? args.modelPackageVersion : undefined;
             resourceInputs["samplePayloadUrl"] = args ? args.samplePayloadUrl : undefined;
             resourceInputs["sourceAlgorithmSpecification"] = args ? args.sourceAlgorithmSpecification : undefined;
-            resourceInputs["tag"] = args ? args.tag : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["task"] = args ? args.task : undefined;
             resourceInputs["validationSpecification"] = args ? args.validationSpecification : undefined;
@@ -145,7 +143,6 @@ export class ModelPackage extends pulumi.CustomResource {
             resourceInputs["modelPackageVersion"] = undefined /*out*/;
             resourceInputs["samplePayloadUrl"] = undefined /*out*/;
             resourceInputs["sourceAlgorithmSpecification"] = undefined /*out*/;
-            resourceInputs["tag"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["task"] = undefined /*out*/;
             resourceInputs["validationSpecification"] = undefined /*out*/;
@@ -184,7 +181,6 @@ export interface ModelPackageArgs {
     modelPackageVersion?: pulumi.Input<number>;
     samplePayloadUrl?: pulumi.Input<string>;
     sourceAlgorithmSpecification?: pulumi.Input<inputs.sagemaker.ModelPackageSourceAlgorithmSpecificationArgs>;
-    tag?: pulumi.Input<inputs.sagemaker.ModelPackageTagArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

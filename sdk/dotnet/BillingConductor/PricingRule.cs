@@ -29,6 +29,12 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<int> AssociatedPricingPlanCount { get; private set; } = null!;
 
         /// <summary>
+        /// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+        /// </summary>
+        [Output("billingEntity")]
+        public Output<Pulumi.AwsNative.BillingConductor.PricingRuleBillingEntity?> BillingEntity { get; private set; } = null!;
+
+        /// <summary>
         /// Creation timestamp in UNIX epoch time format
         /// </summary>
         [Output("creationTime")]
@@ -124,6 +130,12 @@ namespace Pulumi.AwsNative.BillingConductor
 
     public sealed class PricingRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
+        /// </summary>
+        [Input("billingEntity")]
+        public Input<Pulumi.AwsNative.BillingConductor.PricingRuleBillingEntity>? BillingEntity { get; set; }
+
         /// <summary>
         /// Pricing rule description
         /// </summary>

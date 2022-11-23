@@ -233,6 +233,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
             __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["authorizer_id"] = None
         super(Authorizer, __self__).__init__(
             'aws-native:apigatewayv2:Authorizer',
             resource_name,
@@ -257,6 +258,7 @@ class Authorizer(pulumi.CustomResource):
 
         __props__.__dict__["api_id"] = None
         __props__.__dict__["authorizer_credentials_arn"] = None
+        __props__.__dict__["authorizer_id"] = None
         __props__.__dict__["authorizer_payload_format_version"] = None
         __props__.__dict__["authorizer_result_ttl_in_seconds"] = None
         __props__.__dict__["authorizer_type"] = None
@@ -277,6 +279,11 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerCredentialsArn")
     def authorizer_credentials_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "authorizer_credentials_arn")
+
+    @property
+    @pulumi.getter(name="authorizerId")
+    def authorizer_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "authorizer_id")
 
     @property
     @pulumi.getter(name="authorizerPayloadFormatVersion")

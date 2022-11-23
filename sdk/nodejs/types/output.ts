@@ -3665,6 +3665,11 @@ export namespace appsync {
         relationalDatabaseSourceType: string;
     }
 
+    export interface FunctionConfigurationAppSyncRuntime {
+        name: string;
+        runtimeVersion: string;
+    }
+
     export interface FunctionConfigurationLambdaConflictHandlerConfig {
         lambdaConflictHandlerArn?: string;
     }
@@ -3717,6 +3722,11 @@ export namespace appsync {
         awsRegion?: string;
         defaultAction?: string;
         userPoolId?: string;
+    }
+
+    export interface ResolverAppSyncRuntime {
+        name: string;
+        runtimeVersion: string;
     }
 
     export interface ResolverCachingConfig {
@@ -3973,6 +3983,7 @@ export namespace autoscaling {
         acceleratorNames?: string[];
         acceleratorTotalMemoryMiB?: outputs.autoscaling.AutoScalingGroupAcceleratorTotalMemoryMiBRequest;
         acceleratorTypes?: string[];
+        allowedInstanceTypes?: string[];
         bareMetal?: string;
         baselineEbsBandwidthMbps?: outputs.autoscaling.AutoScalingGroupBaselineEbsBandwidthMbpsRequest;
         burstablePerformance?: string;
@@ -3983,6 +3994,7 @@ export namespace autoscaling {
         localStorageTypes?: string[];
         memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
         memoryMiB?: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
+        networkBandwidthGbps?: outputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequest;
         networkInterfaceCount?: outputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequest;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
@@ -4046,6 +4058,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupMixedInstancesPolicy {
         instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
         launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
+    }
+
+    export interface AutoScalingGroupNetworkBandwidthGbpsRequest {
+        max?: number;
+        min?: number;
     }
 
     export interface AutoScalingGroupNetworkInterfaceCountRequest {
@@ -5197,6 +5214,33 @@ export namespace cloudfront {
         comment: string;
     }
 
+    export interface ContinuousDeploymentPolicyConfig {
+        enabled: boolean;
+        stagingDistributionDnsNames: string[];
+        trafficConfig?: outputs.cloudfront.ContinuousDeploymentPolicyTrafficConfig;
+    }
+
+    export interface ContinuousDeploymentPolicySessionStickinessConfig {
+        idleTTL: number;
+        maximumTTL: number;
+    }
+
+    export interface ContinuousDeploymentPolicySingleHeaderConfig {
+        header: string;
+        value: string;
+    }
+
+    export interface ContinuousDeploymentPolicySingleWeightConfig {
+        sessionStickinessConfig?: outputs.cloudfront.ContinuousDeploymentPolicySessionStickinessConfig;
+        weight: number;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfig {
+        singleHeaderConfig?: outputs.cloudfront.ContinuousDeploymentPolicySingleHeaderConfig;
+        singleWeightConfig?: outputs.cloudfront.ContinuousDeploymentPolicySingleWeightConfig;
+        type: enums.cloudfront.ContinuousDeploymentPolicyTrafficConfigType;
+    }
+
     export interface DistributionCacheBehavior {
         allowedMethods?: string[];
         cachePolicyId?: string;
@@ -5225,6 +5269,7 @@ export namespace cloudfront {
         cNAMEs?: string[];
         cacheBehaviors?: outputs.cloudfront.DistributionCacheBehavior[];
         comment?: string;
+        continuousDeploymentPolicyId?: string;
         customErrorResponses?: outputs.cloudfront.DistributionCustomErrorResponse[];
         customOrigin?: outputs.cloudfront.DistributionLegacyCustomOrigin;
         defaultCacheBehavior: outputs.cloudfront.DistributionDefaultCacheBehavior;
@@ -5238,6 +5283,7 @@ export namespace cloudfront {
         priceClass?: string;
         restrictions?: outputs.cloudfront.DistributionRestrictions;
         s3Origin?: outputs.cloudfront.DistributionLegacyS3Origin;
+        staging?: boolean;
         viewerCertificate?: outputs.cloudfront.DistributionViewerCertificate;
         webACLId?: string;
     }
@@ -5719,91 +5765,31 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
-    /**
-     * Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
-     */
     export interface AlarmDimension {
-        /**
-         * The name of the dimension.
-         */
         name: string;
-        /**
-         * The value for the dimension.
-         */
         value: string;
     }
 
-    /**
-     * The Metric property type represents a specific metric.
-     */
     export interface AlarmMetric {
-        /**
-         * The dimensions for the metric.
-         */
         dimensions?: outputs.cloudwatch.AlarmDimension[];
-        /**
-         * The name of the metric.
-         */
         metricName?: string;
-        /**
-         * The namespace of the metric.
-         */
         namespace?: string;
     }
 
-    /**
-     * This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
-     */
     export interface AlarmMetricDataQuery {
-        /**
-         * The ID of the account where the metrics are located, if this is a cross-account alarm.
-         */
         accountId?: string;
-        /**
-         * The math expression to be performed on the returned data.
-         */
         expression?: string;
-        /**
-         * A short name used to tie this object to the results in the response.
-         */
         id: string;
-        /**
-         * A human-readable label for this metric or expression.
-         */
         label?: string;
-        /**
-         * The metric to be returned, along with statistics, period, and units.
-         */
         metricStat?: outputs.cloudwatch.AlarmMetricStat;
-        /**
-         * The period in seconds, over which the statistic is applied.
-         */
         period?: number;
-        /**
-         * This option indicates whether to return the timestamps and raw data values of this metric.
-         */
         returnData?: boolean;
     }
 
-    /**
-     * This structure defines the metric to be returned, along with the statistics, period, and units.
-     */
     export interface AlarmMetricStat {
-        /**
-         * The metric to return, including the metric name, namespace, and dimensions.
-         */
         metric: outputs.cloudwatch.AlarmMetric;
-        /**
-         * The granularity, in seconds, of the returned data points.
-         */
         period: number;
-        /**
-         * The statistic to return.
-         */
         stat: string;
-        /**
-         * The unit to use for the returned data points.
-         */
         unit?: string;
     }
 
@@ -11510,6 +11496,16 @@ export namespace ecs {
     }
 
     /**
+     * Service Connect Configuration default for all services or tasks within this cluster
+     */
+    export interface ClusterServiceConnectDefaults {
+        /**
+         * Service Connect Namespace Name or ARN default for all services or tasks within this cluster
+         */
+        namespace?: string;
+    }
+
+    /**
      * The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
      */
     export interface ClusterSettings {
@@ -11802,8 +11798,10 @@ export namespace ecs {
     }
 
     export interface TaskDefinitionPortMapping {
+        appProtocol?: enums.ecs.TaskDefinitionPortMappingAppProtocol;
         containerPort?: number;
         hostPort?: number;
+        name?: string;
         protocol?: string;
     }
 
@@ -12284,6 +12282,17 @@ export namespace eks {
 }
 
 export namespace elasticache {
+    export interface AuthenticationModeProperties {
+        /**
+         * Passwords used for this user account. You can create up to two passwords for each user.
+         */
+        passwords?: string[];
+        /**
+         * Authentication Type
+         */
+        type: enums.elasticache.UserAuthenticationModePropertiesType;
+    }
+
     export interface CacheClusterCloudWatchLogsDestinationDetails {
         logGroup: string;
     }
@@ -12787,23 +12796,50 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttribute {
+        /**
+         * The value of the attribute.
+         */
         key?: string;
+        /**
+         * The name of the attribute.
+         */
         value?: string;
     }
 
     export interface TargetGroupMatcher {
+        /**
+         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
+         */
         grpcCode?: string;
+        /**
+         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+         */
         httpCode?: string;
     }
 
     export interface TargetGroupTag {
+        /**
+         * The value for the tag. 
+         */
         key: string;
+        /**
+         * The key name of the tag. 
+         */
         value: string;
     }
 
     export interface TargetGroupTargetDescription {
+        /**
+         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+         */
         availabilityZone?: string;
+        /**
+         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+         */
         id: string;
+        /**
+         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
+         */
         port?: number;
     }
 
@@ -14519,6 +14555,16 @@ export namespace gamelift {
         key: string;
         objectVersion?: string;
         roleArn: string;
+    }
+
+    /**
+     * Configuration for Anywhere fleet.
+     */
+    export interface FleetAnywhereConfiguration {
+        /**
+         * Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+         */
+        cost: string;
     }
 
     /**
@@ -16600,6 +16646,7 @@ export namespace iot {
         deviceCertificateKeyQualityCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         deviceCertificateSharedCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         intermediateCaRevokedForActiveDeviceCertificatesCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
+        ioTPolicyPotentialMisConfigurationCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotPolicyOverlyPermissiveCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotRoleAliasAllowsAccessToUnusedServicesCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
         iotRoleAliasOverlyPermissiveCheck?: outputs.iot.AccountAuditConfigurationAuditCheckConfiguration;
@@ -16728,10 +16775,6 @@ export namespace iot {
         value: string;
     }
 
-    export interface JobExecutionsRetryConfigProperties {
-        retryCriteriaList?: outputs.iot.JobTemplateRetryCriteria[];
-    }
-
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -16789,14 +16832,6 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteria {
         numberOfNotifiedThings?: number;
         numberOfSucceededThings?: number;
-    }
-
-    /**
-     * Specifies how many times a failure type should be retried.
-     */
-    export interface JobTemplateRetryCriteria {
-        failureType?: enums.iot.JobTemplateJobRetryFailureType;
-        numberOfRetries?: number;
     }
 
     /**
@@ -20755,6 +20790,28 @@ export namespace kinesisanalyticsv2 {
 }
 
 export namespace kinesisfirehose {
+    export interface DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
+        intervalInSeconds?: number;
+        sizeInMBs?: number;
+    }
+
+    export interface DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration {
+        bufferingHints?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessBufferingHints;
+        cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
+        collectionEndpoint?: string;
+        indexName: string;
+        processingConfiguration?: outputs.kinesisfirehose.DeliveryStreamProcessingConfiguration;
+        retryOptions?: outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessRetryOptions;
+        roleARN: string;
+        s3BackupMode?: enums.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode;
+        s3Configuration: outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration;
+        vpcConfiguration?: outputs.kinesisfirehose.DeliveryStreamVpcConfiguration;
+    }
+
+    export interface DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
+        durationInSeconds?: number;
+    }
+
     export interface DeliveryStreamAmazonopensearchserviceBufferingHints {
         intervalInSeconds?: number;
         sizeInMBs?: number;

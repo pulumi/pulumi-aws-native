@@ -18,23 +18,31 @@ class FunctionConfigurationArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  data_source_name: pulumi.Input[str],
-                 function_version: pulumi.Input[str],
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 function_version: Optional[pulumi.Input[str]] = None,
                  max_batch_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  request_mapping_template: Optional[pulumi.Input[str]] = None,
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']] = None,
                  sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None):
         """
         The set of arguments for constructing a FunctionConfiguration resource.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "data_source_name", data_source_name)
-        pulumi.set(__self__, "function_version", function_version)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if code_s3_location is not None:
+            pulumi.set(__self__, "code_s3_location", code_s3_location)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if function_version is not None:
+            pulumi.set(__self__, "function_version", function_version)
         if max_batch_size is not None:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
         if name is not None:
@@ -47,6 +55,8 @@ class FunctionConfigurationArgs:
             pulumi.set(__self__, "response_mapping_template", response_mapping_template)
         if response_mapping_template_s3_location is not None:
             pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
         if sync_config is not None:
             pulumi.set(__self__, "sync_config", sync_config)
 
@@ -69,13 +79,22 @@ class FunctionConfigurationArgs:
         pulumi.set(self, "data_source_name", value)
 
     @property
-    @pulumi.getter(name="functionVersion")
-    def function_version(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "function_version")
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "code")
 
-    @function_version.setter
-    def function_version(self, value: pulumi.Input[str]):
-        pulumi.set(self, "function_version", value)
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "code_s3_location")
+
+    @code_s3_location.setter
+    def code_s3_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code_s3_location", value)
 
     @property
     @pulumi.getter
@@ -85,6 +104,15 @@ class FunctionConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="functionVersion")
+    def function_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "function_version")
+
+    @function_version.setter
+    def function_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_version", value)
 
     @property
     @pulumi.getter(name="maxBatchSize")
@@ -141,6 +169,15 @@ class FunctionConfigurationArgs:
         pulumi.set(self, "response_mapping_template_s3_location", value)
 
     @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']]):
+        pulumi.set(self, "runtime", value)
+
+    @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']]:
         return pulumi.get(self, "sync_config")
@@ -161,6 +198,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
@@ -170,6 +209,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
                  __props__=None):
         """
@@ -203,6 +243,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
+                 code: Optional[pulumi.Input[str]] = None,
+                 code_s3_location: Optional[pulumi.Input[str]] = None,
                  data_source_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  function_version: Optional[pulumi.Input[str]] = None,
@@ -212,6 +254,7 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
                  response_mapping_template: Optional[pulumi.Input[str]] = None,
                  response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationAppSyncRuntimeArgs']]] = None,
                  sync_config: Optional[pulumi.Input[pulumi.InputType['FunctionConfigurationSyncConfigArgs']]] = None,
                  __props__=None):
         pulumi.log.warn("""FunctionConfiguration is deprecated: FunctionConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -226,12 +269,12 @@ class FunctionConfiguration(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
+            __props__.__dict__["code"] = code
+            __props__.__dict__["code_s3_location"] = code_s3_location
             if data_source_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_name'")
             __props__.__dict__["data_source_name"] = data_source_name
             __props__.__dict__["description"] = description
-            if function_version is None and not opts.urn:
-                raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
             __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["name"] = name
@@ -239,6 +282,7 @@ class FunctionConfiguration(pulumi.CustomResource):
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
             __props__.__dict__["response_mapping_template"] = response_mapping_template
             __props__.__dict__["response_mapping_template_s3_location"] = response_mapping_template_s3_location
+            __props__.__dict__["runtime"] = runtime
             __props__.__dict__["sync_config"] = sync_config
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_id"] = None
@@ -265,6 +309,8 @@ class FunctionConfiguration(pulumi.CustomResource):
         __props__ = FunctionConfigurationArgs.__new__(FunctionConfigurationArgs)
 
         __props__.__dict__["api_id"] = None
+        __props__.__dict__["code"] = None
+        __props__.__dict__["code_s3_location"] = None
         __props__.__dict__["data_source_name"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["function_arn"] = None
@@ -276,6 +322,7 @@ class FunctionConfiguration(pulumi.CustomResource):
         __props__.__dict__["request_mapping_template_s3_location"] = None
         __props__.__dict__["response_mapping_template"] = None
         __props__.__dict__["response_mapping_template_s3_location"] = None
+        __props__.__dict__["runtime"] = None
         __props__.__dict__["sync_config"] = None
         return FunctionConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -283,6 +330,16 @@ class FunctionConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter
+    def code(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
@@ -306,7 +363,7 @@ class FunctionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionVersion")
-    def function_version(self) -> pulumi.Output[str]:
+    def function_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "function_version")
 
     @property
@@ -338,6 +395,11 @@ class FunctionConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="responseMappingTemplateS3Location")
     def response_mapping_template_s3_location(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "response_mapping_template_s3_location")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Output[Optional['outputs.FunctionConfigurationAppSyncRuntime']]:
+        return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")

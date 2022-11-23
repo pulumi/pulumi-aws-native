@@ -10,39 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch.Outputs
 {
 
-    /// <summary>
-    /// This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
-    /// </summary>
     [OutputType]
     public sealed class AlarmMetricDataQuery
     {
-        /// <summary>
-        /// The ID of the account where the metrics are located, if this is a cross-account alarm.
-        /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// The math expression to be performed on the returned data.
-        /// </summary>
         public readonly string? Expression;
-        /// <summary>
-        /// A short name used to tie this object to the results in the response.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// A human-readable label for this metric or expression.
-        /// </summary>
         public readonly string? Label;
-        /// <summary>
-        /// The metric to be returned, along with statistics, period, and units.
-        /// </summary>
         public readonly Outputs.AlarmMetricStat? MetricStat;
-        /// <summary>
-        /// The period in seconds, over which the statistic is applied.
-        /// </summary>
         public readonly int? Period;
-        /// <summary>
-        /// This option indicates whether to return the timestamps and raw data values of this metric.
-        /// </summary>
         public readonly bool? ReturnData;
 
         [OutputConstructor]

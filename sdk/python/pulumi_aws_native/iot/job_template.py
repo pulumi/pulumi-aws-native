@@ -23,7 +23,6 @@ class JobTemplateArgs:
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
-                 job_executions_retry_config: Optional[pulumi.Input['JobExecutionsRetryConfigPropertiesArgs']] = None,
                  job_executions_rollout_config: Optional[pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs']] = None,
                  presigned_url_config: Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]] = None,
@@ -50,8 +49,6 @@ class JobTemplateArgs:
             pulumi.set(__self__, "document_source", document_source)
         if job_arn is not None:
             pulumi.set(__self__, "job_arn", job_arn)
-        if job_executions_retry_config is not None:
-            pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
         if job_executions_rollout_config is not None:
             pulumi.set(__self__, "job_executions_rollout_config", job_executions_rollout_config)
         if presigned_url_config is not None:
@@ -131,15 +128,6 @@ class JobTemplateArgs:
         pulumi.set(self, "job_arn", value)
 
     @property
-    @pulumi.getter(name="jobExecutionsRetryConfig")
-    def job_executions_retry_config(self) -> Optional[pulumi.Input['JobExecutionsRetryConfigPropertiesArgs']]:
-        return pulumi.get(self, "job_executions_retry_config")
-
-    @job_executions_retry_config.setter
-    def job_executions_retry_config(self, value: Optional[pulumi.Input['JobExecutionsRetryConfigPropertiesArgs']]):
-        pulumi.set(self, "job_executions_retry_config", value)
-
-    @property
     @pulumi.getter(name="jobExecutionsRolloutConfig")
     def job_executions_rollout_config(self) -> Optional[pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs']]:
         """
@@ -198,7 +186,6 @@ class JobTemplate(pulumi.CustomResource):
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
-                 job_executions_retry_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']]] = None,
                  job_executions_rollout_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']]] = None,
                  job_template_id: Optional[pulumi.Input[str]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
@@ -249,7 +236,6 @@ class JobTemplate(pulumi.CustomResource):
                  document: Optional[pulumi.Input[str]] = None,
                  document_source: Optional[pulumi.Input[str]] = None,
                  job_arn: Optional[pulumi.Input[str]] = None,
-                 job_executions_retry_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']]] = None,
                  job_executions_rollout_config: Optional[pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']]] = None,
                  job_template_id: Optional[pulumi.Input[str]] = None,
                  presigned_url_config: Optional[pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']]] = None,
@@ -271,7 +257,6 @@ class JobTemplate(pulumi.CustomResource):
             __props__.__dict__["document"] = document
             __props__.__dict__["document_source"] = document_source
             __props__.__dict__["job_arn"] = job_arn
-            __props__.__dict__["job_executions_retry_config"] = job_executions_retry_config
             __props__.__dict__["job_executions_rollout_config"] = job_executions_rollout_config
             if job_template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_template_id'")
@@ -308,7 +293,6 @@ class JobTemplate(pulumi.CustomResource):
         __props__.__dict__["document"] = None
         __props__.__dict__["document_source"] = None
         __props__.__dict__["job_arn"] = None
-        __props__.__dict__["job_executions_retry_config"] = None
         __props__.__dict__["job_executions_rollout_config"] = None
         __props__.__dict__["job_template_id"] = None
         __props__.__dict__["presigned_url_config"] = None
@@ -360,11 +344,6 @@ class JobTemplate(pulumi.CustomResource):
         Optional for copying a JobTemplate from a pre-existing Job configuration.
         """
         return pulumi.get(self, "job_arn")
-
-    @property
-    @pulumi.getter(name="jobExecutionsRetryConfig")
-    def job_executions_retry_config(self) -> pulumi.Output[Optional['outputs.JobExecutionsRetryConfigProperties']]:
-        return pulumi.get(self, "job_executions_retry_config")
 
     @property
     @pulumi.getter(name="jobExecutionsRolloutConfig")

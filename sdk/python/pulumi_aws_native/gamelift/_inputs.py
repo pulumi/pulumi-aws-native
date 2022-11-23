@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AliasRoutingStrategyArgs',
     'BuildS3LocationArgs',
+    'FleetAnywhereConfigurationArgs',
     'FleetCertificateConfigurationArgs',
     'FleetIpPermissionArgs',
     'FleetLocationCapacityArgs',
@@ -139,6 +140,29 @@ class BuildS3LocationArgs:
     @object_version.setter
     def object_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_version", value)
+
+
+@pulumi.input_type
+class FleetAnywhereConfigurationArgs:
+    def __init__(__self__, *,
+                 cost: pulumi.Input[str]):
+        """
+        Configuration for Anywhere fleet.
+        :param pulumi.Input[str] cost: Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+        """
+        pulumi.set(__self__, "cost", cost)
+
+    @property
+    @pulumi.getter
+    def cost(self) -> pulumi.Input[str]:
+        """
+        Cost of compute can be specified on Anywhere Fleets to prioritize placement across Queue destinations based on Cost.
+        """
+        return pulumi.get(self, "cost")
+
+    @cost.setter
+    def cost(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cost", value)
 
 
 @pulumi.input_type

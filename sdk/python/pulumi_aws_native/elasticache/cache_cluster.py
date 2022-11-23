@@ -28,7 +28,9 @@ class CacheClusterArgs:
                  configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
                  configuration_endpoint_port: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_availability_zone: Optional[pulumi.Input[str]] = None,
@@ -67,8 +69,12 @@ class CacheClusterArgs:
             pulumi.set(__self__, "configuration_endpoint_port", configuration_endpoint_port)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if ip_discovery is not None:
+            pulumi.set(__self__, "ip_discovery", ip_discovery)
         if log_delivery_configurations is not None:
             pulumi.set(__self__, "log_delivery_configurations", log_delivery_configurations)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if notification_topic_arn is not None:
             pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if port is not None:
@@ -207,6 +213,15 @@ class CacheClusterArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_discovery")
+
+    @ip_discovery.setter
+    def ip_discovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_discovery", value)
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]:
         return pulumi.get(self, "log_delivery_configurations")
@@ -214,6 +229,15 @@ class CacheClusterArgs:
     @log_delivery_configurations.setter
     def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterLogDeliveryConfigurationRequestArgs']]]]):
         pulumi.set(self, "log_delivery_configurations", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter(name="notificationTopicArn")
@@ -363,7 +387,9 @@ class CacheCluster(pulumi.CustomResource):
                  configuration_endpoint_port: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterLogDeliveryConfigurationRequestArgs']]]]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -421,7 +447,9 @@ class CacheCluster(pulumi.CustomResource):
                  configuration_endpoint_port: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_discovery: Optional[pulumi.Input[str]] = None,
                  log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CacheClusterLogDeliveryConfigurationRequestArgs']]]]] = None,
+                 network_type: Optional[pulumi.Input[str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None,
                  num_cache_nodes: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -462,7 +490,9 @@ class CacheCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["ip_discovery"] = ip_discovery
             __props__.__dict__["log_delivery_configurations"] = log_delivery_configurations
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             if num_cache_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'num_cache_nodes'")
@@ -513,7 +543,9 @@ class CacheCluster(pulumi.CustomResource):
         __props__.__dict__["configuration_endpoint_port"] = None
         __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
+        __props__.__dict__["ip_discovery"] = None
         __props__.__dict__["log_delivery_configurations"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["notification_topic_arn"] = None
         __props__.__dict__["num_cache_nodes"] = None
         __props__.__dict__["port"] = None
@@ -587,9 +619,19 @@ class CacheCluster(pulumi.CustomResource):
         return pulumi.get(self, "engine_version")
 
     @property
+    @pulumi.getter(name="ipDiscovery")
+    def ip_discovery(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ip_discovery")
+
+    @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.CacheClusterLogDeliveryConfigurationRequest']]]:
         return pulumi.get(self, "log_delivery_configurations")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="notificationTopicArn")
