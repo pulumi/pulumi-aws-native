@@ -1,5 +1,23 @@
 ## HEAD (Unreleased)
 
+## 0.42.0 (November 23, 2022)
+
+Breaking Changes:
+
+- Resource `aws-native:iot:JobTemplate` no longer has `jobExecutionsRetryConfig`
+- Resource `aws-native:sagemaker:ModelPackage` no longer has in- and output "tag"
+- Function `aws-native:apigatewayv2:getAuthorizer` no longer has in- and output "id"
+
+New resources:
+
+- `cloudfront.ContinuousDeploymentPolicy`
+- `elasticloadbalancingv2.TargetGroup`
+
+New functions:
+
+- `cloudfront.getContinuousDeploymentPolicy`
+- `elasticloadbalancingv2.getTargetGroup`
+
 ## 0.41.0 (November 17, 2022)
 
 Breaking Changes:
