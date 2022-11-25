@@ -242,7 +242,6 @@ AWS::ElasticBeanstalk::ApplicationVersion
 AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
-AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
