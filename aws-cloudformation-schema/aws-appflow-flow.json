@@ -58,6 +58,10 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "MetadataCatalogConfig" : {
+      "description" : "Configurations of metadata catalog of the flow.",
+      "$ref" : "#/definitions/MetadataCatalogConfig"
     }
   },
   "definitions" : {
@@ -182,6 +186,46 @@
         }
       },
       "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    },
+    "MetadataCatalogConfig" : {
+      "description" : "Configurations of metadata catalog of the flow.",
+      "type" : "object",
+      "properties" : {
+        "GlueDataCatalog" : {
+          "description" : "Configurations of glue data catalog of the flow.",
+          "$ref" : "#/definitions/GlueDataCatalog"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "GlueDataCatalog" : {
+      "description" : "Trigger settings of the flow.",
+      "type" : "object",
+      "properties" : {
+        "RoleArn" : {
+          "description" : "A string containing the value for the tag",
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 512,
+          "pattern" : "arn:aws:iam:.*:[0-9]+:.*"
+        },
+        "DatabaseName" : {
+          "description" : "A string containing the value for the tag",
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 255,
+          "pattern" : "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+        },
+        "TablePrefix" : {
+          "description" : "A string containing the value for the tag",
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 128,
+          "pattern" : "[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*"
+        }
+      },
+      "required" : [ "RoleArn", "DatabaseName", "TablePrefix" ],
       "additionalProperties" : false
     },
     "DestinationConnectorProperties" : {
@@ -498,6 +542,9 @@
       "type" : "string",
       "enum" : [ "None", "SingleFile" ]
     },
+    "TargetFileSize" : {
+      "type" : "integer"
+    },
     "PreserveSourceDataTyping" : {
       "type" : "boolean"
     },
@@ -509,6 +556,16 @@
       "type" : "string",
       "enum" : [ "YEAR", "MONTH", "DAY", "HOUR", "MINUTE" ]
     },
+    "PathPrefixHierarchy" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/PathPrefix"
+      }
+    },
+    "PathPrefix" : {
+      "type" : "string",
+      "enum" : [ "EXECUTION_ID", "SCHEMA_VERSION" ]
+    },
     "PrefixConfig" : {
       "type" : "object",
       "properties" : {
@@ -517,6 +574,9 @@
         },
         "PrefixFormat" : {
           "$ref" : "#/definitions/PrefixFormat"
+        },
+        "PathPrefixHierarchy" : {
+          "$ref" : "#/definitions/PathPrefixHierarchy"
         }
       },
       "additionalProperties" : false
@@ -526,6 +586,9 @@
       "properties" : {
         "AggregationType" : {
           "$ref" : "#/definitions/AggregationType"
+        },
+        "TargetFileSize" : {
+          "$ref" : "#/definitions/TargetFileSize"
         }
       }
     },
@@ -982,11 +1045,11 @@
     },
     "TaskType" : {
       "type" : "string",
-      "enum" : [ "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Passthrough", "Truncate", "Validate" ]
+      "enum" : [ "Arithmetic", "Filter", "Map", "Map_all", "Mask", "Merge", "Passthrough", "Truncate", "Validate", "Partition" ]
     },
     "OperatorPropertiesKeys" : {
       "type" : "string",
-      "enum" : [ "VALUE", "VALUES", "DATA_TYPE", "UPPER_BOUND", "LOWER_BOUND", "SOURCE_DATA_TYPE", "DESTINATION_DATA_TYPE", "VALIDATION_ACTION", "MASK_VALUE", "MASK_LENGTH", "TRUNCATE_LENGTH", "MATH_OPERATION_FIELDS_ORDER", "CONCAT_FORMAT", "SUBFIELD_CATEGORY_MAP", "EXCLUDE_SOURCE_FIELDS_LIST", "INCLUDE_NEW_FIELDS" ]
+      "enum" : [ "VALUE", "VALUES", "DATA_TYPE", "UPPER_BOUND", "LOWER_BOUND", "SOURCE_DATA_TYPE", "DESTINATION_DATA_TYPE", "VALIDATION_ACTION", "MASK_VALUE", "MASK_LENGTH", "TRUNCATE_LENGTH", "MATH_OPERATION_FIELDS_ORDER", "CONCAT_FORMAT", "SUBFIELD_CATEGORY_MAP", "EXCLUDE_SOURCE_FIELDS_LIST", "INCLUDE_NEW_FIELDS", "ORDERED_PARTITION_KEYS_LIST" ]
     },
     "TaskPropertiesObject" : {
       "description" : "An object used to store task related info",

@@ -2534,6 +2534,10 @@
                     "type": "string",
                     "description": "The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key."
                 },
+                "metadataCatalogConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowMetadataCatalogConfig",
+                    "description": "Configurations of metadata catalog of the flow."
+                },
                 "sourceFlowConfig": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceFlowConfig",
                     "description": "Configurations of Source connector of the flow."
@@ -2580,6 +2584,10 @@
                 "kMSArn": {
                     "type": "string",
                     "description": "The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key."
+                },
+                "metadataCatalogConfig": {
+                    "$ref": "#/types/aws-native:appflow:FlowMetadataCatalogConfig",
+                    "description": "Configurations of metadata catalog of the flow."
                 },
                 "sourceFlowConfig": {
                     "$ref": "#/types/aws-native:appflow:FlowSourceFlowConfig",
@@ -17587,214 +17595,6 @@
                 "actions/*/AuthenticateOidcConfig/ClientSecret",
                 "actions/*/ForwardConfig",
                 "actions/*/TargetGroupArn"
-            ]
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "inputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean",
-                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer",
-                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
-                },
-                "healthCheckPath": {
-                    "type": "string",
-                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
-                },
-                "healthCheckPort": {
-                    "type": "string",
-                    "description": "The port the load balancer uses when performing health checks on targets. "
-                },
-                "healthCheckProtocol": {
-                    "type": "string",
-                    "description": "The protocol the load balancer uses when performing health checks on targets. "
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer",
-                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
-                },
-                "healthyThresholdCount": {
-                    "type": "integer",
-                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
-                },
-                "ipAddressType": {
-                    "type": "string",
-                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
-                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the target group."
-                },
-                "port": {
-                    "type": "integer",
-                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
-                },
-                "protocol": {
-                    "type": "string",
-                    "description": "The protocol to use for routing traffic to the targets."
-                },
-                "protocolVersion": {
-                    "type": "string",
-                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    },
-                    "description": "The tags."
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    },
-                    "description": "The attributes."
-                },
-                "targetType": {
-                    "type": "string",
-                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    },
-                    "description": "The targets."
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer",
-                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
-                }
-            },
-            "outputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean",
-                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer",
-                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
-                },
-                "healthCheckPath": {
-                    "type": "string",
-                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
-                },
-                "healthCheckPort": {
-                    "type": "string",
-                    "description": "The port the load balancer uses when performing health checks on targets. "
-                },
-                "healthCheckProtocol": {
-                    "type": "string",
-                    "description": "The protocol the load balancer uses when performing health checks on targets. "
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer",
-                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
-                },
-                "healthyThresholdCount": {
-                    "type": "integer",
-                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
-                },
-                "ipAddressType": {
-                    "type": "string",
-                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
-                },
-                "loadBalancerArns": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group."
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
-                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the target group."
-                },
-                "port": {
-                    "type": "integer",
-                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
-                },
-                "protocol": {
-                    "type": "string",
-                    "description": "The protocol to use for routing traffic to the targets."
-                },
-                "protocolVersion": {
-                    "type": "string",
-                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    },
-                    "description": "The tags."
-                },
-                "targetGroupArn": {
-                    "type": "string",
-                    "description": "The ARN of the Target Group"
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    },
-                    "description": "The attributes."
-                },
-                "targetGroupFullName": {
-                    "type": "string",
-                    "description": "The full name of the target group."
-                },
-                "targetGroupName": {
-                    "type": "string",
-                    "description": "The name of the target group."
-                },
-                "targetType": {
-                    "type": "string",
-                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    },
-                    "description": "The targets."
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer",
-                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
-                },
-                "vpcId": {
-                    "type": "string",
-                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name"
-            },
-            "createOnly": [
-                "ipAddressType",
-                "name",
-                "port",
-                "protocol",
-                "protocolVersion",
-                "targetType",
-                "vpcId"
             ]
         },
         "aws-native:emr:SecurityConfiguration": {
@@ -34401,6 +34201,106 @@
                 "tags"
             ]
         },
+        "aws-native:oam:Link": {
+            "cf": "AWS::Oam::Link",
+            "inputs": {
+                "labelTemplate": {
+                    "type": "string"
+                },
+                "resourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:oam:LinkResourceType"
+                    }
+                },
+                "sinkIdentifier": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Tags to apply to the link"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "label": {
+                    "type": "string"
+                },
+                "labelTemplate": {
+                    "type": "string"
+                },
+                "resourceTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:oam:LinkResourceType"
+                    }
+                },
+                "sinkIdentifier": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Tags to apply to the link"
+                }
+            },
+            "required": [
+                "labelTemplate",
+                "resourceTypes",
+                "sinkIdentifier"
+            ],
+            "createOnly": [
+                "labelTemplate",
+                "sinkIdentifier"
+            ],
+            "writeOnly": [
+                "labelTemplate"
+            ]
+        },
+        "aws-native:oam:Sink": {
+            "cf": "AWS::Oam::Sink",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the ObservabilityAccessManager Sink."
+                },
+                "policy": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The policy of this ObservabilityAccessManager Sink."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Tags to apply to the sink"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon resource name (ARN) of the ObservabilityAccessManager Sink"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the ObservabilityAccessManager Sink."
+                },
+                "policy": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The policy of this ObservabilityAccessManager Sink."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Tags to apply to the sink"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "createOnly": [
+                "name"
+            ]
+        },
         "aws-native:opensearchservice:Domain": {
             "cf": "AWS::OpenSearchService::Domain",
             "inputs": {
@@ -50394,13 +50294,33 @@
                     "type": "string",
                     "description": "The object key for the destination bucket in which Amazon AppFlow will place the ﬁles."
                 },
+                "clusterIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier of the Amazon Redshift cluster."
+                },
+                "dataApiRoleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API."
+                },
+                "databaseName": {
+                    "type": "string",
+                    "description": "The name of the Amazon Redshift database that will store the transferred data."
+                },
                 "databaseUrl": {
                     "type": "string",
                     "description": "The JDBC URL of the Amazon Redshift cluster."
                 },
+                "isRedshiftServerless": {
+                    "type": "boolean",
+                    "description": "If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster."
+                },
                 "roleArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the IAM role."
+                },
+                "workgroupName": {
+                    "type": "string",
+                    "description": "The name of the Amazon Redshift serverless workgroup"
                 }
             }
         },
@@ -50670,6 +50590,9 @@
             "properties": {
                 "aggregationType": {
                     "$ref": "#/types/aws-native:appflow:FlowAggregationType"
+                },
+                "targetFileSize": {
+                    "type": "integer"
                 }
             }
         },
@@ -50893,6 +50816,23 @@
         "aws-native:appflow:FlowFileType": {
             "type": "string"
         },
+        "aws-native:appflow:FlowGlueDataCatalog": {
+            "type": "object",
+            "properties": {
+                "databaseName": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                },
+                "tablePrefix": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
+                }
+            }
+        },
         "aws-native:appflow:FlowGoogleAnalyticsConnectorOperator": {
             "type": "string"
         },
@@ -50953,15 +50893,33 @@
                 }
             }
         },
+        "aws-native:appflow:FlowMetadataCatalogConfig": {
+            "type": "object",
+            "properties": {
+                "glueDataCatalog": {
+                    "$ref": "#/types/aws-native:appflow:FlowGlueDataCatalog",
+                    "description": "Configurations of glue data catalog of the flow."
+                }
+            }
+        },
         "aws-native:appflow:FlowOperator": {
             "type": "string"
         },
         "aws-native:appflow:FlowOperatorPropertiesKeys": {
             "type": "string"
         },
+        "aws-native:appflow:FlowPathPrefix": {
+            "type": "string"
+        },
         "aws-native:appflow:FlowPrefixConfig": {
             "type": "object",
             "properties": {
+                "pathPrefixHierarchy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:appflow:FlowPathPrefix"
+                    }
+                },
                 "prefixFormat": {
                     "$ref": "#/types/aws-native:appflow:FlowPrefixFormat"
                 },
@@ -63346,62 +63304,6 @@
                 },
                 "weight": {
                     "type": "integer"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupAttribute": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "The value of the attribute."
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The name of the attribute."
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupMatcher": {
-            "type": "object",
-            "properties": {
-                "grpcCode": {
-                    "type": "string",
-                    "description": "You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12."
-                },
-                "httpCode": {
-                    "type": "string",
-                    "description": "For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. "
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "The value for the tag. "
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The key name of the tag. "
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTargetDescription": {
-            "type": "object",
-            "properties": {
-                "availabilityZone": {
-                    "type": "string",
-                    "description": "An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer."
-                },
-                "id": {
-                    "type": "string",
-                    "description": "The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. "
-                },
-                "port": {
-                    "type": "integer",
-                    "description": "The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function."
                 }
             }
         },
@@ -79137,6 +79039,9 @@
         "aws-native:nimblestudio:StudioTags": {
             "type": "object"
         },
+        "aws-native:oam:LinkResourceType": {
+            "type": "string"
+        },
         "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
             "type": "object",
             "properties": {
@@ -93123,12 +93028,6 @@
                 "ruleArn"
             ]
         },
-        "aws-native:elasticloadbalancingv2:getTargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "ids": [
-                "targetGroupArn"
-            ]
-        },
         "aws-native:emr:getStudio": {
             "cf": "AWS::EMR::Studio",
             "ids": [
@@ -94381,6 +94280,18 @@
             "ids": [
                 "studioComponentId",
                 "studioId"
+            ]
+        },
+        "aws-native:oam:getLink": {
+            "cf": "AWS::Oam::Link",
+            "ids": [
+                "arn"
+            ]
+        },
+        "aws-native:oam:getSink": {
+            "cf": "AWS::Oam::Sink",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:opensearchservice:getDomain": {
