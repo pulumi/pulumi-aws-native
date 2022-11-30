@@ -17,7 +17,7 @@
     }
   },
   "typeName" : "AWS::Lambda::Function",
-  "readOnlyProperties" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus" ],
   "description" : "Resource Type definition for AWS::Lambda::Function",
   "writeOnlyProperties" : [ "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile" ],
   "createOnlyProperties" : [ "/properties/FunctionName" ],
@@ -170,6 +170,36 @@
       },
       "required" : [ "Size" ]
     },
+    "SnapStart" : {
+      "description" : "The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ApplyOn" : {
+          "description" : "Applying SnapStart setting on function resource type.",
+          "type" : "string",
+          "enum" : [ "PublishedVersions", "None" ]
+        }
+      },
+      "required" : [ "ApplyOn" ]
+    },
+    "SnapStartResponse" : {
+      "description" : "The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "OptimizationStatus" : {
+          "description" : "Indicates whether SnapStart is activated for the specified function version.",
+          "type" : "string",
+          "enum" : [ "On", "Off" ]
+        },
+        "ApplyOn" : {
+          "description" : "Applying SnapStart setting on function resource type.",
+          "type" : "string",
+          "enum" : [ "PublishedVersions", "None" ]
+        }
+      }
+    },
     "Code" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -223,6 +253,10 @@
       "description" : "The number of simultaneous executions to reserve for the function.",
       "type" : "integer",
       "minimum" : 0
+    },
+    "SnapStart" : {
+      "description" : "The SnapStart setting of your function",
+      "$ref" : "#/definitions/SnapStart"
     },
     "FileSystemConfigs" : {
       "maxItems" : 1,
@@ -295,6 +329,10 @@
       "description" : "The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime",
       "type" : "string",
       "maxLength" : 128
+    },
+    "SnapStartResponse" : {
+      "description" : "The SnapStart response of your function",
+      "$ref" : "#/definitions/SnapStartResponse"
     },
     "Code" : {
       "description" : "The code for the function.",
