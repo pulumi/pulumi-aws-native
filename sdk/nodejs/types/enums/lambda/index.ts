@@ -51,6 +51,36 @@ export const FunctionPackageType = {
  */
 export type FunctionPackageType = (typeof FunctionPackageType)[keyof typeof FunctionPackageType];
 
+export const FunctionSnapStartApplyOn = {
+    PublishedVersions: "PublishedVersions",
+    None: "None",
+} as const;
+
+/**
+ * Applying SnapStart setting on function resource type.
+ */
+export type FunctionSnapStartApplyOn = (typeof FunctionSnapStartApplyOn)[keyof typeof FunctionSnapStartApplyOn];
+
+export const FunctionSnapStartResponseApplyOn = {
+    PublishedVersions: "PublishedVersions",
+    None: "None",
+} as const;
+
+/**
+ * Applying SnapStart setting on function resource type.
+ */
+export type FunctionSnapStartResponseApplyOn = (typeof FunctionSnapStartResponseApplyOn)[keyof typeof FunctionSnapStartResponseApplyOn];
+
+export const FunctionSnapStartResponseOptimizationStatus = {
+    On: "On",
+    Off: "Off",
+} as const;
+
+/**
+ * Indicates whether SnapStart is activated for the specified function version.
+ */
+export type FunctionSnapStartResponseOptimizationStatus = (typeof FunctionSnapStartResponseOptimizationStatus)[keyof typeof FunctionSnapStartResponseOptimizationStatus];
+
 export const FunctionTracingConfigMode = {
     Active: "Active",
     PassThrough: "PassThrough",

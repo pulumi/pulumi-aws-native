@@ -34,6 +34,7 @@ __all__ = [
     'FunctionEphemeralStorageArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionSnapStartArgs',
     'FunctionTagArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
@@ -688,6 +689,29 @@ class FunctionImageConfigArgs:
     @working_directory.setter
     def working_directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class FunctionSnapStartArgs:
+    def __init__(__self__, *,
+                 apply_on: pulumi.Input['FunctionSnapStartApplyOn']):
+        """
+        The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param pulumi.Input['FunctionSnapStartApplyOn'] apply_on: Applying SnapStart setting on function resource type.
+        """
+        pulumi.set(__self__, "apply_on", apply_on)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> pulumi.Input['FunctionSnapStartApplyOn']:
+        """
+        Applying SnapStart setting on function resource type.
+        """
+        return pulumi.get(self, "apply_on")
+
+    @apply_on.setter
+    def apply_on(self, value: pulumi.Input['FunctionSnapStartApplyOn']):
+        pulumi.set(self, "apply_on", value)
 
 
 @pulumi.input_type

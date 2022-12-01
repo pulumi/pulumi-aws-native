@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("aggregationType")]
         public Input<Pulumi.AwsNative.AppFlow.FlowAggregationType>? AggregationType { get; set; }
 
+        [Input("targetFileSize")]
+        public Input<int>? TargetFileSize { get; set; }
+
         public FlowAggregationConfigArgs()
         {
         }

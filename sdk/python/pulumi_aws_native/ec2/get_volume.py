@@ -51,57 +51,36 @@ class GetVolumeResult:
     @property
     @pulumi.getter(name="autoEnableIO")
     def auto_enable_io(self) -> Optional[bool]:
-        """
-        The Availability Zone in which to create the volume.
-        """
         return pulumi.get(self, "auto_enable_io")
 
     @property
     @pulumi.getter
     def iops(self) -> Optional[int]:
-        """
-        The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
-        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="multiAttachEnabled")
     def multi_attach_enabled(self) -> Optional[bool]:
-        """
-        Indicates whether Amazon EBS Multi-Attach is enabled.
-        """
         return pulumi.get(self, "multi_attach_enabled")
 
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the Outpost.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter
     def size(self) -> Optional[int]:
-        """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
-        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.VolumeTag']]:
-        """
-        The tags to apply to the volume during creation.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def throughput(self) -> Optional[int]:
-        """
-        The throughput that the volume supports, in MiB/s.
-        """
         return pulumi.get(self, "throughput")
 
     @property
@@ -112,9 +91,6 @@ class GetVolumeResult:
     @property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> Optional[str]:
-        """
-        The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
-        """
         return pulumi.get(self, "volume_type")
 
 

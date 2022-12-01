@@ -236,9 +236,17 @@ export const FlowOperatorPropertiesKeys = {
     SubfieldCategoryMap: "SUBFIELD_CATEGORY_MAP",
     ExcludeSourceFieldsList: "EXCLUDE_SOURCE_FIELDS_LIST",
     IncludeNewFields: "INCLUDE_NEW_FIELDS",
+    OrderedPartitionKeysList: "ORDERED_PARTITION_KEYS_LIST",
 } as const;
 
 export type FlowOperatorPropertiesKeys = (typeof FlowOperatorPropertiesKeys)[keyof typeof FlowOperatorPropertiesKeys];
+
+export const FlowPathPrefix = {
+    ExecutionId: "EXECUTION_ID",
+    SchemaVersion: "SCHEMA_VERSION",
+} as const;
+
+export type FlowPathPrefix = (typeof FlowPathPrefix)[keyof typeof FlowPathPrefix];
 
 export const FlowPrefixFormat = {
     Year: "YEAR",
@@ -424,6 +432,7 @@ export const FlowTaskType = {
     Passthrough: "Passthrough",
     Truncate: "Truncate",
     Validate: "Validate",
+    Partition: "Partition",
 } as const;
 
 export type FlowTaskType = (typeof FlowTaskType)[keyof typeof FlowTaskType];

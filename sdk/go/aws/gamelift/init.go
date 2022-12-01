@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GameServerGroup{}
 	case "aws-native:gamelift:GameSessionQueue":
 		r = &GameSessionQueue{}
+	case "aws-native:gamelift:Location":
+		r = &Location{}
 	case "aws-native:gamelift:MatchmakingConfiguration":
 		r = &MatchmakingConfiguration{}
 	case "aws-native:gamelift:MatchmakingRuleSet":

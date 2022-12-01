@@ -565,6 +565,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowOperatorPropertiesKeys SubfieldCategoryMap { get; } = new FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP");
         public static FlowOperatorPropertiesKeys ExcludeSourceFieldsList { get; } = new FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST");
         public static FlowOperatorPropertiesKeys IncludeNewFields { get; } = new FlowOperatorPropertiesKeys("INCLUDE_NEW_FIELDS");
+        public static FlowOperatorPropertiesKeys OrderedPartitionKeysList { get; } = new FlowOperatorPropertiesKeys("ORDERED_PARTITION_KEYS_LIST");
 
         public static bool operator ==(FlowOperatorPropertiesKeys left, FlowOperatorPropertiesKeys right) => left.Equals(right);
         public static bool operator !=(FlowOperatorPropertiesKeys left, FlowOperatorPropertiesKeys right) => !left.Equals(right);
@@ -574,6 +575,34 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowOperatorPropertiesKeys other && Equals(other);
         public bool Equals(FlowOperatorPropertiesKeys other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowPathPrefix : IEquatable<FlowPathPrefix>
+    {
+        private readonly string _value;
+
+        private FlowPathPrefix(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowPathPrefix ExecutionId { get; } = new FlowPathPrefix("EXECUTION_ID");
+        public static FlowPathPrefix SchemaVersion { get; } = new FlowPathPrefix("SCHEMA_VERSION");
+
+        public static bool operator ==(FlowPathPrefix left, FlowPathPrefix right) => left.Equals(right);
+        public static bool operator !=(FlowPathPrefix left, FlowPathPrefix right) => !left.Equals(right);
+
+        public static explicit operator string(FlowPathPrefix value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowPathPrefix other && Equals(other);
+        public bool Equals(FlowPathPrefix other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -984,6 +1013,7 @@ namespace Pulumi.AwsNative.AppFlow
         public static FlowTaskType Passthrough { get; } = new FlowTaskType("Passthrough");
         public static FlowTaskType Truncate { get; } = new FlowTaskType("Truncate");
         public static FlowTaskType Validate { get; } = new FlowTaskType("Validate");
+        public static FlowTaskType Partition { get; } = new FlowTaskType("Partition");
 
         public static bool operator ==(FlowTaskType left, FlowTaskType right) => left.Equals(right);
         public static bool operator !=(FlowTaskType left, FlowTaskType right) => !left.Equals(right);

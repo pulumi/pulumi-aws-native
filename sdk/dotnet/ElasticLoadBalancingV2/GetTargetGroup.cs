@@ -27,11 +27,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetTargetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the Target Group
-        /// </summary>
-        [Input("targetGroupArn", required: true)]
-        public string TargetGroupArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetTargetGroupArgs()
         {
@@ -41,11 +38,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class GetTargetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ARN of the Target Group
-        /// </summary>
-        [Input("targetGroupArn", required: true)]
-        public Input<string> TargetGroupArn { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetTargetGroupInvokeArgs()
         {
@@ -57,69 +51,22 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     [OutputType]
     public sealed class GetTargetGroupResult
     {
-        /// <summary>
-        /// Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
-        /// </summary>
         public readonly bool? HealthCheckEnabled;
-        /// <summary>
-        /// The approximate amount of time, in seconds, between health checks of an individual target.
-        /// </summary>
         public readonly int? HealthCheckIntervalSeconds;
-        /// <summary>
-        /// [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-        /// </summary>
         public readonly string? HealthCheckPath;
-        /// <summary>
-        /// The port the load balancer uses when performing health checks on targets. 
-        /// </summary>
         public readonly string? HealthCheckPort;
-        /// <summary>
-        /// The protocol the load balancer uses when performing health checks on targets. 
-        /// </summary>
         public readonly string? HealthCheckProtocol;
-        /// <summary>
-        /// The amount of time, in seconds, during which no response from a target means a failed health check.
-        /// </summary>
         public readonly int? HealthCheckTimeoutSeconds;
-        /// <summary>
-        /// The number of consecutive health checks successes required before considering an unhealthy target healthy. 
-        /// </summary>
         public readonly int? HealthyThresholdCount;
-        /// <summary>
-        /// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
-        /// </summary>
+        public readonly string? Id;
         public readonly ImmutableArray<string> LoadBalancerArns;
-        /// <summary>
-        /// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-        /// </summary>
         public readonly Outputs.TargetGroupMatcher? Matcher;
-        /// <summary>
-        /// The tags.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TargetGroupTag> Tags;
-        /// <summary>
-        /// The ARN of the Target Group
-        /// </summary>
         public readonly string? TargetGroupArn;
-        /// <summary>
-        /// The attributes.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TargetGroupAttribute> TargetGroupAttributes;
-        /// <summary>
-        /// The full name of the target group.
-        /// </summary>
         public readonly string? TargetGroupFullName;
-        /// <summary>
-        /// The name of the target group.
-        /// </summary>
         public readonly string? TargetGroupName;
-        /// <summary>
-        /// The targets.
-        /// </summary>
         public readonly ImmutableArray<Outputs.TargetGroupTargetDescription> Targets;
-        /// <summary>
-        /// The number of consecutive health check failures required before considering a target unhealthy.
-        /// </summary>
         public readonly int? UnhealthyThresholdCount;
 
         [OutputConstructor]
@@ -137,6 +84,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             int? healthCheckTimeoutSeconds,
 
             int? healthyThresholdCount,
+
+            string? id,
 
             ImmutableArray<string> loadBalancerArns,
 
@@ -163,6 +112,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             HealthCheckProtocol = healthCheckProtocol;
             HealthCheckTimeoutSeconds = healthCheckTimeoutSeconds;
             HealthyThresholdCount = healthyThresholdCount;
+            Id = id;
             LoadBalancerArns = loadBalancerArns;
             Matcher = matcher;
             Tags = tags;

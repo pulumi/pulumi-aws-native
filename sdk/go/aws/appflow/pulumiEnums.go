@@ -2599,6 +2599,7 @@ const (
 	FlowOperatorPropertiesKeysSubfieldCategoryMap      = FlowOperatorPropertiesKeys("SUBFIELD_CATEGORY_MAP")
 	FlowOperatorPropertiesKeysExcludeSourceFieldsList  = FlowOperatorPropertiesKeys("EXCLUDE_SOURCE_FIELDS_LIST")
 	FlowOperatorPropertiesKeysIncludeNewFields         = FlowOperatorPropertiesKeys("INCLUDE_NEW_FIELDS")
+	FlowOperatorPropertiesKeysOrderedPartitionKeysList = FlowOperatorPropertiesKeys("ORDERED_PARTITION_KEYS_LIST")
 )
 
 func (FlowOperatorPropertiesKeys) ElementType() reflect.Type {
@@ -2756,6 +2757,215 @@ func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutput()
 
 func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutputWithContext(ctx context.Context) FlowOperatorPropertiesKeysPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOperatorPropertiesKeysPtrOutput)
+}
+
+type FlowPathPrefix string
+
+const (
+	FlowPathPrefixExecutionId   = FlowPathPrefix("EXECUTION_ID")
+	FlowPathPrefixSchemaVersion = FlowPathPrefix("SCHEMA_VERSION")
+)
+
+func (FlowPathPrefix) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPathPrefix)(nil)).Elem()
+}
+
+func (e FlowPathPrefix) ToFlowPathPrefixOutput() FlowPathPrefixOutput {
+	return pulumi.ToOutput(e).(FlowPathPrefixOutput)
+}
+
+func (e FlowPathPrefix) ToFlowPathPrefixOutputWithContext(ctx context.Context) FlowPathPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowPathPrefixOutput)
+}
+
+func (e FlowPathPrefix) ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOutput {
+	return e.ToFlowPathPrefixPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPathPrefix) ToFlowPathPrefixPtrOutputWithContext(ctx context.Context) FlowPathPrefixPtrOutput {
+	return FlowPathPrefix(e).ToFlowPathPrefixOutputWithContext(ctx).ToFlowPathPrefixPtrOutputWithContext(ctx)
+}
+
+func (e FlowPathPrefix) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPathPrefix) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPathPrefix) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPathPrefix) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowPathPrefixOutput struct{ *pulumi.OutputState }
+
+func (FlowPathPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPathPrefix)(nil)).Elem()
+}
+
+func (o FlowPathPrefixOutput) ToFlowPathPrefixOutput() FlowPathPrefixOutput {
+	return o
+}
+
+func (o FlowPathPrefixOutput) ToFlowPathPrefixOutputWithContext(ctx context.Context) FlowPathPrefixOutput {
+	return o
+}
+
+func (o FlowPathPrefixOutput) ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOutput {
+	return o.ToFlowPathPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPathPrefixOutput) ToFlowPathPrefixPtrOutputWithContext(ctx context.Context) FlowPathPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPathPrefix) *FlowPathPrefix {
+		return &v
+	}).(FlowPathPrefixPtrOutput)
+}
+
+func (o FlowPathPrefixOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowPathPrefixOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPathPrefix) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowPathPrefixOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPathPrefixOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPathPrefix) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowPathPrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPathPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPathPrefix)(nil)).Elem()
+}
+
+func (o FlowPathPrefixPtrOutput) ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOutput {
+	return o
+}
+
+func (o FlowPathPrefixPtrOutput) ToFlowPathPrefixPtrOutputWithContext(ctx context.Context) FlowPathPrefixPtrOutput {
+	return o
+}
+
+func (o FlowPathPrefixPtrOutput) Elem() FlowPathPrefixOutput {
+	return o.ApplyT(func(v *FlowPathPrefix) FlowPathPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPathPrefix
+		return ret
+	}).(FlowPathPrefixOutput)
+}
+
+func (o FlowPathPrefixPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPathPrefixPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowPathPrefix) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowPathPrefixInput is an input type that accepts FlowPathPrefixArgs and FlowPathPrefixOutput values.
+// You can construct a concrete instance of `FlowPathPrefixInput` via:
+//
+//	FlowPathPrefixArgs{...}
+type FlowPathPrefixInput interface {
+	pulumi.Input
+
+	ToFlowPathPrefixOutput() FlowPathPrefixOutput
+	ToFlowPathPrefixOutputWithContext(context.Context) FlowPathPrefixOutput
+}
+
+var flowPathPrefixPtrType = reflect.TypeOf((**FlowPathPrefix)(nil)).Elem()
+
+type FlowPathPrefixPtrInput interface {
+	pulumi.Input
+
+	ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOutput
+	ToFlowPathPrefixPtrOutputWithContext(context.Context) FlowPathPrefixPtrOutput
+}
+
+type flowPathPrefixPtr string
+
+func FlowPathPrefixPtr(v string) FlowPathPrefixPtrInput {
+	return (*flowPathPrefixPtr)(&v)
+}
+
+func (*flowPathPrefixPtr) ElementType() reflect.Type {
+	return flowPathPrefixPtrType
+}
+
+func (in *flowPathPrefixPtr) ToFlowPathPrefixPtrOutput() FlowPathPrefixPtrOutput {
+	return pulumi.ToOutput(in).(FlowPathPrefixPtrOutput)
+}
+
+func (in *flowPathPrefixPtr) ToFlowPathPrefixPtrOutputWithContext(ctx context.Context) FlowPathPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowPathPrefixPtrOutput)
+}
+
+// FlowPathPrefixArrayInput is an input type that accepts FlowPathPrefixArray and FlowPathPrefixArrayOutput values.
+// You can construct a concrete instance of `FlowPathPrefixArrayInput` via:
+//
+//	FlowPathPrefixArray{ FlowPathPrefixArgs{...} }
+type FlowPathPrefixArrayInput interface {
+	pulumi.Input
+
+	ToFlowPathPrefixArrayOutput() FlowPathPrefixArrayOutput
+	ToFlowPathPrefixArrayOutputWithContext(context.Context) FlowPathPrefixArrayOutput
+}
+
+type FlowPathPrefixArray []FlowPathPrefix
+
+func (FlowPathPrefixArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowPathPrefix)(nil)).Elem()
+}
+
+func (i FlowPathPrefixArray) ToFlowPathPrefixArrayOutput() FlowPathPrefixArrayOutput {
+	return i.ToFlowPathPrefixArrayOutputWithContext(context.Background())
+}
+
+func (i FlowPathPrefixArray) ToFlowPathPrefixArrayOutputWithContext(ctx context.Context) FlowPathPrefixArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPathPrefixArrayOutput)
+}
+
+type FlowPathPrefixArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowPathPrefixArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowPathPrefix)(nil)).Elem()
+}
+
+func (o FlowPathPrefixArrayOutput) ToFlowPathPrefixArrayOutput() FlowPathPrefixArrayOutput {
+	return o
+}
+
+func (o FlowPathPrefixArrayOutput) ToFlowPathPrefixArrayOutputWithContext(ctx context.Context) FlowPathPrefixArrayOutput {
+	return o
+}
+
+func (o FlowPathPrefixArrayOutput) Index(i pulumi.IntInput) FlowPathPrefixOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowPathPrefix {
+		return vs[0].([]FlowPathPrefix)[vs[1].(int)]
+	}).(FlowPathPrefixOutput)
 }
 
 type FlowPrefixFormat string
@@ -4514,6 +4724,7 @@ const (
 	FlowTaskTypePassthrough = FlowTaskType("Passthrough")
 	FlowTaskTypeTruncate    = FlowTaskType("Truncate")
 	FlowTaskTypeValidate    = FlowTaskType("Validate")
+	FlowTaskTypePartition   = FlowTaskType("Partition")
 )
 
 func (FlowTaskType) ElementType() reflect.Type {
@@ -5571,6 +5782,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPtrInput)(nil)).Elem(), FlowOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysPtrInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixInput)(nil)).Elem(), FlowPathPrefix("EXECUTION_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixPtrInput)(nil)).Elem(), FlowPathPrefix("EXECUTION_ID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixArrayInput)(nil)).Elem(), FlowPathPrefixArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixFormatInput)(nil)).Elem(), FlowPrefixFormat("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixFormatPtrInput)(nil)).Elem(), FlowPrefixFormat("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixTypeInput)(nil)).Elem(), FlowPrefixType("FILENAME"))
@@ -5635,6 +5849,9 @@ func init() {
 	pulumi.RegisterOutputType(FlowOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysPtrOutput{})
+	pulumi.RegisterOutputType(FlowPathPrefixOutput{})
+	pulumi.RegisterOutputType(FlowPathPrefixPtrOutput{})
+	pulumi.RegisterOutputType(FlowPathPrefixArrayOutput{})
 	pulumi.RegisterOutputType(FlowPrefixFormatOutput{})
 	pulumi.RegisterOutputType(FlowPrefixFormatPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixTypeOutput{})

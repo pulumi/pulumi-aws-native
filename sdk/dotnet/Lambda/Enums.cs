@@ -162,6 +162,99 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// Applying SnapStart setting on function resource type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionSnapStartApplyOn : IEquatable<FunctionSnapStartApplyOn>
+    {
+        private readonly string _value;
+
+        private FunctionSnapStartApplyOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionSnapStartApplyOn PublishedVersions { get; } = new FunctionSnapStartApplyOn("PublishedVersions");
+        public static FunctionSnapStartApplyOn None { get; } = new FunctionSnapStartApplyOn("None");
+
+        public static bool operator ==(FunctionSnapStartApplyOn left, FunctionSnapStartApplyOn right) => left.Equals(right);
+        public static bool operator !=(FunctionSnapStartApplyOn left, FunctionSnapStartApplyOn right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionSnapStartApplyOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionSnapStartApplyOn other && Equals(other);
+        public bool Equals(FunctionSnapStartApplyOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Applying SnapStart setting on function resource type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionSnapStartResponseApplyOn : IEquatable<FunctionSnapStartResponseApplyOn>
+    {
+        private readonly string _value;
+
+        private FunctionSnapStartResponseApplyOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionSnapStartResponseApplyOn PublishedVersions { get; } = new FunctionSnapStartResponseApplyOn("PublishedVersions");
+        public static FunctionSnapStartResponseApplyOn None { get; } = new FunctionSnapStartResponseApplyOn("None");
+
+        public static bool operator ==(FunctionSnapStartResponseApplyOn left, FunctionSnapStartResponseApplyOn right) => left.Equals(right);
+        public static bool operator !=(FunctionSnapStartResponseApplyOn left, FunctionSnapStartResponseApplyOn right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionSnapStartResponseApplyOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionSnapStartResponseApplyOn other && Equals(other);
+        public bool Equals(FunctionSnapStartResponseApplyOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether SnapStart is activated for the specified function version.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionSnapStartResponseOptimizationStatus : IEquatable<FunctionSnapStartResponseOptimizationStatus>
+    {
+        private readonly string _value;
+
+        private FunctionSnapStartResponseOptimizationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionSnapStartResponseOptimizationStatus On { get; } = new FunctionSnapStartResponseOptimizationStatus("On");
+        public static FunctionSnapStartResponseOptimizationStatus Off { get; } = new FunctionSnapStartResponseOptimizationStatus("Off");
+
+        public static bool operator ==(FunctionSnapStartResponseOptimizationStatus left, FunctionSnapStartResponseOptimizationStatus right) => left.Equals(right);
+        public static bool operator !=(FunctionSnapStartResponseOptimizationStatus left, FunctionSnapStartResponseOptimizationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionSnapStartResponseOptimizationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionSnapStartResponseOptimizationStatus other && Equals(other);
+        public bool Equals(FunctionSnapStartResponseOptimizationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The tracing mode.
     /// </summary>
     [EnumType]

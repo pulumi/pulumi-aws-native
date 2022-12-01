@@ -1881,7 +1881,7 @@ export namespace appflow {
      * Connector specific configurations needed to create connector profile
      */
     export interface ConnectorProfileConfigArgs {
-        connectorProfileCredentials: pulumi.Input<inputs.appflow.ConnectorProfileCredentialsArgs>;
+        connectorProfileCredentials?: pulumi.Input<inputs.appflow.ConnectorProfileCredentialsArgs>;
         connectorProfileProperties?: pulumi.Input<inputs.appflow.ConnectorProfilePropertiesArgs>;
     }
 
@@ -2100,11 +2100,11 @@ export namespace appflow {
         /**
          * The password that corresponds to the username.
          */
-        password: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
         /**
          * The name of the user.
          */
-        username: pulumi.Input<string>;
+        username?: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileRedshiftConnectorProfilePropertiesArgs {
@@ -2117,13 +2117,33 @@ export namespace appflow {
          */
         bucketPrefix?: pulumi.Input<string>;
         /**
+         * The unique identifier of the Amazon Redshift cluster.
+         */
+        clusterIdentifier?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+         */
+        dataApiRoleArn?: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Redshift database that will store the transferred data.
+         */
+        databaseName?: pulumi.Input<string>;
+        /**
          * The JDBC URL of the Amazon Redshift cluster.
          */
-        databaseUrl: pulumi.Input<string>;
+        databaseUrl?: pulumi.Input<string>;
+        /**
+         * If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+         */
+        isRedshiftServerless?: pulumi.Input<boolean>;
         /**
          * The Amazon Resource Name (ARN) of the IAM role.
          */
         roleArn: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Redshift serverless workgroup
+         */
+        workgroupName?: pulumi.Input<string>;
     }
 
     export interface ConnectorProfileSAPODataConnectorProfileCredentialsArgs {
@@ -2329,6 +2349,7 @@ export namespace appflow {
 
     export interface FlowAggregationConfigArgs {
         aggregationType?: pulumi.Input<enums.appflow.FlowAggregationType>;
+        targetFileSize?: pulumi.Input<number>;
     }
 
     export interface FlowAmplitudeSourcePropertiesArgs {
@@ -2437,6 +2458,24 @@ export namespace appflow {
         object: pulumi.Input<string>;
     }
 
+    /**
+     * Trigger settings of the flow.
+     */
+    export interface FlowGlueDataCatalogArgs {
+        /**
+         * A string containing the value for the tag
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        tablePrefix: pulumi.Input<string>;
+    }
+
     export interface FlowGoogleAnalyticsSourcePropertiesArgs {
         object: pulumi.Input<string>;
     }
@@ -2465,7 +2504,18 @@ export namespace appflow {
         object: pulumi.Input<string>;
     }
 
+    /**
+     * Configurations of metadata catalog of the flow.
+     */
+    export interface FlowMetadataCatalogConfigArgs {
+        /**
+         * Configurations of glue data catalog of the flow.
+         */
+        glueDataCatalog?: pulumi.Input<inputs.appflow.FlowGlueDataCatalogArgs>;
+    }
+
     export interface FlowPrefixConfigArgs {
+        pathPrefixHierarchy?: pulumi.Input<pulumi.Input<enums.appflow.FlowPathPrefix>[]>;
         prefixFormat?: pulumi.Input<enums.appflow.FlowPrefixFormat>;
         prefixType?: pulumi.Input<enums.appflow.FlowPrefixType>;
     }
@@ -11030,13 +11080,7 @@ export namespace ec2 {
     }
 
     export interface VolumeTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
         key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
         value: pulumi.Input<string>;
     }
 }
@@ -12509,50 +12553,23 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttributeArgs {
-        /**
-         * The value of the attribute.
-         */
         key?: pulumi.Input<string>;
-        /**
-         * The name of the attribute.
-         */
         value?: pulumi.Input<string>;
     }
 
     export interface TargetGroupMatcherArgs {
-        /**
-         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-         */
         grpcCode?: pulumi.Input<string>;
-        /**
-         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-         */
         httpCode?: pulumi.Input<string>;
     }
 
     export interface TargetGroupTagArgs {
-        /**
-         * The value for the tag. 
-         */
         key: pulumi.Input<string>;
-        /**
-         * The key name of the tag. 
-         */
         value: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetDescriptionArgs {
-        /**
-         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-         */
         availabilityZone?: pulumi.Input<string>;
-        /**
-         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-         */
         id: pulumi.Input<string>;
-        /**
-         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-         */
         port?: pulumi.Input<number>;
     }
 }
@@ -14444,6 +14461,20 @@ export namespace gamelift {
 
     export interface GameSessionQueueTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -21175,6 +21206,16 @@ export namespace lambda {
          * WorkingDirectory.
          */
         workingDirectory?: pulumi.Input<string>;
+    }
+
+    /**
+     * The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+     */
+    export interface FunctionSnapStartArgs {
+        /**
+         * Applying SnapStart setting on function resource type.
+         */
+        applyOn: pulumi.Input<enums.lambda.FunctionSnapStartApplyOn>;
     }
 
     export interface FunctionTagArgs {

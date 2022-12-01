@@ -1526,10 +1526,6 @@ class TargetGroupAttributeArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: The value of the attribute.
-        :param pulumi.Input[str] value: The name of the attribute.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1538,9 +1534,6 @@ class TargetGroupAttributeArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the attribute.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1550,9 +1543,6 @@ class TargetGroupAttributeArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the attribute.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1565,10 +1555,6 @@ class TargetGroupMatcherArgs:
     def __init__(__self__, *,
                  grpc_code: Optional[pulumi.Input[str]] = None,
                  http_code: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-        :param pulumi.Input[str] http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-        """
         if grpc_code is not None:
             pulumi.set(__self__, "grpc_code", grpc_code)
         if http_code is not None:
@@ -1577,9 +1563,6 @@ class TargetGroupMatcherArgs:
     @property
     @pulumi.getter(name="grpcCode")
     def grpc_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-        """
         return pulumi.get(self, "grpc_code")
 
     @grpc_code.setter
@@ -1589,9 +1572,6 @@ class TargetGroupMatcherArgs:
     @property
     @pulumi.getter(name="httpCode")
     def http_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-        """
         return pulumi.get(self, "http_code")
 
     @http_code.setter
@@ -1604,19 +1584,12 @@ class TargetGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: The value for the tag. 
-        :param pulumi.Input[str] value: The key name of the tag. 
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The value for the tag. 
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1626,9 +1599,6 @@ class TargetGroupTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        The key name of the tag. 
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1642,11 +1612,6 @@ class TargetGroupTargetDescriptionArgs:
                  id: pulumi.Input[str],
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-        :param pulumi.Input[str] availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-        :param pulumi.Input[int] port: The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-        """
         pulumi.set(__self__, "id", id)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -1656,9 +1621,6 @@ class TargetGroupTargetDescriptionArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
-        """
-        The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1668,9 +1630,6 @@ class TargetGroupTargetDescriptionArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -1680,9 +1639,6 @@ class TargetGroupTargetDescriptionArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-        """
         return pulumi.get(self, "port")
 
     @port.setter

@@ -25,16 +25,46 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
+        /// The unique identifier of the Amazon Redshift cluster.
+        /// </summary>
+        [Input("clusterIdentifier")]
+        public Input<string>? ClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+        /// </summary>
+        [Input("dataApiRoleArn")]
+        public Input<string>? DataApiRoleArn { get; set; }
+
+        /// <summary>
+        /// The name of the Amazon Redshift database that will store the transferred data.
+        /// </summary>
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
+
+        /// <summary>
         /// The JDBC URL of the Amazon Redshift cluster.
         /// </summary>
-        [Input("databaseUrl", required: true)]
-        public Input<string> DatabaseUrl { get; set; } = null!;
+        [Input("databaseUrl")]
+        public Input<string>? DatabaseUrl { get; set; }
+
+        /// <summary>
+        /// If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+        /// </summary>
+        [Input("isRedshiftServerless")]
+        public Input<bool>? IsRedshiftServerless { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Amazon Redshift serverless workgroup
+        /// </summary>
+        [Input("workgroupName")]
+        public Input<string>? WorkgroupName { get; set; }
 
         public ConnectorProfileRedshiftConnectorProfilePropertiesArgs()
         {

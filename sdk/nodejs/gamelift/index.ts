@@ -55,6 +55,11 @@ export const getGameSessionQueue: typeof import("./getGameSessionQueue").getGame
 export const getGameSessionQueueOutput: typeof import("./getGameSessionQueue").getGameSessionQueueOutput = null as any;
 utilities.lazyLoad(exports, ["getGameSessionQueue","getGameSessionQueueOutput"], () => require("./getGameSessionQueue"));
 
+export { GetLocationArgs, GetLocationResult, GetLocationOutputArgs } from "./getLocation";
+export const getLocation: typeof import("./getLocation").getLocation = null as any;
+export const getLocationOutput: typeof import("./getLocation").getLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getLocation","getLocationOutput"], () => require("./getLocation"));
+
 export { GetMatchmakingConfigurationArgs, GetMatchmakingConfigurationResult, GetMatchmakingConfigurationOutputArgs } from "./getMatchmakingConfiguration";
 export const getMatchmakingConfiguration: typeof import("./getMatchmakingConfiguration").getMatchmakingConfiguration = null as any;
 export const getMatchmakingConfigurationOutput: typeof import("./getMatchmakingConfiguration").getMatchmakingConfigurationOutput = null as any;
@@ -69,6 +74,11 @@ export { GetScriptArgs, GetScriptResult, GetScriptOutputArgs } from "./getScript
 export const getScript: typeof import("./getScript").getScript = null as any;
 export const getScriptOutput: typeof import("./getScript").getScriptOutput = null as any;
 utilities.lazyLoad(exports, ["getScript","getScriptOutput"], () => require("./getScript"));
+
+export { LocationArgs } from "./location";
+export type Location = import("./location").Location;
+export const Location: typeof import("./location").Location = null as any;
+utilities.lazyLoad(exports, ["Location"], () => require("./location"));
 
 export { MatchmakingConfigurationArgs } from "./matchmakingConfiguration";
 export type MatchmakingConfiguration = import("./matchmakingConfiguration").MatchmakingConfiguration;
@@ -103,6 +113,8 @@ const _module = {
                 return new GameServerGroup(name, <any>undefined, { urn })
             case "aws-native:gamelift:GameSessionQueue":
                 return new GameSessionQueue(name, <any>undefined, { urn })
+            case "aws-native:gamelift:Location":
+                return new Location(name, <any>undefined, { urn })
             case "aws-native:gamelift:MatchmakingConfiguration":
                 return new MatchmakingConfiguration(name, <any>undefined, { urn })
             case "aws-native:gamelift:MatchmakingRuleSet":

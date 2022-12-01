@@ -25,6 +25,8 @@ type Flow struct {
 	FlowName pulumi.StringOutput `pulumi:"flowName"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrOutput `pulumi:"kMSArn"`
+	// Configurations of metadata catalog of the flow.
+	MetadataCatalogConfig FlowMetadataCatalogConfigPtrOutput `pulumi:"metadataCatalogConfig"`
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfigOutput `pulumi:"sourceFlowConfig"`
 	// List of Tags.
@@ -94,6 +96,8 @@ type flowArgs struct {
 	FlowName *string `pulumi:"flowName"`
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn *string `pulumi:"kMSArn"`
+	// Configurations of metadata catalog of the flow.
+	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfig `pulumi:"sourceFlowConfig"`
 	// List of Tags.
@@ -114,6 +118,8 @@ type FlowArgs struct {
 	FlowName pulumi.StringPtrInput
 	// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 	KMSArn pulumi.StringPtrInput
+	// Configurations of metadata catalog of the flow.
+	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
 	// Configurations of Source connector of the flow.
 	SourceFlowConfig FlowSourceFlowConfigInput
 	// List of Tags.
@@ -184,6 +190,11 @@ func (o FlowOutput) FlowName() pulumi.StringOutput {
 // The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
 func (o FlowOutput) KMSArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringPtrOutput { return v.KMSArn }).(pulumi.StringPtrOutput)
+}
+
+// Configurations of metadata catalog of the flow.
+func (o FlowOutput) MetadataCatalogConfig() FlowMetadataCatalogConfigPtrOutput {
+	return o.ApplyT(func(v *Flow) FlowMetadataCatalogConfigPtrOutput { return v.MetadataCatalogConfig }).(FlowMetadataCatalogConfigPtrOutput)
 }
 
 // Configurations of Source connector of the flow.

@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// The password that corresponds to the username.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// The name of the user.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private ConnectorProfileRedshiftConnectorProfileCredentials(
-            string password,
+            string? password,
 
-            string username)
+            string? username)
         {
             Password = password;
             Username = username;

@@ -10,6 +10,9 @@ __all__ = [
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
     'FunctionPackageType',
+    'FunctionSnapStartApplyOn',
+    'FunctionSnapStartResponseApplyOn',
+    'FunctionSnapStartResponseOptimizationStatus',
     'FunctionTracingConfigMode',
     'UrlAllowMethodsItem',
     'UrlAuthType',
@@ -54,6 +57,30 @@ class FunctionPackageType(str, Enum):
     """
     IMAGE = "Image"
     ZIP = "Zip"
+
+
+class FunctionSnapStartApplyOn(str, Enum):
+    """
+    Applying SnapStart setting on function resource type.
+    """
+    PUBLISHED_VERSIONS = "PublishedVersions"
+    NONE = "None"
+
+
+class FunctionSnapStartResponseApplyOn(str, Enum):
+    """
+    Applying SnapStart setting on function resource type.
+    """
+    PUBLISHED_VERSIONS = "PublishedVersions"
+    NONE = "None"
+
+
+class FunctionSnapStartResponseOptimizationStatus(str, Enum):
+    """
+    Indicates whether SnapStart is activated for the specified function version.
+    """
+    ON = "On"
+    OFF = "Off"
 
 
 class FunctionTracingConfigMode(str, Enum):

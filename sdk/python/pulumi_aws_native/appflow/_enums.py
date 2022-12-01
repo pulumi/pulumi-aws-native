@@ -21,6 +21,7 @@ __all__ = [
     'FlowMarketoConnectorOperator',
     'FlowOperator',
     'FlowOperatorPropertiesKeys',
+    'FlowPathPrefix',
     'FlowPrefixFormat',
     'FlowPrefixType',
     'FlowS3ConnectorOperator',
@@ -244,6 +245,12 @@ class FlowOperatorPropertiesKeys(str, Enum):
     SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP"
     EXCLUDE_SOURCE_FIELDS_LIST = "EXCLUDE_SOURCE_FIELDS_LIST"
     INCLUDE_NEW_FIELDS = "INCLUDE_NEW_FIELDS"
+    ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST"
+
+
+class FlowPathPrefix(str, Enum):
+    EXECUTION_ID = "EXECUTION_ID"
+    SCHEMA_VERSION = "SCHEMA_VERSION"
 
 
 class FlowPrefixFormat(str, Enum):
@@ -410,6 +417,7 @@ class FlowTaskType(str, Enum):
     PASSTHROUGH = "Passthrough"
     TRUNCATE = "Truncate"
     VALIDATE = "Validate"
+    PARTITION = "Partition"
 
 
 class FlowTrendmicroConnectorOperator(str, Enum):

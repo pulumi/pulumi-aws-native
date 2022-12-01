@@ -1540,10 +1540,6 @@ class TargetGroupAttribute(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: The value of the attribute.
-        :param str value: The name of the attribute.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1552,17 +1548,11 @@ class TargetGroupAttribute(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The value of the attribute.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The name of the attribute.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1590,10 +1580,6 @@ class TargetGroupMatcher(dict):
     def __init__(__self__, *,
                  grpc_code: Optional[str] = None,
                  http_code: Optional[str] = None):
-        """
-        :param str grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-        :param str http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-        """
         if grpc_code is not None:
             pulumi.set(__self__, "grpc_code", grpc_code)
         if http_code is not None:
@@ -1602,17 +1588,11 @@ class TargetGroupMatcher(dict):
     @property
     @pulumi.getter(name="grpcCode")
     def grpc_code(self) -> Optional[str]:
-        """
-        You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-        """
         return pulumi.get(self, "grpc_code")
 
     @property
     @pulumi.getter(name="httpCode")
     def http_code(self) -> Optional[str]:
-        """
-        For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-        """
         return pulumi.get(self, "http_code")
 
 
@@ -1621,27 +1601,17 @@ class TargetGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        """
-        :param str key: The value for the tag. 
-        :param str value: The key name of the tag. 
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        The value for the tag. 
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The key name of the tag. 
-        """
         return pulumi.get(self, "value")
 
 
@@ -1668,11 +1638,6 @@ class TargetGroupTargetDescription(dict):
                  id: str,
                  availability_zone: Optional[str] = None,
                  port: Optional[int] = None):
-        """
-        :param str id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-        :param str availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-        :param int port: The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-        """
         pulumi.set(__self__, "id", id)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
@@ -1682,25 +1647,16 @@ class TargetGroupTargetDescription(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
-        """
-        An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
-        """
-        The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-        """
         return pulumi.get(self, "port")
 
 

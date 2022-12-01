@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFlowResult:
-    def __init__(__self__, description=None, destination_flow_config_list=None, flow_arn=None, source_flow_config=None, tags=None, tasks=None, trigger_config=None):
+    def __init__(__self__, description=None, destination_flow_config_list=None, flow_arn=None, metadata_catalog_config=None, source_flow_config=None, tags=None, tasks=None, trigger_config=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -30,6 +30,9 @@ class GetFlowResult:
         if flow_arn and not isinstance(flow_arn, str):
             raise TypeError("Expected argument 'flow_arn' to be a str")
         pulumi.set(__self__, "flow_arn", flow_arn)
+        if metadata_catalog_config and not isinstance(metadata_catalog_config, dict):
+            raise TypeError("Expected argument 'metadata_catalog_config' to be a dict")
+        pulumi.set(__self__, "metadata_catalog_config", metadata_catalog_config)
         if source_flow_config and not isinstance(source_flow_config, dict):
             raise TypeError("Expected argument 'source_flow_config' to be a dict")
         pulumi.set(__self__, "source_flow_config", source_flow_config)
@@ -66,6 +69,14 @@ class GetFlowResult:
         ARN identifier of the flow.
         """
         return pulumi.get(self, "flow_arn")
+
+    @property
+    @pulumi.getter(name="metadataCatalogConfig")
+    def metadata_catalog_config(self) -> Optional['outputs.FlowMetadataCatalogConfig']:
+        """
+        Configurations of metadata catalog of the flow.
+        """
+        return pulumi.get(self, "metadata_catalog_config")
 
     @property
     @pulumi.getter(name="sourceFlowConfig")
@@ -109,6 +120,7 @@ class AwaitableGetFlowResult(GetFlowResult):
             description=self.description,
             destination_flow_config_list=self.destination_flow_config_list,
             flow_arn=self.flow_arn,
+            metadata_catalog_config=self.metadata_catalog_config,
             source_flow_config=self.source_flow_config,
             tags=self.tags,
             tasks=self.tasks,
@@ -132,6 +144,7 @@ def get_flow(flow_name: Optional[str] = None,
         description=__ret__.description,
         destination_flow_config_list=__ret__.destination_flow_config_list,
         flow_arn=__ret__.flow_arn,
+        metadata_catalog_config=__ret__.metadata_catalog_config,
         source_flow_config=__ret__.source_flow_config,
         tags=__ret__.tags,
         tasks=__ret__.tasks,

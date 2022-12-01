@@ -207,6 +207,7 @@ import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
+import * as oam from "./oam";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
@@ -413,6 +414,7 @@ export {
     networkfirewall,
     networkmanager,
     nimblestudio,
+    oam,
     opensearchservice,
     opsworks,
     opsworkscm,

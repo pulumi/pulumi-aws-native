@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class ConnectorProfileConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("connectorProfileCredentials", required: true)]
-        public Input<Inputs.ConnectorProfileCredentialsArgs> ConnectorProfileCredentials { get; set; } = null!;
+        [Input("connectorProfileCredentials")]
+        public Input<Inputs.ConnectorProfileCredentialsArgs>? ConnectorProfileCredentials { get; set; }
 
         [Input("connectorProfileProperties")]
         public Input<Inputs.ConnectorProfilePropertiesArgs>? ConnectorProfileProperties { get; set; }

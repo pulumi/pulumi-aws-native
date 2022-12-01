@@ -42,6 +42,10 @@ export interface GetFlowResult {
      */
     readonly flowArn?: string;
     /**
+     * Configurations of metadata catalog of the flow.
+     */
+    readonly metadataCatalogConfig?: outputs.appflow.FlowMetadataCatalogConfig;
+    /**
      * Configurations of Source connector of the flow.
      */
     readonly sourceFlowConfig?: outputs.appflow.FlowSourceFlowConfig;

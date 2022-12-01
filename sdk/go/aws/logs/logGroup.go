@@ -16,6 +16,14 @@ type LogGroup struct {
 
 	// The CloudWatch log group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -65,6 +73,14 @@ func (LogGroupState) ElementType() reflect.Type {
 }
 
 type logGroupArgs struct {
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -77,6 +93,14 @@ type logGroupArgs struct {
 
 // The set of arguments for constructing a LogGroup resource.
 type LogGroupArgs struct {
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy pulumi.Input
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
@@ -127,6 +151,17 @@ func (o LogGroupOutput) ToLogGroupOutputWithContext(ctx context.Context) LogGrou
 // The CloudWatch log group ARN.
 func (o LogGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The body of the policy document you want to use for this topic.
+//
+// You can only add one policy per topic.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 30720
+func (o LogGroupOutput) DataProtectionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
 // The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.

@@ -1186,7 +1186,7 @@ export namespace appflow {
      * Connector specific configurations needed to create connector profile
      */
     export interface ConnectorProfileConfig {
-        connectorProfileCredentials: outputs.appflow.ConnectorProfileCredentials;
+        connectorProfileCredentials?: outputs.appflow.ConnectorProfileCredentials;
         connectorProfileProperties?: outputs.appflow.ConnectorProfileProperties;
     }
 
@@ -1405,11 +1405,11 @@ export namespace appflow {
         /**
          * The password that corresponds to the username.
          */
-        password: string;
+        password?: string;
         /**
          * The name of the user.
          */
-        username: string;
+        username?: string;
     }
 
     export interface ConnectorProfileRedshiftConnectorProfileProperties {
@@ -1422,13 +1422,33 @@ export namespace appflow {
          */
         bucketPrefix?: string;
         /**
+         * The unique identifier of the Amazon Redshift cluster.
+         */
+        clusterIdentifier?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+         */
+        dataApiRoleArn?: string;
+        /**
+         * The name of the Amazon Redshift database that will store the transferred data.
+         */
+        databaseName?: string;
+        /**
          * The JDBC URL of the Amazon Redshift cluster.
          */
-        databaseUrl: string;
+        databaseUrl?: string;
+        /**
+         * If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+         */
+        isRedshiftServerless?: boolean;
         /**
          * The Amazon Resource Name (ARN) of the IAM role.
          */
         roleArn: string;
+        /**
+         * The name of the Amazon Redshift serverless workgroup
+         */
+        workgroupName?: string;
     }
 
     export interface ConnectorProfileSAPODataConnectorProfileCredentials {
@@ -1634,6 +1654,7 @@ export namespace appflow {
 
     export interface FlowAggregationConfig {
         aggregationType?: enums.appflow.FlowAggregationType;
+        targetFileSize?: number;
     }
 
     export interface FlowAmplitudeSourceProperties {
@@ -1742,6 +1763,24 @@ export namespace appflow {
         object: string;
     }
 
+    /**
+     * Trigger settings of the flow.
+     */
+    export interface FlowGlueDataCatalog {
+        /**
+         * A string containing the value for the tag
+         */
+        databaseName: string;
+        /**
+         * A string containing the value for the tag
+         */
+        roleArn: string;
+        /**
+         * A string containing the value for the tag
+         */
+        tablePrefix: string;
+    }
+
     export interface FlowGoogleAnalyticsSourceProperties {
         object: string;
     }
@@ -1770,7 +1809,18 @@ export namespace appflow {
         object: string;
     }
 
+    /**
+     * Configurations of metadata catalog of the flow.
+     */
+    export interface FlowMetadataCatalogConfig {
+        /**
+         * Configurations of glue data catalog of the flow.
+         */
+        glueDataCatalog?: outputs.appflow.FlowGlueDataCatalog;
+    }
+
     export interface FlowPrefixConfig {
+        pathPrefixHierarchy?: enums.appflow.FlowPathPrefix[];
         prefixFormat?: enums.appflow.FlowPrefixFormat;
         prefixType?: enums.appflow.FlowPrefixType;
     }
@@ -11309,13 +11359,7 @@ export namespace ec2 {
     }
 
     export interface VolumeTag {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
         key: string;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
-         */
         value: string;
     }
 
@@ -12796,50 +12840,23 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttribute {
-        /**
-         * The value of the attribute.
-         */
         key?: string;
-        /**
-         * The name of the attribute.
-         */
         value?: string;
     }
 
     export interface TargetGroupMatcher {
-        /**
-         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-         */
         grpcCode?: string;
-        /**
-         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
-         */
         httpCode?: string;
     }
 
     export interface TargetGroupTag {
-        /**
-         * The value for the tag. 
-         */
         key: string;
-        /**
-         * The key name of the tag. 
-         */
         value: string;
     }
 
     export interface TargetGroupTargetDescription {
-        /**
-         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
-         */
         availabilityZone?: string;
-        /**
-         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
-         */
         id: string;
-        /**
-         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-         */
         port?: number;
     }
 
@@ -14745,6 +14762,20 @@ export namespace gamelift {
 
     export interface GameSessionQueueTag {
         key: string;
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface LocationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: string;
     }
 
@@ -21555,6 +21586,30 @@ export namespace lambda {
          * WorkingDirectory.
          */
         workingDirectory?: string;
+    }
+
+    /**
+     * The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+     */
+    export interface FunctionSnapStart {
+        /**
+         * Applying SnapStart setting on function resource type.
+         */
+        applyOn: enums.lambda.FunctionSnapStartApplyOn;
+    }
+
+    /**
+     * The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+     */
+    export interface FunctionSnapStartResponse {
+        /**
+         * Applying SnapStart setting on function resource type.
+         */
+        applyOn?: enums.lambda.FunctionSnapStartResponseApplyOn;
+        /**
+         * Indicates whether SnapStart is activated for the specified function version.
+         */
+        optimizationStatus?: enums.lambda.FunctionSnapStartResponseOptimizationStatus;
     }
 
     export interface FunctionTag {

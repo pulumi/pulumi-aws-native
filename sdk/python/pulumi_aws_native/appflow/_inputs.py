@@ -67,12 +67,14 @@ __all__ = [
     'FlowDynatraceSourcePropertiesArgs',
     'FlowErrorHandlingConfigArgs',
     'FlowEventBridgeDestinationPropertiesArgs',
+    'FlowGlueDataCatalogArgs',
     'FlowGoogleAnalyticsSourcePropertiesArgs',
     'FlowIncrementalPullConfigArgs',
     'FlowInforNexusSourcePropertiesArgs',
     'FlowLookoutMetricsDestinationPropertiesArgs',
     'FlowMarketoDestinationPropertiesArgs',
     'FlowMarketoSourcePropertiesArgs',
+    'FlowMetadataCatalogConfigArgs',
     'FlowPrefixConfigArgs',
     'FlowRedshiftDestinationPropertiesArgs',
     'FlowS3DestinationPropertiesArgs',
@@ -194,22 +196,23 @@ class ConnectorProfileBasicAuthCredentialsArgs:
 @pulumi.input_type
 class ConnectorProfileConfigArgs:
     def __init__(__self__, *,
-                 connector_profile_credentials: pulumi.Input['ConnectorProfileCredentialsArgs'],
+                 connector_profile_credentials: Optional[pulumi.Input['ConnectorProfileCredentialsArgs']] = None,
                  connector_profile_properties: Optional[pulumi.Input['ConnectorProfilePropertiesArgs']] = None):
         """
         Connector specific configurations needed to create connector profile
         """
-        pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
+        if connector_profile_credentials is not None:
+            pulumi.set(__self__, "connector_profile_credentials", connector_profile_credentials)
         if connector_profile_properties is not None:
             pulumi.set(__self__, "connector_profile_properties", connector_profile_properties)
 
     @property
     @pulumi.getter(name="connectorProfileCredentials")
-    def connector_profile_credentials(self) -> pulumi.Input['ConnectorProfileCredentialsArgs']:
+    def connector_profile_credentials(self) -> Optional[pulumi.Input['ConnectorProfileCredentialsArgs']]:
         return pulumi.get(self, "connector_profile_credentials")
 
     @connector_profile_credentials.setter
-    def connector_profile_credentials(self, value: pulumi.Input['ConnectorProfileCredentialsArgs']):
+    def connector_profile_credentials(self, value: Optional[pulumi.Input['ConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "connector_profile_credentials", value)
 
     @property
@@ -1296,37 +1299,39 @@ class ConnectorProfilePropertiesArgs:
 @pulumi.input_type
 class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] password: The password that corresponds to the username.
         :param pulumi.Input[str] username: The name of the user.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
+    def password(self) -> Optional[pulumi.Input[str]]:
         """
         The password that corresponds to the username.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[str]):
+    def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
+    def username(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the user.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[str]):
+    def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
 
@@ -1334,20 +1339,41 @@ class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
 class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
-                 database_url: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 bucket_prefix: Optional[pulumi.Input[str]] = None):
+                 bucket_prefix: Optional[pulumi.Input[str]] = None,
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 data_api_role_arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 database_url: Optional[pulumi.Input[str]] = None,
+                 is_redshift_serverless: Optional[pulumi.Input[bool]] = None,
+                 workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The name of the Amazon S3 bucket associated with Redshift.
-        :param pulumi.Input[str] database_url: The JDBC URL of the Amazon Redshift cluster.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[str] bucket_prefix: The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
+        :param pulumi.Input[str] cluster_identifier: The unique identifier of the Amazon Redshift cluster.
+        :param pulumi.Input[str] data_api_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+        :param pulumi.Input[str] database_name: The name of the Amazon Redshift database that will store the transferred data.
+        :param pulumi.Input[str] database_url: The JDBC URL of the Amazon Redshift cluster.
+        :param pulumi.Input[bool] is_redshift_serverless: If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+        :param pulumi.Input[str] workgroup_name: The name of the Amazon Redshift serverless workgroup
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "database_url", database_url)
         pulumi.set(__self__, "role_arn", role_arn)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
+        if cluster_identifier is not None:
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if data_api_role_arn is not None:
+            pulumi.set(__self__, "data_api_role_arn", data_api_role_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if database_url is not None:
+            pulumi.set(__self__, "database_url", database_url)
+        if is_redshift_serverless is not None:
+            pulumi.set(__self__, "is_redshift_serverless", is_redshift_serverless)
+        if workgroup_name is not None:
+            pulumi.set(__self__, "workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1360,18 +1386,6 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
     @bucket_name.setter
     def bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_name", value)
-
-    @property
-    @pulumi.getter(name="databaseUrl")
-    def database_url(self) -> pulumi.Input[str]:
-        """
-        The JDBC URL of the Amazon Redshift cluster.
-        """
-        return pulumi.get(self, "database_url")
-
-    @database_url.setter
-    def database_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "database_url", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1396,6 +1410,78 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
     @bucket_prefix.setter
     def bucket_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_prefix", value)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="dataApiRoleArn")
+    def data_api_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+        """
+        return pulumi.get(self, "data_api_role_arn")
+
+    @data_api_role_arn.setter
+    def data_api_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_api_role_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Amazon Redshift database that will store the transferred data.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="databaseUrl")
+    def database_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JDBC URL of the Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "database_url")
+
+    @database_url.setter
+    def database_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_url", value)
+
+    @property
+    @pulumi.getter(name="isRedshiftServerless")
+    def is_redshift_serverless(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "is_redshift_serverless")
+
+    @is_redshift_serverless.setter
+    def is_redshift_serverless(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_redshift_serverless", value)
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Amazon Redshift serverless workgroup
+        """
+        return pulumi.get(self, "workgroup_name")
+
+    @workgroup_name.setter
+    def workgroup_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workgroup_name", value)
 
 
 @pulumi.input_type
@@ -2198,9 +2284,12 @@ class ConnectorProfileZendeskConnectorProfilePropertiesArgs:
 @pulumi.input_type
 class FlowAggregationConfigArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input['FlowAggregationType']] = None):
+                 aggregation_type: Optional[pulumi.Input['FlowAggregationType']] = None,
+                 target_file_size: Optional[pulumi.Input[int]] = None):
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if target_file_size is not None:
+            pulumi.set(__self__, "target_file_size", target_file_size)
 
     @property
     @pulumi.getter(name="aggregationType")
@@ -2210,6 +2299,15 @@ class FlowAggregationConfigArgs:
     @aggregation_type.setter
     def aggregation_type(self, value: Optional[pulumi.Input['FlowAggregationType']]):
         pulumi.set(self, "aggregation_type", value)
+
+    @property
+    @pulumi.getter(name="targetFileSize")
+    def target_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "target_file_size")
+
+    @target_file_size.setter
+    def target_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_file_size", value)
 
 
 @pulumi.input_type
@@ -2847,6 +2945,59 @@ class FlowEventBridgeDestinationPropertiesArgs:
 
 
 @pulumi.input_type
+class FlowGlueDataCatalogArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 table_prefix: pulumi.Input[str]):
+        """
+        Trigger settings of the flow.
+        :param pulumi.Input[str] database_name: A string containing the value for the tag
+        :param pulumi.Input[str] role_arn: A string containing the value for the tag
+        :param pulumi.Input[str] table_prefix: A string containing the value for the tag
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_prefix", table_prefix)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        A string containing the value for the tag
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        A string containing the value for the tag
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="tablePrefix")
+    def table_prefix(self) -> pulumi.Input[str]:
+        """
+        A string containing the value for the tag
+        """
+        return pulumi.get(self, "table_prefix")
+
+    @table_prefix.setter
+    def table_prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_prefix", value)
+
+
+@pulumi.input_type
 class FlowGoogleAnalyticsSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
@@ -2960,14 +3111,50 @@ class FlowMarketoSourcePropertiesArgs:
 
 
 @pulumi.input_type
+class FlowMetadataCatalogConfigArgs:
+    def __init__(__self__, *,
+                 glue_data_catalog: Optional[pulumi.Input['FlowGlueDataCatalogArgs']] = None):
+        """
+        Configurations of metadata catalog of the flow.
+        :param pulumi.Input['FlowGlueDataCatalogArgs'] glue_data_catalog: Configurations of glue data catalog of the flow.
+        """
+        if glue_data_catalog is not None:
+            pulumi.set(__self__, "glue_data_catalog", glue_data_catalog)
+
+    @property
+    @pulumi.getter(name="glueDataCatalog")
+    def glue_data_catalog(self) -> Optional[pulumi.Input['FlowGlueDataCatalogArgs']]:
+        """
+        Configurations of glue data catalog of the flow.
+        """
+        return pulumi.get(self, "glue_data_catalog")
+
+    @glue_data_catalog.setter
+    def glue_data_catalog(self, value: Optional[pulumi.Input['FlowGlueDataCatalogArgs']]):
+        pulumi.set(self, "glue_data_catalog", value)
+
+
+@pulumi.input_type
 class FlowPrefixConfigArgs:
     def __init__(__self__, *,
+                 path_prefix_hierarchy: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]] = None,
                  prefix_format: Optional[pulumi.Input['FlowPrefixFormat']] = None,
                  prefix_type: Optional[pulumi.Input['FlowPrefixType']] = None):
+        if path_prefix_hierarchy is not None:
+            pulumi.set(__self__, "path_prefix_hierarchy", path_prefix_hierarchy)
         if prefix_format is not None:
             pulumi.set(__self__, "prefix_format", prefix_format)
         if prefix_type is not None:
             pulumi.set(__self__, "prefix_type", prefix_type)
+
+    @property
+    @pulumi.getter(name="pathPrefixHierarchy")
+    def path_prefix_hierarchy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]]:
+        return pulumi.get(self, "path_prefix_hierarchy")
+
+    @path_prefix_hierarchy.setter
+    def path_prefix_hierarchy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]]):
+        pulumi.set(self, "path_prefix_hierarchy", value)
 
     @property
     @pulumi.getter(name="prefixFormat")

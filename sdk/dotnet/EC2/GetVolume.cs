@@ -51,38 +51,14 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetVolumeResult
     {
-        /// <summary>
-        /// The Availability Zone in which to create the volume.
-        /// </summary>
         public readonly bool? AutoEnableIO;
-        /// <summary>
-        /// The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. 
-        /// </summary>
         public readonly int? Iops;
-        /// <summary>
-        /// Indicates whether Amazon EBS Multi-Attach is enabled.
-        /// </summary>
         public readonly bool? MultiAttachEnabled;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
-        /// </summary>
         public readonly string? OutpostArn;
-        /// <summary>
-        /// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. 
-        /// </summary>
         public readonly int? Size;
-        /// <summary>
-        /// The tags to apply to the volume during creation.
-        /// </summary>
         public readonly ImmutableArray<Outputs.VolumeTag> Tags;
-        /// <summary>
-        /// The throughput that the volume supports, in MiB/s.
-        /// </summary>
         public readonly int? Throughput;
         public readonly string? VolumeId;
-        /// <summary>
-        /// The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
-        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

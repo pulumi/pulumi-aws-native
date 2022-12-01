@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public readonly string? FlowArn;
         /// <summary>
+        /// Configurations of metadata catalog of the flow.
+        /// </summary>
+        public readonly Outputs.FlowMetadataCatalogConfig? MetadataCatalogConfig;
+        /// <summary>
         /// Configurations of Source connector of the flow.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfig? SourceFlowConfig;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.AppFlow
 
             string? flowArn,
 
+            Outputs.FlowMetadataCatalogConfig? metadataCatalogConfig,
+
             Outputs.FlowSourceFlowConfig? sourceFlowConfig,
 
             ImmutableArray<Outputs.FlowTag> tags,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.AppFlow
             Description = description;
             DestinationFlowConfigList = destinationFlowConfigList;
             FlowArn = flowArn;
+            MetadataCatalogConfig = metadataCatalogConfig;
             SourceFlowConfig = sourceFlowConfig;
             Tags = tags;
             Tasks = tasks;

@@ -35,6 +35,8 @@ __all__ = [
     'FunctionEphemeralStorage',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionSnapStart',
+    'FunctionSnapStartResponse',
     'FunctionTag',
     'FunctionTracingConfig',
     'FunctionVpcConfig',
@@ -868,6 +870,99 @@ class FunctionImageConfig(dict):
         WorkingDirectory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionSnapStart(dict):
+    """
+    The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyOn":
+            suggest = "apply_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSnapStart. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSnapStart.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSnapStart.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_on: 'FunctionSnapStartApplyOn'):
+        """
+        The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param 'FunctionSnapStartApplyOn' apply_on: Applying SnapStart setting on function resource type.
+        """
+        pulumi.set(__self__, "apply_on", apply_on)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> 'FunctionSnapStartApplyOn':
+        """
+        Applying SnapStart setting on function resource type.
+        """
+        return pulumi.get(self, "apply_on")
+
+
+@pulumi.output_type
+class FunctionSnapStartResponse(dict):
+    """
+    The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyOn":
+            suggest = "apply_on"
+        elif key == "optimizationStatus":
+            suggest = "optimization_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSnapStartResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSnapStartResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSnapStartResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_on: Optional['FunctionSnapStartResponseApplyOn'] = None,
+                 optimization_status: Optional['FunctionSnapStartResponseOptimizationStatus'] = None):
+        """
+        The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+        :param 'FunctionSnapStartResponseApplyOn' apply_on: Applying SnapStart setting on function resource type.
+        :param 'FunctionSnapStartResponseOptimizationStatus' optimization_status: Indicates whether SnapStart is activated for the specified function version.
+        """
+        if apply_on is not None:
+            pulumi.set(__self__, "apply_on", apply_on)
+        if optimization_status is not None:
+            pulumi.set(__self__, "optimization_status", optimization_status)
+
+    @property
+    @pulumi.getter(name="applyOn")
+    def apply_on(self) -> Optional['FunctionSnapStartResponseApplyOn']:
+        """
+        Applying SnapStart setting on function resource type.
+        """
+        return pulumi.get(self, "apply_on")
+
+    @property
+    @pulumi.getter(name="optimizationStatus")
+    def optimization_status(self) -> Optional['FunctionSnapStartResponseOptimizationStatus']:
+        """
+        Indicates whether SnapStart is activated for the specified function version.
+        """
+        return pulumi.get(self, "optimization_status")
 
 
 @pulumi.output_type

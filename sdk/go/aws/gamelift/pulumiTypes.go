@@ -2671,6 +2671,115 @@ func (o GameSessionQueueTagArrayOutput) Index(i pulumi.IntInput) GameSessionQueu
 	}).(GameSessionQueueTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type LocationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+	Value string `pulumi:"value"`
+}
+
+// LocationTagInput is an input type that accepts LocationTagArgs and LocationTagOutput values.
+// You can construct a concrete instance of `LocationTagInput` via:
+//
+//	LocationTagArgs{...}
+type LocationTagInput interface {
+	pulumi.Input
+
+	ToLocationTagOutput() LocationTagOutput
+	ToLocationTagOutputWithContext(context.Context) LocationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationTag)(nil)).Elem()
+}
+
+func (i LocationTagArgs) ToLocationTagOutput() LocationTagOutput {
+	return i.ToLocationTagOutputWithContext(context.Background())
+}
+
+func (i LocationTagArgs) ToLocationTagOutputWithContext(ctx context.Context) LocationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationTagOutput)
+}
+
+// LocationTagArrayInput is an input type that accepts LocationTagArray and LocationTagArrayOutput values.
+// You can construct a concrete instance of `LocationTagArrayInput` via:
+//
+//	LocationTagArray{ LocationTagArgs{...} }
+type LocationTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationTagArrayOutput() LocationTagArrayOutput
+	ToLocationTagArrayOutputWithContext(context.Context) LocationTagArrayOutput
+}
+
+type LocationTagArray []LocationTagInput
+
+func (LocationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationTag)(nil)).Elem()
+}
+
+func (i LocationTagArray) ToLocationTagArrayOutput() LocationTagArrayOutput {
+	return i.ToLocationTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationTagArray) ToLocationTagArrayOutputWithContext(ctx context.Context) LocationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationTagOutput struct{ *pulumi.OutputState }
+
+func (LocationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationTag)(nil)).Elem()
+}
+
+func (o LocationTagOutput) ToLocationTagOutput() LocationTagOutput {
+	return o
+}
+
+func (o LocationTagOutput) ToLocationTagOutputWithContext(ctx context.Context) LocationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+func (o LocationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+func (o LocationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationTag)(nil)).Elem()
+}
+
+func (o LocationTagArrayOutput) ToLocationTagArrayOutput() LocationTagArrayOutput {
+	return o
+}
+
+func (o LocationTagArrayOutput) ToLocationTagArrayOutputWithContext(ctx context.Context) LocationTagArrayOutput {
+	return o
+}
+
+func (o LocationTagArrayOutput) Index(i pulumi.IntInput) LocationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationTag {
+		return vs[0].([]LocationTag)[vs[1].(int)]
+	}).(LocationTagOutput)
+}
+
 type MatchmakingConfigurationGameProperty struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -3237,6 +3346,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityConfigurationPtrInput)(nil)).Elem(), GameSessionQueuePriorityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagInput)(nil)).Elem(), GameSessionQueueTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueTagArrayInput)(nil)).Elem(), GameSessionQueueTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationTagInput)(nil)).Elem(), LocationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationTagArrayInput)(nil)).Elem(), LocationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationGamePropertyArrayInput)(nil)).Elem(), MatchmakingConfigurationGamePropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationTagInput)(nil)).Elem(), MatchmakingConfigurationTagArgs{})
@@ -3286,6 +3397,8 @@ func init() {
 	pulumi.RegisterOutputType(GameSessionQueuePriorityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueTagOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationTagOutput{})
+	pulumi.RegisterOutputType(LocationTagArrayOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationGamePropertyArrayOutput{})
 	pulumi.RegisterOutputType(MatchmakingConfigurationTagOutput{})

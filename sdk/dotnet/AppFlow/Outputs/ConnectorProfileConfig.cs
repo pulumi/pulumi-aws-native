@@ -16,12 +16,12 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class ConnectorProfileConfig
     {
-        public readonly Outputs.ConnectorProfileCredentials ConnectorProfileCredentials;
+        public readonly Outputs.ConnectorProfileCredentials? ConnectorProfileCredentials;
         public readonly Outputs.ConnectorProfileProperties? ConnectorProfileProperties;
 
         [OutputConstructor]
         private ConnectorProfileConfig(
-            Outputs.ConnectorProfileCredentials connectorProfileCredentials,
+            Outputs.ConnectorProfileCredentials? connectorProfileCredentials,
 
             Outputs.ConnectorProfileProperties? connectorProfileProperties)
         {

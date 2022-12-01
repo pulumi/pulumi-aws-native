@@ -34,6 +34,16 @@ export interface GetLogGroupResult {
      */
     readonly arn?: string;
     /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    readonly dataProtectionPolicy?: any;
+    /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
     readonly kmsKeyId?: string;

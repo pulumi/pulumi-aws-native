@@ -3001,6 +3001,225 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+type FunctionSnapStart struct {
+	// Applying SnapStart setting on function resource type.
+	ApplyOn FunctionSnapStartApplyOn `pulumi:"applyOn"`
+}
+
+// FunctionSnapStartInput is an input type that accepts FunctionSnapStartArgs and FunctionSnapStartOutput values.
+// You can construct a concrete instance of `FunctionSnapStartInput` via:
+//
+//	FunctionSnapStartArgs{...}
+type FunctionSnapStartInput interface {
+	pulumi.Input
+
+	ToFunctionSnapStartOutput() FunctionSnapStartOutput
+	ToFunctionSnapStartOutputWithContext(context.Context) FunctionSnapStartOutput
+}
+
+// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+type FunctionSnapStartArgs struct {
+	// Applying SnapStart setting on function resource type.
+	ApplyOn FunctionSnapStartApplyOnInput `pulumi:"applyOn"`
+}
+
+func (FunctionSnapStartArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSnapStart)(nil)).Elem()
+}
+
+func (i FunctionSnapStartArgs) ToFunctionSnapStartOutput() FunctionSnapStartOutput {
+	return i.ToFunctionSnapStartOutputWithContext(context.Background())
+}
+
+func (i FunctionSnapStartArgs) ToFunctionSnapStartOutputWithContext(ctx context.Context) FunctionSnapStartOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartOutput)
+}
+
+func (i FunctionSnapStartArgs) ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput {
+	return i.ToFunctionSnapStartPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionSnapStartArgs) ToFunctionSnapStartPtrOutputWithContext(ctx context.Context) FunctionSnapStartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartOutput).ToFunctionSnapStartPtrOutputWithContext(ctx)
+}
+
+// FunctionSnapStartPtrInput is an input type that accepts FunctionSnapStartArgs, FunctionSnapStartPtr and FunctionSnapStartPtrOutput values.
+// You can construct a concrete instance of `FunctionSnapStartPtrInput` via:
+//
+//	        FunctionSnapStartArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionSnapStartPtrInput interface {
+	pulumi.Input
+
+	ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput
+	ToFunctionSnapStartPtrOutputWithContext(context.Context) FunctionSnapStartPtrOutput
+}
+
+type functionSnapStartPtrType FunctionSnapStartArgs
+
+func FunctionSnapStartPtr(v *FunctionSnapStartArgs) FunctionSnapStartPtrInput {
+	return (*functionSnapStartPtrType)(v)
+}
+
+func (*functionSnapStartPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSnapStart)(nil)).Elem()
+}
+
+func (i *functionSnapStartPtrType) ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput {
+	return i.ToFunctionSnapStartPtrOutputWithContext(context.Background())
+}
+
+func (i *functionSnapStartPtrType) ToFunctionSnapStartPtrOutputWithContext(ctx context.Context) FunctionSnapStartPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionSnapStartPtrOutput)
+}
+
+// The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+type FunctionSnapStartOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSnapStart)(nil)).Elem()
+}
+
+func (o FunctionSnapStartOutput) ToFunctionSnapStartOutput() FunctionSnapStartOutput {
+	return o
+}
+
+func (o FunctionSnapStartOutput) ToFunctionSnapStartOutputWithContext(ctx context.Context) FunctionSnapStartOutput {
+	return o
+}
+
+func (o FunctionSnapStartOutput) ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput {
+	return o.ToFunctionSnapStartPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionSnapStartOutput) ToFunctionSnapStartPtrOutputWithContext(ctx context.Context) FunctionSnapStartPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionSnapStart) *FunctionSnapStart {
+		return &v
+	}).(FunctionSnapStartPtrOutput)
+}
+
+// Applying SnapStart setting on function resource type.
+func (o FunctionSnapStartOutput) ApplyOn() FunctionSnapStartApplyOnOutput {
+	return o.ApplyT(func(v FunctionSnapStart) FunctionSnapStartApplyOn { return v.ApplyOn }).(FunctionSnapStartApplyOnOutput)
+}
+
+type FunctionSnapStartPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSnapStart)(nil)).Elem()
+}
+
+func (o FunctionSnapStartPtrOutput) ToFunctionSnapStartPtrOutput() FunctionSnapStartPtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartPtrOutput) ToFunctionSnapStartPtrOutputWithContext(ctx context.Context) FunctionSnapStartPtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartPtrOutput) Elem() FunctionSnapStartOutput {
+	return o.ApplyT(func(v *FunctionSnapStart) FunctionSnapStart {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionSnapStart
+		return ret
+	}).(FunctionSnapStartOutput)
+}
+
+// Applying SnapStart setting on function resource type.
+func (o FunctionSnapStartPtrOutput) ApplyOn() FunctionSnapStartApplyOnPtrOutput {
+	return o.ApplyT(func(v *FunctionSnapStart) *FunctionSnapStartApplyOn {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplyOn
+	}).(FunctionSnapStartApplyOnPtrOutput)
+}
+
+// The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+type FunctionSnapStartResponse struct {
+	// Applying SnapStart setting on function resource type.
+	ApplyOn *FunctionSnapStartResponseApplyOn `pulumi:"applyOn"`
+	// Indicates whether SnapStart is activated for the specified function version.
+	OptimizationStatus *FunctionSnapStartResponseOptimizationStatus `pulumi:"optimizationStatus"`
+}
+
+// The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
+type FunctionSnapStartResponseOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionSnapStartResponse)(nil)).Elem()
+}
+
+func (o FunctionSnapStartResponseOutput) ToFunctionSnapStartResponseOutput() FunctionSnapStartResponseOutput {
+	return o
+}
+
+func (o FunctionSnapStartResponseOutput) ToFunctionSnapStartResponseOutputWithContext(ctx context.Context) FunctionSnapStartResponseOutput {
+	return o
+}
+
+// Applying SnapStart setting on function resource type.
+func (o FunctionSnapStartResponseOutput) ApplyOn() FunctionSnapStartResponseApplyOnPtrOutput {
+	return o.ApplyT(func(v FunctionSnapStartResponse) *FunctionSnapStartResponseApplyOn { return v.ApplyOn }).(FunctionSnapStartResponseApplyOnPtrOutput)
+}
+
+// Indicates whether SnapStart is activated for the specified function version.
+func (o FunctionSnapStartResponseOutput) OptimizationStatus() FunctionSnapStartResponseOptimizationStatusPtrOutput {
+	return o.ApplyT(func(v FunctionSnapStartResponse) *FunctionSnapStartResponseOptimizationStatus {
+		return v.OptimizationStatus
+	}).(FunctionSnapStartResponseOptimizationStatusPtrOutput)
+}
+
+type FunctionSnapStartResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionSnapStartResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionSnapStartResponse)(nil)).Elem()
+}
+
+func (o FunctionSnapStartResponsePtrOutput) ToFunctionSnapStartResponsePtrOutput() FunctionSnapStartResponsePtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartResponsePtrOutput) ToFunctionSnapStartResponsePtrOutputWithContext(ctx context.Context) FunctionSnapStartResponsePtrOutput {
+	return o
+}
+
+func (o FunctionSnapStartResponsePtrOutput) Elem() FunctionSnapStartResponseOutput {
+	return o.ApplyT(func(v *FunctionSnapStartResponse) FunctionSnapStartResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionSnapStartResponse
+		return ret
+	}).(FunctionSnapStartResponseOutput)
+}
+
+// Applying SnapStart setting on function resource type.
+func (o FunctionSnapStartResponsePtrOutput) ApplyOn() FunctionSnapStartResponseApplyOnPtrOutput {
+	return o.ApplyT(func(v *FunctionSnapStartResponse) *FunctionSnapStartResponseApplyOn {
+		if v == nil {
+			return nil
+		}
+		return v.ApplyOn
+	}).(FunctionSnapStartResponseApplyOnPtrOutput)
+}
+
+// Indicates whether SnapStart is activated for the specified function version.
+func (o FunctionSnapStartResponsePtrOutput) OptimizationStatus() FunctionSnapStartResponseOptimizationStatusPtrOutput {
+	return o.ApplyT(func(v *FunctionSnapStartResponse) *FunctionSnapStartResponseOptimizationStatus {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizationStatus
+	}).(FunctionSnapStartResponseOptimizationStatusPtrOutput)
+}
+
 type FunctionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -3873,6 +4092,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagInput)(nil)).Elem(), FunctionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagArrayInput)(nil)).Elem(), FunctionTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
@@ -3929,6 +4150,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartResponseOutput{})
+	pulumi.RegisterOutputType(FunctionSnapStartResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTagOutput{})
 	pulumi.RegisterOutputType(FunctionTagArrayOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})

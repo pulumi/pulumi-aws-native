@@ -42,6 +42,16 @@ export class LogGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
@@ -69,6 +79,7 @@ export class LogGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
@@ -76,6 +87,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["retentionInDays"] = undefined /*out*/;
@@ -90,6 +102,16 @@ export class LogGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a LogGroup resource.
  */
 export interface LogGroupArgs {
+    /**
+     * The body of the policy document you want to use for this topic.
+     *
+     * You can only add one policy per topic.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 30720
+     */
+    dataProtectionPolicy?: any;
     /**
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */

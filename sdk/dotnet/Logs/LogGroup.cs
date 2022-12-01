@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The body of the policy document you want to use for this topic.
+        /// 
+        /// You can only add one policy per topic.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 30720
+        /// </summary>
+        [Output("dataProtectionPolicy")]
+        public Output<object?> DataProtectionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         /// </summary>
         [Output("kmsKeyId")]
@@ -90,6 +102,18 @@ namespace Pulumi.AwsNative.Logs
 
     public sealed class LogGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The body of the policy document you want to use for this topic.
+        /// 
+        /// You can only add one policy per topic.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 30720
+        /// </summary>
+        [Input("dataProtectionPolicy")]
+        public Input<object>? DataProtectionPolicy { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         /// </summary>

@@ -460,8 +460,8 @@ func (o ConnectorProfileBasicAuthCredentialsPtrOutput) Username() pulumi.StringP
 
 // Connector specific configurations needed to create connector profile
 type ConnectorProfileConfig struct {
-	ConnectorProfileCredentials ConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
-	ConnectorProfileProperties  *ConnectorProfileProperties `pulumi:"connectorProfileProperties"`
+	ConnectorProfileCredentials *ConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
+	ConnectorProfileProperties  *ConnectorProfileProperties  `pulumi:"connectorProfileProperties"`
 }
 
 // ConnectorProfileConfigInput is an input type that accepts ConnectorProfileConfigArgs and ConnectorProfileConfigOutput values.
@@ -477,8 +477,8 @@ type ConnectorProfileConfigInput interface {
 
 // Connector specific configurations needed to create connector profile
 type ConnectorProfileConfigArgs struct {
-	ConnectorProfileCredentials ConnectorProfileCredentialsInput   `pulumi:"connectorProfileCredentials"`
-	ConnectorProfileProperties  ConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
+	ConnectorProfileCredentials ConnectorProfileCredentialsPtrInput `pulumi:"connectorProfileCredentials"`
+	ConnectorProfileProperties  ConnectorProfilePropertiesPtrInput  `pulumi:"connectorProfileProperties"`
 }
 
 func (ConnectorProfileConfigArgs) ElementType() reflect.Type {
@@ -559,8 +559,8 @@ func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigPtrOutputWithConte
 	}).(ConnectorProfileConfigPtrOutput)
 }
 
-func (o ConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsOutput {
-	return o.ApplyT(func(v ConnectorProfileConfig) ConnectorProfileCredentials { return v.ConnectorProfileCredentials }).(ConnectorProfileCredentialsOutput)
+func (o ConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConfig) *ConnectorProfileCredentials { return v.ConnectorProfileCredentials }).(ConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileConfigOutput) ConnectorProfileProperties() ConnectorProfilePropertiesPtrOutput {
@@ -596,7 +596,7 @@ func (o ConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() Connector
 		if v == nil {
 			return nil
 		}
-		return &v.ConnectorProfileCredentials
+		return v.ConnectorProfileCredentials
 	}).(ConnectorProfileCredentialsPtrOutput)
 }
 
@@ -4229,9 +4229,9 @@ func (o ConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileZendeskCo
 
 type ConnectorProfileRedshiftConnectorProfileCredentials struct {
 	// The password that corresponds to the username.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The name of the user.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // ConnectorProfileRedshiftConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileRedshiftConnectorProfileCredentialsArgs and ConnectorProfileRedshiftConnectorProfileCredentialsOutput values.
@@ -4247,9 +4247,9 @@ type ConnectorProfileRedshiftConnectorProfileCredentialsInput interface {
 
 type ConnectorProfileRedshiftConnectorProfileCredentialsArgs struct {
 	// The password that corresponds to the username.
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The name of the user.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ConnectorProfileRedshiftConnectorProfileCredentialsArgs) ElementType() reflect.Type {
@@ -4330,13 +4330,13 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) ToConnectorPr
 }
 
 // The password that corresponds to the username.
-func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
+func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The name of the user.
-func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
+func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
@@ -4369,7 +4369,7 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Password()
 		if v == nil {
 			return nil
 		}
-		return &v.Password
+		return v.Password
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4379,7 +4379,7 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Username()
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4388,10 +4388,20 @@ type ConnectorProfileRedshiftConnectorProfileProperties struct {
 	BucketName string `pulumi:"bucketName"`
 	// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
+	// The unique identifier of the Amazon Redshift cluster.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+	DataApiRoleArn *string `pulumi:"dataApiRoleArn"`
+	// The name of the Amazon Redshift database that will store the transferred data.
+	DatabaseName *string `pulumi:"databaseName"`
 	// The JDBC URL of the Amazon Redshift cluster.
-	DatabaseUrl string `pulumi:"databaseUrl"`
+	DatabaseUrl *string `pulumi:"databaseUrl"`
+	// If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+	IsRedshiftServerless *bool `pulumi:"isRedshiftServerless"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
+	// The name of the Amazon Redshift serverless workgroup
+	WorkgroupName *string `pulumi:"workgroupName"`
 }
 
 // ConnectorProfileRedshiftConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileRedshiftConnectorProfilePropertiesArgs and ConnectorProfileRedshiftConnectorProfilePropertiesOutput values.
@@ -4410,10 +4420,20 @@ type ConnectorProfileRedshiftConnectorProfilePropertiesArgs struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	// The unique identifier of the Amazon Redshift cluster.
+	ClusterIdentifier pulumi.StringPtrInput `pulumi:"clusterIdentifier"`
+	// The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+	DataApiRoleArn pulumi.StringPtrInput `pulumi:"dataApiRoleArn"`
+	// The name of the Amazon Redshift database that will store the transferred data.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 	// The JDBC URL of the Amazon Redshift cluster.
-	DatabaseUrl pulumi.StringInput `pulumi:"databaseUrl"`
+	DatabaseUrl pulumi.StringPtrInput `pulumi:"databaseUrl"`
+	// If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+	IsRedshiftServerless pulumi.BoolPtrInput `pulumi:"isRedshiftServerless"`
 	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the Amazon Redshift serverless workgroup
+	WorkgroupName pulumi.StringPtrInput `pulumi:"workgroupName"`
 }
 
 func (ConnectorProfileRedshiftConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -4503,14 +4523,39 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) BucketPrefix()
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the Amazon Redshift cluster.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) DataApiRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.DataApiRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Amazon Redshift database that will store the transferred data.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
 // The JDBC URL of the Amazon Redshift cluster.
-func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) DatabaseUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) string { return v.DatabaseUrl }).(pulumi.StringOutput)
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) DatabaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.DatabaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) IsRedshiftServerless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *bool { return v.IsRedshiftServerless }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the Amazon Redshift serverless workgroup
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.WorkgroupName }).(pulumi.StringPtrOutput)
 }
 
 type ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -4557,14 +4602,54 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) BucketPrefi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the Amazon Redshift cluster.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) DataApiRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataApiRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Amazon Redshift database that will store the transferred data.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) DatabaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.DatabaseUrl
+		return v.DatabaseUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) IsRedshiftServerless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsRedshiftServerless
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role.
@@ -4574,6 +4659,16 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) RoleArn() p
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Amazon Redshift serverless workgroup
+func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) WorkgroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkgroupName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7565,6 +7660,7 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) InstanceUrl(
 
 type FlowAggregationConfig struct {
 	AggregationType *FlowAggregationType `pulumi:"aggregationType"`
+	TargetFileSize  *int                 `pulumi:"targetFileSize"`
 }
 
 // FlowAggregationConfigInput is an input type that accepts FlowAggregationConfigArgs and FlowAggregationConfigOutput values.
@@ -7580,6 +7676,7 @@ type FlowAggregationConfigInput interface {
 
 type FlowAggregationConfigArgs struct {
 	AggregationType FlowAggregationTypePtrInput `pulumi:"aggregationType"`
+	TargetFileSize  pulumi.IntPtrInput          `pulumi:"targetFileSize"`
 }
 
 func (FlowAggregationConfigArgs) ElementType() reflect.Type {
@@ -7663,6 +7760,10 @@ func (o FlowAggregationConfigOutput) AggregationType() FlowAggregationTypePtrOut
 	return o.ApplyT(func(v FlowAggregationConfig) *FlowAggregationType { return v.AggregationType }).(FlowAggregationTypePtrOutput)
 }
 
+func (o FlowAggregationConfigOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowAggregationConfig) *int { return v.TargetFileSize }).(pulumi.IntPtrOutput)
+}
+
 type FlowAggregationConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowAggregationConfigPtrOutput) ElementType() reflect.Type {
@@ -7694,6 +7795,15 @@ func (o FlowAggregationConfigPtrOutput) AggregationType() FlowAggregationTypePtr
 		}
 		return v.AggregationType
 	}).(FlowAggregationTypePtrOutput)
+}
+
+func (o FlowAggregationConfigPtrOutput) TargetFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowAggregationConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetFileSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type FlowAmplitudeSourceProperties struct {
@@ -9480,6 +9590,184 @@ func (o FlowEventBridgeDestinationPropertiesPtrOutput) Object() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Trigger settings of the flow.
+type FlowGlueDataCatalog struct {
+	// A string containing the value for the tag
+	DatabaseName string `pulumi:"databaseName"`
+	// A string containing the value for the tag
+	RoleArn string `pulumi:"roleArn"`
+	// A string containing the value for the tag
+	TablePrefix string `pulumi:"tablePrefix"`
+}
+
+// FlowGlueDataCatalogInput is an input type that accepts FlowGlueDataCatalogArgs and FlowGlueDataCatalogOutput values.
+// You can construct a concrete instance of `FlowGlueDataCatalogInput` via:
+//
+//	FlowGlueDataCatalogArgs{...}
+type FlowGlueDataCatalogInput interface {
+	pulumi.Input
+
+	ToFlowGlueDataCatalogOutput() FlowGlueDataCatalogOutput
+	ToFlowGlueDataCatalogOutputWithContext(context.Context) FlowGlueDataCatalogOutput
+}
+
+// Trigger settings of the flow.
+type FlowGlueDataCatalogArgs struct {
+	// A string containing the value for the tag
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// A string containing the value for the tag
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A string containing the value for the tag
+	TablePrefix pulumi.StringInput `pulumi:"tablePrefix"`
+}
+
+func (FlowGlueDataCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGlueDataCatalog)(nil)).Elem()
+}
+
+func (i FlowGlueDataCatalogArgs) ToFlowGlueDataCatalogOutput() FlowGlueDataCatalogOutput {
+	return i.ToFlowGlueDataCatalogOutputWithContext(context.Background())
+}
+
+func (i FlowGlueDataCatalogArgs) ToFlowGlueDataCatalogOutputWithContext(ctx context.Context) FlowGlueDataCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGlueDataCatalogOutput)
+}
+
+func (i FlowGlueDataCatalogArgs) ToFlowGlueDataCatalogPtrOutput() FlowGlueDataCatalogPtrOutput {
+	return i.ToFlowGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i FlowGlueDataCatalogArgs) ToFlowGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGlueDataCatalogOutput).ToFlowGlueDataCatalogPtrOutputWithContext(ctx)
+}
+
+// FlowGlueDataCatalogPtrInput is an input type that accepts FlowGlueDataCatalogArgs, FlowGlueDataCatalogPtr and FlowGlueDataCatalogPtrOutput values.
+// You can construct a concrete instance of `FlowGlueDataCatalogPtrInput` via:
+//
+//	        FlowGlueDataCatalogArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowGlueDataCatalogPtrInput interface {
+	pulumi.Input
+
+	ToFlowGlueDataCatalogPtrOutput() FlowGlueDataCatalogPtrOutput
+	ToFlowGlueDataCatalogPtrOutputWithContext(context.Context) FlowGlueDataCatalogPtrOutput
+}
+
+type flowGlueDataCatalogPtrType FlowGlueDataCatalogArgs
+
+func FlowGlueDataCatalogPtr(v *FlowGlueDataCatalogArgs) FlowGlueDataCatalogPtrInput {
+	return (*flowGlueDataCatalogPtrType)(v)
+}
+
+func (*flowGlueDataCatalogPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGlueDataCatalog)(nil)).Elem()
+}
+
+func (i *flowGlueDataCatalogPtrType) ToFlowGlueDataCatalogPtrOutput() FlowGlueDataCatalogPtrOutput {
+	return i.ToFlowGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (i *flowGlueDataCatalogPtrType) ToFlowGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowGlueDataCatalogPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGlueDataCatalogPtrOutput)
+}
+
+// Trigger settings of the flow.
+type FlowGlueDataCatalogOutput struct{ *pulumi.OutputState }
+
+func (FlowGlueDataCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowGlueDataCatalogOutput) ToFlowGlueDataCatalogOutput() FlowGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowGlueDataCatalogOutput) ToFlowGlueDataCatalogOutputWithContext(ctx context.Context) FlowGlueDataCatalogOutput {
+	return o
+}
+
+func (o FlowGlueDataCatalogOutput) ToFlowGlueDataCatalogPtrOutput() FlowGlueDataCatalogPtrOutput {
+	return o.ToFlowGlueDataCatalogPtrOutputWithContext(context.Background())
+}
+
+func (o FlowGlueDataCatalogOutput) ToFlowGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowGlueDataCatalogPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowGlueDataCatalog) *FlowGlueDataCatalog {
+		return &v
+	}).(FlowGlueDataCatalogPtrOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowGlueDataCatalog) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowGlueDataCatalog) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogOutput) TablePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowGlueDataCatalog) string { return v.TablePrefix }).(pulumi.StringOutput)
+}
+
+type FlowGlueDataCatalogPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowGlueDataCatalogPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGlueDataCatalog)(nil)).Elem()
+}
+
+func (o FlowGlueDataCatalogPtrOutput) ToFlowGlueDataCatalogPtrOutput() FlowGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowGlueDataCatalogPtrOutput) ToFlowGlueDataCatalogPtrOutputWithContext(ctx context.Context) FlowGlueDataCatalogPtrOutput {
+	return o
+}
+
+func (o FlowGlueDataCatalogPtrOutput) Elem() FlowGlueDataCatalogOutput {
+	return o.ApplyT(func(v *FlowGlueDataCatalog) FlowGlueDataCatalog {
+		if v != nil {
+			return *v
+		}
+		var ret FlowGlueDataCatalog
+		return ret
+	}).(FlowGlueDataCatalogOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowGlueDataCatalogPtrOutput) TablePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGlueDataCatalog) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TablePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type FlowGoogleAnalyticsSourceProperties struct {
 	Object string `pulumi:"object"`
 }
@@ -10296,9 +10584,150 @@ func (o FlowMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configurations of metadata catalog of the flow.
+type FlowMetadataCatalogConfig struct {
+	// Configurations of glue data catalog of the flow.
+	GlueDataCatalog *FlowGlueDataCatalog `pulumi:"glueDataCatalog"`
+}
+
+// FlowMetadataCatalogConfigInput is an input type that accepts FlowMetadataCatalogConfigArgs and FlowMetadataCatalogConfigOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigInput` via:
+//
+//	FlowMetadataCatalogConfigArgs{...}
+type FlowMetadataCatalogConfigInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput
+	ToFlowMetadataCatalogConfigOutputWithContext(context.Context) FlowMetadataCatalogConfigOutput
+}
+
+// Configurations of metadata catalog of the flow.
+type FlowMetadataCatalogConfigArgs struct {
+	// Configurations of glue data catalog of the flow.
+	GlueDataCatalog FlowGlueDataCatalogPtrInput `pulumi:"glueDataCatalog"`
+}
+
+func (FlowMetadataCatalogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return i.ToFlowMetadataCatalogConfigOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput)
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowMetadataCatalogConfigArgs) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigOutput).ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx)
+}
+
+// FlowMetadataCatalogConfigPtrInput is an input type that accepts FlowMetadataCatalogConfigArgs, FlowMetadataCatalogConfigPtr and FlowMetadataCatalogConfigPtrOutput values.
+// You can construct a concrete instance of `FlowMetadataCatalogConfigPtrInput` via:
+//
+//	        FlowMetadataCatalogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowMetadataCatalogConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput
+	ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Context) FlowMetadataCatalogConfigPtrOutput
+}
+
+type flowMetadataCatalogConfigPtrType FlowMetadataCatalogConfigArgs
+
+func FlowMetadataCatalogConfigPtr(v *FlowMetadataCatalogConfigArgs) FlowMetadataCatalogConfigPtrInput {
+	return (*flowMetadataCatalogConfigPtrType)(v)
+}
+
+func (*flowMetadataCatalogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return i.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowMetadataCatalogConfigPtrType) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+// Configurations of metadata catalog of the flow.
+type FlowMetadataCatalogConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutput() FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o.ToFlowMetadataCatalogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowMetadataCatalogConfigOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowMetadataCatalogConfig) *FlowMetadataCatalogConfig {
+		return &v
+	}).(FlowMetadataCatalogConfigPtrOutput)
+}
+
+// Configurations of glue data catalog of the flow.
+func (o FlowMetadataCatalogConfigOutput) GlueDataCatalog() FlowGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v FlowMetadataCatalogConfig) *FlowGlueDataCatalog { return v.GlueDataCatalog }).(FlowGlueDataCatalogPtrOutput)
+}
+
+type FlowMetadataCatalogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowMetadataCatalogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowMetadataCatalogConfig)(nil)).Elem()
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutput() FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) ToFlowMetadataCatalogConfigPtrOutputWithContext(ctx context.Context) FlowMetadataCatalogConfigPtrOutput {
+	return o
+}
+
+func (o FlowMetadataCatalogConfigPtrOutput) Elem() FlowMetadataCatalogConfigOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) FlowMetadataCatalogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowMetadataCatalogConfig
+		return ret
+	}).(FlowMetadataCatalogConfigOutput)
+}
+
+// Configurations of glue data catalog of the flow.
+func (o FlowMetadataCatalogConfigPtrOutput) GlueDataCatalog() FlowGlueDataCatalogPtrOutput {
+	return o.ApplyT(func(v *FlowMetadataCatalogConfig) *FlowGlueDataCatalog {
+		if v == nil {
+			return nil
+		}
+		return v.GlueDataCatalog
+	}).(FlowGlueDataCatalogPtrOutput)
+}
+
 type FlowPrefixConfig struct {
-	PrefixFormat *FlowPrefixFormat `pulumi:"prefixFormat"`
-	PrefixType   *FlowPrefixType   `pulumi:"prefixType"`
+	PathPrefixHierarchy []FlowPathPrefix  `pulumi:"pathPrefixHierarchy"`
+	PrefixFormat        *FlowPrefixFormat `pulumi:"prefixFormat"`
+	PrefixType          *FlowPrefixType   `pulumi:"prefixType"`
 }
 
 // FlowPrefixConfigInput is an input type that accepts FlowPrefixConfigArgs and FlowPrefixConfigOutput values.
@@ -10313,8 +10742,9 @@ type FlowPrefixConfigInput interface {
 }
 
 type FlowPrefixConfigArgs struct {
-	PrefixFormat FlowPrefixFormatPtrInput `pulumi:"prefixFormat"`
-	PrefixType   FlowPrefixTypePtrInput   `pulumi:"prefixType"`
+	PathPrefixHierarchy FlowPathPrefixArrayInput `pulumi:"pathPrefixHierarchy"`
+	PrefixFormat        FlowPrefixFormatPtrInput `pulumi:"prefixFormat"`
+	PrefixType          FlowPrefixTypePtrInput   `pulumi:"prefixType"`
 }
 
 func (FlowPrefixConfigArgs) ElementType() reflect.Type {
@@ -10394,6 +10824,10 @@ func (o FlowPrefixConfigOutput) ToFlowPrefixConfigPtrOutputWithContext(ctx conte
 	}).(FlowPrefixConfigPtrOutput)
 }
 
+func (o FlowPrefixConfigOutput) PathPrefixHierarchy() FlowPathPrefixArrayOutput {
+	return o.ApplyT(func(v FlowPrefixConfig) []FlowPathPrefix { return v.PathPrefixHierarchy }).(FlowPathPrefixArrayOutput)
+}
+
 func (o FlowPrefixConfigOutput) PrefixFormat() FlowPrefixFormatPtrOutput {
 	return o.ApplyT(func(v FlowPrefixConfig) *FlowPrefixFormat { return v.PrefixFormat }).(FlowPrefixFormatPtrOutput)
 }
@@ -10424,6 +10858,15 @@ func (o FlowPrefixConfigPtrOutput) Elem() FlowPrefixConfigOutput {
 		var ret FlowPrefixConfig
 		return ret
 	}).(FlowPrefixConfigOutput)
+}
+
+func (o FlowPrefixConfigPtrOutput) PathPrefixHierarchy() FlowPathPrefixArrayOutput {
+	return o.ApplyT(func(v *FlowPrefixConfig) []FlowPathPrefix {
+		if v == nil {
+			return nil
+		}
+		return v.PathPrefixHierarchy
+	}).(FlowPathPrefixArrayOutput)
 }
 
 func (o FlowPrefixConfigPtrOutput) PrefixFormat() FlowPrefixFormatPtrOutput {
@@ -14943,6 +15386,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowErrorHandlingConfigPtrInput)(nil)).Elem(), FlowErrorHandlingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEventBridgeDestinationPropertiesInput)(nil)).Elem(), FlowEventBridgeDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEventBridgeDestinationPropertiesPtrInput)(nil)).Elem(), FlowEventBridgeDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGlueDataCatalogInput)(nil)).Elem(), FlowGlueDataCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGlueDataCatalogPtrInput)(nil)).Elem(), FlowGlueDataCatalogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGoogleAnalyticsSourcePropertiesInput)(nil)).Elem(), FlowGoogleAnalyticsSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowGoogleAnalyticsSourcePropertiesPtrInput)(nil)).Elem(), FlowGoogleAnalyticsSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowIncrementalPullConfigInput)(nil)).Elem(), FlowIncrementalPullConfigArgs{})
@@ -14955,6 +15400,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoDestinationPropertiesPtrInput)(nil)).Elem(), FlowMarketoDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoSourcePropertiesInput)(nil)).Elem(), FlowMarketoSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoSourcePropertiesPtrInput)(nil)).Elem(), FlowMarketoSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixConfigInput)(nil)).Elem(), FlowPrefixConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixConfigPtrInput)(nil)).Elem(), FlowPrefixConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowRedshiftDestinationPropertiesInput)(nil)).Elem(), FlowRedshiftDestinationPropertiesArgs{})
@@ -15119,6 +15566,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowErrorHandlingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowEventBridgeDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(FlowEventBridgeDestinationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowGlueDataCatalogOutput{})
+	pulumi.RegisterOutputType(FlowGlueDataCatalogPtrOutput{})
 	pulumi.RegisterOutputType(FlowGoogleAnalyticsSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowGoogleAnalyticsSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowIncrementalPullConfigOutput{})
@@ -15131,6 +15580,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowMarketoDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigOutput{})
+	pulumi.RegisterOutputType(FlowMetadataCatalogConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowRedshiftDestinationPropertiesOutput{})

@@ -313,6 +313,8 @@ if typing.TYPE_CHECKING:
     networkmanager = __networkmanager
     import pulumi_aws_native.nimblestudio as __nimblestudio
     nimblestudio = __nimblestudio
+    import pulumi_aws_native.oam as __oam
+    oam = __oam
     import pulumi_aws_native.opensearchservice as __opensearchservice
     opensearchservice = __opensearchservice
     import pulumi_aws_native.opsworks as __opsworks
@@ -574,6 +576,7 @@ else:
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
+    oam = _utilities.lazy_import('pulumi_aws_native.oam')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
@@ -1679,6 +1682,7 @@ _utilities.register(
    "aws-native:gamelift:Fleet": "Fleet",
    "aws-native:gamelift:GameServerGroup": "GameServerGroup",
    "aws-native:gamelift:GameSessionQueue": "GameSessionQueue",
+   "aws-native:gamelift:Location": "Location",
    "aws-native:gamelift:MatchmakingConfiguration": "MatchmakingConfiguration",
    "aws-native:gamelift:MatchmakingRuleSet": "MatchmakingRuleSet",
    "aws-native:gamelift:Script": "Script"
@@ -2367,6 +2371,15 @@ _utilities.register(
    "aws-native:nimblestudio:StreamingImage": "StreamingImage",
    "aws-native:nimblestudio:Studio": "Studio",
    "aws-native:nimblestudio:StudioComponent": "StudioComponent"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "oam",
+  "fqn": "pulumi_aws_native.oam",
+  "classes": {
+   "aws-native:oam:Link": "Link",
+   "aws-native:oam:Sink": "Sink"
   }
  },
  {

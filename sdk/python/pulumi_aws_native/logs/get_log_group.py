@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogGroupResult:
-    def __init__(__self__, arn=None, kms_key_id=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, data_protection_policy=None, kms_key_id=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if data_protection_policy and not isinstance(data_protection_policy, dict):
+            raise TypeError("Expected argument 'data_protection_policy' to be a dict")
+        pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -40,6 +43,20 @@ class GetLogGroupResult:
         The CloudWatch log group ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> Optional[Any]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -73,6 +90,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             yield self
         return GetLogGroupResult(
             arn=self.arn,
+            data_protection_policy=self.data_protection_policy,
             kms_key_id=self.kms_key_id,
             retention_in_days=self.retention_in_days,
             tags=self.tags)
@@ -93,6 +111,7 @@ def get_log_group(log_group_name: Optional[str] = None,
 
     return AwaitableGetLogGroupResult(
         arn=__ret__.arn,
+        data_protection_policy=__ret__.data_protection_policy,
         kms_key_id=__ret__.kms_key_id,
         retention_in_days=__ret__.retention_in_days,
         tags=__ret__.tags)

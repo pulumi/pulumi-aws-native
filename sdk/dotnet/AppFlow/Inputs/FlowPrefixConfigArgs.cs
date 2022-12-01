@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 
     public sealed class FlowPrefixConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("pathPrefixHierarchy")]
+        private InputList<Pulumi.AwsNative.AppFlow.FlowPathPrefix>? _pathPrefixHierarchy;
+        public InputList<Pulumi.AwsNative.AppFlow.FlowPathPrefix> PathPrefixHierarchy
+        {
+            get => _pathPrefixHierarchy ?? (_pathPrefixHierarchy = new InputList<Pulumi.AwsNative.AppFlow.FlowPathPrefix>());
+            set => _pathPrefixHierarchy = value;
+        }
+
         [Input("prefixFormat")]
         public Input<Pulumi.AwsNative.AppFlow.FlowPrefixFormat>? PrefixFormat { get; set; }
 

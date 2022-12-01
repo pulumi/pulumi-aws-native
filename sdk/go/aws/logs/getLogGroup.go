@@ -28,6 +28,14 @@ type LookupLogGroupArgs struct {
 type LookupLogGroupResult struct {
 	// The CloudWatch log group ARN.
 	Arn *string `pulumi:"arn"`
+	// The body of the policy document you want to use for this topic.
+	//
+	// You can only add one policy per topic.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 30720
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
@@ -75,6 +83,17 @@ func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx 
 // The CloudWatch log group ARN.
 func (o LookupLogGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The body of the policy document you want to use for this topic.
+//
+// You can only add one policy per topic.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 30720
+func (o LookupLogGroupResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
 // The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.

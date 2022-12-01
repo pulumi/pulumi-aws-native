@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowAggregationConfig
     {
         public readonly Pulumi.AwsNative.AppFlow.FlowAggregationType? AggregationType;
+        public readonly int? TargetFileSize;
 
         [OutputConstructor]
-        private FlowAggregationConfig(Pulumi.AwsNative.AppFlow.FlowAggregationType? aggregationType)
+        private FlowAggregationConfig(
+            Pulumi.AwsNative.AppFlow.FlowAggregationType? aggregationType,
+
+            int? targetFileSize)
         {
             AggregationType = aggregationType;
+            TargetFileSize = targetFileSize;
         }
     }
 }

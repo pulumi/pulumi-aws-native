@@ -111,6 +111,14 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly runtime!: pulumi.Output<string | undefined>;
     /**
+     * The SnapStart setting of your function
+     */
+    public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
+    /**
+     * The SnapStart response of your function
+     */
+    public /*out*/ readonly snapStartResponse!: pulumi.Output<outputs.lambda.FunctionSnapStartResponse>;
+    /**
      * A list of tags to apply to the function.
      */
     public readonly tags!: pulumi.Output<outputs.lambda.FunctionTag[] | undefined>;
@@ -162,11 +170,13 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["snapStart"] = args ? args.snapStart : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["snapStartResponse"] = undefined /*out*/;
         } else {
             resourceInputs["architectures"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -187,6 +197,8 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["runtime"] = undefined /*out*/;
+            resourceInputs["snapStart"] = undefined /*out*/;
+            resourceInputs["snapStartResponse"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["tracingConfig"] = undefined /*out*/;
@@ -270,6 +282,10 @@ export interface FunctionArgs {
      * The identifier of the function's runtime.
      */
     runtime?: pulumi.Input<string>;
+    /**
+     * The SnapStart setting of your function
+     */
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStartArgs>;
     /**
      * A list of tags to apply to the function.
      */

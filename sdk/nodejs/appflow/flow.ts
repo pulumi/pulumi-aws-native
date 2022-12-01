@@ -58,6 +58,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly kMSArn!: pulumi.Output<string | undefined>;
     /**
+     * Configurations of metadata catalog of the flow.
+     */
+    public readonly metadataCatalogConfig!: pulumi.Output<outputs.appflow.FlowMetadataCatalogConfig | undefined>;
+    /**
      * Configurations of Source connector of the flow.
      */
     public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
@@ -101,6 +105,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["destinationFlowConfigList"] = args ? args.destinationFlowConfigList : undefined;
             resourceInputs["flowName"] = args ? args.flowName : undefined;
             resourceInputs["kMSArn"] = args ? args.kMSArn : undefined;
+            resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
@@ -112,6 +117,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["flowArn"] = undefined /*out*/;
             resourceInputs["flowName"] = undefined /*out*/;
             resourceInputs["kMSArn"] = undefined /*out*/;
+            resourceInputs["metadataCatalogConfig"] = undefined /*out*/;
             resourceInputs["sourceFlowConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tasks"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface FlowArgs {
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
     kMSArn?: pulumi.Input<string>;
+    /**
+     * Configurations of metadata catalog of the flow.
+     */
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfigArgs>;
     /**
      * Configurations of Source connector of the flow.
      */

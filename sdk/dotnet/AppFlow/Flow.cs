@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.AppFlow
         public Output<string?> KMSArn { get; private set; } = null!;
 
         /// <summary>
+        /// Configurations of metadata catalog of the flow.
+        /// </summary>
+        [Output("metadataCatalogConfig")]
+        public Output<Outputs.FlowMetadataCatalogConfig?> MetadataCatalogConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Configurations of Source connector of the flow.
         /// </summary>
         [Output("sourceFlowConfig")]
@@ -143,6 +149,12 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         [Input("kMSArn")]
         public Input<string>? KMSArn { get; set; }
+
+        /// <summary>
+        /// Configurations of metadata catalog of the flow.
+        /// </summary>
+        [Input("metadataCatalogConfig")]
+        public Input<Inputs.FlowMetadataCatalogConfigArgs>? MetadataCatalogConfig { get; set; }
 
         /// <summary>
         /// Configurations of Source connector of the flow.

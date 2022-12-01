@@ -14,52 +14,29 @@ import (
 type TargetGroup struct {
 	pulumi.CustomResourceState
 
-	// Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
-	HealthCheckEnabled pulumi.BoolPtrOutput `pulumi:"healthCheckEnabled"`
-	// The approximate amount of time, in seconds, between health checks of an individual target.
-	HealthCheckIntervalSeconds pulumi.IntPtrOutput `pulumi:"healthCheckIntervalSeconds"`
-	// [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-	HealthCheckPath pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
-	// The port the load balancer uses when performing health checks on targets.
-	HealthCheckPort pulumi.StringPtrOutput `pulumi:"healthCheckPort"`
-	// The protocol the load balancer uses when performing health checks on targets.
-	HealthCheckProtocol pulumi.StringPtrOutput `pulumi:"healthCheckProtocol"`
-	// The amount of time, in seconds, during which no response from a target means a failed health check.
-	HealthCheckTimeoutSeconds pulumi.IntPtrOutput `pulumi:"healthCheckTimeoutSeconds"`
-	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
-	HealthyThresholdCount pulumi.IntPtrOutput `pulumi:"healthyThresholdCount"`
-	// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
-	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
-	LoadBalancerArns pulumi.StringArrayOutput `pulumi:"loadBalancerArns"`
-	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	Matcher TargetGroupMatcherPtrOutput `pulumi:"matcher"`
-	// The name of the target group.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets.
-	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-	ProtocolVersion pulumi.StringPtrOutput `pulumi:"protocolVersion"`
-	// The tags.
-	Tags TargetGroupTagArrayOutput `pulumi:"tags"`
-	// The ARN of the Target Group
-	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
-	// The attributes.
-	TargetGroupAttributes TargetGroupAttributeArrayOutput `pulumi:"targetGroupAttributes"`
-	// The full name of the target group.
-	TargetGroupFullName pulumi.StringOutput `pulumi:"targetGroupFullName"`
-	// The name of the target group.
-	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
-	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
-	TargetType pulumi.StringPtrOutput `pulumi:"targetType"`
-	// The targets.
-	Targets TargetGroupTargetDescriptionArrayOutput `pulumi:"targets"`
-	// The number of consecutive health check failures required before considering a target unhealthy.
-	UnhealthyThresholdCount pulumi.IntPtrOutput `pulumi:"unhealthyThresholdCount"`
-	// The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
-	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
+	HealthCheckEnabled         pulumi.BoolPtrOutput                    `pulumi:"healthCheckEnabled"`
+	HealthCheckIntervalSeconds pulumi.IntPtrOutput                     `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            pulumi.StringPtrOutput                  `pulumi:"healthCheckPath"`
+	HealthCheckPort            pulumi.StringPtrOutput                  `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        pulumi.StringPtrOutput                  `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  pulumi.IntPtrOutput                     `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      pulumi.IntPtrOutput                     `pulumi:"healthyThresholdCount"`
+	IpAddressType              pulumi.StringPtrOutput                  `pulumi:"ipAddressType"`
+	LoadBalancerArns           pulumi.StringArrayOutput                `pulumi:"loadBalancerArns"`
+	Matcher                    TargetGroupMatcherPtrOutput             `pulumi:"matcher"`
+	Name                       pulumi.StringPtrOutput                  `pulumi:"name"`
+	Port                       pulumi.IntPtrOutput                     `pulumi:"port"`
+	Protocol                   pulumi.StringPtrOutput                  `pulumi:"protocol"`
+	ProtocolVersion            pulumi.StringPtrOutput                  `pulumi:"protocolVersion"`
+	Tags                       TargetGroupTagArrayOutput               `pulumi:"tags"`
+	TargetGroupArn             pulumi.StringOutput                     `pulumi:"targetGroupArn"`
+	TargetGroupAttributes      TargetGroupAttributeArrayOutput         `pulumi:"targetGroupAttributes"`
+	TargetGroupFullName        pulumi.StringOutput                     `pulumi:"targetGroupFullName"`
+	TargetGroupName            pulumi.StringOutput                     `pulumi:"targetGroupName"`
+	TargetType                 pulumi.StringPtrOutput                  `pulumi:"targetType"`
+	Targets                    TargetGroupTargetDescriptionArrayOutput `pulumi:"targets"`
+	UnhealthyThresholdCount    pulumi.IntPtrOutput                     `pulumi:"unhealthyThresholdCount"`
+	VpcId                      pulumi.StringPtrOutput                  `pulumi:"vpcId"`
 }
 
 // NewTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -101,86 +78,48 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	// Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
-	HealthCheckEnabled *bool `pulumi:"healthCheckEnabled"`
-	// The approximate amount of time, in seconds, between health checks of an individual target.
-	HealthCheckIntervalSeconds *int `pulumi:"healthCheckIntervalSeconds"`
-	// [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-	HealthCheckPath *string `pulumi:"healthCheckPath"`
-	// The port the load balancer uses when performing health checks on targets.
-	HealthCheckPort *string `pulumi:"healthCheckPort"`
-	// The protocol the load balancer uses when performing health checks on targets.
-	HealthCheckProtocol *string `pulumi:"healthCheckProtocol"`
-	// The amount of time, in seconds, during which no response from a target means a failed health check.
-	HealthCheckTimeoutSeconds *int `pulumi:"healthCheckTimeoutSeconds"`
-	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
-	HealthyThresholdCount *int `pulumi:"healthyThresholdCount"`
-	// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
-	IpAddressType *string `pulumi:"ipAddressType"`
-	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	Matcher *TargetGroupMatcher `pulumi:"matcher"`
-	// The name of the target group.
-	Name *string `pulumi:"name"`
-	// The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
-	Port *int `pulumi:"port"`
-	// The protocol to use for routing traffic to the targets.
-	Protocol *string `pulumi:"protocol"`
-	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-	ProtocolVersion *string `pulumi:"protocolVersion"`
-	// The tags.
-	Tags []TargetGroupTag `pulumi:"tags"`
-	// The attributes.
-	TargetGroupAttributes []TargetGroupAttribute `pulumi:"targetGroupAttributes"`
-	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
-	TargetType *string `pulumi:"targetType"`
-	// The targets.
-	Targets []TargetGroupTargetDescription `pulumi:"targets"`
-	// The number of consecutive health check failures required before considering a target unhealthy.
-	UnhealthyThresholdCount *int `pulumi:"unhealthyThresholdCount"`
-	// The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
-	VpcId *string `pulumi:"vpcId"`
+	HealthCheckEnabled         *bool                          `pulumi:"healthCheckEnabled"`
+	HealthCheckIntervalSeconds *int                           `pulumi:"healthCheckIntervalSeconds"`
+	HealthCheckPath            *string                        `pulumi:"healthCheckPath"`
+	HealthCheckPort            *string                        `pulumi:"healthCheckPort"`
+	HealthCheckProtocol        *string                        `pulumi:"healthCheckProtocol"`
+	HealthCheckTimeoutSeconds  *int                           `pulumi:"healthCheckTimeoutSeconds"`
+	HealthyThresholdCount      *int                           `pulumi:"healthyThresholdCount"`
+	IpAddressType              *string                        `pulumi:"ipAddressType"`
+	Matcher                    *TargetGroupMatcher            `pulumi:"matcher"`
+	Name                       *string                        `pulumi:"name"`
+	Port                       *int                           `pulumi:"port"`
+	Protocol                   *string                        `pulumi:"protocol"`
+	ProtocolVersion            *string                        `pulumi:"protocolVersion"`
+	Tags                       []TargetGroupTag               `pulumi:"tags"`
+	TargetGroupAttributes      []TargetGroupAttribute         `pulumi:"targetGroupAttributes"`
+	TargetType                 *string                        `pulumi:"targetType"`
+	Targets                    []TargetGroupTargetDescription `pulumi:"targets"`
+	UnhealthyThresholdCount    *int                           `pulumi:"unhealthyThresholdCount"`
+	VpcId                      *string                        `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
-	// Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
-	HealthCheckEnabled pulumi.BoolPtrInput
-	// The approximate amount of time, in seconds, between health checks of an individual target.
+	HealthCheckEnabled         pulumi.BoolPtrInput
 	HealthCheckIntervalSeconds pulumi.IntPtrInput
-	// [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-	HealthCheckPath pulumi.StringPtrInput
-	// The port the load balancer uses when performing health checks on targets.
-	HealthCheckPort pulumi.StringPtrInput
-	// The protocol the load balancer uses when performing health checks on targets.
-	HealthCheckProtocol pulumi.StringPtrInput
-	// The amount of time, in seconds, during which no response from a target means a failed health check.
-	HealthCheckTimeoutSeconds pulumi.IntPtrInput
-	// The number of consecutive health checks successes required before considering an unhealthy target healthy.
-	HealthyThresholdCount pulumi.IntPtrInput
-	// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
-	IpAddressType pulumi.StringPtrInput
-	// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
-	Matcher TargetGroupMatcherPtrInput
-	// The name of the target group.
-	Name pulumi.StringPtrInput
-	// The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
-	Port pulumi.IntPtrInput
-	// The protocol to use for routing traffic to the targets.
-	Protocol pulumi.StringPtrInput
-	// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
-	ProtocolVersion pulumi.StringPtrInput
-	// The tags.
-	Tags TargetGroupTagArrayInput
-	// The attributes.
-	TargetGroupAttributes TargetGroupAttributeArrayInput
-	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
-	TargetType pulumi.StringPtrInput
-	// The targets.
-	Targets TargetGroupTargetDescriptionArrayInput
-	// The number of consecutive health check failures required before considering a target unhealthy.
-	UnhealthyThresholdCount pulumi.IntPtrInput
-	// The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
-	VpcId pulumi.StringPtrInput
+	HealthCheckPath            pulumi.StringPtrInput
+	HealthCheckPort            pulumi.StringPtrInput
+	HealthCheckProtocol        pulumi.StringPtrInput
+	HealthCheckTimeoutSeconds  pulumi.IntPtrInput
+	HealthyThresholdCount      pulumi.IntPtrInput
+	IpAddressType              pulumi.StringPtrInput
+	Matcher                    TargetGroupMatcherPtrInput
+	Name                       pulumi.StringPtrInput
+	Port                       pulumi.IntPtrInput
+	Protocol                   pulumi.StringPtrInput
+	ProtocolVersion            pulumi.StringPtrInput
+	Tags                       TargetGroupTagArrayInput
+	TargetGroupAttributes      TargetGroupAttributeArrayInput
+	TargetType                 pulumi.StringPtrInput
+	Targets                    TargetGroupTargetDescriptionArrayInput
+	UnhealthyThresholdCount    pulumi.IntPtrInput
+	VpcId                      pulumi.StringPtrInput
 }
 
 func (TargetGroupArgs) ElementType() reflect.Type {
@@ -220,117 +159,94 @@ func (o TargetGroupOutput) ToTargetGroupOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
 func (o TargetGroupOutput) HealthCheckEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.BoolPtrOutput { return v.HealthCheckEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The approximate amount of time, in seconds, between health checks of an individual target.
 func (o TargetGroupOutput) HealthCheckIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthCheckIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
 func (o TargetGroupOutput) HealthCheckPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
 }
 
-// The port the load balancer uses when performing health checks on targets.
 func (o TargetGroupOutput) HealthCheckPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckPort }).(pulumi.StringPtrOutput)
 }
 
-// The protocol the load balancer uses when performing health checks on targets.
 func (o TargetGroupOutput) HealthCheckProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.HealthCheckProtocol }).(pulumi.StringPtrOutput)
 }
 
-// The amount of time, in seconds, during which no response from a target means a failed health check.
 func (o TargetGroupOutput) HealthCheckTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthCheckTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The number of consecutive health checks successes required before considering an unhealthy target healthy.
 func (o TargetGroupOutput) HealthyThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.HealthyThresholdCount }).(pulumi.IntPtrOutput)
 }
 
-// The type of IP address used for this target group. The possible values are ipv4 and ipv6.
 func (o TargetGroupOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
 func (o TargetGroupOutput) LoadBalancerArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringArrayOutput { return v.LoadBalancerArns }).(pulumi.StringArrayOutput)
 }
 
-// [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
 func (o TargetGroupOutput) Matcher() TargetGroupMatcherPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupMatcherPtrOutput { return v.Matcher }).(TargetGroupMatcherPtrOutput)
 }
 
-// The name of the target group.
 func (o TargetGroupOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
 func (o TargetGroupOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol to use for routing traffic to the targets.
 func (o TargetGroupOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
 func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.ProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The tags.
 func (o TargetGroupOutput) Tags() TargetGroupTagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTagArrayOutput { return v.Tags }).(TargetGroupTagArrayOutput)
 }
 
-// The ARN of the Target Group
 func (o TargetGroupOutput) TargetGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
 
-// The attributes.
 func (o TargetGroupOutput) TargetGroupAttributes() TargetGroupAttributeArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupAttributeArrayOutput { return v.TargetGroupAttributes }).(TargetGroupAttributeArrayOutput)
 }
 
-// The full name of the target group.
 func (o TargetGroupOutput) TargetGroupFullName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupFullName }).(pulumi.StringOutput)
 }
 
-// The name of the target group.
 func (o TargetGroupOutput) TargetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupName }).(pulumi.StringOutput)
 }
 
-// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
 func (o TargetGroupOutput) TargetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
 }
 
-// The targets.
 func (o TargetGroupOutput) Targets() TargetGroupTargetDescriptionArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTargetDescriptionArrayOutput { return v.Targets }).(TargetGroupTargetDescriptionArrayOutput)
 }
 
-// The number of consecutive health check failures required before considering a target unhealthy.
 func (o TargetGroupOutput) UnhealthyThresholdCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.UnhealthyThresholdCount }).(pulumi.IntPtrOutput)
 }
 
-// The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
 func (o TargetGroupOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringPtrOutput { return v.VpcId }).(pulumi.StringPtrOutput)
 }

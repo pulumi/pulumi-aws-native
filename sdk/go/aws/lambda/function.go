@@ -52,6 +52,10 @@ type Function struct {
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
+	// The SnapStart setting of your function
+	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
+	// The SnapStart response of your function
+	SnapStartResponse FunctionSnapStartResponseOutput `pulumi:"snapStartResponse"`
 	// A list of tags to apply to the function.
 	Tags FunctionTagArrayOutput `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -142,6 +146,8 @@ type functionArgs struct {
 	Role string `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime *string `pulumi:"runtime"`
+	// The SnapStart setting of your function
+	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// A list of tags to apply to the function.
 	Tags []FunctionTag `pulumi:"tags"`
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -189,6 +195,8 @@ type FunctionArgs struct {
 	Role pulumi.StringInput
 	// The identifier of the function's runtime.
 	Runtime pulumi.StringPtrInput
+	// The SnapStart setting of your function
+	SnapStart FunctionSnapStartPtrInput
 	// A list of tags to apply to the function.
 	Tags FunctionTagArrayInput
 	// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -328,6 +336,16 @@ func (o FunctionOutput) Role() pulumi.StringOutput {
 // The identifier of the function's runtime.
 func (o FunctionOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// The SnapStart setting of your function
+func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
+}
+
+// The SnapStart response of your function
+func (o FunctionOutput) SnapStartResponse() FunctionSnapStartResponseOutput {
+	return o.ApplyT(func(v *Function) FunctionSnapStartResponseOutput { return v.SnapStartResponse }).(FunctionSnapStartResponseOutput)
 }
 
 // A list of tags to apply to the function.

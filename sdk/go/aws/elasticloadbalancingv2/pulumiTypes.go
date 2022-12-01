@@ -4444,9 +4444,7 @@ func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutp
 }
 
 type TargetGroupAttribute struct {
-	// The value of the attribute.
-	Key *string `pulumi:"key"`
-	// The name of the attribute.
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -4462,9 +4460,7 @@ type TargetGroupAttributeInput interface {
 }
 
 type TargetGroupAttributeArgs struct {
-	// The value of the attribute.
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// The name of the attribute.
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4519,12 +4515,10 @@ func (o TargetGroupAttributeOutput) ToTargetGroupAttributeOutputWithContext(ctx 
 	return o
 }
 
-// The value of the attribute.
 func (o TargetGroupAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// The name of the attribute.
 func (o TargetGroupAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4550,9 +4544,7 @@ func (o TargetGroupAttributeArrayOutput) Index(i pulumi.IntInput) TargetGroupAtt
 }
 
 type TargetGroupMatcher struct {
-	// You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
 	GrpcCode *string `pulumi:"grpcCode"`
-	// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
 	HttpCode *string `pulumi:"httpCode"`
 }
 
@@ -4568,9 +4560,7 @@ type TargetGroupMatcherInput interface {
 }
 
 type TargetGroupMatcherArgs struct {
-	// You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
 	GrpcCode pulumi.StringPtrInput `pulumi:"grpcCode"`
-	// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
 	HttpCode pulumi.StringPtrInput `pulumi:"httpCode"`
 }
 
@@ -4651,12 +4641,10 @@ func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx c
 	}).(TargetGroupMatcherPtrOutput)
 }
 
-// You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
 func (o TargetGroupMatcherOutput) GrpcCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.GrpcCode }).(pulumi.StringPtrOutput)
 }
 
-// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
 func (o TargetGroupMatcherOutput) HttpCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.HttpCode }).(pulumi.StringPtrOutput)
 }
@@ -4685,7 +4673,6 @@ func (o TargetGroupMatcherPtrOutput) Elem() TargetGroupMatcherOutput {
 	}).(TargetGroupMatcherOutput)
 }
 
-// You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
 func (o TargetGroupMatcherPtrOutput) GrpcCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupMatcher) *string {
 		if v == nil {
@@ -4695,7 +4682,6 @@ func (o TargetGroupMatcherPtrOutput) GrpcCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
 func (o TargetGroupMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupMatcher) *string {
 		if v == nil {
@@ -4706,9 +4692,7 @@ func (o TargetGroupMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
 }
 
 type TargetGroupTag struct {
-	// The value for the tag.
-	Key string `pulumi:"key"`
-	// The key name of the tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -4724,9 +4708,7 @@ type TargetGroupTagInput interface {
 }
 
 type TargetGroupTagArgs struct {
-	// The value for the tag.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The key name of the tag.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4781,12 +4763,10 @@ func (o TargetGroupTagOutput) ToTargetGroupTagOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The value for the tag.
 func (o TargetGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The key name of the tag.
 func (o TargetGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4812,12 +4792,9 @@ func (o TargetGroupTagArrayOutput) Index(i pulumi.IntInput) TargetGroupTagOutput
 }
 
 type TargetGroupTargetDescription struct {
-	// An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
-	Id string `pulumi:"id"`
-	// The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-	Port *int `pulumi:"port"`
+	Id               string  `pulumi:"id"`
+	Port             *int    `pulumi:"port"`
 }
 
 // TargetGroupTargetDescriptionInput is an input type that accepts TargetGroupTargetDescriptionArgs and TargetGroupTargetDescriptionOutput values.
@@ -4832,12 +4809,9 @@ type TargetGroupTargetDescriptionInput interface {
 }
 
 type TargetGroupTargetDescriptionArgs struct {
-	// An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	// The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
-	Port pulumi.IntPtrInput `pulumi:"port"`
+	Id               pulumi.StringInput    `pulumi:"id"`
+	Port             pulumi.IntPtrInput    `pulumi:"port"`
 }
 
 func (TargetGroupTargetDescriptionArgs) ElementType() reflect.Type {
@@ -4891,17 +4865,14 @@ func (o TargetGroupTargetDescriptionOutput) ToTargetGroupTargetDescriptionOutput
 	return o
 }
 
-// An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
 func (o TargetGroupTargetDescriptionOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupTargetDescription) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
 func (o TargetGroupTargetDescriptionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupTargetDescription) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
 func (o TargetGroupTargetDescriptionOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupTargetDescription) *int { return v.Port }).(pulumi.IntPtrOutput)
 }

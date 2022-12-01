@@ -82,6 +82,7 @@ import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
+import * as oam from "./oam";
 import * as organizations from "./organizations";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
@@ -200,6 +201,7 @@ export {
     mwaa,
     networkfirewall,
     nimblestudio,
+    oam,
     organizations,
     panorama,
     personalize,

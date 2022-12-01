@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 
     public sealed class TargetGroupTagArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The value for the tag. 
-        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The key name of the tag. 
-        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

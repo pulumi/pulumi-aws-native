@@ -16,17 +16,27 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 @pulumi.input_type
 class LogGroupArgs:
     def __init__(__self__, *,
+                 data_protection_policy: Optional[Any] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a LogGroup resource.
+        :param Any data_protection_policy: The body of the policy document you want to use for this topic.
+               
+               You can only add one policy per topic.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 30720
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         :param pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if data_protection_policy is not None:
+            pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_group_name is not None:
@@ -35,6 +45,24 @@ class LogGroupArgs:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> Optional[Any]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
+
+    @data_protection_policy.setter
+    def data_protection_policy(self, value: Optional[Any]):
+        pulumi.set(self, "data_protection_policy", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -90,6 +118,7 @@ class LogGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_protection_policy: Optional[Any] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -100,6 +129,13 @@ class LogGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any data_protection_policy: The body of the policy document you want to use for this topic.
+               
+               You can only add one policy per topic.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 30720
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         :param pulumi.Input[str] log_group_name: The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
@@ -129,6 +165,7 @@ class LogGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_protection_policy: Optional[Any] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -142,6 +179,7 @@ class LogGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
+            __props__.__dict__["data_protection_policy"] = data_protection_policy
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["retention_in_days"] = retention_in_days
@@ -170,6 +208,7 @@ class LogGroup(pulumi.CustomResource):
         __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["data_protection_policy"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["retention_in_days"] = None
@@ -183,6 +222,20 @@ class LogGroup(pulumi.CustomResource):
         The CloudWatch log group ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="dataProtectionPolicy")
+    def data_protection_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The body of the policy document you want to use for this topic.
+
+        You can only add one policy per topic.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 30720
+        """
+        return pulumi.get(self, "data_protection_policy")
 
     @property
     @pulumi.getter(name="kmsKeyId")
