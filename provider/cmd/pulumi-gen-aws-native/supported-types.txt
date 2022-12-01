@@ -208,7 +208,6 @@ AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNGateway
-AWS::EC2::Volume
 AWS::ECR::PullThroughCacheRule
 AWS::ECR::RegistryPolicy
 AWS::ECR::ReplicationConfiguration
@@ -242,7 +241,6 @@ AWS::ElasticBeanstalk::ApplicationVersion
 AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
-AWS::ElasticLoadBalancingV2::TargetGroup
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive

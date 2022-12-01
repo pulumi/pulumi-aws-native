@@ -15169,103 +15169,6 @@
                 "type"
             ]
         },
-        "aws-native:ec2:Volume": {
-            "cf": "AWS::EC2::Volume",
-            "inputs": {
-                "autoEnableIO": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "encrypted": {
-                    "type": "boolean"
-                },
-                "iops": {
-                    "type": "integer"
-                },
-                "kmsKeyId": {
-                    "type": "string"
-                },
-                "multiAttachEnabled": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "snapshotId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
-                },
-                "throughput": {
-                    "type": "integer"
-                },
-                "volumeType": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "autoEnableIO": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "encrypted": {
-                    "type": "boolean"
-                },
-                "iops": {
-                    "type": "integer"
-                },
-                "kmsKeyId": {
-                    "type": "string"
-                },
-                "multiAttachEnabled": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "snapshotId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
-                },
-                "throughput": {
-                    "type": "integer"
-                },
-                "volumeId": {
-                    "type": "string"
-                },
-                "volumeType": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "availabilityZone"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "encrypted",
-                "kmsKeyId",
-                "snapshotId"
-            ]
-        },
         "aws-native:ecr:PullThroughCacheRule": {
             "cf": "AWS::ECR::PullThroughCacheRule",
             "inputs": {
@@ -17571,172 +17474,6 @@
                 "actions/*/AuthenticateOidcConfig/ClientSecret",
                 "actions/*/ForwardConfig",
                 "actions/*/TargetGroupArn"
-            ]
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "inputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean"
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer"
-                },
-                "healthCheckPath": {
-                    "type": "string"
-                },
-                "healthCheckPort": {
-                    "type": "string"
-                },
-                "healthCheckProtocol": {
-                    "type": "string"
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer"
-                },
-                "healthyThresholdCount": {
-                    "type": "integer"
-                },
-                "ipAddressType": {
-                    "type": "string"
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "protocolVersion": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
-                },
-                "targetType": {
-                    "type": "string"
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer"
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean"
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer"
-                },
-                "healthCheckPath": {
-                    "type": "string"
-                },
-                "healthCheckPort": {
-                    "type": "string"
-                },
-                "healthCheckProtocol": {
-                    "type": "string"
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer"
-                },
-                "healthyThresholdCount": {
-                    "type": "integer"
-                },
-                "ipAddressType": {
-                    "type": "string"
-                },
-                "loadBalancerArns": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "protocolVersion": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
-                },
-                "targetGroupArn": {
-                    "type": "string"
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
-                },
-                "targetGroupFullName": {
-                    "type": "string"
-                },
-                "targetGroupName": {
-                    "type": "string"
-                },
-                "targetType": {
-                    "type": "string"
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer"
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name"
-            },
-            "createOnly": [
-                "ipAddressType",
-                "name",
-                "port",
-                "protocol",
-                "protocolVersion",
-                "targetType",
-                "vpcId"
             ]
         },
         "aws-native:emr:SecurityConfiguration": {
@@ -61179,17 +60916,6 @@
                 }
             }
         },
-        "aws-native:ec2:VolumeTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ecr:ReplicationConfiguration": {
             "type": "object",
             "properties": {
@@ -63501,53 +63227,6 @@
                     "type": "string"
                 },
                 "weight": {
-                    "type": "integer"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupAttribute": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupMatcher": {
-            "type": "object",
-            "properties": {
-                "grpcCode": {
-                    "type": "string"
-                },
-                "httpCode": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTargetDescription": {
-            "type": "object",
-            "properties": {
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "port": {
                     "type": "integer"
                 }
             }
@@ -93140,12 +92819,6 @@
                 "vPNGatewayId"
             ]
         },
-        "aws-native:ec2:getVolume": {
-            "cf": "AWS::EC2::Volume",
-            "ids": [
-                "volumeId"
-            ]
-        },
         "aws-native:ecr:getRegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "ids": [
@@ -93315,12 +92988,6 @@
             "cf": "AWS::ElasticLoadBalancingV2::ListenerRule",
             "ids": [
                 "ruleArn"
-            ]
-        },
-        "aws-native:elasticloadbalancingv2:getTargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "ids": [
-                "id"
             ]
         },
         "aws-native:emr:getStudio": {
