@@ -1,5 +1,20 @@
 ## HEAD (Unreleased)
 
+## 0.43.0 (November 30, 2022)
+
+- Add Lambda Functions `SnapStart`
+
+Breaking changes:
+
+- Resource `aws-native:elasticloadbalancingv2:getTargetGroup` no longer has input `targetGroupArn`
+
+New resources:
+
+- `gamelift.Location`
+- `oam.Link`
+- `oam.Sink`
+
+
 ## 0.42.0 (November 23, 2022)
 
 Breaking Changes:
