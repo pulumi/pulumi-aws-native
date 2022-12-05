@@ -13524,6 +13524,12 @@
         "aws-native:ec2:NetworkInsightsAnalysis": {
             "cf": "AWS::EC2::NetworkInsightsAnalysis",
             "inputs": {
+                "additionalAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "filterInArns": {
                     "type": "array",
                     "items": {
@@ -13541,6 +13547,12 @@
                 }
             },
             "outputs": {
+                "additionalAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "alternatePathHints": {
                     "type": "array",
                     "items": {
@@ -13592,6 +13604,12 @@
                 "statusMessage": {
                     "type": "string"
                 },
+                "suggestedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -13642,6 +13660,9 @@
                 "destination": {
                     "type": "string"
                 },
+                "destinationArn": {
+                    "type": "string"
+                },
                 "destinationIp": {
                     "type": "string"
                 },
@@ -13658,6 +13679,9 @@
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsPathProtocol"
                 },
                 "source": {
+                    "type": "string"
+                },
+                "sourceArn": {
                     "type": "string"
                 },
                 "sourceIp": {
@@ -15167,103 +15191,6 @@
             "createOnly": [
                 "amazonSideAsn",
                 "type"
-            ]
-        },
-        "aws-native:ec2:Volume": {
-            "cf": "AWS::EC2::Volume",
-            "inputs": {
-                "autoEnableIO": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "encrypted": {
-                    "type": "boolean"
-                },
-                "iops": {
-                    "type": "integer"
-                },
-                "kmsKeyId": {
-                    "type": "string"
-                },
-                "multiAttachEnabled": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "snapshotId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
-                },
-                "throughput": {
-                    "type": "integer"
-                },
-                "volumeType": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "autoEnableIO": {
-                    "type": "boolean"
-                },
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "encrypted": {
-                    "type": "boolean"
-                },
-                "iops": {
-                    "type": "integer"
-                },
-                "kmsKeyId": {
-                    "type": "string"
-                },
-                "multiAttachEnabled": {
-                    "type": "boolean"
-                },
-                "outpostArn": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "snapshotId": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
-                },
-                "throughput": {
-                    "type": "integer"
-                },
-                "volumeId": {
-                    "type": "string"
-                },
-                "volumeType": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "availabilityZone"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "encrypted",
-                "kmsKeyId",
-                "snapshotId"
             ]
         },
         "aws-native:ecr:PullThroughCacheRule": {
@@ -17571,172 +17498,6 @@
                 "actions/*/AuthenticateOidcConfig/ClientSecret",
                 "actions/*/ForwardConfig",
                 "actions/*/TargetGroupArn"
-            ]
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "inputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean"
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer"
-                },
-                "healthCheckPath": {
-                    "type": "string"
-                },
-                "healthCheckPort": {
-                    "type": "string"
-                },
-                "healthCheckProtocol": {
-                    "type": "string"
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer"
-                },
-                "healthyThresholdCount": {
-                    "type": "integer"
-                },
-                "ipAddressType": {
-                    "type": "string"
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "protocolVersion": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
-                },
-                "targetType": {
-                    "type": "string"
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer"
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "outputs": {
-                "healthCheckEnabled": {
-                    "type": "boolean"
-                },
-                "healthCheckIntervalSeconds": {
-                    "type": "integer"
-                },
-                "healthCheckPath": {
-                    "type": "string"
-                },
-                "healthCheckPort": {
-                    "type": "string"
-                },
-                "healthCheckProtocol": {
-                    "type": "string"
-                },
-                "healthCheckTimeoutSeconds": {
-                    "type": "integer"
-                },
-                "healthyThresholdCount": {
-                    "type": "integer"
-                },
-                "ipAddressType": {
-                    "type": "string"
-                },
-                "loadBalancerArns": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "port": {
-                    "type": "integer"
-                },
-                "protocol": {
-                    "type": "string"
-                },
-                "protocolVersion": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
-                },
-                "targetGroupArn": {
-                    "type": "string"
-                },
-                "targetGroupAttributes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
-                },
-                "targetGroupFullName": {
-                    "type": "string"
-                },
-                "targetGroupName": {
-                    "type": "string"
-                },
-                "targetType": {
-                    "type": "string"
-                },
-                "targets": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
-                },
-                "unhealthyThresholdCount": {
-                    "type": "integer"
-                },
-                "vpcId": {
-                    "type": "string"
-                }
-            },
-            "autoNamingSpec": {
-                "sdkName": "name"
-            },
-            "createOnly": [
-                "ipAddressType",
-                "name",
-                "port",
-                "protocol",
-                "protocolVersion",
-                "targetType",
-                "vpcId"
             ]
         },
         "aws-native:emr:SecurityConfiguration": {
@@ -26071,7 +25832,7 @@
                 },
                 "recordingConfigurationArn": {
                     "type": "string",
-                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled)."
+                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: \"\" (recording is disabled)."
                 },
                 "tags": {
                     "type": "array",
@@ -26112,7 +25873,7 @@
                 },
                 "recordingConfigurationArn": {
                     "type": "string",
-                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled)."
+                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: \"\" (recording is disabled)."
                 },
                 "tags": {
                     "type": "array",
@@ -26179,11 +25940,11 @@
                 "sdkName": "name",
                 "maxLength": 128
             },
-            "required": [
-                "publicKeyMaterial"
-            ],
             "createOnly": [
                 "name",
+                "publicKeyMaterial"
+            ],
+            "writeOnly": [
                 "publicKeyMaterial"
             ]
         },
@@ -35608,6 +35369,125 @@
             ],
             "createOnly": [
                 "templateName"
+            ]
+        },
+        "aws-native:pipes:Pipe": {
+            "cf": "AWS::Pipes::Pipe",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "desiredState": {
+                    "$ref": "#/types/aws-native:pipes:PipeRequestedPipeState"
+                },
+                "enrichment": {
+                    "type": "string"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentParameters"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceParameters"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:pipes:PipeTagMap"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetParameters"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "string"
+                },
+                "currentState": {
+                    "$ref": "#/types/aws-native:pipes:PipeState"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "desiredState": {
+                    "$ref": "#/types/aws-native:pipes:PipeRequestedPipeState"
+                },
+                "enrichment": {
+                    "type": "string"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentParameters"
+                },
+                "lastModifiedTime": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceParameters"
+                },
+                "stateReason": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:pipes:PipeTagMap"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetParameters"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "roleArn",
+                "source",
+                "target"
+            ],
+            "createOnly": [
+                "name",
+                "source",
+                "sourceParameters/ActiveMQBrokerParameters/QueueName",
+                "sourceParameters/DynamoDBStreamParameters/StartingPosition",
+                "sourceParameters/KinesisStreamParameters/StartingPosition",
+                "sourceParameters/KinesisStreamParameters/StartingPositionTimestamp",
+                "sourceParameters/ManagedStreamingKafkaParameters/ConsumerGroupID",
+                "sourceParameters/ManagedStreamingKafkaParameters/StartingPosition",
+                "sourceParameters/ManagedStreamingKafkaParameters/TopicName",
+                "sourceParameters/RabbitMQBrokerParameters/QueueName",
+                "sourceParameters/RabbitMQBrokerParameters/VirtualHost",
+                "sourceParameters/SelfManagedApacheKafkaParameters/AdditionalBootstrapServers",
+                "sourceParameters/SelfManagedApacheKafkaParameters/ConsumerGroupID",
+                "sourceParameters/SelfManagedApacheKafkaParameters/StartingPosition",
+                "sourceParameters/SelfManagedApacheKafkaParameters/TopicName"
+            ],
+            "writeOnly": [
+                "sourceParameters",
+                "targetParameters"
             ]
         },
         "aws-native:qldb:Stream": {
@@ -61179,17 +61059,6 @@
                 }
             }
         },
-        "aws-native:ec2:VolumeTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
         "aws-native:ecr:ReplicationConfiguration": {
             "type": "object",
             "properties": {
@@ -63501,53 +63370,6 @@
                     "type": "string"
                 },
                 "weight": {
-                    "type": "integer"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupAttribute": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupMatcher": {
-            "type": "object",
-            "properties": {
-                "grpcCode": {
-                    "type": "string"
-                },
-                "httpCode": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTag": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "string"
-                }
-            }
-        },
-        "aws-native:elasticloadbalancingv2:TargetGroupTargetDescription": {
-            "type": "object",
-            "properties": {
-                "availabilityZone": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "port": {
                     "type": "integer"
                 }
             }
@@ -78036,6 +77858,9 @@
             "properties": {
                 "publicAccess": {
                     "$ref": "#/types/aws-native:msk:ClusterPublicAccess"
+                },
+                "vpcConnectivity": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivity"
                 }
             }
         },
@@ -78226,6 +78051,60 @@
             }
         },
         "aws-native:msk:ClusterUnauthenticated": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivity": {
+            "type": "object",
+            "properties": {
+                "clientAuthentication": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityClientAuthentication"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityClientAuthentication": {
+            "type": "object",
+            "properties": {
+                "sasl": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivitySasl"
+                },
+                "tls": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityTls"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityIam": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivitySasl": {
+            "type": "object",
+            "properties": {
+                "iam": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityIam"
+                },
+                "scram": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityScram"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityScram": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityTls": {
             "type": "object",
             "properties": {
                 "enabled": {
@@ -80005,6 +79884,895 @@
                 },
                 "link": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeAssignPublicIp": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeAwsVpcConfiguration": {
+            "type": "object",
+            "properties": {
+                "assignPublicIp": {
+                    "$ref": "#/types/aws-native:pipes:PipeAssignPublicIp"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchArrayProperties": {
+            "type": "object",
+            "properties": {
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchContainerOverrides": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "environment": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchEnvironmentVariable"
+                    }
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "resourceRequirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchResourceRequirement"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchEnvironmentVariable": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchJobDependency": {
+            "type": "object",
+            "properties": {
+                "jobId": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchJobDependencyType"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchJobDependencyType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeBatchParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeBatchResourceRequirement": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchResourceRequirementType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchResourceRequirementType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeBatchRetryStrategy": {
+            "type": "object",
+            "properties": {
+                "attempts": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeCapacityProviderStrategyItem": {
+            "type": "object",
+            "properties": {
+                "base": {
+                    "type": "integer"
+                },
+                "capacityProvider": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeDeadLetterConfig": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeDynamoDBStreamStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsContainerOverride": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cpu": {
+                    "type": "integer"
+                },
+                "environment": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentVariable"
+                    }
+                },
+                "environmentFiles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentFile"
+                    }
+                },
+                "memory": {
+                    "type": "integer"
+                },
+                "memoryReservation": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "resourceRequirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsResourceRequirement"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEnvironmentFile": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentFileType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEnvironmentFileType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsEnvironmentVariable": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEphemeralStorage": {
+            "type": "object",
+            "properties": {
+                "sizeInGiB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsInferenceAcceleratorOverride": {
+            "type": "object",
+            "properties": {
+                "deviceName": {
+                    "type": "string"
+                },
+                "deviceType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsResourceRequirement": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsResourceRequirementType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsResourceRequirementType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsTaskOverride": {
+            "type": "object",
+            "properties": {
+                "containerOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsContainerOverride"
+                    }
+                },
+                "cpu": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsEphemeralStorage"
+                },
+                "executionRoleArn": {
+                    "type": "string"
+                },
+                "inferenceAcceleratorOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsInferenceAcceleratorOverride"
+                    }
+                },
+                "memory": {
+                    "type": "string"
+                },
+                "taskRoleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEnrichmentHttpParameters": {
+            "type": "object",
+            "properties": {
+                "headerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeHeaderParametersMap"
+                },
+                "pathParameterValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "queryStringParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeQueryStringParametersMap"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEnrichmentParameters": {
+            "type": "object",
+            "properties": {
+                "httpParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentHttpParameters"
+                },
+                "inputTemplate": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeFilter": {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeFilterCriteria": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeHeaderParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeKinesisStreamStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeLaunchType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeMQBrokerAccessCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeMSKAccessCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeMSKStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeNetworkConfiguration": {
+            "type": "object",
+            "properties": {
+                "awsvpcConfiguration": {
+                    "$ref": "#/types/aws-native:pipes:PipeAwsVpcConfiguration"
+                }
+            }
+        },
+        "aws-native:pipes:PipeOnPartialBatchItemFailureStreams": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePlacementConstraint": {
+            "type": "object",
+            "properties": {
+                "expression": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipePlacementConstraintType"
+                }
+            }
+        },
+        "aws-native:pipes:PipePlacementConstraintType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePlacementStrategy": {
+            "type": "object",
+            "properties": {
+                "field": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipePlacementStrategyType"
+                }
+            }
+        },
+        "aws-native:pipes:PipePlacementStrategyType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePropagateTags": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeQueryStringParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeRequestedPipeState": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeSageMakerPipelineParameter": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationVpc": {
+            "type": "object",
+            "properties": {
+                "securityGroup": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SecurityGroupId."
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SubnetId."
+                }
+            }
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeSourceActiveMQBrokerParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "queueName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceDynamoDBStreamParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws-native:pipes:PipeDeadLetterConfig"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "onPartialBatchItemFailure": {
+                    "$ref": "#/types/aws-native:pipes:PipeOnPartialBatchItemFailureStreams"
+                },
+                "parallelizationFactor": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeDynamoDBStreamStartPosition"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceKinesisStreamParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws-native:pipes:PipeDeadLetterConfig"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "onPartialBatchItemFailure": {
+                    "$ref": "#/types/aws-native:pipes:PipeOnPartialBatchItemFailureStreams"
+                },
+                "parallelizationFactor": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeKinesisStreamStartPosition"
+                },
+                "startingPositionTimestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceManagedStreamingKafkaParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "consumerGroupID": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMSKAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeMSKStartPosition"
+                },
+                "topicName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceParameters": {
+            "type": "object",
+            "properties": {
+                "activeMQBrokerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceActiveMQBrokerParameters"
+                },
+                "dynamoDBStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceDynamoDBStreamParameters"
+                },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:pipes:PipeFilterCriteria"
+                },
+                "kinesisStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceKinesisStreamParameters"
+                },
+                "managedStreamingKafkaParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceManagedStreamingKafkaParameters"
+                },
+                "rabbitMQBrokerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceRabbitMQBrokerParameters"
+                },
+                "selfManagedKafkaParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceSelfManagedKafkaParameters"
+                },
+                "sqsQueueParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceSqsQueueParameters"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceRabbitMQBrokerParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "queueName": {
+                    "type": "string"
+                },
+                "virtualHost": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceSelfManagedKafkaParameters": {
+            "type": "object",
+            "properties": {
+                "additionalBootstrapServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "batchSize": {
+                    "type": "integer"
+                },
+                "consumerGroupID": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "serverRootCaCertificate": {
+                    "type": "string",
+                    "description": "Optional SecretManager ARN which stores the database credentials"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaStartPosition"
+                },
+                "topicName": {
+                    "type": "string"
+                },
+                "vpc": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationVpc"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceSqsQueueParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeState": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTagMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeTargetBatchJobParameters": {
+            "type": "object",
+            "properties": {
+                "arrayProperties": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchArrayProperties"
+                },
+                "containerOverrides": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchContainerOverrides"
+                },
+                "dependsOn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchJobDependency"
+                    }
+                },
+                "jobDefinition": {
+                    "type": "string"
+                },
+                "jobName": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchParametersMap"
+                },
+                "retryStrategy": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchRetryStrategy"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetCloudWatchLogsParameters": {
+            "type": "object",
+            "properties": {
+                "logStreamName": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetEcsTaskParameters": {
+            "type": "object",
+            "properties": {
+                "capacityProviderStrategy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeCapacityProviderStrategyItem"
+                    }
+                },
+                "enableECSManagedTags": {
+                    "type": "boolean"
+                },
+                "enableExecuteCommand": {
+                    "type": "boolean"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "launchType": {
+                    "$ref": "#/types/aws-native:pipes:PipeLaunchType"
+                },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:pipes:PipeNetworkConfiguration"
+                },
+                "overrides": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsTaskOverride"
+                },
+                "placementConstraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipePlacementConstraint"
+                    }
+                },
+                "placementStrategy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipePlacementStrategy"
+                    }
+                },
+                "platformVersion": {
+                    "type": "string"
+                },
+                "propagateTags": {
+                    "$ref": "#/types/aws-native:pipes:PipePropagateTags"
+                },
+                "referenceId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeTag"
+                    }
+                },
+                "taskCount": {
+                    "type": "integer"
+                },
+                "taskDefinitionArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetEventBridgeEventBusParameters": {
+            "type": "object",
+            "properties": {
+                "detailType": {
+                    "type": "string"
+                },
+                "endpointId": {
+                    "type": "string"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "source": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetHttpParameters": {
+            "type": "object",
+            "properties": {
+                "headerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeHeaderParametersMap"
+                },
+                "pathParameterValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "queryStringParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeQueryStringParametersMap"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetInvocationType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeTargetKinesisStreamParameters": {
+            "type": "object",
+            "properties": {
+                "partitionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetLambdaFunctionParameters": {
+            "type": "object",
+            "properties": {
+                "invocationType": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetInvocationType"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetParameters": {
+            "type": "object",
+            "properties": {
+                "batchJobParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetBatchJobParameters"
+                },
+                "cloudWatchLogsParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetCloudWatchLogsParameters"
+                },
+                "ecsTaskParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetEcsTaskParameters"
+                },
+                "eventBridgeEventBusParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetEventBridgeEventBusParameters"
+                },
+                "httpParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetHttpParameters"
+                },
+                "inputTemplate": {
+                    "type": "string"
+                },
+                "kinesisStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetKinesisStreamParameters"
+                },
+                "lambdaFunctionParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetLambdaFunctionParameters"
+                },
+                "redshiftDataParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetRedshiftDataParameters"
+                },
+                "sageMakerPipelineParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetSageMakerPipelineParameters"
+                },
+                "sqsQueueParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetSqsQueueParameters"
+                },
+                "stepFunctionStateMachineParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetStateMachineParameters"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetRedshiftDataParameters": {
+            "type": "object",
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Redshift Database"
+                },
+                "dbUser": {
+                    "type": "string",
+                    "description": "Database user name"
+                },
+                "secretManagerArn": {
+                    "type": "string",
+                    "description": "Optional SecretManager ARN which stores the database credentials"
+                },
+                "sqls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of SQLs."
+                },
+                "statementName": {
+                    "type": "string",
+                    "description": "A name for Redshift DataAPI statement which can be used as filter of ListStatement."
+                },
+                "withEvent": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetSageMakerPipelineParameters": {
+            "type": "object",
+            "properties": {
+                "pipelineParameterList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeSageMakerPipelineParameter"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetSqsQueueParameters": {
+            "type": "object",
+            "properties": {
+                "messageDeduplicationId": {
+                    "type": "string"
+                },
+                "messageGroupId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetStateMachineParameters": {
+            "type": "object",
+            "properties": {
+                "invocationType": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetInvocationType"
                 }
             }
         },
@@ -85766,6 +86534,9 @@
                 }
             }
         },
+        "aws-native:sagemaker:FeatureGroupTableFormat": {
+            "type": "string"
+        },
         "aws-native:sagemaker:FeatureGroupTag": {
             "type": "object",
             "properties": {
@@ -87731,6 +88502,9 @@
                 },
                 "s3StorageConfig": {
                     "$ref": "#/types/aws-native:sagemaker:FeatureGroupS3StorageConfig"
+                },
+                "tableFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupTableFormat"
                 }
             }
         },
@@ -93140,12 +93914,6 @@
                 "vPNGatewayId"
             ]
         },
-        "aws-native:ec2:getVolume": {
-            "cf": "AWS::EC2::Volume",
-            "ids": [
-                "volumeId"
-            ]
-        },
         "aws-native:ecr:getRegistryPolicy": {
             "cf": "AWS::ECR::RegistryPolicy",
             "ids": [
@@ -93315,12 +94083,6 @@
             "cf": "AWS::ElasticLoadBalancingV2::ListenerRule",
             "ids": [
                 "ruleArn"
-            ]
-        },
-        "aws-native:elasticloadbalancingv2:getTargetGroup": {
-            "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
-            "ids": [
-                "id"
             ]
         },
         "aws-native:emr:getStudio": {
@@ -94673,6 +95435,12 @@
             "cf": "AWS::Pinpoint::InAppTemplate",
             "ids": [
                 "templateName"
+            ]
+        },
+        "aws-native:pipes:getPipe": {
+            "cf": "AWS::Pipes::Pipe",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:qldb:getStream": {

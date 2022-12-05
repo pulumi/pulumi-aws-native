@@ -50,6 +50,7 @@
     }
   },
   "additionalProperties" : false,
+  "replacementStrategy" : "delete_then_create",
   "required" : [ "ChannelArn" ],
   "createOnlyProperties" : [ "/properties/ChannelArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Value" ],

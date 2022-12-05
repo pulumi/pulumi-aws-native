@@ -56,6 +56,12 @@
     "Destination" : {
       "type" : "string"
     },
+    "SourceArn" : {
+      "type" : "string"
+    },
+    "DestinationArn" : {
+      "type" : "string"
+    },
     "Protocol" : {
       "$ref" : "#/definitions/Protocol"
     },
@@ -72,7 +78,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "Protocol", "Source", "Destination" ],
-  "readOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/NetworkInsightsPathArn", "/properties/CreatedDate" ],
+  "readOnlyProperties" : [ "/properties/NetworkInsightsPathId", "/properties/NetworkInsightsPathArn", "/properties/CreatedDate", "/properties/SourceArn", "/properties/DestinationArn" ],
   "primaryIdentifier" : [ "/properties/NetworkInsightsPathId" ],
   "createOnlyProperties" : [ "/properties/SourceIp", "/properties/DestinationIp", "/properties/Source", "/properties/Destination", "/properties/Protocol", "/properties/DestinationPort" ],
   "additionalIdentifiers" : [ [ "/properties/NetworkInsightsPathArn" ] ],
