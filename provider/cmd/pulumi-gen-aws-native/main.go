@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -157,6 +158,9 @@ func readSupportedResourceTypes(outDir string) []string {
 }
 
 func writeSupportedResourceTypes(outDir string) error {
+	supported := readSupportedResourceTypes(outDir)
+	supportedSet := codegen.NewStringSet(supported...)
+
 	cfg, err := config.LoadDefaultConfig(ctx.Background())
 	cfg.Region = "us-west-2"
 	if err != nil {
@@ -165,7 +169,6 @@ func writeSupportedResourceTypes(outDir string) error {
 
 	cfn := cloudformation.NewFromConfig(cfg)
 
-	var result []string
 	for _, provisioningType := range []types.ProvisioningType{types.ProvisioningTypeFullyMutable, types.ProvisioningTypeImmutable} {
 		var nextToken *string
 		for {
@@ -179,7 +182,7 @@ func writeSupportedResourceTypes(outDir string) error {
 			}
 
 			for _, r := range out.TypeSummaries {
-				result = append(result, *r.TypeName)
+				supportedSet.Add(*r.TypeName)
 			}
 			nextToken = out.NextToken
 			if nextToken == nil {
@@ -187,9 +190,8 @@ func writeSupportedResourceTypes(outDir string) error {
 			}
 		}
 	}
-	sort.Strings(result)
 
-	val := strings.Join(result, "\n")
+	val := strings.Join(supportedSet.SortedValues(), "\n")
 	return emitFile(outDir, supportedResourcesFile, []byte(val))
 }
 
