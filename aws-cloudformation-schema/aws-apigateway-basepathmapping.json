@@ -24,7 +24,12 @@
   "required" : [ "DomainName" ],
   "createOnlyProperties" : [ "/properties/DomainName", "/properties/BasePath" ],
   "primaryIdentifier" : [ "/properties/DomainName", "/properties/BasePath" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "apigateway:POST", "apigateway:GET" ]

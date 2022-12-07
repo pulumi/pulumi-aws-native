@@ -45,7 +45,9 @@
   "createOnlyProperties" : [ "/properties/AutoScalingGroupName" ],
   "primaryIdentifier" : [ "/properties/ScheduledActionName", "/properties/AutoScalingGroupName" ],
   "readOnlyProperties" : [ "/properties/ScheduledActionName" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "autoscaling:PutScheduledUpdateGroupAction", "autoscaling:DescribeScheduledActions" ]

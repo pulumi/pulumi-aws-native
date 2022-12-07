@@ -45,7 +45,9 @@
   "required" : [ "LifecycleTransition", "AutoScalingGroupName" ],
   "createOnlyProperties" : [ "/properties/AutoScalingGroupName", "/properties/LifecycleHookName" ],
   "primaryIdentifier" : [ "/properties/AutoScalingGroupName", "/properties/LifecycleHookName" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "autoscaling:PutLifecycleHook", "autoscaling:DescribeLifecycleHooks", "iam:PassRole" ]
