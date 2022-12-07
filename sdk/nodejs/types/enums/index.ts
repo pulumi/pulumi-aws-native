@@ -34,6 +34,7 @@ import * as ecs from "./ecs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as emr from "./emr";
+import * as emrserverless from "./emrserverless";
 import * as events from "./events";
 import * as evidently from "./evidently";
 import * as finspace from "./finspace";
@@ -87,6 +88,7 @@ import * as organizations from "./organizations";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
+import * as pipes from "./pipes";
 import * as quicksight from "./quicksight";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
@@ -153,6 +155,7 @@ export {
     eks,
     elasticache,
     emr,
+    emrserverless,
     events,
     evidently,
     finspace,
@@ -206,6 +209,7 @@ export {
     panorama,
     personalize,
     pinpoint,
+    pipes,
     quicksight,
     rds,
     redshift,

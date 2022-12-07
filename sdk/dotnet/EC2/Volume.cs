@@ -48,9 +48,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("throughput")]
         public Output<int?> Throughput { get; private set; } = null!;
 
-        [Output("volumeId")]
-        public Output<string> VolumeId { get; private set; } = null!;
-
         [Output("volumeType")]
         public Output<string?> VolumeType { get; private set; } = null!;
 

@@ -16,7 +16,8 @@ type Application struct {
 	pulumi.CustomResourceState
 
 	// The ID of the EMR Serverless Application.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringOutput              `pulumi:"applicationId"`
+	Architecture  ApplicationArchitecturePtrOutput `pulumi:"architecture"`
 	// The Amazon Resource Name (ARN) of the EMR Serverless Application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration for Auto Start of Application.
@@ -84,6 +85,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
+	Architecture *ApplicationArchitecture `pulumi:"architecture"`
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
@@ -106,6 +108,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
+	Architecture ApplicationArchitecturePtrInput
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// Configuration for Auto Stop of Application.
@@ -166,6 +169,10 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 // The ID of the EMR Serverless Application.
 func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) Architecture() ApplicationArchitecturePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationArchitecturePtrOutput { return v.Architecture }).(ApplicationArchitecturePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the EMR Serverless Application.

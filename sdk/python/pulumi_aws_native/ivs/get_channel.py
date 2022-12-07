@@ -101,7 +101,7 @@ class GetChannelResult:
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[str]:
         """
-        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         """
         return pulumi.get(self, "recording_configuration_arn")
 

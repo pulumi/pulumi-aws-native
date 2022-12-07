@@ -216,6 +216,7 @@ import * as panorama from "./panorama";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pinpointemail from "./pinpointemail";
+import * as pipes from "./pipes";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
 import * as ram from "./ram";
@@ -423,6 +424,7 @@ export {
     personalize,
     pinpoint,
     pinpointemail,
+    pipes,
     qldb,
     quicksight,
     ram,

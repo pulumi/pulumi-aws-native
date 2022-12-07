@@ -9030,12 +9030,15 @@ class OfflineStoreConfigPropertiesArgs:
     def __init__(__self__, *,
                  s3_storage_config: pulumi.Input['FeatureGroupS3StorageConfigArgs'],
                  data_catalog_config: Optional[pulumi.Input['FeatureGroupDataCatalogConfigArgs']] = None,
-                 disable_glue_table_creation: Optional[pulumi.Input[bool]] = None):
+                 disable_glue_table_creation: Optional[pulumi.Input[bool]] = None,
+                 table_format: Optional[pulumi.Input['FeatureGroupTableFormat']] = None):
         pulumi.set(__self__, "s3_storage_config", s3_storage_config)
         if data_catalog_config is not None:
             pulumi.set(__self__, "data_catalog_config", data_catalog_config)
         if disable_glue_table_creation is not None:
             pulumi.set(__self__, "disable_glue_table_creation", disable_glue_table_creation)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
 
     @property
     @pulumi.getter(name="s3StorageConfig")
@@ -9063,6 +9066,15 @@ class OfflineStoreConfigPropertiesArgs:
     @disable_glue_table_creation.setter
     def disable_glue_table_creation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_glue_table_creation", value)
+
+    @property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional[pulumi.Input['FeatureGroupTableFormat']]:
+        return pulumi.get(self, "table_format")
+
+    @table_format.setter
+    def table_format(self, value: Optional[pulumi.Input['FeatureGroupTableFormat']]):
+        pulumi.set(self, "table_format", value)
 
 
 @pulumi.input_type

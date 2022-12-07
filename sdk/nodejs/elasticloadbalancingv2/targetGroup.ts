@@ -52,7 +52,6 @@ export class TargetGroup extends pulumi.CustomResource {
     public readonly protocol!: pulumi.Output<string | undefined>;
     public readonly protocolVersion!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTag[] | undefined>;
-    public /*out*/ readonly targetGroupArn!: pulumi.Output<string>;
     public readonly targetGroupAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupAttribute[] | undefined>;
     public /*out*/ readonly targetGroupFullName!: pulumi.Output<string>;
     public /*out*/ readonly targetGroupName!: pulumi.Output<string>;
@@ -92,7 +91,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["unhealthyThresholdCount"] = args ? args.unhealthyThresholdCount : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["loadBalancerArns"] = undefined /*out*/;
-            resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;
         } else {
@@ -111,7 +109,6 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["protocolVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupAttributes"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;

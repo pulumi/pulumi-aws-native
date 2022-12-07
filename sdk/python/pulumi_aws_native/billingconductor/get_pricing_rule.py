@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPricingRuleResult:
-    def __init__(__self__, arn=None, associated_pricing_plan_count=None, creation_time=None, description=None, last_modified_time=None, modifier_percentage=None, name=None, tags=None, type=None):
+    def __init__(__self__, arn=None, associated_pricing_plan_count=None, creation_time=None, description=None, last_modified_time=None, modifier_percentage=None, name=None, tags=None, tiering=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetPricingRuleResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tiering and not isinstance(tiering, dict):
+            raise TypeError("Expected argument 'tiering' to be a dict")
+        pulumi.set(__self__, "tiering", tiering)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -112,9 +115,17 @@ class GetPricingRuleResult:
 
     @property
     @pulumi.getter
+    def tiering(self) -> Optional['outputs.TieringProperties']:
+        """
+        The set of tiering configurations for the pricing rule.
+        """
+        return pulumi.get(self, "tiering")
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional['PricingRuleType']:
         """
-        One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         """
         return pulumi.get(self, "type")
 
@@ -133,6 +144,7 @@ class AwaitableGetPricingRuleResult(GetPricingRuleResult):
             modifier_percentage=self.modifier_percentage,
             name=self.name,
             tags=self.tags,
+            tiering=self.tiering,
             type=self.type)
 
 
@@ -158,6 +170,7 @@ def get_pricing_rule(arn: Optional[str] = None,
         modifier_percentage=__ret__.modifier_percentage,
         name=__ret__.name,
         tags=__ret__.tags,
+        tiering=__ret__.tiering,
         type=__ret__.type)
 
 

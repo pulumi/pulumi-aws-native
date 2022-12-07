@@ -26,7 +26,7 @@ type Channel struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Channel Playback URL.
 	PlaybackUrl pulumi.StringOutput `pulumi:"playbackUrl"`
-	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrOutput `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags ChannelTagArrayOutput `pulumi:"tags"`
@@ -79,7 +79,7 @@ type channelArgs struct {
 	LatencyMode *ChannelLatencyMode `pulumi:"latencyMode"`
 	// Channel
 	Name *string `pulumi:"name"`
-	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []ChannelTag `pulumi:"tags"`
@@ -95,7 +95,7 @@ type ChannelArgs struct {
 	LatencyMode ChannelLatencyModePtrInput
 	// Channel
 	Name pulumi.StringPtrInput
-	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags ChannelTagArrayInput
@@ -170,7 +170,7 @@ func (o ChannelOutput) PlaybackUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.PlaybackUrl }).(pulumi.StringOutput)
 }
 
-// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 func (o ChannelOutput) RecordingConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.RecordingConfigurationArn }).(pulumi.StringPtrOutput)
 }

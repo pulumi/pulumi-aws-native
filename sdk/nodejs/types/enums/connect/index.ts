@@ -132,6 +132,48 @@ export const QuickConnectType = {
  */
 export type QuickConnectType = (typeof QuickConnectType)[keyof typeof QuickConnectType];
 
+export const RulePublishStatus = {
+    Draft: "DRAFT",
+    Published: "PUBLISHED",
+} as const;
+
+/**
+ * The publish status of a rule, either draft or published.
+ */
+export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
+
+export const RuleSendNotificationActionContentType = {
+    PlainText: "PLAIN_TEXT",
+} as const;
+
+/**
+ * The type of content.
+ */
+export type RuleSendNotificationActionContentType = (typeof RuleSendNotificationActionContentType)[keyof typeof RuleSendNotificationActionContentType];
+
+export const RuleSendNotificationActionDeliveryMethod = {
+    Email: "EMAIL",
+} as const;
+
+/**
+ * The means of delivery.
+ */
+export type RuleSendNotificationActionDeliveryMethod = (typeof RuleSendNotificationActionDeliveryMethod)[keyof typeof RuleSendNotificationActionDeliveryMethod];
+
+export const RuleTriggerEventSourceEventSourceName = {
+    OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
+    OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
+    OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
+    OnZendeskTicketCreate: "OnZendeskTicketCreate",
+    OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
+    OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+} as const;
+
+/**
+ * The name of event source.
+ */
+export type RuleTriggerEventSourceEventSourceName = (typeof RuleTriggerEventSourceEventSourceName)[keyof typeof RuleTriggerEventSourceEventSourceName];
+
 export const TaskTemplateFieldType = {
     Name: "NAME",
     Description: "DESCRIPTION",

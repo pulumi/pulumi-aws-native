@@ -38,7 +38,7 @@ type LookupChannelResult struct {
 	Name *string `pulumi:"name"`
 	// Channel Playback URL.
 	PlaybackUrl *string `pulumi:"playbackUrl"`
-	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []ChannelTag `pulumi:"tags"`
@@ -112,7 +112,7 @@ func (o LookupChannelResultOutput) PlaybackUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.PlaybackUrl }).(pulumi.StringPtrOutput)
 }
 
-// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
 func (o LookupChannelResultOutput) RecordingConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.RecordingConfigurationArn }).(pulumi.StringPtrOutput)
 }

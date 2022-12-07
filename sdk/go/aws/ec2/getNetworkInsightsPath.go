@@ -26,8 +26,10 @@ type LookupNetworkInsightsPathArgs struct {
 
 type LookupNetworkInsightsPathResult struct {
 	CreatedDate            *string                  `pulumi:"createdDate"`
+	DestinationArn         *string                  `pulumi:"destinationArn"`
 	NetworkInsightsPathArn *string                  `pulumi:"networkInsightsPathArn"`
 	NetworkInsightsPathId  *string                  `pulumi:"networkInsightsPathId"`
+	SourceArn              *string                  `pulumi:"sourceArn"`
 	Tags                   []NetworkInsightsPathTag `pulumi:"tags"`
 }
 
@@ -70,12 +72,20 @@ func (o LookupNetworkInsightsPathResultOutput) CreatedDate() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupNetworkInsightsPathResultOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupNetworkInsightsPathResultOutput) NetworkInsightsPathArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.NetworkInsightsPathArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkInsightsPathResultOutput) NetworkInsightsPathId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.NetworkInsightsPathId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupNetworkInsightsPathResultOutput) Tags() NetworkInsightsPathTagArrayOutput {

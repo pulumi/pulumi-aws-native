@@ -56,7 +56,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * ID of the CoreNetwork that the attachment will be attached to.
      */
-    public readonly coreNetworkId!: pulumi.Output<string | undefined>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
@@ -64,11 +64,11 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * Edge location of the attachment.
      */
-    public readonly edgeLocation!: pulumi.Output<string | undefined>;
+    public readonly edgeLocation!: pulumi.Output<string>;
     /**
      * Protocol options for connect attachment
      */
-    public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions | undefined>;
+    public readonly options!: pulumi.Output<outputs.networkmanager.ConnectAttachmentOptions>;
     /**
      * The ID of the attachment account owner.
      */
@@ -96,7 +96,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * Id of transport attachment
      */
-    public readonly transportAttachmentId!: pulumi.Output<string | undefined>;
+    public readonly transportAttachmentId!: pulumi.Output<string>;
     /**
      * Last update time of the attachment.
      */
@@ -109,10 +109,22 @@ export class ConnectAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ConnectAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConnectAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'coreNetworkId'");
+            }
+            if ((!args || args.edgeLocation === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'edgeLocation'");
+            }
+            if ((!args || args.options === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'options'");
+            }
+            if ((!args || args.transportAttachmentId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'transportAttachmentId'");
+            }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
@@ -159,15 +171,15 @@ export interface ConnectAttachmentArgs {
     /**
      * ID of the CoreNetwork that the attachment will be attached to.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId: pulumi.Input<string>;
     /**
      * Edge location of the attachment.
      */
-    edgeLocation?: pulumi.Input<string>;
+    edgeLocation: pulumi.Input<string>;
     /**
      * Protocol options for connect attachment
      */
-    options?: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptionsArgs>;
+    options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptionsArgs>;
     /**
      * Tags for the attachment.
      */
@@ -175,5 +187,5 @@ export interface ConnectAttachmentArgs {
     /**
      * Id of transport attachment
      */
-    transportAttachmentId?: pulumi.Input<string>;
+    transportAttachmentId: pulumi.Input<string>;
 }

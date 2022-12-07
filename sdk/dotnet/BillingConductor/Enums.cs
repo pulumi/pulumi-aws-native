@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.BillingConductor
     }
 
     /// <summary>
-    /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+    /// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
     /// </summary>
     [EnumType]
     public readonly struct PricingRuleType : IEquatable<PricingRuleType>
@@ -170,6 +170,7 @@ namespace Pulumi.AwsNative.BillingConductor
 
         public static PricingRuleType Markup { get; } = new PricingRuleType("MARKUP");
         public static PricingRuleType Discount { get; } = new PricingRuleType("DISCOUNT");
+        public static PricingRuleType Tiering { get; } = new PricingRuleType("TIERING");
 
         public static bool operator ==(PricingRuleType left, PricingRuleType right) => left.Equals(right);
         public static bool operator !=(PricingRuleType left, PricingRuleType right) => !left.Equals(right);

@@ -19,6 +19,17 @@
       },
       "additionalProperties" : false,
       "required" : [ "Key", "Value" ]
+    },
+    "FreeTier" : {
+      "description" : "The possible customizable free tier configurations.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Activated" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "Activated" ]
     }
   },
   "properties" : {
@@ -45,9 +56,9 @@
       "enum" : [ "GLOBAL", "SERVICE", "BILLING_ENTITY" ]
     },
     "Type" : {
-      "description" : "One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.",
+      "description" : "One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.",
       "type" : "string",
-      "enum" : [ "MARKUP", "DISCOUNT" ]
+      "enum" : [ "MARKUP", "DISCOUNT", "TIERING" ]
     },
     "ModifierPercentage" : {
       "description" : "Pricing rule modifier percentage",
@@ -65,6 +76,16 @@
       "description" : "The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.",
       "type" : "string",
       "enum" : [ "AWS", "AWS Marketplace", "AISPL" ]
+    },
+    "Tiering" : {
+      "description" : "The set of tiering configurations for the pricing rule.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FreeTier" : {
+          "$ref" : "#/definitions/FreeTier"
+        }
+      }
     },
     "AssociatedPricingPlanCount" : {
       "description" : "The number of pricing plans associated with pricing rule",
@@ -96,7 +117,7 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ "Name", "Scope", "Type", "ModifierPercentage" ],
+  "required" : [ "Name", "Scope", "Type" ],
   "createOnlyProperties" : [ "/properties/Scope", "/properties/Service", "/properties/BillingEntity" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/AssociatedPricingPlanCount", "/properties/CreationTime", "/properties/LastModifiedTime" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

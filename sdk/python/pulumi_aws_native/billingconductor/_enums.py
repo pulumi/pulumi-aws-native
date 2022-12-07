@@ -49,7 +49,8 @@ class PricingRuleScope(str, Enum):
 
 class PricingRuleType(str, Enum):
     """
-    One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+    One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
     """
     MARKUP = "MARKUP"
     DISCOUNT = "DISCOUNT"
+    TIERING = "TIERING"

@@ -27,7 +27,8 @@ type LookupApplicationArgs struct {
 
 type LookupApplicationResult struct {
 	// The ID of the EMR Serverless Application.
-	ApplicationId *string `pulumi:"applicationId"`
+	ApplicationId *string                  `pulumi:"applicationId"`
+	Architecture  *ApplicationArchitecture `pulumi:"architecture"`
 	// The Amazon Resource Name (ARN) of the EMR Serverless Application.
 	Arn *string `pulumi:"arn"`
 	// Configuration for Auto Start of Application.
@@ -83,6 +84,10 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 // The ID of the EMR Serverless Application.
 func (o LookupApplicationResultOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupApplicationResultOutput) Architecture() ApplicationArchitecturePtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationArchitecture { return v.Architecture }).(ApplicationArchitecturePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the EMR Serverless Application.

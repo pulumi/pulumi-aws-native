@@ -27804,6 +27804,7 @@ type OfflineStoreConfigProperties struct {
 	DataCatalogConfig        *FeatureGroupDataCatalogConfig `pulumi:"dataCatalogConfig"`
 	DisableGlueTableCreation *bool                          `pulumi:"disableGlueTableCreation"`
 	S3StorageConfig          FeatureGroupS3StorageConfig    `pulumi:"s3StorageConfig"`
+	TableFormat              *FeatureGroupTableFormat       `pulumi:"tableFormat"`
 }
 
 // OfflineStoreConfigPropertiesInput is an input type that accepts OfflineStoreConfigPropertiesArgs and OfflineStoreConfigPropertiesOutput values.
@@ -27821,6 +27822,7 @@ type OfflineStoreConfigPropertiesArgs struct {
 	DataCatalogConfig        FeatureGroupDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
 	DisableGlueTableCreation pulumi.BoolPtrInput                   `pulumi:"disableGlueTableCreation"`
 	S3StorageConfig          FeatureGroupS3StorageConfigInput      `pulumi:"s3StorageConfig"`
+	TableFormat              FeatureGroupTableFormatPtrInput       `pulumi:"tableFormat"`
 }
 
 func (OfflineStoreConfigPropertiesArgs) ElementType() reflect.Type {
@@ -27912,6 +27914,10 @@ func (o OfflineStoreConfigPropertiesOutput) S3StorageConfig() FeatureGroupS3Stor
 	return o.ApplyT(func(v OfflineStoreConfigProperties) FeatureGroupS3StorageConfig { return v.S3StorageConfig }).(FeatureGroupS3StorageConfigOutput)
 }
 
+func (o OfflineStoreConfigPropertiesOutput) TableFormat() FeatureGroupTableFormatPtrOutput {
+	return o.ApplyT(func(v OfflineStoreConfigProperties) *FeatureGroupTableFormat { return v.TableFormat }).(FeatureGroupTableFormatPtrOutput)
+}
+
 type OfflineStoreConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (OfflineStoreConfigPropertiesPtrOutput) ElementType() reflect.Type {
@@ -27961,6 +27967,15 @@ func (o OfflineStoreConfigPropertiesPtrOutput) S3StorageConfig() FeatureGroupS3S
 		}
 		return &v.S3StorageConfig
 	}).(FeatureGroupS3StorageConfigPtrOutput)
+}
+
+func (o OfflineStoreConfigPropertiesPtrOutput) TableFormat() FeatureGroupTableFormatPtrOutput {
+	return o.ApplyT(func(v *OfflineStoreConfigProperties) *FeatureGroupTableFormat {
+		if v == nil {
+			return nil
+		}
+		return v.TableFormat
+	}).(FeatureGroupTableFormatPtrOutput)
 }
 
 type OnlineStoreConfigProperties struct {

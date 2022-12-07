@@ -790,7 +790,8 @@ func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntPtrOutput {
 }
 
 type ClusterConnectivityInfo struct {
-	PublicAccess *ClusterPublicAccess `pulumi:"publicAccess"`
+	PublicAccess    *ClusterPublicAccess    `pulumi:"publicAccess"`
+	VpcConnectivity *ClusterVpcConnectivity `pulumi:"vpcConnectivity"`
 }
 
 // ClusterConnectivityInfoInput is an input type that accepts ClusterConnectivityInfoArgs and ClusterConnectivityInfoOutput values.
@@ -805,7 +806,8 @@ type ClusterConnectivityInfoInput interface {
 }
 
 type ClusterConnectivityInfoArgs struct {
-	PublicAccess ClusterPublicAccessPtrInput `pulumi:"publicAccess"`
+	PublicAccess    ClusterPublicAccessPtrInput    `pulumi:"publicAccess"`
+	VpcConnectivity ClusterVpcConnectivityPtrInput `pulumi:"vpcConnectivity"`
 }
 
 func (ClusterConnectivityInfoArgs) ElementType() reflect.Type {
@@ -889,6 +891,10 @@ func (o ClusterConnectivityInfoOutput) PublicAccess() ClusterPublicAccessPtrOutp
 	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterPublicAccess { return v.PublicAccess }).(ClusterPublicAccessPtrOutput)
 }
 
+func (o ClusterConnectivityInfoOutput) VpcConnectivity() ClusterVpcConnectivityPtrOutput {
+	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterVpcConnectivity { return v.VpcConnectivity }).(ClusterVpcConnectivityPtrOutput)
+}
+
 type ClusterConnectivityInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterConnectivityInfoPtrOutput) ElementType() reflect.Type {
@@ -920,6 +926,15 @@ func (o ClusterConnectivityInfoPtrOutput) PublicAccess() ClusterPublicAccessPtrO
 		}
 		return v.PublicAccess
 	}).(ClusterPublicAccessPtrOutput)
+}
+
+func (o ClusterConnectivityInfoPtrOutput) VpcConnectivity() ClusterVpcConnectivityPtrOutput {
+	return o.ApplyT(func(v *ClusterConnectivityInfo) *ClusterVpcConnectivity {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConnectivity
+	}).(ClusterVpcConnectivityPtrOutput)
 }
 
 type ClusterEBSStorageInfo struct {
@@ -3599,6 +3614,836 @@ func (o ClusterUnauthenticatedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ClusterVpcConnectivity struct {
+	ClientAuthentication *ClusterVpcConnectivityClientAuthentication `pulumi:"clientAuthentication"`
+}
+
+// ClusterVpcConnectivityInput is an input type that accepts ClusterVpcConnectivityArgs and ClusterVpcConnectivityOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityInput` via:
+//
+//	ClusterVpcConnectivityArgs{...}
+type ClusterVpcConnectivityInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityOutput() ClusterVpcConnectivityOutput
+	ToClusterVpcConnectivityOutputWithContext(context.Context) ClusterVpcConnectivityOutput
+}
+
+type ClusterVpcConnectivityArgs struct {
+	ClientAuthentication ClusterVpcConnectivityClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
+}
+
+func (ClusterVpcConnectivityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivity)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivityArgs) ToClusterVpcConnectivityOutput() ClusterVpcConnectivityOutput {
+	return i.ToClusterVpcConnectivityOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityArgs) ToClusterVpcConnectivityOutputWithContext(ctx context.Context) ClusterVpcConnectivityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityOutput)
+}
+
+func (i ClusterVpcConnectivityArgs) ToClusterVpcConnectivityPtrOutput() ClusterVpcConnectivityPtrOutput {
+	return i.ToClusterVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityArgs) ToClusterVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityOutput).ToClusterVpcConnectivityPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivityPtrInput is an input type that accepts ClusterVpcConnectivityArgs, ClusterVpcConnectivityPtr and ClusterVpcConnectivityPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityPtrInput` via:
+//
+//	        ClusterVpcConnectivityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivityPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityPtrOutput() ClusterVpcConnectivityPtrOutput
+	ToClusterVpcConnectivityPtrOutputWithContext(context.Context) ClusterVpcConnectivityPtrOutput
+}
+
+type clusterVpcConnectivityPtrType ClusterVpcConnectivityArgs
+
+func ClusterVpcConnectivityPtr(v *ClusterVpcConnectivityArgs) ClusterVpcConnectivityPtrInput {
+	return (*clusterVpcConnectivityPtrType)(v)
+}
+
+func (*clusterVpcConnectivityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivity)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivityPtrType) ToClusterVpcConnectivityPtrOutput() ClusterVpcConnectivityPtrOutput {
+	return i.ToClusterVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivityPtrType) ToClusterVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityPtrOutput)
+}
+
+type ClusterVpcConnectivityOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivity)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityOutput) ToClusterVpcConnectivityOutput() ClusterVpcConnectivityOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityOutput) ToClusterVpcConnectivityOutputWithContext(ctx context.Context) ClusterVpcConnectivityOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityOutput) ToClusterVpcConnectivityPtrOutput() ClusterVpcConnectivityPtrOutput {
+	return o.ToClusterVpcConnectivityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivityOutput) ToClusterVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivity) *ClusterVpcConnectivity {
+		return &v
+	}).(ClusterVpcConnectivityPtrOutput)
+}
+
+func (o ClusterVpcConnectivityOutput) ClientAuthentication() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivity) *ClusterVpcConnectivityClientAuthentication {
+		return v.ClientAuthentication
+	}).(ClusterVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterVpcConnectivityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivity)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityPtrOutput) ToClusterVpcConnectivityPtrOutput() ClusterVpcConnectivityPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityPtrOutput) ToClusterVpcConnectivityPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityPtrOutput) Elem() ClusterVpcConnectivityOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivity) ClusterVpcConnectivity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivity
+		return ret
+	}).(ClusterVpcConnectivityOutput)
+}
+
+func (o ClusterVpcConnectivityPtrOutput) ClientAuthentication() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivity) *ClusterVpcConnectivityClientAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthentication
+	}).(ClusterVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterVpcConnectivityClientAuthentication struct {
+	Sasl *ClusterVpcConnectivitySasl `pulumi:"sasl"`
+	Tls  *ClusterVpcConnectivityTls  `pulumi:"tls"`
+}
+
+// ClusterVpcConnectivityClientAuthenticationInput is an input type that accepts ClusterVpcConnectivityClientAuthenticationArgs and ClusterVpcConnectivityClientAuthenticationOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityClientAuthenticationInput` via:
+//
+//	ClusterVpcConnectivityClientAuthenticationArgs{...}
+type ClusterVpcConnectivityClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityClientAuthenticationOutput() ClusterVpcConnectivityClientAuthenticationOutput
+	ToClusterVpcConnectivityClientAuthenticationOutputWithContext(context.Context) ClusterVpcConnectivityClientAuthenticationOutput
+}
+
+type ClusterVpcConnectivityClientAuthenticationArgs struct {
+	Sasl ClusterVpcConnectivitySaslPtrInput `pulumi:"sasl"`
+	Tls  ClusterVpcConnectivityTlsPtrInput  `pulumi:"tls"`
+}
+
+func (ClusterVpcConnectivityClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivityClientAuthenticationArgs) ToClusterVpcConnectivityClientAuthenticationOutput() ClusterVpcConnectivityClientAuthenticationOutput {
+	return i.ToClusterVpcConnectivityClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityClientAuthenticationArgs) ToClusterVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityClientAuthenticationOutput)
+}
+
+func (i ClusterVpcConnectivityClientAuthenticationArgs) ToClusterVpcConnectivityClientAuthenticationPtrOutput() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return i.ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityClientAuthenticationArgs) ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityClientAuthenticationOutput).ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivityClientAuthenticationPtrInput is an input type that accepts ClusterVpcConnectivityClientAuthenticationArgs, ClusterVpcConnectivityClientAuthenticationPtr and ClusterVpcConnectivityClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityClientAuthenticationPtrInput` via:
+//
+//	        ClusterVpcConnectivityClientAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivityClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityClientAuthenticationPtrOutput() ClusterVpcConnectivityClientAuthenticationPtrOutput
+	ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Context) ClusterVpcConnectivityClientAuthenticationPtrOutput
+}
+
+type clusterVpcConnectivityClientAuthenticationPtrType ClusterVpcConnectivityClientAuthenticationArgs
+
+func ClusterVpcConnectivityClientAuthenticationPtr(v *ClusterVpcConnectivityClientAuthenticationArgs) ClusterVpcConnectivityClientAuthenticationPtrInput {
+	return (*clusterVpcConnectivityClientAuthenticationPtrType)(v)
+}
+
+func (*clusterVpcConnectivityClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivityClientAuthenticationPtrType) ToClusterVpcConnectivityClientAuthenticationPtrOutput() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return i.ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivityClientAuthenticationPtrType) ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+type ClusterVpcConnectivityClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) ToClusterVpcConnectivityClientAuthenticationOutput() ClusterVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) ToClusterVpcConnectivityClientAuthenticationOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) ToClusterVpcConnectivityClientAuthenticationPtrOutput() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivityClientAuthentication {
+		return &v
+	}).(ClusterVpcConnectivityClientAuthenticationPtrOutput)
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) Sasl() ClusterVpcConnectivitySaslPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivitySasl { return v.Sasl }).(ClusterVpcConnectivitySaslPtrOutput)
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationOutput) Tls() ClusterVpcConnectivityTlsPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivityTls { return v.Tls }).(ClusterVpcConnectivityTlsPtrOutput)
+}
+
+type ClusterVpcConnectivityClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityClientAuthentication)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) ToClusterVpcConnectivityClientAuthenticationPtrOutput() ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) ToClusterVpcConnectivityClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Elem() ClusterVpcConnectivityClientAuthenticationOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityClientAuthentication) ClusterVpcConnectivityClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivityClientAuthentication
+		return ret
+	}).(ClusterVpcConnectivityClientAuthenticationOutput)
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Sasl() ClusterVpcConnectivitySaslPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivitySasl {
+		if v == nil {
+			return nil
+		}
+		return v.Sasl
+	}).(ClusterVpcConnectivitySaslPtrOutput)
+}
+
+func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Tls() ClusterVpcConnectivityTlsPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivityTls {
+		if v == nil {
+			return nil
+		}
+		return v.Tls
+	}).(ClusterVpcConnectivityTlsPtrOutput)
+}
+
+type ClusterVpcConnectivityIam struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClusterVpcConnectivityIamInput is an input type that accepts ClusterVpcConnectivityIamArgs and ClusterVpcConnectivityIamOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityIamInput` via:
+//
+//	ClusterVpcConnectivityIamArgs{...}
+type ClusterVpcConnectivityIamInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityIamOutput() ClusterVpcConnectivityIamOutput
+	ToClusterVpcConnectivityIamOutputWithContext(context.Context) ClusterVpcConnectivityIamOutput
+}
+
+type ClusterVpcConnectivityIamArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterVpcConnectivityIamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityIam)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivityIamArgs) ToClusterVpcConnectivityIamOutput() ClusterVpcConnectivityIamOutput {
+	return i.ToClusterVpcConnectivityIamOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityIamArgs) ToClusterVpcConnectivityIamOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityIamOutput)
+}
+
+func (i ClusterVpcConnectivityIamArgs) ToClusterVpcConnectivityIamPtrOutput() ClusterVpcConnectivityIamPtrOutput {
+	return i.ToClusterVpcConnectivityIamPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityIamArgs) ToClusterVpcConnectivityIamPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityIamOutput).ToClusterVpcConnectivityIamPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivityIamPtrInput is an input type that accepts ClusterVpcConnectivityIamArgs, ClusterVpcConnectivityIamPtr and ClusterVpcConnectivityIamPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityIamPtrInput` via:
+//
+//	        ClusterVpcConnectivityIamArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivityIamPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityIamPtrOutput() ClusterVpcConnectivityIamPtrOutput
+	ToClusterVpcConnectivityIamPtrOutputWithContext(context.Context) ClusterVpcConnectivityIamPtrOutput
+}
+
+type clusterVpcConnectivityIamPtrType ClusterVpcConnectivityIamArgs
+
+func ClusterVpcConnectivityIamPtr(v *ClusterVpcConnectivityIamArgs) ClusterVpcConnectivityIamPtrInput {
+	return (*clusterVpcConnectivityIamPtrType)(v)
+}
+
+func (*clusterVpcConnectivityIamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityIam)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivityIamPtrType) ToClusterVpcConnectivityIamPtrOutput() ClusterVpcConnectivityIamPtrOutput {
+	return i.ToClusterVpcConnectivityIamPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivityIamPtrType) ToClusterVpcConnectivityIamPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityIamPtrOutput)
+}
+
+type ClusterVpcConnectivityIamOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityIamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityIam)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityIamOutput) ToClusterVpcConnectivityIamOutput() ClusterVpcConnectivityIamOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityIamOutput) ToClusterVpcConnectivityIamOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityIamOutput) ToClusterVpcConnectivityIamPtrOutput() ClusterVpcConnectivityIamPtrOutput {
+	return o.ToClusterVpcConnectivityIamPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivityIamOutput) ToClusterVpcConnectivityIamPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivityIam) *ClusterVpcConnectivityIam {
+		return &v
+	}).(ClusterVpcConnectivityIamPtrOutput)
+}
+
+func (o ClusterVpcConnectivityIamOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivityIam) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterVpcConnectivityIamPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityIamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityIam)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityIamPtrOutput) ToClusterVpcConnectivityIamPtrOutput() ClusterVpcConnectivityIamPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityIamPtrOutput) ToClusterVpcConnectivityIamPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityIamPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityIamPtrOutput) Elem() ClusterVpcConnectivityIamOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityIam) ClusterVpcConnectivityIam {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivityIam
+		return ret
+	}).(ClusterVpcConnectivityIamOutput)
+}
+
+func (o ClusterVpcConnectivityIamPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityIam) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterVpcConnectivitySasl struct {
+	Iam   *ClusterVpcConnectivityIam   `pulumi:"iam"`
+	Scram *ClusterVpcConnectivityScram `pulumi:"scram"`
+}
+
+// ClusterVpcConnectivitySaslInput is an input type that accepts ClusterVpcConnectivitySaslArgs and ClusterVpcConnectivitySaslOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivitySaslInput` via:
+//
+//	ClusterVpcConnectivitySaslArgs{...}
+type ClusterVpcConnectivitySaslInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivitySaslOutput() ClusterVpcConnectivitySaslOutput
+	ToClusterVpcConnectivitySaslOutputWithContext(context.Context) ClusterVpcConnectivitySaslOutput
+}
+
+type ClusterVpcConnectivitySaslArgs struct {
+	Iam   ClusterVpcConnectivityIamPtrInput   `pulumi:"iam"`
+	Scram ClusterVpcConnectivityScramPtrInput `pulumi:"scram"`
+}
+
+func (ClusterVpcConnectivitySaslArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivitySasl)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivitySaslArgs) ToClusterVpcConnectivitySaslOutput() ClusterVpcConnectivitySaslOutput {
+	return i.ToClusterVpcConnectivitySaslOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivitySaslArgs) ToClusterVpcConnectivitySaslOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivitySaslOutput)
+}
+
+func (i ClusterVpcConnectivitySaslArgs) ToClusterVpcConnectivitySaslPtrOutput() ClusterVpcConnectivitySaslPtrOutput {
+	return i.ToClusterVpcConnectivitySaslPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivitySaslArgs) ToClusterVpcConnectivitySaslPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivitySaslOutput).ToClusterVpcConnectivitySaslPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivitySaslPtrInput is an input type that accepts ClusterVpcConnectivitySaslArgs, ClusterVpcConnectivitySaslPtr and ClusterVpcConnectivitySaslPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivitySaslPtrInput` via:
+//
+//	        ClusterVpcConnectivitySaslArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivitySaslPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivitySaslPtrOutput() ClusterVpcConnectivitySaslPtrOutput
+	ToClusterVpcConnectivitySaslPtrOutputWithContext(context.Context) ClusterVpcConnectivitySaslPtrOutput
+}
+
+type clusterVpcConnectivitySaslPtrType ClusterVpcConnectivitySaslArgs
+
+func ClusterVpcConnectivitySaslPtr(v *ClusterVpcConnectivitySaslArgs) ClusterVpcConnectivitySaslPtrInput {
+	return (*clusterVpcConnectivitySaslPtrType)(v)
+}
+
+func (*clusterVpcConnectivitySaslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivitySasl)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivitySaslPtrType) ToClusterVpcConnectivitySaslPtrOutput() ClusterVpcConnectivitySaslPtrOutput {
+	return i.ToClusterVpcConnectivitySaslPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivitySaslPtrType) ToClusterVpcConnectivitySaslPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivitySaslPtrOutput)
+}
+
+type ClusterVpcConnectivitySaslOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivitySaslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivitySasl)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivitySaslOutput) ToClusterVpcConnectivitySaslOutput() ClusterVpcConnectivitySaslOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivitySaslOutput) ToClusterVpcConnectivitySaslOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivitySaslOutput) ToClusterVpcConnectivitySaslPtrOutput() ClusterVpcConnectivitySaslPtrOutput {
+	return o.ToClusterVpcConnectivitySaslPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivitySaslOutput) ToClusterVpcConnectivitySaslPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivitySasl) *ClusterVpcConnectivitySasl {
+		return &v
+	}).(ClusterVpcConnectivitySaslPtrOutput)
+}
+
+func (o ClusterVpcConnectivitySaslOutput) Iam() ClusterVpcConnectivityIamPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivitySasl) *ClusterVpcConnectivityIam { return v.Iam }).(ClusterVpcConnectivityIamPtrOutput)
+}
+
+func (o ClusterVpcConnectivitySaslOutput) Scram() ClusterVpcConnectivityScramPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivitySasl) *ClusterVpcConnectivityScram { return v.Scram }).(ClusterVpcConnectivityScramPtrOutput)
+}
+
+type ClusterVpcConnectivitySaslPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivitySaslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivitySasl)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivitySaslPtrOutput) ToClusterVpcConnectivitySaslPtrOutput() ClusterVpcConnectivitySaslPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivitySaslPtrOutput) ToClusterVpcConnectivitySaslPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivitySaslPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivitySaslPtrOutput) Elem() ClusterVpcConnectivitySaslOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivitySasl) ClusterVpcConnectivitySasl {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivitySasl
+		return ret
+	}).(ClusterVpcConnectivitySaslOutput)
+}
+
+func (o ClusterVpcConnectivitySaslPtrOutput) Iam() ClusterVpcConnectivityIamPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivitySasl) *ClusterVpcConnectivityIam {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
+	}).(ClusterVpcConnectivityIamPtrOutput)
+}
+
+func (o ClusterVpcConnectivitySaslPtrOutput) Scram() ClusterVpcConnectivityScramPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivitySasl) *ClusterVpcConnectivityScram {
+		if v == nil {
+			return nil
+		}
+		return v.Scram
+	}).(ClusterVpcConnectivityScramPtrOutput)
+}
+
+type ClusterVpcConnectivityScram struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClusterVpcConnectivityScramInput is an input type that accepts ClusterVpcConnectivityScramArgs and ClusterVpcConnectivityScramOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityScramInput` via:
+//
+//	ClusterVpcConnectivityScramArgs{...}
+type ClusterVpcConnectivityScramInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityScramOutput() ClusterVpcConnectivityScramOutput
+	ToClusterVpcConnectivityScramOutputWithContext(context.Context) ClusterVpcConnectivityScramOutput
+}
+
+type ClusterVpcConnectivityScramArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterVpcConnectivityScramArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityScram)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivityScramArgs) ToClusterVpcConnectivityScramOutput() ClusterVpcConnectivityScramOutput {
+	return i.ToClusterVpcConnectivityScramOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityScramArgs) ToClusterVpcConnectivityScramOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityScramOutput)
+}
+
+func (i ClusterVpcConnectivityScramArgs) ToClusterVpcConnectivityScramPtrOutput() ClusterVpcConnectivityScramPtrOutput {
+	return i.ToClusterVpcConnectivityScramPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityScramArgs) ToClusterVpcConnectivityScramPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityScramOutput).ToClusterVpcConnectivityScramPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivityScramPtrInput is an input type that accepts ClusterVpcConnectivityScramArgs, ClusterVpcConnectivityScramPtr and ClusterVpcConnectivityScramPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityScramPtrInput` via:
+//
+//	        ClusterVpcConnectivityScramArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivityScramPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityScramPtrOutput() ClusterVpcConnectivityScramPtrOutput
+	ToClusterVpcConnectivityScramPtrOutputWithContext(context.Context) ClusterVpcConnectivityScramPtrOutput
+}
+
+type clusterVpcConnectivityScramPtrType ClusterVpcConnectivityScramArgs
+
+func ClusterVpcConnectivityScramPtr(v *ClusterVpcConnectivityScramArgs) ClusterVpcConnectivityScramPtrInput {
+	return (*clusterVpcConnectivityScramPtrType)(v)
+}
+
+func (*clusterVpcConnectivityScramPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityScram)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivityScramPtrType) ToClusterVpcConnectivityScramPtrOutput() ClusterVpcConnectivityScramPtrOutput {
+	return i.ToClusterVpcConnectivityScramPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivityScramPtrType) ToClusterVpcConnectivityScramPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityScramPtrOutput)
+}
+
+type ClusterVpcConnectivityScramOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityScramOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityScram)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityScramOutput) ToClusterVpcConnectivityScramOutput() ClusterVpcConnectivityScramOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityScramOutput) ToClusterVpcConnectivityScramOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityScramOutput) ToClusterVpcConnectivityScramPtrOutput() ClusterVpcConnectivityScramPtrOutput {
+	return o.ToClusterVpcConnectivityScramPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivityScramOutput) ToClusterVpcConnectivityScramPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivityScram) *ClusterVpcConnectivityScram {
+		return &v
+	}).(ClusterVpcConnectivityScramPtrOutput)
+}
+
+func (o ClusterVpcConnectivityScramOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivityScram) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterVpcConnectivityScramPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityScramPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityScram)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityScramPtrOutput) ToClusterVpcConnectivityScramPtrOutput() ClusterVpcConnectivityScramPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityScramPtrOutput) ToClusterVpcConnectivityScramPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityScramPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityScramPtrOutput) Elem() ClusterVpcConnectivityScramOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityScram) ClusterVpcConnectivityScram {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivityScram
+		return ret
+	}).(ClusterVpcConnectivityScramOutput)
+}
+
+func (o ClusterVpcConnectivityScramPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityScram) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ClusterVpcConnectivityTls struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ClusterVpcConnectivityTlsInput is an input type that accepts ClusterVpcConnectivityTlsArgs and ClusterVpcConnectivityTlsOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityTlsInput` via:
+//
+//	ClusterVpcConnectivityTlsArgs{...}
+type ClusterVpcConnectivityTlsInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityTlsOutput() ClusterVpcConnectivityTlsOutput
+	ToClusterVpcConnectivityTlsOutputWithContext(context.Context) ClusterVpcConnectivityTlsOutput
+}
+
+type ClusterVpcConnectivityTlsArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ClusterVpcConnectivityTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityTls)(nil)).Elem()
+}
+
+func (i ClusterVpcConnectivityTlsArgs) ToClusterVpcConnectivityTlsOutput() ClusterVpcConnectivityTlsOutput {
+	return i.ToClusterVpcConnectivityTlsOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityTlsArgs) ToClusterVpcConnectivityTlsOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityTlsOutput)
+}
+
+func (i ClusterVpcConnectivityTlsArgs) ToClusterVpcConnectivityTlsPtrOutput() ClusterVpcConnectivityTlsPtrOutput {
+	return i.ToClusterVpcConnectivityTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterVpcConnectivityTlsArgs) ToClusterVpcConnectivityTlsPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityTlsOutput).ToClusterVpcConnectivityTlsPtrOutputWithContext(ctx)
+}
+
+// ClusterVpcConnectivityTlsPtrInput is an input type that accepts ClusterVpcConnectivityTlsArgs, ClusterVpcConnectivityTlsPtr and ClusterVpcConnectivityTlsPtrOutput values.
+// You can construct a concrete instance of `ClusterVpcConnectivityTlsPtrInput` via:
+//
+//	        ClusterVpcConnectivityTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterVpcConnectivityTlsPtrInput interface {
+	pulumi.Input
+
+	ToClusterVpcConnectivityTlsPtrOutput() ClusterVpcConnectivityTlsPtrOutput
+	ToClusterVpcConnectivityTlsPtrOutputWithContext(context.Context) ClusterVpcConnectivityTlsPtrOutput
+}
+
+type clusterVpcConnectivityTlsPtrType ClusterVpcConnectivityTlsArgs
+
+func ClusterVpcConnectivityTlsPtr(v *ClusterVpcConnectivityTlsArgs) ClusterVpcConnectivityTlsPtrInput {
+	return (*clusterVpcConnectivityTlsPtrType)(v)
+}
+
+func (*clusterVpcConnectivityTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityTls)(nil)).Elem()
+}
+
+func (i *clusterVpcConnectivityTlsPtrType) ToClusterVpcConnectivityTlsPtrOutput() ClusterVpcConnectivityTlsPtrOutput {
+	return i.ToClusterVpcConnectivityTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterVpcConnectivityTlsPtrType) ToClusterVpcConnectivityTlsPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConnectivityTlsPtrOutput)
+}
+
+type ClusterVpcConnectivityTlsOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterVpcConnectivityTls)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityTlsOutput) ToClusterVpcConnectivityTlsOutput() ClusterVpcConnectivityTlsOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityTlsOutput) ToClusterVpcConnectivityTlsOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityTlsOutput) ToClusterVpcConnectivityTlsPtrOutput() ClusterVpcConnectivityTlsPtrOutput {
+	return o.ToClusterVpcConnectivityTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterVpcConnectivityTlsOutput) ToClusterVpcConnectivityTlsPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConnectivityTls) *ClusterVpcConnectivityTls {
+		return &v
+	}).(ClusterVpcConnectivityTlsPtrOutput)
+}
+
+func (o ClusterVpcConnectivityTlsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ClusterVpcConnectivityTls) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ClusterVpcConnectivityTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterVpcConnectivityTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterVpcConnectivityTls)(nil)).Elem()
+}
+
+func (o ClusterVpcConnectivityTlsPtrOutput) ToClusterVpcConnectivityTlsPtrOutput() ClusterVpcConnectivityTlsPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityTlsPtrOutput) ToClusterVpcConnectivityTlsPtrOutputWithContext(ctx context.Context) ClusterVpcConnectivityTlsPtrOutput {
+	return o
+}
+
+func (o ClusterVpcConnectivityTlsPtrOutput) Elem() ClusterVpcConnectivityTlsOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityTls) ClusterVpcConnectivityTls {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConnectivityTls
+		return ret
+	}).(ClusterVpcConnectivityTlsOutput)
+}
+
+func (o ClusterVpcConnectivityTlsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConnectivityTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServerlessClusterClientAuthentication struct {
 	Sasl ServerlessClusterSasl `pulumi:"sasl"`
 }
@@ -3896,6 +4741,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTlsPtrInput)(nil)).Elem(), ClusterTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUnauthenticatedInput)(nil)).Elem(), ClusterUnauthenticatedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUnauthenticatedPtrInput)(nil)).Elem(), ClusterUnauthenticatedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityInput)(nil)).Elem(), ClusterVpcConnectivityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityPtrInput)(nil)).Elem(), ClusterVpcConnectivityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityClientAuthenticationInput)(nil)).Elem(), ClusterVpcConnectivityClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityClientAuthenticationPtrInput)(nil)).Elem(), ClusterVpcConnectivityClientAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityIamInput)(nil)).Elem(), ClusterVpcConnectivityIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityIamPtrInput)(nil)).Elem(), ClusterVpcConnectivityIamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivitySaslInput)(nil)).Elem(), ClusterVpcConnectivitySaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivitySaslPtrInput)(nil)).Elem(), ClusterVpcConnectivitySaslArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityScramInput)(nil)).Elem(), ClusterVpcConnectivityScramArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityScramPtrInput)(nil)).Elem(), ClusterVpcConnectivityScramArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConnectivityTlsPtrInput)(nil)).Elem(), ClusterVpcConnectivityTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterClientAuthenticationInput)(nil)).Elem(), ServerlessClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterIamInput)(nil)).Elem(), ServerlessClusterIamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessClusterSaslInput)(nil)).Elem(), ServerlessClusterSaslArgs{})
@@ -3951,6 +4808,18 @@ func init() {
 	pulumi.RegisterOutputType(ClusterTlsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUnauthenticatedOutput{})
 	pulumi.RegisterOutputType(ClusterUnauthenticatedPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityIamOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityIamPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivitySaslOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivitySaslPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityScramOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityScramPtrOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsOutput{})
+	pulumi.RegisterOutputType(ClusterVpcConnectivityTlsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterIamOutput{})
 	pulumi.RegisterOutputType(ServerlessClusterSaslOutput{})

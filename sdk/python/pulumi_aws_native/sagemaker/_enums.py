@@ -20,6 +20,7 @@ __all__ = [
     'DomainResourceSpecInstanceType',
     'DomainSharingSettingsNotebookOutputOption',
     'FeatureGroupFeatureDefinitionFeatureType',
+    'FeatureGroupTableFormat',
     'ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType',
     'ModelBiasJobDefinitionBatchTransformInputS3InputMode',
     'ModelBiasJobDefinitionEndpointInputS3DataDistributionType',
@@ -265,6 +266,14 @@ class FeatureGroupFeatureDefinitionFeatureType(str, Enum):
     INTEGRAL = "Integral"
     FRACTIONAL = "Fractional"
     STRING = "String"
+
+
+class FeatureGroupTableFormat(str, Enum):
+    """
+    Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
+    """
+    ICEBERG = "Iceberg"
+    GLUE = "Glue"
 
 
 class ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType(str, Enum):

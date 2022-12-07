@@ -16,65 +16,73 @@ __all__ = ['ConnectAttachmentArgs', 'ConnectAttachment']
 @pulumi.input_type
 class ConnectAttachmentArgs:
     def __init__(__self__, *,
-                 core_network_id: Optional[pulumi.Input[str]] = None,
-                 edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None,
-                 transport_attachment_id: Optional[pulumi.Input[str]] = None):
+                 core_network_id: pulumi.Input[str],
+                 edge_location: pulumi.Input[str],
+                 options: pulumi.Input['ConnectAttachmentOptionsArgs'],
+                 transport_attachment_id: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
         :param pulumi.Input[str] core_network_id: ID of the CoreNetwork that the attachment will be attached to.
         :param pulumi.Input[str] edge_location: Edge location of the attachment.
         :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Protocol options for connect attachment
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: Tags for the attachment.
         :param pulumi.Input[str] transport_attachment_id: Id of transport attachment
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: Tags for the attachment.
         """
-        if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
-        if edge_location is not None:
-            pulumi.set(__self__, "edge_location", edge_location)
-        if options is not None:
-            pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "edge_location", edge_location)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if transport_attachment_id is not None:
-            pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[str]]:
+    def core_network_id(self) -> pulumi.Input[str]:
         """
         ID of the CoreNetwork that the attachment will be attached to.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[str]]):
+    def core_network_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "core_network_id", value)
 
     @property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> Optional[pulumi.Input[str]]:
+    def edge_location(self) -> pulumi.Input[str]:
         """
         Edge location of the attachment.
         """
         return pulumi.get(self, "edge_location")
 
     @edge_location.setter
-    def edge_location(self, value: Optional[pulumi.Input[str]]):
+    def edge_location(self, value: pulumi.Input[str]):
         pulumi.set(self, "edge_location", value)
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]:
+    def options(self) -> pulumi.Input['ConnectAttachmentOptionsArgs']:
         """
         Protocol options for connect attachment
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]):
+    def options(self, value: pulumi.Input['ConnectAttachmentOptionsArgs']):
         pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="transportAttachmentId")
+    def transport_attachment_id(self) -> pulumi.Input[str]:
+        """
+        Id of transport attachment
+        """
+        return pulumi.get(self, "transport_attachment_id")
+
+    @transport_attachment_id.setter
+    def transport_attachment_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "transport_attachment_id", value)
 
     @property
     @pulumi.getter
@@ -87,18 +95,6 @@ class ConnectAttachmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="transportAttachmentId")
-    def transport_attachment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id of transport attachment
-        """
-        return pulumi.get(self, "transport_attachment_id")
-
-    @transport_attachment_id.setter
-    def transport_attachment_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "transport_attachment_id", value)
 
 
 class ConnectAttachment(pulumi.CustomResource):
@@ -127,7 +123,7 @@ class ConnectAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ConnectAttachmentArgs] = None,
+                 args: ConnectAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::ConnectAttachment Resource Type Definition
@@ -161,10 +157,18 @@ class ConnectAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectAttachmentArgs.__new__(ConnectAttachmentArgs)
 
+            if core_network_id is None and not opts.urn:
+                raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
+            if edge_location is None and not opts.urn:
+                raise TypeError("Missing required property 'edge_location'")
             __props__.__dict__["edge_location"] = edge_location
+            if options is None and not opts.urn:
+                raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
             __props__.__dict__["tags"] = tags
+            if transport_attachment_id is None and not opts.urn:
+                raise TypeError("Missing required property 'transport_attachment_id'")
             __props__.__dict__["transport_attachment_id"] = transport_attachment_id
             __props__.__dict__["attachment_id"] = None
             __props__.__dict__["attachment_policy_rule_number"] = None
@@ -251,7 +255,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> pulumi.Output[Optional[str]]:
+    def core_network_id(self) -> pulumi.Output[str]:
         """
         ID of the CoreNetwork that the attachment will be attached to.
         """
@@ -267,7 +271,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="edgeLocation")
-    def edge_location(self) -> pulumi.Output[Optional[str]]:
+    def edge_location(self) -> pulumi.Output[str]:
         """
         Edge location of the attachment.
         """
@@ -275,7 +279,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Output[Optional['outputs.ConnectAttachmentOptions']]:
+    def options(self) -> pulumi.Output['outputs.ConnectAttachmentOptions']:
         """
         Protocol options for connect attachment
         """
@@ -331,7 +335,7 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="transportAttachmentId")
-    def transport_attachment_id(self) -> pulumi.Output[Optional[str]]:
+    def transport_attachment_id(self) -> pulumi.Output[str]:
         """
         Id of transport attachment
         """

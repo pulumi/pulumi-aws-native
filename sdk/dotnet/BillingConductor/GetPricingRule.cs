@@ -87,7 +87,11 @@ namespace Pulumi.AwsNative.BillingConductor
         public readonly string? Name;
         public readonly ImmutableArray<Outputs.PricingRuleTag> Tags;
         /// <summary>
-        /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        /// The set of tiering configurations for the pricing rule.
+        /// </summary>
+        public readonly Outputs.TieringProperties? Tiering;
+        /// <summary>
+        /// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         /// </summary>
         public readonly Pulumi.AwsNative.BillingConductor.PricingRuleType? Type;
 
@@ -109,6 +113,8 @@ namespace Pulumi.AwsNative.BillingConductor
 
             ImmutableArray<Outputs.PricingRuleTag> tags,
 
+            Outputs.TieringProperties? tiering,
+
             Pulumi.AwsNative.BillingConductor.PricingRuleType? type)
         {
             Arn = arn;
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.BillingConductor
             ModifierPercentage = modifierPercentage;
             Name = name;
             Tags = tags;
+            Tiering = tiering;
             Type = type;
         }
     }

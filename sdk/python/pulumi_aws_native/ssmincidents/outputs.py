@@ -19,7 +19,10 @@ __all__ = [
     'ResponsePlanDynamicSsmParameter',
     'ResponsePlanDynamicSsmParameterValue',
     'ResponsePlanIncidentTemplate',
+    'ResponsePlanIntegration',
     'ResponsePlanNotificationTargetItem',
+    'ResponsePlanPagerDutyConfiguration',
+    'ResponsePlanPagerDutyIncidentConfiguration',
     'ResponsePlanSsmAutomation',
     'ResponsePlanSsmParameter',
     'ResponsePlanTag',
@@ -325,6 +328,36 @@ class ResponsePlanIncidentTemplate(dict):
 
 
 @pulumi.output_type
+class ResponsePlanIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pagerDutyConfiguration":
+            suggest = "pager_duty_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsePlanIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsePlanIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsePlanIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pager_duty_configuration: Optional['outputs.ResponsePlanPagerDutyConfiguration'] = None):
+        if pager_duty_configuration is not None:
+            pulumi.set(__self__, "pager_duty_configuration", pager_duty_configuration)
+
+    @property
+    @pulumi.getter(name="pagerDutyConfiguration")
+    def pager_duty_configuration(self) -> Optional['outputs.ResponsePlanPagerDutyConfiguration']:
+        return pulumi.get(self, "pager_duty_configuration")
+
+
+@pulumi.output_type
 class ResponsePlanNotificationTargetItem(dict):
     """
     A notification target.
@@ -358,6 +391,104 @@ class ResponsePlanNotificationTargetItem(dict):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[str]:
         return pulumi.get(self, "sns_topic_arn")
+
+
+@pulumi.output_type
+class ResponsePlanPagerDutyConfiguration(dict):
+    """
+    The pagerDuty configuration to use when starting the incident.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pagerDutyIncidentConfiguration":
+            suggest = "pager_duty_incident_configuration"
+        elif key == "secretId":
+            suggest = "secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsePlanPagerDutyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsePlanPagerDutyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsePlanPagerDutyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 pager_duty_incident_configuration: 'outputs.ResponsePlanPagerDutyIncidentConfiguration',
+                 secret_id: str):
+        """
+        The pagerDuty configuration to use when starting the incident.
+        :param str name: The name of the pagerDuty configuration.
+        :param str secret_id: The AWS secrets manager secretId storing the pagerDuty token.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pager_duty_incident_configuration", pager_duty_incident_configuration)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the pagerDuty configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pagerDutyIncidentConfiguration")
+    def pager_duty_incident_configuration(self) -> 'outputs.ResponsePlanPagerDutyIncidentConfiguration':
+        return pulumi.get(self, "pager_duty_incident_configuration")
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        The AWS secrets manager secretId storing the pagerDuty token.
+        """
+        return pulumi.get(self, "secret_id")
+
+
+@pulumi.output_type
+class ResponsePlanPagerDutyIncidentConfiguration(dict):
+    """
+    The pagerDuty incident configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceId":
+            suggest = "service_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponsePlanPagerDutyIncidentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponsePlanPagerDutyIncidentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponsePlanPagerDutyIncidentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_id: str):
+        """
+        The pagerDuty incident configuration.
+        :param str service_id: The pagerDuty serviceId.
+        """
+        pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> str:
+        """
+        The pagerDuty serviceId.
+        """
+        return pulumi.get(self, "service_id")
 
 
 @pulumi.output_type

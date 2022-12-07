@@ -16,41 +16,62 @@ __all__ = ['VpcAttachmentArgs', 'VpcAttachment']
 @pulumi.input_type
 class VpcAttachmentArgs:
     def __init__(__self__, *,
-                 core_network_id: Optional[pulumi.Input[str]] = None,
+                 core_network_id: pulumi.Input[str],
+                 subnet_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_arn: pulumi.Input[str],
                  options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None,
-                 vpc_arn: Optional[pulumi.Input[str]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
-        :param pulumi.Input['VpcAttachmentVpcOptionsArgs'] options: Vpc options of the attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: Subnet Arn list
-        :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: Tags for the attachment.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
+        :param pulumi.Input['VpcAttachmentVpcOptionsArgs'] options: Vpc options of the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: Tags for the attachment.
         """
-        if core_network_id is not None:
-            pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "core_network_id", core_network_id)
+        pulumi.set(__self__, "subnet_arns", subnet_arns)
+        pulumi.set(__self__, "vpc_arn", vpc_arn)
         if options is not None:
             pulumi.set(__self__, "options", options)
-        if subnet_arns is not None:
-            pulumi.set(__self__, "subnet_arns", subnet_arns)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if vpc_arn is not None:
-            pulumi.set(__self__, "vpc_arn", vpc_arn)
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> Optional[pulumi.Input[str]]:
+    def core_network_id(self) -> pulumi.Input[str]:
         """
         The ID of a core network for the VPC attachment.
         """
         return pulumi.get(self, "core_network_id")
 
     @core_network_id.setter
-    def core_network_id(self, value: Optional[pulumi.Input[str]]):
+    def core_network_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "core_network_id", value)
+
+    @property
+    @pulumi.getter(name="subnetArns")
+    def subnet_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Subnet Arn list
+        """
+        return pulumi.get(self, "subnet_arns")
+
+    @subnet_arns.setter
+    def subnet_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_arns", value)
+
+    @property
+    @pulumi.getter(name="vpcArn")
+    def vpc_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the VPC.
+        """
+        return pulumi.get(self, "vpc_arn")
+
+    @vpc_arn.setter
+    def vpc_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_arn", value)
 
     @property
     @pulumi.getter
@@ -65,18 +86,6 @@ class VpcAttachmentArgs:
         pulumi.set(self, "options", value)
 
     @property
-    @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Subnet Arn list
-        """
-        return pulumi.get(self, "subnet_arns")
-
-    @subnet_arns.setter
-    def subnet_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "subnet_arns", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]:
         """
@@ -87,18 +96,6 @@ class VpcAttachmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="vpcArn")
-    def vpc_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the VPC.
-        """
-        return pulumi.get(self, "vpc_arn")
-
-    @vpc_arn.setter
-    def vpc_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vpc_arn", value)
 
 
 class VpcAttachment(pulumi.CustomResource):
@@ -127,7 +124,7 @@ class VpcAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpcAttachmentArgs] = None,
+                 args: VpcAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::NetworkManager::VpcAttachment Resoruce Type
@@ -161,10 +158,16 @@ class VpcAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcAttachmentArgs.__new__(VpcAttachmentArgs)
 
+            if core_network_id is None and not opts.urn:
+                raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
             __props__.__dict__["options"] = options
+            if subnet_arns is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_arns'")
             __props__.__dict__["subnet_arns"] = subnet_arns
             __props__.__dict__["tags"] = tags
+            if vpc_arn is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_arn'")
             __props__.__dict__["vpc_arn"] = vpc_arn
             __props__.__dict__["attachment_id"] = None
             __props__.__dict__["attachment_policy_rule_number"] = None
@@ -253,7 +256,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coreNetworkId")
-    def core_network_id(self) -> pulumi.Output[Optional[str]]:
+    def core_network_id(self) -> pulumi.Output[str]:
         """
         The ID of a core network for the VPC attachment.
         """
@@ -325,7 +328,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def subnet_arns(self) -> pulumi.Output[Sequence[str]]:
         """
         Subnet Arn list
         """
@@ -349,7 +352,7 @@ class VpcAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vpcArn")
-    def vpc_arn(self) -> pulumi.Output[Optional[str]]:
+    def vpc_arn(self) -> pulumi.Output[str]:
         """
         The ARN of the VPC.
         """

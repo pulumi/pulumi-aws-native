@@ -21,18 +21,22 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 }
 
 type LookupVolumeArgs struct {
-	VolumeId string `pulumi:"volumeId"`
+	Id string `pulumi:"id"`
 }
 
 type LookupVolumeResult struct {
 	AutoEnableIO       *bool       `pulumi:"autoEnableIO"`
+	AvailabilityZone   *string     `pulumi:"availabilityZone"`
+	Encrypted          *bool       `pulumi:"encrypted"`
+	Id                 *string     `pulumi:"id"`
 	Iops               *int        `pulumi:"iops"`
+	KmsKeyId           *string     `pulumi:"kmsKeyId"`
 	MultiAttachEnabled *bool       `pulumi:"multiAttachEnabled"`
 	OutpostArn         *string     `pulumi:"outpostArn"`
 	Size               *int        `pulumi:"size"`
+	SnapshotId         *string     `pulumi:"snapshotId"`
 	Tags               []VolumeTag `pulumi:"tags"`
 	Throughput         *int        `pulumi:"throughput"`
-	VolumeId           *string     `pulumi:"volumeId"`
 	VolumeType         *string     `pulumi:"volumeType"`
 }
 
@@ -50,7 +54,7 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 }
 
 type LookupVolumeOutputArgs struct {
-	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupVolumeOutputArgs) ElementType() reflect.Type {
@@ -75,8 +79,24 @@ func (o LookupVolumeResultOutput) AutoEnableIO() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *bool { return v.AutoEnableIO }).(pulumi.BoolPtrOutput)
 }
 
+func (o LookupVolumeResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupVolumeResultOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupVolumeResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
@@ -91,16 +111,16 @@ func (o LookupVolumeResultOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
+func (o LookupVolumeResultOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVolumeResult) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupVolumeResultOutput) Tags() VolumeTagArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []VolumeTag { return v.Tags }).(VolumeTagArrayOutput)
 }
 
 func (o LookupVolumeResultOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *int { return v.Throughput }).(pulumi.IntPtrOutput)
-}
-
-func (o LookupVolumeResultOutput) VolumeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupVolumeResultOutput) VolumeType() pulumi.StringPtrOutput {

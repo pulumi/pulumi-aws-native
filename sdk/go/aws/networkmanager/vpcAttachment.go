@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +24,7 @@ type VpcAttachment struct {
 	// The ARN of a core network for the VPC attachment.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
 	// The ID of a core network for the VPC attachment.
-	CoreNetworkId pulumi.StringPtrOutput `pulumi:"coreNetworkId"`
+	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// Creation time of the attachment.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The Region where the edge is located.
@@ -47,16 +48,25 @@ type VpcAttachment struct {
 	// Last update time of the attachment.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// The ARN of the VPC.
-	VpcArn pulumi.StringPtrOutput `pulumi:"vpcArn"`
+	VpcArn pulumi.StringOutput `pulumi:"vpcArn"`
 }
 
 // NewVpcAttachment registers a new resource with the given unique name, arguments, and options.
 func NewVpcAttachment(ctx *pulumi.Context,
 	name string, args *VpcAttachmentArgs, opts ...pulumi.ResourceOption) (*VpcAttachment, error) {
 	if args == nil {
-		args = &VpcAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CoreNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'CoreNetworkId'")
+	}
+	if args.SubnetArns == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetArns'")
+	}
+	if args.VpcArn == nil {
+		return nil, errors.New("invalid value for required argument 'VpcArn'")
+	}
 	var resource VpcAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:VpcAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -90,7 +100,7 @@ func (VpcAttachmentState) ElementType() reflect.Type {
 
 type vpcAttachmentArgs struct {
 	// The ID of a core network for the VPC attachment.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
+	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
 	// Subnet Arn list
@@ -98,13 +108,13 @@ type vpcAttachmentArgs struct {
 	// Tags for the attachment.
 	Tags []VpcAttachmentTag `pulumi:"tags"`
 	// The ARN of the VPC.
-	VpcArn *string `pulumi:"vpcArn"`
+	VpcArn string `pulumi:"vpcArn"`
 }
 
 // The set of arguments for constructing a VpcAttachment resource.
 type VpcAttachmentArgs struct {
 	// The ID of a core network for the VPC attachment.
-	CoreNetworkId pulumi.StringPtrInput
+	CoreNetworkId pulumi.StringInput
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrInput
 	// Subnet Arn list
@@ -112,7 +122,7 @@ type VpcAttachmentArgs struct {
 	// Tags for the attachment.
 	Tags VpcAttachmentTagArrayInput
 	// The ARN of the VPC.
-	VpcArn pulumi.StringPtrInput
+	VpcArn pulumi.StringInput
 }
 
 func (VpcAttachmentArgs) ElementType() reflect.Type {
@@ -173,8 +183,8 @@ func (o VpcAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 }
 
 // The ID of a core network for the VPC attachment.
-func (o VpcAttachmentOutput) CoreNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.CoreNetworkId }).(pulumi.StringPtrOutput)
+func (o VpcAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
 // Creation time of the attachment.
@@ -233,8 +243,8 @@ func (o VpcAttachmentOutput) UpdatedAt() pulumi.StringOutput {
 }
 
 // The ARN of the VPC.
-func (o VpcAttachmentOutput) VpcArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.VpcArn }).(pulumi.StringPtrOutput)
+func (o VpcAttachmentOutput) VpcArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.VpcArn }).(pulumi.StringOutput)
 }
 
 func init() {

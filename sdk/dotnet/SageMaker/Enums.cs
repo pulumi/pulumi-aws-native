@@ -559,6 +559,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureGroupTableFormat : IEquatable<FeatureGroupTableFormat>
+    {
+        private readonly string _value;
+
+        private FeatureGroupTableFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeatureGroupTableFormat Iceberg { get; } = new FeatureGroupTableFormat("Iceberg");
+        public static FeatureGroupTableFormat Glue { get; } = new FeatureGroupTableFormat("Glue");
+
+        public static bool operator ==(FeatureGroupTableFormat left, FeatureGroupTableFormat right) => left.Equals(right);
+        public static bool operator !=(FeatureGroupTableFormat left, FeatureGroupTableFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureGroupTableFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureGroupTableFormat other && Equals(other);
+        public bool Equals(FeatureGroupTableFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
     /// </summary>
     [EnumType]

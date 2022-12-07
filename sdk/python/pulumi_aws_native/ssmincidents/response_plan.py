@@ -22,6 +22,7 @@ class ResponsePlanArgs:
                  chat_channel: Optional[pulumi.Input['ResponsePlanChatChannelArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None):
         """
@@ -29,6 +30,7 @@ class ResponsePlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]] integrations: The list of integrations.
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]] tags: The tags to apply to the response plan.
         """
@@ -41,6 +43,8 @@ class ResponsePlanArgs:
             pulumi.set(__self__, "display_name", display_name)
         if engagements is not None:
             pulumi.set(__self__, "engagements", engagements)
+        if integrations is not None:
+            pulumi.set(__self__, "integrations", integrations)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -102,6 +106,18 @@ class ResponsePlanArgs:
 
     @property
     @pulumi.getter
+    def integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]]:
+        """
+        The list of integrations.
+        """
+        return pulumi.get(self, "integrations")
+
+    @integrations.setter
+    def integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]]):
+        pulumi.set(self, "integrations", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the response plan.
@@ -135,6 +151,7 @@ class ResponsePlan(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_template: Optional[pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']]] = None,
+                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]]] = None,
                  __props__=None):
@@ -146,6 +163,7 @@ class ResponsePlan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanActionArgs']]]] actions: The list of actions.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']]]] integrations: The list of integrations.
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]] tags: The tags to apply to the response plan.
         """
@@ -178,6 +196,7 @@ class ResponsePlan(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  engagements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  incident_template: Optional[pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']]] = None,
+                 integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanTagArgs']]]]] = None,
                  __props__=None):
@@ -196,6 +215,7 @@ class ResponsePlan(pulumi.CustomResource):
             if incident_template is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_template'")
             __props__.__dict__["incident_template"] = incident_template
+            __props__.__dict__["integrations"] = integrations
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -227,6 +247,7 @@ class ResponsePlan(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["engagements"] = None
         __props__.__dict__["incident_template"] = None
+        __props__.__dict__["integrations"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return ResponsePlan(resource_name, opts=opts, __props__=__props__)
@@ -272,6 +293,14 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Output['outputs.ResponsePlanIncidentTemplate']:
         return pulumi.get(self, "incident_template")
+
+    @property
+    @pulumi.getter
+    def integrations(self) -> pulumi.Output[Optional[Sequence['outputs.ResponsePlanIntegration']]]:
+        """
+        The list of integrations.
+        """
+        return pulumi.get(self, "integrations")
 
     @property
     @pulumi.getter

@@ -331,6 +331,8 @@ if typing.TYPE_CHECKING:
     pinpoint = __pinpoint
     import pulumi_aws_native.pinpointemail as __pinpointemail
     pinpointemail = __pinpointemail
+    import pulumi_aws_native.pipes as __pipes
+    pipes = __pipes
     import pulumi_aws_native.qldb as __qldb
     qldb = __qldb
     import pulumi_aws_native.quicksight as __quicksight
@@ -585,6 +587,7 @@ else:
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pinpointemail = _utilities.lazy_import('pulumi_aws_native.pinpointemail')
+    pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws_native.quicksight')
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
@@ -1185,6 +1188,7 @@ _utilities.register(
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:QuickConnect": "QuickConnect",
+   "aws-native:connect:Rule": "Rule",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"
@@ -1397,6 +1401,7 @@ _utilities.register(
    "aws-native:ec2:NetworkInterface": "NetworkInterface",
    "aws-native:ec2:NetworkInterfaceAttachment": "NetworkInterfaceAttachment",
    "aws-native:ec2:NetworkInterfacePermission": "NetworkInterfacePermission",
+   "aws-native:ec2:NetworkPerformanceMetricSubscription": "NetworkPerformanceMetricSubscription",
    "aws-native:ec2:PlacementGroup": "PlacementGroup",
    "aws-native:ec2:PrefixList": "PrefixList",
    "aws-native:ec2:Route": "Route",
@@ -2478,6 +2483,14 @@ _utilities.register(
    "aws-native:pinpointemail:ConfigurationSetEventDestination": "ConfigurationSetEventDestination",
    "aws-native:pinpointemail:DedicatedIpPool": "DedicatedIpPool",
    "aws-native:pinpointemail:Identity": "Identity"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "pipes",
+  "fqn": "pulumi_aws_native.pipes",
+  "classes": {
+   "aws-native:pipes:Pipe": "Pipe"
   }
  },
  {

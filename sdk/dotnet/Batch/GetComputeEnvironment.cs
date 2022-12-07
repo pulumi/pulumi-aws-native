@@ -56,7 +56,6 @@ namespace Pulumi.AwsNative.Batch
         public readonly string? ServiceRole;
         public readonly string? State;
         public readonly int? UnmanagedvCpus;
-        public readonly Outputs.ComputeEnvironmentUpdatePolicy? UpdatePolicy;
 
         [OutputConstructor]
         private GetComputeEnvironmentResult(
@@ -68,16 +67,13 @@ namespace Pulumi.AwsNative.Batch
 
             string? state,
 
-            int? unmanagedvCpus,
-
-            Outputs.ComputeEnvironmentUpdatePolicy? updatePolicy)
+            int? unmanagedvCpus)
         {
             ComputeEnvironmentArn = computeEnvironmentArn;
             ComputeResources = computeResources;
             ServiceRole = serviceRole;
             State = state;
             UnmanagedvCpus = unmanagedvCpus;
-            UpdatePolicy = updatePolicy;
         }
     }
 }

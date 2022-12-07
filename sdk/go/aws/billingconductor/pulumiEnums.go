@@ -686,12 +686,13 @@ func (in *pricingRuleScopePtr) ToPricingRuleScopePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(PricingRuleScopePtrOutput)
 }
 
-// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 type PricingRuleType string
 
 const (
 	PricingRuleTypeMarkup   = PricingRuleType("MARKUP")
 	PricingRuleTypeDiscount = PricingRuleType("DISCOUNT")
+	PricingRuleTypeTiering  = PricingRuleType("TIERING")
 )
 
 func (PricingRuleType) ElementType() reflect.Type {

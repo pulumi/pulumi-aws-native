@@ -1697,6 +1697,668 @@ func (in *quickConnectTypePtr) ToQuickConnectTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(QuickConnectTypePtrOutput)
 }
 
+// The publish status of a rule, either draft or published.
+type RulePublishStatus string
+
+const (
+	RulePublishStatusDraft     = RulePublishStatus("DRAFT")
+	RulePublishStatusPublished = RulePublishStatus("PUBLISHED")
+)
+
+func (RulePublishStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePublishStatus)(nil)).Elem()
+}
+
+func (e RulePublishStatus) ToRulePublishStatusOutput() RulePublishStatusOutput {
+	return pulumi.ToOutput(e).(RulePublishStatusOutput)
+}
+
+func (e RulePublishStatus) ToRulePublishStatusOutputWithContext(ctx context.Context) RulePublishStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RulePublishStatusOutput)
+}
+
+func (e RulePublishStatus) ToRulePublishStatusPtrOutput() RulePublishStatusPtrOutput {
+	return e.ToRulePublishStatusPtrOutputWithContext(context.Background())
+}
+
+func (e RulePublishStatus) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
+	return RulePublishStatus(e).ToRulePublishStatusOutputWithContext(ctx).ToRulePublishStatusPtrOutputWithContext(ctx)
+}
+
+func (e RulePublishStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePublishStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RulePublishStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RulePublishStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RulePublishStatusOutput struct{ *pulumi.OutputState }
+
+func (RulePublishStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RulePublishStatus)(nil)).Elem()
+}
+
+func (o RulePublishStatusOutput) ToRulePublishStatusOutput() RulePublishStatusOutput {
+	return o
+}
+
+func (o RulePublishStatusOutput) ToRulePublishStatusOutputWithContext(ctx context.Context) RulePublishStatusOutput {
+	return o
+}
+
+func (o RulePublishStatusOutput) ToRulePublishStatusPtrOutput() RulePublishStatusPtrOutput {
+	return o.ToRulePublishStatusPtrOutputWithContext(context.Background())
+}
+
+func (o RulePublishStatusOutput) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RulePublishStatus) *RulePublishStatus {
+		return &v
+	}).(RulePublishStatusPtrOutput)
+}
+
+func (o RulePublishStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RulePublishStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePublishStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RulePublishStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePublishStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RulePublishStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RulePublishStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (RulePublishStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RulePublishStatus)(nil)).Elem()
+}
+
+func (o RulePublishStatusPtrOutput) ToRulePublishStatusPtrOutput() RulePublishStatusPtrOutput {
+	return o
+}
+
+func (o RulePublishStatusPtrOutput) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
+	return o
+}
+
+func (o RulePublishStatusPtrOutput) Elem() RulePublishStatusOutput {
+	return o.ApplyT(func(v *RulePublishStatus) RulePublishStatus {
+		if v != nil {
+			return *v
+		}
+		var ret RulePublishStatus
+		return ret
+	}).(RulePublishStatusOutput)
+}
+
+func (o RulePublishStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RulePublishStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RulePublishStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RulePublishStatusInput is an input type that accepts RulePublishStatusArgs and RulePublishStatusOutput values.
+// You can construct a concrete instance of `RulePublishStatusInput` via:
+//
+//	RulePublishStatusArgs{...}
+type RulePublishStatusInput interface {
+	pulumi.Input
+
+	ToRulePublishStatusOutput() RulePublishStatusOutput
+	ToRulePublishStatusOutputWithContext(context.Context) RulePublishStatusOutput
+}
+
+var rulePublishStatusPtrType = reflect.TypeOf((**RulePublishStatus)(nil)).Elem()
+
+type RulePublishStatusPtrInput interface {
+	pulumi.Input
+
+	ToRulePublishStatusPtrOutput() RulePublishStatusPtrOutput
+	ToRulePublishStatusPtrOutputWithContext(context.Context) RulePublishStatusPtrOutput
+}
+
+type rulePublishStatusPtr string
+
+func RulePublishStatusPtr(v string) RulePublishStatusPtrInput {
+	return (*rulePublishStatusPtr)(&v)
+}
+
+func (*rulePublishStatusPtr) ElementType() reflect.Type {
+	return rulePublishStatusPtrType
+}
+
+func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutput() RulePublishStatusPtrOutput {
+	return pulumi.ToOutput(in).(RulePublishStatusPtrOutput)
+}
+
+func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutputWithContext(ctx context.Context) RulePublishStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RulePublishStatusPtrOutput)
+}
+
+// The type of content.
+type RuleSendNotificationActionContentType string
+
+const (
+	RuleSendNotificationActionContentTypePlainText = RuleSendNotificationActionContentType("PLAIN_TEXT")
+)
+
+func (RuleSendNotificationActionContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationActionContentType)(nil)).Elem()
+}
+
+func (e RuleSendNotificationActionContentType) ToRuleSendNotificationActionContentTypeOutput() RuleSendNotificationActionContentTypeOutput {
+	return pulumi.ToOutput(e).(RuleSendNotificationActionContentTypeOutput)
+}
+
+func (e RuleSendNotificationActionContentType) ToRuleSendNotificationActionContentTypeOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleSendNotificationActionContentTypeOutput)
+}
+
+func (e RuleSendNotificationActionContentType) ToRuleSendNotificationActionContentTypePtrOutput() RuleSendNotificationActionContentTypePtrOutput {
+	return e.ToRuleSendNotificationActionContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendNotificationActionContentType) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
+	return RuleSendNotificationActionContentType(e).ToRuleSendNotificationActionContentTypeOutputWithContext(ctx).ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleSendNotificationActionContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendNotificationActionContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendNotificationActionContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendNotificationActionContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleSendNotificationActionContentTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationActionContentType)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActionContentTypeOutput() RuleSendNotificationActionContentTypeOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActionContentTypeOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypeOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActionContentTypePtrOutput() RuleSendNotificationActionContentTypePtrOutput {
+	return o.ToRuleSendNotificationActionContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSendNotificationActionContentType) *RuleSendNotificationActionContentType {
+		return &v
+	}).(RuleSendNotificationActionContentTypePtrOutput)
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendNotificationActionContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendNotificationActionContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSendNotificationActionContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSendNotificationActionContentType)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) ToRuleSendNotificationActionContentTypePtrOutput() RuleSendNotificationActionContentTypePtrOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) Elem() RuleSendNotificationActionContentTypeOutput {
+	return o.ApplyT(func(v *RuleSendNotificationActionContentType) RuleSendNotificationActionContentType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSendNotificationActionContentType
+		return ret
+	}).(RuleSendNotificationActionContentTypeOutput)
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleSendNotificationActionContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleSendNotificationActionContentTypeInput is an input type that accepts RuleSendNotificationActionContentTypeArgs and RuleSendNotificationActionContentTypeOutput values.
+// You can construct a concrete instance of `RuleSendNotificationActionContentTypeInput` via:
+//
+//	RuleSendNotificationActionContentTypeArgs{...}
+type RuleSendNotificationActionContentTypeInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionContentTypeOutput() RuleSendNotificationActionContentTypeOutput
+	ToRuleSendNotificationActionContentTypeOutputWithContext(context.Context) RuleSendNotificationActionContentTypeOutput
+}
+
+var ruleSendNotificationActionContentTypePtrType = reflect.TypeOf((**RuleSendNotificationActionContentType)(nil)).Elem()
+
+type RuleSendNotificationActionContentTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionContentTypePtrOutput() RuleSendNotificationActionContentTypePtrOutput
+	ToRuleSendNotificationActionContentTypePtrOutputWithContext(context.Context) RuleSendNotificationActionContentTypePtrOutput
+}
+
+type ruleSendNotificationActionContentTypePtr string
+
+func RuleSendNotificationActionContentTypePtr(v string) RuleSendNotificationActionContentTypePtrInput {
+	return (*ruleSendNotificationActionContentTypePtr)(&v)
+}
+
+func (*ruleSendNotificationActionContentTypePtr) ElementType() reflect.Type {
+	return ruleSendNotificationActionContentTypePtrType
+}
+
+func (in *ruleSendNotificationActionContentTypePtr) ToRuleSendNotificationActionContentTypePtrOutput() RuleSendNotificationActionContentTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleSendNotificationActionContentTypePtrOutput)
+}
+
+func (in *ruleSendNotificationActionContentTypePtr) ToRuleSendNotificationActionContentTypePtrOutputWithContext(ctx context.Context) RuleSendNotificationActionContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionContentTypePtrOutput)
+}
+
+// The means of delivery.
+type RuleSendNotificationActionDeliveryMethod string
+
+const (
+	RuleSendNotificationActionDeliveryMethodEmail = RuleSendNotificationActionDeliveryMethod("EMAIL")
+)
+
+func (RuleSendNotificationActionDeliveryMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationActionDeliveryMethod)(nil)).Elem()
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToRuleSendNotificationActionDeliveryMethodOutput() RuleSendNotificationActionDeliveryMethodOutput {
+	return pulumi.ToOutput(e).(RuleSendNotificationActionDeliveryMethodOutput)
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToRuleSendNotificationActionDeliveryMethodOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleSendNotificationActionDeliveryMethodOutput)
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToRuleSendNotificationActionDeliveryMethodPtrOutput() RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return e.ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return RuleSendNotificationActionDeliveryMethod(e).ToRuleSendNotificationActionDeliveryMethodOutputWithContext(ctx).ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx)
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleSendNotificationActionDeliveryMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleSendNotificationActionDeliveryMethodOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionDeliveryMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationActionDeliveryMethod)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationActionDeliveryMethodOutput() RuleSendNotificationActionDeliveryMethodOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationActionDeliveryMethodOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationActionDeliveryMethodPtrOutput() RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return o.ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSendNotificationActionDeliveryMethod) *RuleSendNotificationActionDeliveryMethod {
+		return &v
+	}).(RuleSendNotificationActionDeliveryMethodPtrOutput)
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendNotificationActionDeliveryMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionDeliveryMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleSendNotificationActionDeliveryMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSendNotificationActionDeliveryMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionDeliveryMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSendNotificationActionDeliveryMethod)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToRuleSendNotificationActionDeliveryMethodPtrOutput() RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) Elem() RuleSendNotificationActionDeliveryMethodOutput {
+	return o.ApplyT(func(v *RuleSendNotificationActionDeliveryMethod) RuleSendNotificationActionDeliveryMethod {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSendNotificationActionDeliveryMethod
+		return ret
+	}).(RuleSendNotificationActionDeliveryMethodOutput)
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSendNotificationActionDeliveryMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleSendNotificationActionDeliveryMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleSendNotificationActionDeliveryMethodInput is an input type that accepts RuleSendNotificationActionDeliveryMethodArgs and RuleSendNotificationActionDeliveryMethodOutput values.
+// You can construct a concrete instance of `RuleSendNotificationActionDeliveryMethodInput` via:
+//
+//	RuleSendNotificationActionDeliveryMethodArgs{...}
+type RuleSendNotificationActionDeliveryMethodInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionDeliveryMethodOutput() RuleSendNotificationActionDeliveryMethodOutput
+	ToRuleSendNotificationActionDeliveryMethodOutputWithContext(context.Context) RuleSendNotificationActionDeliveryMethodOutput
+}
+
+var ruleSendNotificationActionDeliveryMethodPtrType = reflect.TypeOf((**RuleSendNotificationActionDeliveryMethod)(nil)).Elem()
+
+type RuleSendNotificationActionDeliveryMethodPtrInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionDeliveryMethodPtrOutput() RuleSendNotificationActionDeliveryMethodPtrOutput
+	ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput
+}
+
+type ruleSendNotificationActionDeliveryMethodPtr string
+
+func RuleSendNotificationActionDeliveryMethodPtr(v string) RuleSendNotificationActionDeliveryMethodPtrInput {
+	return (*ruleSendNotificationActionDeliveryMethodPtr)(&v)
+}
+
+func (*ruleSendNotificationActionDeliveryMethodPtr) ElementType() reflect.Type {
+	return ruleSendNotificationActionDeliveryMethodPtrType
+}
+
+func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationActionDeliveryMethodPtrOutput() RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return pulumi.ToOutput(in).(RuleSendNotificationActionDeliveryMethodPtrOutput)
+}
+
+func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationActionDeliveryMethodPtrOutputWithContext(ctx context.Context) RuleSendNotificationActionDeliveryMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionDeliveryMethodPtrOutput)
+}
+
+// The name of event source.
+type RuleTriggerEventSourceEventSourceName string
+
+const (
+	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate           = RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate")
+	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate     = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")
+	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate          = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
+)
+
+func (RuleTriggerEventSourceEventSourceName) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTriggerEventSourceEventSourceName)(nil)).Elem()
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToRuleTriggerEventSourceEventSourceNameOutput() RuleTriggerEventSourceEventSourceNameOutput {
+	return pulumi.ToOutput(e).(RuleTriggerEventSourceEventSourceNameOutput)
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToRuleTriggerEventSourceEventSourceNameOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleTriggerEventSourceEventSourceNameOutput)
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToRuleTriggerEventSourceEventSourceNamePtrOutput() RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return e.ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(context.Background())
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return RuleTriggerEventSourceEventSourceName(e).ToRuleTriggerEventSourceEventSourceNameOutputWithContext(ctx).ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx)
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleTriggerEventSourceEventSourceName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleTriggerEventSourceEventSourceNameOutput struct{ *pulumi.OutputState }
+
+func (RuleTriggerEventSourceEventSourceNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTriggerEventSourceEventSourceName)(nil)).Elem()
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEventSourceNameOutput() RuleTriggerEventSourceEventSourceNameOutput {
+	return o
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEventSourceNameOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNameOutput {
+	return o
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEventSourceNamePtrOutput() RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return o.ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(context.Background())
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleTriggerEventSourceEventSourceName) *RuleTriggerEventSourceEventSourceName {
+		return &v
+	}).(RuleTriggerEventSourceEventSourceNamePtrOutput)
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleTriggerEventSourceEventSourceName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleTriggerEventSourceEventSourceNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleTriggerEventSourceEventSourceName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleTriggerEventSourceEventSourceNamePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleTriggerEventSourceEventSourceNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleTriggerEventSourceEventSourceName)(nil)).Elem()
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToRuleTriggerEventSourceEventSourceNamePtrOutput() RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return o
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return o
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) Elem() RuleTriggerEventSourceEventSourceNameOutput {
+	return o.ApplyT(func(v *RuleTriggerEventSourceEventSourceName) RuleTriggerEventSourceEventSourceName {
+		if v != nil {
+			return *v
+		}
+		var ret RuleTriggerEventSourceEventSourceName
+		return ret
+	}).(RuleTriggerEventSourceEventSourceNameOutput)
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleTriggerEventSourceEventSourceName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleTriggerEventSourceEventSourceNameInput is an input type that accepts RuleTriggerEventSourceEventSourceNameArgs and RuleTriggerEventSourceEventSourceNameOutput values.
+// You can construct a concrete instance of `RuleTriggerEventSourceEventSourceNameInput` via:
+//
+//	RuleTriggerEventSourceEventSourceNameArgs{...}
+type RuleTriggerEventSourceEventSourceNameInput interface {
+	pulumi.Input
+
+	ToRuleTriggerEventSourceEventSourceNameOutput() RuleTriggerEventSourceEventSourceNameOutput
+	ToRuleTriggerEventSourceEventSourceNameOutputWithContext(context.Context) RuleTriggerEventSourceEventSourceNameOutput
+}
+
+var ruleTriggerEventSourceEventSourceNamePtrType = reflect.TypeOf((**RuleTriggerEventSourceEventSourceName)(nil)).Elem()
+
+type RuleTriggerEventSourceEventSourceNamePtrInput interface {
+	pulumi.Input
+
+	ToRuleTriggerEventSourceEventSourceNamePtrOutput() RuleTriggerEventSourceEventSourceNamePtrOutput
+	ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput
+}
+
+type ruleTriggerEventSourceEventSourceNamePtr string
+
+func RuleTriggerEventSourceEventSourceNamePtr(v string) RuleTriggerEventSourceEventSourceNamePtrInput {
+	return (*ruleTriggerEventSourceEventSourceNamePtr)(&v)
+}
+
+func (*ruleTriggerEventSourceEventSourceNamePtr) ElementType() reflect.Type {
+	return ruleTriggerEventSourceEventSourceNamePtrType
+}
+
+func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEventSourceNamePtrOutput() RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return pulumi.ToOutput(in).(RuleTriggerEventSourceEventSourceNamePtrOutput)
+}
+
+func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEventSourceNamePtrOutputWithContext(ctx context.Context) RuleTriggerEventSourceEventSourceNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleTriggerEventSourceEventSourceNamePtrOutput)
+}
+
 // The type of the task template's field
 type TaskTemplateFieldType string
 
@@ -2221,6 +2883,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypeInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypePtrInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodPtrInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
@@ -2249,6 +2919,14 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
+	pulumi.RegisterOutputType(RulePublishStatusOutput{})
+	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypeOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionContentTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodPtrOutput{})
+	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNameOutput{})
+	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNamePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusOutput{})

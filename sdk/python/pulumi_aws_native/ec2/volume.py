@@ -247,7 +247,6 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput"] = throughput
             __props__.__dict__["volume_type"] = volume_type
-            __props__.__dict__["volume_id"] = None
         super(Volume, __self__).__init__(
             'aws-native:ec2:Volume',
             resource_name,
@@ -281,7 +280,6 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["snapshot_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["throughput"] = None
-        __props__.__dict__["volume_id"] = None
         __props__.__dict__["volume_type"] = None
         return Volume(resource_name, opts=opts, __props__=__props__)
 
@@ -339,11 +337,6 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "throughput")
-
-    @property
-    @pulumi.getter(name="volumeId")
-    def volume_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "volume_id")
 
     @property
     @pulumi.getter(name="volumeType")

@@ -352,7 +352,6 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["unhealthy_threshold_count"] = unhealthy_threshold_count
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["load_balancer_arns"] = None
-            __props__.__dict__["target_group_arn"] = None
             __props__.__dict__["target_group_full_name"] = None
             __props__.__dict__["target_group_name"] = None
         super(TargetGroup, __self__).__init__(
@@ -392,7 +391,6 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["protocol"] = None
         __props__.__dict__["protocol_version"] = None
         __props__.__dict__["tags"] = None
-        __props__.__dict__["target_group_arn"] = None
         __props__.__dict__["target_group_attributes"] = None
         __props__.__dict__["target_group_full_name"] = None
         __props__.__dict__["target_group_name"] = None
@@ -476,11 +474,6 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TargetGroupTag']]]:
         return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "target_group_arn")
 
     @property
     @pulumi.getter(name="targetGroupAttributes")

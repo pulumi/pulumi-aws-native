@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MSK.Inputs
         [Input("publicAccess")]
         public Input<Inputs.ClusterPublicAccessArgs>? PublicAccess { get; set; }
 
+        [Input("vpcConnectivity")]
+        public Input<Inputs.ClusterVpcConnectivityArgs>? VpcConnectivity { get; set; }
+
         public ClusterConnectivityInfoArgs()
         {
         }

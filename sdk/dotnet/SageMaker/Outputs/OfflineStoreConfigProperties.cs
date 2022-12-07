@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly Outputs.FeatureGroupDataCatalogConfig? DataCatalogConfig;
         public readonly bool? DisableGlueTableCreation;
         public readonly Outputs.FeatureGroupS3StorageConfig S3StorageConfig;
+        public readonly Pulumi.AwsNative.SageMaker.FeatureGroupTableFormat? TableFormat;
 
         [OutputConstructor]
         private OfflineStoreConfigProperties(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             bool? disableGlueTableCreation,
 
-            Outputs.FeatureGroupS3StorageConfig s3StorageConfig)
+            Outputs.FeatureGroupS3StorageConfig s3StorageConfig,
+
+            Pulumi.AwsNative.SageMaker.FeatureGroupTableFormat? tableFormat)
         {
             DataCatalogConfig = dataCatalogConfig;
             DisableGlueTableCreation = disableGlueTableCreation;
             S3StorageConfig = s3StorageConfig;
+            TableFormat = tableFormat;
         }
     }
 }

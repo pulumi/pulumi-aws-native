@@ -56,6 +56,10 @@ export class ResponsePlan extends pulumi.CustomResource {
     public readonly engagements!: pulumi.Output<string[] | undefined>;
     public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
+     * The list of integrations.
+     */
+    public readonly integrations!: pulumi.Output<outputs.ssmincidents.ResponsePlanIntegration[] | undefined>;
+    /**
      * The name of the response plan.
      */
     public readonly name!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class ResponsePlan extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["engagements"] = args ? args.engagements : undefined;
             resourceInputs["incidentTemplate"] = args ? args.incidentTemplate : undefined;
+            resourceInputs["integrations"] = args ? args.integrations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -93,6 +98,7 @@ export class ResponsePlan extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["engagements"] = undefined /*out*/;
             resourceInputs["incidentTemplate"] = undefined /*out*/;
+            resourceInputs["integrations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -119,6 +125,10 @@ export interface ResponsePlanArgs {
      */
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
     incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplateArgs>;
+    /**
+     * The list of integrations.
+     */
+    integrations?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ResponsePlanIntegrationArgs>[]>;
     /**
      * The name of the response plan.
      */

@@ -29,7 +29,6 @@ type TargetGroup struct {
 	Protocol                   pulumi.StringPtrOutput                  `pulumi:"protocol"`
 	ProtocolVersion            pulumi.StringPtrOutput                  `pulumi:"protocolVersion"`
 	Tags                       TargetGroupTagArrayOutput               `pulumi:"tags"`
-	TargetGroupArn             pulumi.StringOutput                     `pulumi:"targetGroupArn"`
 	TargetGroupAttributes      TargetGroupAttributeArrayOutput         `pulumi:"targetGroupAttributes"`
 	TargetGroupFullName        pulumi.StringOutput                     `pulumi:"targetGroupFullName"`
 	TargetGroupName            pulumi.StringOutput                     `pulumi:"targetGroupName"`
@@ -217,10 +216,6 @@ func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
 
 func (o TargetGroupOutput) Tags() TargetGroupTagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupTagArrayOutput { return v.Tags }).(TargetGroupTagArrayOutput)
-}
-
-func (o TargetGroupOutput) TargetGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.TargetGroupArn }).(pulumi.StringOutput)
 }
 
 func (o TargetGroupOutput) TargetGroupAttributes() TargetGroupAttributeArrayOutput {

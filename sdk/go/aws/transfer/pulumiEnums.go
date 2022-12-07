@@ -695,6 +695,7 @@ const (
 	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes128Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES128_CBC")
 	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes192Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES192_CBC")
 	ConnectorAs2ConfigPropertiesEncryptionAlgorithmAes256Cbc = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES256_CBC")
+	ConnectorAs2ConfigPropertiesEncryptionAlgorithmNone      = ConnectorAs2ConfigPropertiesEncryptionAlgorithm("NONE")
 )
 
 func (ConnectorAs2ConfigPropertiesEncryptionAlgorithm) ElementType() reflect.Type {

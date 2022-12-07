@@ -18,7 +18,10 @@ __all__ = [
     'ResponsePlanDynamicSsmParameterValueArgs',
     'ResponsePlanDynamicSsmParameterArgs',
     'ResponsePlanIncidentTemplateArgs',
+    'ResponsePlanIntegrationArgs',
     'ResponsePlanNotificationTargetItemArgs',
+    'ResponsePlanPagerDutyConfigurationArgs',
+    'ResponsePlanPagerDutyIncidentConfigurationArgs',
     'ResponsePlanSsmAutomationArgs',
     'ResponsePlanSsmParameterArgs',
     'ResponsePlanTagArgs',
@@ -268,6 +271,23 @@ class ResponsePlanIncidentTemplateArgs:
 
 
 @pulumi.input_type
+class ResponsePlanIntegrationArgs:
+    def __init__(__self__, *,
+                 pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None):
+        if pager_duty_configuration is not None:
+            pulumi.set(__self__, "pager_duty_configuration", pager_duty_configuration)
+
+    @property
+    @pulumi.getter(name="pagerDutyConfiguration")
+    def pager_duty_configuration(self) -> Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]:
+        return pulumi.get(self, "pager_duty_configuration")
+
+    @pager_duty_configuration.setter
+    def pager_duty_configuration(self, value: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']]):
+        pulumi.set(self, "pager_duty_configuration", value)
+
+
+@pulumi.input_type
 class ResponsePlanNotificationTargetItemArgs:
     def __init__(__self__, *,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
@@ -285,6 +305,78 @@ class ResponsePlanNotificationTargetItemArgs:
     @sns_topic_arn.setter
     def sns_topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sns_topic_arn", value)
+
+
+@pulumi.input_type
+class ResponsePlanPagerDutyConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 pager_duty_incident_configuration: pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs'],
+                 secret_id: pulumi.Input[str]):
+        """
+        The pagerDuty configuration to use when starting the incident.
+        :param pulumi.Input[str] name: The name of the pagerDuty configuration.
+        :param pulumi.Input[str] secret_id: The AWS secrets manager secretId storing the pagerDuty token.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pager_duty_incident_configuration", pager_duty_incident_configuration)
+        pulumi.set(__self__, "secret_id", secret_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the pagerDuty configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="pagerDutyIncidentConfiguration")
+    def pager_duty_incident_configuration(self) -> pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs']:
+        return pulumi.get(self, "pager_duty_incident_configuration")
+
+    @pager_duty_incident_configuration.setter
+    def pager_duty_incident_configuration(self, value: pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs']):
+        pulumi.set(self, "pager_duty_incident_configuration", value)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[str]:
+        """
+        The AWS secrets manager secretId storing the pagerDuty token.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_id", value)
+
+
+@pulumi.input_type
+class ResponsePlanPagerDutyIncidentConfigurationArgs:
+    def __init__(__self__, *,
+                 service_id: pulumi.Input[str]):
+        """
+        The pagerDuty incident configuration.
+        :param pulumi.Input[str] service_id: The pagerDuty serviceId.
+        """
+        pulumi.set(__self__, "service_id", service_id)
+
+    @property
+    @pulumi.getter(name="serviceId")
+    def service_id(self) -> pulumi.Input[str]:
+        """
+        The pagerDuty serviceId.
+        """
+        return pulumi.get(self, "service_id")
+
+    @service_id.setter
+    def service_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_id", value)
 
 
 @pulumi.input_type

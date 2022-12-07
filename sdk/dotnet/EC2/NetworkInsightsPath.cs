@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EC2
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
+        [Output("destinationArn")]
+        public Output<string> DestinationArn { get; private set; } = null!;
+
         [Output("destinationIp")]
         public Output<string?> DestinationIp { get; private set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
+
+        [Output("sourceArn")]
+        public Output<string> SourceArn { get; private set; } = null!;
 
         [Output("sourceIp")]
         public Output<string?> SourceIp { get; private set; } = null!;

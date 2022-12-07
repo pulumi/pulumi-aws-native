@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResponsePlanResult:
-    def __init__(__self__, actions=None, arn=None, chat_channel=None, display_name=None, engagements=None, incident_template=None, tags=None):
+    def __init__(__self__, actions=None, arn=None, chat_channel=None, display_name=None, engagements=None, incident_template=None, integrations=None, tags=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -39,6 +39,9 @@ class GetResponsePlanResult:
         if incident_template and not isinstance(incident_template, dict):
             raise TypeError("Expected argument 'incident_template' to be a dict")
         pulumi.set(__self__, "incident_template", incident_template)
+        if integrations and not isinstance(integrations, list):
+            raise TypeError("Expected argument 'integrations' to be a list")
+        pulumi.set(__self__, "integrations", integrations)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -87,6 +90,14 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
+    def integrations(self) -> Optional[Sequence['outputs.ResponsePlanIntegration']]:
+        """
+        The list of integrations.
+        """
+        return pulumi.get(self, "integrations")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ResponsePlanTag']]:
         """
         The tags to apply to the response plan.
@@ -106,6 +117,7 @@ class AwaitableGetResponsePlanResult(GetResponsePlanResult):
             display_name=self.display_name,
             engagements=self.engagements,
             incident_template=self.incident_template,
+            integrations=self.integrations,
             tags=self.tags)
 
 
@@ -129,6 +141,7 @@ def get_response_plan(arn: Optional[str] = None,
         display_name=__ret__.display_name,
         engagements=__ret__.engagements,
         incident_template=__ret__.incident_template,
+        integrations=__ret__.integrations,
         tags=__ret__.tags)
 
 

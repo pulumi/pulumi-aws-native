@@ -595,6 +595,11 @@ export type NetworkInterfacePermission = import("./networkInterfacePermission").
 export const NetworkInterfacePermission: typeof import("./networkInterfacePermission").NetworkInterfacePermission = null as any;
 utilities.lazyLoad(exports, ["NetworkInterfacePermission"], () => require("./networkInterfacePermission"));
 
+export { NetworkPerformanceMetricSubscriptionArgs } from "./networkPerformanceMetricSubscription";
+export type NetworkPerformanceMetricSubscription = import("./networkPerformanceMetricSubscription").NetworkPerformanceMetricSubscription;
+export const NetworkPerformanceMetricSubscription: typeof import("./networkPerformanceMetricSubscription").NetworkPerformanceMetricSubscription = null as any;
+utilities.lazyLoad(exports, ["NetworkPerformanceMetricSubscription"], () => require("./networkPerformanceMetricSubscription"));
+
 export { PlacementGroupArgs } from "./placementGroup";
 export type PlacementGroup = import("./placementGroup").PlacementGroup;
 export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
@@ -897,6 +902,8 @@ const _module = {
                 return new NetworkInterfaceAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:NetworkInterfacePermission":
                 return new NetworkInterfacePermission(name, <any>undefined, { urn })
+            case "aws-native:ec2:NetworkPerformanceMetricSubscription":
+                return new NetworkPerformanceMetricSubscription(name, <any>undefined, { urn })
             case "aws-native:ec2:PlacementGroup":
                 return new PlacementGroup(name, <any>undefined, { urn })
             case "aws-native:ec2:PrefixList":

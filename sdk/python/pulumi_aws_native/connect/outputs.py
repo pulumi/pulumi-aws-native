@@ -30,6 +30,14 @@ __all__ = [
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectTag',
     'QuickConnectUserQuickConnectConfig',
+    'RuleActions',
+    'RuleAssignContactCategoryAction',
+    'RuleEventBridgeAction',
+    'RuleNotificationRecipientType',
+    'RuleSendNotificationAction',
+    'RuleTag',
+    'RuleTaskAction',
+    'RuleTriggerEventSource',
     'TaskTemplateDefaultFieldValue',
     'TaskTemplateField',
     'TaskTemplateFieldIdentifier',
@@ -823,6 +831,402 @@ class QuickConnectUserQuickConnectConfig(dict):
     @pulumi.getter(name="userArn")
     def user_arn(self) -> str:
         return pulumi.get(self, "user_arn")
+
+
+@pulumi.output_type
+class RuleActions(dict):
+    """
+    The list of actions that will be executed when a rule is triggered.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignContactCategoryActions":
+            suggest = "assign_contact_category_actions"
+        elif key == "eventBridgeActions":
+            suggest = "event_bridge_actions"
+        elif key == "sendNotificationActions":
+            suggest = "send_notification_actions"
+        elif key == "taskActions":
+            suggest = "task_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assign_contact_category_actions: Optional[Sequence['outputs.RuleAssignContactCategoryAction']] = None,
+                 event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
+                 send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
+                 task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None):
+        """
+        The list of actions that will be executed when a rule is triggered.
+        """
+        if assign_contact_category_actions is not None:
+            pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
+        if event_bridge_actions is not None:
+            pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
+        if send_notification_actions is not None:
+            pulumi.set(__self__, "send_notification_actions", send_notification_actions)
+        if task_actions is not None:
+            pulumi.set(__self__, "task_actions", task_actions)
+
+    @property
+    @pulumi.getter(name="assignContactCategoryActions")
+    def assign_contact_category_actions(self) -> Optional[Sequence['outputs.RuleAssignContactCategoryAction']]:
+        return pulumi.get(self, "assign_contact_category_actions")
+
+    @property
+    @pulumi.getter(name="eventBridgeActions")
+    def event_bridge_actions(self) -> Optional[Sequence['outputs.RuleEventBridgeAction']]:
+        return pulumi.get(self, "event_bridge_actions")
+
+    @property
+    @pulumi.getter(name="sendNotificationActions")
+    def send_notification_actions(self) -> Optional[Sequence['outputs.RuleSendNotificationAction']]:
+        return pulumi.get(self, "send_notification_actions")
+
+    @property
+    @pulumi.getter(name="taskActions")
+    def task_actions(self) -> Optional[Sequence['outputs.RuleTaskAction']]:
+        return pulumi.get(self, "task_actions")
+
+
+@pulumi.output_type
+class RuleAssignContactCategoryAction(dict):
+    """
+    The definition for assigning contact category action.
+    """
+    def __init__(__self__):
+        """
+        The definition for assigning contact category action.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleEventBridgeAction(dict):
+    """
+    The definition for event bridge action.
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        The definition for event bridge action.
+        :param str name: The name of the event bridge action.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the event bridge action.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RuleNotificationRecipientType(dict):
+    """
+    The type of notification recipient.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userArns":
+            suggest = "user_arns"
+        elif key == "userTags":
+            suggest = "user_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleNotificationRecipientType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleNotificationRecipientType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleNotificationRecipientType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_arns: Optional[Sequence[str]] = None,
+                 user_tags: Optional[Any] = None):
+        """
+        The type of notification recipient.
+        :param Sequence[str] user_arns: The list of recipients by user arns.
+        :param Any user_tags: The collection of recipients who are identified by user tags
+        """
+        if user_arns is not None:
+            pulumi.set(__self__, "user_arns", user_arns)
+        if user_tags is not None:
+            pulumi.set(__self__, "user_tags", user_tags)
+
+    @property
+    @pulumi.getter(name="userArns")
+    def user_arns(self) -> Optional[Sequence[str]]:
+        """
+        The list of recipients by user arns.
+        """
+        return pulumi.get(self, "user_arns")
+
+    @property
+    @pulumi.getter(name="userTags")
+    def user_tags(self) -> Optional[Any]:
+        """
+        The collection of recipients who are identified by user tags
+        """
+        return pulumi.get(self, "user_tags")
+
+
+@pulumi.output_type
+class RuleSendNotificationAction(dict):
+    """
+    The definition for sending notification action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "deliveryMethod":
+            suggest = "delivery_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSendNotificationAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSendNotificationAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSendNotificationAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: str,
+                 content_type: 'RuleSendNotificationActionContentType',
+                 delivery_method: 'RuleSendNotificationActionDeliveryMethod',
+                 recipient: 'outputs.RuleNotificationRecipientType',
+                 subject: Optional[str] = None):
+        """
+        The definition for sending notification action.
+        :param str content: The content of notification.
+        :param 'RuleSendNotificationActionContentType' content_type: The type of content.
+        :param 'RuleSendNotificationActionDeliveryMethod' delivery_method: The means of delivery.
+        :param str subject: The subject of notification.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "delivery_method", delivery_method)
+        pulumi.set(__self__, "recipient", recipient)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The content of notification.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> 'RuleSendNotificationActionContentType':
+        """
+        The type of content.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter(name="deliveryMethod")
+    def delivery_method(self) -> 'RuleSendNotificationActionDeliveryMethod':
+        """
+        The means of delivery.
+        """
+        return pulumi.get(self, "delivery_method")
+
+    @property
+    @pulumi.getter
+    def recipient(self) -> 'outputs.RuleNotificationRecipientType':
+        return pulumi.get(self, "recipient")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[str]:
+        """
+        The subject of notification.
+        """
+        return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class RuleTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that's 1 to 256 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that's 1 to 256 characters in length.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleTaskAction(dict):
+    """
+    The definition of task action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactFlowArn":
+            suggest = "contact_flow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleTaskAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleTaskAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleTaskAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_flow_arn: str,
+                 name: str,
+                 description: Optional[str] = None,
+                 references: Optional[Any] = None):
+        """
+        The definition of task action.
+        :param str contact_flow_arn: The Amazon Resource Name (ARN) of the contact flow.
+        :param str name: The name which appears in the agent's Contact Control Panel (CCP).
+        :param str description: The description which appears in the agent's Contact Control Panel (CCP).
+        :param Any references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        """
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter(name="contactFlowArn")
+    def contact_flow_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the contact flow.
+        """
+        return pulumi.get(self, "contact_flow_arn")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which appears in the agent's Contact Control Panel (CCP).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description which appears in the agent's Contact Control Panel (CCP).
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[Any]:
+        """
+        A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        """
+        return pulumi.get(self, "references")
+
+
+@pulumi.output_type
+class RuleTriggerEventSource(dict):
+    """
+    The event source that will trigger the rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventSourceName":
+            suggest = "event_source_name"
+        elif key == "integrationAssociationArn":
+            suggest = "integration_association_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleTriggerEventSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleTriggerEventSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleTriggerEventSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_source_name: 'RuleTriggerEventSourceEventSourceName',
+                 integration_association_arn: Optional[str] = None):
+        """
+        The event source that will trigger the rule.
+        :param 'RuleTriggerEventSourceEventSourceName' event_source_name: The name of event source.
+        :param str integration_association_arn: The Amazon Resource Name (ARN) for the AppIntegration association.
+        """
+        pulumi.set(__self__, "event_source_name", event_source_name)
+        if integration_association_arn is not None:
+            pulumi.set(__self__, "integration_association_arn", integration_association_arn)
+
+    @property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> 'RuleTriggerEventSourceEventSourceName':
+        """
+        The name of event source.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @property
+    @pulumi.getter(name="integrationAssociationArn")
+    def integration_association_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the AppIntegration association.
+        """
+        return pulumi.get(self, "integration_association_arn")
 
 
 @pulumi.output_type

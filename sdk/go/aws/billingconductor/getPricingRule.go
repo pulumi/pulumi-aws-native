@@ -41,7 +41,9 @@ type LookupPricingRuleResult struct {
 	// Pricing rule name
 	Name *string          `pulumi:"name"`
 	Tags []PricingRuleTag `pulumi:"tags"`
-	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+	// The set of tiering configurations for the pricing rule.
+	Tiering *TieringProperties `pulumi:"tiering"`
+	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type *PricingRuleType `pulumi:"type"`
 }
 
@@ -120,7 +122,12 @@ func (o LookupPricingRuleResultOutput) Tags() PricingRuleTagArrayOutput {
 	return o.ApplyT(func(v LookupPricingRuleResult) []PricingRuleTag { return v.Tags }).(PricingRuleTagArrayOutput)
 }
 
-// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+// The set of tiering configurations for the pricing rule.
+func (o LookupPricingRuleResultOutput) Tiering() TieringPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupPricingRuleResult) *TieringProperties { return v.Tiering }).(TieringPropertiesPtrOutput)
+}
+
+// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 func (o LookupPricingRuleResultOutput) Type() PricingRuleTypePtrOutput {
 	return o.ApplyT(func(v LookupPricingRuleResult) *PricingRuleType { return v.Type }).(PricingRuleTypePtrOutput)
 }

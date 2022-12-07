@@ -1070,6 +1070,142 @@ func (o PricingPlanTagArrayOutput) Index(i pulumi.IntInput) PricingPlanTagOutput
 	}).(PricingPlanTagOutput)
 }
 
+// The possible customizable free tier configurations.
+type PricingRuleFreeTier struct {
+	Activated bool `pulumi:"activated"`
+}
+
+// PricingRuleFreeTierInput is an input type that accepts PricingRuleFreeTierArgs and PricingRuleFreeTierOutput values.
+// You can construct a concrete instance of `PricingRuleFreeTierInput` via:
+//
+//	PricingRuleFreeTierArgs{...}
+type PricingRuleFreeTierInput interface {
+	pulumi.Input
+
+	ToPricingRuleFreeTierOutput() PricingRuleFreeTierOutput
+	ToPricingRuleFreeTierOutputWithContext(context.Context) PricingRuleFreeTierOutput
+}
+
+// The possible customizable free tier configurations.
+type PricingRuleFreeTierArgs struct {
+	Activated pulumi.BoolInput `pulumi:"activated"`
+}
+
+func (PricingRuleFreeTierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingRuleFreeTier)(nil)).Elem()
+}
+
+func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierOutput() PricingRuleFreeTierOutput {
+	return i.ToPricingRuleFreeTierOutputWithContext(context.Background())
+}
+
+func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierOutputWithContext(ctx context.Context) PricingRuleFreeTierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleFreeTierOutput)
+}
+
+func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput {
+	return i.ToPricingRuleFreeTierPtrOutputWithContext(context.Background())
+}
+
+func (i PricingRuleFreeTierArgs) ToPricingRuleFreeTierPtrOutputWithContext(ctx context.Context) PricingRuleFreeTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleFreeTierOutput).ToPricingRuleFreeTierPtrOutputWithContext(ctx)
+}
+
+// PricingRuleFreeTierPtrInput is an input type that accepts PricingRuleFreeTierArgs, PricingRuleFreeTierPtr and PricingRuleFreeTierPtrOutput values.
+// You can construct a concrete instance of `PricingRuleFreeTierPtrInput` via:
+//
+//	        PricingRuleFreeTierArgs{...}
+//
+//	or:
+//
+//	        nil
+type PricingRuleFreeTierPtrInput interface {
+	pulumi.Input
+
+	ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput
+	ToPricingRuleFreeTierPtrOutputWithContext(context.Context) PricingRuleFreeTierPtrOutput
+}
+
+type pricingRuleFreeTierPtrType PricingRuleFreeTierArgs
+
+func PricingRuleFreeTierPtr(v *PricingRuleFreeTierArgs) PricingRuleFreeTierPtrInput {
+	return (*pricingRuleFreeTierPtrType)(v)
+}
+
+func (*pricingRuleFreeTierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PricingRuleFreeTier)(nil)).Elem()
+}
+
+func (i *pricingRuleFreeTierPtrType) ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput {
+	return i.ToPricingRuleFreeTierPtrOutputWithContext(context.Background())
+}
+
+func (i *pricingRuleFreeTierPtrType) ToPricingRuleFreeTierPtrOutputWithContext(ctx context.Context) PricingRuleFreeTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PricingRuleFreeTierPtrOutput)
+}
+
+// The possible customizable free tier configurations.
+type PricingRuleFreeTierOutput struct{ *pulumi.OutputState }
+
+func (PricingRuleFreeTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PricingRuleFreeTier)(nil)).Elem()
+}
+
+func (o PricingRuleFreeTierOutput) ToPricingRuleFreeTierOutput() PricingRuleFreeTierOutput {
+	return o
+}
+
+func (o PricingRuleFreeTierOutput) ToPricingRuleFreeTierOutputWithContext(ctx context.Context) PricingRuleFreeTierOutput {
+	return o
+}
+
+func (o PricingRuleFreeTierOutput) ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput {
+	return o.ToPricingRuleFreeTierPtrOutputWithContext(context.Background())
+}
+
+func (o PricingRuleFreeTierOutput) ToPricingRuleFreeTierPtrOutputWithContext(ctx context.Context) PricingRuleFreeTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PricingRuleFreeTier) *PricingRuleFreeTier {
+		return &v
+	}).(PricingRuleFreeTierPtrOutput)
+}
+
+func (o PricingRuleFreeTierOutput) Activated() pulumi.BoolOutput {
+	return o.ApplyT(func(v PricingRuleFreeTier) bool { return v.Activated }).(pulumi.BoolOutput)
+}
+
+type PricingRuleFreeTierPtrOutput struct{ *pulumi.OutputState }
+
+func (PricingRuleFreeTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PricingRuleFreeTier)(nil)).Elem()
+}
+
+func (o PricingRuleFreeTierPtrOutput) ToPricingRuleFreeTierPtrOutput() PricingRuleFreeTierPtrOutput {
+	return o
+}
+
+func (o PricingRuleFreeTierPtrOutput) ToPricingRuleFreeTierPtrOutputWithContext(ctx context.Context) PricingRuleFreeTierPtrOutput {
+	return o
+}
+
+func (o PricingRuleFreeTierPtrOutput) Elem() PricingRuleFreeTierOutput {
+	return o.ApplyT(func(v *PricingRuleFreeTier) PricingRuleFreeTier {
+		if v != nil {
+			return *v
+		}
+		var ret PricingRuleFreeTier
+		return ret
+	}).(PricingRuleFreeTierOutput)
+}
+
+func (o PricingRuleFreeTierPtrOutput) Activated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PricingRuleFreeTier) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Activated
+	}).(pulumi.BoolPtrOutput)
+}
+
 type PricingRuleTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -1170,6 +1306,142 @@ func (o PricingRuleTagArrayOutput) Index(i pulumi.IntInput) PricingRuleTagOutput
 	}).(PricingRuleTagOutput)
 }
 
+// The set of tiering configurations for the pricing rule.
+type TieringProperties struct {
+	FreeTier *PricingRuleFreeTier `pulumi:"freeTier"`
+}
+
+// TieringPropertiesInput is an input type that accepts TieringPropertiesArgs and TieringPropertiesOutput values.
+// You can construct a concrete instance of `TieringPropertiesInput` via:
+//
+//	TieringPropertiesArgs{...}
+type TieringPropertiesInput interface {
+	pulumi.Input
+
+	ToTieringPropertiesOutput() TieringPropertiesOutput
+	ToTieringPropertiesOutputWithContext(context.Context) TieringPropertiesOutput
+}
+
+// The set of tiering configurations for the pricing rule.
+type TieringPropertiesArgs struct {
+	FreeTier PricingRuleFreeTierPtrInput `pulumi:"freeTier"`
+}
+
+func (TieringPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TieringProperties)(nil)).Elem()
+}
+
+func (i TieringPropertiesArgs) ToTieringPropertiesOutput() TieringPropertiesOutput {
+	return i.ToTieringPropertiesOutputWithContext(context.Background())
+}
+
+func (i TieringPropertiesArgs) ToTieringPropertiesOutputWithContext(ctx context.Context) TieringPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TieringPropertiesOutput)
+}
+
+func (i TieringPropertiesArgs) ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput {
+	return i.ToTieringPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TieringPropertiesArgs) ToTieringPropertiesPtrOutputWithContext(ctx context.Context) TieringPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TieringPropertiesOutput).ToTieringPropertiesPtrOutputWithContext(ctx)
+}
+
+// TieringPropertiesPtrInput is an input type that accepts TieringPropertiesArgs, TieringPropertiesPtr and TieringPropertiesPtrOutput values.
+// You can construct a concrete instance of `TieringPropertiesPtrInput` via:
+//
+//	        TieringPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TieringPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput
+	ToTieringPropertiesPtrOutputWithContext(context.Context) TieringPropertiesPtrOutput
+}
+
+type tieringPropertiesPtrType TieringPropertiesArgs
+
+func TieringPropertiesPtr(v *TieringPropertiesArgs) TieringPropertiesPtrInput {
+	return (*tieringPropertiesPtrType)(v)
+}
+
+func (*tieringPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TieringProperties)(nil)).Elem()
+}
+
+func (i *tieringPropertiesPtrType) ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput {
+	return i.ToTieringPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *tieringPropertiesPtrType) ToTieringPropertiesPtrOutputWithContext(ctx context.Context) TieringPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TieringPropertiesPtrOutput)
+}
+
+// The set of tiering configurations for the pricing rule.
+type TieringPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TieringPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TieringProperties)(nil)).Elem()
+}
+
+func (o TieringPropertiesOutput) ToTieringPropertiesOutput() TieringPropertiesOutput {
+	return o
+}
+
+func (o TieringPropertiesOutput) ToTieringPropertiesOutputWithContext(ctx context.Context) TieringPropertiesOutput {
+	return o
+}
+
+func (o TieringPropertiesOutput) ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput {
+	return o.ToTieringPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TieringPropertiesOutput) ToTieringPropertiesPtrOutputWithContext(ctx context.Context) TieringPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TieringProperties) *TieringProperties {
+		return &v
+	}).(TieringPropertiesPtrOutput)
+}
+
+func (o TieringPropertiesOutput) FreeTier() PricingRuleFreeTierPtrOutput {
+	return o.ApplyT(func(v TieringProperties) *PricingRuleFreeTier { return v.FreeTier }).(PricingRuleFreeTierPtrOutput)
+}
+
+type TieringPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TieringPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TieringProperties)(nil)).Elem()
+}
+
+func (o TieringPropertiesPtrOutput) ToTieringPropertiesPtrOutput() TieringPropertiesPtrOutput {
+	return o
+}
+
+func (o TieringPropertiesPtrOutput) ToTieringPropertiesPtrOutputWithContext(ctx context.Context) TieringPropertiesPtrOutput {
+	return o
+}
+
+func (o TieringPropertiesPtrOutput) Elem() TieringPropertiesOutput {
+	return o.ApplyT(func(v *TieringProperties) TieringProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TieringProperties
+		return ret
+	}).(TieringPropertiesOutput)
+}
+
+func (o TieringPropertiesPtrOutput) FreeTier() PricingRuleFreeTierPtrOutput {
+	return o.ApplyT(func(v *TieringProperties) *PricingRuleFreeTier {
+		if v == nil {
+			return nil
+		}
+		return v.FreeTier
+	}).(PricingRuleFreeTierPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupAccountGroupingInput)(nil)).Elem(), BillingGroupAccountGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupComputationPreferenceInput)(nil)).Elem(), BillingGroupComputationPreferenceArgs{})
@@ -1187,8 +1459,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLineItemTagArrayInput)(nil)).Elem(), CustomLineItemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingPlanTagInput)(nil)).Elem(), PricingPlanTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingPlanTagArrayInput)(nil)).Elem(), PricingPlanTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleFreeTierInput)(nil)).Elem(), PricingRuleFreeTierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleFreeTierPtrInput)(nil)).Elem(), PricingRuleFreeTierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleTagInput)(nil)).Elem(), PricingRuleTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PricingRuleTagArrayInput)(nil)).Elem(), PricingRuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TieringPropertiesInput)(nil)).Elem(), TieringPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TieringPropertiesPtrInput)(nil)).Elem(), TieringPropertiesArgs{})
 	pulumi.RegisterOutputType(BillingGroupAccountGroupingOutput{})
 	pulumi.RegisterOutputType(BillingGroupAccountGroupingPtrOutput{})
 	pulumi.RegisterOutputType(BillingGroupComputationPreferenceOutput{})
@@ -1207,6 +1483,10 @@ func init() {
 	pulumi.RegisterOutputType(CustomLineItemTagArrayOutput{})
 	pulumi.RegisterOutputType(PricingPlanTagOutput{})
 	pulumi.RegisterOutputType(PricingPlanTagArrayOutput{})
+	pulumi.RegisterOutputType(PricingRuleFreeTierOutput{})
+	pulumi.RegisterOutputType(PricingRuleFreeTierPtrOutput{})
 	pulumi.RegisterOutputType(PricingRuleTagOutput{})
 	pulumi.RegisterOutputType(PricingRuleTagArrayOutput{})
+	pulumi.RegisterOutputType(TieringPropertiesOutput{})
+	pulumi.RegisterOutputType(TieringPropertiesPtrOutput{})
 }

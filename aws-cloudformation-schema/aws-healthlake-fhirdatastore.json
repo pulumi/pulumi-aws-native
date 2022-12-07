@@ -160,7 +160,7 @@
   "createOnlyProperties" : [ "/properties/DatastoreName", "/properties/DatastoreTypeVersion", "/properties/PreloadDataConfig", "/properties/SseConfiguration", "/properties/KmsEncryptionConfig" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "healthlake:CreateFHIRDatastore", "healthlake:DescribeFHIRDatastore", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "iam:GetRole", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "healthlake:CreateFHIRDatastore", "healthlake:DescribeFHIRDatastore", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "iam:GetRole", "iam:CreateServiceLinkedRole", "ram:GetResourceShareInvitations", "ram:AcceptResourceShareInvitation", "glue:CreateDatabase", "glue:DeleteDatabase" ]
     },
     "read" : {
       "permissions" : [ "healthlake:DescribeFHIRDatastore", "healthlake:ListTagsForResource" ]
@@ -169,7 +169,7 @@
       "permissions" : [ "healthlake:TagResource", "healthlake:UntagResource", "healthlake:ListTagsForResource", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
-      "permissions" : [ "healthlake:DeleteFHIRDatastore", "healthlake:DescribeFHIRDatastore", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "healthlake:DeleteFHIRDatastore", "healthlake:DescribeFHIRDatastore", "iam:PassRole", "iam:GetRole", "iam:CreateServiceLinkedRole", "ram:GetResourceShareInvitations", "ram:AcceptResourceShareInvitation", "glue:CreateDatabase", "glue:DeleteDatabase" ]
     },
     "list" : {
       "permissions" : [ "healthlake:ListFHIRDatastores" ]

@@ -36,7 +36,6 @@ type LookupTargetGroupResult struct {
 	LoadBalancerArns           []string                       `pulumi:"loadBalancerArns"`
 	Matcher                    *TargetGroupMatcher            `pulumi:"matcher"`
 	Tags                       []TargetGroupTag               `pulumi:"tags"`
-	TargetGroupArn             *string                        `pulumi:"targetGroupArn"`
 	TargetGroupAttributes      []TargetGroupAttribute         `pulumi:"targetGroupAttributes"`
 	TargetGroupFullName        *string                        `pulumi:"targetGroupFullName"`
 	TargetGroupName            *string                        `pulumi:"targetGroupName"`
@@ -121,10 +120,6 @@ func (o LookupTargetGroupResultOutput) Matcher() TargetGroupMatcherPtrOutput {
 
 func (o LookupTargetGroupResultOutput) Tags() TargetGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) []TargetGroupTag { return v.Tags }).(TargetGroupTagArrayOutput)
-}
-
-func (o LookupTargetGroupResultOutput) TargetGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTargetGroupResult) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTargetGroupResultOutput) TargetGroupAttributes() TargetGroupAttributeArrayOutput {

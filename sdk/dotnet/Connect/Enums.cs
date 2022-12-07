@@ -369,6 +369,132 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The publish status of a rule, either draft or published.
+    /// </summary>
+    [EnumType]
+    public readonly struct RulePublishStatus : IEquatable<RulePublishStatus>
+    {
+        private readonly string _value;
+
+        private RulePublishStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RulePublishStatus Draft { get; } = new RulePublishStatus("DRAFT");
+        public static RulePublishStatus Published { get; } = new RulePublishStatus("PUBLISHED");
+
+        public static bool operator ==(RulePublishStatus left, RulePublishStatus right) => left.Equals(right);
+        public static bool operator !=(RulePublishStatus left, RulePublishStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RulePublishStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RulePublishStatus other && Equals(other);
+        public bool Equals(RulePublishStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of content.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleSendNotificationActionContentType : IEquatable<RuleSendNotificationActionContentType>
+    {
+        private readonly string _value;
+
+        private RuleSendNotificationActionContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleSendNotificationActionContentType PlainText { get; } = new RuleSendNotificationActionContentType("PLAIN_TEXT");
+
+        public static bool operator ==(RuleSendNotificationActionContentType left, RuleSendNotificationActionContentType right) => left.Equals(right);
+        public static bool operator !=(RuleSendNotificationActionContentType left, RuleSendNotificationActionContentType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleSendNotificationActionContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleSendNotificationActionContentType other && Equals(other);
+        public bool Equals(RuleSendNotificationActionContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The means of delivery.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleSendNotificationActionDeliveryMethod : IEquatable<RuleSendNotificationActionDeliveryMethod>
+    {
+        private readonly string _value;
+
+        private RuleSendNotificationActionDeliveryMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleSendNotificationActionDeliveryMethod Email { get; } = new RuleSendNotificationActionDeliveryMethod("EMAIL");
+
+        public static bool operator ==(RuleSendNotificationActionDeliveryMethod left, RuleSendNotificationActionDeliveryMethod right) => left.Equals(right);
+        public static bool operator !=(RuleSendNotificationActionDeliveryMethod left, RuleSendNotificationActionDeliveryMethod right) => !left.Equals(right);
+
+        public static explicit operator string(RuleSendNotificationActionDeliveryMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleSendNotificationActionDeliveryMethod other && Equals(other);
+        public bool Equals(RuleSendNotificationActionDeliveryMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of event source.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleTriggerEventSourceEventSourceName : IEquatable<RuleTriggerEventSourceEventSourceName>
+    {
+        private readonly string _value;
+
+        private RuleTriggerEventSourceEventSourceName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleTriggerEventSourceEventSourceName OnPostCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable");
+        public static RuleTriggerEventSourceEventSourceName OnRealTimeCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable");
+        public static RuleTriggerEventSourceEventSourceName OnPostChatAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable");
+        public static RuleTriggerEventSourceEventSourceName OnZendeskTicketCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate");
+        public static RuleTriggerEventSourceEventSourceName OnZendeskTicketStatusUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate");
+        public static RuleTriggerEventSourceEventSourceName OnSalesforceCaseCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate");
+
+        public static bool operator ==(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => left.Equals(right);
+        public static bool operator !=(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => !left.Equals(right);
+
+        public static explicit operator string(RuleTriggerEventSourceEventSourceName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleTriggerEventSourceEventSourceName other && Equals(other);
+        public bool Equals(RuleTriggerEventSourceEventSourceName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the task template's field
     /// </summary>
     [EnumType]

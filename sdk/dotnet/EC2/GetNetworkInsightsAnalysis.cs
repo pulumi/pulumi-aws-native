@@ -51,6 +51,7 @@ namespace Pulumi.AwsNative.EC2
     [OutputType]
     public sealed class GetNetworkInsightsAnalysisResult
     {
+        public readonly ImmutableArray<string> AdditionalAccounts;
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint> AlternatePathHints;
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent> ForwardPathComponents;
@@ -61,10 +62,13 @@ namespace Pulumi.AwsNative.EC2
         public readonly string? StartDate;
         public readonly Pulumi.AwsNative.EC2.NetworkInsightsAnalysisStatus? Status;
         public readonly string? StatusMessage;
+        public readonly ImmutableArray<string> SuggestedAccounts;
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisTag> Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsAnalysisResult(
+            ImmutableArray<string> additionalAccounts,
+
             ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint> alternatePathHints,
 
             ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> explanations,
@@ -85,8 +89,11 @@ namespace Pulumi.AwsNative.EC2
 
             string? statusMessage,
 
+            ImmutableArray<string> suggestedAccounts,
+
             ImmutableArray<Outputs.NetworkInsightsAnalysisTag> tags)
         {
+            AdditionalAccounts = additionalAccounts;
             AlternatePathHints = alternatePathHints;
             Explanations = explanations;
             ForwardPathComponents = forwardPathComponents;
@@ -97,6 +104,7 @@ namespace Pulumi.AwsNative.EC2
             StartDate = startDate;
             Status = status;
             StatusMessage = statusMessage;
+            SuggestedAccounts = suggestedAccounts;
             Tags = tags;
         }
     }

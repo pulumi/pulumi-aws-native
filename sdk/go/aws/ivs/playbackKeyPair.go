@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +21,7 @@ type PlaybackKeyPair struct {
 	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The public portion of a customer-generated key pair.
-	PublicKeyMaterial pulumi.StringOutput `pulumi:"publicKeyMaterial"`
+	PublicKeyMaterial pulumi.StringPtrOutput `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags PlaybackKeyPairTagArrayOutput `pulumi:"tags"`
 }
@@ -31,12 +30,9 @@ type PlaybackKeyPair struct {
 func NewPlaybackKeyPair(ctx *pulumi.Context,
 	name string, args *PlaybackKeyPairArgs, opts ...pulumi.ResourceOption) (*PlaybackKeyPair, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PlaybackKeyPairArgs{}
 	}
 
-	if args.PublicKeyMaterial == nil {
-		return nil, errors.New("invalid value for required argument 'PublicKeyMaterial'")
-	}
 	var resource PlaybackKeyPair
 	err := ctx.RegisterResource("aws-native:ivs:PlaybackKeyPair", name, args, &resource, opts...)
 	if err != nil {
@@ -72,7 +68,7 @@ type playbackKeyPairArgs struct {
 	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name *string `pulumi:"name"`
 	// The public portion of a customer-generated key pair.
-	PublicKeyMaterial string `pulumi:"publicKeyMaterial"`
+	PublicKeyMaterial *string `pulumi:"publicKeyMaterial"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []PlaybackKeyPairTag `pulumi:"tags"`
 }
@@ -82,7 +78,7 @@ type PlaybackKeyPairArgs struct {
 	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name pulumi.StringPtrInput
 	// The public portion of a customer-generated key pair.
-	PublicKeyMaterial pulumi.StringInput
+	PublicKeyMaterial pulumi.StringPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags PlaybackKeyPairTagArrayInput
 }
@@ -140,8 +136,8 @@ func (o PlaybackKeyPairOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The public portion of a customer-generated key pair.
-func (o PlaybackKeyPairOutput) PublicKeyMaterial() pulumi.StringOutput {
-	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringOutput { return v.PublicKeyMaterial }).(pulumi.StringOutput)
+func (o PlaybackKeyPairOutput) PublicKeyMaterial() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackKeyPair) pulumi.StringPtrOutput { return v.PublicKeyMaterial }).(pulumi.StringPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the asset model.

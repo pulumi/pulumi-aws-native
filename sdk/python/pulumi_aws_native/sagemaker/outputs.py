@@ -10393,6 +10393,8 @@ class OfflineStoreConfigProperties(dict):
             suggest = "data_catalog_config"
         elif key == "disableGlueTableCreation":
             suggest = "disable_glue_table_creation"
+        elif key == "tableFormat":
+            suggest = "table_format"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OfflineStoreConfigProperties. Access the value via the '{suggest}' property getter instead.")
@@ -10408,12 +10410,15 @@ class OfflineStoreConfigProperties(dict):
     def __init__(__self__, *,
                  s3_storage_config: 'outputs.FeatureGroupS3StorageConfig',
                  data_catalog_config: Optional['outputs.FeatureGroupDataCatalogConfig'] = None,
-                 disable_glue_table_creation: Optional[bool] = None):
+                 disable_glue_table_creation: Optional[bool] = None,
+                 table_format: Optional['FeatureGroupTableFormat'] = None):
         pulumi.set(__self__, "s3_storage_config", s3_storage_config)
         if data_catalog_config is not None:
             pulumi.set(__self__, "data_catalog_config", data_catalog_config)
         if disable_glue_table_creation is not None:
             pulumi.set(__self__, "disable_glue_table_creation", disable_glue_table_creation)
+        if table_format is not None:
+            pulumi.set(__self__, "table_format", table_format)
 
     @property
     @pulumi.getter(name="s3StorageConfig")
@@ -10429,6 +10434,11 @@ class OfflineStoreConfigProperties(dict):
     @pulumi.getter(name="disableGlueTableCreation")
     def disable_glue_table_creation(self) -> Optional[bool]:
         return pulumi.get(self, "disable_glue_table_creation")
+
+    @property
+    @pulumi.getter(name="tableFormat")
+    def table_format(self) -> Optional['FeatureGroupTableFormat']:
+        return pulumi.get(self, "table_format")
 
 
 @pulumi.output_type

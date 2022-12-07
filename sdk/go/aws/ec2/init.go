@@ -95,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkInterfaceAttachment{}
 	case "aws-native:ec2:NetworkInterfacePermission":
 		r = &NetworkInterfacePermission{}
+	case "aws-native:ec2:NetworkPerformanceMetricSubscription":
+		r = &NetworkPerformanceMetricSubscription{}
 	case "aws-native:ec2:PlacementGroup":
 		r = &PlacementGroup{}
 	case "aws-native:ec2:PrefixList":

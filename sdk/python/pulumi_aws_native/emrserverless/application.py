@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -18,6 +19,7 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  release_label: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
@@ -39,6 +41,8 @@ class ApplicationArgs:
         """
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if auto_start_configuration is not None:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
@@ -77,6 +81,15 @@ class ApplicationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input['ApplicationArchitecture']]:
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input['ApplicationArchitecture']]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter(name="autoStartConfiguration")
@@ -168,6 +181,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
@@ -217,6 +231,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
@@ -235,6 +250,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            __props__.__dict__["architecture"] = architecture
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
@@ -273,6 +289,7 @@ class Application(pulumi.CustomResource):
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["architecture"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_start_configuration"] = None
         __props__.__dict__["auto_stop_configuration"] = None
@@ -292,6 +309,11 @@ class Application(pulumi.CustomResource):
         The ID of the EMR Serverless Application.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Output[Optional['ApplicationArchitecture']]:
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter

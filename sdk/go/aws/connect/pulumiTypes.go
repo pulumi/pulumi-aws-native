@@ -2389,6 +2389,824 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of actions that will be executed when a rule is triggered.
+type RuleActions struct {
+	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
+	EventBridgeActions           []RuleEventBridgeAction           `pulumi:"eventBridgeActions"`
+	SendNotificationActions      []RuleSendNotificationAction      `pulumi:"sendNotificationActions"`
+	TaskActions                  []RuleTaskAction                  `pulumi:"taskActions"`
+}
+
+// RuleActionsInput is an input type that accepts RuleActionsArgs and RuleActionsOutput values.
+// You can construct a concrete instance of `RuleActionsInput` via:
+//
+//	RuleActionsArgs{...}
+type RuleActionsInput interface {
+	pulumi.Input
+
+	ToRuleActionsOutput() RuleActionsOutput
+	ToRuleActionsOutputWithContext(context.Context) RuleActionsOutput
+}
+
+// The list of actions that will be executed when a rule is triggered.
+type RuleActionsArgs struct {
+	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
+	EventBridgeActions           RuleEventBridgeActionArrayInput           `pulumi:"eventBridgeActions"`
+	SendNotificationActions      RuleSendNotificationActionArrayInput      `pulumi:"sendNotificationActions"`
+	TaskActions                  RuleTaskActionArrayInput                  `pulumi:"taskActions"`
+}
+
+func (RuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleActions)(nil)).Elem()
+}
+
+func (i RuleActionsArgs) ToRuleActionsOutput() RuleActionsOutput {
+	return i.ToRuleActionsOutputWithContext(context.Background())
+}
+
+func (i RuleActionsArgs) ToRuleActionsOutputWithContext(ctx context.Context) RuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleActionsOutput)
+}
+
+// The list of actions that will be executed when a rule is triggered.
+type RuleActionsOutput struct{ *pulumi.OutputState }
+
+func (RuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleActions)(nil)).Elem()
+}
+
+func (o RuleActionsOutput) ToRuleActionsOutput() RuleActionsOutput {
+	return o
+}
+
+func (o RuleActionsOutput) ToRuleActionsOutputWithContext(ctx context.Context) RuleActionsOutput {
+	return o
+}
+
+func (o RuleActionsOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleAssignContactCategoryAction { return v.AssignContactCategoryActions }).(RuleAssignContactCategoryActionArrayOutput)
+}
+
+func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleEventBridgeAction { return v.EventBridgeActions }).(RuleEventBridgeActionArrayOutput)
+}
+
+func (o RuleActionsOutput) SendNotificationActions() RuleSendNotificationActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleSendNotificationAction { return v.SendNotificationActions }).(RuleSendNotificationActionArrayOutput)
+}
+
+func (o RuleActionsOutput) TaskActions() RuleTaskActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleTaskAction { return v.TaskActions }).(RuleTaskActionArrayOutput)
+}
+
+type RuleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleActions)(nil)).Elem()
+}
+
+func (o RuleActionsPtrOutput) ToRuleActionsPtrOutput() RuleActionsPtrOutput {
+	return o
+}
+
+func (o RuleActionsPtrOutput) ToRuleActionsPtrOutputWithContext(ctx context.Context) RuleActionsPtrOutput {
+	return o
+}
+
+func (o RuleActionsPtrOutput) Elem() RuleActionsOutput {
+	return o.ApplyT(func(v *RuleActions) RuleActions {
+		if v != nil {
+			return *v
+		}
+		var ret RuleActions
+		return ret
+	}).(RuleActionsOutput)
+}
+
+func (o RuleActionsPtrOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleAssignContactCategoryAction {
+		if v == nil {
+			return nil
+		}
+		return v.AssignContactCategoryActions
+	}).(RuleAssignContactCategoryActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleEventBridgeAction {
+		if v == nil {
+			return nil
+		}
+		return v.EventBridgeActions
+	}).(RuleEventBridgeActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) SendNotificationActions() RuleSendNotificationActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleSendNotificationAction {
+		if v == nil {
+			return nil
+		}
+		return v.SendNotificationActions
+	}).(RuleSendNotificationActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) TaskActions() RuleTaskActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleTaskAction {
+		if v == nil {
+			return nil
+		}
+		return v.TaskActions
+	}).(RuleTaskActionArrayOutput)
+}
+
+// The definition for assigning contact category action.
+type RuleAssignContactCategoryAction struct {
+}
+
+// RuleAssignContactCategoryActionInput is an input type that accepts RuleAssignContactCategoryActionArgs and RuleAssignContactCategoryActionOutput values.
+// You can construct a concrete instance of `RuleAssignContactCategoryActionInput` via:
+//
+//	RuleAssignContactCategoryActionArgs{...}
+type RuleAssignContactCategoryActionInput interface {
+	pulumi.Input
+
+	ToRuleAssignContactCategoryActionOutput() RuleAssignContactCategoryActionOutput
+	ToRuleAssignContactCategoryActionOutputWithContext(context.Context) RuleAssignContactCategoryActionOutput
+}
+
+// The definition for assigning contact category action.
+type RuleAssignContactCategoryActionArgs struct {
+}
+
+func (RuleAssignContactCategoryActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignContactCategoryAction)(nil)).Elem()
+}
+
+func (i RuleAssignContactCategoryActionArgs) ToRuleAssignContactCategoryActionOutput() RuleAssignContactCategoryActionOutput {
+	return i.ToRuleAssignContactCategoryActionOutputWithContext(context.Background())
+}
+
+func (i RuleAssignContactCategoryActionArgs) ToRuleAssignContactCategoryActionOutputWithContext(ctx context.Context) RuleAssignContactCategoryActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignContactCategoryActionOutput)
+}
+
+// RuleAssignContactCategoryActionArrayInput is an input type that accepts RuleAssignContactCategoryActionArray and RuleAssignContactCategoryActionArrayOutput values.
+// You can construct a concrete instance of `RuleAssignContactCategoryActionArrayInput` via:
+//
+//	RuleAssignContactCategoryActionArray{ RuleAssignContactCategoryActionArgs{...} }
+type RuleAssignContactCategoryActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleAssignContactCategoryActionArrayOutput() RuleAssignContactCategoryActionArrayOutput
+	ToRuleAssignContactCategoryActionArrayOutputWithContext(context.Context) RuleAssignContactCategoryActionArrayOutput
+}
+
+type RuleAssignContactCategoryActionArray []RuleAssignContactCategoryActionInput
+
+func (RuleAssignContactCategoryActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAssignContactCategoryAction)(nil)).Elem()
+}
+
+func (i RuleAssignContactCategoryActionArray) ToRuleAssignContactCategoryActionArrayOutput() RuleAssignContactCategoryActionArrayOutput {
+	return i.ToRuleAssignContactCategoryActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleAssignContactCategoryActionArray) ToRuleAssignContactCategoryActionArrayOutputWithContext(ctx context.Context) RuleAssignContactCategoryActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignContactCategoryActionArrayOutput)
+}
+
+// The definition for assigning contact category action.
+type RuleAssignContactCategoryActionOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignContactCategoryActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignContactCategoryAction)(nil)).Elem()
+}
+
+func (o RuleAssignContactCategoryActionOutput) ToRuleAssignContactCategoryActionOutput() RuleAssignContactCategoryActionOutput {
+	return o
+}
+
+func (o RuleAssignContactCategoryActionOutput) ToRuleAssignContactCategoryActionOutputWithContext(ctx context.Context) RuleAssignContactCategoryActionOutput {
+	return o
+}
+
+type RuleAssignContactCategoryActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignContactCategoryActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAssignContactCategoryAction)(nil)).Elem()
+}
+
+func (o RuleAssignContactCategoryActionArrayOutput) ToRuleAssignContactCategoryActionArrayOutput() RuleAssignContactCategoryActionArrayOutput {
+	return o
+}
+
+func (o RuleAssignContactCategoryActionArrayOutput) ToRuleAssignContactCategoryActionArrayOutputWithContext(ctx context.Context) RuleAssignContactCategoryActionArrayOutput {
+	return o
+}
+
+func (o RuleAssignContactCategoryActionArrayOutput) Index(i pulumi.IntInput) RuleAssignContactCategoryActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAssignContactCategoryAction {
+		return vs[0].([]RuleAssignContactCategoryAction)[vs[1].(int)]
+	}).(RuleAssignContactCategoryActionOutput)
+}
+
+// The definition for event bridge action.
+type RuleEventBridgeAction struct {
+	// The name of the event bridge action.
+	Name string `pulumi:"name"`
+}
+
+// RuleEventBridgeActionInput is an input type that accepts RuleEventBridgeActionArgs and RuleEventBridgeActionOutput values.
+// You can construct a concrete instance of `RuleEventBridgeActionInput` via:
+//
+//	RuleEventBridgeActionArgs{...}
+type RuleEventBridgeActionInput interface {
+	pulumi.Input
+
+	ToRuleEventBridgeActionOutput() RuleEventBridgeActionOutput
+	ToRuleEventBridgeActionOutputWithContext(context.Context) RuleEventBridgeActionOutput
+}
+
+// The definition for event bridge action.
+type RuleEventBridgeActionArgs struct {
+	// The name of the event bridge action.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (RuleEventBridgeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEventBridgeAction)(nil)).Elem()
+}
+
+func (i RuleEventBridgeActionArgs) ToRuleEventBridgeActionOutput() RuleEventBridgeActionOutput {
+	return i.ToRuleEventBridgeActionOutputWithContext(context.Background())
+}
+
+func (i RuleEventBridgeActionArgs) ToRuleEventBridgeActionOutputWithContext(ctx context.Context) RuleEventBridgeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEventBridgeActionOutput)
+}
+
+// RuleEventBridgeActionArrayInput is an input type that accepts RuleEventBridgeActionArray and RuleEventBridgeActionArrayOutput values.
+// You can construct a concrete instance of `RuleEventBridgeActionArrayInput` via:
+//
+//	RuleEventBridgeActionArray{ RuleEventBridgeActionArgs{...} }
+type RuleEventBridgeActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleEventBridgeActionArrayOutput() RuleEventBridgeActionArrayOutput
+	ToRuleEventBridgeActionArrayOutputWithContext(context.Context) RuleEventBridgeActionArrayOutput
+}
+
+type RuleEventBridgeActionArray []RuleEventBridgeActionInput
+
+func (RuleEventBridgeActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEventBridgeAction)(nil)).Elem()
+}
+
+func (i RuleEventBridgeActionArray) ToRuleEventBridgeActionArrayOutput() RuleEventBridgeActionArrayOutput {
+	return i.ToRuleEventBridgeActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleEventBridgeActionArray) ToRuleEventBridgeActionArrayOutputWithContext(ctx context.Context) RuleEventBridgeActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEventBridgeActionArrayOutput)
+}
+
+// The definition for event bridge action.
+type RuleEventBridgeActionOutput struct{ *pulumi.OutputState }
+
+func (RuleEventBridgeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEventBridgeAction)(nil)).Elem()
+}
+
+func (o RuleEventBridgeActionOutput) ToRuleEventBridgeActionOutput() RuleEventBridgeActionOutput {
+	return o
+}
+
+func (o RuleEventBridgeActionOutput) ToRuleEventBridgeActionOutputWithContext(ctx context.Context) RuleEventBridgeActionOutput {
+	return o
+}
+
+// The name of the event bridge action.
+func (o RuleEventBridgeActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleEventBridgeAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type RuleEventBridgeActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleEventBridgeActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEventBridgeAction)(nil)).Elem()
+}
+
+func (o RuleEventBridgeActionArrayOutput) ToRuleEventBridgeActionArrayOutput() RuleEventBridgeActionArrayOutput {
+	return o
+}
+
+func (o RuleEventBridgeActionArrayOutput) ToRuleEventBridgeActionArrayOutputWithContext(ctx context.Context) RuleEventBridgeActionArrayOutput {
+	return o
+}
+
+func (o RuleEventBridgeActionArrayOutput) Index(i pulumi.IntInput) RuleEventBridgeActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleEventBridgeAction {
+		return vs[0].([]RuleEventBridgeAction)[vs[1].(int)]
+	}).(RuleEventBridgeActionOutput)
+}
+
+// The type of notification recipient.
+type RuleNotificationRecipientType struct {
+	// The list of recipients by user arns.
+	UserArns []string `pulumi:"userArns"`
+	// The collection of recipients who are identified by user tags
+	UserTags interface{} `pulumi:"userTags"`
+}
+
+// RuleNotificationRecipientTypeInput is an input type that accepts RuleNotificationRecipientTypeArgs and RuleNotificationRecipientTypeOutput values.
+// You can construct a concrete instance of `RuleNotificationRecipientTypeInput` via:
+//
+//	RuleNotificationRecipientTypeArgs{...}
+type RuleNotificationRecipientTypeInput interface {
+	pulumi.Input
+
+	ToRuleNotificationRecipientTypeOutput() RuleNotificationRecipientTypeOutput
+	ToRuleNotificationRecipientTypeOutputWithContext(context.Context) RuleNotificationRecipientTypeOutput
+}
+
+// The type of notification recipient.
+type RuleNotificationRecipientTypeArgs struct {
+	// The list of recipients by user arns.
+	UserArns pulumi.StringArrayInput `pulumi:"userArns"`
+	// The collection of recipients who are identified by user tags
+	UserTags pulumi.Input `pulumi:"userTags"`
+}
+
+func (RuleNotificationRecipientTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleNotificationRecipientType)(nil)).Elem()
+}
+
+func (i RuleNotificationRecipientTypeArgs) ToRuleNotificationRecipientTypeOutput() RuleNotificationRecipientTypeOutput {
+	return i.ToRuleNotificationRecipientTypeOutputWithContext(context.Background())
+}
+
+func (i RuleNotificationRecipientTypeArgs) ToRuleNotificationRecipientTypeOutputWithContext(ctx context.Context) RuleNotificationRecipientTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleNotificationRecipientTypeOutput)
+}
+
+// The type of notification recipient.
+type RuleNotificationRecipientTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleNotificationRecipientTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleNotificationRecipientType)(nil)).Elem()
+}
+
+func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypeOutput() RuleNotificationRecipientTypeOutput {
+	return o
+}
+
+func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypeOutputWithContext(ctx context.Context) RuleNotificationRecipientTypeOutput {
+	return o
+}
+
+// The list of recipients by user arns.
+func (o RuleNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuleNotificationRecipientType) []string { return v.UserArns }).(pulumi.StringArrayOutput)
+}
+
+// The collection of recipients who are identified by user tags
+func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleNotificationRecipientType) interface{} { return v.UserTags }).(pulumi.AnyOutput)
+}
+
+// The definition for sending notification action.
+type RuleSendNotificationAction struct {
+	// The content of notification.
+	Content string `pulumi:"content"`
+	// The type of content.
+	ContentType RuleSendNotificationActionContentType `pulumi:"contentType"`
+	// The means of delivery.
+	DeliveryMethod RuleSendNotificationActionDeliveryMethod `pulumi:"deliveryMethod"`
+	Recipient      RuleNotificationRecipientType            `pulumi:"recipient"`
+	// The subject of notification.
+	Subject *string `pulumi:"subject"`
+}
+
+// RuleSendNotificationActionInput is an input type that accepts RuleSendNotificationActionArgs and RuleSendNotificationActionOutput values.
+// You can construct a concrete instance of `RuleSendNotificationActionInput` via:
+//
+//	RuleSendNotificationActionArgs{...}
+type RuleSendNotificationActionInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionOutput() RuleSendNotificationActionOutput
+	ToRuleSendNotificationActionOutputWithContext(context.Context) RuleSendNotificationActionOutput
+}
+
+// The definition for sending notification action.
+type RuleSendNotificationActionArgs struct {
+	// The content of notification.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The type of content.
+	ContentType RuleSendNotificationActionContentTypeInput `pulumi:"contentType"`
+	// The means of delivery.
+	DeliveryMethod RuleSendNotificationActionDeliveryMethodInput `pulumi:"deliveryMethod"`
+	Recipient      RuleNotificationRecipientTypeInput            `pulumi:"recipient"`
+	// The subject of notification.
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
+}
+
+func (RuleSendNotificationActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationAction)(nil)).Elem()
+}
+
+func (i RuleSendNotificationActionArgs) ToRuleSendNotificationActionOutput() RuleSendNotificationActionOutput {
+	return i.ToRuleSendNotificationActionOutputWithContext(context.Background())
+}
+
+func (i RuleSendNotificationActionArgs) ToRuleSendNotificationActionOutputWithContext(ctx context.Context) RuleSendNotificationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSendNotificationActionOutput)
+}
+
+// RuleSendNotificationActionArrayInput is an input type that accepts RuleSendNotificationActionArray and RuleSendNotificationActionArrayOutput values.
+// You can construct a concrete instance of `RuleSendNotificationActionArrayInput` via:
+//
+//	RuleSendNotificationActionArray{ RuleSendNotificationActionArgs{...} }
+type RuleSendNotificationActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleSendNotificationActionArrayOutput() RuleSendNotificationActionArrayOutput
+	ToRuleSendNotificationActionArrayOutputWithContext(context.Context) RuleSendNotificationActionArrayOutput
+}
+
+type RuleSendNotificationActionArray []RuleSendNotificationActionInput
+
+func (RuleSendNotificationActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSendNotificationAction)(nil)).Elem()
+}
+
+func (i RuleSendNotificationActionArray) ToRuleSendNotificationActionArrayOutput() RuleSendNotificationActionArrayOutput {
+	return i.ToRuleSendNotificationActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSendNotificationActionArray) ToRuleSendNotificationActionArrayOutputWithContext(ctx context.Context) RuleSendNotificationActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSendNotificationActionArrayOutput)
+}
+
+// The definition for sending notification action.
+type RuleSendNotificationActionOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSendNotificationAction)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionOutput) ToRuleSendNotificationActionOutput() RuleSendNotificationActionOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionOutput) ToRuleSendNotificationActionOutputWithContext(ctx context.Context) RuleSendNotificationActionOutput {
+	return o
+}
+
+// The content of notification.
+func (o RuleSendNotificationActionOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) string { return v.Content }).(pulumi.StringOutput)
+}
+
+// The type of content.
+func (o RuleSendNotificationActionOutput) ContentType() RuleSendNotificationActionContentTypeOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) RuleSendNotificationActionContentType { return v.ContentType }).(RuleSendNotificationActionContentTypeOutput)
+}
+
+// The means of delivery.
+func (o RuleSendNotificationActionOutput) DeliveryMethod() RuleSendNotificationActionDeliveryMethodOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) RuleSendNotificationActionDeliveryMethod { return v.DeliveryMethod }).(RuleSendNotificationActionDeliveryMethodOutput)
+}
+
+func (o RuleSendNotificationActionOutput) Recipient() RuleNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) RuleNotificationRecipientType { return v.Recipient }).(RuleNotificationRecipientTypeOutput)
+}
+
+// The subject of notification.
+func (o RuleSendNotificationActionOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) *string { return v.Subject }).(pulumi.StringPtrOutput)
+}
+
+type RuleSendNotificationActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSendNotificationActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSendNotificationAction)(nil)).Elem()
+}
+
+func (o RuleSendNotificationActionArrayOutput) ToRuleSendNotificationActionArrayOutput() RuleSendNotificationActionArrayOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionArrayOutput) ToRuleSendNotificationActionArrayOutputWithContext(ctx context.Context) RuleSendNotificationActionArrayOutput {
+	return o
+}
+
+func (o RuleSendNotificationActionArrayOutput) Index(i pulumi.IntInput) RuleSendNotificationActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSendNotificationAction {
+		return vs[0].([]RuleSendNotificationAction)[vs[1].(int)]
+	}).(RuleSendNotificationActionOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RuleTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	Value string `pulumi:"value"`
+}
+
+// RuleTagInput is an input type that accepts RuleTagArgs and RuleTagOutput values.
+// You can construct a concrete instance of `RuleTagInput` via:
+//
+//	RuleTagArgs{...}
+type RuleTagInput interface {
+	pulumi.Input
+
+	ToRuleTagOutput() RuleTagOutput
+	ToRuleTagOutputWithContext(context.Context) RuleTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RuleTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTag)(nil)).Elem()
+}
+
+func (i RuleTagArgs) ToRuleTagOutput() RuleTagOutput {
+	return i.ToRuleTagOutputWithContext(context.Background())
+}
+
+func (i RuleTagArgs) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTagOutput)
+}
+
+// RuleTagArrayInput is an input type that accepts RuleTagArray and RuleTagArrayOutput values.
+// You can construct a concrete instance of `RuleTagArrayInput` via:
+//
+//	RuleTagArray{ RuleTagArgs{...} }
+type RuleTagArrayInput interface {
+	pulumi.Input
+
+	ToRuleTagArrayOutput() RuleTagArrayOutput
+	ToRuleTagArrayOutputWithContext(context.Context) RuleTagArrayOutput
+}
+
+type RuleTagArray []RuleTagInput
+
+func (RuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTag)(nil)).Elem()
+}
+
+func (i RuleTagArray) ToRuleTagArrayOutput() RuleTagArrayOutput {
+	return i.ToRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleTagArray) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RuleTagOutput struct{ *pulumi.OutputState }
+
+func (RuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTag)(nil)).Elem()
+}
+
+func (o RuleTagOutput) ToRuleTagOutput() RuleTagOutput {
+	return o
+}
+
+func (o RuleTagOutput) ToRuleTagOutputWithContext(ctx context.Context) RuleTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+func (o RuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTag)(nil)).Elem()
+}
+
+func (o RuleTagArrayOutput) ToRuleTagArrayOutput() RuleTagArrayOutput {
+	return o
+}
+
+func (o RuleTagArrayOutput) ToRuleTagArrayOutputWithContext(ctx context.Context) RuleTagArrayOutput {
+	return o
+}
+
+func (o RuleTagArrayOutput) Index(i pulumi.IntInput) RuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleTag {
+		return vs[0].([]RuleTag)[vs[1].(int)]
+	}).(RuleTagOutput)
+}
+
+// The definition of task action.
+type RuleTaskAction struct {
+	// The Amazon Resource Name (ARN) of the contact flow.
+	ContactFlowArn string `pulumi:"contactFlowArn"`
+	// The description which appears in the agent's Contact Control Panel (CCP).
+	Description *string `pulumi:"description"`
+	// The name which appears in the agent's Contact Control Panel (CCP).
+	Name string `pulumi:"name"`
+	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+	References interface{} `pulumi:"references"`
+}
+
+// RuleTaskActionInput is an input type that accepts RuleTaskActionArgs and RuleTaskActionOutput values.
+// You can construct a concrete instance of `RuleTaskActionInput` via:
+//
+//	RuleTaskActionArgs{...}
+type RuleTaskActionInput interface {
+	pulumi.Input
+
+	ToRuleTaskActionOutput() RuleTaskActionOutput
+	ToRuleTaskActionOutputWithContext(context.Context) RuleTaskActionOutput
+}
+
+// The definition of task action.
+type RuleTaskActionArgs struct {
+	// The Amazon Resource Name (ARN) of the contact flow.
+	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
+	// The description which appears in the agent's Contact Control Panel (CCP).
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The name which appears in the agent's Contact Control Panel (CCP).
+	Name pulumi.StringInput `pulumi:"name"`
+	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+	References pulumi.Input `pulumi:"references"`
+}
+
+func (RuleTaskActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTaskAction)(nil)).Elem()
+}
+
+func (i RuleTaskActionArgs) ToRuleTaskActionOutput() RuleTaskActionOutput {
+	return i.ToRuleTaskActionOutputWithContext(context.Background())
+}
+
+func (i RuleTaskActionArgs) ToRuleTaskActionOutputWithContext(ctx context.Context) RuleTaskActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTaskActionOutput)
+}
+
+// RuleTaskActionArrayInput is an input type that accepts RuleTaskActionArray and RuleTaskActionArrayOutput values.
+// You can construct a concrete instance of `RuleTaskActionArrayInput` via:
+//
+//	RuleTaskActionArray{ RuleTaskActionArgs{...} }
+type RuleTaskActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleTaskActionArrayOutput() RuleTaskActionArrayOutput
+	ToRuleTaskActionArrayOutputWithContext(context.Context) RuleTaskActionArrayOutput
+}
+
+type RuleTaskActionArray []RuleTaskActionInput
+
+func (RuleTaskActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTaskAction)(nil)).Elem()
+}
+
+func (i RuleTaskActionArray) ToRuleTaskActionArrayOutput() RuleTaskActionArrayOutput {
+	return i.ToRuleTaskActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleTaskActionArray) ToRuleTaskActionArrayOutputWithContext(ctx context.Context) RuleTaskActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTaskActionArrayOutput)
+}
+
+// The definition of task action.
+type RuleTaskActionOutput struct{ *pulumi.OutputState }
+
+func (RuleTaskActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTaskAction)(nil)).Elem()
+}
+
+func (o RuleTaskActionOutput) ToRuleTaskActionOutput() RuleTaskActionOutput {
+	return o
+}
+
+func (o RuleTaskActionOutput) ToRuleTaskActionOutputWithContext(ctx context.Context) RuleTaskActionOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the contact flow.
+func (o RuleTaskActionOutput) ContactFlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleTaskAction) string { return v.ContactFlowArn }).(pulumi.StringOutput)
+}
+
+// The description which appears in the agent's Contact Control Panel (CCP).
+func (o RuleTaskActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTaskAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name which appears in the agent's Contact Control Panel (CCP).
+func (o RuleTaskActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleTaskAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+func (o RuleTaskActionOutput) References() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleTaskAction) interface{} { return v.References }).(pulumi.AnyOutput)
+}
+
+type RuleTaskActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleTaskActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleTaskAction)(nil)).Elem()
+}
+
+func (o RuleTaskActionArrayOutput) ToRuleTaskActionArrayOutput() RuleTaskActionArrayOutput {
+	return o
+}
+
+func (o RuleTaskActionArrayOutput) ToRuleTaskActionArrayOutputWithContext(ctx context.Context) RuleTaskActionArrayOutput {
+	return o
+}
+
+func (o RuleTaskActionArrayOutput) Index(i pulumi.IntInput) RuleTaskActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleTaskAction {
+		return vs[0].([]RuleTaskAction)[vs[1].(int)]
+	}).(RuleTaskActionOutput)
+}
+
+// The event source that will trigger the rule.
+type RuleTriggerEventSource struct {
+	// The name of event source.
+	EventSourceName RuleTriggerEventSourceEventSourceName `pulumi:"eventSourceName"`
+	// The Amazon Resource Name (ARN) for the AppIntegration association.
+	IntegrationAssociationArn *string `pulumi:"integrationAssociationArn"`
+}
+
+// RuleTriggerEventSourceInput is an input type that accepts RuleTriggerEventSourceArgs and RuleTriggerEventSourceOutput values.
+// You can construct a concrete instance of `RuleTriggerEventSourceInput` via:
+//
+//	RuleTriggerEventSourceArgs{...}
+type RuleTriggerEventSourceInput interface {
+	pulumi.Input
+
+	ToRuleTriggerEventSourceOutput() RuleTriggerEventSourceOutput
+	ToRuleTriggerEventSourceOutputWithContext(context.Context) RuleTriggerEventSourceOutput
+}
+
+// The event source that will trigger the rule.
+type RuleTriggerEventSourceArgs struct {
+	// The name of event source.
+	EventSourceName RuleTriggerEventSourceEventSourceNameInput `pulumi:"eventSourceName"`
+	// The Amazon Resource Name (ARN) for the AppIntegration association.
+	IntegrationAssociationArn pulumi.StringPtrInput `pulumi:"integrationAssociationArn"`
+}
+
+func (RuleTriggerEventSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTriggerEventSource)(nil)).Elem()
+}
+
+func (i RuleTriggerEventSourceArgs) ToRuleTriggerEventSourceOutput() RuleTriggerEventSourceOutput {
+	return i.ToRuleTriggerEventSourceOutputWithContext(context.Background())
+}
+
+func (i RuleTriggerEventSourceArgs) ToRuleTriggerEventSourceOutputWithContext(ctx context.Context) RuleTriggerEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleTriggerEventSourceOutput)
+}
+
+// The event source that will trigger the rule.
+type RuleTriggerEventSourceOutput struct{ *pulumi.OutputState }
+
+func (RuleTriggerEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleTriggerEventSource)(nil)).Elem()
+}
+
+func (o RuleTriggerEventSourceOutput) ToRuleTriggerEventSourceOutput() RuleTriggerEventSourceOutput {
+	return o
+}
+
+func (o RuleTriggerEventSourceOutput) ToRuleTriggerEventSourceOutputWithContext(ctx context.Context) RuleTriggerEventSourceOutput {
+	return o
+}
+
+// The name of event source.
+func (o RuleTriggerEventSourceOutput) EventSourceName() RuleTriggerEventSourceEventSourceNameOutput {
+	return o.ApplyT(func(v RuleTriggerEventSource) RuleTriggerEventSourceEventSourceName { return v.EventSourceName }).(RuleTriggerEventSourceEventSourceNameOutput)
+}
+
+// The Amazon Resource Name (ARN) for the AppIntegration association.
+func (o RuleTriggerEventSourceOutput) IntegrationAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleTriggerEventSource) *string { return v.IntegrationAssociationArn }).(pulumi.StringPtrOutput)
+}
+
 // the default value for the task template's field
 type TaskTemplateDefaultFieldValue struct {
 	DefaultValue string                      `pulumi:"defaultValue"`
@@ -3537,6 +4355,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTagArrayInput)(nil)).Elem(), QuickConnectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectUserQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectUserQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionsInput)(nil)).Elem(), RuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionInput)(nil)).Elem(), RuleAssignContactCategoryActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionArrayInput)(nil)).Elem(), RuleAssignContactCategoryActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEventBridgeActionInput)(nil)).Elem(), RuleEventBridgeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEventBridgeActionArrayInput)(nil)).Elem(), RuleEventBridgeActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTagInput)(nil)).Elem(), RuleTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTagArrayInput)(nil)).Elem(), RuleTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionArrayInput)(nil)).Elem(), RuleTaskActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceInput)(nil)).Elem(), RuleTriggerEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueArrayInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldInput)(nil)).Elem(), TaskTemplateFieldArgs{})
@@ -3590,6 +4421,20 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleActionsOutput{})
+	pulumi.RegisterOutputType(RuleActionsPtrOutput{})
+	pulumi.RegisterOutputType(RuleAssignContactCategoryActionOutput{})
+	pulumi.RegisterOutputType(RuleAssignContactCategoryActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleEventBridgeActionOutput{})
+	pulumi.RegisterOutputType(RuleEventBridgeActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
+	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleTagOutput{})
+	pulumi.RegisterOutputType(RuleTagArrayOutput{})
+	pulumi.RegisterOutputType(RuleTaskActionOutput{})
+	pulumi.RegisterOutputType(RuleTaskActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleTriggerEventSourceOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldOutput{})

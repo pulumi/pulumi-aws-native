@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.IVS
         public Output<string> PlaybackUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         /// </summary>
         [Output("recordingConfigurationArn")]
         public Output<string?> RecordingConfigurationArn { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.IVS
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         /// </summary>
         [Input("recordingConfigurationArn")]
         public Input<string>? RecordingConfigurationArn { get; set; }

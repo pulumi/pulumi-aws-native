@@ -2573,6 +2573,171 @@ func (in *featureGroupFeatureDefinitionFeatureTypePtr) ToFeatureGroupFeatureDefi
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupFeatureDefinitionFeatureTypePtrOutput)
 }
 
+// Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
+type FeatureGroupTableFormat string
+
+const (
+	FeatureGroupTableFormatIceberg = FeatureGroupTableFormat("Iceberg")
+	FeatureGroupTableFormatGlue    = FeatureGroupTableFormat("Glue")
+)
+
+func (FeatureGroupTableFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTableFormat)(nil)).Elem()
+}
+
+func (e FeatureGroupTableFormat) ToFeatureGroupTableFormatOutput() FeatureGroupTableFormatOutput {
+	return pulumi.ToOutput(e).(FeatureGroupTableFormatOutput)
+}
+
+func (e FeatureGroupTableFormat) ToFeatureGroupTableFormatOutputWithContext(ctx context.Context) FeatureGroupTableFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeatureGroupTableFormatOutput)
+}
+
+func (e FeatureGroupTableFormat) ToFeatureGroupTableFormatPtrOutput() FeatureGroupTableFormatPtrOutput {
+	return e.ToFeatureGroupTableFormatPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupTableFormat) ToFeatureGroupTableFormatPtrOutputWithContext(ctx context.Context) FeatureGroupTableFormatPtrOutput {
+	return FeatureGroupTableFormat(e).ToFeatureGroupTableFormatOutputWithContext(ctx).ToFeatureGroupTableFormatPtrOutputWithContext(ctx)
+}
+
+func (e FeatureGroupTableFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupTableFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupTableFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupTableFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeatureGroupTableFormatOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTableFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTableFormat)(nil)).Elem()
+}
+
+func (o FeatureGroupTableFormatOutput) ToFeatureGroupTableFormatOutput() FeatureGroupTableFormatOutput {
+	return o
+}
+
+func (o FeatureGroupTableFormatOutput) ToFeatureGroupTableFormatOutputWithContext(ctx context.Context) FeatureGroupTableFormatOutput {
+	return o
+}
+
+func (o FeatureGroupTableFormatOutput) ToFeatureGroupTableFormatPtrOutput() FeatureGroupTableFormatPtrOutput {
+	return o.ToFeatureGroupTableFormatPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupTableFormatOutput) ToFeatureGroupTableFormatPtrOutputWithContext(ctx context.Context) FeatureGroupTableFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupTableFormat) *FeatureGroupTableFormat {
+		return &v
+	}).(FeatureGroupTableFormatPtrOutput)
+}
+
+func (o FeatureGroupTableFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupTableFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupTableFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupTableFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupTableFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupTableFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupTableFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTableFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupTableFormat)(nil)).Elem()
+}
+
+func (o FeatureGroupTableFormatPtrOutput) ToFeatureGroupTableFormatPtrOutput() FeatureGroupTableFormatPtrOutput {
+	return o
+}
+
+func (o FeatureGroupTableFormatPtrOutput) ToFeatureGroupTableFormatPtrOutputWithContext(ctx context.Context) FeatureGroupTableFormatPtrOutput {
+	return o
+}
+
+func (o FeatureGroupTableFormatPtrOutput) Elem() FeatureGroupTableFormatOutput {
+	return o.ApplyT(func(v *FeatureGroupTableFormat) FeatureGroupTableFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupTableFormat
+		return ret
+	}).(FeatureGroupTableFormatOutput)
+}
+
+func (o FeatureGroupTableFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupTableFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeatureGroupTableFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeatureGroupTableFormatInput is an input type that accepts FeatureGroupTableFormatArgs and FeatureGroupTableFormatOutput values.
+// You can construct a concrete instance of `FeatureGroupTableFormatInput` via:
+//
+//	FeatureGroupTableFormatArgs{...}
+type FeatureGroupTableFormatInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTableFormatOutput() FeatureGroupTableFormatOutput
+	ToFeatureGroupTableFormatOutputWithContext(context.Context) FeatureGroupTableFormatOutput
+}
+
+var featureGroupTableFormatPtrType = reflect.TypeOf((**FeatureGroupTableFormat)(nil)).Elem()
+
+type FeatureGroupTableFormatPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTableFormatPtrOutput() FeatureGroupTableFormatPtrOutput
+	ToFeatureGroupTableFormatPtrOutputWithContext(context.Context) FeatureGroupTableFormatPtrOutput
+}
+
+type featureGroupTableFormatPtr string
+
+func FeatureGroupTableFormatPtr(v string) FeatureGroupTableFormatPtrInput {
+	return (*featureGroupTableFormatPtr)(&v)
+}
+
+func (*featureGroupTableFormatPtr) ElementType() reflect.Type {
+	return featureGroupTableFormatPtrType
+}
+
+func (in *featureGroupTableFormatPtr) ToFeatureGroupTableFormatPtrOutput() FeatureGroupTableFormatPtrOutput {
+	return pulumi.ToOutput(in).(FeatureGroupTableFormatPtrOutput)
+}
+
+func (in *featureGroupTableFormatPtr) ToFeatureGroupTableFormatPtrOutputWithContext(ctx context.Context) FeatureGroupTableFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupTableFormatPtrOutput)
+}
+
 // Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 type ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType string
 
@@ -8710,6 +8875,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType("FullyReplicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelBiasJobDefinitionBatchTransformInputS3InputModeInput)(nil)).Elem(), ModelBiasJobDefinitionBatchTransformInputS3InputMode("Pipe"))
@@ -8810,6 +8977,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTableFormatOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput{})

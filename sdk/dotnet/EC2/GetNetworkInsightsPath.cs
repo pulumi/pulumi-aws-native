@@ -52,23 +52,31 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetNetworkInsightsPathResult
     {
         public readonly string? CreatedDate;
+        public readonly string? DestinationArn;
         public readonly string? NetworkInsightsPathArn;
         public readonly string? NetworkInsightsPathId;
+        public readonly string? SourceArn;
         public readonly ImmutableArray<Outputs.NetworkInsightsPathTag> Tags;
 
         [OutputConstructor]
         private GetNetworkInsightsPathResult(
             string? createdDate,
 
+            string? destinationArn,
+
             string? networkInsightsPathArn,
 
             string? networkInsightsPathId,
 
+            string? sourceArn,
+
             ImmutableArray<Outputs.NetworkInsightsPathTag> tags)
         {
             CreatedDate = createdDate;
+            DestinationArn = destinationArn;
             NetworkInsightsPathArn = networkInsightsPathArn;
             NetworkInsightsPathId = networkInsightsPathId;
+            SourceArn = sourceArn;
             Tags = tags;
         }
     }

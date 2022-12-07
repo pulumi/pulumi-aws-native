@@ -27,8 +27,10 @@ export interface GetNetworkInsightsPathArgs {
 
 export interface GetNetworkInsightsPathResult {
     readonly createdDate?: string;
+    readonly destinationArn?: string;
     readonly networkInsightsPathArn?: string;
     readonly networkInsightsPathId?: string;
+    readonly sourceArn?: string;
     readonly tags?: outputs.ec2.NetworkInsightsPathTag[];
 }
 

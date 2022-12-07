@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.IVS
         /// </summary>
         public readonly string? PlaybackUrl;
         /// <summary>
-        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        /// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         /// </summary>
         public readonly string? RecordingConfigurationArn;
         /// <summary>

@@ -4877,9 +4877,23 @@ export namespace billingconductor {
         value: string;
     }
 
+    /**
+     * The possible customizable free tier configurations.
+     */
+    export interface PricingRuleFreeTier {
+        activated: boolean;
+    }
+
     export interface PricingRuleTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * The set of tiering configurations for the pricing rule.
+     */
+    export interface TieringProperties {
+        freeTier?: outputs.billingconductor.PricingRuleFreeTier;
     }
 
 }
@@ -7762,6 +7776,119 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfig {
         contactFlowArn: string;
         userArn: string;
+    }
+
+    /**
+     * The list of actions that will be executed when a rule is triggered.
+     */
+    export interface RuleActions {
+        assignContactCategoryActions?: outputs.connect.RuleAssignContactCategoryAction[];
+        eventBridgeActions?: outputs.connect.RuleEventBridgeAction[];
+        sendNotificationActions?: outputs.connect.RuleSendNotificationAction[];
+        taskActions?: outputs.connect.RuleTaskAction[];
+    }
+
+    /**
+     * The definition for assigning contact category action.
+     */
+    export interface RuleAssignContactCategoryAction {
+    }
+
+    /**
+     * The definition for event bridge action.
+     */
+    export interface RuleEventBridgeAction {
+        /**
+         * The name of the event bridge action.
+         */
+        name: string;
+    }
+
+    /**
+     * The type of notification recipient.
+     */
+    export interface RuleNotificationRecipientType {
+        /**
+         * The list of recipients by user arns.
+         */
+        userArns?: string[];
+        /**
+         * The collection of recipients who are identified by user tags
+         */
+        userTags?: any;
+    }
+
+    /**
+     * The definition for sending notification action.
+     */
+    export interface RuleSendNotificationAction {
+        /**
+         * The content of notification.
+         */
+        content: string;
+        /**
+         * The type of content.
+         */
+        contentType: enums.connect.RuleSendNotificationActionContentType;
+        /**
+         * The means of delivery.
+         */
+        deliveryMethod: enums.connect.RuleSendNotificationActionDeliveryMethod;
+        recipient: outputs.connect.RuleNotificationRecipientType;
+        /**
+         * The subject of notification.
+         */
+        subject?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RuleTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
+        value: string;
+    }
+
+    /**
+     * The definition of task action.
+     */
+    export interface RuleTaskAction {
+        /**
+         * The Amazon Resource Name (ARN) of the contact flow.
+         */
+        contactFlowArn: string;
+        /**
+         * The description which appears in the agent's Contact Control Panel (CCP).
+         */
+        description?: string;
+        /**
+         * The name which appears in the agent's Contact Control Panel (CCP).
+         */
+        name: string;
+        /**
+         * A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+         */
+        references?: any;
+    }
+
+    /**
+     * The event source that will trigger the rule.
+     */
+    export interface RuleTriggerEventSource {
+        /**
+         * The name of event source.
+         */
+        eventSourceName: enums.connect.RuleTriggerEventSourceEventSourceName;
+        /**
+         * The Amazon Resource Name (ARN) for the AppIntegration association.
+         */
+        integrationAssociationArn?: string;
     }
 
     /**
@@ -25840,6 +25967,7 @@ export namespace msk {
 
     export interface ClusterConnectivityInfo {
         publicAccess?: outputs.msk.ClusterPublicAccess;
+        vpcConnectivity?: outputs.msk.ClusterVpcConnectivity;
     }
 
     export interface ClusterEBSStorageInfo {
@@ -25925,6 +26053,32 @@ export namespace msk {
     }
 
     export interface ClusterUnauthenticated {
+        enabled: boolean;
+    }
+
+    export interface ClusterVpcConnectivity {
+        clientAuthentication?: outputs.msk.ClusterVpcConnectivityClientAuthentication;
+    }
+
+    export interface ClusterVpcConnectivityClientAuthentication {
+        sasl?: outputs.msk.ClusterVpcConnectivitySasl;
+        tls?: outputs.msk.ClusterVpcConnectivityTls;
+    }
+
+    export interface ClusterVpcConnectivityIam {
+        enabled: boolean;
+    }
+
+    export interface ClusterVpcConnectivitySasl {
+        iam?: outputs.msk.ClusterVpcConnectivityIam;
+        scram?: outputs.msk.ClusterVpcConnectivityScram;
+    }
+
+    export interface ClusterVpcConnectivityScram {
+        enabled: boolean;
+    }
+
+    export interface ClusterVpcConnectivityTls {
         enabled: boolean;
     }
 
@@ -27518,6 +27672,360 @@ export namespace pinpointemail {
     export interface IdentityTags {
         key?: string;
         value?: string;
+    }
+
+}
+
+export namespace pipes {
+    export interface PipeAwsVpcConfiguration {
+        assignPublicIp?: enums.pipes.PipeAssignPublicIp;
+        securityGroups?: string[];
+        subnets: string[];
+    }
+
+    export interface PipeBatchArrayProperties {
+        size?: number;
+    }
+
+    export interface PipeBatchContainerOverrides {
+        command?: string[];
+        environment?: outputs.pipes.PipeBatchEnvironmentVariable[];
+        instanceType?: string;
+        resourceRequirements?: outputs.pipes.PipeBatchResourceRequirement[];
+    }
+
+    export interface PipeBatchEnvironmentVariable {
+        name?: string;
+        value?: string;
+    }
+
+    export interface PipeBatchJobDependency {
+        jobId?: string;
+        type?: enums.pipes.PipeBatchJobDependencyType;
+    }
+
+    export interface PipeBatchParametersMap {
+    }
+
+    export interface PipeBatchResourceRequirement {
+        type: enums.pipes.PipeBatchResourceRequirementType;
+        value: string;
+    }
+
+    export interface PipeBatchRetryStrategy {
+        attempts?: number;
+    }
+
+    export interface PipeCapacityProviderStrategyItem {
+        base?: number;
+        capacityProvider: string;
+        weight?: number;
+    }
+
+    export interface PipeDeadLetterConfig {
+        arn?: string;
+    }
+
+    export interface PipeEcsContainerOverride {
+        command?: string[];
+        cpu?: number;
+        environment?: outputs.pipes.PipeEcsEnvironmentVariable[];
+        environmentFiles?: outputs.pipes.PipeEcsEnvironmentFile[];
+        memory?: number;
+        memoryReservation?: number;
+        name?: string;
+        resourceRequirements?: outputs.pipes.PipeEcsResourceRequirement[];
+    }
+
+    export interface PipeEcsEnvironmentFile {
+        type: enums.pipes.PipeEcsEnvironmentFileType;
+        value: string;
+    }
+
+    export interface PipeEcsEnvironmentVariable {
+        name?: string;
+        value?: string;
+    }
+
+    export interface PipeEcsEphemeralStorage {
+        sizeInGiB: number;
+    }
+
+    export interface PipeEcsInferenceAcceleratorOverride {
+        deviceName?: string;
+        deviceType?: string;
+    }
+
+    export interface PipeEcsResourceRequirement {
+        type: enums.pipes.PipeEcsResourceRequirementType;
+        value: string;
+    }
+
+    export interface PipeEcsTaskOverride {
+        containerOverrides?: outputs.pipes.PipeEcsContainerOverride[];
+        cpu?: string;
+        ephemeralStorage?: outputs.pipes.PipeEcsEphemeralStorage;
+        executionRoleArn?: string;
+        inferenceAcceleratorOverrides?: outputs.pipes.PipeEcsInferenceAcceleratorOverride[];
+        memory?: string;
+        taskRoleArn?: string;
+    }
+
+    export interface PipeEnrichmentHttpParameters {
+        headerParameters?: outputs.pipes.PipeHeaderParametersMap;
+        pathParameterValues?: string[];
+        queryStringParameters?: outputs.pipes.PipeQueryStringParametersMap;
+    }
+
+    export interface PipeEnrichmentParameters {
+        httpParameters?: outputs.pipes.PipeEnrichmentHttpParameters;
+        inputTemplate?: string;
+    }
+
+    export interface PipeFilter {
+        pattern?: string;
+    }
+
+    export interface PipeFilterCriteria {
+        filters?: outputs.pipes.PipeFilter[];
+    }
+
+    export interface PipeHeaderParametersMap {
+    }
+
+    export interface PipeMQBrokerAccessCredentials {
+    }
+
+    export interface PipeMSKAccessCredentials {
+    }
+
+    export interface PipeNetworkConfiguration {
+        awsvpcConfiguration?: outputs.pipes.PipeAwsVpcConfiguration;
+    }
+
+    export interface PipePlacementConstraint {
+        expression?: string;
+        type?: enums.pipes.PipePlacementConstraintType;
+    }
+
+    export interface PipePlacementStrategy {
+        field?: string;
+        type?: enums.pipes.PipePlacementStrategyType;
+    }
+
+    export interface PipeQueryStringParametersMap {
+    }
+
+    export interface PipeSageMakerPipelineParameter {
+        name: string;
+        value: string;
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentials {
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationVpc {
+        /**
+         * List of SecurityGroupId.
+         */
+        securityGroup?: string[];
+        /**
+         * List of SubnetId.
+         */
+        subnets?: string[];
+    }
+
+    export interface PipeSourceActiveMQBrokerParameters {
+        batchSize?: number;
+        credentials: outputs.pipes.PipeMQBrokerAccessCredentials;
+        maximumBatchingWindowInSeconds?: number;
+        queueName: string;
+    }
+
+    export interface PipeSourceDynamoDBStreamParameters {
+        batchSize?: number;
+        deadLetterConfig?: outputs.pipes.PipeDeadLetterConfig;
+        maximumBatchingWindowInSeconds?: number;
+        maximumRecordAgeInSeconds?: number;
+        maximumRetryAttempts?: number;
+        onPartialBatchItemFailure?: enums.pipes.PipeOnPartialBatchItemFailureStreams;
+        parallelizationFactor?: number;
+        startingPosition: enums.pipes.PipeDynamoDBStreamStartPosition;
+    }
+
+    export interface PipeSourceKinesisStreamParameters {
+        batchSize?: number;
+        deadLetterConfig?: outputs.pipes.PipeDeadLetterConfig;
+        maximumBatchingWindowInSeconds?: number;
+        maximumRecordAgeInSeconds?: number;
+        maximumRetryAttempts?: number;
+        onPartialBatchItemFailure?: enums.pipes.PipeOnPartialBatchItemFailureStreams;
+        parallelizationFactor?: number;
+        startingPosition: enums.pipes.PipeKinesisStreamStartPosition;
+        startingPositionTimestamp?: string;
+    }
+
+    export interface PipeSourceManagedStreamingKafkaParameters {
+        batchSize?: number;
+        consumerGroupID?: string;
+        credentials?: outputs.pipes.PipeMSKAccessCredentials;
+        maximumBatchingWindowInSeconds?: number;
+        startingPosition?: enums.pipes.PipeMSKStartPosition;
+        topicName: string;
+    }
+
+    export interface PipeSourceParameters {
+        activeMQBrokerParameters?: outputs.pipes.PipeSourceActiveMQBrokerParameters;
+        dynamoDBStreamParameters?: outputs.pipes.PipeSourceDynamoDBStreamParameters;
+        filterCriteria?: outputs.pipes.PipeFilterCriteria;
+        kinesisStreamParameters?: outputs.pipes.PipeSourceKinesisStreamParameters;
+        managedStreamingKafkaParameters?: outputs.pipes.PipeSourceManagedStreamingKafkaParameters;
+        rabbitMQBrokerParameters?: outputs.pipes.PipeSourceRabbitMQBrokerParameters;
+        selfManagedKafkaParameters?: outputs.pipes.PipeSourceSelfManagedKafkaParameters;
+        sqsQueueParameters?: outputs.pipes.PipeSourceSqsQueueParameters;
+    }
+
+    export interface PipeSourceRabbitMQBrokerParameters {
+        batchSize?: number;
+        credentials: outputs.pipes.PipeMQBrokerAccessCredentials;
+        maximumBatchingWindowInSeconds?: number;
+        queueName: string;
+        virtualHost?: string;
+    }
+
+    export interface PipeSourceSelfManagedKafkaParameters {
+        additionalBootstrapServers?: string[];
+        batchSize?: number;
+        consumerGroupID?: string;
+        credentials?: outputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentials;
+        maximumBatchingWindowInSeconds?: number;
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        serverRootCaCertificate?: string;
+        startingPosition?: enums.pipes.PipeSelfManagedKafkaStartPosition;
+        topicName: string;
+        vpc?: outputs.pipes.PipeSelfManagedKafkaAccessConfigurationVpc;
+    }
+
+    export interface PipeSourceSqsQueueParameters {
+        batchSize?: number;
+        maximumBatchingWindowInSeconds?: number;
+    }
+
+    export interface PipeTag {
+        key: string;
+        value: string;
+    }
+
+    export interface PipeTagMap {
+    }
+
+    export interface PipeTargetBatchJobParameters {
+        arrayProperties?: outputs.pipes.PipeBatchArrayProperties;
+        containerOverrides?: outputs.pipes.PipeBatchContainerOverrides;
+        dependsOn?: outputs.pipes.PipeBatchJobDependency[];
+        jobDefinition: string;
+        jobName: string;
+        parameters?: outputs.pipes.PipeBatchParametersMap;
+        retryStrategy?: outputs.pipes.PipeBatchRetryStrategy;
+    }
+
+    export interface PipeTargetCloudWatchLogsParameters {
+        logStreamName?: string;
+        timestamp?: string;
+    }
+
+    export interface PipeTargetEcsTaskParameters {
+        capacityProviderStrategy?: outputs.pipes.PipeCapacityProviderStrategyItem[];
+        enableECSManagedTags?: boolean;
+        enableExecuteCommand?: boolean;
+        group?: string;
+        launchType?: enums.pipes.PipeLaunchType;
+        networkConfiguration?: outputs.pipes.PipeNetworkConfiguration;
+        overrides?: outputs.pipes.PipeEcsTaskOverride;
+        placementConstraints?: outputs.pipes.PipePlacementConstraint[];
+        placementStrategy?: outputs.pipes.PipePlacementStrategy[];
+        platformVersion?: string;
+        propagateTags?: enums.pipes.PipePropagateTags;
+        referenceId?: string;
+        tags?: outputs.pipes.PipeTag[];
+        taskCount?: number;
+        taskDefinitionArn: string;
+    }
+
+    export interface PipeTargetEventBridgeEventBusParameters {
+        detailType?: string;
+        endpointId?: string;
+        resources?: string[];
+        source?: string;
+        time?: string;
+    }
+
+    export interface PipeTargetHttpParameters {
+        headerParameters?: outputs.pipes.PipeHeaderParametersMap;
+        pathParameterValues?: string[];
+        queryStringParameters?: outputs.pipes.PipeQueryStringParametersMap;
+    }
+
+    export interface PipeTargetKinesisStreamParameters {
+        partitionKey: string;
+    }
+
+    export interface PipeTargetLambdaFunctionParameters {
+        invocationType?: enums.pipes.PipeTargetInvocationType;
+    }
+
+    export interface PipeTargetParameters {
+        batchJobParameters?: outputs.pipes.PipeTargetBatchJobParameters;
+        cloudWatchLogsParameters?: outputs.pipes.PipeTargetCloudWatchLogsParameters;
+        ecsTaskParameters?: outputs.pipes.PipeTargetEcsTaskParameters;
+        eventBridgeEventBusParameters?: outputs.pipes.PipeTargetEventBridgeEventBusParameters;
+        httpParameters?: outputs.pipes.PipeTargetHttpParameters;
+        inputTemplate?: string;
+        kinesisStreamParameters?: outputs.pipes.PipeTargetKinesisStreamParameters;
+        lambdaFunctionParameters?: outputs.pipes.PipeTargetLambdaFunctionParameters;
+        redshiftDataParameters?: outputs.pipes.PipeTargetRedshiftDataParameters;
+        sageMakerPipelineParameters?: outputs.pipes.PipeTargetSageMakerPipelineParameters;
+        sqsQueueParameters?: outputs.pipes.PipeTargetSqsQueueParameters;
+        stepFunctionStateMachineParameters?: outputs.pipes.PipeTargetStateMachineParameters;
+    }
+
+    export interface PipeTargetRedshiftDataParameters {
+        /**
+         * Redshift Database
+         */
+        database: string;
+        /**
+         * Database user name
+         */
+        dbUser?: string;
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        secretManagerArn?: string;
+        /**
+         * A list of SQLs.
+         */
+        sqls: string[];
+        /**
+         * A name for Redshift DataAPI statement which can be used as filter of ListStatement.
+         */
+        statementName?: string;
+        withEvent?: boolean;
+    }
+
+    export interface PipeTargetSageMakerPipelineParameters {
+        pipelineParameterList?: outputs.pipes.PipeSageMakerPipelineParameter[];
+    }
+
+    export interface PipeTargetSqsQueueParameters {
+        messageDeduplicationId?: string;
+        messageGroupId?: string;
+    }
+
+    export interface PipeTargetStateMachineParameters {
+        invocationType?: enums.pipes.PipeTargetInvocationType;
     }
 
 }
@@ -34195,6 +34703,7 @@ export namespace sagemaker {
         dataCatalogConfig?: outputs.sagemaker.FeatureGroupDataCatalogConfig;
         disableGlueTableCreation?: boolean;
         s3StorageConfig: outputs.sagemaker.FeatureGroupS3StorageConfig;
+        tableFormat?: enums.sagemaker.FeatureGroupTableFormat;
     }
 
     export interface OnlineStoreConfigProperties {
@@ -35563,11 +36072,40 @@ export namespace ssmincidents {
         title: string;
     }
 
+    export interface ResponsePlanIntegration {
+        pagerDutyConfiguration?: outputs.ssmincidents.ResponsePlanPagerDutyConfiguration;
+    }
+
     /**
      * A notification target.
      */
     export interface ResponsePlanNotificationTargetItem {
         snsTopicArn?: string;
+    }
+
+    /**
+     * The pagerDuty configuration to use when starting the incident.
+     */
+    export interface ResponsePlanPagerDutyConfiguration {
+        /**
+         * The name of the pagerDuty configuration.
+         */
+        name: string;
+        pagerDutyIncidentConfiguration: outputs.ssmincidents.ResponsePlanPagerDutyIncidentConfiguration;
+        /**
+         * The AWS secrets manager secretId storing the pagerDuty token.
+         */
+        secretId: string;
+    }
+
+    /**
+     * The pagerDuty incident configuration.
+     */
+    export interface ResponsePlanPagerDutyIncidentConfiguration {
+        /**
+         * The pagerDuty serviceId.
+         */
+        serviceId: string;
     }
 
     /**

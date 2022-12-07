@@ -62,7 +62,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public readonly ImmutableArray<string> LoadBalancerArns;
         public readonly Outputs.TargetGroupMatcher? Matcher;
         public readonly ImmutableArray<Outputs.TargetGroupTag> Tags;
-        public readonly string? TargetGroupArn;
         public readonly ImmutableArray<Outputs.TargetGroupAttribute> TargetGroupAttributes;
         public readonly string? TargetGroupFullName;
         public readonly string? TargetGroupName;
@@ -93,8 +92,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             ImmutableArray<Outputs.TargetGroupTag> tags,
 
-            string? targetGroupArn,
-
             ImmutableArray<Outputs.TargetGroupAttribute> targetGroupAttributes,
 
             string? targetGroupFullName,
@@ -116,7 +113,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             LoadBalancerArns = loadBalancerArns;
             Matcher = matcher;
             Tags = tags;
-            TargetGroupArn = targetGroupArn;
             TargetGroupAttributes = targetGroupAttributes;
             TargetGroupFullName = targetGroupFullName;
             TargetGroupName = targetGroupName;

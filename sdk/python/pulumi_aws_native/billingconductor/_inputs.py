@@ -20,7 +20,9 @@ __all__ = [
     'CustomLineItemPercentageChargeDetailsArgs',
     'CustomLineItemTagArgs',
     'PricingPlanTagArgs',
+    'PricingRuleFreeTierArgs',
     'PricingRuleTagArgs',
+    'TieringPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -256,6 +258,25 @@ class PricingPlanTagArgs:
 
 
 @pulumi.input_type
+class PricingRuleFreeTierArgs:
+    def __init__(__self__, *,
+                 activated: pulumi.Input[bool]):
+        """
+        The possible customizable free tier configurations.
+        """
+        pulumi.set(__self__, "activated", activated)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "activated")
+
+    @activated.setter
+    def activated(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "activated", value)
+
+
+@pulumi.input_type
 class PricingRuleTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -280,5 +301,25 @@ class PricingRuleTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TieringPropertiesArgs:
+    def __init__(__self__, *,
+                 free_tier: Optional[pulumi.Input['PricingRuleFreeTierArgs']] = None):
+        """
+        The set of tiering configurations for the pricing rule.
+        """
+        if free_tier is not None:
+            pulumi.set(__self__, "free_tier", free_tier)
+
+    @property
+    @pulumi.getter(name="freeTier")
+    def free_tier(self) -> Optional[pulumi.Input['PricingRuleFreeTierArgs']]:
+        return pulumi.get(self, "free_tier")
+
+    @free_tier.setter
+    def free_tier(self, value: Optional[pulumi.Input['PricingRuleFreeTierArgs']]):
+        pulumi.set(self, "free_tier", value)
 
 

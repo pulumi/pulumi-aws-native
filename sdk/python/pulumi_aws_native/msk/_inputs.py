@@ -36,6 +36,12 @@ __all__ = [
     'ClusterStorageInfoArgs',
     'ClusterTlsArgs',
     'ClusterUnauthenticatedArgs',
+    'ClusterVpcConnectivityClientAuthenticationArgs',
+    'ClusterVpcConnectivityIamArgs',
+    'ClusterVpcConnectivitySaslArgs',
+    'ClusterVpcConnectivityScramArgs',
+    'ClusterVpcConnectivityTlsArgs',
+    'ClusterVpcConnectivityArgs',
     'ServerlessClusterClientAuthenticationArgs',
     'ServerlessClusterIamArgs',
     'ServerlessClusterSaslArgs',
@@ -257,9 +263,12 @@ class ClusterConfigurationInfoArgs:
 @pulumi.input_type
 class ClusterConnectivityInfoArgs:
     def __init__(__self__, *,
-                 public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None):
+                 public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
+                 vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None):
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
+        if vpc_connectivity is not None:
+            pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
 
     @property
     @pulumi.getter(name="publicAccess")
@@ -269,6 +278,15 @@ class ClusterConnectivityInfoArgs:
     @public_access.setter
     def public_access(self, value: Optional[pulumi.Input['ClusterPublicAccessArgs']]):
         pulumi.set(self, "public_access", value)
+
+    @property
+    @pulumi.getter(name="vpcConnectivity")
+    def vpc_connectivity(self) -> Optional[pulumi.Input['ClusterVpcConnectivityArgs']]:
+        return pulumi.get(self, "vpc_connectivity")
+
+    @vpc_connectivity.setter
+    def vpc_connectivity(self, value: Optional[pulumi.Input['ClusterVpcConnectivityArgs']]):
+        pulumi.set(self, "vpc_connectivity", value)
 
 
 @pulumi.input_type
@@ -702,6 +720,129 @@ class ClusterUnauthenticatedArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivityClientAuthenticationArgs:
+    def __init__(__self__, *,
+                 sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
+                 tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None):
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']]:
+        return pulumi.get(self, "sasl")
+
+    @sasl.setter
+    def sasl(self, value: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']]):
+        pulumi.set(self, "sasl", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']]:
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']]):
+        pulumi.set(self, "tls", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivityIamArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivitySaslArgs:
+    def __init__(__self__, *,
+                 iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
+                 scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None):
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']]:
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']]):
+        pulumi.set(self, "iam", value)
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']]:
+        return pulumi.get(self, "scram")
+
+    @scram.setter
+    def scram(self, value: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']]):
+        pulumi.set(self, "scram", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivityScramArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivityTlsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ClusterVpcConnectivityArgs:
+    def __init__(__self__, *,
+                 client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None):
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']]:
+        return pulumi.get(self, "client_authentication")
+
+    @client_authentication.setter
+    def client_authentication(self, value: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']]):
+        pulumi.set(self, "client_authentication", value)
 
 
 @pulumi.input_type

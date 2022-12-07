@@ -37,6 +37,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInsightsAnalysis.__pulumiType;
     }
 
+    public readonly additionalAccounts!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
     public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
@@ -49,6 +50,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     public /*out*/ readonly startDate!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<enums.ec2.NetworkInsightsAnalysisStatus>;
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    public /*out*/ readonly suggestedAccounts!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisTag[] | undefined>;
 
     /**
@@ -65,6 +67,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             if ((!args || args.networkInsightsPathId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInsightsPathId'");
             }
+            resourceInputs["additionalAccounts"] = args ? args.additionalAccounts : undefined;
             resourceInputs["filterInArns"] = args ? args.filterInArns : undefined;
             resourceInputs["networkInsightsPathId"] = args ? args.networkInsightsPathId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -78,7 +81,9 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["startDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["suggestedAccounts"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalAccounts"] = undefined /*out*/;
             resourceInputs["alternatePathHints"] = undefined /*out*/;
             resourceInputs["explanations"] = undefined /*out*/;
             resourceInputs["filterInArns"] = undefined /*out*/;
@@ -91,6 +96,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
             resourceInputs["startDate"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["suggestedAccounts"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -102,6 +108,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsAnalysis resource.
  */
 export interface NetworkInsightsAnalysisArgs {
+    additionalAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
     networkInsightsPathId: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisTagArgs>[]>;

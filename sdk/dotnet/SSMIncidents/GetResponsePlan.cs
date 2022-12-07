@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.SSMIncidents
         public readonly ImmutableArray<string> Engagements;
         public readonly Outputs.ResponsePlanIncidentTemplate? IncidentTemplate;
         /// <summary>
+        /// The list of integrations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResponsePlanIntegration> Integrations;
+        /// <summary>
         /// The tags to apply to the response plan.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanTag> Tags;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.SSMIncidents
 
             Outputs.ResponsePlanIncidentTemplate? incidentTemplate,
 
+            ImmutableArray<Outputs.ResponsePlanIntegration> integrations,
+
             ImmutableArray<Outputs.ResponsePlanTag> tags)
         {
             Actions = actions;
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.SSMIncidents
             DisplayName = displayName;
             Engagements = engagements;
             IncidentTemplate = incidentTemplate;
+            Integrations = integrations;
             Tags = tags;
         }
     }

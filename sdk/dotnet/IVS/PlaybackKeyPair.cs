@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.IVS
         /// The public portion of a customer-generated key pair.
         /// </summary>
         [Output("publicKeyMaterial")]
-        public Output<string> PublicKeyMaterial { get; private set; } = null!;
+        public Output<string?> PublicKeyMaterial { get; private set; } = null!;
 
         /// <summary>
         /// A list of key-value pairs that contain metadata for the asset model.
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.IVS
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PlaybackKeyPair(string name, PlaybackKeyPairArgs args, CustomResourceOptions? options = null)
+        public PlaybackKeyPair(string name, PlaybackKeyPairArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ivs:PlaybackKeyPair", name, args ?? new PlaybackKeyPairArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -99,8 +99,8 @@ namespace Pulumi.AwsNative.IVS
         /// <summary>
         /// The public portion of a customer-generated key pair.
         /// </summary>
-        [Input("publicKeyMaterial", required: true)]
-        public Input<string> PublicKeyMaterial { get; set; } = null!;
+        [Input("publicKeyMaterial")]
+        public Input<string>? PublicKeyMaterial { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PlaybackKeyPairTagArgs>? _tags;

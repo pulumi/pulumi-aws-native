@@ -17,12 +17,14 @@ type NetworkInsightsPath struct {
 
 	CreatedDate            pulumi.StringOutput               `pulumi:"createdDate"`
 	Destination            pulumi.StringOutput               `pulumi:"destination"`
+	DestinationArn         pulumi.StringOutput               `pulumi:"destinationArn"`
 	DestinationIp          pulumi.StringPtrOutput            `pulumi:"destinationIp"`
 	DestinationPort        pulumi.IntPtrOutput               `pulumi:"destinationPort"`
 	NetworkInsightsPathArn pulumi.StringOutput               `pulumi:"networkInsightsPathArn"`
 	NetworkInsightsPathId  pulumi.StringOutput               `pulumi:"networkInsightsPathId"`
 	Protocol               NetworkInsightsPathProtocolOutput `pulumi:"protocol"`
 	Source                 pulumi.StringOutput               `pulumi:"source"`
+	SourceArn              pulumi.StringOutput               `pulumi:"sourceArn"`
 	SourceIp               pulumi.StringPtrOutput            `pulumi:"sourceIp"`
 	Tags                   NetworkInsightsPathTagArrayOutput `pulumi:"tags"`
 }
@@ -140,6 +142,10 @@ func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
+func (o NetworkInsightsPathOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
 func (o NetworkInsightsPathOutput) DestinationIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.DestinationIp }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +168,10 @@ func (o NetworkInsightsPathOutput) Protocol() NetworkInsightsPathProtocolOutput 
 
 func (o NetworkInsightsPathOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsPathOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
 func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {

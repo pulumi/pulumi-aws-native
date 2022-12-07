@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.EMRServerless
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("architecture")]
+        public Output<Pulumi.AwsNative.EMRServerless.ApplicationArchitecture?> Architecture { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EMR Serverless Application.
         /// </summary>
@@ -126,6 +129,9 @@ namespace Pulumi.AwsNative.EMRServerless
 
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("architecture")]
+        public Input<Pulumi.AwsNative.EMRServerless.ApplicationArchitecture>? Architecture { get; set; }
+
         /// <summary>
         /// Configuration for Auto Start of Application.
         /// </summary>

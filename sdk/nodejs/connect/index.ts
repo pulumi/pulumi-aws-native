@@ -50,6 +50,11 @@ export const getQuickConnect: typeof import("./getQuickConnect").getQuickConnect
 export const getQuickConnectOutput: typeof import("./getQuickConnect").getQuickConnectOutput = null as any;
 utilities.lazyLoad(exports, ["getQuickConnect","getQuickConnectOutput"], () => require("./getQuickConnect"));
 
+export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
+export const getRule: typeof import("./getRule").getRule = null as any;
+export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
 export { GetTaskTemplateArgs, GetTaskTemplateResult, GetTaskTemplateOutputArgs } from "./getTaskTemplate";
 export const getTaskTemplate: typeof import("./getTaskTemplate").getTaskTemplate = null as any;
 export const getTaskTemplateOutput: typeof import("./getTaskTemplate").getTaskTemplateOutput = null as any;
@@ -90,6 +95,11 @@ export type QuickConnect = import("./quickConnect").QuickConnect;
 export const QuickConnect: typeof import("./quickConnect").QuickConnect = null as any;
 utilities.lazyLoad(exports, ["QuickConnect"], () => require("./quickConnect"));
 
+export { RuleArgs } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+
 export { TaskTemplateArgs } from "./taskTemplate";
 export type TaskTemplate = import("./taskTemplate").TaskTemplate;
 export const TaskTemplate: typeof import("./taskTemplate").TaskTemplate = null as any;
@@ -127,6 +137,8 @@ const _module = {
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
+            case "aws-native:connect:Rule":
+                return new Rule(name, <any>undefined, { urn })
             case "aws-native:connect:TaskTemplate":
                 return new TaskTemplate(name, <any>undefined, { urn })
             case "aws-native:connect:User":

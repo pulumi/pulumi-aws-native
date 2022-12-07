@@ -39,12 +39,14 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
 
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     public readonly destination!: pulumi.Output<string>;
+    public /*out*/ readonly destinationArn!: pulumi.Output<string>;
     public readonly destinationIp!: pulumi.Output<string | undefined>;
     public readonly destinationPort!: pulumi.Output<number | undefined>;
     public /*out*/ readonly networkInsightsPathArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsPathId!: pulumi.Output<string>;
     public readonly protocol!: pulumi.Output<enums.ec2.NetworkInsightsPathProtocol>;
     public readonly source!: pulumi.Output<string>;
+    public /*out*/ readonly sourceArn!: pulumi.Output<string>;
     public readonly sourceIp!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsPathTag[] | undefined>;
 
@@ -76,17 +78,21 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["sourceIp"] = args ? args.sourceIp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathId"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
         } else {
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["destinationIp"] = undefined /*out*/;
             resourceInputs["destinationPort"] = undefined /*out*/;
             resourceInputs["networkInsightsPathArn"] = undefined /*out*/;
             resourceInputs["networkInsightsPathId"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["sourceArn"] = undefined /*out*/;
             resourceInputs["sourceIp"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

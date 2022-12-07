@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInsightsAnalysisResult:
-    def __init__(__self__, alternate_path_hints=None, explanations=None, forward_path_components=None, network_insights_analysis_arn=None, network_insights_analysis_id=None, network_path_found=None, return_path_components=None, start_date=None, status=None, status_message=None, tags=None):
+    def __init__(__self__, additional_accounts=None, alternate_path_hints=None, explanations=None, forward_path_components=None, network_insights_analysis_arn=None, network_insights_analysis_id=None, network_path_found=None, return_path_components=None, start_date=None, status=None, status_message=None, suggested_accounts=None, tags=None):
+        if additional_accounts and not isinstance(additional_accounts, list):
+            raise TypeError("Expected argument 'additional_accounts' to be a list")
+        pulumi.set(__self__, "additional_accounts", additional_accounts)
         if alternate_path_hints and not isinstance(alternate_path_hints, list):
             raise TypeError("Expected argument 'alternate_path_hints' to be a list")
         pulumi.set(__self__, "alternate_path_hints", alternate_path_hints)
@@ -51,9 +54,17 @@ class GetNetworkInsightsAnalysisResult:
         if status_message and not isinstance(status_message, str):
             raise TypeError("Expected argument 'status_message' to be a str")
         pulumi.set(__self__, "status_message", status_message)
+        if suggested_accounts and not isinstance(suggested_accounts, list):
+            raise TypeError("Expected argument 'suggested_accounts' to be a list")
+        pulumi.set(__self__, "suggested_accounts", suggested_accounts)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="additionalAccounts")
+    def additional_accounts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "additional_accounts")
 
     @property
     @pulumi.getter(name="alternatePathHints")
@@ -106,6 +117,11 @@ class GetNetworkInsightsAnalysisResult:
         return pulumi.get(self, "status_message")
 
     @property
+    @pulumi.getter(name="suggestedAccounts")
+    def suggested_accounts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "suggested_accounts")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisTag']]:
         return pulumi.get(self, "tags")
@@ -117,6 +133,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
         if False:
             yield self
         return GetNetworkInsightsAnalysisResult(
+            additional_accounts=self.additional_accounts,
             alternate_path_hints=self.alternate_path_hints,
             explanations=self.explanations,
             forward_path_components=self.forward_path_components,
@@ -127,6 +144,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
             start_date=self.start_date,
             status=self.status,
             status_message=self.status_message,
+            suggested_accounts=self.suggested_accounts,
             tags=self.tags)
 
 
@@ -141,6 +159,7 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult).value
 
     return AwaitableGetNetworkInsightsAnalysisResult(
+        additional_accounts=__ret__.additional_accounts,
         alternate_path_hints=__ret__.alternate_path_hints,
         explanations=__ret__.explanations,
         forward_path_components=__ret__.forward_path_components,
@@ -151,6 +170,7 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
         start_date=__ret__.start_date,
         status=__ret__.status,
         status_message=__ret__.status_message,
+        suggested_accounts=__ret__.suggested_accounts,
         tags=__ret__.tags)
 
 

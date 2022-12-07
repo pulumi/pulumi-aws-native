@@ -15,6 +15,7 @@ import (
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
 
+	AdditionalAccounts         pulumi.StringArrayOutput                            `pulumi:"additionalAccounts"`
 	AlternatePathHints         NetworkInsightsAnalysisAlternatePathHintArrayOutput `pulumi:"alternatePathHints"`
 	Explanations               NetworkInsightsAnalysisExplanationArrayOutput       `pulumi:"explanations"`
 	FilterInArns               pulumi.StringArrayOutput                            `pulumi:"filterInArns"`
@@ -27,6 +28,7 @@ type NetworkInsightsAnalysis struct {
 	StartDate                  pulumi.StringOutput                                 `pulumi:"startDate"`
 	Status                     NetworkInsightsAnalysisStatusOutput                 `pulumi:"status"`
 	StatusMessage              pulumi.StringOutput                                 `pulumi:"statusMessage"`
+	SuggestedAccounts          pulumi.StringArrayOutput                            `pulumi:"suggestedAccounts"`
 	Tags                       NetworkInsightsAnalysisTagArrayOutput               `pulumi:"tags"`
 }
 
@@ -72,6 +74,7 @@ func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
 }
 
 type networkInsightsAnalysisArgs struct {
+	AdditionalAccounts    []string                     `pulumi:"additionalAccounts"`
 	FilterInArns          []string                     `pulumi:"filterInArns"`
 	NetworkInsightsPathId string                       `pulumi:"networkInsightsPathId"`
 	Tags                  []NetworkInsightsAnalysisTag `pulumi:"tags"`
@@ -79,6 +82,7 @@ type networkInsightsAnalysisArgs struct {
 
 // The set of arguments for constructing a NetworkInsightsAnalysis resource.
 type NetworkInsightsAnalysisArgs struct {
+	AdditionalAccounts    pulumi.StringArrayInput
 	FilterInArns          pulumi.StringArrayInput
 	NetworkInsightsPathId pulumi.StringInput
 	Tags                  NetworkInsightsAnalysisTagArrayInput
@@ -119,6 +123,10 @@ func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutput() Network
 
 func (o NetworkInsightsAnalysisOutput) ToNetworkInsightsAnalysisOutputWithContext(ctx context.Context) NetworkInsightsAnalysisOutput {
 	return o
+}
+
+func (o NetworkInsightsAnalysisOutput) AdditionalAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.AdditionalAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o NetworkInsightsAnalysisOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
@@ -173,6 +181,10 @@ func (o NetworkInsightsAnalysisOutput) Status() NetworkInsightsAnalysisStatusOut
 
 func (o NetworkInsightsAnalysisOutput) StatusMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+func (o NetworkInsightsAnalysisOutput) SuggestedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInsightsAnalysis) pulumi.StringArrayOutput { return v.SuggestedAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o NetworkInsightsAnalysisOutput) Tags() NetworkInsightsAnalysisTagArrayOutput {

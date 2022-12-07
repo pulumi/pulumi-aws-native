@@ -56,7 +56,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * The ID of a core network for the VPC attachment.
      */
-    public readonly coreNetworkId!: pulumi.Output<string | undefined>;
+    public readonly coreNetworkId!: pulumi.Output<string>;
     /**
      * Creation time of the attachment.
      */
@@ -92,7 +92,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * Subnet Arn list
      */
-    public readonly subnetArns!: pulumi.Output<string[] | undefined>;
+    public readonly subnetArns!: pulumi.Output<string[]>;
     /**
      * Tags for the attachment.
      */
@@ -104,7 +104,7 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the VPC.
      */
-    public readonly vpcArn!: pulumi.Output<string | undefined>;
+    public readonly vpcArn!: pulumi.Output<string>;
 
     /**
      * Create a VpcAttachment resource with the given unique name, arguments, and options.
@@ -113,10 +113,19 @@ export class VpcAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VpcAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VpcAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.coreNetworkId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'coreNetworkId'");
+            }
+            if ((!args || args.subnetArns === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'subnetArns'");
+            }
+            if ((!args || args.vpcArn === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'vpcArn'");
+            }
             resourceInputs["coreNetworkId"] = args ? args.coreNetworkId : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
@@ -165,7 +174,7 @@ export interface VpcAttachmentArgs {
     /**
      * The ID of a core network for the VPC attachment.
      */
-    coreNetworkId?: pulumi.Input<string>;
+    coreNetworkId: pulumi.Input<string>;
     /**
      * Vpc options of the attachment.
      */
@@ -173,7 +182,7 @@ export interface VpcAttachmentArgs {
     /**
      * Subnet Arn list
      */
-    subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tags for the attachment.
      */
@@ -181,5 +190,5 @@ export interface VpcAttachmentArgs {
     /**
      * The ARN of the VPC.
      */
-    vpcArn?: pulumi.Input<string>;
+    vpcArn: pulumi.Input<string>;
 }

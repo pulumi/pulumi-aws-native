@@ -59,7 +59,11 @@ export interface GetPricingRuleResult {
     readonly name?: string;
     readonly tags?: outputs.billingconductor.PricingRuleTag[];
     /**
-     * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+     * The set of tiering configurations for the pricing rule.
+     */
+    readonly tiering?: outputs.billingconductor.TieringProperties;
+    /**
+     * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
      */
     readonly type?: enums.billingconductor.PricingRuleType;
 }

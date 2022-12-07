@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("volumeId", required: true)]
-        public string VolumeId { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetVolumeArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("volumeId", required: true)]
-        public Input<string> VolumeId { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetVolumeInvokeArgs()
         {
@@ -52,20 +52,32 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetVolumeResult
     {
         public readonly bool? AutoEnableIO;
+        public readonly string? AvailabilityZone;
+        public readonly bool? Encrypted;
+        public readonly string? Id;
         public readonly int? Iops;
+        public readonly string? KmsKeyId;
         public readonly bool? MultiAttachEnabled;
         public readonly string? OutpostArn;
         public readonly int? Size;
+        public readonly string? SnapshotId;
         public readonly ImmutableArray<Outputs.VolumeTag> Tags;
         public readonly int? Throughput;
-        public readonly string? VolumeId;
         public readonly string? VolumeType;
 
         [OutputConstructor]
         private GetVolumeResult(
             bool? autoEnableIO,
 
+            string? availabilityZone,
+
+            bool? encrypted,
+
+            string? id,
+
             int? iops,
+
+            string? kmsKeyId,
 
             bool? multiAttachEnabled,
 
@@ -73,22 +85,26 @@ namespace Pulumi.AwsNative.EC2
 
             int? size,
 
+            string? snapshotId,
+
             ImmutableArray<Outputs.VolumeTag> tags,
 
             int? throughput,
 
-            string? volumeId,
-
             string? volumeType)
         {
             AutoEnableIO = autoEnableIO;
+            AvailabilityZone = availabilityZone;
+            Encrypted = encrypted;
+            Id = id;
             Iops = iops;
+            KmsKeyId = kmsKeyId;
             MultiAttachEnabled = multiAttachEnabled;
             OutpostArn = outpostArn;
             Size = size;
+            SnapshotId = snapshotId;
             Tags = tags;
             Throughput = throughput;
-            VolumeId = volumeId;
             VolumeType = volumeType;
         }
     }

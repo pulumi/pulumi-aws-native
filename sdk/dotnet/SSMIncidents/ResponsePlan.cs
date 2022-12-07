@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.SSMIncidents
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// The list of integrations.
+        /// </summary>
+        [Output("integrations")]
+        public Output<ImmutableArray<Outputs.ResponsePlanIntegration>> Integrations { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the response plan.
         /// </summary>
         [Output("name")]
@@ -137,6 +143,18 @@ namespace Pulumi.AwsNative.SSMIncidents
 
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;
+
+        [Input("integrations")]
+        private InputList<Inputs.ResponsePlanIntegrationArgs>? _integrations;
+
+        /// <summary>
+        /// The list of integrations.
+        /// </summary>
+        public InputList<Inputs.ResponsePlanIntegrationArgs> Integrations
+        {
+            get => _integrations ?? (_integrations = new InputList<Inputs.ResponsePlanIntegrationArgs>());
+            set => _integrations = value;
+        }
 
         /// <summary>
         /// The name of the response plan.

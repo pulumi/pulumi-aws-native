@@ -45,47 +45,6 @@ func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput)
 }
 
-func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
-	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentOptionsArgs) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsOutput).ToConnectAttachmentOptionsPtrOutputWithContext(ctx)
-}
-
-// ConnectAttachmentOptionsPtrInput is an input type that accepts ConnectAttachmentOptionsArgs, ConnectAttachmentOptionsPtr and ConnectAttachmentOptionsPtrOutput values.
-// You can construct a concrete instance of `ConnectAttachmentOptionsPtrInput` via:
-//
-//	        ConnectAttachmentOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectAttachmentOptionsPtrInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput
-	ToConnectAttachmentOptionsPtrOutputWithContext(context.Context) ConnectAttachmentOptionsPtrOutput
-}
-
-type connectAttachmentOptionsPtrType ConnectAttachmentOptionsArgs
-
-func ConnectAttachmentOptionsPtr(v *ConnectAttachmentOptionsArgs) ConnectAttachmentOptionsPtrInput {
-	return (*connectAttachmentOptionsPtrType)(v)
-}
-
-func (*connectAttachmentOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
-}
-
-func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
-	return i.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *connectAttachmentOptionsPtrType) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOptionsPtrOutput)
-}
-
 // Connect attachment options for protocol
 type ConnectAttachmentOptionsOutput struct{ *pulumi.OutputState }
 
@@ -101,53 +60,9 @@ func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsOutputWithCont
 	return o
 }
 
-func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
-	return o.ToConnectAttachmentOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentOptions) *ConnectAttachmentOptions {
-		return &v
-	}).(ConnectAttachmentOptionsPtrOutput)
-}
-
 // Tunnel protocol for connect attachment
 func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
-}
-
-type ConnectAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectAttachmentOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectAttachmentOptions)(nil)).Elem()
-}
-
-func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutput() ConnectAttachmentOptionsPtrOutput {
-	return o
-}
-
-func (o ConnectAttachmentOptionsPtrOutput) ToConnectAttachmentOptionsPtrOutputWithContext(ctx context.Context) ConnectAttachmentOptionsPtrOutput {
-	return o
-}
-
-func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput {
-	return o.ApplyT(func(v *ConnectAttachmentOptions) ConnectAttachmentOptions {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectAttachmentOptions
-		return ret
-	}).(ConnectAttachmentOptionsOutput)
-}
-
-// Tunnel protocol for connect attachment
-func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectAttachmentOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Protocol
-	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2411,7 +2326,6 @@ func (o VpcAttachmentVpcOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsPtrInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagInput)(nil)).Elem(), ConnectAttachmentTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagArrayInput)(nil)).Elem(), ConnectAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
@@ -2440,7 +2354,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsPtrInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})
-	pulumi.RegisterOutputType(ConnectAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentProposedSegmentChangeOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentProposedSegmentChangePtrOutput{})
 	pulumi.RegisterOutputType(ConnectAttachmentTagOutput{})

@@ -33,6 +33,7 @@ export interface GetApplicationResult {
      * The ID of the EMR Serverless Application.
      */
     readonly applicationId?: string;
+    readonly architecture?: enums.emrserverless.ApplicationArchitecture;
     /**
      * The Amazon Resource Name (ARN) of the EMR Serverless Application.
      */

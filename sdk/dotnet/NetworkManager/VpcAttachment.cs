@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ID of a core network for the VPC attachment.
         /// </summary>
         [Output("coreNetworkId")]
-        public Output<string?> CoreNetworkId { get; private set; } = null!;
+        public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of the attachment.
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The ARN of the VPC.
         /// </summary>
         [Output("vpcArn")]
-        public Output<string?> VpcArn { get; private set; } = null!;
+        public Output<string> VpcArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public VpcAttachment(string name, VpcAttachmentArgs? args = null, CustomResourceOptions? options = null)
+        public VpcAttachment(string name, VpcAttachmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:networkmanager:VpcAttachment", name, args ?? new VpcAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -165,8 +165,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ID of a core network for the VPC attachment.
         /// </summary>
-        [Input("coreNetworkId")]
-        public Input<string>? CoreNetworkId { get; set; }
+        [Input("coreNetworkId", required: true)]
+        public Input<string> CoreNetworkId { get; set; } = null!;
 
         /// <summary>
         /// Vpc options of the attachment.
@@ -174,7 +174,7 @@ namespace Pulumi.AwsNative.NetworkManager
         [Input("options")]
         public Input<Inputs.VpcAttachmentVpcOptionsArgs>? Options { get; set; }
 
-        [Input("subnetArns")]
+        [Input("subnetArns", required: true)]
         private InputList<string>? _subnetArns;
 
         /// <summary>
@@ -201,8 +201,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// The ARN of the VPC.
         /// </summary>
-        [Input("vpcArn")]
-        public Input<string>? VpcArn { get; set; }
+        [Input("vpcArn", required: true)]
+        public Input<string> VpcArn { get; set; } = null!;
 
         public VpcAttachmentArgs()
         {

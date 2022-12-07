@@ -124,6 +124,7 @@ from .network_insights_path import *
 from .network_interface import *
 from .network_interface_attachment import *
 from .network_interface_permission import *
+from .network_performance_metric_subscription import *
 from .placement_group import *
 from .prefix_list import *
 from .route import *

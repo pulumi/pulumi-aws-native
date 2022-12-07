@@ -62,7 +62,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly playbackUrl!: pulumi.Output<string>;
     /**
-     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
     public readonly recordingConfigurationArn!: pulumi.Output<string | undefined>;
     /**
@@ -127,7 +127,7 @@ export interface ChannelArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
     recordingConfigurationArn?: pulumi.Input<string>;
     /**

@@ -17,23 +17,27 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:ec2:getVolume", {
-        "volumeId": args.volumeId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetVolumeArgs {
-    volumeId: string;
+    id: string;
 }
 
 export interface GetVolumeResult {
     readonly autoEnableIO?: boolean;
+    readonly availabilityZone?: string;
+    readonly encrypted?: boolean;
+    readonly id?: string;
     readonly iops?: number;
+    readonly kmsKeyId?: string;
     readonly multiAttachEnabled?: boolean;
     readonly outpostArn?: string;
     readonly size?: number;
+    readonly snapshotId?: string;
     readonly tags?: outputs.ec2.VolumeTag[];
     readonly throughput?: number;
-    readonly volumeId?: string;
     readonly volumeType?: string;
 }
 
@@ -42,5 +46,5 @@ export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetVolumeOutputArgs {
-    volumeId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

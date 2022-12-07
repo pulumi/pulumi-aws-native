@@ -157,13 +157,13 @@
   "primaryIdentifier" : [ "/properties/ResourceSetName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53-recovery-readiness:CreateResourceSet", "route53-recovery-readiness:GetResourceSet", "route53-recovery-readiness:GetRecoveryGroup", "route53-recovery-readiness:GetCell" ]
+      "permissions" : [ "route53-recovery-readiness:CreateResourceSet", "route53-recovery-readiness:GetResourceSet", "route53-recovery-readiness:GetRecoveryGroup", "route53-recovery-readiness:GetCell", "route53-recovery-readiness:ListTagsForResources", "route53-recovery-readiness:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "route53-recovery-readiness:GetResourceSet" ]
+      "permissions" : [ "route53-recovery-readiness:GetResourceSet", "route53-recovery-readiness:ListTagsForResources" ]
     },
     "update" : {
-      "permissions" : [ "route53-recovery-readiness:UpdateResourceSet", "route53-recovery-readiness:GetResourceSet", "route53-recovery-readiness:GetRecoveryGroup", "route53-recovery-readiness:GetCell" ]
+      "permissions" : [ "route53-recovery-readiness:UpdateResourceSet", "route53-recovery-readiness:GetResourceSet", "route53-recovery-readiness:GetRecoveryGroup", "route53-recovery-readiness:GetCell", "route53-recovery-readiness:ListTagsForResources", "route53-recovery-readiness:TagResource", "route53-recovery-readiness:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "route53-recovery-readiness:DeleteResourceSet", "route53-recovery-readiness:GetResourceSet" ]

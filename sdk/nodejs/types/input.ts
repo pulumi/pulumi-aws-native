@@ -5505,9 +5505,23 @@ export namespace billingconductor {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * The possible customizable free tier configurations.
+     */
+    export interface PricingRuleFreeTierArgs {
+        activated: pulumi.Input<boolean>;
+    }
+
     export interface PricingRuleTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The set of tiering configurations for the pricing rule.
+     */
+    export interface TieringPropertiesArgs {
+        freeTier?: pulumi.Input<inputs.billingconductor.PricingRuleFreeTierArgs>;
     }
 }
 
@@ -7664,6 +7678,119 @@ export namespace connect {
     export interface QuickConnectUserQuickConnectConfigArgs {
         contactFlowArn: pulumi.Input<string>;
         userArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The list of actions that will be executed when a rule is triggered.
+     */
+    export interface RuleActionsArgs {
+        assignContactCategoryActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleAssignContactCategoryActionArgs>[]>;
+        eventBridgeActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEventBridgeActionArgs>[]>;
+        sendNotificationActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleSendNotificationActionArgs>[]>;
+        taskActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleTaskActionArgs>[]>;
+    }
+
+    /**
+     * The definition for assigning contact category action.
+     */
+    export interface RuleAssignContactCategoryActionArgs {
+    }
+
+    /**
+     * The definition for event bridge action.
+     */
+    export interface RuleEventBridgeActionArgs {
+        /**
+         * The name of the event bridge action.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    /**
+     * The type of notification recipient.
+     */
+    export interface RuleNotificationRecipientTypeArgs {
+        /**
+         * The list of recipients by user arns.
+         */
+        userArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The collection of recipients who are identified by user tags
+         */
+        userTags?: any;
+    }
+
+    /**
+     * The definition for sending notification action.
+     */
+    export interface RuleSendNotificationActionArgs {
+        /**
+         * The content of notification.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The type of content.
+         */
+        contentType: pulumi.Input<enums.connect.RuleSendNotificationActionContentType>;
+        /**
+         * The means of delivery.
+         */
+        deliveryMethod: pulumi.Input<enums.connect.RuleSendNotificationActionDeliveryMethod>;
+        recipient: pulumi.Input<inputs.connect.RuleNotificationRecipientTypeArgs>;
+        /**
+         * The subject of notification.
+         */
+        subject?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RuleTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * The definition of task action.
+     */
+    export interface RuleTaskActionArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the contact flow.
+         */
+        contactFlowArn: pulumi.Input<string>;
+        /**
+         * The description which appears in the agent's Contact Control Panel (CCP).
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name which appears in the agent's Contact Control Panel (CCP).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+         */
+        references?: any;
+    }
+
+    /**
+     * The event source that will trigger the rule.
+     */
+    export interface RuleTriggerEventSourceArgs {
+        /**
+         * The name of event source.
+         */
+        eventSourceName: pulumi.Input<enums.connect.RuleTriggerEventSourceEventSourceName>;
+        /**
+         * The Amazon Resource Name (ARN) for the AppIntegration association.
+         */
+        integrationAssociationArn?: pulumi.Input<string>;
     }
 
     /**
@@ -25361,6 +25488,7 @@ export namespace msk {
 
     export interface ClusterConnectivityInfoArgs {
         publicAccess?: pulumi.Input<inputs.msk.ClusterPublicAccessArgs>;
+        vpcConnectivity?: pulumi.Input<inputs.msk.ClusterVpcConnectivityArgs>;
     }
 
     export interface ClusterEBSStorageInfoArgs {
@@ -25446,6 +25574,32 @@ export namespace msk {
     }
 
     export interface ClusterUnauthenticatedArgs {
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterVpcConnectivityArgs {
+        clientAuthentication?: pulumi.Input<inputs.msk.ClusterVpcConnectivityClientAuthenticationArgs>;
+    }
+
+    export interface ClusterVpcConnectivityClientAuthenticationArgs {
+        sasl?: pulumi.Input<inputs.msk.ClusterVpcConnectivitySaslArgs>;
+        tls?: pulumi.Input<inputs.msk.ClusterVpcConnectivityTlsArgs>;
+    }
+
+    export interface ClusterVpcConnectivityIamArgs {
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterVpcConnectivitySaslArgs {
+        iam?: pulumi.Input<inputs.msk.ClusterVpcConnectivityIamArgs>;
+        scram?: pulumi.Input<inputs.msk.ClusterVpcConnectivityScramArgs>;
+    }
+
+    export interface ClusterVpcConnectivityScramArgs {
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterVpcConnectivityTlsArgs {
         enabled: pulumi.Input<boolean>;
     }
 
@@ -26911,6 +27065,359 @@ export namespace pinpointemail {
     export interface IdentityTagsArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+}
+
+export namespace pipes {
+    export interface PipeAwsVpcConfigurationArgs {
+        assignPublicIp?: pulumi.Input<enums.pipes.PipeAssignPublicIp>;
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipeBatchArrayPropertiesArgs {
+        size?: pulumi.Input<number>;
+    }
+
+    export interface PipeBatchContainerOverridesArgs {
+        command?: pulumi.Input<pulumi.Input<string>[]>;
+        environment?: pulumi.Input<pulumi.Input<inputs.pipes.PipeBatchEnvironmentVariableArgs>[]>;
+        instanceType?: pulumi.Input<string>;
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeBatchResourceRequirementArgs>[]>;
+    }
+
+    export interface PipeBatchEnvironmentVariableArgs {
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface PipeBatchJobDependencyArgs {
+        jobId?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.pipes.PipeBatchJobDependencyType>;
+    }
+
+    export interface PipeBatchParametersMapArgs {
+    }
+
+    export interface PipeBatchResourceRequirementArgs {
+        type: pulumi.Input<enums.pipes.PipeBatchResourceRequirementType>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeBatchRetryStrategyArgs {
+        attempts?: pulumi.Input<number>;
+    }
+
+    export interface PipeCapacityProviderStrategyItemArgs {
+        base?: pulumi.Input<number>;
+        capacityProvider: pulumi.Input<string>;
+        weight?: pulumi.Input<number>;
+    }
+
+    export interface PipeDeadLetterConfigArgs {
+        arn?: pulumi.Input<string>;
+    }
+
+    export interface PipeEcsContainerOverrideArgs {
+        command?: pulumi.Input<pulumi.Input<string>[]>;
+        cpu?: pulumi.Input<number>;
+        environment?: pulumi.Input<pulumi.Input<inputs.pipes.PipeEcsEnvironmentVariableArgs>[]>;
+        environmentFiles?: pulumi.Input<pulumi.Input<inputs.pipes.PipeEcsEnvironmentFileArgs>[]>;
+        memory?: pulumi.Input<number>;
+        memoryReservation?: pulumi.Input<number>;
+        name?: pulumi.Input<string>;
+        resourceRequirements?: pulumi.Input<pulumi.Input<inputs.pipes.PipeEcsResourceRequirementArgs>[]>;
+    }
+
+    export interface PipeEcsEnvironmentFileArgs {
+        type: pulumi.Input<enums.pipes.PipeEcsEnvironmentFileType>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeEcsEnvironmentVariableArgs {
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    export interface PipeEcsEphemeralStorageArgs {
+        sizeInGiB: pulumi.Input<number>;
+    }
+
+    export interface PipeEcsInferenceAcceleratorOverrideArgs {
+        deviceName?: pulumi.Input<string>;
+        deviceType?: pulumi.Input<string>;
+    }
+
+    export interface PipeEcsResourceRequirementArgs {
+        type: pulumi.Input<enums.pipes.PipeEcsResourceRequirementType>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeEcsTaskOverrideArgs {
+        containerOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeEcsContainerOverrideArgs>[]>;
+        cpu?: pulumi.Input<string>;
+        ephemeralStorage?: pulumi.Input<inputs.pipes.PipeEcsEphemeralStorageArgs>;
+        executionRoleArn?: pulumi.Input<string>;
+        inferenceAcceleratorOverrides?: pulumi.Input<pulumi.Input<inputs.pipes.PipeEcsInferenceAcceleratorOverrideArgs>[]>;
+        memory?: pulumi.Input<string>;
+        taskRoleArn?: pulumi.Input<string>;
+    }
+
+    export interface PipeEnrichmentHttpParametersArgs {
+        headerParameters?: pulumi.Input<inputs.pipes.PipeHeaderParametersMapArgs>;
+        pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
+        queryStringParameters?: pulumi.Input<inputs.pipes.PipeQueryStringParametersMapArgs>;
+    }
+
+    export interface PipeEnrichmentParametersArgs {
+        httpParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentHttpParametersArgs>;
+        inputTemplate?: pulumi.Input<string>;
+    }
+
+    export interface PipeFilterArgs {
+        pattern?: pulumi.Input<string>;
+    }
+
+    export interface PipeFilterCriteriaArgs {
+        filters?: pulumi.Input<pulumi.Input<inputs.pipes.PipeFilterArgs>[]>;
+    }
+
+    export interface PipeHeaderParametersMapArgs {
+    }
+
+    export interface PipeMQBrokerAccessCredentialsArgs {
+    }
+
+    export interface PipeMSKAccessCredentialsArgs {
+    }
+
+    export interface PipeNetworkConfigurationArgs {
+        awsvpcConfiguration?: pulumi.Input<inputs.pipes.PipeAwsVpcConfigurationArgs>;
+    }
+
+    export interface PipePlacementConstraintArgs {
+        expression?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.pipes.PipePlacementConstraintType>;
+    }
+
+    export interface PipePlacementStrategyArgs {
+        field?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.pipes.PipePlacementStrategyType>;
+    }
+
+    export interface PipeQueryStringParametersMapArgs {
+    }
+
+    export interface PipeSageMakerPipelineParameterArgs {
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationCredentialsArgs {
+    }
+
+    export interface PipeSelfManagedKafkaAccessConfigurationVpcArgs {
+        /**
+         * List of SecurityGroupId.
+         */
+        securityGroup?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of SubnetId.
+         */
+        subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PipeSourceActiveMQBrokerParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        credentials: pulumi.Input<inputs.pipes.PipeMQBrokerAccessCredentialsArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        queueName: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceDynamoDBStreamParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        deadLetterConfig?: pulumi.Input<inputs.pipes.PipeDeadLetterConfigArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        maximumRetryAttempts?: pulumi.Input<number>;
+        onPartialBatchItemFailure?: pulumi.Input<enums.pipes.PipeOnPartialBatchItemFailureStreams>;
+        parallelizationFactor?: pulumi.Input<number>;
+        startingPosition: pulumi.Input<enums.pipes.PipeDynamoDBStreamStartPosition>;
+    }
+
+    export interface PipeSourceKinesisStreamParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        deadLetterConfig?: pulumi.Input<inputs.pipes.PipeDeadLetterConfigArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        maximumRecordAgeInSeconds?: pulumi.Input<number>;
+        maximumRetryAttempts?: pulumi.Input<number>;
+        onPartialBatchItemFailure?: pulumi.Input<enums.pipes.PipeOnPartialBatchItemFailureStreams>;
+        parallelizationFactor?: pulumi.Input<number>;
+        startingPosition: pulumi.Input<enums.pipes.PipeKinesisStreamStartPosition>;
+        startingPositionTimestamp?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceManagedStreamingKafkaParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        consumerGroupID?: pulumi.Input<string>;
+        credentials?: pulumi.Input<inputs.pipes.PipeMSKAccessCredentialsArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        startingPosition?: pulumi.Input<enums.pipes.PipeMSKStartPosition>;
+        topicName: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceParametersArgs {
+        activeMQBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceActiveMQBrokerParametersArgs>;
+        dynamoDBStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceDynamoDBStreamParametersArgs>;
+        filterCriteria?: pulumi.Input<inputs.pipes.PipeFilterCriteriaArgs>;
+        kinesisStreamParameters?: pulumi.Input<inputs.pipes.PipeSourceKinesisStreamParametersArgs>;
+        managedStreamingKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceManagedStreamingKafkaParametersArgs>;
+        rabbitMQBrokerParameters?: pulumi.Input<inputs.pipes.PipeSourceRabbitMQBrokerParametersArgs>;
+        selfManagedKafkaParameters?: pulumi.Input<inputs.pipes.PipeSourceSelfManagedKafkaParametersArgs>;
+        sqsQueueParameters?: pulumi.Input<inputs.pipes.PipeSourceSqsQueueParametersArgs>;
+    }
+
+    export interface PipeSourceRabbitMQBrokerParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        credentials: pulumi.Input<inputs.pipes.PipeMQBrokerAccessCredentialsArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        queueName: pulumi.Input<string>;
+        virtualHost?: pulumi.Input<string>;
+    }
+
+    export interface PipeSourceSelfManagedKafkaParametersArgs {
+        additionalBootstrapServers?: pulumi.Input<pulumi.Input<string>[]>;
+        batchSize?: pulumi.Input<number>;
+        consumerGroupID?: pulumi.Input<string>;
+        credentials?: pulumi.Input<inputs.pipes.PipeSelfManagedKafkaAccessConfigurationCredentialsArgs>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        serverRootCaCertificate?: pulumi.Input<string>;
+        startingPosition?: pulumi.Input<enums.pipes.PipeSelfManagedKafkaStartPosition>;
+        topicName: pulumi.Input<string>;
+        vpc?: pulumi.Input<inputs.pipes.PipeSelfManagedKafkaAccessConfigurationVpcArgs>;
+    }
+
+    export interface PipeSourceSqsQueueParametersArgs {
+        batchSize?: pulumi.Input<number>;
+        maximumBatchingWindowInSeconds?: pulumi.Input<number>;
+    }
+
+    export interface PipeTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface PipeTagMapArgs {
+    }
+
+    export interface PipeTargetBatchJobParametersArgs {
+        arrayProperties?: pulumi.Input<inputs.pipes.PipeBatchArrayPropertiesArgs>;
+        containerOverrides?: pulumi.Input<inputs.pipes.PipeBatchContainerOverridesArgs>;
+        dependsOn?: pulumi.Input<pulumi.Input<inputs.pipes.PipeBatchJobDependencyArgs>[]>;
+        jobDefinition: pulumi.Input<string>;
+        jobName: pulumi.Input<string>;
+        parameters?: pulumi.Input<inputs.pipes.PipeBatchParametersMapArgs>;
+        retryStrategy?: pulumi.Input<inputs.pipes.PipeBatchRetryStrategyArgs>;
+    }
+
+    export interface PipeTargetCloudWatchLogsParametersArgs {
+        logStreamName?: pulumi.Input<string>;
+        timestamp?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetEcsTaskParametersArgs {
+        capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.pipes.PipeCapacityProviderStrategyItemArgs>[]>;
+        enableECSManagedTags?: pulumi.Input<boolean>;
+        enableExecuteCommand?: pulumi.Input<boolean>;
+        group?: pulumi.Input<string>;
+        launchType?: pulumi.Input<enums.pipes.PipeLaunchType>;
+        networkConfiguration?: pulumi.Input<inputs.pipes.PipeNetworkConfigurationArgs>;
+        overrides?: pulumi.Input<inputs.pipes.PipeEcsTaskOverrideArgs>;
+        placementConstraints?: pulumi.Input<pulumi.Input<inputs.pipes.PipePlacementConstraintArgs>[]>;
+        placementStrategy?: pulumi.Input<pulumi.Input<inputs.pipes.PipePlacementStrategyArgs>[]>;
+        platformVersion?: pulumi.Input<string>;
+        propagateTags?: pulumi.Input<enums.pipes.PipePropagateTags>;
+        referenceId?: pulumi.Input<string>;
+        tags?: pulumi.Input<pulumi.Input<inputs.pipes.PipeTagArgs>[]>;
+        taskCount?: pulumi.Input<number>;
+        taskDefinitionArn: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetEventBridgeEventBusParametersArgs {
+        detailType?: pulumi.Input<string>;
+        endpointId?: pulumi.Input<string>;
+        resources?: pulumi.Input<pulumi.Input<string>[]>;
+        source?: pulumi.Input<string>;
+        time?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetHttpParametersArgs {
+        headerParameters?: pulumi.Input<inputs.pipes.PipeHeaderParametersMapArgs>;
+        pathParameterValues?: pulumi.Input<pulumi.Input<string>[]>;
+        queryStringParameters?: pulumi.Input<inputs.pipes.PipeQueryStringParametersMapArgs>;
+    }
+
+    export interface PipeTargetKinesisStreamParametersArgs {
+        partitionKey: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetLambdaFunctionParametersArgs {
+        invocationType?: pulumi.Input<enums.pipes.PipeTargetInvocationType>;
+    }
+
+    export interface PipeTargetParametersArgs {
+        batchJobParameters?: pulumi.Input<inputs.pipes.PipeTargetBatchJobParametersArgs>;
+        cloudWatchLogsParameters?: pulumi.Input<inputs.pipes.PipeTargetCloudWatchLogsParametersArgs>;
+        ecsTaskParameters?: pulumi.Input<inputs.pipes.PipeTargetEcsTaskParametersArgs>;
+        eventBridgeEventBusParameters?: pulumi.Input<inputs.pipes.PipeTargetEventBridgeEventBusParametersArgs>;
+        httpParameters?: pulumi.Input<inputs.pipes.PipeTargetHttpParametersArgs>;
+        inputTemplate?: pulumi.Input<string>;
+        kinesisStreamParameters?: pulumi.Input<inputs.pipes.PipeTargetKinesisStreamParametersArgs>;
+        lambdaFunctionParameters?: pulumi.Input<inputs.pipes.PipeTargetLambdaFunctionParametersArgs>;
+        redshiftDataParameters?: pulumi.Input<inputs.pipes.PipeTargetRedshiftDataParametersArgs>;
+        sageMakerPipelineParameters?: pulumi.Input<inputs.pipes.PipeTargetSageMakerPipelineParametersArgs>;
+        sqsQueueParameters?: pulumi.Input<inputs.pipes.PipeTargetSqsQueueParametersArgs>;
+        stepFunctionStateMachineParameters?: pulumi.Input<inputs.pipes.PipeTargetStateMachineParametersArgs>;
+    }
+
+    export interface PipeTargetRedshiftDataParametersArgs {
+        /**
+         * Redshift Database
+         */
+        database: pulumi.Input<string>;
+        /**
+         * Database user name
+         */
+        dbUser?: pulumi.Input<string>;
+        /**
+         * Optional SecretManager ARN which stores the database credentials
+         */
+        secretManagerArn?: pulumi.Input<string>;
+        /**
+         * A list of SQLs.
+         */
+        sqls: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A name for Redshift DataAPI statement which can be used as filter of ListStatement.
+         */
+        statementName?: pulumi.Input<string>;
+        withEvent?: pulumi.Input<boolean>;
+    }
+
+    export interface PipeTargetSageMakerPipelineParametersArgs {
+        pipelineParameterList?: pulumi.Input<pulumi.Input<inputs.pipes.PipeSageMakerPipelineParameterArgs>[]>;
+    }
+
+    export interface PipeTargetSqsQueueParametersArgs {
+        messageDeduplicationId?: pulumi.Input<string>;
+        messageGroupId?: pulumi.Input<string>;
+    }
+
+    export interface PipeTargetStateMachineParametersArgs {
+        invocationType?: pulumi.Input<enums.pipes.PipeTargetInvocationType>;
     }
 }
 
@@ -33173,6 +33680,7 @@ export namespace sagemaker {
         dataCatalogConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupDataCatalogConfigArgs>;
         disableGlueTableCreation?: pulumi.Input<boolean>;
         s3StorageConfig: pulumi.Input<inputs.sagemaker.FeatureGroupS3StorageConfigArgs>;
+        tableFormat?: pulumi.Input<enums.sagemaker.FeatureGroupTableFormat>;
     }
 
     export interface OnlineStoreConfigPropertiesArgs {
@@ -34521,11 +35029,40 @@ export namespace ssmincidents {
         title: pulumi.Input<string>;
     }
 
+    export interface ResponsePlanIntegrationArgs {
+        pagerDutyConfiguration?: pulumi.Input<inputs.ssmincidents.ResponsePlanPagerDutyConfigurationArgs>;
+    }
+
     /**
      * A notification target.
      */
     export interface ResponsePlanNotificationTargetItemArgs {
         snsTopicArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * The pagerDuty configuration to use when starting the incident.
+     */
+    export interface ResponsePlanPagerDutyConfigurationArgs {
+        /**
+         * The name of the pagerDuty configuration.
+         */
+        name: pulumi.Input<string>;
+        pagerDutyIncidentConfiguration: pulumi.Input<inputs.ssmincidents.ResponsePlanPagerDutyIncidentConfigurationArgs>;
+        /**
+         * The AWS secrets manager secretId storing the pagerDuty token.
+         */
+        secretId: pulumi.Input<string>;
+    }
+
+    /**
+     * The pagerDuty incident configuration.
+     */
+    export interface ResponsePlanPagerDutyIncidentConfigurationArgs {
+        /**
+         * The pagerDuty serviceId.
+         */
+        serviceId: pulumi.Input<string>;
     }
 
     /**

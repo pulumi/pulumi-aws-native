@@ -16,6 +16,10 @@ __all__ = [
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
     'QuickConnectType',
+    'RulePublishStatus',
+    'RuleSendNotificationActionContentType',
+    'RuleSendNotificationActionDeliveryMethod',
+    'RuleTriggerEventSourceEventSourceName',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
     'UserPhoneType',
@@ -128,6 +132,40 @@ class QuickConnectType(str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+
+
+class RulePublishStatus(str, Enum):
+    """
+    The publish status of a rule, either draft or published.
+    """
+    DRAFT = "DRAFT"
+    PUBLISHED = "PUBLISHED"
+
+
+class RuleSendNotificationActionContentType(str, Enum):
+    """
+    The type of content.
+    """
+    PLAIN_TEXT = "PLAIN_TEXT"
+
+
+class RuleSendNotificationActionDeliveryMethod(str, Enum):
+    """
+    The means of delivery.
+    """
+    EMAIL = "EMAIL"
+
+
+class RuleTriggerEventSourceEventSourceName(str, Enum):
+    """
+    The name of event source.
+    """
+    ON_POST_CALL_ANALYSIS_AVAILABLE = "OnPostCallAnalysisAvailable"
+    ON_REAL_TIME_CALL_ANALYSIS_AVAILABLE = "OnRealTimeCallAnalysisAvailable"
+    ON_POST_CHAT_ANALYSIS_AVAILABLE = "OnPostChatAnalysisAvailable"
+    ON_ZENDESK_TICKET_CREATE = "OnZendeskTicketCreate"
+    ON_ZENDESK_TICKET_STATUS_UPDATE = "OnZendeskTicketStatusUpdate"
+    ON_SALESFORCE_CASE_CREATE = "OnSalesforceCaseCreate"
 
 
 class TaskTemplateFieldType(str, Enum):

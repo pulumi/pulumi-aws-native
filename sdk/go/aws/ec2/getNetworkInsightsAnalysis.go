@@ -25,6 +25,7 @@ type LookupNetworkInsightsAnalysisArgs struct {
 }
 
 type LookupNetworkInsightsAnalysisResult struct {
+	AdditionalAccounts         []string                                   `pulumi:"additionalAccounts"`
 	AlternatePathHints         []NetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
 	Explanations               []NetworkInsightsAnalysisExplanation       `pulumi:"explanations"`
 	ForwardPathComponents      []NetworkInsightsAnalysisPathComponent     `pulumi:"forwardPathComponents"`
@@ -35,6 +36,7 @@ type LookupNetworkInsightsAnalysisResult struct {
 	StartDate                  *string                                    `pulumi:"startDate"`
 	Status                     *NetworkInsightsAnalysisStatus             `pulumi:"status"`
 	StatusMessage              *string                                    `pulumi:"statusMessage"`
+	SuggestedAccounts          []string                                   `pulumi:"suggestedAccounts"`
 	Tags                       []NetworkInsightsAnalysisTag               `pulumi:"tags"`
 }
 
@@ -71,6 +73,10 @@ func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalys
 
 func (o LookupNetworkInsightsAnalysisResultOutput) ToLookupNetworkInsightsAnalysisResultOutputWithContext(ctx context.Context) LookupNetworkInsightsAnalysisResultOutput {
 	return o
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) AdditionalAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.AdditionalAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupNetworkInsightsAnalysisResultOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
@@ -119,6 +125,10 @@ func (o LookupNetworkInsightsAnalysisResultOutput) Status() NetworkInsightsAnaly
 
 func (o LookupNetworkInsightsAnalysisResultOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) SuggestedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.SuggestedAccounts }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupNetworkInsightsAnalysisResultOutput) Tags() NetworkInsightsAnalysisTagArrayOutput {

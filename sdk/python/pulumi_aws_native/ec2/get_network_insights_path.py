@@ -19,16 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInsightsPathResult:
-    def __init__(__self__, created_date=None, network_insights_path_arn=None, network_insights_path_id=None, tags=None):
+    def __init__(__self__, created_date=None, destination_arn=None, network_insights_path_arn=None, network_insights_path_id=None, source_arn=None, tags=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if destination_arn and not isinstance(destination_arn, str):
+            raise TypeError("Expected argument 'destination_arn' to be a str")
+        pulumi.set(__self__, "destination_arn", destination_arn)
         if network_insights_path_arn and not isinstance(network_insights_path_arn, str):
             raise TypeError("Expected argument 'network_insights_path_arn' to be a str")
         pulumi.set(__self__, "network_insights_path_arn", network_insights_path_arn)
         if network_insights_path_id and not isinstance(network_insights_path_id, str):
             raise TypeError("Expected argument 'network_insights_path_id' to be a str")
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
+        if source_arn and not isinstance(source_arn, str):
+            raise TypeError("Expected argument 'source_arn' to be a str")
+        pulumi.set(__self__, "source_arn", source_arn)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,6 +45,11 @@ class GetNetworkInsightsPathResult:
         return pulumi.get(self, "created_date")
 
     @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        return pulumi.get(self, "destination_arn")
+
+    @property
     @pulumi.getter(name="networkInsightsPathArn")
     def network_insights_path_arn(self) -> Optional[str]:
         return pulumi.get(self, "network_insights_path_arn")
@@ -47,6 +58,11 @@ class GetNetworkInsightsPathResult:
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> Optional[str]:
         return pulumi.get(self, "network_insights_path_id")
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> Optional[str]:
+        return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter
@@ -61,8 +77,10 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             yield self
         return GetNetworkInsightsPathResult(
             created_date=self.created_date,
+            destination_arn=self.destination_arn,
             network_insights_path_arn=self.network_insights_path_arn,
             network_insights_path_id=self.network_insights_path_id,
+            source_arn=self.source_arn,
             tags=self.tags)
 
 
@@ -78,8 +96,10 @@ def get_network_insights_path(network_insights_path_id: Optional[str] = None,
 
     return AwaitableGetNetworkInsightsPathResult(
         created_date=__ret__.created_date,
+        destination_arn=__ret__.destination_arn,
         network_insights_path_arn=__ret__.network_insights_path_arn,
         network_insights_path_id=__ret__.network_insights_path_id,
+        source_arn=__ret__.source_arn,
         tags=__ret__.tags)
 
 

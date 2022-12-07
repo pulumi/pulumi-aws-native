@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetApplicationResult',
@@ -19,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_id=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, initial_capacity=None, maximum_capacity=None, network_configuration=None, tags=None):
+    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, initial_capacity=None, maximum_capacity=None, network_configuration=None, tags=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
+        if architecture and not isinstance(architecture, str):
+            raise TypeError("Expected argument 'architecture' to be a str")
+        pulumi.set(__self__, "architecture", architecture)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +56,11 @@ class GetApplicationResult:
         The ID of the EMR Serverless Application.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional['ApplicationArchitecture']:
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -117,6 +126,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             application_id=self.application_id,
+            architecture=self.architecture,
             arn=self.arn,
             auto_start_configuration=self.auto_start_configuration,
             auto_stop_configuration=self.auto_stop_configuration,
@@ -141,6 +151,7 @@ def get_application(application_id: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         application_id=__ret__.application_id,
+        architecture=__ret__.architecture,
         arn=__ret__.arn,
         auto_start_configuration=__ret__.auto_start_configuration,
         auto_stop_configuration=__ret__.auto_stop_configuration,

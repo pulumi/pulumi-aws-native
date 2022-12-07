@@ -36,6 +36,8 @@ type LookupResponsePlanResult struct {
 	// The list of engagements to use.
 	Engagements      []string                      `pulumi:"engagements"`
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
+	// The list of integrations.
+	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
 	// The tags to apply to the response plan.
 	Tags []ResponsePlanTag `pulumi:"tags"`
 }
@@ -102,6 +104,11 @@ func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 
 func (o LookupResponsePlanResultOutput) IncidentTemplate() ResponsePlanIncidentTemplatePtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *ResponsePlanIncidentTemplate { return v.IncidentTemplate }).(ResponsePlanIncidentTemplatePtrOutput)
+}
+
+// The list of integrations.
+func (o LookupResponsePlanResultOutput) Integrations() ResponsePlanIntegrationArrayOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) []ResponsePlanIntegration { return v.Integrations }).(ResponsePlanIntegrationArrayOutput)
 }
 
 // The tags to apply to the response plan.

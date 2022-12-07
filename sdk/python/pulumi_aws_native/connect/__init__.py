@@ -15,6 +15,7 @@ from .get_instance import *
 from .get_instance_storage_config import *
 from .get_phone_number import *
 from .get_quick_connect import *
+from .get_rule import *
 from .get_task_template import *
 from .get_user import *
 from .get_user_hierarchy_group import *
@@ -23,6 +24,7 @@ from .instance import *
 from .instance_storage_config import *
 from .phone_number import *
 from .quick_connect import *
+from .rule import *
 from .task_template import *
 from .user import *
 from .user_hierarchy_group import *

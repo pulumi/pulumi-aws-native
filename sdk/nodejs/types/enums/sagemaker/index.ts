@@ -238,6 +238,16 @@ export const FeatureGroupFeatureDefinitionFeatureType = {
 
 export type FeatureGroupFeatureDefinitionFeatureType = (typeof FeatureGroupFeatureDefinitionFeatureType)[keyof typeof FeatureGroupFeatureDefinitionFeatureType];
 
+export const FeatureGroupTableFormat = {
+    Iceberg: "Iceberg",
+    Glue: "Glue",
+} as const;
+
+/**
+ * Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
+ */
+export type FeatureGroupTableFormat = (typeof FeatureGroupTableFormat)[keyof typeof FeatureGroupTableFormat];
+
 export const ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType = {
     FullyReplicated: "FullyReplicated",
     ShardedByS3Key: "ShardedByS3Key",

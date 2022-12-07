@@ -67,7 +67,7 @@ export class PricingRule extends pulumi.CustomResource {
     /**
      * Pricing rule modifier percentage
      */
-    public readonly modifierPercentage!: pulumi.Output<number>;
+    public readonly modifierPercentage!: pulumi.Output<number | undefined>;
     /**
      * Pricing rule name
      */
@@ -82,7 +82,11 @@ export class PricingRule extends pulumi.CustomResource {
     public readonly service!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.billingconductor.PricingRuleTag[] | undefined>;
     /**
-     * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+     * The set of tiering configurations for the pricing rule.
+     */
+    public readonly tiering!: pulumi.Output<outputs.billingconductor.TieringProperties | undefined>;
+    /**
+     * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
      */
     public readonly type!: pulumi.Output<enums.billingconductor.PricingRuleType>;
 
@@ -99,9 +103,6 @@ export class PricingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.modifierPercentage === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'modifierPercentage'");
-            }
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -115,6 +116,7 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tiering"] = args ? args.tiering : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedPricingPlanCount"] = undefined /*out*/;
@@ -132,6 +134,7 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tiering"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,7 +157,7 @@ export interface PricingRuleArgs {
     /**
      * Pricing rule modifier percentage
      */
-    modifierPercentage: pulumi.Input<number>;
+    modifierPercentage?: pulumi.Input<number>;
     /**
      * Pricing rule name
      */
@@ -169,7 +172,11 @@ export interface PricingRuleArgs {
     service?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.billingconductor.PricingRuleTagArgs>[]>;
     /**
-     * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+     * The set of tiering configurations for the pricing rule.
+     */
+    tiering?: pulumi.Input<inputs.billingconductor.TieringPropertiesArgs>;
+    /**
+     * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
      */
     type: pulumi.Input<enums.billingconductor.PricingRuleType>;
 }

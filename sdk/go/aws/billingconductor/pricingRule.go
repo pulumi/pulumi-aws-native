@@ -30,7 +30,7 @@ type PricingRule struct {
 	// Latest modified timestamp in UNIX epoch time format
 	LastModifiedTime pulumi.IntOutput `pulumi:"lastModifiedTime"`
 	// Pricing rule modifier percentage
-	ModifierPercentage pulumi.Float64Output `pulumi:"modifierPercentage"`
+	ModifierPercentage pulumi.Float64PtrOutput `pulumi:"modifierPercentage"`
 	// Pricing rule name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A term used to categorize the granularity of a Pricing Rule.
@@ -38,7 +38,9 @@ type PricingRule struct {
 	// The service which a pricing rule is applied on
 	Service pulumi.StringPtrOutput    `pulumi:"service"`
 	Tags    PricingRuleTagArrayOutput `pulumi:"tags"`
-	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+	// The set of tiering configurations for the pricing rule.
+	Tiering TieringPropertiesPtrOutput `pulumi:"tiering"`
+	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleTypeOutput `pulumi:"type"`
 }
 
@@ -49,9 +51,6 @@ func NewPricingRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ModifierPercentage == nil {
-		return nil, errors.New("invalid value for required argument 'ModifierPercentage'")
-	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
@@ -95,7 +94,7 @@ type pricingRuleArgs struct {
 	// Pricing rule description
 	Description *string `pulumi:"description"`
 	// Pricing rule modifier percentage
-	ModifierPercentage float64 `pulumi:"modifierPercentage"`
+	ModifierPercentage *float64 `pulumi:"modifierPercentage"`
 	// Pricing rule name
 	Name *string `pulumi:"name"`
 	// A term used to categorize the granularity of a Pricing Rule.
@@ -103,7 +102,9 @@ type pricingRuleArgs struct {
 	// The service which a pricing rule is applied on
 	Service *string          `pulumi:"service"`
 	Tags    []PricingRuleTag `pulumi:"tags"`
-	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+	// The set of tiering configurations for the pricing rule.
+	Tiering *TieringProperties `pulumi:"tiering"`
+	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleType `pulumi:"type"`
 }
 
@@ -114,7 +115,7 @@ type PricingRuleArgs struct {
 	// Pricing rule description
 	Description pulumi.StringPtrInput
 	// Pricing rule modifier percentage
-	ModifierPercentage pulumi.Float64Input
+	ModifierPercentage pulumi.Float64PtrInput
 	// Pricing rule name
 	Name pulumi.StringPtrInput
 	// A term used to categorize the granularity of a Pricing Rule.
@@ -122,7 +123,9 @@ type PricingRuleArgs struct {
 	// The service which a pricing rule is applied on
 	Service pulumi.StringPtrInput
 	Tags    PricingRuleTagArrayInput
-	// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+	// The set of tiering configurations for the pricing rule.
+	Tiering TieringPropertiesPtrInput
+	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleTypeInput
 }
 
@@ -194,8 +197,8 @@ func (o PricingRuleOutput) LastModifiedTime() pulumi.IntOutput {
 }
 
 // Pricing rule modifier percentage
-func (o PricingRuleOutput) ModifierPercentage() pulumi.Float64Output {
-	return o.ApplyT(func(v *PricingRule) pulumi.Float64Output { return v.ModifierPercentage }).(pulumi.Float64Output)
+func (o PricingRuleOutput) ModifierPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.Float64PtrOutput { return v.ModifierPercentage }).(pulumi.Float64PtrOutput)
 }
 
 // Pricing rule name
@@ -217,7 +220,12 @@ func (o PricingRuleOutput) Tags() PricingRuleTagArrayOutput {
 	return o.ApplyT(func(v *PricingRule) PricingRuleTagArrayOutput { return v.Tags }).(PricingRuleTagArrayOutput)
 }
 
-// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+// The set of tiering configurations for the pricing rule.
+func (o PricingRuleOutput) Tiering() TieringPropertiesPtrOutput {
+	return o.ApplyT(func(v *PricingRule) TieringPropertiesPtrOutput { return v.Tiering }).(TieringPropertiesPtrOutput)
+}
+
+// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 func (o PricingRuleOutput) Type() PricingRuleTypeOutput {
 	return o.ApplyT(func(v *PricingRule) PricingRuleTypeOutput { return v.Type }).(PricingRuleTypeOutput)
 }

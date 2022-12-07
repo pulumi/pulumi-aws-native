@@ -48,6 +48,10 @@ export interface GetResponsePlanResult {
     readonly engagements?: string[];
     readonly incidentTemplate?: outputs.ssmincidents.ResponsePlanIncidentTemplate;
     /**
+     * The list of integrations.
+     */
+    readonly integrations?: outputs.ssmincidents.ResponsePlanIntegration[];
+    /**
      * The tags to apply to the response plan.
      */
     readonly tags?: outputs.ssmincidents.ResponsePlanTag[];

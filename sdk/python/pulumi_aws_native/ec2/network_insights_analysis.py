@@ -18,12 +18,15 @@ __all__ = ['NetworkInsightsAnalysisArgs', 'NetworkInsightsAnalysis']
 class NetworkInsightsAnalysisArgs:
     def __init__(__self__, *,
                  network_insights_path_id: pulumi.Input[str],
+                 additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisTagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
+        if additional_accounts is not None:
+            pulumi.set(__self__, "additional_accounts", additional_accounts)
         if filter_in_arns is not None:
             pulumi.set(__self__, "filter_in_arns", filter_in_arns)
         if tags is not None:
@@ -37,6 +40,15 @@ class NetworkInsightsAnalysisArgs:
     @network_insights_path_id.setter
     def network_insights_path_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_insights_path_id", value)
+
+    @property
+    @pulumi.getter(name="additionalAccounts")
+    def additional_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "additional_accounts")
+
+    @additional_accounts.setter
+    def additional_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_accounts", value)
 
     @property
     @pulumi.getter(name="filterInArns")
@@ -62,6 +74,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAnalysisTagArgs']]]]] = None,
@@ -96,6 +109,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAnalysisTagArgs']]]]] = None,
@@ -108,6 +122,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkInsightsAnalysisArgs.__new__(NetworkInsightsAnalysisArgs)
 
+            __props__.__dict__["additional_accounts"] = additional_accounts
             __props__.__dict__["filter_in_arns"] = filter_in_arns
             if network_insights_path_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_insights_path_id'")
@@ -123,6 +138,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             __props__.__dict__["start_date"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
+            __props__.__dict__["suggested_accounts"] = None
         super(NetworkInsightsAnalysis, __self__).__init__(
             'aws-native:ec2:NetworkInsightsAnalysis',
             resource_name,
@@ -145,6 +161,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         __props__ = NetworkInsightsAnalysisArgs.__new__(NetworkInsightsAnalysisArgs)
 
+        __props__.__dict__["additional_accounts"] = None
         __props__.__dict__["alternate_path_hints"] = None
         __props__.__dict__["explanations"] = None
         __props__.__dict__["filter_in_arns"] = None
@@ -157,8 +174,14 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         __props__.__dict__["start_date"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_message"] = None
+        __props__.__dict__["suggested_accounts"] = None
         __props__.__dict__["tags"] = None
         return NetworkInsightsAnalysis(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalAccounts")
+    def additional_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "additional_accounts")
 
     @property
     @pulumi.getter(name="alternatePathHints")
@@ -219,6 +242,11 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
         return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="suggestedAccounts")
+    def suggested_accounts(self) -> pulumi.Output[Sequence[str]]:
+        return pulumi.get(self, "suggested_accounts")
 
     @property
     @pulumi.getter

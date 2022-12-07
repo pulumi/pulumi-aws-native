@@ -37,7 +37,6 @@ export interface GetTargetGroupResult {
     readonly loadBalancerArns?: string[];
     readonly matcher?: outputs.elasticloadbalancingv2.TargetGroupMatcher;
     readonly tags?: outputs.elasticloadbalancingv2.TargetGroupTag[];
-    readonly targetGroupArn?: string;
     readonly targetGroupAttributes?: outputs.elasticloadbalancingv2.TargetGroupAttribute[];
     readonly targetGroupFullName?: string;
     readonly targetGroupName?: string;

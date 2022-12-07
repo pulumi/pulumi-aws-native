@@ -206,9 +206,10 @@
   "required" : [ "Type" ],
   "createOnlyProperties" : [ "/properties/ComputeResources/SpotIamFleetRole", "/properties/ComputeEnvironmentName", "/properties/Tags", "/properties/Type", "/properties/EksConfiguration" ],
   "conditionalCreateOnlyProperties" : [ "/properties/ComputeResources/AllocationStrategy", "/properties/ComputeResources/BidPercentage", "/properties/ComputeResources/Ec2Configuration", "/properties/ComputeResources/Ec2KeyPair", "/properties/ComputeResources/ImageId", "/properties/ComputeResources/InstanceRole", "/properties/ComputeResources/InstanceTypes", "/properties/ComputeResources/LaunchTemplate", "/properties/ComputeResources/PlacementGroup", "/properties/ComputeResources/SecurityGroupIds", "/properties/ComputeResources/Subnets", "/properties/ComputeResources/Tags", "/properties/ComputeResources/Type" ],
-  "writeOnlyProperties" : [ "/properties/ComputeResources/UpdateToLatestImageVersion", "/properties/ReplaceComputeEnvironment" ],
+  "writeOnlyProperties" : [ "/properties/ComputeResources/UpdateToLatestImageVersion", "/properties/ReplaceComputeEnvironment", "/properties/UpdatePolicy" ],
   "primaryIdentifier" : [ "/properties/ComputeEnvironmentArn" ],
   "readOnlyProperties" : [ "/properties/ComputeEnvironmentArn" ],
+  "additionalIdentifiers" : [ [ "/properties/ComputeEnvironmentName" ] ],
   "handlers" : {
     "create" : {
       "permissions" : [ "Batch:CreateComputeEnvironment", "Batch:TagResource", "Batch:DescribeComputeEnvironments", "iam:CreateServiceLinkedRole", "Iam:PassRole", "Eks:DescribeCluster" ]

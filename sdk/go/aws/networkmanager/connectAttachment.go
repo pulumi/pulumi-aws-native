@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,13 +24,13 @@ type ConnectAttachment struct {
 	// The ARN of a core network for the VPC attachment.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
 	// ID of the CoreNetwork that the attachment will be attached to.
-	CoreNetworkId pulumi.StringPtrOutput `pulumi:"coreNetworkId"`
+	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
 	// Creation time of the attachment.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Edge location of the attachment.
-	EdgeLocation pulumi.StringPtrOutput `pulumi:"edgeLocation"`
+	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
 	// Protocol options for connect attachment
-	Options ConnectAttachmentOptionsPtrOutput `pulumi:"options"`
+	Options ConnectAttachmentOptionsOutput `pulumi:"options"`
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one segment to another.
@@ -43,7 +44,7 @@ type ConnectAttachment struct {
 	// Tags for the attachment.
 	Tags ConnectAttachmentTagArrayOutput `pulumi:"tags"`
 	// Id of transport attachment
-	TransportAttachmentId pulumi.StringPtrOutput `pulumi:"transportAttachmentId"`
+	TransportAttachmentId pulumi.StringOutput `pulumi:"transportAttachmentId"`
 	// Last update time of the attachment.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
@@ -52,9 +53,21 @@ type ConnectAttachment struct {
 func NewConnectAttachment(ctx *pulumi.Context,
 	name string, args *ConnectAttachmentArgs, opts ...pulumi.ResourceOption) (*ConnectAttachment, error) {
 	if args == nil {
-		args = &ConnectAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CoreNetworkId == nil {
+		return nil, errors.New("invalid value for required argument 'CoreNetworkId'")
+	}
+	if args.EdgeLocation == nil {
+		return nil, errors.New("invalid value for required argument 'EdgeLocation'")
+	}
+	if args.Options == nil {
+		return nil, errors.New("invalid value for required argument 'Options'")
+	}
+	if args.TransportAttachmentId == nil {
+		return nil, errors.New("invalid value for required argument 'TransportAttachmentId'")
+	}
 	var resource ConnectAttachment
 	err := ctx.RegisterResource("aws-native:networkmanager:ConnectAttachment", name, args, &resource, opts...)
 	if err != nil {
@@ -88,29 +101,29 @@ func (ConnectAttachmentState) ElementType() reflect.Type {
 
 type connectAttachmentArgs struct {
 	// ID of the CoreNetwork that the attachment will be attached to.
-	CoreNetworkId *string `pulumi:"coreNetworkId"`
+	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Edge location of the attachment.
-	EdgeLocation *string `pulumi:"edgeLocation"`
+	EdgeLocation string `pulumi:"edgeLocation"`
 	// Protocol options for connect attachment
-	Options *ConnectAttachmentOptions `pulumi:"options"`
+	Options ConnectAttachmentOptions `pulumi:"options"`
 	// Tags for the attachment.
 	Tags []ConnectAttachmentTag `pulumi:"tags"`
 	// Id of transport attachment
-	TransportAttachmentId *string `pulumi:"transportAttachmentId"`
+	TransportAttachmentId string `pulumi:"transportAttachmentId"`
 }
 
 // The set of arguments for constructing a ConnectAttachment resource.
 type ConnectAttachmentArgs struct {
 	// ID of the CoreNetwork that the attachment will be attached to.
-	CoreNetworkId pulumi.StringPtrInput
+	CoreNetworkId pulumi.StringInput
 	// Edge location of the attachment.
-	EdgeLocation pulumi.StringPtrInput
+	EdgeLocation pulumi.StringInput
 	// Protocol options for connect attachment
-	Options ConnectAttachmentOptionsPtrInput
+	Options ConnectAttachmentOptionsInput
 	// Tags for the attachment.
 	Tags ConnectAttachmentTagArrayInput
 	// Id of transport attachment
-	TransportAttachmentId pulumi.StringPtrInput
+	TransportAttachmentId pulumi.StringInput
 }
 
 func (ConnectAttachmentArgs) ElementType() reflect.Type {
@@ -171,8 +184,8 @@ func (o ConnectAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 }
 
 // ID of the CoreNetwork that the attachment will be attached to.
-func (o ConnectAttachmentOutput) CoreNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.CoreNetworkId }).(pulumi.StringPtrOutput)
+func (o ConnectAttachmentOutput) CoreNetworkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
 // Creation time of the attachment.
@@ -181,13 +194,13 @@ func (o ConnectAttachmentOutput) CreatedAt() pulumi.StringOutput {
 }
 
 // Edge location of the attachment.
-func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.EdgeLocation }).(pulumi.StringPtrOutput)
+func (o ConnectAttachmentOutput) EdgeLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
 // Protocol options for connect attachment
-func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsPtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsPtrOutput { return v.Options }).(ConnectAttachmentOptionsPtrOutput)
+func (o ConnectAttachmentOutput) Options() ConnectAttachmentOptionsOutput {
+	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentOptionsOutput { return v.Options }).(ConnectAttachmentOptionsOutput)
 }
 
 // The ID of the attachment account owner.
@@ -223,8 +236,8 @@ func (o ConnectAttachmentOutput) Tags() ConnectAttachmentTagArrayOutput {
 }
 
 // Id of transport attachment
-func (o ConnectAttachmentOutput) TransportAttachmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.TransportAttachmentId }).(pulumi.StringPtrOutput)
+func (o ConnectAttachmentOutput) TransportAttachmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.TransportAttachmentId }).(pulumi.StringOutput)
 }
 
 // Last update time of the attachment.

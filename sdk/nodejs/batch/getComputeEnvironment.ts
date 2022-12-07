@@ -31,7 +31,6 @@ export interface GetComputeEnvironmentResult {
     readonly serviceRole?: string;
     readonly state?: string;
     readonly unmanagedvCpus?: number;
-    readonly updatePolicy?: outputs.batch.ComputeEnvironmentUpdatePolicy;
 }
 
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {

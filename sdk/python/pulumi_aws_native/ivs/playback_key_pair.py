@@ -16,32 +16,21 @@ __all__ = ['PlaybackKeyPairArgs', 'PlaybackKeyPair']
 @pulumi.input_type
 class PlaybackKeyPairArgs:
     def __init__(__self__, *,
-                 public_key_material: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
+                 public_key_material: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaybackKeyPair resource.
-        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
         :param pulumi.Input[str] name: An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
+        :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
         :param pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
-        pulumi.set(__self__, "public_key_material", public_key_material)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_key_material is not None:
+            pulumi.set(__self__, "public_key_material", public_key_material)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="publicKeyMaterial")
-    def public_key_material(self) -> pulumi.Input[str]:
-        """
-        The public portion of a customer-generated key pair.
-        """
-        return pulumi.get(self, "public_key_material")
-
-    @public_key_material.setter
-    def public_key_material(self, value: pulumi.Input[str]):
-        pulumi.set(self, "public_key_material", value)
 
     @property
     @pulumi.getter
@@ -54,6 +43,18 @@ class PlaybackKeyPairArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicKeyMaterial")
+    def public_key_material(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public portion of a customer-generated key pair.
+        """
+        return pulumi.get(self, "public_key_material")
+
+    @public_key_material.setter
+    def public_key_material(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_key_material", value)
 
     @property
     @pulumi.getter
@@ -90,7 +91,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PlaybackKeyPairArgs,
+                 args: Optional[PlaybackKeyPairArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::IVS::PlaybackKeyPair
@@ -123,8 +124,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
             __props__ = PlaybackKeyPairArgs.__new__(PlaybackKeyPairArgs)
 
             __props__.__dict__["name"] = name
-            if public_key_material is None and not opts.urn:
-                raise TypeError("Missing required property 'public_key_material'")
             __props__.__dict__["public_key_material"] = public_key_material
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -184,7 +183,7 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicKeyMaterial")
-    def public_key_material(self) -> pulumi.Output[str]:
+    def public_key_material(self) -> pulumi.Output[Optional[str]]:
         """
         The public portion of a customer-generated key pair.
         """

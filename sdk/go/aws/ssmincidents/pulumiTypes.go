@@ -825,6 +825,100 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResponsePlanIntegration struct {
+	PagerDutyConfiguration *ResponsePlanPagerDutyConfiguration `pulumi:"pagerDutyConfiguration"`
+}
+
+// ResponsePlanIntegrationInput is an input type that accepts ResponsePlanIntegrationArgs and ResponsePlanIntegrationOutput values.
+// You can construct a concrete instance of `ResponsePlanIntegrationInput` via:
+//
+//	ResponsePlanIntegrationArgs{...}
+type ResponsePlanIntegrationInput interface {
+	pulumi.Input
+
+	ToResponsePlanIntegrationOutput() ResponsePlanIntegrationOutput
+	ToResponsePlanIntegrationOutputWithContext(context.Context) ResponsePlanIntegrationOutput
+}
+
+type ResponsePlanIntegrationArgs struct {
+	PagerDutyConfiguration ResponsePlanPagerDutyConfigurationPtrInput `pulumi:"pagerDutyConfiguration"`
+}
+
+func (ResponsePlanIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanIntegration)(nil)).Elem()
+}
+
+func (i ResponsePlanIntegrationArgs) ToResponsePlanIntegrationOutput() ResponsePlanIntegrationOutput {
+	return i.ToResponsePlanIntegrationOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanIntegrationArgs) ToResponsePlanIntegrationOutputWithContext(ctx context.Context) ResponsePlanIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationOutput)
+}
+
+// ResponsePlanIntegrationArrayInput is an input type that accepts ResponsePlanIntegrationArray and ResponsePlanIntegrationArrayOutput values.
+// You can construct a concrete instance of `ResponsePlanIntegrationArrayInput` via:
+//
+//	ResponsePlanIntegrationArray{ ResponsePlanIntegrationArgs{...} }
+type ResponsePlanIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlanIntegrationArrayOutput() ResponsePlanIntegrationArrayOutput
+	ToResponsePlanIntegrationArrayOutputWithContext(context.Context) ResponsePlanIntegrationArrayOutput
+}
+
+type ResponsePlanIntegrationArray []ResponsePlanIntegrationInput
+
+func (ResponsePlanIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanIntegration)(nil)).Elem()
+}
+
+func (i ResponsePlanIntegrationArray) ToResponsePlanIntegrationArrayOutput() ResponsePlanIntegrationArrayOutput {
+	return i.ToResponsePlanIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanIntegrationArray) ToResponsePlanIntegrationArrayOutputWithContext(ctx context.Context) ResponsePlanIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIntegrationArrayOutput)
+}
+
+type ResponsePlanIntegrationOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanIntegration)(nil)).Elem()
+}
+
+func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationOutput() ResponsePlanIntegrationOutput {
+	return o
+}
+
+func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationOutputWithContext(ctx context.Context) ResponsePlanIntegrationOutput {
+	return o
+}
+
+func (o ResponsePlanIntegrationOutput) PagerDutyConfiguration() ResponsePlanPagerDutyConfigurationPtrOutput {
+	return o.ApplyT(func(v ResponsePlanIntegration) *ResponsePlanPagerDutyConfiguration { return v.PagerDutyConfiguration }).(ResponsePlanPagerDutyConfigurationPtrOutput)
+}
+
+type ResponsePlanIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanIntegration)(nil)).Elem()
+}
+
+func (o ResponsePlanIntegrationArrayOutput) ToResponsePlanIntegrationArrayOutput() ResponsePlanIntegrationArrayOutput {
+	return o
+}
+
+func (o ResponsePlanIntegrationArrayOutput) ToResponsePlanIntegrationArrayOutputWithContext(ctx context.Context) ResponsePlanIntegrationArrayOutput {
+	return o
+}
+
+func (o ResponsePlanIntegrationArrayOutput) Index(i pulumi.IntInput) ResponsePlanIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlanIntegration {
+		return vs[0].([]ResponsePlanIntegration)[vs[1].(int)]
+	}).(ResponsePlanIntegrationOutput)
+}
+
 // A notification target.
 type ResponsePlanNotificationTargetItem struct {
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
@@ -920,6 +1014,322 @@ func (o ResponsePlanNotificationTargetItemArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlanNotificationTargetItem {
 		return vs[0].([]ResponsePlanNotificationTargetItem)[vs[1].(int)]
 	}).(ResponsePlanNotificationTargetItemOutput)
+}
+
+// The pagerDuty configuration to use when starting the incident.
+type ResponsePlanPagerDutyConfiguration struct {
+	// The name of the pagerDuty configuration.
+	Name                           string                                     `pulumi:"name"`
+	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfiguration `pulumi:"pagerDutyIncidentConfiguration"`
+	// The AWS secrets manager secretId storing the pagerDuty token.
+	SecretId string `pulumi:"secretId"`
+}
+
+// ResponsePlanPagerDutyConfigurationInput is an input type that accepts ResponsePlanPagerDutyConfigurationArgs and ResponsePlanPagerDutyConfigurationOutput values.
+// You can construct a concrete instance of `ResponsePlanPagerDutyConfigurationInput` via:
+//
+//	ResponsePlanPagerDutyConfigurationArgs{...}
+type ResponsePlanPagerDutyConfigurationInput interface {
+	pulumi.Input
+
+	ToResponsePlanPagerDutyConfigurationOutput() ResponsePlanPagerDutyConfigurationOutput
+	ToResponsePlanPagerDutyConfigurationOutputWithContext(context.Context) ResponsePlanPagerDutyConfigurationOutput
+}
+
+// The pagerDuty configuration to use when starting the incident.
+type ResponsePlanPagerDutyConfigurationArgs struct {
+	// The name of the pagerDuty configuration.
+	Name                           pulumi.StringInput                              `pulumi:"name"`
+	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfigurationInput `pulumi:"pagerDutyIncidentConfiguration"`
+	// The AWS secrets manager secretId storing the pagerDuty token.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+}
+
+func (ResponsePlanPagerDutyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (i ResponsePlanPagerDutyConfigurationArgs) ToResponsePlanPagerDutyConfigurationOutput() ResponsePlanPagerDutyConfigurationOutput {
+	return i.ToResponsePlanPagerDutyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanPagerDutyConfigurationArgs) ToResponsePlanPagerDutyConfigurationOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyConfigurationOutput)
+}
+
+func (i ResponsePlanPagerDutyConfigurationArgs) ToResponsePlanPagerDutyConfigurationPtrOutput() ResponsePlanPagerDutyConfigurationPtrOutput {
+	return i.ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanPagerDutyConfigurationArgs) ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyConfigurationOutput).ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResponsePlanPagerDutyConfigurationPtrInput is an input type that accepts ResponsePlanPagerDutyConfigurationArgs, ResponsePlanPagerDutyConfigurationPtr and ResponsePlanPagerDutyConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResponsePlanPagerDutyConfigurationPtrInput` via:
+//
+//	        ResponsePlanPagerDutyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponsePlanPagerDutyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResponsePlanPagerDutyConfigurationPtrOutput() ResponsePlanPagerDutyConfigurationPtrOutput
+	ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(context.Context) ResponsePlanPagerDutyConfigurationPtrOutput
+}
+
+type responsePlanPagerDutyConfigurationPtrType ResponsePlanPagerDutyConfigurationArgs
+
+func ResponsePlanPagerDutyConfigurationPtr(v *ResponsePlanPagerDutyConfigurationArgs) ResponsePlanPagerDutyConfigurationPtrInput {
+	return (*responsePlanPagerDutyConfigurationPtrType)(v)
+}
+
+func (*responsePlanPagerDutyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (i *responsePlanPagerDutyConfigurationPtrType) ToResponsePlanPagerDutyConfigurationPtrOutput() ResponsePlanPagerDutyConfigurationPtrOutput {
+	return i.ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *responsePlanPagerDutyConfigurationPtrType) ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyConfigurationPtrOutput)
+}
+
+// The pagerDuty configuration to use when starting the incident.
+type ResponsePlanPagerDutyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanPagerDutyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (o ResponsePlanPagerDutyConfigurationOutput) ToResponsePlanPagerDutyConfigurationOutput() ResponsePlanPagerDutyConfigurationOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyConfigurationOutput) ToResponsePlanPagerDutyConfigurationOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyConfigurationOutput) ToResponsePlanPagerDutyConfigurationPtrOutput() ResponsePlanPagerDutyConfigurationPtrOutput {
+	return o.ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanPagerDutyConfigurationOutput) ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlanPagerDutyConfiguration) *ResponsePlanPagerDutyConfiguration {
+		return &v
+	}).(ResponsePlanPagerDutyConfigurationPtrOutput)
+}
+
+// The name of the pagerDuty configuration.
+func (o ResponsePlanPagerDutyConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResponsePlanPagerDutyConfigurationOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) ResponsePlanPagerDutyIncidentConfiguration {
+		return v.PagerDutyIncidentConfiguration
+	}).(ResponsePlanPagerDutyIncidentConfigurationOutput)
+}
+
+// The AWS secrets manager secretId storing the pagerDuty token.
+func (o ResponsePlanPagerDutyConfigurationOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+type ResponsePlanPagerDutyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanPagerDutyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanPagerDutyConfiguration)(nil)).Elem()
+}
+
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) ToResponsePlanPagerDutyConfigurationPtrOutput() ResponsePlanPagerDutyConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) ToResponsePlanPagerDutyConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) Elem() ResponsePlanPagerDutyConfigurationOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) ResponsePlanPagerDutyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResponsePlanPagerDutyConfiguration
+		return ret
+	}).(ResponsePlanPagerDutyConfigurationOutput)
+}
+
+// The name of the pagerDuty configuration.
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) *ResponsePlanPagerDutyIncidentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.PagerDutyIncidentConfiguration
+	}).(ResponsePlanPagerDutyIncidentConfigurationPtrOutput)
+}
+
+// The AWS secrets manager secretId storing the pagerDuty token.
+func (o ResponsePlanPagerDutyConfigurationPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pagerDuty incident configuration.
+type ResponsePlanPagerDutyIncidentConfiguration struct {
+	// The pagerDuty serviceId.
+	ServiceId string `pulumi:"serviceId"`
+}
+
+// ResponsePlanPagerDutyIncidentConfigurationInput is an input type that accepts ResponsePlanPagerDutyIncidentConfigurationArgs and ResponsePlanPagerDutyIncidentConfigurationOutput values.
+// You can construct a concrete instance of `ResponsePlanPagerDutyIncidentConfigurationInput` via:
+//
+//	ResponsePlanPagerDutyIncidentConfigurationArgs{...}
+type ResponsePlanPagerDutyIncidentConfigurationInput interface {
+	pulumi.Input
+
+	ToResponsePlanPagerDutyIncidentConfigurationOutput() ResponsePlanPagerDutyIncidentConfigurationOutput
+	ToResponsePlanPagerDutyIncidentConfigurationOutputWithContext(context.Context) ResponsePlanPagerDutyIncidentConfigurationOutput
+}
+
+// The pagerDuty incident configuration.
+type ResponsePlanPagerDutyIncidentConfigurationArgs struct {
+	// The pagerDuty serviceId.
+	ServiceId pulumi.StringInput `pulumi:"serviceId"`
+}
+
+func (ResponsePlanPagerDutyIncidentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanPagerDutyIncidentConfiguration)(nil)).Elem()
+}
+
+func (i ResponsePlanPagerDutyIncidentConfigurationArgs) ToResponsePlanPagerDutyIncidentConfigurationOutput() ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return i.ToResponsePlanPagerDutyIncidentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanPagerDutyIncidentConfigurationArgs) ToResponsePlanPagerDutyIncidentConfigurationOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyIncidentConfigurationOutput)
+}
+
+func (i ResponsePlanPagerDutyIncidentConfigurationArgs) ToResponsePlanPagerDutyIncidentConfigurationPtrOutput() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return i.ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanPagerDutyIncidentConfigurationArgs) ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyIncidentConfigurationOutput).ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResponsePlanPagerDutyIncidentConfigurationPtrInput is an input type that accepts ResponsePlanPagerDutyIncidentConfigurationArgs, ResponsePlanPagerDutyIncidentConfigurationPtr and ResponsePlanPagerDutyIncidentConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResponsePlanPagerDutyIncidentConfigurationPtrInput` via:
+//
+//	        ResponsePlanPagerDutyIncidentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResponsePlanPagerDutyIncidentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResponsePlanPagerDutyIncidentConfigurationPtrOutput() ResponsePlanPagerDutyIncidentConfigurationPtrOutput
+	ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(context.Context) ResponsePlanPagerDutyIncidentConfigurationPtrOutput
+}
+
+type responsePlanPagerDutyIncidentConfigurationPtrType ResponsePlanPagerDutyIncidentConfigurationArgs
+
+func ResponsePlanPagerDutyIncidentConfigurationPtr(v *ResponsePlanPagerDutyIncidentConfigurationArgs) ResponsePlanPagerDutyIncidentConfigurationPtrInput {
+	return (*responsePlanPagerDutyIncidentConfigurationPtrType)(v)
+}
+
+func (*responsePlanPagerDutyIncidentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanPagerDutyIncidentConfiguration)(nil)).Elem()
+}
+
+func (i *responsePlanPagerDutyIncidentConfigurationPtrType) ToResponsePlanPagerDutyIncidentConfigurationPtrOutput() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return i.ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *responsePlanPagerDutyIncidentConfigurationPtrType) ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanPagerDutyIncidentConfigurationPtrOutput)
+}
+
+// The pagerDuty incident configuration.
+type ResponsePlanPagerDutyIncidentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanPagerDutyIncidentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanPagerDutyIncidentConfiguration)(nil)).Elem()
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationOutput) ToResponsePlanPagerDutyIncidentConfigurationOutput() ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationOutput) ToResponsePlanPagerDutyIncidentConfigurationOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationOutput) ToResponsePlanPagerDutyIncidentConfigurationPtrOutput() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return o.ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationOutput) ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponsePlanPagerDutyIncidentConfiguration) *ResponsePlanPagerDutyIncidentConfiguration {
+		return &v
+	}).(ResponsePlanPagerDutyIncidentConfigurationPtrOutput)
+}
+
+// The pagerDuty serviceId.
+func (o ResponsePlanPagerDutyIncidentConfigurationOutput) ServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanPagerDutyIncidentConfiguration) string { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+type ResponsePlanPagerDutyIncidentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanPagerDutyIncidentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponsePlanPagerDutyIncidentConfiguration)(nil)).Elem()
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationPtrOutput) ToResponsePlanPagerDutyIncidentConfigurationPtrOutput() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationPtrOutput) ToResponsePlanPagerDutyIncidentConfigurationPtrOutputWithContext(ctx context.Context) ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
+	return o
+}
+
+func (o ResponsePlanPagerDutyIncidentConfigurationPtrOutput) Elem() ResponsePlanPagerDutyIncidentConfigurationOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyIncidentConfiguration) ResponsePlanPagerDutyIncidentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResponsePlanPagerDutyIncidentConfiguration
+		return ret
+	}).(ResponsePlanPagerDutyIncidentConfigurationOutput)
+}
+
+// The pagerDuty serviceId.
+func (o ResponsePlanPagerDutyIncidentConfigurationPtrOutput) ServiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResponsePlanPagerDutyIncidentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The configuration to use when starting the SSM automation document.
@@ -1376,8 +1786,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanDynamicSsmParameterArrayInput)(nil)).Elem(), ResponsePlanDynamicSsmParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanDynamicSsmParameterValueInput)(nil)).Elem(), ResponsePlanDynamicSsmParameterValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIncidentTemplateInput)(nil)).Elem(), ResponsePlanIncidentTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIntegrationInput)(nil)).Elem(), ResponsePlanIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanIntegrationArrayInput)(nil)).Elem(), ResponsePlanIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanNotificationTargetItemArrayInput)(nil)).Elem(), ResponsePlanNotificationTargetItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanPagerDutyConfigurationInput)(nil)).Elem(), ResponsePlanPagerDutyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanPagerDutyConfigurationPtrInput)(nil)).Elem(), ResponsePlanPagerDutyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanPagerDutyIncidentConfigurationInput)(nil)).Elem(), ResponsePlanPagerDutyIncidentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanPagerDutyIncidentConfigurationPtrInput)(nil)).Elem(), ResponsePlanPagerDutyIncidentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationInput)(nil)).Elem(), ResponsePlanSsmAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmAutomationPtrInput)(nil)).Elem(), ResponsePlanSsmAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePlanSsmParameterInput)(nil)).Elem(), ResponsePlanSsmParameterArgs{})
@@ -1397,8 +1813,14 @@ func init() {
 	pulumi.RegisterOutputType(ResponsePlanDynamicSsmParameterValueOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplateOutput{})
 	pulumi.RegisterOutputType(ResponsePlanIncidentTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ResponsePlanIntegrationOutput{})
+	pulumi.RegisterOutputType(ResponsePlanIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemOutput{})
 	pulumi.RegisterOutputType(ResponsePlanNotificationTargetItemArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlanPagerDutyConfigurationOutput{})
+	pulumi.RegisterOutputType(ResponsePlanPagerDutyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResponsePlanPagerDutyIncidentConfigurationOutput{})
+	pulumi.RegisterOutputType(ResponsePlanPagerDutyIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmParameterOutput{})

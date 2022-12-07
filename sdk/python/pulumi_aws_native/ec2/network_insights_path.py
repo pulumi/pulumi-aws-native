@@ -176,8 +176,10 @@ class NetworkInsightsPath(pulumi.CustomResource):
             __props__.__dict__["source_ip"] = source_ip
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_date"] = None
+            __props__.__dict__["destination_arn"] = None
             __props__.__dict__["network_insights_path_arn"] = None
             __props__.__dict__["network_insights_path_id"] = None
+            __props__.__dict__["source_arn"] = None
         super(NetworkInsightsPath, __self__).__init__(
             'aws-native:ec2:NetworkInsightsPath',
             resource_name,
@@ -202,12 +204,14 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
         __props__.__dict__["created_date"] = None
         __props__.__dict__["destination"] = None
+        __props__.__dict__["destination_arn"] = None
         __props__.__dict__["destination_ip"] = None
         __props__.__dict__["destination_port"] = None
         __props__.__dict__["network_insights_path_arn"] = None
         __props__.__dict__["network_insights_path_id"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["source"] = None
+        __props__.__dict__["source_arn"] = None
         __props__.__dict__["source_ip"] = None
         __props__.__dict__["tags"] = None
         return NetworkInsightsPath(resource_name, opts=opts, __props__=__props__)
@@ -221,6 +225,11 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
         return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="destinationIp")
@@ -251,6 +260,11 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter(name="sourceIp")

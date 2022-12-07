@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.EC2
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAnalysis")]
     public partial class NetworkInsightsAnalysis : global::Pulumi.CustomResource
     {
+        [Output("additionalAccounts")]
+        public Output<ImmutableArray<string>> AdditionalAccounts { get; private set; } = null!;
+
         [Output("alternatePathHints")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint>> AlternatePathHints { get; private set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.EC2
 
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
+
+        [Output("suggestedAccounts")]
+        public Output<ImmutableArray<string>> SuggestedAccounts { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisTag>> Tags { get; private set; } = null!;
@@ -99,6 +105,14 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class NetworkInsightsAnalysisArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalAccounts")]
+        private InputList<string>? _additionalAccounts;
+        public InputList<string> AdditionalAccounts
+        {
+            get => _additionalAccounts ?? (_additionalAccounts = new InputList<string>());
+            set => _additionalAccounts = value;
+        }
+
         [Input("filterInArns")]
         private InputList<string>? _filterInArns;
         public InputList<string> FilterInArns

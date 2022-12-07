@@ -52,7 +52,7 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
      * The public portion of a customer-generated key pair.
      */
-    public readonly publicKeyMaterial!: pulumi.Output<string>;
+    public readonly publicKeyMaterial!: pulumi.Output<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
@@ -65,13 +65,10 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PlaybackKeyPairArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PlaybackKeyPairArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publicKeyMaterial === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'publicKeyMaterial'");
-            }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicKeyMaterial"] = args ? args.publicKeyMaterial : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -100,7 +97,7 @@ export interface PlaybackKeyPairArgs {
     /**
      * The public portion of a customer-generated key pair.
      */
-    publicKeyMaterial: pulumi.Input<string>;
+    publicKeyMaterial?: pulumi.Input<string>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

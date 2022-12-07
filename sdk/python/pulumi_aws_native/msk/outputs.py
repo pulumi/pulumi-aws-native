@@ -37,6 +37,12 @@ __all__ = [
     'ClusterStorageInfo',
     'ClusterTls',
     'ClusterUnauthenticated',
+    'ClusterVpcConnectivity',
+    'ClusterVpcConnectivityClientAuthentication',
+    'ClusterVpcConnectivityIam',
+    'ClusterVpcConnectivitySasl',
+    'ClusterVpcConnectivityScram',
+    'ClusterVpcConnectivityTls',
     'ServerlessClusterClientAuthentication',
     'ServerlessClusterIam',
     'ServerlessClusterSasl',
@@ -259,6 +265,8 @@ class ClusterConnectivityInfo(dict):
         suggest = None
         if key == "publicAccess":
             suggest = "public_access"
+        elif key == "vpcConnectivity":
+            suggest = "vpc_connectivity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterConnectivityInfo. Access the value via the '{suggest}' property getter instead.")
@@ -272,14 +280,22 @@ class ClusterConnectivityInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 public_access: Optional['outputs.ClusterPublicAccess'] = None):
+                 public_access: Optional['outputs.ClusterPublicAccess'] = None,
+                 vpc_connectivity: Optional['outputs.ClusterVpcConnectivity'] = None):
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
+        if vpc_connectivity is not None:
+            pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
 
     @property
     @pulumi.getter(name="publicAccess")
     def public_access(self) -> Optional['outputs.ClusterPublicAccess']:
         return pulumi.get(self, "public_access")
+
+    @property
+    @pulumi.getter(name="vpcConnectivity")
+    def vpc_connectivity(self) -> Optional['outputs.ClusterVpcConnectivity']:
+        return pulumi.get(self, "vpc_connectivity")
 
 
 @pulumi.output_type
@@ -801,6 +817,114 @@ class ClusterTls(dict):
 
 @pulumi.output_type
 class ClusterUnauthenticated(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientAuthentication":
+            suggest = "client_authentication"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterVpcConnectivity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterVpcConnectivity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterVpcConnectivity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_authentication: Optional['outputs.ClusterVpcConnectivityClientAuthentication'] = None):
+        if client_authentication is not None:
+            pulumi.set(__self__, "client_authentication", client_authentication)
+
+    @property
+    @pulumi.getter(name="clientAuthentication")
+    def client_authentication(self) -> Optional['outputs.ClusterVpcConnectivityClientAuthentication']:
+        return pulumi.get(self, "client_authentication")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivityClientAuthentication(dict):
+    def __init__(__self__, *,
+                 sasl: Optional['outputs.ClusterVpcConnectivitySasl'] = None,
+                 tls: Optional['outputs.ClusterVpcConnectivityTls'] = None):
+        if sasl is not None:
+            pulumi.set(__self__, "sasl", sasl)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def sasl(self) -> Optional['outputs.ClusterVpcConnectivitySasl']:
+        return pulumi.get(self, "sasl")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.ClusterVpcConnectivityTls']:
+        return pulumi.get(self, "tls")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivityIam(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivitySasl(dict):
+    def __init__(__self__, *,
+                 iam: Optional['outputs.ClusterVpcConnectivityIam'] = None,
+                 scram: Optional['outputs.ClusterVpcConnectivityScram'] = None):
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+        if scram is not None:
+            pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional['outputs.ClusterVpcConnectivityIam']:
+        return pulumi.get(self, "iam")
+
+    @property
+    @pulumi.getter
+    def scram(self) -> Optional['outputs.ClusterVpcConnectivityScram']:
+        return pulumi.get(self, "scram")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivityScram(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterVpcConnectivityTls(dict):
     def __init__(__self__, *,
                  enabled: bool):
         pulumi.set(__self__, "enabled", enabled)

@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.MSK.Outputs
     public sealed class ClusterConnectivityInfo
     {
         public readonly Outputs.ClusterPublicAccess? PublicAccess;
+        public readonly Outputs.ClusterVpcConnectivity? VpcConnectivity;
 
         [OutputConstructor]
-        private ClusterConnectivityInfo(Outputs.ClusterPublicAccess? publicAccess)
+        private ClusterConnectivityInfo(
+            Outputs.ClusterPublicAccess? publicAccess,
+
+            Outputs.ClusterVpcConnectivity? vpcConnectivity)
         {
             PublicAccess = publicAccess;
+            VpcConnectivity = vpcConnectivity;
         }
     }
 }

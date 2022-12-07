@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("s3StorageConfig", required: true)]
         public Input<Inputs.FeatureGroupS3StorageConfigArgs> S3StorageConfig { get; set; } = null!;
 
+        [Input("tableFormat")]
+        public Input<Pulumi.AwsNative.SageMaker.FeatureGroupTableFormat>? TableFormat { get; set; }
+
         public OfflineStoreConfigPropertiesArgs()
         {
         }

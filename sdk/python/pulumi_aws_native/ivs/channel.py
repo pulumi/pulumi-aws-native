@@ -28,7 +28,7 @@ class ChannelArgs:
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
-        :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
@@ -85,7 +85,7 @@ class ChannelArgs:
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         """
         return pulumi.get(self, "recording_configuration_arn")
 
@@ -138,7 +138,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[bool] authorized: Whether the channel is authorized.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
         :param pulumi.Input[str] name: Channel
-        :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        :param pulumi.Input[str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
@@ -275,7 +275,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="recordingConfigurationArn")
     def recording_configuration_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+        Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
         """
         return pulumi.get(self, "recording_configuration_arn")
 

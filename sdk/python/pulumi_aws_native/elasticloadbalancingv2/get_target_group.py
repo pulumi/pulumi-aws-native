@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTargetGroupResult:
-    def __init__(__self__, health_check_enabled=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, health_check_timeout_seconds=None, healthy_threshold_count=None, id=None, load_balancer_arns=None, matcher=None, tags=None, target_group_arn=None, target_group_attributes=None, target_group_full_name=None, target_group_name=None, targets=None, unhealthy_threshold_count=None):
+    def __init__(__self__, health_check_enabled=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, health_check_timeout_seconds=None, healthy_threshold_count=None, id=None, load_balancer_arns=None, matcher=None, tags=None, target_group_attributes=None, target_group_full_name=None, target_group_name=None, targets=None, unhealthy_threshold_count=None):
         if health_check_enabled and not isinstance(health_check_enabled, bool):
             raise TypeError("Expected argument 'health_check_enabled' to be a bool")
         pulumi.set(__self__, "health_check_enabled", health_check_enabled)
@@ -53,9 +53,6 @@ class GetTargetGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-        if target_group_arn and not isinstance(target_group_arn, str):
-            raise TypeError("Expected argument 'target_group_arn' to be a str")
-        pulumi.set(__self__, "target_group_arn", target_group_arn)
         if target_group_attributes and not isinstance(target_group_attributes, list):
             raise TypeError("Expected argument 'target_group_attributes' to be a list")
         pulumi.set(__self__, "target_group_attributes", target_group_attributes)
@@ -128,11 +125,6 @@ class GetTargetGroupResult:
         return pulumi.get(self, "tags")
 
     @property
-    @pulumi.getter(name="targetGroupArn")
-    def target_group_arn(self) -> Optional[str]:
-        return pulumi.get(self, "target_group_arn")
-
-    @property
     @pulumi.getter(name="targetGroupAttributes")
     def target_group_attributes(self) -> Optional[Sequence['outputs.TargetGroupAttribute']]:
         return pulumi.get(self, "target_group_attributes")
@@ -175,7 +167,6 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             load_balancer_arns=self.load_balancer_arns,
             matcher=self.matcher,
             tags=self.tags,
-            target_group_arn=self.target_group_arn,
             target_group_attributes=self.target_group_attributes,
             target_group_full_name=self.target_group_full_name,
             target_group_name=self.target_group_name,
@@ -205,7 +196,6 @@ def get_target_group(id: Optional[str] = None,
         load_balancer_arns=__ret__.load_balancer_arns,
         matcher=__ret__.matcher,
         tags=__ret__.tags,
-        target_group_arn=__ret__.target_group_arn,
         target_group_attributes=__ret__.target_group_attributes,
         target_group_full_name=__ret__.target_group_full_name,
         target_group_name=__ret__.target_group_name,

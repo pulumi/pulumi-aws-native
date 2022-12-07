@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.BillingConductor
         /// Pricing rule modifier percentage
         /// </summary>
         [Output("modifierPercentage")]
-        public Output<double> ModifierPercentage { get; private set; } = null!;
+        public Output<double?> ModifierPercentage { get; private set; } = null!;
 
         /// <summary>
         /// Pricing rule name
@@ -80,7 +80,13 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<ImmutableArray<Outputs.PricingRuleTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        /// The set of tiering configurations for the pricing rule.
+        /// </summary>
+        [Output("tiering")]
+        public Output<Outputs.TieringProperties?> Tiering { get; private set; } = null!;
+
+        /// <summary>
+        /// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.BillingConductor.PricingRuleType> Type { get; private set; } = null!;
@@ -145,8 +151,8 @@ namespace Pulumi.AwsNative.BillingConductor
         /// <summary>
         /// Pricing rule modifier percentage
         /// </summary>
-        [Input("modifierPercentage", required: true)]
-        public Input<double> ModifierPercentage { get; set; } = null!;
+        [Input("modifierPercentage")]
+        public Input<double>? ModifierPercentage { get; set; }
 
         /// <summary>
         /// Pricing rule name
@@ -175,7 +181,13 @@ namespace Pulumi.AwsNative.BillingConductor
         }
 
         /// <summary>
-        /// One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        /// The set of tiering configurations for the pricing rule.
+        /// </summary>
+        [Input("tiering")]
+        public Input<Inputs.TieringPropertiesArgs>? Tiering { get; set; }
+
+        /// <summary>
+        /// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.BillingConductor.PricingRuleType> Type { get; set; } = null!;

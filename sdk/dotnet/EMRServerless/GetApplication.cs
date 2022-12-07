@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.EMRServerless
         /// The ID of the EMR Serverless Application.
         /// </summary>
         public readonly string? ApplicationId;
+        public readonly Pulumi.AwsNative.EMRServerless.ApplicationArchitecture? Architecture;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the EMR Serverless Application.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.EMRServerless
         private GetApplicationResult(
             string? applicationId,
 
+            Pulumi.AwsNative.EMRServerless.ApplicationArchitecture? architecture,
+
             string? arn,
 
             Outputs.ApplicationAutoStartConfiguration? autoStartConfiguration,
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.EMRServerless
             ImmutableArray<Outputs.ApplicationTag> tags)
         {
             ApplicationId = applicationId;
+            Architecture = architecture;
             Arn = arn;
             AutoStartConfiguration = autoStartConfiguration;
             AutoStopConfiguration = autoStopConfiguration;

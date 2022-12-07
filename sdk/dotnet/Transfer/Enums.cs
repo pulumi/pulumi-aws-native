@@ -179,6 +179,7 @@ namespace Pulumi.AwsNative.Transfer
         public static ConnectorAs2ConfigPropertiesEncryptionAlgorithm Aes128Cbc { get; } = new ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES128_CBC");
         public static ConnectorAs2ConfigPropertiesEncryptionAlgorithm Aes192Cbc { get; } = new ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES192_CBC");
         public static ConnectorAs2ConfigPropertiesEncryptionAlgorithm Aes256Cbc { get; } = new ConnectorAs2ConfigPropertiesEncryptionAlgorithm("AES256_CBC");
+        public static ConnectorAs2ConfigPropertiesEncryptionAlgorithm None { get; } = new ConnectorAs2ConfigPropertiesEncryptionAlgorithm("NONE");
 
         public static bool operator ==(ConnectorAs2ConfigPropertiesEncryptionAlgorithm left, ConnectorAs2ConfigPropertiesEncryptionAlgorithm right) => left.Equals(right);
         public static bool operator !=(ConnectorAs2ConfigPropertiesEncryptionAlgorithm left, ConnectorAs2ConfigPropertiesEncryptionAlgorithm right) => !left.Equals(right);

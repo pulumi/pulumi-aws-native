@@ -54,7 +54,7 @@ export interface GetChannelResult {
      */
     readonly playbackUrl?: string;
     /**
-     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
+     * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
     readonly recordingConfigurationArn?: string;
     /**

@@ -17,49 +17,42 @@ __all__ = ['PricingRuleArgs', 'PricingRule']
 @pulumi.input_type
 class PricingRuleArgs:
     def __init__(__self__, *,
-                 modifier_percentage: pulumi.Input[float],
                  scope: pulumi.Input['PricingRuleScope'],
                  type: pulumi.Input['PricingRuleType'],
                  billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 modifier_percentage: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None,
+                 tiering: Optional[pulumi.Input['TieringPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PricingRule resource.
-        :param pulumi.Input[float] modifier_percentage: Pricing rule modifier percentage
         :param pulumi.Input['PricingRuleScope'] scope: A term used to categorize the granularity of a Pricing Rule.
-        :param pulumi.Input['PricingRuleType'] type: One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        :param pulumi.Input['PricingRuleType'] type: One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         :param pulumi.Input['PricingRuleBillingEntity'] billing_entity: The seller of services provided by AWS, their affiliates, or third-party providers selling services via AWS Marketplaces. Supported billing entities are AWS, AWS Marketplace, and AISPL.
         :param pulumi.Input[str] description: Pricing rule description
+        :param pulumi.Input[float] modifier_percentage: Pricing rule modifier percentage
         :param pulumi.Input[str] name: Pricing rule name
         :param pulumi.Input[str] service: The service which a pricing rule is applied on
+        :param pulumi.Input['TieringPropertiesArgs'] tiering: The set of tiering configurations for the pricing rule.
         """
-        pulumi.set(__self__, "modifier_percentage", modifier_percentage)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "type", type)
         if billing_entity is not None:
             pulumi.set(__self__, "billing_entity", billing_entity)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if modifier_percentage is not None:
+            pulumi.set(__self__, "modifier_percentage", modifier_percentage)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if service is not None:
             pulumi.set(__self__, "service", service)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="modifierPercentage")
-    def modifier_percentage(self) -> pulumi.Input[float]:
-        """
-        Pricing rule modifier percentage
-        """
-        return pulumi.get(self, "modifier_percentage")
-
-    @modifier_percentage.setter
-    def modifier_percentage(self, value: pulumi.Input[float]):
-        pulumi.set(self, "modifier_percentage", value)
+        if tiering is not None:
+            pulumi.set(__self__, "tiering", tiering)
 
     @property
     @pulumi.getter
@@ -77,7 +70,7 @@ class PricingRuleArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['PricingRuleType']:
         """
-        One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         """
         return pulumi.get(self, "type")
 
@@ -108,6 +101,18 @@ class PricingRuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="modifierPercentage")
+    def modifier_percentage(self) -> Optional[pulumi.Input[float]]:
+        """
+        Pricing rule modifier percentage
+        """
+        return pulumi.get(self, "modifier_percentage")
+
+    @modifier_percentage.setter
+    def modifier_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "modifier_percentage", value)
 
     @property
     @pulumi.getter
@@ -142,6 +147,18 @@ class PricingRuleArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def tiering(self) -> Optional[pulumi.Input['TieringPropertiesArgs']]:
+        """
+        The set of tiering configurations for the pricing rule.
+        """
+        return pulumi.get(self, "tiering")
+
+    @tiering.setter
+    def tiering(self, value: Optional[pulumi.Input['TieringPropertiesArgs']]):
+        pulumi.set(self, "tiering", value)
+
 
 warnings.warn("""PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -160,6 +177,7 @@ class PricingRule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
+                 tiering: Optional[pulumi.Input[pulumi.InputType['TieringPropertiesArgs']]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  __props__=None):
         """
@@ -173,7 +191,8 @@ class PricingRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Pricing rule name
         :param pulumi.Input['PricingRuleScope'] scope: A term used to categorize the granularity of a Pricing Rule.
         :param pulumi.Input[str] service: The service which a pricing rule is applied on
-        :param pulumi.Input['PricingRuleType'] type: One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        :param pulumi.Input[pulumi.InputType['TieringPropertiesArgs']] tiering: The set of tiering configurations for the pricing rule.
+        :param pulumi.Input['PricingRuleType'] type: One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         """
         ...
     @overload
@@ -206,6 +225,7 @@ class PricingRule(pulumi.CustomResource):
                  scope: Optional[pulumi.Input['PricingRuleScope']] = None,
                  service: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PricingRuleTagArgs']]]]] = None,
+                 tiering: Optional[pulumi.Input[pulumi.InputType['TieringPropertiesArgs']]] = None,
                  type: Optional[pulumi.Input['PricingRuleType']] = None,
                  __props__=None):
         pulumi.log.warn("""PricingRule is deprecated: PricingRule is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -219,8 +239,6 @@ class PricingRule(pulumi.CustomResource):
 
             __props__.__dict__["billing_entity"] = billing_entity
             __props__.__dict__["description"] = description
-            if modifier_percentage is None and not opts.urn:
-                raise TypeError("Missing required property 'modifier_percentage'")
             __props__.__dict__["modifier_percentage"] = modifier_percentage
             __props__.__dict__["name"] = name
             if scope is None and not opts.urn:
@@ -228,6 +246,7 @@ class PricingRule(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["service"] = service
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tiering"] = tiering
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -268,6 +287,7 @@ class PricingRule(pulumi.CustomResource):
         __props__.__dict__["scope"] = None
         __props__.__dict__["service"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tiering"] = None
         __props__.__dict__["type"] = None
         return PricingRule(resource_name, opts=opts, __props__=__props__)
 
@@ -321,7 +341,7 @@ class PricingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifierPercentage")
-    def modifier_percentage(self) -> pulumi.Output[float]:
+    def modifier_percentage(self) -> pulumi.Output[Optional[float]]:
         """
         Pricing rule modifier percentage
         """
@@ -358,9 +378,17 @@ class PricingRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def tiering(self) -> pulumi.Output[Optional['outputs.TieringProperties']]:
+        """
+        The set of tiering configurations for the pricing rule.
+        """
+        return pulumi.get(self, "tiering")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output['PricingRuleType']:
         """
-        One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+        One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
         """
         return pulumi.get(self, "type")
 

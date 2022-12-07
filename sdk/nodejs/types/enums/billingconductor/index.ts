@@ -48,9 +48,10 @@ export type PricingRuleScope = (typeof PricingRuleScope)[keyof typeof PricingRul
 export const PricingRuleType = {
     Markup: "MARKUP",
     Discount: "DISCOUNT",
+    Tiering: "TIERING",
 } as const;
 
 /**
- * One of MARKUP or DISCOUNT that describes the direction of the rate that is applied to a pricing plan.
+ * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
  */
 export type PricingRuleType = (typeof PricingRuleType)[keyof typeof PricingRuleType];

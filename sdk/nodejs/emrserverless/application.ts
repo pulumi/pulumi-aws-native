@@ -41,6 +41,7 @@ export class Application extends pulumi.CustomResource {
      * The ID of the EMR Serverless Application.
      */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    public readonly architecture!: pulumi.Output<enums.emrserverless.ApplicationArchitecture | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the EMR Serverless Application.
      */
@@ -99,6 +100,7 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
             resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
@@ -112,6 +114,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["architecture"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoStartConfiguration"] = undefined /*out*/;
             resourceInputs["autoStopConfiguration"] = undefined /*out*/;
@@ -132,6 +135,7 @@ export class Application extends pulumi.CustomResource {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
+    architecture?: pulumi.Input<enums.emrserverless.ApplicationArchitecture>;
     /**
      * Configuration for Auto Start of Application.
      */

@@ -21,7 +21,9 @@ __all__ = [
     'CustomLineItemPercentageChargeDetails',
     'CustomLineItemTag',
     'PricingPlanTag',
+    'PricingRuleFreeTier',
     'PricingRuleTag',
+    'TieringProperties',
 ]
 
 @pulumi.output_type
@@ -282,6 +284,24 @@ class PricingPlanTag(dict):
 
 
 @pulumi.output_type
+class PricingRuleFreeTier(dict):
+    """
+    The possible customizable free tier configurations.
+    """
+    def __init__(__self__, *,
+                 activated: bool):
+        """
+        The possible customizable free tier configurations.
+        """
+        pulumi.set(__self__, "activated", activated)
+
+    @property
+    @pulumi.getter
+    def activated(self) -> bool:
+        return pulumi.get(self, "activated")
+
+
+@pulumi.output_type
 class PricingRuleTag(dict):
     def __init__(__self__, *,
                  key: str,
@@ -298,5 +318,41 @@ class PricingRuleTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TieringProperties(dict):
+    """
+    The set of tiering configurations for the pricing rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "freeTier":
+            suggest = "free_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TieringProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TieringProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TieringProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 free_tier: Optional['outputs.PricingRuleFreeTier'] = None):
+        """
+        The set of tiering configurations for the pricing rule.
+        """
+        if free_tier is not None:
+            pulumi.set(__self__, "free_tier", free_tier)
+
+    @property
+    @pulumi.getter(name="freeTier")
+    def free_tier(self) -> Optional['outputs.PricingRuleFreeTier']:
+        return pulumi.get(self, "free_tier")
 
 

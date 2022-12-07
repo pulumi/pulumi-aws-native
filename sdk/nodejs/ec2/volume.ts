@@ -48,7 +48,6 @@ export class Volume extends pulumi.CustomResource {
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.VolumeTag[] | undefined>;
     public readonly throughput!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
@@ -77,7 +76,6 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughput"] = args ? args.throughput : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
-            resourceInputs["volumeId"] = undefined /*out*/;
         } else {
             resourceInputs["autoEnableIO"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
@@ -90,7 +88,6 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["throughput"] = undefined /*out*/;
-            resourceInputs["volumeId"] = undefined /*out*/;
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

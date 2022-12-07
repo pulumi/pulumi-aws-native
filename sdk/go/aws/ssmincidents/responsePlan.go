@@ -25,6 +25,8 @@ type ResponsePlan struct {
 	// The list of engagements to use.
 	Engagements      pulumi.StringArrayOutput           `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
+	// The list of integrations.
+	Integrations ResponsePlanIntegrationArrayOutput `pulumi:"integrations"`
 	// The name of the response plan.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags to apply to the response plan.
@@ -81,6 +83,8 @@ type responsePlanArgs struct {
 	// The list of engagements to use.
 	Engagements      []string                     `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
+	// The list of integrations.
+	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
 	// The name of the response plan.
 	Name *string `pulumi:"name"`
 	// The tags to apply to the response plan.
@@ -97,6 +101,8 @@ type ResponsePlanArgs struct {
 	// The list of engagements to use.
 	Engagements      pulumi.StringArrayInput
 	IncidentTemplate ResponsePlanIncidentTemplateInput
+	// The list of integrations.
+	Integrations ResponsePlanIntegrationArrayInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
 	// The tags to apply to the response plan.
@@ -166,6 +172,11 @@ func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
 
 func (o ResponsePlanOutput) IncidentTemplate() ResponsePlanIncidentTemplateOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIncidentTemplateOutput { return v.IncidentTemplate }).(ResponsePlanIncidentTemplateOutput)
+}
+
+// The list of integrations.
+func (o ResponsePlanOutput) Integrations() ResponsePlanIntegrationArrayOutput {
+	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIntegrationArrayOutput { return v.Integrations }).(ResponsePlanIntegrationArrayOutput)
 }
 
 // The name of the response plan.

@@ -26,6 +26,7 @@ export interface GetNetworkInsightsAnalysisArgs {
 }
 
 export interface GetNetworkInsightsAnalysisResult {
+    readonly additionalAccounts?: string[];
     readonly alternatePathHints?: outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[];
     readonly explanations?: outputs.ec2.NetworkInsightsAnalysisExplanation[];
     readonly forwardPathComponents?: outputs.ec2.NetworkInsightsAnalysisPathComponent[];
@@ -36,6 +37,7 @@ export interface GetNetworkInsightsAnalysisResult {
     readonly startDate?: string;
     readonly status?: enums.ec2.NetworkInsightsAnalysisStatus;
     readonly statusMessage?: string;
+    readonly suggestedAccounts?: string[];
     readonly tags?: outputs.ec2.NetworkInsightsAnalysisTag[];
 }
 

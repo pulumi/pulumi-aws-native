@@ -60,9 +60,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TargetGroupTag>> Tags { get; private set; } = null!;
 
-        [Output("targetGroupArn")]
-        public Output<string> TargetGroupArn { get; private set; } = null!;
-
         [Output("targetGroupAttributes")]
         public Output<ImmutableArray<Outputs.TargetGroupAttribute>> TargetGroupAttributes { get; private set; } = null!;
 

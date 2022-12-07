@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// ID of the CoreNetwork that the attachment will be attached to.
         /// </summary>
         [Output("coreNetworkId")]
-        public Output<string?> CoreNetworkId { get; private set; } = null!;
+        public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
         /// Creation time of the attachment.
@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// Edge location of the attachment.
         /// </summary>
         [Output("edgeLocation")]
-        public Output<string?> EdgeLocation { get; private set; } = null!;
+        public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
         /// Protocol options for connect attachment
         /// </summary>
         [Output("options")]
-        public Output<Outputs.ConnectAttachmentOptions?> Options { get; private set; } = null!;
+        public Output<Outputs.ConnectAttachmentOptions> Options { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the attachment account owner.
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// Id of transport attachment
         /// </summary>
         [Output("transportAttachmentId")]
-        public Output<string?> TransportAttachmentId { get; private set; } = null!;
+        public Output<string> TransportAttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// Last update time of the attachment.
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ConnectAttachment(string name, ConnectAttachmentArgs? args = null, CustomResourceOptions? options = null)
+        public ConnectAttachment(string name, ConnectAttachmentArgs args, CustomResourceOptions? options = null)
             : base("aws-native:networkmanager:ConnectAttachment", name, args ?? new ConnectAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -159,20 +159,20 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// ID of the CoreNetwork that the attachment will be attached to.
         /// </summary>
-        [Input("coreNetworkId")]
-        public Input<string>? CoreNetworkId { get; set; }
+        [Input("coreNetworkId", required: true)]
+        public Input<string> CoreNetworkId { get; set; } = null!;
 
         /// <summary>
         /// Edge location of the attachment.
         /// </summary>
-        [Input("edgeLocation")]
-        public Input<string>? EdgeLocation { get; set; }
+        [Input("edgeLocation", required: true)]
+        public Input<string> EdgeLocation { get; set; } = null!;
 
         /// <summary>
         /// Protocol options for connect attachment
         /// </summary>
-        [Input("options")]
-        public Input<Inputs.ConnectAttachmentOptionsArgs>? Options { get; set; }
+        [Input("options", required: true)]
+        public Input<Inputs.ConnectAttachmentOptionsArgs> Options { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ConnectAttachmentTagArgs>? _tags;
@@ -189,8 +189,8 @@ namespace Pulumi.AwsNative.NetworkManager
         /// <summary>
         /// Id of transport attachment
         /// </summary>
-        [Input("transportAttachmentId")]
-        public Input<string>? TransportAttachmentId { get; set; }
+        [Input("transportAttachmentId", required: true)]
+        public Input<string> TransportAttachmentId { get; set; } = null!;
 
         public ConnectAttachmentArgs()
         {

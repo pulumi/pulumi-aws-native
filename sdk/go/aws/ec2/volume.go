@@ -26,7 +26,6 @@ type Volume struct {
 	SnapshotId         pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	Tags               VolumeTagArrayOutput   `pulumi:"tags"`
 	Throughput         pulumi.IntPtrOutput    `pulumi:"throughput"`
-	VolumeId           pulumi.StringOutput    `pulumi:"volumeId"`
 	VolumeType         pulumi.StringPtrOutput `pulumi:"volumeType"`
 }
 
@@ -181,10 +180,6 @@ func (o VolumeOutput) Tags() VolumeTagArrayOutput {
 
 func (o VolumeOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.IntPtrOutput { return v.Throughput }).(pulumi.IntPtrOutput)
-}
-
-func (o VolumeOutput) VolumeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }
 
 func (o VolumeOutput) VolumeType() pulumi.StringPtrOutput {
