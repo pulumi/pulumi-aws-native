@@ -3,9 +3,6 @@
   "description" : "Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup",
   "additionalProperties" : false,
   "properties" : {
-    "TargetGroupArn" : {
-      "type" : "string"
-    },
     "IpAddressType" : {
       "type" : "string"
     },
@@ -149,5 +146,5 @@
   },
   "createOnlyProperties" : [ "/properties/TargetType", "/properties/ProtocolVersion", "/properties/Port", "/properties/Name", "/properties/VpcId", "/properties/Protocol", "/properties/IpAddressType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/LoadBalancerArns", "/properties/Id", "/properties/TargetGroupName", "/properties/TargetGroupArn", "/properties/TargetGroupFullName" ]
+  "readOnlyProperties" : [ "/properties/LoadBalancerArns", "/properties/Id", "/properties/TargetGroupName", "/properties/TargetGroupFullName" ]
 }

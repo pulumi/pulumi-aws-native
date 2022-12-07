@@ -1807,6 +1807,132 @@
                 "restApiId"
             ]
         },
+        "aws-native:apigateway:RestApi": {
+            "cf": "AWS::ApiGateway::RestApi",
+            "inputs": {
+                "apiKeySourceType": {
+                    "type": "string"
+                },
+                "binaryMediaTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigateway:RestApiS3Location"
+                },
+                "cloneFrom": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "endpointConfiguration": {
+                    "$ref": "#/types/aws-native:apigateway:RestApiEndpointConfiguration"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "minimumCompressionSize": {
+                    "type": "integer"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "policy": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:RestApiTag"
+                    }
+                }
+            },
+            "outputs": {
+                "apiKeySourceType": {
+                    "type": "string"
+                },
+                "binaryMediaTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "body": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "bodyS3Location": {
+                    "$ref": "#/types/aws-native:apigateway:RestApiS3Location"
+                },
+                "cloneFrom": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "disableExecuteApiEndpoint": {
+                    "type": "boolean"
+                },
+                "endpointConfiguration": {
+                    "$ref": "#/types/aws-native:apigateway:RestApiEndpointConfiguration"
+                },
+                "failOnWarnings": {
+                    "type": "boolean"
+                },
+                "minimumCompressionSize": {
+                    "type": "integer"
+                },
+                "mode": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "policy": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "restApiId": {
+                    "type": "string"
+                },
+                "rootResourceId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:apigateway:RestApiTag"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "writeOnly": [
+                "body",
+                "bodyS3Location",
+                "cloneFrom",
+                "failOnWarnings",
+                "mode",
+                "parameters"
+            ]
+        },
         "aws-native:apigateway:Stage": {
             "cf": "AWS::ApiGateway::Stage",
             "inputs": {
@@ -5159,7 +5285,8 @@
             ],
             "writeOnly": [
                 "computeResources/UpdateToLatestImageVersion",
-                "replaceComputeEnvironment"
+                "replaceComputeEnvironment",
+                "updatePolicy"
             ]
         },
         "aws-native:batch:JobQueue": {
@@ -8690,6 +8817,93 @@
             "required": [
                 "instanceArn",
                 "quickConnectConfig"
+            ]
+        },
+        "aws-native:connect:Rule": {
+            "cf": "AWS::Connect::Rule",
+            "inputs": {
+                "actions": {
+                    "$ref": "#/types/aws-native:connect:RuleActions",
+                    "description": "The list of actions that will be executed when a rule is triggered."
+                },
+                "function": {
+                    "type": "string",
+                    "description": "The conditions of a rule."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule."
+                },
+                "publishStatus": {
+                    "$ref": "#/types/aws-native:connect:RulePublishStatus",
+                    "description": "The publish status of a rule, either draft or published."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "triggerEventSource": {
+                    "$ref": "#/types/aws-native:connect:RuleTriggerEventSource",
+                    "description": "The event source that triggers the rule."
+                }
+            },
+            "outputs": {
+                "actions": {
+                    "$ref": "#/types/aws-native:connect:RuleActions",
+                    "description": "The list of actions that will be executed when a rule is triggered."
+                },
+                "function": {
+                    "type": "string",
+                    "description": "The conditions of a rule."
+                },
+                "instanceArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the instance."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the rule."
+                },
+                "publishStatus": {
+                    "$ref": "#/types/aws-native:connect:RulePublishStatus",
+                    "description": "The publish status of a rule, either draft or published."
+                },
+                "ruleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the rule."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleTag"
+                    },
+                    "description": "One or more tags."
+                },
+                "triggerEventSource": {
+                    "$ref": "#/types/aws-native:connect:RuleTriggerEventSource",
+                    "description": "The event source that triggers the rule."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "actions",
+                "function",
+                "instanceArn",
+                "publishStatus",
+                "triggerEventSource"
+            ],
+            "createOnly": [
+                "instanceArn",
+                "triggerEventSource"
             ]
         },
         "aws-native:connect:TaskTemplate": {
@@ -13524,6 +13738,12 @@
         "aws-native:ec2:NetworkInsightsAnalysis": {
             "cf": "AWS::EC2::NetworkInsightsAnalysis",
             "inputs": {
+                "additionalAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "filterInArns": {
                     "type": "array",
                     "items": {
@@ -13541,6 +13761,12 @@
                 }
             },
             "outputs": {
+                "additionalAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "alternatePathHints": {
                     "type": "array",
                     "items": {
@@ -13592,6 +13818,12 @@
                 "statusMessage": {
                     "type": "string"
                 },
+                "suggestedAccounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -13642,6 +13874,9 @@
                 "destination": {
                     "type": "string"
                 },
+                "destinationArn": {
+                    "type": "string"
+                },
                 "destinationIp": {
                     "type": "string"
                 },
@@ -13658,6 +13893,9 @@
                     "$ref": "#/types/aws-native:ec2:NetworkInsightsPathProtocol"
                 },
                 "source": {
+                    "type": "string"
+                },
+                "sourceArn": {
                     "type": "string"
                 },
                 "sourceIp": {
@@ -13820,6 +14058,57 @@
                 "interfaceType",
                 "privateIpAddress",
                 "subnetId"
+            ]
+        },
+        "aws-native:ec2:NetworkPerformanceMetricSubscription": {
+            "cf": "AWS::EC2::NetworkPerformanceMetricSubscription",
+            "inputs": {
+                "destination": {
+                    "type": "string",
+                    "description": "The destination is a mandatory element for the metric subscription."
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The metric type for the metric subscription."
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The source is a mandatory element for the metric subscription."
+                },
+                "statistic": {
+                    "type": "string",
+                    "description": "The statistic type for the metric subscription."
+                }
+            },
+            "outputs": {
+                "destination": {
+                    "type": "string",
+                    "description": "The destination is a mandatory element for the metric subscription."
+                },
+                "metric": {
+                    "type": "string",
+                    "description": "The metric type for the metric subscription."
+                },
+                "source": {
+                    "type": "string",
+                    "description": "The source is a mandatory element for the metric subscription."
+                },
+                "statistic": {
+                    "type": "string",
+                    "description": "The statistic type for the metric subscription."
+                }
+            },
+            "required": [
+                "destination",
+                "metric",
+                "source",
+                "statistic"
+            ],
+            "createOnly": [
+                "destination",
+                "metric",
+                "source",
+                "statistic"
             ]
         },
         "aws-native:ec2:PlacementGroup": {
@@ -15249,21 +15538,12 @@
                 "throughput": {
                     "type": "integer"
                 },
-                "volumeId": {
-                    "type": "string"
-                },
                 "volumeType": {
                     "type": "string"
                 }
             },
             "required": [
                 "availabilityZone"
-            ],
-            "createOnly": [
-                "availabilityZone",
-                "encrypted",
-                "kmsKeyId",
-                "snapshotId"
             ]
         },
         "aws-native:ecr:PullThroughCacheRule": {
@@ -17695,9 +17975,6 @@
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
                     }
                 },
-                "targetGroupArn": {
-                    "type": "string"
-                },
                 "targetGroupAttributes": {
                     "type": "array",
                     "items": {
@@ -18044,6 +18321,9 @@
         "aws-native:emrserverless:Application": {
             "cf": "AWS::EMRServerless::Application",
             "inputs": {
+                "architecture": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationArchitecture"
+                },
                 "autoStartConfiguration": {
                     "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStartConfiguration",
                     "description": "Configuration for Auto Start of Application."
@@ -18091,6 +18371,9 @@
                 "applicationId": {
                     "type": "string",
                     "description": "The ID of the EMR Serverless Application."
+                },
+                "architecture": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationArchitecture"
                 },
                 "arn": {
                     "type": "string",
@@ -26071,7 +26354,7 @@
                 },
                 "recordingConfigurationArn": {
                     "type": "string",
-                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled)."
+                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: \"\" (recording is disabled)."
                 },
                 "tags": {
                     "type": "array",
@@ -26112,7 +26395,7 @@
                 },
                 "recordingConfigurationArn": {
                     "type": "string",
-                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled)."
+                    "description": "Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: \"\" (recording is disabled)."
                 },
                 "tags": {
                     "type": "array",
@@ -26179,11 +26462,11 @@
                 "sdkName": "name",
                 "maxLength": 128
             },
-            "required": [
-                "publicKeyMaterial"
-            ],
             "createOnly": [
                 "name",
+                "publicKeyMaterial"
+            ],
+            "writeOnly": [
                 "publicKeyMaterial"
             ]
         },
@@ -33211,6 +33494,12 @@
                     "description": "Last update time of the attachment."
                 }
             },
+            "required": [
+                "coreNetworkId",
+                "edgeLocation",
+                "options",
+                "transportAttachmentId"
+            ],
             "createOnly": [
                 "coreNetworkId",
                 "edgeLocation",
@@ -34004,11 +34293,13 @@
                     "description": "The ARN of the VPC."
                 }
             },
-            "createOnly": [
+            "required": [
                 "coreNetworkId",
+                "subnetArns",
                 "vpcArn"
             ],
-            "writeOnly": [
+            "createOnly": [
+                "coreNetworkId",
                 "vpcArn"
             ]
         },
@@ -35608,6 +35899,125 @@
             ],
             "createOnly": [
                 "templateName"
+            ]
+        },
+        "aws-native:pipes:Pipe": {
+            "cf": "AWS::Pipes::Pipe",
+            "inputs": {
+                "description": {
+                    "type": "string"
+                },
+                "desiredState": {
+                    "$ref": "#/types/aws-native:pipes:PipeRequestedPipeState"
+                },
+                "enrichment": {
+                    "type": "string"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentParameters"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceParameters"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:pipes:PipeTagMap"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetParameters"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "creationTime": {
+                    "type": "string"
+                },
+                "currentState": {
+                    "$ref": "#/types/aws-native:pipes:PipeState"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "desiredState": {
+                    "$ref": "#/types/aws-native:pipes:PipeRequestedPipeState"
+                },
+                "enrichment": {
+                    "type": "string"
+                },
+                "enrichmentParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentParameters"
+                },
+                "lastModifiedTime": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "sourceParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceParameters"
+                },
+                "stateReason": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:pipes:PipeTagMap"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "targetParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetParameters"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 64
+            },
+            "required": [
+                "roleArn",
+                "source",
+                "target"
+            ],
+            "createOnly": [
+                "name",
+                "source",
+                "sourceParameters/ActiveMQBrokerParameters/QueueName",
+                "sourceParameters/DynamoDBStreamParameters/StartingPosition",
+                "sourceParameters/KinesisStreamParameters/StartingPosition",
+                "sourceParameters/KinesisStreamParameters/StartingPositionTimestamp",
+                "sourceParameters/ManagedStreamingKafkaParameters/ConsumerGroupID",
+                "sourceParameters/ManagedStreamingKafkaParameters/StartingPosition",
+                "sourceParameters/ManagedStreamingKafkaParameters/TopicName",
+                "sourceParameters/RabbitMQBrokerParameters/QueueName",
+                "sourceParameters/RabbitMQBrokerParameters/VirtualHost",
+                "sourceParameters/SelfManagedApacheKafkaParameters/AdditionalBootstrapServers",
+                "sourceParameters/SelfManagedApacheKafkaParameters/ConsumerGroupID",
+                "sourceParameters/SelfManagedApacheKafkaParameters/StartingPosition",
+                "sourceParameters/SelfManagedApacheKafkaParameters/TopicName"
+            ],
+            "writeOnly": [
+                "sourceParameters",
+                "targetParameters"
             ]
         },
         "aws-native:qldb:Stream": {
@@ -46249,6 +46659,13 @@
                 "incidentTemplate": {
                     "$ref": "#/types/aws-native:ssmincidents:ResponsePlanIncidentTemplate"
                 },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ResponsePlanIntegration"
+                    },
+                    "description": "The list of integrations."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the response plan."
@@ -46289,6 +46706,13 @@
                 },
                 "incidentTemplate": {
                     "$ref": "#/types/aws-native:ssmincidents:ResponsePlanIncidentTemplate"
+                },
+                "integrations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ResponsePlanIntegration"
+                    },
+                    "description": "The list of integrations."
                 },
                 "name": {
                     "type": "string",
@@ -49852,6 +50276,51 @@
                 "statusCode": {
                     "type": "string",
                     "description": "The method response's status code, which you map to an IntegrationResponse."
+                }
+            }
+        },
+        "aws-native:apigateway:RestApiEndpointConfiguration": {
+            "type": "object",
+            "properties": {
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcEndpointIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:apigateway:RestApiS3Location": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string"
+                },
+                "eTag": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:apigateway:RestApiTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
                 }
             }
         },
@@ -55954,6 +56423,146 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:connect:RuleActions": {
+            "type": "object",
+            "properties": {
+                "assignContactCategoryActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleAssignContactCategoryAction"
+                    }
+                },
+                "eventBridgeActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleEventBridgeAction"
+                    }
+                },
+                "sendNotificationActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleSendNotificationAction"
+                    }
+                },
+                "taskActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:connect:RuleTaskAction"
+                    }
+                }
+            }
+        },
+        "aws-native:connect:RuleAssignContactCategoryAction": {
+            "type": "object"
+        },
+        "aws-native:connect:RuleEventBridgeAction": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the event bridge action."
+                }
+            }
+        },
+        "aws-native:connect:RuleNotificationRecipientType": {
+            "type": "object",
+            "properties": {
+                "userArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of recipients by user arns."
+                },
+                "userTags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The collection of recipients who are identified by user tags"
+                }
+            }
+        },
+        "aws-native:connect:RulePublishStatus": {
+            "type": "string"
+        },
+        "aws-native:connect:RuleSendNotificationAction": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "The content of notification."
+                },
+                "contentType": {
+                    "$ref": "#/types/aws-native:connect:RuleSendNotificationActionContentType",
+                    "description": "The type of content."
+                },
+                "deliveryMethod": {
+                    "$ref": "#/types/aws-native:connect:RuleSendNotificationActionDeliveryMethod",
+                    "description": "The means of delivery."
+                },
+                "recipient": {
+                    "$ref": "#/types/aws-native:connect:RuleNotificationRecipientType"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of notification."
+                }
+            }
+        },
+        "aws-native:connect:RuleSendNotificationActionContentType": {
+            "type": "string"
+        },
+        "aws-native:connect:RuleSendNotificationActionDeliveryMethod": {
+            "type": "string"
+        },
+        "aws-native:connect:RuleTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that's 1 to 256 characters in length."
+                }
+            }
+        },
+        "aws-native:connect:RuleTaskAction": {
+            "type": "object",
+            "properties": {
+                "contactFlowArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the contact flow."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description which appears in the agent's Contact Control Panel (CCP)."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name which appears in the agent's Contact Control Panel (CCP)."
+                },
+                "references": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A formatted URL that is shown to an agent in the Contact Control Panel (CCP)."
+                }
+            }
+        },
+        "aws-native:connect:RuleTriggerEventSource": {
+            "type": "object",
+            "properties": {
+                "eventSourceName": {
+                    "$ref": "#/types/aws-native:connect:RuleTriggerEventSourceEventSourceName",
+                    "description": "The name of event source."
+                },
+                "integrationAssociationArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for the AppIntegration association."
+                }
+            }
+        },
+        "aws-native:connect:RuleTriggerEventSourceEventSourceName": {
+            "type": "string"
         },
         "aws-native:connect:TaskTemplateDefaultFieldValue": {
             "type": "object",
@@ -63615,6 +64224,9 @@
                     "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 }
             }
+        },
+        "aws-native:emrserverless:ApplicationArchitecture": {
+            "type": "string"
         },
         "aws-native:emrserverless:ApplicationAutoStartConfiguration": {
             "type": "object",
@@ -78036,6 +78648,9 @@
             "properties": {
                 "publicAccess": {
                     "$ref": "#/types/aws-native:msk:ClusterPublicAccess"
+                },
+                "vpcConnectivity": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivity"
                 }
             }
         },
@@ -78226,6 +78841,60 @@
             }
         },
         "aws-native:msk:ClusterUnauthenticated": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivity": {
+            "type": "object",
+            "properties": {
+                "clientAuthentication": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityClientAuthentication"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityClientAuthentication": {
+            "type": "object",
+            "properties": {
+                "sasl": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivitySasl"
+                },
+                "tls": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityTls"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityIam": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivitySasl": {
+            "type": "object",
+            "properties": {
+                "iam": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityIam"
+                },
+                "scram": {
+                    "$ref": "#/types/aws-native:msk:ClusterVpcConnectivityScram"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityScram": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:msk:ClusterVpcConnectivityTls": {
             "type": "object",
             "properties": {
                 "enabled": {
@@ -80005,6 +80674,895 @@
                 },
                 "link": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeAssignPublicIp": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeAwsVpcConfiguration": {
+            "type": "object",
+            "properties": {
+                "assignPublicIp": {
+                    "$ref": "#/types/aws-native:pipes:PipeAssignPublicIp"
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchArrayProperties": {
+            "type": "object",
+            "properties": {
+                "size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchContainerOverrides": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "environment": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchEnvironmentVariable"
+                    }
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "resourceRequirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchResourceRequirement"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchEnvironmentVariable": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchJobDependency": {
+            "type": "object",
+            "properties": {
+                "jobId": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchJobDependencyType"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchJobDependencyType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeBatchParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeBatchResourceRequirement": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchResourceRequirementType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeBatchResourceRequirementType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeBatchRetryStrategy": {
+            "type": "object",
+            "properties": {
+                "attempts": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeCapacityProviderStrategyItem": {
+            "type": "object",
+            "properties": {
+                "base": {
+                    "type": "integer"
+                },
+                "capacityProvider": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeDeadLetterConfig": {
+            "type": "object",
+            "properties": {
+                "arn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeDynamoDBStreamStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsContainerOverride": {
+            "type": "object",
+            "properties": {
+                "command": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cpu": {
+                    "type": "integer"
+                },
+                "environment": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentVariable"
+                    }
+                },
+                "environmentFiles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentFile"
+                    }
+                },
+                "memory": {
+                    "type": "integer"
+                },
+                "memoryReservation": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "resourceRequirements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsResourceRequirement"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEnvironmentFile": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsEnvironmentFileType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEnvironmentFileType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsEnvironmentVariable": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsEphemeralStorage": {
+            "type": "object",
+            "properties": {
+                "sizeInGiB": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsInferenceAcceleratorOverride": {
+            "type": "object",
+            "properties": {
+                "deviceName": {
+                    "type": "string"
+                },
+                "deviceType": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsResourceRequirement": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsResourceRequirementType"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEcsResourceRequirementType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeEcsTaskOverride": {
+            "type": "object",
+            "properties": {
+                "containerOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsContainerOverride"
+                    }
+                },
+                "cpu": {
+                    "type": "string"
+                },
+                "ephemeralStorage": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsEphemeralStorage"
+                },
+                "executionRoleArn": {
+                    "type": "string"
+                },
+                "inferenceAcceleratorOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeEcsInferenceAcceleratorOverride"
+                    }
+                },
+                "memory": {
+                    "type": "string"
+                },
+                "taskRoleArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEnrichmentHttpParameters": {
+            "type": "object",
+            "properties": {
+                "headerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeHeaderParametersMap"
+                },
+                "pathParameterValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "queryStringParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeQueryStringParametersMap"
+                }
+            }
+        },
+        "aws-native:pipes:PipeEnrichmentParameters": {
+            "type": "object",
+            "properties": {
+                "httpParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeEnrichmentHttpParameters"
+                },
+                "inputTemplate": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeFilter": {
+            "type": "object",
+            "properties": {
+                "pattern": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeFilterCriteria": {
+            "type": "object",
+            "properties": {
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeFilter"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeHeaderParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeKinesisStreamStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeLaunchType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeMQBrokerAccessCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeMSKAccessCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeMSKStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeNetworkConfiguration": {
+            "type": "object",
+            "properties": {
+                "awsvpcConfiguration": {
+                    "$ref": "#/types/aws-native:pipes:PipeAwsVpcConfiguration"
+                }
+            }
+        },
+        "aws-native:pipes:PipeOnPartialBatchItemFailureStreams": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePlacementConstraint": {
+            "type": "object",
+            "properties": {
+                "expression": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipePlacementConstraintType"
+                }
+            }
+        },
+        "aws-native:pipes:PipePlacementConstraintType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePlacementStrategy": {
+            "type": "object",
+            "properties": {
+                "field": {
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:pipes:PipePlacementStrategyType"
+                }
+            }
+        },
+        "aws-native:pipes:PipePlacementStrategyType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipePropagateTags": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeQueryStringParametersMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeRequestedPipeState": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeSageMakerPipelineParameter": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationCredentials": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationVpc": {
+            "type": "object",
+            "properties": {
+                "securityGroup": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SecurityGroupId."
+                },
+                "subnets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SubnetId."
+                }
+            }
+        },
+        "aws-native:pipes:PipeSelfManagedKafkaStartPosition": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeSourceActiveMQBrokerParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "queueName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceDynamoDBStreamParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws-native:pipes:PipeDeadLetterConfig"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "onPartialBatchItemFailure": {
+                    "$ref": "#/types/aws-native:pipes:PipeOnPartialBatchItemFailureStreams"
+                },
+                "parallelizationFactor": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeDynamoDBStreamStartPosition"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceKinesisStreamParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "deadLetterConfig": {
+                    "$ref": "#/types/aws-native:pipes:PipeDeadLetterConfig"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRecordAgeInSeconds": {
+                    "type": "integer"
+                },
+                "maximumRetryAttempts": {
+                    "type": "integer"
+                },
+                "onPartialBatchItemFailure": {
+                    "$ref": "#/types/aws-native:pipes:PipeOnPartialBatchItemFailureStreams"
+                },
+                "parallelizationFactor": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeKinesisStreamStartPosition"
+                },
+                "startingPositionTimestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceManagedStreamingKafkaParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "consumerGroupID": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMSKAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeMSKStartPosition"
+                },
+                "topicName": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceParameters": {
+            "type": "object",
+            "properties": {
+                "activeMQBrokerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceActiveMQBrokerParameters"
+                },
+                "dynamoDBStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceDynamoDBStreamParameters"
+                },
+                "filterCriteria": {
+                    "$ref": "#/types/aws-native:pipes:PipeFilterCriteria"
+                },
+                "kinesisStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceKinesisStreamParameters"
+                },
+                "managedStreamingKafkaParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceManagedStreamingKafkaParameters"
+                },
+                "rabbitMQBrokerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceRabbitMQBrokerParameters"
+                },
+                "selfManagedKafkaParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceSelfManagedKafkaParameters"
+                },
+                "sqsQueueParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeSourceSqsQueueParameters"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceRabbitMQBrokerParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeMQBrokerAccessCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "queueName": {
+                    "type": "string"
+                },
+                "virtualHost": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceSelfManagedKafkaParameters": {
+            "type": "object",
+            "properties": {
+                "additionalBootstrapServers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "batchSize": {
+                    "type": "integer"
+                },
+                "consumerGroupID": {
+                    "type": "string"
+                },
+                "credentials": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationCredentials"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                },
+                "serverRootCaCertificate": {
+                    "type": "string",
+                    "description": "Optional SecretManager ARN which stores the database credentials"
+                },
+                "startingPosition": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaStartPosition"
+                },
+                "topicName": {
+                    "type": "string"
+                },
+                "vpc": {
+                    "$ref": "#/types/aws-native:pipes:PipeSelfManagedKafkaAccessConfigurationVpc"
+                }
+            }
+        },
+        "aws-native:pipes:PipeSourceSqsQueueParameters": {
+            "type": "object",
+            "properties": {
+                "batchSize": {
+                    "type": "integer"
+                },
+                "maximumBatchingWindowInSeconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:pipes:PipeState": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTagMap": {
+            "type": "object"
+        },
+        "aws-native:pipes:PipeTargetBatchJobParameters": {
+            "type": "object",
+            "properties": {
+                "arrayProperties": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchArrayProperties"
+                },
+                "containerOverrides": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchContainerOverrides"
+                },
+                "dependsOn": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeBatchJobDependency"
+                    }
+                },
+                "jobDefinition": {
+                    "type": "string"
+                },
+                "jobName": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchParametersMap"
+                },
+                "retryStrategy": {
+                    "$ref": "#/types/aws-native:pipes:PipeBatchRetryStrategy"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetCloudWatchLogsParameters": {
+            "type": "object",
+            "properties": {
+                "logStreamName": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetEcsTaskParameters": {
+            "type": "object",
+            "properties": {
+                "capacityProviderStrategy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeCapacityProviderStrategyItem"
+                    }
+                },
+                "enableECSManagedTags": {
+                    "type": "boolean"
+                },
+                "enableExecuteCommand": {
+                    "type": "boolean"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "launchType": {
+                    "$ref": "#/types/aws-native:pipes:PipeLaunchType"
+                },
+                "networkConfiguration": {
+                    "$ref": "#/types/aws-native:pipes:PipeNetworkConfiguration"
+                },
+                "overrides": {
+                    "$ref": "#/types/aws-native:pipes:PipeEcsTaskOverride"
+                },
+                "placementConstraints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipePlacementConstraint"
+                    }
+                },
+                "placementStrategy": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipePlacementStrategy"
+                    }
+                },
+                "platformVersion": {
+                    "type": "string"
+                },
+                "propagateTags": {
+                    "$ref": "#/types/aws-native:pipes:PipePropagateTags"
+                },
+                "referenceId": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeTag"
+                    }
+                },
+                "taskCount": {
+                    "type": "integer"
+                },
+                "taskDefinitionArn": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetEventBridgeEventBusParameters": {
+            "type": "object",
+            "properties": {
+                "detailType": {
+                    "type": "string"
+                },
+                "endpointId": {
+                    "type": "string"
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "source": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetHttpParameters": {
+            "type": "object",
+            "properties": {
+                "headerParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeHeaderParametersMap"
+                },
+                "pathParameterValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "queryStringParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeQueryStringParametersMap"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetInvocationType": {
+            "type": "string"
+        },
+        "aws-native:pipes:PipeTargetKinesisStreamParameters": {
+            "type": "object",
+            "properties": {
+                "partitionKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetLambdaFunctionParameters": {
+            "type": "object",
+            "properties": {
+                "invocationType": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetInvocationType"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetParameters": {
+            "type": "object",
+            "properties": {
+                "batchJobParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetBatchJobParameters"
+                },
+                "cloudWatchLogsParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetCloudWatchLogsParameters"
+                },
+                "ecsTaskParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetEcsTaskParameters"
+                },
+                "eventBridgeEventBusParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetEventBridgeEventBusParameters"
+                },
+                "httpParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetHttpParameters"
+                },
+                "inputTemplate": {
+                    "type": "string"
+                },
+                "kinesisStreamParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetKinesisStreamParameters"
+                },
+                "lambdaFunctionParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetLambdaFunctionParameters"
+                },
+                "redshiftDataParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetRedshiftDataParameters"
+                },
+                "sageMakerPipelineParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetSageMakerPipelineParameters"
+                },
+                "sqsQueueParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetSqsQueueParameters"
+                },
+                "stepFunctionStateMachineParameters": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetStateMachineParameters"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetRedshiftDataParameters": {
+            "type": "object",
+            "properties": {
+                "database": {
+                    "type": "string",
+                    "description": "Redshift Database"
+                },
+                "dbUser": {
+                    "type": "string",
+                    "description": "Database user name"
+                },
+                "secretManagerArn": {
+                    "type": "string",
+                    "description": "Optional SecretManager ARN which stores the database credentials"
+                },
+                "sqls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of SQLs."
+                },
+                "statementName": {
+                    "type": "string",
+                    "description": "A name for Redshift DataAPI statement which can be used as filter of ListStatement."
+                },
+                "withEvent": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetSageMakerPipelineParameters": {
+            "type": "object",
+            "properties": {
+                "pipelineParameterList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:pipes:PipeSageMakerPipelineParameter"
+                    }
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetSqsQueueParameters": {
+            "type": "object",
+            "properties": {
+                "messageDeduplicationId": {
+                    "type": "string"
+                },
+                "messageGroupId": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:pipes:PipeTargetStateMachineParameters": {
+            "type": "object",
+            "properties": {
+                "invocationType": {
+                    "$ref": "#/types/aws-native:pipes:PipeTargetInvocationType"
                 }
             }
         },
@@ -85766,6 +87324,9 @@
                 }
             }
         },
+        "aws-native:sagemaker:FeatureGroupTableFormat": {
+            "type": "string"
+        },
         "aws-native:sagemaker:FeatureGroupTag": {
             "type": "object",
             "properties": {
@@ -87731,6 +89292,9 @@
                 },
                 "s3StorageConfig": {
                     "$ref": "#/types/aws-native:sagemaker:FeatureGroupS3StorageConfig"
+                },
+                "tableFormat": {
+                    "$ref": "#/types/aws-native:sagemaker:FeatureGroupTableFormat"
                 }
             }
         },
@@ -89060,11 +90624,44 @@
                 }
             }
         },
+        "aws-native:ssmincidents:ResponsePlanIntegration": {
+            "type": "object",
+            "properties": {
+                "pagerDutyConfiguration": {
+                    "$ref": "#/types/aws-native:ssmincidents:ResponsePlanPagerDutyConfiguration"
+                }
+            }
+        },
         "aws-native:ssmincidents:ResponsePlanNotificationTargetItem": {
             "type": "object",
             "properties": {
                 "snsTopicArn": {
                     "type": "string"
+                }
+            }
+        },
+        "aws-native:ssmincidents:ResponsePlanPagerDutyConfiguration": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the pagerDuty configuration."
+                },
+                "pagerDutyIncidentConfiguration": {
+                    "$ref": "#/types/aws-native:ssmincidents:ResponsePlanPagerDutyIncidentConfiguration"
+                },
+                "secretId": {
+                    "type": "string",
+                    "description": "The AWS secrets manager secretId storing the pagerDuty token."
+                }
+            }
+        },
+        "aws-native:ssmincidents:ResponsePlanPagerDutyIncidentConfiguration": {
+            "type": "object",
+            "properties": {
+                "serviceId": {
+                    "type": "string",
+                    "description": "The pagerDuty serviceId."
                 }
             }
         },
@@ -92033,6 +93630,12 @@
                 "resourceId"
             ]
         },
+        "aws-native:apigateway:getRestApi": {
+            "cf": "AWS::ApiGateway::RestApi",
+            "ids": [
+                "restApiId"
+            ]
+        },
         "aws-native:apigateway:getStage": {
             "cf": "AWS::ApiGateway::Stage",
             "ids": [
@@ -92609,6 +94212,12 @@
                 "quickConnectArn"
             ]
         },
+        "aws-native:connect:getRule": {
+            "cf": "AWS::Connect::Rule",
+            "ids": [
+                "ruleArn"
+            ]
+        },
         "aws-native:connect:getTaskTemplate": {
             "cf": "AWS::Connect::TaskTemplate",
             "ids": [
@@ -93143,7 +94752,7 @@
         "aws-native:ec2:getVolume": {
             "cf": "AWS::EC2::Volume",
             "ids": [
-                "volumeId"
+                "id"
             ]
         },
         "aws-native:ecr:getRegistryPolicy": {
@@ -94673,6 +96282,12 @@
             "cf": "AWS::Pinpoint::InAppTemplate",
             "ids": [
                 "templateName"
+            ]
+        },
+        "aws-native:pipes:getPipe": {
+            "cf": "AWS::Pipes::Pipe",
+            "ids": [
+                "name"
             ]
         },
         "aws-native:qldb:getStream": {

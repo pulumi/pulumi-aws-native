@@ -64,7 +64,7 @@
         "EncryptionAlgorithm" : {
           "type" : "string",
           "description" : "Encryption algorithm for this AS2 connector configuration.",
-          "enum" : [ "AES128_CBC", "AES192_CBC", "AES256_CBC" ]
+          "enum" : [ "AES128_CBC", "AES192_CBC", "AES256_CBC", "NONE" ]
         },
         "SigningAlgorithm" : {
           "type" : "string",

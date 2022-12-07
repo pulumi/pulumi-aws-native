@@ -145,6 +145,55 @@
       "type" : "string",
       "enum" : [ "INCIDENT_RECORD_ARN", "INVOLVED_RESOURCES" ]
     },
+    "Integration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PagerDutyConfiguration" : {
+          "$ref" : "#/definitions/PagerDutyConfiguration"
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "PagerDutyConfiguration" ]
+      } ]
+    },
+    "PagerDutyConfiguration" : {
+      "description" : "The pagerDuty configuration to use when starting the incident.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "required" : [ "Name", "SecretId", "PagerDutyIncidentConfiguration" ],
+      "properties" : {
+        "Name" : {
+          "description" : "The name of the pagerDuty configuration.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 200
+        },
+        "SecretId" : {
+          "description" : "The AWS secrets manager secretId storing the pagerDuty token.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 512
+        },
+        "PagerDutyIncidentConfiguration" : {
+          "$ref" : "#/definitions/PagerDutyIncidentConfiguration"
+        }
+      }
+    },
+    "PagerDutyIncidentConfiguration" : {
+      "description" : "The pagerDuty incident configuration.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ServiceId" : {
+          "description" : "The pagerDuty serviceId.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 200
+        }
+      },
+      "required" : [ "ServiceId" ]
+    },
     "Tag" : {
       "description" : "A key-value pair to tag a resource.",
       "additionalProperties" : false,
@@ -281,6 +330,17 @@
         "$ref" : "#/definitions/Action"
       }
     },
+    "Integrations" : {
+      "description" : "The list of integrations.",
+      "type" : "array",
+      "default" : [ ],
+      "uniqueItems" : true,
+      "insertionOrder" : true,
+      "maxItems" : 1,
+      "items" : {
+        "$ref" : "#/definitions/Integration"
+      }
+    },
     "Tags" : {
       "description" : "The tags to apply to the response plan.",
       "type" : "array",
@@ -304,13 +364,13 @@
   "taggable" : true,
   "handlers" : {
     "create" : {
-      "permissions" : [ "ssm-incidents:CreateResponsePlan", "iam:PassRole" ]
+      "permissions" : [ "ssm-incidents:CreateResponsePlan", "iam:PassRole", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey*" ]
     },
     "read" : {
       "permissions" : [ "ssm-incidents:GetResponsePlan", "ssm-incidents:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "ssm-incidents:UpdateResponsePlan", "iam:PassRole", "ssm-incidents:TagResource", "ssm-incidents:UntagResource", "ssm-incidents:ListTagsForResource" ]
+      "permissions" : [ "ssm-incidents:UpdateResponsePlan", "iam:PassRole", "ssm-incidents:TagResource", "ssm-incidents:UntagResource", "ssm-incidents:ListTagsForResource", "secretsmanager:GetSecretValue", "kms:Decrypt", "kms:GenerateDataKey*" ]
     },
     "delete" : {
       "permissions" : [ "ssm-incidents:DeleteResponsePlan" ]
