@@ -1,5 +1,29 @@
 ## HEAD (Unreleased)
 
+## 0.44.0 (December 7, 2022)
+
+Breaking changes:
+
+- Resource "aws-native:ec2:Volume" removed output "volumeId"
+- Resource "aws-native:elasticloadbalancingv2:TargetGroup" removed output "targetGroupArn"
+- Function "aws-native:batch:getComputeEnvironment" removed output "updatePolicy"
+- Function "aws-native:elasticloadbalancingv2:getTargetGroup" removed output "targetGroupArn"
+- Function "aws-native:ec2:getVolume" removed input "volumeId"
+- Function "aws-native:ec2:getVolume" removed output "volumeId"
+
+New resources:
+
+- `apigateway.RestApi`
+- `connect.Rule`
+- `ec2.NetworkPerformanceMetricSubscription`
+- `pipes.Pipe`
+
+New functions:
+
+- `apigateway.getRestApi`
+- `connect.getRule`
+- `pipes.getPipe`
+
 ## 0.43.0 (November 30, 2022)
 
 - Add Lambda Functions `SnapStart`
