@@ -147,6 +147,7 @@ func readJsonSchema(schemaPath string) jsschema.Schema {
 }
 
 const supportedResourcesFile = "supported-types.txt"
+const deprecatedResourcesFile = "deprecated-types.txt"
 
 func readSupportedResourceTypes(outDir string) []string {
 	path := filepath.Join(outDir, supportedResourcesFile)
@@ -158,9 +159,6 @@ func readSupportedResourceTypes(outDir string) []string {
 }
 
 func writeSupportedResourceTypes(outDir string) error {
-	supported := readSupportedResourceTypes(outDir)
-	supportedSet := codegen.NewStringSet(supported...)
-
 	cfg, err := config.LoadDefaultConfig(ctx.Background())
 	cfg.Region = "us-west-2"
 	if err != nil {
@@ -169,6 +167,7 @@ func writeSupportedResourceTypes(outDir string) error {
 
 	cfn := cloudformation.NewFromConfig(cfg)
 
+	supported := codegen.NewStringSet()
 	for _, provisioningType := range []types.ProvisioningType{types.ProvisioningTypeFullyMutable, types.ProvisioningTypeImmutable} {
 		var nextToken *string
 		for {
@@ -182,7 +181,7 @@ func writeSupportedResourceTypes(outDir string) error {
 			}
 
 			for _, r := range out.TypeSummaries {
-				supportedSet.Add(*r.TypeName)
+				supported.Add(*r.TypeName)
 			}
 			nextToken = out.NextToken
 			if nextToken == nil {
@@ -191,8 +190,19 @@ func writeSupportedResourceTypes(outDir string) error {
 		}
 	}
 
-	val := strings.Join(supportedSet.SortedValues(), "\n")
-	return emitFile(outDir, supportedResourcesFile, []byte(val))
+	// Load existing supported resources, check which are no longer supported,
+	// but don't remove support automatically - maintain previously supported list.
+	previouslySupported := codegen.NewStringSet(readSupportedResourceTypes(outDir)...)
+	noLongerSupported := previouslySupported.Subtract(supported)
+	unsupportedContent := strings.Join(noLongerSupported.SortedValues(), "\n")
+	err = emitFile(outDir, deprecatedResourcesFile, []byte(unsupportedContent))
+	if err != nil {
+		return err
+	}
+
+	stillSupported := supported.Union(previouslySupported)
+	supportedContent := strings.Join(stillSupported.SortedValues(), "\n")
+	return emitFile(outDir, supportedResourcesFile, []byte(supportedContent))
 }
 
 func downloadCloudFormationSchemas(urls []string, outDir string) error {
