@@ -687,6 +687,7 @@ Lacework::Alerts::Channel
 Lacework::Alerts::Profile
 Lacework::Alerts::Rule
 Lacework::Queries::Query
+MongoDB::Atlas::Cluster
 MongoDB::Atlas::Project
 MongoDb::Atlas::AwsIamDatabaseUser
 Okta::Application::Application
