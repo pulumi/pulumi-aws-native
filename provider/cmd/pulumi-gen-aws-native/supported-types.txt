@@ -208,6 +208,7 @@ AWS::EC2::TransitGatewayPeeringAttachment
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEndpoint
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNGateway
@@ -280,6 +281,7 @@ AWS::Glue::Registry
 AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
+AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
 AWS::GroundStation::Config
@@ -687,7 +689,12 @@ Lacework::Alerts::Channel
 Lacework::Alerts::Profile
 Lacework::Alerts::Rule
 Lacework::Queries::Query
+MongoDB::Atlas::Cluster
+MongoDB::Atlas::DatabaseUser
+MongoDB::Atlas::NetworkContainer
+MongoDB::Atlas::NetworkPeering
 MongoDB::Atlas::Project
+MongoDB::Atlas::ProjectIpAccessList
 MongoDb::Atlas::AwsIamDatabaseUser
 Okta::Application::Application
 Okta::Group::Group

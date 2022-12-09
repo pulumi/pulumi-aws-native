@@ -5050,6 +5050,9 @@
             "createOnly": [
                 "backupVaultName",
                 "encryptionKeyArn"
+            ],
+            "writeOnly": [
+                "lockConfiguration/ChangeableForDays"
             ]
         },
         "aws-native:backup:Framework": {
@@ -5080,8 +5083,8 @@
             },
             "outputs": {
                 "creationTime": {
-                    "type": "number",
-                    "description": "The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM."
+                    "type": "string",
+                    "description": "The date and time that a framework is created, in ISO 8601 representation. The value of CreationTime is accurate to milliseconds. For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind UTC."
                 },
                 "deploymentStatus": {
                     "type": "string",
@@ -15243,6 +15246,103 @@
             ],
             "createOnly": [
                 "dhcpOptionsId",
+                "vpcId"
+            ]
+        },
+        "aws-native:ec2:VPCEndpoint": {
+            "cf": "AWS::EC2::VPCEndpoint",
+            "inputs": {
+                "policyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean"
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcEndpointType": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "creationTimestamp": {
+                    "type": "string"
+                },
+                "dnsEntries": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "networkInterfaceIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "policyDocument": {
+                    "$ref": "pulumi.json#/Any"
+                },
+                "privateDnsEnabled": {
+                    "type": "boolean"
+                },
+                "routeTableIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "vpcEndpointType": {
+                    "type": "string"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "serviceName",
+                "vpcId"
+            ],
+            "createOnly": [
+                "serviceName",
+                "vpcEndpointType",
                 "vpcId"
             ]
         },
@@ -34792,6 +34892,279 @@
                 "name"
             ]
         },
+        "aws-native:opensearchserverless:AccessPolicy": {
+            "cf": "AWS::OpenSearchServerless::AccessPolicy",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:AccessPolicyType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:AccessPolicyType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "type"
+            ]
+        },
+        "aws-native:opensearchserverless:Collection": {
+            "cf": "AWS::OpenSearchServerless::Collection",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the collection"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the collection.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchserverless:CollectionTag"
+                    },
+                    "description": "List of tags to be added to the resource"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:CollectionType"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the collection."
+                },
+                "collectionEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint for the collection."
+                },
+                "dashboardEndpoint": {
+                    "type": "string",
+                    "description": "The OpenSearch Dashboards endpoint for the collection."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the collection"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the collection.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchserverless:CollectionTag"
+                    },
+                    "description": "List of tags to be added to the resource"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:CollectionType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "tags",
+                "type"
+            ],
+            "writeOnly": [
+                "tags"
+            ]
+        },
+        "aws-native:opensearchserverless:SecurityConfig": {
+            "cf": "AWS::OpenSearchServerless::SecurityConfig",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Security config description"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of the security config"
+                },
+                "samlOptions": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigSamlConfigOptions"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Security config description"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of the security config"
+                },
+                "samlOptions": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigSamlConfigOptions"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "type"
+            ],
+            "writeOnly": [
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:SecurityPolicy": {
+            "cf": "AWS::OpenSearchServerless::SecurityPolicy",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityPolicyType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityPolicyType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "required": [
+                "policy"
+            ],
+            "createOnly": [
+                "name",
+                "type"
+            ]
+        },
+        "aws-native:opensearchserverless:VpcEndpoint": {
+            "cf": "AWS::OpenSearchServerless::VpcEndpoint",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VPC Endpoint"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VPC Endpoint"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "required": [
+                "vpcId"
+            ],
+            "createOnly": [
+                "name",
+                "vpcId"
+            ]
+        },
         "aws-native:opensearchservice:Domain": {
             "cf": "AWS::OpenSearchService::Domain",
             "inputs": {
@@ -53793,13 +54166,13 @@
             "type": "object",
             "properties": {
                 "changeableForDays": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "maxRetentionDays": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "minRetentionDays": {
-                    "type": "number"
+                    "type": "integer"
                 }
             }
         },
@@ -53923,12 +54296,33 @@
         "aws-native:backup:ReportSettingProperties": {
             "type": "object",
             "properties": {
+                "accounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS accounts that a report covers."
+                },
                 "frameworkArns": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "The Amazon Resource Names (ARNs) of the frameworks a report covers."
+                },
+                "organizationUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS organization units that a report covers."
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS regions that a report covers."
                 },
                 "reportTemplate": {
                     "type": "string",
@@ -80000,6 +80394,52 @@
         "aws-native:oam:LinkResourceType": {
             "type": "string"
         },
+        "aws-native:opensearchserverless:AccessPolicyType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:CollectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key in the key-value pair"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value in the key-value pair"
+                }
+            }
+        },
+        "aws-native:opensearchserverless:CollectionType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:SecurityConfigSamlConfigOptions": {
+            "type": "object",
+            "properties": {
+                "groupAttribute": {
+                    "type": "string",
+                    "description": "Group attribute for this saml integration"
+                },
+                "metadata": {
+                    "type": "string",
+                    "description": "The XML saml provider metadata document that you want to use"
+                },
+                "sessionTimeout": {
+                    "type": "integer",
+                    "description": "Defines the session timeout in minutes"
+                },
+                "userAttribute": {
+                    "type": "string",
+                    "description": "Custom attribute for this saml integration"
+                }
+            }
+        },
+        "aws-native:opensearchserverless:SecurityConfigType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:SecurityPolicyType": {
+            "type": "string"
+        },
         "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
             "type": "object",
             "properties": {
@@ -94141,7 +94581,8 @@
         "aws-native:configuration:getAggregationAuthorization": {
             "cf": "AWS::Config::AggregationAuthorization",
             "ids": [
-                "aggregationAuthorizationArn"
+                "authorizedAccountId",
+                "authorizedAwsRegion"
             ]
         },
         "aws-native:configuration:getConfigurationAggregator": {
@@ -94729,6 +95170,12 @@
             "ids": [
                 "dhcpOptionsId",
                 "vpcId"
+            ]
+        },
+        "aws-native:ec2:getVPCEndpoint": {
+            "cf": "AWS::EC2::VPCEndpoint",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:ec2:getVPCPeeringConnection": {
@@ -96202,6 +96649,38 @@
             "cf": "AWS::Oam::Sink",
             "ids": [
                 "arn"
+            ]
+        },
+        "aws-native:opensearchserverless:getAccessPolicy": {
+            "cf": "AWS::OpenSearchServerless::AccessPolicy",
+            "ids": [
+                "type",
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:getCollection": {
+            "cf": "AWS::OpenSearchServerless::Collection",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:opensearchserverless:getSecurityConfig": {
+            "cf": "AWS::OpenSearchServerless::SecurityConfig",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:opensearchserverless:getSecurityPolicy": {
+            "cf": "AWS::OpenSearchServerless::SecurityPolicy",
+            "ids": [
+                "type",
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:getVpcEndpoint": {
+            "cf": "AWS::OpenSearchServerless::VpcEndpoint",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:opensearchservice:getDomain": {
