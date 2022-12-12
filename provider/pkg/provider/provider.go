@@ -78,6 +78,8 @@ func makeCancellationContext() *cancellationContext {
 }
 
 type cfnProvider struct {
+	pulumirpc.UnimplementedResourceProviderServer
+
 	host     *provider.HostClient
 	name     string
 	canceler *cancellationContext
