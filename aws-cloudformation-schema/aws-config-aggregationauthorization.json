@@ -54,7 +54,7 @@
   "required" : [ "AuthorizedAccountId", "AuthorizedAwsRegion" ],
   "readOnlyProperties" : [ "/properties/AggregationAuthorizationArn" ],
   "createOnlyProperties" : [ "/properties/AuthorizedAccountId", "/properties/AuthorizedAwsRegion" ],
-  "primaryIdentifier" : [ "/properties/AggregationAuthorizationArn" ],
+  "primaryIdentifier" : [ "/properties/AuthorizedAccountId", "/properties/AuthorizedAwsRegion" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "config:DescribeAggregationAuthorizations", "config:PutAggregationAuthorization", "config:TagResource" ]

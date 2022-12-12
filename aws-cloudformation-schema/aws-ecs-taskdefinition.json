@@ -531,6 +531,9 @@
         "ContainerPort" : {
           "type" : "integer"
         },
+        "ContainerPortRange" : {
+          "type" : "string"
+        },
         "HostPort" : {
           "type" : "integer"
         },
