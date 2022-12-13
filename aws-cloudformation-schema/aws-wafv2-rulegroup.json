@@ -335,6 +335,9 @@
         },
         "CaptchaConfig" : {
           "$ref" : "#/definitions/CaptchaConfig"
+        },
+        "ChallengeConfig" : {
+          "$ref" : "#/definitions/ChallengeConfig"
         }
       },
       "required" : [ "Name", "Priority", "Statement", "VisibilityConfig" ],
@@ -376,6 +379,16 @@
         },
         "Captcha" : {
           "description" : "Checks valid token exists with request.",
+          "type" : "object",
+          "properties" : {
+            "CustomRequestHandling" : {
+              "$ref" : "#/definitions/CustomRequestHandling"
+            }
+          },
+          "additionalProperties" : false
+        },
+        "Challenge" : {
+          "description" : "Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.",
           "type" : "object",
           "properties" : {
             "CustomRequestHandling" : {
@@ -788,6 +801,15 @@
       },
       "additionalProperties" : false
     },
+    "ChallengeConfig" : {
+      "type" : "object",
+      "properties" : {
+        "ImmunityTimeProperty" : {
+          "$ref" : "#/definitions/ImmunityTimeProperty"
+        }
+      },
+      "additionalProperties" : false
+    },
     "ImmunityTimeProperty" : {
       "type" : "object",
       "properties" : {
@@ -987,7 +1009,7 @@
   "required" : [ "Capacity", "Scope", "VisibilityConfig" ],
   "primaryIdentifier" : [ "/properties/Name", "/properties/Id", "/properties/Scope" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Scope" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/LabelNamespace", "/properties/AvailableLabels", "/properties/ConsumedLabels" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/LabelNamespace", "/properties/AvailableLabels/*/Name", "/properties/ConsumedLabels/*/Name" ],
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
