@@ -239,7 +239,7 @@
     "MultiMeasureAttributeMappingMeasureValueType" : {
       "description" : "Value type of the measure value column to be read from the query result.",
       "type" : "string",
-      "enum" : [ "BIGINT", "BOOLEAN", "DOUBLE", "VARCHAR" ]
+      "enum" : [ "BIGINT", "BOOLEAN", "DOUBLE", "VARCHAR", "TIMESTAMP" ]
     },
     "TargetMultiMeasureAttributeName" : {
       "description" : "Custom name to be used for attribute name in derived table. If not provided, source column name would be used.",
