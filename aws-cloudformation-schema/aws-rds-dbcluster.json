@@ -69,6 +69,10 @@
       "description" : "The name of the DB parameter group to apply to all instances of the DB cluster.",
       "type" : "string"
     },
+    "DBSystemId" : {
+      "description" : "Reserved for future use.",
+      "type" : "string"
+    },
     "GlobalClusterIdentifier" : {
       "description" : "If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.\n\nIf you aren't configuring a global database cluster, don't specify this property.",
       "type" : "string",
@@ -328,6 +332,10 @@
           "description" : "The minimum capacity for an Aurora DB cluster in serverless DB engine mode.\nFor Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.\nFor Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.\nThe minimum capacity must be less than or equal to the maximum capacity.",
           "type" : "integer"
         },
+        "SecondsBeforeTimeout" : {
+          "description" : "The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.\nThe default is 300.",
+          "type" : "integer"
+        },
         "SecondsUntilAutoPause" : {
           "description" : "The time, in seconds, before an Aurora DB cluster in serverless mode is paused.",
           "type" : "integer"
@@ -368,7 +376,7 @@
     "/properties/SourceDBClusterIdentifier" : "$lowercase(SourceDBClusterIdentifier)"
   },
   "readOnlyProperties" : [ "/properties/DBClusterArn", "/properties/DBClusterResourceId", "/properties/Endpoint", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReadEndpoint/Port", "/properties/ReadEndpoint/Address" ],
-  "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DatabaseName", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
+  "createOnlyProperties" : [ "/properties/AvailabilityZones", "/properties/DBClusterIdentifier", "/properties/DBSubnetGroupName", "/properties/DatabaseName", "/properties/DBSystemId", "/properties/EngineMode", "/properties/KmsKeyId", "/properties/PubliclyAccessible", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/StorageEncrypted", "/properties/UseLatestRestorableTime" ],
   "conditionalCreateOnlyProperties" : [ "/properties/Engine", "/properties/GlobalClusterIdentifier", "/properties/MasterUsername" ],
   "primaryIdentifier" : [ "/properties/DBClusterIdentifier" ],
   "writeOnlyProperties" : [ "/properties/DBInstanceParameterGroupName", "/properties/MasterUserPassword", "/properties/RestoreType", "/properties/SnapshotIdentifier", "/properties/SourceDBClusterIdentifier", "/properties/SourceRegion", "/properties/UseLatestRestorableTime" ],

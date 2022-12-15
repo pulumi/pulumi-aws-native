@@ -5050,6 +5050,9 @@
             "createOnly": [
                 "backupVaultName",
                 "encryptionKeyArn"
+            ],
+            "writeOnly": [
+                "lockConfiguration/ChangeableForDays"
             ]
         },
         "aws-native:backup:Framework": {
@@ -5080,8 +5083,8 @@
             },
             "outputs": {
                 "creationTime": {
-                    "type": "number",
-                    "description": "The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM."
+                    "type": "string",
+                    "description": "The date and time that a framework is created, in ISO 8601 representation. The value of CreationTime is accurate to milliseconds. For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind UTC."
                 },
                 "deploymentStatus": {
                     "type": "string",
@@ -7797,6 +7800,108 @@
                 "owner",
                 "tags",
                 "type"
+            ]
+        },
+        "aws-native:codepipeline:CustomActionType": {
+            "cf": "AWS::CodePipeline::CustomActionType",
+            "inputs": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the custom action, such as a build action or a test action."
+                },
+                "configurationProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:codepipeline:CustomActionTypeConfigurationProperties"
+                    },
+                    "description": "The configuration properties for the custom action."
+                },
+                "inputArtifactDetails": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeArtifactDetails",
+                    "description": "The details of the input artifact for the action, such as its commit ID."
+                },
+                "outputArtifactDetails": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeArtifactDetails",
+                    "description": "The details of the output artifact of the action, such as its commit ID."
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "The provider of the service used in the custom action, such as AWS CodeDeploy."
+                },
+                "settings": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeSettings",
+                    "description": "URLs that provide users information about this custom action."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:codepipeline:CustomActionTypeTag"
+                    },
+                    "description": "Any tags assigned to the custom action."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version identifier of the custom action."
+                }
+            },
+            "outputs": {
+                "category": {
+                    "type": "string",
+                    "description": "The category of the custom action, such as a build action or a test action."
+                },
+                "configurationProperties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:codepipeline:CustomActionTypeConfigurationProperties"
+                    },
+                    "description": "The configuration properties for the custom action."
+                },
+                "inputArtifactDetails": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeArtifactDetails",
+                    "description": "The details of the input artifact for the action, such as its commit ID."
+                },
+                "outputArtifactDetails": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeArtifactDetails",
+                    "description": "The details of the output artifact of the action, such as its commit ID."
+                },
+                "provider": {
+                    "type": "string",
+                    "description": "The provider of the service used in the custom action, such as AWS CodeDeploy."
+                },
+                "settings": {
+                    "$ref": "#/types/aws-native:codepipeline:CustomActionTypeSettings",
+                    "description": "URLs that provide users information about this custom action."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:codepipeline:CustomActionTypeTag"
+                    },
+                    "description": "Any tags assigned to the custom action."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "The version identifier of the custom action."
+                }
+            },
+            "required": [
+                "category",
+                "inputArtifactDetails",
+                "outputArtifactDetails",
+                "provider",
+                "version"
+            ],
+            "createOnly": [
+                "category",
+                "configurationProperties",
+                "inputArtifactDetails",
+                "outputArtifactDetails",
+                "provider",
+                "settings",
+                "version"
+            ],
+            "writeOnly": [
+                "configurationProperties/*/Type"
             ]
         },
         "aws-native:codestarconnections:Connection": {
@@ -11827,6 +11932,121 @@
             },
             "required": [
                 "resourceCollectionFilter"
+            ]
+        },
+        "aws-native:docdbelastic:Cluster": {
+            "cf": "AWS::DocDBElastic::Cluster",
+            "inputs": {
+                "adminUserName": {
+                    "type": "string"
+                },
+                "adminUserPassword": {
+                    "type": "string"
+                },
+                "authType": {
+                    "type": "string"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string"
+                },
+                "shardCapacity": {
+                    "type": "integer"
+                },
+                "shardCount": {
+                    "type": "integer"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:docdbelastic:ClusterTag"
+                    }
+                },
+                "vpcSecurityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "outputs": {
+                "adminUserName": {
+                    "type": "string"
+                },
+                "adminUserPassword": {
+                    "type": "string"
+                },
+                "authType": {
+                    "type": "string"
+                },
+                "clusterArn": {
+                    "type": "string"
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                },
+                "preferredMaintenanceWindow": {
+                    "type": "string"
+                },
+                "shardCapacity": {
+                    "type": "integer"
+                },
+                "shardCount": {
+                    "type": "integer"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:docdbelastic:ClusterTag"
+                    }
+                },
+                "vpcSecurityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "clusterName",
+                "minLength": 1,
+                "maxLength": 50
+            },
+            "required": [
+                "adminUserName",
+                "authType",
+                "shardCapacity",
+                "shardCount"
+            ],
+            "createOnly": [
+                "adminUserName",
+                "authType",
+                "clusterName",
+                "kmsKeyId",
+                "preferredMaintenanceWindow"
+            ],
+            "writeOnly": [
+                "adminUserPassword"
             ]
         },
         "aws-native:dynamodb:GlobalTable": {
@@ -16641,6 +16861,10 @@
                     "type": "string",
                     "description": "Name of Cluster"
                 },
+                "configurationValues": {
+                    "type": "string",
+                    "description": "The configuration values to use with the add-on"
+                },
                 "resolveConflicts": {
                     "$ref": "#/types/aws-native:eks:AddonResolveConflicts",
                     "description": "Resolve parameter value conflicts"
@@ -16673,6 +16897,10 @@
                 "clusterName": {
                     "type": "string",
                     "description": "Name of Cluster"
+                },
+                "configurationValues": {
+                    "type": "string",
+                    "description": "The configuration values to use with the add-on"
                 },
                 "resolveConflicts": {
                     "$ref": "#/types/aws-native:eks:AddonResolveConflicts",
@@ -17568,6 +17796,94 @@
                 "sourceBundle"
             ]
         },
+        "aws-native:elasticbeanstalk:ConfigurationTemplate": {
+            "cf": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+            "inputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk application to associate with this configuration template. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description for this configuration."
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. "
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:ConfigurationTemplateConfigurationOptionSetting"
+                    },
+                    "description": "Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. "
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. "
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.\n\n You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.\n\n Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. "
+                },
+                "sourceConfiguration": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:ConfigurationTemplateSourceConfiguration",
+                    "description": "An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.\n\nValues specified in OptionSettings override any values obtained from the SourceConfiguration.\n\nYou must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.\n\nConstraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. "
+                }
+            },
+            "outputs": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the Elastic Beanstalk application to associate with this configuration template. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description for this configuration."
+                },
+                "environmentId": {
+                    "type": "string",
+                    "description": "The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration. "
+                },
+                "optionSettings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elasticbeanstalk:ConfigurationTemplateConfigurationOptionSetting"
+                    },
+                    "description": "Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. "
+                },
+                "platformArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide. "
+                },
+                "solutionStackName": {
+                    "type": "string",
+                    "description": "The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.\n\n You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.\n\n Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks. "
+                },
+                "sourceConfiguration": {
+                    "$ref": "#/types/aws-native:elasticbeanstalk:ConfigurationTemplateSourceConfiguration",
+                    "description": "An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.\n\nValues specified in OptionSettings override any values obtained from the SourceConfiguration.\n\nYou must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.\n\nConstraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name. "
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the configuration template"
+                }
+            },
+            "required": [
+                "applicationName"
+            ],
+            "createOnly": [
+                "applicationName",
+                "environmentId",
+                "platformArn",
+                "solutionStackName",
+                "sourceConfiguration"
+            ],
+            "writeOnly": [
+                "environmentId",
+                "sourceConfiguration/ApplicationName",
+                "sourceConfiguration/TemplateName"
+            ]
+        },
         "aws-native:elasticbeanstalk:Environment": {
             "cf": "AWS::ElasticBeanstalk::Environment",
             "inputs": {
@@ -17857,150 +18173,195 @@
             "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
             "inputs": {
                 "healthCheckEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
                 },
                 "healthCheckIntervalSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
                 },
                 "healthCheckPath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
                 },
                 "healthCheckPort": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The port the load balancer uses when performing health checks on targets. "
                 },
                 "healthCheckProtocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The protocol the load balancer uses when performing health checks on targets. "
                 },
                 "healthCheckTimeoutSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
                 },
                 "healthyThresholdCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
                 },
                 "ipAddressType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
                 },
                 "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
+                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
+                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the target group."
                 },
                 "port": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
                 },
                 "protocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The protocol to use for routing traffic to the targets."
                 },
                 "protocolVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
+                    },
+                    "description": "The tags."
                 },
                 "targetGroupAttributes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
+                    },
+                    "description": "The attributes."
                 },
                 "targetType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
                 },
                 "targets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
+                    },
+                    "description": "The targets."
                 },
                 "unhealthyThresholdCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
                 }
             },
             "outputs": {
                 "healthCheckEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled."
                 },
                 "healthCheckIntervalSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The approximate amount of time, in seconds, between health checks of an individual target."
                 },
                 "healthCheckPath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "[HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck."
                 },
                 "healthCheckPort": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The port the load balancer uses when performing health checks on targets. "
                 },
                 "healthCheckProtocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The protocol the load balancer uses when performing health checks on targets. "
                 },
                 "healthCheckTimeoutSeconds": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The amount of time, in seconds, during which no response from a target means a failed health check."
                 },
                 "healthyThresholdCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of consecutive health checks successes required before considering an unhealthy target healthy. "
                 },
                 "ipAddressType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of IP address used for this target group. The possible values are ipv4 and ipv6. "
                 },
                 "loadBalancerArns": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group."
                 },
                 "matcher": {
-                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher"
+                    "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupMatcher",
+                    "description": "[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the target group."
                 },
                 "port": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081."
                 },
                 "protocol": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The protocol to use for routing traffic to the targets."
                 },
                 "protocolVersion": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "[HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2."
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTag"
-                    }
+                    },
+                    "description": "The tags."
+                },
+                "targetGroupArn": {
+                    "type": "string",
+                    "description": "The ARN of the Target Group"
                 },
                 "targetGroupAttributes": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupAttribute"
-                    }
+                    },
+                    "description": "The attributes."
                 },
                 "targetGroupFullName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The full name of the target group."
                 },
                 "targetGroupName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the target group."
                 },
                 "targetType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type."
                 },
                 "targets": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:elasticloadbalancingv2:TargetGroupTargetDescription"
-                    }
+                    },
+                    "description": "The targets."
                 },
                 "unhealthyThresholdCount": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of consecutive health check failures required before considering a target unhealthy."
                 },
                 "vpcId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply."
                 }
             },
             "autoNamingSpec": {
@@ -21080,6 +21441,170 @@
                 "key",
                 "schemaVersionId",
                 "value"
+            ]
+        },
+        "aws-native:grafana:Workspace": {
+            "cf": "AWS::Grafana::Workspace",
+            "inputs": {
+                "accountAccessType": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceAccountAccessType"
+                },
+                "authenticationProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceAuthenticationProviderTypes"
+                    },
+                    "description": "List of authentication providers to enable."
+                },
+                "clientToken": {
+                    "type": "string",
+                    "description": "A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceDataSourceType"
+                    },
+                    "description": "List of data sources on the service managed IAM role."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of a workspace."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The user friendly name of a workspace."
+                },
+                "notificationDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceNotificationDestinationType"
+                    },
+                    "description": "List of notification destinations on the customers service managed IAM role that the Grafana workspace can query."
+                },
+                "organizationRoleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization."
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Organizational Units containing AWS accounts the Grafana workspace can pull data from."
+                },
+                "permissionType": {
+                    "$ref": "#/types/aws-native:grafana:WorkspacePermissionType"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources."
+                },
+                "samlConfiguration": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceSamlConfiguration"
+                },
+                "stackSetName": {
+                    "type": "string",
+                    "description": "The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace."
+                }
+            },
+            "outputs": {
+                "accountAccessType": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceAccountAccessType"
+                },
+                "authenticationProviders": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceAuthenticationProviderTypes"
+                    },
+                    "description": "List of authentication providers to enable."
+                },
+                "clientToken": {
+                    "type": "string",
+                    "description": "A unique, case-sensitive, user-provided identifier to ensure the idempotency of the request."
+                },
+                "creationTimestamp": {
+                    "type": "string",
+                    "description": "Timestamp when the workspace was created."
+                },
+                "dataSources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceDataSourceType"
+                    },
+                    "description": "List of data sources on the service managed IAM role."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of a workspace."
+                },
+                "endpoint": {
+                    "type": "string",
+                    "description": "Endpoint for the Grafana workspace."
+                },
+                "grafanaVersion": {
+                    "type": "string",
+                    "description": "Version of Grafana the workspace is currently using."
+                },
+                "modificationTimestamp": {
+                    "type": "string",
+                    "description": "Timestamp when the workspace was last modified"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The user friendly name of a workspace."
+                },
+                "notificationDestinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:grafana:WorkspaceNotificationDestinationType"
+                    },
+                    "description": "List of notification destinations on the customers service managed IAM role that the Grafana workspace can query."
+                },
+                "organizationRoleName": {
+                    "type": "string",
+                    "description": "The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization."
+                },
+                "organizationalUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of Organizational Units containing AWS accounts the Grafana workspace can pull data from."
+                },
+                "permissionType": {
+                    "$ref": "#/types/aws-native:grafana:WorkspacePermissionType"
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources."
+                },
+                "samlConfiguration": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceSamlConfiguration"
+                },
+                "samlConfigurationStatus": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceSamlConfigurationStatus"
+                },
+                "ssoClientId": {
+                    "type": "string",
+                    "description": "The client ID of the AWS SSO Managed Application."
+                },
+                "stackSetName": {
+                    "type": "string",
+                    "description": "The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceStatus"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "clientToken"
+            ],
+            "writeOnly": [
+                "clientToken"
             ]
         },
         "aws-native:greengrassv2:ComponentVersion": {
@@ -25586,6 +26111,72 @@
                 "workspaceId"
             ]
         },
+        "aws-native:iottwinmaker:SyncJob": {
+            "cf": "AWS::IoTTwinMaker::SyncJob",
+            "inputs": {
+                "syncRole": {
+                    "type": "string",
+                    "description": "The IAM Role that execute SyncJob."
+                },
+                "syncSource": {
+                    "type": "string",
+                    "description": "The source of the SyncJob."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the SyncJob."
+                },
+                "creationDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the sync job was created."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of SyncJob."
+                },
+                "syncRole": {
+                    "type": "string",
+                    "description": "The IAM Role that execute SyncJob."
+                },
+                "syncSource": {
+                    "type": "string",
+                    "description": "The source of the SyncJob."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A key-value pair to associate with a resource."
+                },
+                "updateDateTime": {
+                    "type": "string",
+                    "description": "The date and time when the sync job was updated."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The ID of the workspace."
+                }
+            },
+            "required": [
+                "syncRole",
+                "syncSource",
+                "workspaceId"
+            ],
+            "createOnly": [
+                "syncRole",
+                "syncSource",
+                "tags",
+                "workspaceId"
+            ]
+        },
         "aws-native:iottwinmaker:Workspace": {
             "cf": "AWS::IoTTwinMaker::Workspace",
             "inputs": {
@@ -27968,6 +28559,10 @@
                     },
                     "description": "(ActiveMQ) A list of ActiveMQ queues."
                 },
+                "scalingConfig": {
+                    "$ref": "#/types/aws-native:lambda:EventSourceMappingScalingConfig",
+                    "description": "The scaling configuration for the event source."
+                },
                 "selfManagedEventSource": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingSelfManagedEventSource",
                     "description": "Self-managed event source endpoints."
@@ -28065,6 +28660,10 @@
                         "type": "string"
                     },
                     "description": "(ActiveMQ) A list of ActiveMQ queues."
+                },
+                "scalingConfig": {
+                    "$ref": "#/types/aws-native:lambda:EventSourceMappingScalingConfig",
+                    "description": "The scaling configuration for the event source."
                 },
                 "selfManagedEventSource": {
                     "$ref": "#/types/aws-native:lambda:EventSourceMappingSelfManagedEventSource",
@@ -30772,6 +31371,10 @@
                 "engineType": {
                     "$ref": "#/types/aws-native:m2:ApplicationEngineType"
                 },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources."
+                },
                 "name": {
                     "type": "string"
                 },
@@ -30795,6 +31398,10 @@
                 "engineType": {
                     "$ref": "#/types/aws-native:m2:ApplicationEngineType"
                 },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources."
+                },
                 "name": {
                     "type": "string"
                 },
@@ -30811,6 +31418,7 @@
             ],
             "createOnly": [
                 "engineType",
+                "kmsKeyId",
                 "name"
             ],
             "writeOnly": [
@@ -30837,6 +31445,10 @@
                 "instanceType": {
                     "type": "string",
                     "description": "The type of instance underlying the environment."
+                },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources."
                 },
                 "name": {
                     "type": "string",
@@ -30903,6 +31515,10 @@
                     "type": "string",
                     "description": "The type of instance underlying the environment."
                 },
+                "kmsKeyId": {
+                    "type": "string",
+                    "description": "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources."
+                },
                 "name": {
                     "type": "string",
                     "description": "The name of the environment."
@@ -30951,6 +31567,7 @@
             "createOnly": [
                 "description",
                 "engineType",
+                "kmsKeyId",
                 "name",
                 "publiclyAccessible",
                 "securityGroupIds",
@@ -31760,6 +32377,10 @@
                     "$ref": "#/types/aws-native:mediapackage:ChannelLogConfiguration",
                     "description": "The configuration parameters for egress access logging."
                 },
+                "hlsIngest": {
+                    "$ref": "#/types/aws-native:mediapackage:ChannelHlsIngest",
+                    "description": "An HTTP Live Streaming (HLS) ingest resource configuration."
+                },
                 "ingressAccessLogs": {
                     "$ref": "#/types/aws-native:mediapackage:ChannelLogConfiguration",
                     "description": "The configuration parameters for egress access logging."
@@ -31787,7 +32408,7 @@
                 },
                 "hlsIngest": {
                     "$ref": "#/types/aws-native:mediapackage:ChannelHlsIngest",
-                    "description": "A short text description of the Channel."
+                    "description": "An HTTP Live Streaming (HLS) ingest resource configuration."
                 },
                 "ingressAccessLogs": {
                     "$ref": "#/types/aws-native:mediapackage:ChannelLogConfiguration",
@@ -34792,6 +35413,279 @@
                 "name"
             ]
         },
+        "aws-native:opensearchserverless:AccessPolicy": {
+            "cf": "AWS::OpenSearchServerless::AccessPolicy",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:AccessPolicyType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:AccessPolicyType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "type"
+            ]
+        },
+        "aws-native:opensearchserverless:Collection": {
+            "cf": "AWS::OpenSearchServerless::Collection",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the collection"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the collection.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchserverless:CollectionTag"
+                    },
+                    "description": "List of tags to be added to the resource"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:CollectionType"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the collection."
+                },
+                "collectionEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint for the collection."
+                },
+                "dashboardEndpoint": {
+                    "type": "string",
+                    "description": "The OpenSearch Dashboards endpoint for the collection."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the collection"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the collection.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:opensearchserverless:CollectionTag"
+                    },
+                    "description": "List of tags to be added to the resource"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:CollectionType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "tags",
+                "type"
+            ],
+            "writeOnly": [
+                "tags"
+            ]
+        },
+        "aws-native:opensearchserverless:SecurityConfig": {
+            "cf": "AWS::OpenSearchServerless::SecurityConfig",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Security config description"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of the security config"
+                },
+                "samlOptions": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigSamlConfigOptions"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "Security config description"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The friendly name of the security config"
+                },
+                "samlOptions": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigSamlConfigOptions"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityConfigType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "createOnly": [
+                "name",
+                "type"
+            ],
+            "writeOnly": [
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:SecurityPolicy": {
+            "cf": "AWS::OpenSearchServerless::SecurityPolicy",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityPolicyType"
+                }
+            },
+            "outputs": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the policy"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the policy"
+                },
+                "policy": {
+                    "type": "string",
+                    "description": "The JSON policy document that is the content for the policy"
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:opensearchserverless:SecurityPolicyType"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "required": [
+                "policy"
+            ],
+            "createOnly": [
+                "name",
+                "type"
+            ]
+        },
+        "aws-native:opensearchserverless:VpcEndpoint": {
+            "cf": "AWS::OpenSearchServerless::VpcEndpoint",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VPC Endpoint"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "outputs": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the VPC Endpoint"
+                },
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more security groups to associate with the endpoint network interface"
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The ID of one or more subnets in which to create an endpoint network interface"
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The ID of the VPC in which the endpoint will be used."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 3,
+                "maxLength": 32
+            },
+            "required": [
+                "vpcId"
+            ],
+            "createOnly": [
+                "name",
+                "vpcId"
+            ]
+        },
         "aws-native:opensearchservice:Domain": {
             "cf": "AWS::OpenSearchService::Domain",
             "inputs": {
@@ -36935,6 +37829,10 @@
                     "type": "string",
                     "description": "A DB subnet group that you want to associate with this DB cluster."
                 },
+                "dBSystemId": {
+                    "type": "string",
+                    "description": "Reserved for future use."
+                },
                 "databaseName": {
                     "type": "string",
                     "description": "The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide."
@@ -37159,6 +38057,10 @@
                     "type": "string",
                     "description": "A DB subnet group that you want to associate with this DB cluster."
                 },
+                "dBSystemId": {
+                    "type": "string",
+                    "description": "Reserved for future use."
+                },
                 "databaseName": {
                     "type": "string",
                     "description": "The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide."
@@ -37327,6 +38229,7 @@
                 "availabilityZones",
                 "dBClusterIdentifier",
                 "dBSubnetGroupName",
+                "dBSystemId",
                 "databaseName",
                 "engineMode",
                 "kmsKeyId",
@@ -37464,6 +38367,10 @@
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
+                },
+                "dBClusterSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .\n\nConstraints:\n * Must match the identifier of an existing Multi-AZ DB cluster snapshot.\n * Can't be specified when DBSnapshotIdentifier is specified.\n * Must be specified when DBSnapshotIdentifier isn't specified.\n * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.\n * Can't be the identifier of an Aurora DB cluster snapshot.\n * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot."
                 },
                 "dBInstanceClass": {
                     "type": "string",
@@ -37626,9 +38533,21 @@
                     "type": "string",
                     "description": "The open mode of an Oracle read replica. The default is open-read-only."
                 },
+                "restoreTime": {
+                    "type": "string",
+                    "description": "The date and time to restore from."
+                },
+                "sourceDBInstanceAutomatedBackupsArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the replicated automated backups from which to restore."
+                },
                 "sourceDBInstanceIdentifier": {
                     "type": "string",
                     "description": "If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas."
+                },
+                "sourceDbiResourceId": {
+                    "type": "string",
+                    "description": "The resource ID of the source DB instance from which to restore."
                 },
                 "sourceRegion": {
                     "type": "string",
@@ -37668,6 +38587,10 @@
                 "useDefaultProcessorFeatures": {
                     "type": "boolean",
                     "description": "A value that indicates whether the DB instance class of the DB instance uses its default processor features."
+                },
+                "useLatestRestorableTime": {
+                    "type": "boolean",
+                    "description": "A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time."
                 },
                 "vPCSecurityGroups": {
                     "type": "array",
@@ -37724,6 +38647,10 @@
                 "dBClusterIdentifier": {
                     "type": "string",
                     "description": "The identifier of the DB cluster that the instance will belong to."
+                },
+                "dBClusterSnapshotIdentifier": {
+                    "type": "string",
+                    "description": "The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .\n\nConstraints:\n * Must match the identifier of an existing Multi-AZ DB cluster snapshot.\n * Can't be specified when DBSnapshotIdentifier is specified.\n * Must be specified when DBSnapshotIdentifier isn't specified.\n * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.\n * Can't be the identifier of an Aurora DB cluster snapshot.\n * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot."
                 },
                 "dBInstanceArn": {
                     "type": "string",
@@ -37894,9 +38821,21 @@
                     "type": "string",
                     "description": "The open mode of an Oracle read replica. The default is open-read-only."
                 },
+                "restoreTime": {
+                    "type": "string",
+                    "description": "The date and time to restore from."
+                },
+                "sourceDBInstanceAutomatedBackupsArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the replicated automated backups from which to restore."
+                },
                 "sourceDBInstanceIdentifier": {
                     "type": "string",
                     "description": "If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas."
+                },
+                "sourceDbiResourceId": {
+                    "type": "string",
+                    "description": "The resource ID of the source DB instance from which to restore."
                 },
                 "sourceRegion": {
                     "type": "string",
@@ -37937,6 +38876,10 @@
                     "type": "boolean",
                     "description": "A value that indicates whether the DB instance class of the DB instance uses its default processor features."
                 },
+                "useLatestRestorableTime": {
+                    "type": "boolean",
+                    "description": "A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time."
+                },
                 "vPCSecurityGroups": {
                     "type": "array",
                     "items": {
@@ -37964,9 +38907,13 @@
                 "dBSnapshotIdentifier",
                 "masterUserPassword",
                 "port",
+                "restoreTime",
+                "sourceDBInstanceAutomatedBackupsArn",
                 "sourceDBInstanceIdentifier",
+                "sourceDbiResourceId",
                 "sourceRegion",
-                "tdeCredentialPassword"
+                "tdeCredentialPassword",
+                "useLatestRestorableTime"
             ]
         },
         "aws-native:rds:DBParameterGroup": {
@@ -38742,7 +39689,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request"
+                    "description": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request"
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -38949,7 +39896,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request"
+                    "description": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request"
                 },
                 "kmsKeyId": {
                     "type": "string",
@@ -41421,6 +42368,13 @@
         "aws-native:route53recoverycontrol:Cluster": {
             "cf": "AWS::Route53RecoveryControl::Cluster",
             "inputs": {
+                "clusterEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:route53recoverycontrol:ClusterEndpoint"
+                    },
+                    "description": "Endpoints for the cluster."
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of a Cluster. You can use any non-white space character in the name"
@@ -46610,6 +47564,13 @@
                         "$ref": "#/types/aws-native:ssmincidents:ReplicationSetReplicationRegion"
                     },
                     "description": "The ReplicationSet configuration."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ReplicationSetTag"
+                    },
+                    "description": "The tags to apply to the replication set."
                 }
             },
             "outputs": {
@@ -46626,6 +47587,13 @@
                         "$ref": "#/types/aws-native:ssmincidents:ReplicationSetReplicationRegion"
                     },
                     "description": "The ReplicationSet configuration."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:ssmincidents:ReplicationSetTag"
+                    },
+                    "description": "The tags to apply to the replication set."
                 }
             },
             "required": [
@@ -48382,8 +49350,22 @@
         "aws-native:wafv2:RuleGroup": {
             "cf": "AWS::WAFv2::RuleGroup",
             "inputs": {
+                "availableLabels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupLabelSummary"
+                    },
+                    "description": "Collection of Available Labels."
+                },
                 "capacity": {
                     "type": "integer"
+                },
+                "consumedLabels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:RuleGroupLabelSummary"
+                    },
+                    "description": "Collection of Consumed Labels."
                 },
                 "customResponseBodies": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupCustomResponseBodies"
@@ -48486,6 +49468,9 @@
                 "captchaConfig": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
                 },
+                "challengeConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLChallengeConfig"
+                },
                 "customResponseBodies": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCustomResponseBodies"
                 },
@@ -48514,6 +49499,12 @@
                         "$ref": "#/types/aws-native:wafv2:WebACLTag"
                     }
                 },
+                "tokenDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "visibilityConfig": {
                     "$ref": "#/types/aws-native:wafv2:WebACLVisibilityConfig"
                 }
@@ -48527,6 +49518,9 @@
                 },
                 "captchaConfig": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
+                },
+                "challengeConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLChallengeConfig"
                 },
                 "customResponseBodies": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCustomResponseBodies"
@@ -48557,6 +49551,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:wafv2:WebACLTag"
+                    }
+                },
+                "tokenDomains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
                 },
                 "visibilityConfig": {
@@ -53793,13 +54793,13 @@
             "type": "object",
             "properties": {
                 "changeableForDays": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "maxRetentionDays": {
-                    "type": "number"
+                    "type": "integer"
                 },
                 "minRetentionDays": {
-                    "type": "number"
+                    "type": "integer"
                 }
             }
         },
@@ -53923,12 +54923,33 @@
         "aws-native:backup:ReportSettingProperties": {
             "type": "object",
             "properties": {
+                "accounts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS accounts that a report covers."
+                },
                 "frameworkArns": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
                     "description": "The Amazon Resource Names (ARNs) of the frameworks a report covers."
+                },
+                "organizationUnits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS organization units that a report covers."
+                },
+                "regions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of AWS regions that a report covers."
                 },
                 "reportTemplate": {
                     "type": "string",
@@ -56005,6 +57026,84 @@
         },
         "aws-native:codegurureviewer:RepositoryAssociationType": {
             "type": "string"
+        },
+        "aws-native:codepipeline:CustomActionTypeArtifactDetails": {
+            "type": "object",
+            "properties": {
+                "maximumCount": {
+                    "type": "integer",
+                    "description": "The maximum number of artifacts allowed for the action type."
+                },
+                "minimumCount": {
+                    "type": "integer",
+                    "description": "The minimum number of artifacts allowed for the action type."
+                }
+            }
+        },
+        "aws-native:codepipeline:CustomActionTypeConfigurationProperties": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "The description of the action configuration property that is displayed to users. "
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Whether the configuration property is a key."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the action configuration property."
+                },
+                "queryable": {
+                    "type": "boolean",
+                    "description": "Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. "
+                },
+                "required": {
+                    "type": "boolean",
+                    "description": "Whether the configuration property is a required value."
+                },
+                "secret": {
+                    "type": "boolean",
+                    "description": "Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the configuration property."
+                }
+            }
+        },
+        "aws-native:codepipeline:CustomActionTypeSettings": {
+            "type": "object",
+            "properties": {
+                "entityUrlTemplate": {
+                    "type": "string",
+                    "description": "The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. "
+                },
+                "executionUrlTemplate": {
+                    "type": "string",
+                    "description": "The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. "
+                },
+                "revisionUrlTemplate": {
+                    "type": "string",
+                    "description": "The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. "
+                },
+                "thirdPartyConfigurationUrl": {
+                    "type": "string",
+                    "description": "The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service."
+                }
+            }
+        },
+        "aws-native:codepipeline:CustomActionTypeTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:codestarconnections:ConnectionTag": {
             "type": "object",
@@ -59021,6 +60120,17 @@
         },
         "aws-native:devopsguru:ResourceCollectionType": {
             "type": "string"
+        },
+        "aws-native:docdbelastic:ClusterTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:dynamodb:GlobalTableAttributeDefinition": {
             "type": "object",
@@ -62154,6 +63264,23 @@
                 }
             }
         },
+        "aws-native:ecs:ServiceDeploymentAlarms": {
+            "type": "object",
+            "properties": {
+                "alarmNames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enable": {
+                    "type": "boolean"
+                },
+                "rollback": {
+                    "type": "boolean"
+                }
+            }
+        },
         "aws-native:ecs:ServiceDeploymentCircuitBreaker": {
             "type": "object",
             "properties": {
@@ -62168,6 +63295,9 @@
         "aws-native:ecs:ServiceDeploymentConfiguration": {
             "type": "object",
             "properties": {
+                "alarms": {
+                    "$ref": "#/types/aws-native:ecs:ServiceDeploymentAlarms"
+                },
                 "deploymentCircuitBreaker": {
                     "$ref": "#/types/aws-native:ecs:ServiceDeploymentCircuitBreaker"
                 },
@@ -62770,6 +63900,9 @@
                 },
                 "containerPort": {
                     "type": "integer"
+                },
+                "containerPortRange": {
+                    "type": "string"
                 },
                 "hostPort": {
                     "type": "integer"
@@ -63599,6 +64732,40 @@
                 }
             }
         },
+        "aws-native:elasticbeanstalk:ConfigurationTemplateConfigurationOptionSetting": {
+            "type": "object",
+            "properties": {
+                "namespace": {
+                    "type": "string",
+                    "description": "A unique namespace that identifies the option's associated AWS resource."
+                },
+                "optionName": {
+                    "type": "string",
+                    "description": "The name of the configuration option."
+                },
+                "resourceName": {
+                    "type": "string",
+                    "description": "A unique resource name for the option setting. Use it for a time–based scaling configuration option. "
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The current value for the configuration option."
+                }
+            }
+        },
+        "aws-native:elasticbeanstalk:ConfigurationTemplateSourceConfiguration": {
+            "type": "object",
+            "properties": {
+                "applicationName": {
+                    "type": "string",
+                    "description": "The name of the application associated with the configuration."
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "The name of the configuration template."
+                }
+            }
+        },
         "aws-native:elasticbeanstalk:EnvironmentOptionSetting": {
             "type": "object",
             "properties": {
@@ -64118,10 +65285,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value of the attribute."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the attribute."
                 }
             }
         },
@@ -64129,10 +65298,12 @@
             "type": "object",
             "properties": {
                 "grpcCode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12."
                 },
                 "httpCode": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. "
                 }
             }
         },
@@ -64140,10 +65311,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. "
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. "
                 }
             }
         },
@@ -64151,13 +65324,16 @@
             "type": "object",
             "properties": {
                 "availabilityZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer."
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. "
                 },
                 "port": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function."
                 }
             }
         },
@@ -65981,6 +67157,113 @@
                     "description": "Name of the schema. This parameter requires RegistryName to be provided."
                 }
             }
+        },
+        "aws-native:grafana:WorkspaceAccountAccessType": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspaceAssertionAttributes": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users email in Grafana."
+                },
+                "groups": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users groups in Grafana."
+                },
+                "login": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users login handle in Grafana."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users name in Grafana."
+                },
+                "org": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users organizations in Grafana."
+                },
+                "role": {
+                    "type": "string",
+                    "description": "Name of the attribute within the SAML assert to use as the users roles in Grafana."
+                }
+            }
+        },
+        "aws-native:grafana:WorkspaceAuthenticationProviderTypes": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspaceDataSourceType": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspaceIdpMetadata": {
+            "type": "object",
+            "properties": {
+                "url": {
+                    "type": "string",
+                    "description": "URL that vends the IdPs metadata."
+                },
+                "xml": {
+                    "type": "string",
+                    "description": "XML blob of the IdPs metadata."
+                }
+            }
+        },
+        "aws-native:grafana:WorkspaceNotificationDestinationType": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspacePermissionType": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspaceRoleValues": {
+            "type": "object",
+            "properties": {
+                "admin": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SAML roles which will be mapped into the Grafana Admin role."
+                },
+                "editor": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SAML roles which will be mapped into the Grafana Editor role."
+                }
+            }
+        },
+        "aws-native:grafana:WorkspaceSamlConfiguration": {
+            "type": "object",
+            "properties": {
+                "allowedOrganizations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of SAML organizations allowed to access Grafana."
+                },
+                "assertionAttributes": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceAssertionAttributes"
+                },
+                "idpMetadata": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceIdpMetadata"
+                },
+                "loginValidityDuration": {
+                    "type": "number",
+                    "description": "The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate."
+                },
+                "roleValues": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceRoleValues"
+                }
+            }
+        },
+        "aws-native:grafana:WorkspaceSamlConfigurationStatus": {
+            "type": "string"
+        },
+        "aws-native:grafana:WorkspaceStatus": {
+            "type": "string"
         },
         "aws-native:greengrassv2:ComponentVersionComponentPlatform": {
             "type": "object",
@@ -74865,6 +76148,15 @@
                 }
             }
         },
+        "aws-native:lambda:EventSourceMappingScalingConfig": {
+            "type": "object",
+            "properties": {
+                "maximumConcurrency": {
+                    "type": "integer",
+                    "description": "The maximum number of concurrent functions that the event source can invoke."
+                }
+            }
+        },
         "aws-native:lambda:EventSourceMappingSelfManagedEventSource": {
             "type": "object",
             "properties": {
@@ -77352,12 +78644,32 @@
         "aws-native:mediaconnect:FlowFailoverConfig": {
             "type": "object",
             "properties": {
+                "failoverMode": {
+                    "$ref": "#/types/aws-native:mediaconnect:FlowFailoverConfigFailoverMode",
+                    "description": "The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams."
+                },
                 "recoveryWindow": {
                     "type": "integer",
                     "description": "Search window time to look for dash-7 packets"
                 },
+                "sourcePriority": {
+                    "$ref": "#/types/aws-native:mediaconnect:FlowFailoverConfigSourcePriorityProperties",
+                    "description": "The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams."
+                },
                 "state": {
                     "$ref": "#/types/aws-native:mediaconnect:FlowFailoverConfigState"
+                }
+            }
+        },
+        "aws-native:mediaconnect:FlowFailoverConfigFailoverMode": {
+            "type": "string"
+        },
+        "aws-native:mediaconnect:FlowFailoverConfigSourcePriorityProperties": {
+            "type": "object",
+            "properties": {
+                "primarySource": {
+                    "type": "string",
+                    "description": "The name of the source you choose as the primary source for this flow."
                 }
             }
         },
@@ -77444,7 +78756,15 @@
                 },
                 "protocol": {
                     "$ref": "#/types/aws-native:mediaconnect:FlowSourceProtocol",
-                    "description": "The protocol that is used by the source or output."
+                    "description": "The protocol that is used by the source."
+                },
+                "senderControlPort": {
+                    "type": "integer",
+                    "description": "The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol."
+                },
+                "senderIpAddress": {
+                    "type": "string",
+                    "description": "The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol."
                 },
                 "sourceArn": {
                     "type": "string",
@@ -77453,6 +78773,14 @@
                 "sourceIngestPort": {
                     "type": "string",
                     "description": "The port that the flow will be listening on for incoming content.(ReadOnly)"
+                },
+                "sourceListenerAddress": {
+                    "type": "string",
+                    "description": "Source IP or domain name for SRT-caller protocol."
+                },
+                "sourceListenerPort": {
+                    "type": "integer",
+                    "description": "Source port for SRT-caller protocol."
                 },
                 "streamId": {
                     "type": "string",
@@ -79998,6 +81326,52 @@
             "type": "object"
         },
         "aws-native:oam:LinkResourceType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:AccessPolicyType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:CollectionTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key in the key-value pair"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value in the key-value pair"
+                }
+            }
+        },
+        "aws-native:opensearchserverless:CollectionType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:SecurityConfigSamlConfigOptions": {
+            "type": "object",
+            "properties": {
+                "groupAttribute": {
+                    "type": "string",
+                    "description": "Group attribute for this saml integration"
+                },
+                "metadata": {
+                    "type": "string",
+                    "description": "The XML saml provider metadata document that you want to use"
+                },
+                "sessionTimeout": {
+                    "type": "integer",
+                    "description": "Defines the session timeout in minutes"
+                },
+                "userAttribute": {
+                    "type": "string",
+                    "description": "Custom attribute for this saml integration"
+                }
+            }
+        },
+        "aws-native:opensearchserverless:SecurityConfigType": {
+            "type": "string"
+        },
+        "aws-native:opensearchserverless:SecurityPolicyType": {
             "type": "string"
         },
         "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
@@ -83219,6 +84593,10 @@
                 "minCapacity": {
                     "type": "integer",
                     "description": "The minimum capacity for an Aurora DB cluster in serverless DB engine mode.\nFor Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.\nFor Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.\nThe minimum capacity must be less than or equal to the maximum capacity."
+                },
+                "secondsBeforeTimeout": {
+                    "type": "integer",
+                    "description": "The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.\nThe default is 300."
                 },
                 "secondsUntilAutoPause": {
                     "type": "integer",
@@ -90551,6 +91929,17 @@
                 }
             }
         },
+        "aws-native:ssmincidents:ReplicationSetTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:ssmincidents:ResponsePlanAction": {
             "type": "object",
             "properties": {
@@ -91821,6 +93210,14 @@
                 }
             }
         },
+        "aws-native:wafv2:RuleGroupChallengeConfig": {
+            "type": "object",
+            "properties": {
+                "immunityTimeProperty": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupImmunityTimeProperty"
+                }
+            }
+        },
         "aws-native:wafv2:RuleGroupCookieMatchPattern": {
             "type": "object",
             "properties": {
@@ -92215,6 +93612,9 @@
                 "captchaConfig": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupCaptchaConfig"
                 },
+                "challengeConfig": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupChallengeConfig"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -92251,6 +93651,10 @@
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCaptchaProperties",
                     "description": "Checks valid token exists with request."
                 },
+                "challenge": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionChallengeProperties",
+                    "description": "Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client."
+                },
                 "count": {
                     "$ref": "#/types/aws-native:wafv2:RuleGroupRuleActionCountProperties",
                     "description": "Count traffic towards application."
@@ -92274,6 +93678,14 @@
             }
         },
         "aws-native:wafv2:RuleGroupRuleActionCaptchaProperties": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:RuleGroupCustomRequestHandling"
+                }
+            }
+        },
+        "aws-native:wafv2:RuleGroupRuleActionChallengeProperties": {
             "type": "object",
             "properties": {
                 "customRequestHandling": {
@@ -92432,6 +93844,17 @@
                 }
             }
         },
+        "aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSet": {
+            "type": "object",
+            "properties": {
+                "inspectionLevel": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSetInspectionLevel"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSetInspectionLevel": {
+            "type": "string"
+        },
         "aws-native:wafv2:WebACLAllowAction": {
             "type": "object",
             "properties": {
@@ -92502,6 +93925,22 @@
             }
         },
         "aws-native:wafv2:WebACLCaptchaConfig": {
+            "type": "object",
+            "properties": {
+                "immunityTimeProperty": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLImmunityTimeProperty"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLChallengeAction": {
+            "type": "object",
+            "properties": {
+                "customRequestHandling": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLCustomRequestHandling"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLChallengeConfig": {
             "type": "object",
             "properties": {
                 "immunityTimeProperty": {
@@ -92842,6 +94281,9 @@
         "aws-native:wafv2:WebACLManagedRuleGroupConfig": {
             "type": "object",
             "properties": {
+                "aWSManagedRulesBotControlRuleSet": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLAWSManagedRulesBotControlRuleSet"
+                },
                 "loginPath": {
                     "type": "string"
                 },
@@ -92877,6 +94319,13 @@
                 },
                 "name": {
                     "type": "string"
+                },
+                "ruleActionOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:WebACLRuleActionOverride"
+                    },
+                    "description": "Action overrides for rules in the rule group."
                 },
                 "scopeDownStatement": {
                     "$ref": "#/types/aws-native:wafv2:WebACLStatement"
@@ -92993,6 +94442,9 @@
                 "captchaConfig": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCaptchaConfig"
                 },
+                "challengeConfig": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLChallengeConfig"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -93029,8 +94481,22 @@
                 "captcha": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCaptchaAction"
                 },
+                "challenge": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLChallengeAction"
+                },
                 "count": {
                     "$ref": "#/types/aws-native:wafv2:WebACLCountAction"
+                }
+            }
+        },
+        "aws-native:wafv2:WebACLRuleActionOverride": {
+            "type": "object",
+            "properties": {
+                "actionToUse": {
+                    "$ref": "#/types/aws-native:wafv2:WebACLRuleAction"
+                },
+                "name": {
+                    "type": "string"
                 }
             }
         },
@@ -93045,6 +94511,13 @@
                     "items": {
                         "$ref": "#/types/aws-native:wafv2:WebACLExcludedRule"
                     }
+                },
+                "ruleActionOverrides": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:wafv2:WebACLRuleActionOverride"
+                    },
+                    "description": "Action overrides for rules in the rule group."
                 }
             }
         },
@@ -94126,6 +95599,14 @@
                 "associationArn"
             ]
         },
+        "aws-native:codepipeline:getCustomActionType": {
+            "cf": "AWS::CodePipeline::CustomActionType",
+            "ids": [
+                "category",
+                "provider",
+                "version"
+            ]
+        },
         "aws-native:codestarconnections:getConnection": {
             "cf": "AWS::CodeStarConnections::Connection",
             "ids": [
@@ -94141,7 +95622,8 @@
         "aws-native:configuration:getAggregationAuthorization": {
             "cf": "AWS::Config::AggregationAuthorization",
             "ids": [
-                "aggregationAuthorizationArn"
+                "authorizedAccountId",
+                "authorizedAwsRegion"
             ]
         },
         "aws-native:configuration:getConfigurationAggregator": {
@@ -94435,6 +95917,12 @@
             "cf": "AWS::DevOpsGuru::ResourceCollection",
             "ids": [
                 "resourceCollectionType"
+            ]
+        },
+        "aws-native:docdbelastic:getCluster": {
+            "cf": "AWS::DocDBElastic::Cluster",
+            "ids": [
+                "clusterArn"
             ]
         },
         "aws-native:dynamodb:getGlobalTable": {
@@ -94908,6 +96396,13 @@
                 "id"
             ]
         },
+        "aws-native:elasticbeanstalk:getConfigurationTemplate": {
+            "cf": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+            "ids": [
+                "applicationName",
+                "templateName"
+            ]
+        },
         "aws-native:elasticbeanstalk:getEnvironment": {
             "cf": "AWS::ElasticBeanstalk::Environment",
             "ids": [
@@ -94929,7 +96424,7 @@
         "aws-native:elasticloadbalancingv2:getTargetGroup": {
             "cf": "AWS::ElasticLoadBalancingV2::TargetGroup",
             "ids": [
-                "id"
+                "targetGroupArn"
             ]
         },
         "aws-native:emr:getStudio": {
@@ -95154,6 +96649,12 @@
             "cf": "AWS::Glue::SchemaVersion",
             "ids": [
                 "versionId"
+            ]
+        },
+        "aws-native:grafana:getWorkspace": {
+            "cf": "AWS::Grafana::Workspace",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:greengrassv2:getComponentVersion": {
@@ -95538,6 +97039,13 @@
             "ids": [
                 "workspaceId",
                 "sceneId"
+            ]
+        },
+        "aws-native:iottwinmaker:getSyncJob": {
+            "cf": "AWS::IoTTwinMaker::SyncJob",
+            "ids": [
+                "workspaceId",
+                "syncSource"
             ]
         },
         "aws-native:iottwinmaker:getWorkspace": {
@@ -96202,6 +97710,38 @@
             "cf": "AWS::Oam::Sink",
             "ids": [
                 "arn"
+            ]
+        },
+        "aws-native:opensearchserverless:getAccessPolicy": {
+            "cf": "AWS::OpenSearchServerless::AccessPolicy",
+            "ids": [
+                "type",
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:getCollection": {
+            "cf": "AWS::OpenSearchServerless::Collection",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:opensearchserverless:getSecurityConfig": {
+            "cf": "AWS::OpenSearchServerless::SecurityConfig",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:opensearchserverless:getSecurityPolicy": {
+            "cf": "AWS::OpenSearchServerless::SecurityPolicy",
+            "ids": [
+                "type",
+                "name"
+            ]
+        },
+        "aws-native:opensearchserverless:getVpcEndpoint": {
+            "cf": "AWS::OpenSearchServerless::VpcEndpoint",
+            "ids": [
+                "id"
             ]
         },
         "aws-native:opensearchservice:getDomain": {
