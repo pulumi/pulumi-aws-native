@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("captchaConfig")]
         public Output<Outputs.WebACLCaptchaConfig?> CaptchaConfig { get; private set; } = null!;
 
+        [Output("challengeConfig")]
+        public Output<Outputs.WebACLChallengeConfig?> ChallengeConfig { get; private set; } = null!;
+
         [Output("customResponseBodies")]
         public Output<Outputs.WebACLCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.WAFv2
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.WebACLTag>> Tags { get; private set; } = null!;
+
+        [Output("tokenDomains")]
+        public Output<ImmutableArray<string>> TokenDomains { get; private set; } = null!;
 
         [Output("visibilityConfig")]
         public Output<Outputs.WebACLVisibilityConfig> VisibilityConfig { get; private set; } = null!;
@@ -102,6 +108,9 @@ namespace Pulumi.AwsNative.WAFv2
         [Input("captchaConfig")]
         public Input<Inputs.WebACLCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
+        [Input("challengeConfig")]
+        public Input<Inputs.WebACLChallengeConfigArgs>? ChallengeConfig { get; set; }
+
         [Input("customResponseBodies")]
         public Input<Inputs.WebACLCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
 
@@ -135,6 +144,14 @@ namespace Pulumi.AwsNative.WAFv2
         {
             get => _tags ?? (_tags = new InputList<Inputs.WebACLTagArgs>());
             set => _tags = value;
+        }
+
+        [Input("tokenDomains")]
+        private InputList<string>? _tokenDomains;
+        public InputList<string> TokenDomains
+        {
+            get => _tokenDomains ?? (_tokenDomains = new InputList<string>());
+            set => _tokenDomains = value;
         }
 
         [Input("visibilityConfig", required: true)]

@@ -80,7 +80,11 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	Capacity             int                            `pulumi:"capacity"`
+	// Collection of Available Labels.
+	AvailableLabels []RuleGroupLabelSummary `pulumi:"availableLabels"`
+	Capacity        int                     `pulumi:"capacity"`
+	// Collection of Consumed Labels.
+	ConsumedLabels       []RuleGroupLabelSummary        `pulumi:"consumedLabels"`
 	CustomResponseBodies *RuleGroupCustomResponseBodies `pulumi:"customResponseBodies"`
 	Description          *string                        `pulumi:"description"`
 	Name                 *string                        `pulumi:"name"`
@@ -93,7 +97,11 @@ type ruleGroupArgs struct {
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	Capacity             pulumi.IntInput
+	// Collection of Available Labels.
+	AvailableLabels RuleGroupLabelSummaryArrayInput
+	Capacity        pulumi.IntInput
+	// Collection of Consumed Labels.
+	ConsumedLabels       RuleGroupLabelSummaryArrayInput
 	CustomResponseBodies RuleGroupCustomResponseBodiesPtrInput
 	Description          pulumi.StringPtrInput
 	Name                 pulumi.StringPtrInput

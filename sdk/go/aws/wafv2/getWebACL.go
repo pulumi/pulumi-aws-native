@@ -30,6 +30,7 @@ type LookupWebACLResult struct {
 	Arn                  *string                     `pulumi:"arn"`
 	Capacity             *int                        `pulumi:"capacity"`
 	CaptchaConfig        *WebACLCaptchaConfig        `pulumi:"captchaConfig"`
+	ChallengeConfig      *WebACLChallengeConfig      `pulumi:"challengeConfig"`
 	CustomResponseBodies *WebACLCustomResponseBodies `pulumi:"customResponseBodies"`
 	DefaultAction        *WebACLDefaultAction        `pulumi:"defaultAction"`
 	Description          *string                     `pulumi:"description"`
@@ -38,6 +39,7 @@ type LookupWebACLResult struct {
 	// Collection of Rules.
 	Rules            []WebACLRule            `pulumi:"rules"`
 	Tags             []WebACLTag             `pulumi:"tags"`
+	TokenDomains     []string                `pulumi:"tokenDomains"`
 	VisibilityConfig *WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -90,6 +92,10 @@ func (o LookupWebACLResultOutput) CaptchaConfig() WebACLCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v LookupWebACLResult) *WebACLCaptchaConfig { return v.CaptchaConfig }).(WebACLCaptchaConfigPtrOutput)
 }
 
+func (o LookupWebACLResultOutput) ChallengeConfig() WebACLChallengeConfigPtrOutput {
+	return o.ApplyT(func(v LookupWebACLResult) *WebACLChallengeConfig { return v.ChallengeConfig }).(WebACLChallengeConfigPtrOutput)
+}
+
 func (o LookupWebACLResultOutput) CustomResponseBodies() WebACLCustomResponseBodiesPtrOutput {
 	return o.ApplyT(func(v LookupWebACLResult) *WebACLCustomResponseBodies { return v.CustomResponseBodies }).(WebACLCustomResponseBodiesPtrOutput)
 }
@@ -117,6 +123,10 @@ func (o LookupWebACLResultOutput) Rules() WebACLRuleArrayOutput {
 
 func (o LookupWebACLResultOutput) Tags() WebACLTagArrayOutput {
 	return o.ApplyT(func(v LookupWebACLResult) []WebACLTag { return v.Tags }).(WebACLTagArrayOutput)
+}
+
+func (o LookupWebACLResultOutput) TokenDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupWebACLResult) []string { return v.TokenDomains }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupWebACLResultOutput) VisibilityConfig() WebACLVisibilityConfigPtrOutput {

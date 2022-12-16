@@ -86,6 +86,7 @@ namespace Pulumi.AwsNative.WAFv2
         public static LoggingConfigurationConditionActionConditionPropertiesAction Block { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Count { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("COUNT");
         public static LoggingConfigurationConditionActionConditionPropertiesAction Captcha { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA");
+        public static LoggingConfigurationConditionActionConditionPropertiesAction Challenge { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("CHALLENGE");
         public static LoggingConfigurationConditionActionConditionPropertiesAction ExcludedAsCount { get; } = new LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT");
 
         public static bool operator ==(LoggingConfigurationConditionActionConditionPropertiesAction left, LoggingConfigurationConditionActionConditionPropertiesAction right) => left.Equals(right);
@@ -731,6 +732,34 @@ namespace Pulumi.AwsNative.WAFv2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleGroupTextTransformationType other && Equals(other);
         public bool Equals(RuleGroupTextTransformationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WebACLAWSManagedRulesBotControlRuleSetInspectionLevel : IEquatable<WebACLAWSManagedRulesBotControlRuleSetInspectionLevel>
+    {
+        private readonly string _value;
+
+        private WebACLAWSManagedRulesBotControlRuleSetInspectionLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebACLAWSManagedRulesBotControlRuleSetInspectionLevel Common { get; } = new WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON");
+        public static WebACLAWSManagedRulesBotControlRuleSetInspectionLevel Targeted { get; } = new WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("TARGETED");
+
+        public static bool operator ==(WebACLAWSManagedRulesBotControlRuleSetInspectionLevel left, WebACLAWSManagedRulesBotControlRuleSetInspectionLevel right) => left.Equals(right);
+        public static bool operator !=(WebACLAWSManagedRulesBotControlRuleSetInspectionLevel left, WebACLAWSManagedRulesBotControlRuleSetInspectionLevel right) => !left.Equals(right);
+
+        public static explicit operator string(WebACLAWSManagedRulesBotControlRuleSetInspectionLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebACLAWSManagedRulesBotControlRuleSetInspectionLevel other && Equals(other);
+        public bool Equals(WebACLAWSManagedRulesBotControlRuleSetInspectionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

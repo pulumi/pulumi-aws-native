@@ -3,10 +3,23 @@
   "description" : "Resource Type definition for AWS::Route53Resolver::ResolverEndpoint",
   "additionalProperties" : false,
   "properties" : {
+    "IpAddresses" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/IpAddressRequest"
+      }
+    },
     "ResolverEndpointId" : {
       "type" : "string"
     },
     "IpAddressCount" : {
+      "type" : "string"
+    },
+    "OutpostArn" : {
+      "type" : "string"
+    },
+    "PreferredInstanceType" : {
       "type" : "string"
     },
     "Arn" : {
@@ -17,16 +30,6 @@
     },
     "HostVPCId" : {
       "type" : "string"
-    },
-    "Name" : {
-      "type" : "string"
-    },
-    "IpAddresses" : {
-      "type" : "array",
-      "uniqueItems" : false,
-      "items" : {
-        "$ref" : "#/definitions/IpAddressRequest"
-      }
     },
     "SecurityGroupIds" : {
       "type" : "array",
@@ -41,6 +44,9 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "Name" : {
+      "type" : "string"
     }
   },
   "definitions" : {
@@ -61,10 +67,10 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Key" : {
+        "Value" : {
           "type" : "string"
         },
-        "Value" : {
+        "Key" : {
           "type" : "string"
         }
       },
@@ -72,7 +78,7 @@
     }
   },
   "required" : [ "IpAddresses", "Direction", "SecurityGroupIds" ],
-  "readOnlyProperties" : [ "/properties/ResolverEndpointId", "/properties/IpAddressCount", "/properties/Arn", "/properties/HostVPCId" ],
-  "createOnlyProperties" : [ "/properties/Direction", "/properties/SecurityGroupIds" ],
-  "primaryIdentifier" : [ "/properties/ResolverEndpointId" ]
+  "createOnlyProperties" : [ "/properties/OutpostArn", "/properties/Direction", "/properties/SecurityGroupIds", "/properties/PreferredInstanceType" ],
+  "primaryIdentifier" : [ "/properties/ResolverEndpointId" ],
+  "readOnlyProperties" : [ "/properties/ResolverEndpointId", "/properties/IpAddressCount", "/properties/Arn", "/properties/HostVPCId" ]
 }

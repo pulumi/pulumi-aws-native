@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAddonResult:
-    def __init__(__self__, addon_version=None, arn=None, service_account_role_arn=None, tags=None):
+    def __init__(__self__, addon_version=None, arn=None, configuration_values=None, service_account_role_arn=None, tags=None):
         if addon_version and not isinstance(addon_version, str):
             raise TypeError("Expected argument 'addon_version' to be a str")
         pulumi.set(__self__, "addon_version", addon_version)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if configuration_values and not isinstance(configuration_values, str):
+            raise TypeError("Expected argument 'configuration_values' to be a str")
+        pulumi.set(__self__, "configuration_values", configuration_values)
         if service_account_role_arn and not isinstance(service_account_role_arn, str):
             raise TypeError("Expected argument 'service_account_role_arn' to be a str")
         pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
@@ -48,6 +51,14 @@ class GetAddonResult:
         Amazon Resource Name (ARN) of the add-on
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="configurationValues")
+    def configuration_values(self) -> Optional[str]:
+        """
+        The configuration values to use with the add-on
+        """
+        return pulumi.get(self, "configuration_values")
 
     @property
     @pulumi.getter(name="serviceAccountRoleArn")
@@ -74,6 +85,7 @@ class AwaitableGetAddonResult(GetAddonResult):
         return GetAddonResult(
             addon_version=self.addon_version,
             arn=self.arn,
+            configuration_values=self.configuration_values,
             service_account_role_arn=self.service_account_role_arn,
             tags=self.tags)
 
@@ -97,6 +109,7 @@ def get_addon(addon_name: Optional[str] = None,
     return AwaitableGetAddonResult(
         addon_version=__ret__.addon_version,
         arn=__ret__.arn,
+        configuration_values=__ret__.configuration_values,
         service_account_role_arn=__ret__.service_account_role_arn,
         tags=__ret__.tags)
 

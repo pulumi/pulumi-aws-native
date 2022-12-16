@@ -41,12 +41,12 @@ export class RuleGroup extends pulumi.CustomResource {
     /**
      * Collection of Available Labels.
      */
-    public /*out*/ readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
+    public readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
     public readonly capacity!: pulumi.Output<number>;
     /**
      * Collection of Consumed Labels.
      */
-    public /*out*/ readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
+    public readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[] | undefined>;
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBodies | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
@@ -79,7 +79,9 @@ export class RuleGroup extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
+            resourceInputs["availableLabels"] = args ? args.availableLabels : undefined;
             resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["consumedLabels"] = args ? args.consumedLabels : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -88,8 +90,6 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["availableLabels"] = undefined /*out*/;
-            resourceInputs["consumedLabels"] = undefined /*out*/;
             resourceInputs["labelNamespace"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -114,7 +114,15 @@ export class RuleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
+    /**
+     * Collection of Available Labels.
+     */
+    availableLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[]>;
     capacity: pulumi.Input<number>;
+    /**
+     * Collection of Consumed Labels.
+     */
+    consumedLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupLabelSummaryArgs>[]>;
     customResponseBodies?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodiesArgs>;
     description?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

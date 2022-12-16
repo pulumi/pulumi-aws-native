@@ -52,16 +52,11 @@ namespace Pulumi.AwsNative.AppConfig
     public sealed class GetDeploymentResult
     {
         public readonly string? Id;
-        public readonly ImmutableArray<Outputs.DeploymentTags> Tags;
 
         [OutputConstructor]
-        private GetDeploymentResult(
-            string? id,
-
-            ImmutableArray<Outputs.DeploymentTags> tags)
+        private GetDeploymentResult(string? id)
         {
             Id = id;
-            Tags = tags;
         }
     }
 }

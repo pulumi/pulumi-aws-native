@@ -46,6 +46,7 @@ export class EndpointConfig extends pulumi.CustomResource {
     public readonly explainerConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigExplainerConfig | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[]>;
+    public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointConfigTag[] | undefined>;
 
     /**
@@ -70,6 +71,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["explainerConfig"] = args ? args.explainerConfig : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
+            resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
@@ -78,6 +80,7 @@ export class EndpointConfig extends pulumi.CustomResource {
             resourceInputs["explainerConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["productionVariants"] = undefined /*out*/;
+            resourceInputs["shadowProductionVariants"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,5 +98,6 @@ export interface EndpointConfigArgs {
     explainerConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigExplainerConfigArgs>;
     kmsKeyId?: pulumi.Input<string>;
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
+    shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigTagArgs>[]>;
 }

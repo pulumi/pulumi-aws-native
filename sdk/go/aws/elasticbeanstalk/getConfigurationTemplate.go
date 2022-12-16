@@ -21,13 +21,19 @@ func LookupConfigurationTemplate(ctx *pulumi.Context, args *LookupConfigurationT
 }
 
 type LookupConfigurationTemplateArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the Elastic Beanstalk application to associate with this configuration template.
+	ApplicationName string `pulumi:"applicationName"`
+	// The name of the configuration template
+	TemplateName string `pulumi:"templateName"`
 }
 
 type LookupConfigurationTemplateResult struct {
-	Description    *string                                           `pulumi:"description"`
-	Id             *string                                           `pulumi:"id"`
+	// An optional description for this configuration.
+	Description *string `pulumi:"description"`
+	// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
 	OptionSettings []ConfigurationTemplateConfigurationOptionSetting `pulumi:"optionSettings"`
+	// The name of the configuration template
+	TemplateName *string `pulumi:"templateName"`
 }
 
 func LookupConfigurationTemplateOutput(ctx *pulumi.Context, args LookupConfigurationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationTemplateResultOutput {
@@ -44,7 +50,10 @@ func LookupConfigurationTemplateOutput(ctx *pulumi.Context, args LookupConfigura
 }
 
 type LookupConfigurationTemplateOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Elastic Beanstalk application to associate with this configuration template.
+	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
+	// The name of the configuration template
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
 func (LookupConfigurationTemplateOutputArgs) ElementType() reflect.Type {
@@ -65,18 +74,21 @@ func (o LookupConfigurationTemplateResultOutput) ToLookupConfigurationTemplateRe
 	return o
 }
 
+// An optional description for this configuration.
 func (o LookupConfigurationTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupConfigurationTemplateResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupConfigurationTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
 func (o LookupConfigurationTemplateResultOutput) OptionSettings() ConfigurationTemplateConfigurationOptionSettingArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationTemplateResult) []ConfigurationTemplateConfigurationOptionSetting {
 		return v.OptionSettings
 	}).(ConfigurationTemplateConfigurationOptionSettingArrayOutput)
+}
+
+// The name of the configuration template
+func (o LookupConfigurationTemplateResultOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationTemplateResult) *string { return v.TemplateName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

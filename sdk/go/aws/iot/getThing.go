@@ -21,10 +21,11 @@ func LookupThing(ctx *pulumi.Context, args *LookupThingArgs, opts ...pulumi.Invo
 }
 
 type LookupThingArgs struct {
-	Id string `pulumi:"id"`
+	ThingName string `pulumi:"thingName"`
 }
 
 type LookupThingResult struct {
+	Arn              *string                `pulumi:"arn"`
 	AttributePayload *ThingAttributePayload `pulumi:"attributePayload"`
 	Id               *string                `pulumi:"id"`
 }
@@ -43,7 +44,7 @@ func LookupThingOutput(ctx *pulumi.Context, args LookupThingOutputArgs, opts ...
 }
 
 type LookupThingOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ThingName pulumi.StringInput `pulumi:"thingName"`
 }
 
 func (LookupThingOutputArgs) ElementType() reflect.Type {
@@ -62,6 +63,10 @@ func (o LookupThingResultOutput) ToLookupThingResultOutput() LookupThingResultOu
 
 func (o LookupThingResultOutput) ToLookupThingResultOutputWithContext(ctx context.Context) LookupThingResultOutput {
 	return o
+}
+
+func (o LookupThingResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupThingResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupThingResultOutput) AttributePayload() ThingAttributePayloadPtrOutput {

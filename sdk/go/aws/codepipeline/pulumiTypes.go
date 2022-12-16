@@ -10,8 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Returns information about the details of an artifact.
 type CustomActionTypeArtifactDetails struct {
+	// The maximum number of artifacts allowed for the action type.
 	MaximumCount int `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type.
 	MinimumCount int `pulumi:"minimumCount"`
 }
 
@@ -26,8 +29,11 @@ type CustomActionTypeArtifactDetailsInput interface {
 	ToCustomActionTypeArtifactDetailsOutputWithContext(context.Context) CustomActionTypeArtifactDetailsOutput
 }
 
+// Returns information about the details of an artifact.
 type CustomActionTypeArtifactDetailsArgs struct {
+	// The maximum number of artifacts allowed for the action type.
 	MaximumCount pulumi.IntInput `pulumi:"maximumCount"`
+	// The minimum number of artifacts allowed for the action type.
 	MinimumCount pulumi.IntInput `pulumi:"minimumCount"`
 }
 
@@ -43,6 +49,7 @@ func (i CustomActionTypeArtifactDetailsArgs) ToCustomActionTypeArtifactDetailsOu
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeArtifactDetailsOutput)
 }
 
+// Returns information about the details of an artifact.
 type CustomActionTypeArtifactDetailsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeArtifactDetailsOutput) ElementType() reflect.Type {
@@ -57,22 +64,32 @@ func (o CustomActionTypeArtifactDetailsOutput) ToCustomActionTypeArtifactDetails
 	return o
 }
 
+// The maximum number of artifacts allowed for the action type.
 func (o CustomActionTypeArtifactDetailsOutput) MaximumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeArtifactDetails) int { return v.MaximumCount }).(pulumi.IntOutput)
 }
 
+// The minimum number of artifacts allowed for the action type.
 func (o CustomActionTypeArtifactDetailsOutput) MinimumCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CustomActionTypeArtifactDetails) int { return v.MinimumCount }).(pulumi.IntOutput)
 }
 
+// The configuration properties for the custom action.
 type CustomActionTypeConfigurationProperties struct {
+	// The description of the action configuration property that is displayed to users.
 	Description *string `pulumi:"description"`
-	Key         bool    `pulumi:"key"`
-	Name        string  `pulumi:"name"`
-	Queryable   *bool   `pulumi:"queryable"`
-	Required    bool    `pulumi:"required"`
-	Secret      bool    `pulumi:"secret"`
-	Type        *string `pulumi:"type"`
+	// Whether the configuration property is a key.
+	Key bool `pulumi:"key"`
+	// The name of the action configuration property.
+	Name string `pulumi:"name"`
+	// Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+	Queryable *bool `pulumi:"queryable"`
+	// Whether the configuration property is a required value.
+	Required bool `pulumi:"required"`
+	// Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+	Secret bool `pulumi:"secret"`
+	// The type of the configuration property.
+	Type *string `pulumi:"type"`
 }
 
 // CustomActionTypeConfigurationPropertiesInput is an input type that accepts CustomActionTypeConfigurationPropertiesArgs and CustomActionTypeConfigurationPropertiesOutput values.
@@ -86,14 +103,22 @@ type CustomActionTypeConfigurationPropertiesInput interface {
 	ToCustomActionTypeConfigurationPropertiesOutputWithContext(context.Context) CustomActionTypeConfigurationPropertiesOutput
 }
 
+// The configuration properties for the custom action.
 type CustomActionTypeConfigurationPropertiesArgs struct {
+	// The description of the action configuration property that is displayed to users.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.BoolInput      `pulumi:"key"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	Queryable   pulumi.BoolPtrInput   `pulumi:"queryable"`
-	Required    pulumi.BoolInput      `pulumi:"required"`
-	Secret      pulumi.BoolInput      `pulumi:"secret"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
+	// Whether the configuration property is a key.
+	Key pulumi.BoolInput `pulumi:"key"`
+	// The name of the action configuration property.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
+	Queryable pulumi.BoolPtrInput `pulumi:"queryable"`
+	// Whether the configuration property is a required value.
+	Required pulumi.BoolInput `pulumi:"required"`
+	// Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+	Secret pulumi.BoolInput `pulumi:"secret"`
+	// The type of the configuration property.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (CustomActionTypeConfigurationPropertiesArgs) ElementType() reflect.Type {
@@ -133,6 +158,7 @@ func (i CustomActionTypeConfigurationPropertiesArray) ToCustomActionTypeConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeConfigurationPropertiesArrayOutput)
 }
 
+// The configuration properties for the custom action.
 type CustomActionTypeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -147,30 +173,37 @@ func (o CustomActionTypeConfigurationPropertiesOutput) ToCustomActionTypeConfigu
 	return o
 }
 
+// The description of the action configuration property that is displayed to users.
 func (o CustomActionTypeConfigurationPropertiesOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Whether the configuration property is a key.
 func (o CustomActionTypeConfigurationPropertiesOutput) Key() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) bool { return v.Key }).(pulumi.BoolOutput)
 }
 
+// The name of the action configuration property.
 func (o CustomActionTypeConfigurationPropertiesOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
 func (o CustomActionTypeConfigurationPropertiesOutput) Queryable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) *bool { return v.Queryable }).(pulumi.BoolPtrOutput)
 }
 
+// Whether the configuration property is a required value.
 func (o CustomActionTypeConfigurationPropertiesOutput) Required() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) bool { return v.Required }).(pulumi.BoolOutput)
 }
 
+// Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
 func (o CustomActionTypeConfigurationPropertiesOutput) Secret() pulumi.BoolOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) bool { return v.Secret }).(pulumi.BoolOutput)
 }
 
+// The type of the configuration property.
 func (o CustomActionTypeConfigurationPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeConfigurationProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -195,10 +228,15 @@ func (o CustomActionTypeConfigurationPropertiesArrayOutput) Index(i pulumi.IntIn
 	}).(CustomActionTypeConfigurationPropertiesOutput)
 }
 
+// Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action.
 type CustomActionTypeSettings struct {
-	EntityUrlTemplate          *string `pulumi:"entityUrlTemplate"`
-	ExecutionUrlTemplate       *string `pulumi:"executionUrlTemplate"`
-	RevisionUrlTemplate        *string `pulumi:"revisionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
+	EntityUrlTemplate *string `pulumi:"entityUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
+	ExecutionUrlTemplate *string `pulumi:"executionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+	RevisionUrlTemplate *string `pulumi:"revisionUrlTemplate"`
+	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 	ThirdPartyConfigurationUrl *string `pulumi:"thirdPartyConfigurationUrl"`
 }
 
@@ -213,10 +251,15 @@ type CustomActionTypeSettingsInput interface {
 	ToCustomActionTypeSettingsOutputWithContext(context.Context) CustomActionTypeSettingsOutput
 }
 
+// Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action.
 type CustomActionTypeSettingsArgs struct {
-	EntityUrlTemplate          pulumi.StringPtrInput `pulumi:"entityUrlTemplate"`
-	ExecutionUrlTemplate       pulumi.StringPtrInput `pulumi:"executionUrlTemplate"`
-	RevisionUrlTemplate        pulumi.StringPtrInput `pulumi:"revisionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
+	EntityUrlTemplate pulumi.StringPtrInput `pulumi:"entityUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
+	ExecutionUrlTemplate pulumi.StringPtrInput `pulumi:"executionUrlTemplate"`
+	// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
+	RevisionUrlTemplate pulumi.StringPtrInput `pulumi:"revisionUrlTemplate"`
+	// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 	ThirdPartyConfigurationUrl pulumi.StringPtrInput `pulumi:"thirdPartyConfigurationUrl"`
 }
 
@@ -273,6 +316,7 @@ func (i *customActionTypeSettingsPtrType) ToCustomActionTypeSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeSettingsPtrOutput)
 }
 
+// Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action.
 type CustomActionTypeSettingsOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeSettingsOutput) ElementType() reflect.Type {
@@ -297,18 +341,22 @@ func (o CustomActionTypeSettingsOutput) ToCustomActionTypeSettingsPtrOutputWithC
 	}).(CustomActionTypeSettingsPtrOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
 func (o CustomActionTypeSettingsOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.EntityUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 func (o CustomActionTypeSettingsOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ExecutionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 func (o CustomActionTypeSettingsOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.RevisionUrlTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 func (o CustomActionTypeSettingsOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionTypeSettings) *string { return v.ThirdPartyConfigurationUrl }).(pulumi.StringPtrOutput)
 }
@@ -337,6 +385,7 @@ func (o CustomActionTypeSettingsPtrOutput) Elem() CustomActionTypeSettingsOutput
 	}).(CustomActionTypeSettingsOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
 func (o CustomActionTypeSettingsPtrOutput) EntityUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -346,6 +395,7 @@ func (o CustomActionTypeSettingsPtrOutput) EntityUrlTemplate() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
 func (o CustomActionTypeSettingsPtrOutput) ExecutionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -355,6 +405,7 @@ func (o CustomActionTypeSettingsPtrOutput) ExecutionUrlTemplate() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
 func (o CustomActionTypeSettingsPtrOutput) RevisionUrlTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {
@@ -364,6 +415,7 @@ func (o CustomActionTypeSettingsPtrOutput) RevisionUrlTemplate() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
 func (o CustomActionTypeSettingsPtrOutput) ThirdPartyConfigurationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionTypeSettings) *string {
 		if v == nil {

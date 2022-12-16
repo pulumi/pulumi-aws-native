@@ -90,6 +90,18 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clusterEndpoints")]
+        private InputList<Inputs.ClusterEndpointArgs>? _clusterEndpoints;
+
+        /// <summary>
+        /// Endpoints for the cluster.
+        /// </summary>
+        public InputList<Inputs.ClusterEndpointArgs> ClusterEndpoints
+        {
+            get => _clusterEndpoints ?? (_clusterEndpoints = new InputList<Inputs.ClusterEndpointArgs>());
+            set => _clusterEndpoints = value;
+        }
+
         /// <summary>
         /// Name of a Cluster. You can use any non-white space character in the name
         /// </summary>

@@ -28,10 +28,16 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class GetAggregationAuthorizationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the AggregationAuthorization.
+        /// The 12-digit account ID of the account authorized to aggregate data.
         /// </summary>
-        [Input("aggregationAuthorizationArn", required: true)]
-        public string AggregationAuthorizationArn { get; set; } = null!;
+        [Input("authorizedAccountId", required: true)]
+        public string AuthorizedAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// The region authorized to collect aggregated data.
+        /// </summary>
+        [Input("authorizedAwsRegion", required: true)]
+        public string AuthorizedAwsRegion { get; set; } = null!;
 
         public GetAggregationAuthorizationArgs()
         {
@@ -42,10 +48,16 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class GetAggregationAuthorizationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ARN of the AggregationAuthorization.
+        /// The 12-digit account ID of the account authorized to aggregate data.
         /// </summary>
-        [Input("aggregationAuthorizationArn", required: true)]
-        public Input<string> AggregationAuthorizationArn { get; set; } = null!;
+        [Input("authorizedAccountId", required: true)]
+        public Input<string> AuthorizedAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// The region authorized to collect aggregated data.
+        /// </summary>
+        [Input("authorizedAwsRegion", required: true)]
+        public Input<string> AuthorizedAwsRegion { get; set; } = null!;
 
         public GetAggregationAuthorizationInvokeArgs()
         {

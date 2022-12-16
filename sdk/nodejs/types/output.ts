@@ -1164,6 +1164,16 @@ export namespace appconfig {
 }
 
 export namespace appflow {
+    /**
+     * Contains information about the configuration of the lambda which is being registered as the connector.
+     */
+    export interface ConnectorLambdaConnectorProvisioningConfig {
+        /**
+         * Lambda ARN of the connector being registered.
+         */
+        lambdaArn: string;
+    }
+
     export interface ConnectorProfileAmplitudeConnectorProfileCredentials {
         /**
          * A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
@@ -1650,6 +1660,16 @@ export namespace appflow {
          * The location of the Zendesk resource
          */
         instanceUrl: string;
+    }
+
+    /**
+     * Contains information about the configuration of the connector being registered.
+     */
+    export interface ConnectorProvisioningConfig {
+        /**
+         * Contains information about the configuration of the lambda which is being registered as the connector.
+         */
+        lambda?: outputs.appflow.ConnectorLambdaConnectorProvisioningConfig;
     }
 
     export interface FlowAggregationConfig {
@@ -4549,9 +4569,21 @@ export namespace backup {
      */
     export interface ReportSettingProperties {
         /**
+         * The list of AWS accounts that a report covers.
+         */
+        accounts?: string[];
+        /**
          * The Amazon Resource Names (ARNs) of the frameworks a report covers.
          */
         frameworkArns?: string[];
+        /**
+         * The list of AWS organization units that a report covers.
+         */
+        organizationUnits?: string[];
+        /**
+         * The list of AWS regions that a report covers.
+         */
+        regions?: string[];
         /**
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
@@ -6388,25 +6420,73 @@ export namespace codegurureviewer {
 }
 
 export namespace codepipeline {
+    /**
+     * Returns information about the details of an artifact.
+     */
     export interface CustomActionTypeArtifactDetails {
+        /**
+         * The maximum number of artifacts allowed for the action type.
+         */
         maximumCount: number;
+        /**
+         * The minimum number of artifacts allowed for the action type.
+         */
         minimumCount: number;
     }
 
+    /**
+     * The configuration properties for the custom action.
+     */
     export interface CustomActionTypeConfigurationProperties {
+        /**
+         * The description of the action configuration property that is displayed to users. 
+         */
         description?: string;
+        /**
+         * Whether the configuration property is a key.
+         */
         key: boolean;
+        /**
+         * The name of the action configuration property.
+         */
         name: string;
+        /**
+         * Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+         */
         queryable?: boolean;
+        /**
+         * Whether the configuration property is a required value.
+         */
         required: boolean;
+        /**
+         * Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+         */
         secret: boolean;
+        /**
+         * The type of the configuration property.
+         */
         type?: string;
     }
 
+    /**
+     * Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+     */
     export interface CustomActionTypeSettings {
+        /**
+         * The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+         */
         entityUrlTemplate?: string;
+        /**
+         * The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+         */
         executionUrlTemplate?: string;
+        /**
+         * The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+         */
         revisionUrlTemplate?: string;
+        /**
+         * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+         */
         thirdPartyConfigurationUrl?: string;
     }
 
@@ -7532,6 +7612,20 @@ export namespace configuration {
 
     export interface DeliveryChannelConfigSnapshotDeliveryProperties {
         deliveryFrequency?: string;
+    }
+
+    export interface OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
+        codeText: string;
+        debugLogDeliveryAccounts?: string[];
+        description?: string;
+        inputParameters?: string;
+        maximumExecutionFrequency?: string;
+        organizationConfigRuleTriggerTypes?: string[];
+        resourceIdScope?: string;
+        resourceTypesScope?: string[];
+        runtime: string;
+        tagKeyScope?: string;
+        tagValueScope?: string;
     }
 
     export interface OrganizationConfigRuleOrganizationCustomRuleMetadata {
@@ -9905,6 +9999,14 @@ export namespace docdb {
 
 }
 
+export namespace docdbelastic {
+    export interface ClusterTag {
+        key: string;
+        value: string;
+    }
+
+}
+
 export namespace dynamodb {
     export interface GlobalTableAttributeDefinition {
         attributeName: string;
@@ -11723,12 +11825,19 @@ export namespace ecs {
         portName: string;
     }
 
+    export interface ServiceDeploymentAlarms {
+        alarmNames: string[];
+        enable: boolean;
+        rollback: boolean;
+    }
+
     export interface ServiceDeploymentCircuitBreaker {
         enable: boolean;
         rollback: boolean;
     }
 
     export interface ServiceDeploymentConfiguration {
+        alarms?: outputs.ecs.ServiceDeploymentAlarms;
         deploymentCircuitBreaker?: outputs.ecs.ServiceDeploymentCircuitBreaker;
         maximumPercent?: number;
         minimumHealthyPercent?: number;
@@ -11971,6 +12080,7 @@ export namespace ecs {
     export interface TaskDefinitionPortMapping {
         appProtocol?: enums.ecs.TaskDefinitionPortMappingAppProtocol;
         containerPort?: number;
+        containerPortRange?: string;
         hostPort?: number;
         name?: string;
         protocol?: string;
@@ -12648,14 +12758,32 @@ export namespace elasticbeanstalk {
     }
 
     export interface ConfigurationTemplateConfigurationOptionSetting {
+        /**
+         * A unique namespace that identifies the option's associated AWS resource.
+         */
         namespace: string;
+        /**
+         * The name of the configuration option.
+         */
         optionName: string;
+        /**
+         * A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+         */
         resourceName?: string;
+        /**
+         * The current value for the configuration option.
+         */
         value?: string;
     }
 
     export interface ConfigurationTemplateSourceConfiguration {
+        /**
+         * The name of the application associated with the configuration.
+         */
         applicationName: string;
+        /**
+         * The name of the configuration template.
+         */
         templateName: string;
     }
 
@@ -12967,23 +13095,50 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttribute {
+        /**
+         * The value of the attribute.
+         */
         key?: string;
+        /**
+         * The name of the attribute.
+         */
         value?: string;
     }
 
     export interface TargetGroupMatcher {
+        /**
+         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
+         */
         grpcCode?: string;
+        /**
+         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+         */
         httpCode?: string;
     }
 
     export interface TargetGroupTag {
+        /**
+         * The value for the tag. 
+         */
         key: string;
+        /**
+         * The key name of the tag. 
+         */
         value: string;
     }
 
     export interface TargetGroupTargetDescription {
+        /**
+         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+         */
         availabilityZone?: string;
+        /**
+         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+         */
         id: string;
+        /**
+         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
+         */
         port?: number;
     }
 
@@ -15417,6 +15572,84 @@ export namespace glue {
 
 }
 
+export namespace grafana {
+    /**
+     * Maps Grafana friendly names to the IdPs SAML attributes.
+     */
+    export interface WorkspaceAssertionAttributes {
+        /**
+         * Name of the attribute within the SAML assert to use as the users email in Grafana.
+         */
+        email?: string;
+        /**
+         * Name of the attribute within the SAML assert to use as the users groups in Grafana.
+         */
+        groups?: string;
+        /**
+         * Name of the attribute within the SAML assert to use as the users login handle in Grafana.
+         */
+        login?: string;
+        /**
+         * Name of the attribute within the SAML assert to use as the users name in Grafana.
+         */
+        name?: string;
+        /**
+         * Name of the attribute within the SAML assert to use as the users organizations in Grafana.
+         */
+        org?: string;
+        /**
+         * Name of the attribute within the SAML assert to use as the users roles in Grafana.
+         */
+        role?: string;
+    }
+
+    /**
+     * IdP Metadata used to configure SAML authentication in Grafana.
+     */
+    export interface WorkspaceIdpMetadata {
+        /**
+         * URL that vends the IdPs metadata.
+         */
+        url?: string;
+        /**
+         * XML blob of the IdPs metadata.
+         */
+        xml?: string;
+    }
+
+    /**
+     * Maps SAML roles to the Grafana Editor and Admin roles.
+     */
+    export interface WorkspaceRoleValues {
+        /**
+         * List of SAML roles which will be mapped into the Grafana Admin role.
+         */
+        admin?: string[];
+        /**
+         * List of SAML roles which will be mapped into the Grafana Editor role.
+         */
+        editor?: string[];
+    }
+
+    /**
+     * SAML configuration data associated with an AMG workspace.
+     */
+    export interface WorkspaceSamlConfiguration {
+        /**
+         * List of SAML organizations allowed to access Grafana.
+         */
+        allowedOrganizations?: string[];
+        assertionAttributes?: outputs.grafana.WorkspaceAssertionAttributes;
+        idpMetadata: outputs.grafana.WorkspaceIdpMetadata;
+        /**
+         * The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
+         */
+        loginValidityDuration?: number;
+        roleValues?: outputs.grafana.WorkspaceRoleValues;
+    }
+
+}
+
 export namespace greengrass {
     export interface ConnectorDefinitionConnector {
         connectorArn: string;
@@ -15947,8 +16180,8 @@ export namespace groundstation {
     }
 
     export interface MissionProfileTag {
-        key?: string;
-        value?: string;
+        key: string;
+        value: string;
     }
 
 }
@@ -21603,6 +21836,16 @@ export namespace lambda {
     }
 
     /**
+     * The scaling configuration for the event source.
+     */
+    export interface EventSourceMappingScalingConfig {
+        /**
+         * The maximum number of concurrent functions that the event source can invoke.
+         */
+        maximumConcurrency?: number;
+    }
+
+    /**
      * The configuration used by AWS Lambda to access a self-managed event source.
      */
     export interface EventSourceMappingSelfManagedEventSource {
@@ -23776,10 +24019,28 @@ export namespace mediaconnect {
      */
     export interface FlowFailoverConfig {
         /**
+         * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+         */
+        failoverMode?: enums.mediaconnect.FlowFailoverConfigFailoverMode;
+        /**
          * Search window time to look for dash-7 packets
          */
         recoveryWindow?: number;
+        /**
+         * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+         */
+        sourcePriority?: outputs.mediaconnect.FlowFailoverConfigSourcePriorityProperties;
         state?: enums.mediaconnect.FlowFailoverConfigState;
+    }
+
+    /**
+     * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+     */
+    export interface FlowFailoverConfigSourcePriorityProperties {
+        /**
+         * The name of the source you choose as the primary source for this flow.
+         */
+        primarySource: string;
     }
 
     /**
@@ -23855,9 +24116,17 @@ export namespace mediaconnect {
          */
         name?: string;
         /**
-         * The protocol that is used by the source or output.
+         * The protocol that is used by the source.
          */
         protocol?: enums.mediaconnect.FlowSourceProtocol;
+        /**
+         * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+         */
+        senderControlPort?: number;
+        /**
+         * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+         */
+        senderIpAddress?: string;
         /**
          * The ARN of the source.
          */
@@ -23866,6 +24135,14 @@ export namespace mediaconnect {
          * The port that the flow will be listening on for incoming content.(ReadOnly)
          */
         sourceIngestPort?: string;
+        /**
+         * Source IP or domain name for SRT-caller protocol.
+         */
+        sourceListenerAddress?: string;
+        /**
+         * Source port for SRT-caller protocol.
+         */
+        sourceListenerPort?: number;
         /**
          * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
          */
@@ -25105,19 +25382,19 @@ export namespace mediapackage {
         /**
          * The system generated unique identifier for the IngestEndpoint
          */
-        id?: string;
+        id: string;
         /**
          * The system generated password for ingest authentication.
          */
-        password?: string;
+        password: string;
         /**
          * The ingest URL to which the source stream should be sent.
          */
-        url?: string;
+        url: string;
         /**
          * The system generated username for ingest authentication.
          */
-        username?: string;
+        username: string;
     }
 
     export interface ChannelLogConfiguration {
@@ -26626,6 +26903,10 @@ export namespace networkmanager {
      */
     export interface VpcAttachmentVpcOptions {
         /**
+         * Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+         */
+        applianceModeSupport?: boolean;
+        /**
          * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
          */
         ipv6Support?: boolean;
@@ -26769,6 +27050,45 @@ export namespace nimblestudio {
     }
 
     export interface StudioTags {
+    }
+
+}
+
+export namespace opensearchserverless {
+    /**
+     * A key-value pair metadata associated with resource
+     */
+    export interface CollectionTag {
+        /**
+         * The key in the key-value pair
+         */
+        key: string;
+        /**
+         * The value in the key-value pair
+         */
+        value: string;
+    }
+
+    /**
+     * Describes saml options in form of key value map
+     */
+    export interface SecurityConfigSamlConfigOptions {
+        /**
+         * Group attribute for this saml integration
+         */
+        groupAttribute?: string;
+        /**
+         * The XML saml provider metadata document that you want to use
+         */
+        metadata: string;
+        /**
+         * Defines the session timeout in minutes
+         */
+        sessionTimeout?: number;
+        /**
+         * Custom attribute for this saml integration
+         */
+        userAttribute?: string;
     }
 
 }
@@ -29633,6 +29953,11 @@ export namespace rds {
          * The minimum capacity must be less than or equal to the maximum capacity.
          */
         minCapacity?: number;
+        /**
+         * The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+         * The default is 300.
+         */
+        secondsBeforeTimeout?: number;
         /**
          * The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
          */
@@ -36014,6 +36339,14 @@ export namespace ssmincidents {
     }
 
     /**
+     * A key-value pair to tag a resource.
+     */
+    export interface ReplicationSetTag {
+        key: string;
+        value: string;
+    }
+
+    /**
      * The automation configuration to launch.
      */
     export interface ResponsePlanAction {
@@ -37155,6 +37488,10 @@ export namespace wafv2 {
         immunityTimeProperty?: outputs.wafv2.RuleGroupImmunityTimeProperty;
     }
 
+    export interface RuleGroupChallengeConfig {
+        immunityTimeProperty?: outputs.wafv2.RuleGroupImmunityTimeProperty;
+    }
+
     /**
      * The pattern to look for in the request cookies.
      */
@@ -37370,6 +37707,7 @@ export namespace wafv2 {
     export interface RuleGroupRule {
         action?: outputs.wafv2.RuleGroupRuleAction;
         captchaConfig?: outputs.wafv2.RuleGroupCaptchaConfig;
+        challengeConfig?: outputs.wafv2.RuleGroupChallengeConfig;
         name: string;
         priority: number;
         /**
@@ -37397,6 +37735,10 @@ export namespace wafv2 {
          */
         captcha?: outputs.wafv2.RuleGroupRuleActionCaptchaProperties;
         /**
+         * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+         */
+        challenge?: outputs.wafv2.RuleGroupRuleActionChallengeProperties;
+        /**
          * Count traffic towards application.
          */
         count?: outputs.wafv2.RuleGroupRuleActionCountProperties;
@@ -37420,6 +37762,13 @@ export namespace wafv2 {
      * Checks valid token exists with request.
      */
     export interface RuleGroupRuleActionCaptchaProperties {
+        customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface RuleGroupRuleActionChallengeProperties {
         customRequestHandling?: outputs.wafv2.RuleGroupCustomRequestHandling;
     }
 
@@ -37499,6 +37848,13 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures how to use the Bot Control managed rule group in the web ACL
+     */
+    export interface WebACLAWSManagedRulesBotControlRuleSet {
+        inspectionLevel: enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel;
+    }
+
+    /**
      * Allow traffic towards application.
      */
     export interface WebACLAllowAction {
@@ -37542,6 +37898,17 @@ export namespace wafv2 {
     }
 
     export interface WebACLCaptchaConfig {
+        immunityTimeProperty?: outputs.wafv2.WebACLImmunityTimeProperty;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface WebACLChallengeAction {
+        customRequestHandling?: outputs.wafv2.WebACLCustomRequestHandling;
+    }
+
+    export interface WebACLChallengeConfig {
         immunityTimeProperty?: outputs.wafv2.WebACLImmunityTimeProperty;
     }
 
@@ -37753,6 +38120,7 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfig {
+        aWSManagedRulesBotControlRuleSet?: outputs.wafv2.WebACLAWSManagedRulesBotControlRuleSet;
         loginPath?: string;
         passwordField?: outputs.wafv2.WebACLFieldIdentifier;
         payloadType?: enums.wafv2.WebACLManagedRuleGroupConfigPayloadType;
@@ -37766,6 +38134,10 @@ export namespace wafv2 {
          */
         managedRuleGroupConfigs?: outputs.wafv2.WebACLManagedRuleGroupConfig[];
         name: string;
+        /**
+         * Action overrides for rules in the rule group.
+         */
+        ruleActionOverrides?: outputs.wafv2.WebACLRuleActionOverride[];
         scopeDownStatement?: outputs.wafv2.WebACLStatement;
         vendorName: string;
         version?: string;
@@ -37818,6 +38190,7 @@ export namespace wafv2 {
     export interface WebACLRule {
         action?: outputs.wafv2.WebACLRuleAction;
         captchaConfig?: outputs.wafv2.WebACLCaptchaConfig;
+        challengeConfig?: outputs.wafv2.WebACLChallengeConfig;
         name: string;
         overrideAction?: outputs.wafv2.WebACLOverrideAction;
         priority: number;
@@ -37836,12 +38209,25 @@ export namespace wafv2 {
         allow?: outputs.wafv2.WebACLAllowAction;
         block?: outputs.wafv2.WebACLBlockAction;
         captcha?: outputs.wafv2.WebACLCaptchaAction;
+        challenge?: outputs.wafv2.WebACLChallengeAction;
         count?: outputs.wafv2.WebACLCountAction;
+    }
+
+    /**
+     * Action override for rules in the rule group.
+     */
+    export interface WebACLRuleActionOverride {
+        actionToUse: outputs.wafv2.WebACLRuleAction;
+        name: string;
     }
 
     export interface WebACLRuleGroupReferenceStatement {
         arn: string;
         excludedRules?: outputs.wafv2.WebACLExcludedRule[];
+        /**
+         * Action overrides for rules in the rule group.
+         */
+        ruleActionOverrides?: outputs.wafv2.WebACLRuleActionOverride[];
     }
 
     /**

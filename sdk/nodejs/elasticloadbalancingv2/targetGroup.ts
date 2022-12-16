@@ -37,27 +37,97 @@ export class TargetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === TargetGroup.__pulumiType;
     }
 
+    /**
+     * Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
+     */
     public readonly healthCheckEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The approximate amount of time, in seconds, between health checks of an individual target.
+     */
     public readonly healthCheckIntervalSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
+     */
     public readonly healthCheckPath!: pulumi.Output<string | undefined>;
+    /**
+     * The port the load balancer uses when performing health checks on targets. 
+     */
     public readonly healthCheckPort!: pulumi.Output<string | undefined>;
+    /**
+     * The protocol the load balancer uses when performing health checks on targets. 
+     */
     public readonly healthCheckProtocol!: pulumi.Output<string | undefined>;
+    /**
+     * The amount of time, in seconds, during which no response from a target means a failed health check.
+     */
     public readonly healthCheckTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+     */
     public readonly healthyThresholdCount!: pulumi.Output<number | undefined>;
+    /**
+     * The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+     */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Names (ARNs) of the load balancers that route traffic to this target group.
+     */
     public /*out*/ readonly loadBalancerArns!: pulumi.Output<string[]>;
+    /**
+     * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
+     */
     public readonly matcher!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupMatcher | undefined>;
+    /**
+     * The name of the target group.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
+     */
     public readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * The protocol to use for routing traffic to the targets.
+     */
     public readonly protocol!: pulumi.Output<string | undefined>;
+    /**
+     * [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
+     */
     public readonly protocolVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The tags.
+     */
     public readonly tags!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTag[] | undefined>;
+    /**
+     * The ARN of the Target Group
+     */
+    public /*out*/ readonly targetGroupArn!: pulumi.Output<string>;
+    /**
+     * The attributes.
+     */
     public readonly targetGroupAttributes!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupAttribute[] | undefined>;
+    /**
+     * The full name of the target group.
+     */
     public /*out*/ readonly targetGroupFullName!: pulumi.Output<string>;
+    /**
+     * The name of the target group.
+     */
     public /*out*/ readonly targetGroupName!: pulumi.Output<string>;
+    /**
+     * The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
+     */
     public readonly targetType!: pulumi.Output<string | undefined>;
+    /**
+     * The targets.
+     */
     public readonly targets!: pulumi.Output<outputs.elasticloadbalancingv2.TargetGroupTargetDescription[] | undefined>;
+    /**
+     * The number of consecutive health check failures required before considering a target unhealthy.
+     */
     public readonly unhealthyThresholdCount!: pulumi.Output<number | undefined>;
+    /**
+     * The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
+     */
     public readonly vpcId!: pulumi.Output<string | undefined>;
 
     /**
@@ -91,6 +161,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["unhealthyThresholdCount"] = args ? args.unhealthyThresholdCount : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["loadBalancerArns"] = undefined /*out*/;
+            resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;
         } else {
@@ -109,6 +180,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["protocolVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupAttributes"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;
             resourceInputs["targetGroupName"] = undefined /*out*/;
@@ -126,23 +198,80 @@ export class TargetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a TargetGroup resource.
  */
 export interface TargetGroupArgs {
+    /**
+     * Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
+     */
     healthCheckEnabled?: pulumi.Input<boolean>;
+    /**
+     * The approximate amount of time, in seconds, between health checks of an individual target.
+     */
     healthCheckIntervalSeconds?: pulumi.Input<number>;
+    /**
+     * [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
+     */
     healthCheckPath?: pulumi.Input<string>;
+    /**
+     * The port the load balancer uses when performing health checks on targets. 
+     */
     healthCheckPort?: pulumi.Input<string>;
+    /**
+     * The protocol the load balancer uses when performing health checks on targets. 
+     */
     healthCheckProtocol?: pulumi.Input<string>;
+    /**
+     * The amount of time, in seconds, during which no response from a target means a failed health check.
+     */
     healthCheckTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+     */
     healthyThresholdCount?: pulumi.Input<number>;
+    /**
+     * The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+     */
     ipAddressType?: pulumi.Input<string>;
+    /**
+     * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
+     */
     matcher?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupMatcherArgs>;
+    /**
+     * The name of the target group.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
+     */
     port?: pulumi.Input<number>;
+    /**
+     * The protocol to use for routing traffic to the targets.
+     */
     protocol?: pulumi.Input<string>;
+    /**
+     * [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
+     */
     protocolVersion?: pulumi.Input<string>;
+    /**
+     * The tags.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTagArgs>[]>;
+    /**
+     * The attributes.
+     */
     targetGroupAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupAttributeArgs>[]>;
+    /**
+     * The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
+     */
     targetType?: pulumi.Input<string>;
+    /**
+     * The targets.
+     */
     targets?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetDescriptionArgs>[]>;
+    /**
+     * The number of consecutive health check failures required before considering a target unhealthy.
+     */
     unhealthyThresholdCount?: pulumi.Input<number>;
+    /**
+     * The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
+     */
     vpcId?: pulumi.Input<string>;
 }

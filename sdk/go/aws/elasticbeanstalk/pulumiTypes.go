@@ -736,10 +736,14 @@ func (o ApplicationVersionSourceBundleOutput) S3Key() pulumi.StringOutput {
 }
 
 type ConfigurationTemplateConfigurationOptionSetting struct {
-	Namespace    string  `pulumi:"namespace"`
-	OptionName   string  `pulumi:"optionName"`
+	// A unique namespace that identifies the option's associated AWS resource.
+	Namespace string `pulumi:"namespace"`
+	// The name of the configuration option.
+	OptionName string `pulumi:"optionName"`
+	// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 	ResourceName *string `pulumi:"resourceName"`
-	Value        *string `pulumi:"value"`
+	// The current value for the configuration option.
+	Value *string `pulumi:"value"`
 }
 
 // ConfigurationTemplateConfigurationOptionSettingInput is an input type that accepts ConfigurationTemplateConfigurationOptionSettingArgs and ConfigurationTemplateConfigurationOptionSettingOutput values.
@@ -754,10 +758,14 @@ type ConfigurationTemplateConfigurationOptionSettingInput interface {
 }
 
 type ConfigurationTemplateConfigurationOptionSettingArgs struct {
-	Namespace    pulumi.StringInput    `pulumi:"namespace"`
-	OptionName   pulumi.StringInput    `pulumi:"optionName"`
+	// A unique namespace that identifies the option's associated AWS resource.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The name of the configuration option.
+	OptionName pulumi.StringInput `pulumi:"optionName"`
+	// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	Value        pulumi.StringPtrInput `pulumi:"value"`
+	// The current value for the configuration option.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ConfigurationTemplateConfigurationOptionSettingArgs) ElementType() reflect.Type {
@@ -811,18 +819,22 @@ func (o ConfigurationTemplateConfigurationOptionSettingOutput) ToConfigurationTe
 	return o
 }
 
+// A unique namespace that identifies the option's associated AWS resource.
 func (o ConfigurationTemplateConfigurationOptionSettingOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateConfigurationOptionSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The name of the configuration option.
 func (o ConfigurationTemplateConfigurationOptionSettingOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateConfigurationOptionSetting) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
+// A unique resource name for the option setting. Use it for a time–based scaling configuration option.
 func (o ConfigurationTemplateConfigurationOptionSettingOutput) ResourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationTemplateConfigurationOptionSetting) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
 }
 
+// The current value for the configuration option.
 func (o ConfigurationTemplateConfigurationOptionSettingOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationTemplateConfigurationOptionSetting) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -848,8 +860,10 @@ func (o ConfigurationTemplateConfigurationOptionSettingArrayOutput) Index(i pulu
 }
 
 type ConfigurationTemplateSourceConfiguration struct {
+	// The name of the application associated with the configuration.
 	ApplicationName string `pulumi:"applicationName"`
-	TemplateName    string `pulumi:"templateName"`
+	// The name of the configuration template.
+	TemplateName string `pulumi:"templateName"`
 }
 
 // ConfigurationTemplateSourceConfigurationInput is an input type that accepts ConfigurationTemplateSourceConfigurationArgs and ConfigurationTemplateSourceConfigurationOutput values.
@@ -864,8 +878,10 @@ type ConfigurationTemplateSourceConfigurationInput interface {
 }
 
 type ConfigurationTemplateSourceConfigurationArgs struct {
+	// The name of the application associated with the configuration.
 	ApplicationName pulumi.StringInput `pulumi:"applicationName"`
-	TemplateName    pulumi.StringInput `pulumi:"templateName"`
+	// The name of the configuration template.
+	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
 func (ConfigurationTemplateSourceConfigurationArgs) ElementType() reflect.Type {
@@ -945,10 +961,12 @@ func (o ConfigurationTemplateSourceConfigurationOutput) ToConfigurationTemplateS
 	}).(ConfigurationTemplateSourceConfigurationPtrOutput)
 }
 
+// The name of the application associated with the configuration.
 func (o ConfigurationTemplateSourceConfigurationOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSourceConfiguration) string { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
+// The name of the configuration template.
 func (o ConfigurationTemplateSourceConfigurationOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSourceConfiguration) string { return v.TemplateName }).(pulumi.StringOutput)
 }
@@ -977,6 +995,7 @@ func (o ConfigurationTemplateSourceConfigurationPtrOutput) Elem() ConfigurationT
 	}).(ConfigurationTemplateSourceConfigurationOutput)
 }
 
+// The name of the application associated with the configuration.
 func (o ConfigurationTemplateSourceConfigurationPtrOutput) ApplicationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplateSourceConfiguration) *string {
 		if v == nil {
@@ -986,6 +1005,7 @@ func (o ConfigurationTemplateSourceConfigurationPtrOutput) ApplicationName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the configuration template.
 func (o ConfigurationTemplateSourceConfigurationPtrOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplateSourceConfiguration) *string {
 		if v == nil {

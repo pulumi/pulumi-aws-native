@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConnectorLambdaConnectorProvisioningConfigArgs',
     'ConnectorProfileAmplitudeConnectorProfileCredentialsArgs',
     'ConnectorProfileApiKeyCredentialsArgs',
     'ConnectorProfileBasicAuthCredentialsArgs',
@@ -55,6 +56,7 @@ __all__ = [
     'ConnectorProfileVeevaConnectorProfilePropertiesArgs',
     'ConnectorProfileZendeskConnectorProfileCredentialsArgs',
     'ConnectorProfileZendeskConnectorProfilePropertiesArgs',
+    'ConnectorProvisioningConfigArgs',
     'FlowAggregationConfigArgs',
     'FlowAmplitudeSourcePropertiesArgs',
     'FlowConnectorOperatorArgs',
@@ -104,6 +106,29 @@ __all__ = [
     'FlowZendeskDestinationPropertiesArgs',
     'FlowZendeskSourcePropertiesArgs',
 ]
+
+@pulumi.input_type
+class ConnectorLambdaConnectorProvisioningConfigArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[str]):
+        """
+        Contains information about the configuration of the lambda which is being registered as the connector.
+        :param pulumi.Input[str] lambda_arn: Lambda ARN of the connector being registered.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[str]:
+        """
+        Lambda ARN of the connector being registered.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_arn", value)
+
 
 @pulumi.input_type
 class ConnectorProfileAmplitudeConnectorProfileCredentialsArgs:
@@ -2279,6 +2304,30 @@ class ConnectorProfileZendeskConnectorProfilePropertiesArgs:
     @instance_url.setter
     def instance_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_url", value)
+
+
+@pulumi.input_type
+class ConnectorProvisioningConfigArgs:
+    def __init__(__self__, *,
+                 lambda_: Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']] = None):
+        """
+        Contains information about the configuration of the connector being registered.
+        :param pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs'] lambda_: Contains information about the configuration of the lambda which is being registered as the connector.
+        """
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']]:
+        """
+        Contains information about the configuration of the lambda which is being registered as the connector.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']]):
+        pulumi.set(self, "lambda_", value)
 
 
 @pulumi.input_type

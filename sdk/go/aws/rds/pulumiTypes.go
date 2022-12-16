@@ -454,6 +454,9 @@ type DBClusterScalingConfiguration struct {
 	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 	// The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity *int `pulumi:"minCapacity"`
+	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+	// The default is 300.
+	SecondsBeforeTimeout *int `pulumi:"secondsBeforeTimeout"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
@@ -489,6 +492,9 @@ type DBClusterScalingConfigurationArgs struct {
 	// For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
 	// The minimum capacity must be less than or equal to the maximum capacity.
 	MinCapacity pulumi.IntPtrInput `pulumi:"minCapacity"`
+	// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+	// The default is 300.
+	SecondsBeforeTimeout pulumi.IntPtrInput `pulumi:"secondsBeforeTimeout"`
 	// The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 	// The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
@@ -598,6 +604,12 @@ func (o DBClusterScalingConfigurationOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+// The default is 300.
+func (o DBClusterScalingConfigurationOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsBeforeTimeout }).(pulumi.IntPtrOutput)
+}
+
 // The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
 func (o DBClusterScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBClusterScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
@@ -669,6 +681,17 @@ func (o DBClusterScalingConfigurationPtrOutput) MinCapacity() pulumi.IntPtrOutpu
 			return nil
 		}
 		return v.MinCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+// The default is 300.
+func (o DBClusterScalingConfigurationPtrOutput) SecondsBeforeTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DBClusterScalingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondsBeforeTimeout
 	}).(pulumi.IntPtrOutput)
 }
 

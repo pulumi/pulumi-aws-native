@@ -47,7 +47,7 @@
     }
   },
   "required" : [ "DeploymentStrategyId", "ConfigurationProfileId", "EnvironmentId", "ConfigurationVersion", "ApplicationId" ],
-  "createOnlyProperties" : [ "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/EnvironmentId", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/Tags", "/properties/EnvironmentId", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

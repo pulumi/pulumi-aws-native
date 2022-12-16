@@ -52,6 +52,8 @@ type LookupEventSourceMappingResult struct {
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
 	// (ActiveMQ) A list of ActiveMQ queues.
 	Queues []string `pulumi:"queues"`
+	// The scaling configuration for the event source.
+	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// A list of SourceAccessConfiguration.
 	SourceAccessConfigurations []EventSourceMappingSourceAccessConfiguration `pulumi:"sourceAccessConfigurations"`
 	// (Kafka) A list of Kafka topics.
@@ -163,6 +165,11 @@ func (o LookupEventSourceMappingResultOutput) ParallelizationFactor() pulumi.Int
 // (ActiveMQ) A list of ActiveMQ queues.
 func (o LookupEventSourceMappingResultOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) []string { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
+// The scaling configuration for the event source.
+func (o LookupEventSourceMappingResultOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingScalingConfig { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
 }
 
 // A list of SourceAccessConfiguration.

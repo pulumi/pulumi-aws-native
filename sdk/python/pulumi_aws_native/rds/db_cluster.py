@@ -28,6 +28,7 @@ class DBClusterArgs:
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -80,6 +81,7 @@ class DBClusterArgs:
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
         :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
+        :param pulumi.Input[str] d_b_system_id: Reserved for future use.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
@@ -149,6 +151,8 @@ class DBClusterArgs:
             pulumi.set(__self__, "d_b_instance_parameter_group_name", d_b_instance_parameter_group_name)
         if d_b_subnet_group_name is not None:
             pulumi.set(__self__, "d_b_subnet_group_name", d_b_subnet_group_name)
+        if d_b_system_id is not None:
+            pulumi.set(__self__, "d_b_system_id", d_b_system_id)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if deletion_protection is not None:
@@ -369,6 +373,18 @@ class DBClusterArgs:
     @d_b_subnet_group_name.setter
     def d_b_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "d_b_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dBSystemId")
+    def d_b_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved for future use.
+        """
+        return pulumi.get(self, "d_b_system_id")
+
+    @d_b_system_id.setter
+    def d_b_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_system_id", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -848,6 +864,7 @@ class DBCluster(pulumi.CustomResource):
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -904,6 +921,7 @@ class DBCluster(pulumi.CustomResource):
         :param pulumi.Input[str] d_b_cluster_parameter_group_name: The name of the DB cluster parameter group to associate with this DB cluster.
         :param pulumi.Input[str] d_b_instance_parameter_group_name: The name of the DB parameter group to apply to all instances of the DB cluster.
         :param pulumi.Input[str] d_b_subnet_group_name: A DB subnet group that you want to associate with this DB cluster.
+        :param pulumi.Input[str] d_b_system_id: Reserved for future use.
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
@@ -985,6 +1003,7 @@ class DBCluster(pulumi.CustomResource):
                  d_b_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  d_b_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 d_b_system_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1044,6 +1063,7 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["d_b_cluster_parameter_group_name"] = d_b_cluster_parameter_group_name
             __props__.__dict__["d_b_instance_parameter_group_name"] = d_b_instance_parameter_group_name
             __props__.__dict__["d_b_subnet_group_name"] = d_b_subnet_group_name
+            __props__.__dict__["d_b_system_id"] = d_b_system_id
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
@@ -1121,6 +1141,7 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["d_b_cluster_resource_id"] = None
         __props__.__dict__["d_b_instance_parameter_group_name"] = None
         __props__.__dict__["d_b_subnet_group_name"] = None
+        __props__.__dict__["d_b_system_id"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
@@ -1273,6 +1294,14 @@ class DBCluster(pulumi.CustomResource):
         A DB subnet group that you want to associate with this DB cluster.
         """
         return pulumi.get(self, "d_b_subnet_group_name")
+
+    @property
+    @pulumi.getter(name="dBSystemId")
+    def d_b_system_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reserved for future use.
+        """
+        return pulumi.get(self, "d_b_system_id")
 
     @property
     @pulumi.getter(name="databaseName")

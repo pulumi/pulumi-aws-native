@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IoT::Thing
- *
- * @deprecated Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Thing extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Thing extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Thing {
-        pulumi.log.warn("Thing is deprecated: Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Thing(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,6 +37,7 @@ export class Thing extends pulumi.CustomResource {
         return obj['__pulumiType'] === Thing.__pulumiType;
     }
 
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly attributePayload!: pulumi.Output<outputs.iot.ThingAttributePayload | undefined>;
     public readonly thingName!: pulumi.Output<string | undefined>;
 
@@ -50,15 +48,15 @@ export class Thing extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: ThingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Thing is deprecated: Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["attributePayload"] = args ? args.attributePayload : undefined;
             resourceInputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attributePayload"] = undefined /*out*/;
             resourceInputs["thingName"] = undefined /*out*/;
         }

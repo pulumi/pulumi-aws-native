@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { ConnectorProfileArgs } from "./connectorProfile";
 export type ConnectorProfile = import("./connectorProfile").ConnectorProfile;
 export const ConnectorProfile: typeof import("./connectorProfile").ConnectorProfile = null as any;
@@ -14,6 +19,11 @@ export { FlowArgs } from "./flow";
 export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
 utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
 export { GetConnectorProfileArgs, GetConnectorProfileResult, GetConnectorProfileOutputArgs } from "./getConnectorProfile";
 export const getConnectorProfile: typeof import("./getConnectorProfile").getConnectorProfile = null as any;
@@ -33,6 +43,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:appflow:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws-native:appflow:ConnectorProfile":
                 return new ConnectorProfile(name, <any>undefined, { urn })
             case "aws-native:appflow:Flow":

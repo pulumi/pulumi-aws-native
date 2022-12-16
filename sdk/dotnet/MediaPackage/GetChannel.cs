@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public readonly Outputs.ChannelLogConfiguration? EgressAccessLogs;
         /// <summary>
-        /// A short text description of the Channel.
+        /// An HTTP Live Streaming (HLS) ingest resource configuration.
         /// </summary>
         public readonly Outputs.ChannelHlsIngest? HlsIngest;
         /// <summary>

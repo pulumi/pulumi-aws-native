@@ -12,18 +12,35 @@ import (
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
-//
-// Deprecated: ConfigurationTemplate is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ConfigurationTemplate struct {
 	pulumi.CustomResourceState
 
-	ApplicationName     pulumi.StringOutput                                        `pulumi:"applicationName"`
-	Description         pulumi.StringPtrOutput                                     `pulumi:"description"`
-	EnvironmentId       pulumi.StringPtrOutput                                     `pulumi:"environmentId"`
-	OptionSettings      ConfigurationTemplateConfigurationOptionSettingArrayOutput `pulumi:"optionSettings"`
-	PlatformArn         pulumi.StringPtrOutput                                     `pulumi:"platformArn"`
-	SolutionStackName   pulumi.StringPtrOutput                                     `pulumi:"solutionStackName"`
-	SourceConfiguration ConfigurationTemplateSourceConfigurationPtrOutput          `pulumi:"sourceConfiguration"`
+	// The name of the Elastic Beanstalk application to associate with this configuration template.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// An optional description for this configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
+	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
+	// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
+	OptionSettings ConfigurationTemplateConfigurationOptionSettingArrayOutput `pulumi:"optionSettings"`
+	// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	PlatformArn pulumi.StringPtrOutput `pulumi:"platformArn"`
+	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	//
+	//  You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
+	//
+	//  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
+	SolutionStackName pulumi.StringPtrOutput `pulumi:"solutionStackName"`
+	// An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
+	//
+	// Values specified in OptionSettings override any values obtained from the SourceConfiguration.
+	//
+	// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
+	//
+	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
+	SourceConfiguration ConfigurationTemplateSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
+	// The name of the configuration template
+	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
 
 // NewConfigurationTemplate registers a new resource with the given unique name, arguments, and options.
@@ -68,23 +85,57 @@ func (ConfigurationTemplateState) ElementType() reflect.Type {
 }
 
 type configurationTemplateArgs struct {
-	ApplicationName     string                                            `pulumi:"applicationName"`
-	Description         *string                                           `pulumi:"description"`
-	EnvironmentId       *string                                           `pulumi:"environmentId"`
-	OptionSettings      []ConfigurationTemplateConfigurationOptionSetting `pulumi:"optionSettings"`
-	PlatformArn         *string                                           `pulumi:"platformArn"`
-	SolutionStackName   *string                                           `pulumi:"solutionStackName"`
-	SourceConfiguration *ConfigurationTemplateSourceConfiguration         `pulumi:"sourceConfiguration"`
+	// The name of the Elastic Beanstalk application to associate with this configuration template.
+	ApplicationName string `pulumi:"applicationName"`
+	// An optional description for this configuration.
+	Description *string `pulumi:"description"`
+	// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
+	EnvironmentId *string `pulumi:"environmentId"`
+	// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
+	OptionSettings []ConfigurationTemplateConfigurationOptionSetting `pulumi:"optionSettings"`
+	// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	PlatformArn *string `pulumi:"platformArn"`
+	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	//
+	//  You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
+	//
+	//  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
+	SolutionStackName *string `pulumi:"solutionStackName"`
+	// An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
+	//
+	// Values specified in OptionSettings override any values obtained from the SourceConfiguration.
+	//
+	// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
+	//
+	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
+	SourceConfiguration *ConfigurationTemplateSourceConfiguration `pulumi:"sourceConfiguration"`
 }
 
 // The set of arguments for constructing a ConfigurationTemplate resource.
 type ConfigurationTemplateArgs struct {
-	ApplicationName     pulumi.StringInput
-	Description         pulumi.StringPtrInput
-	EnvironmentId       pulumi.StringPtrInput
-	OptionSettings      ConfigurationTemplateConfigurationOptionSettingArrayInput
-	PlatformArn         pulumi.StringPtrInput
-	SolutionStackName   pulumi.StringPtrInput
+	// The name of the Elastic Beanstalk application to associate with this configuration template.
+	ApplicationName pulumi.StringInput
+	// An optional description for this configuration.
+	Description pulumi.StringPtrInput
+	// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
+	EnvironmentId pulumi.StringPtrInput
+	// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
+	OptionSettings ConfigurationTemplateConfigurationOptionSettingArrayInput
+	// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	PlatformArn pulumi.StringPtrInput
+	// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+	//
+	//  You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
+	//
+	//  Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
+	SolutionStackName pulumi.StringPtrInput
+	// An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
+	//
+	// Values specified in OptionSettings override any values obtained from the SourceConfiguration.
+	//
+	// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
+	//
+	// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
 	SourceConfiguration ConfigurationTemplateSourceConfigurationPtrInput
 }
 
@@ -125,36 +176,58 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ct
 	return o
 }
 
+// The name of the Elastic Beanstalk application to associate with this configuration template.
 func (o ConfigurationTemplateOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
+// An optional description for this configuration.
 func (o ConfigurationTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an environment whose settings you want to use to create the configuration template. You must specify EnvironmentId if you don't specify PlatformArn, SolutionStackName, or SourceConfiguration.
 func (o ConfigurationTemplateOutput) EnvironmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
 }
 
+// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
 func (o ConfigurationTemplateOutput) OptionSettings() ConfigurationTemplateConfigurationOptionSettingArrayOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplateConfigurationOptionSettingArrayOutput {
 		return v.OptionSettings
 	}).(ConfigurationTemplateConfigurationOptionSettingArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) of the custom platform. For more information, see [Custom Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html) in the AWS Elastic Beanstalk Developer Guide.
 func (o ConfigurationTemplateOutput) PlatformArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.PlatformArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For example, 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7. A solution stack specifies the operating system, runtime, and application server for a configuration template. It also determines the set of configuration options as well as the possible and default values. For more information, see [Supported Platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) in the AWS Elastic Beanstalk Developer Guide.
+//
+//	You must specify SolutionStackName if you don't specify PlatformArn, EnvironmentId, or SourceConfiguration.
+//
+//	Use the ListAvailableSolutionStacks API to obtain a list of available solution stacks.
 func (o ConfigurationTemplateOutput) SolutionStackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringPtrOutput { return v.SolutionStackName }).(pulumi.StringPtrOutput)
 }
 
+// An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.
+//
+// Values specified in OptionSettings override any values obtained from the SourceConfiguration.
+//
+// You must specify SourceConfiguration if you don't specify PlatformArn, EnvironmentId, or SolutionStackName.
+//
+// Constraint: If both solution stack name and source configuration are specified, the solution stack of the source configuration template must match the specified solution stack name.
 func (o ConfigurationTemplateOutput) SourceConfiguration() ConfigurationTemplateSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplateSourceConfigurationPtrOutput {
 		return v.SourceConfiguration
 	}).(ConfigurationTemplateSourceConfigurationPtrOutput)
+}
+
+// The name of the configuration template
+func (o ConfigurationTemplateOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
 }
 
 func init() {

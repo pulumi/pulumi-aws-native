@@ -19,6 +19,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebACLManagedRuleGroupConfig> ManagedRuleGroupConfigs;
         public readonly string Name;
+        /// <summary>
+        /// Action overrides for rules in the rule group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebACLRuleActionOverride> RuleActionOverrides;
         public readonly Outputs.WebACLStatement? ScopeDownStatement;
         public readonly string VendorName;
         public readonly string? Version;
@@ -31,6 +35,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.WebACLRuleActionOverride> ruleActionOverrides,
+
             Outputs.WebACLStatement? scopeDownStatement,
 
             string vendorName,
@@ -40,6 +46,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
             ExcludedRules = excludedRules;
             ManagedRuleGroupConfigs = managedRuleGroupConfigs;
             Name = name;
+            RuleActionOverrides = ruleActionOverrides;
             ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
             Version = version;

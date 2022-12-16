@@ -42,6 +42,10 @@ export class Application extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly engineType!: pulumi.Output<enums.m2.ApplicationEngineType>;
+    /**
+     * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.m2.ApplicationTagMap | undefined>;
 
@@ -65,6 +69,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
@@ -75,6 +80,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["engineType"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -90,6 +96,10 @@ export interface ApplicationArgs {
     definition: pulumi.Input<inputs.m2.ApplicationDefinitionArgs>;
     description?: pulumi.Input<string>;
     engineType: pulumi.Input<enums.m2.ApplicationEngineType>;
+    /**
+     * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.m2.ApplicationTagMapArgs>;
 }

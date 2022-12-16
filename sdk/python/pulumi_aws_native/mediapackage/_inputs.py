@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AssetTagArgs',
+    'ChannelHlsIngestArgs',
+    'ChannelIngestEndpointArgs',
     'ChannelLogConfigurationArgs',
     'ChannelTagArgs',
     'OriginEndpointAuthorizationArgs',
@@ -73,6 +75,98 @@ class AssetTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ChannelHlsIngestArgs:
+    def __init__(__self__, *,
+                 ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgs']]]] = None):
+        """
+        An HTTP Live Streaming (HLS) ingest resource configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgs']]] ingest_endpoints: A list of endpoints to which the source stream should be sent.
+        """
+        if ingest_endpoints is not None:
+            pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
+
+    @property
+    @pulumi.getter(name="ingestEndpoints")
+    def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgs']]]]:
+        """
+        A list of endpoints to which the source stream should be sent.
+        """
+        return pulumi.get(self, "ingest_endpoints")
+
+    @ingest_endpoints.setter
+    def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelIngestEndpointArgs']]]]):
+        pulumi.set(self, "ingest_endpoints", value)
+
+
+@pulumi.input_type
+class ChannelIngestEndpointArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        An endpoint for ingesting source content for a Channel.
+        :param pulumi.Input[str] id: The system generated unique identifier for the IngestEndpoint
+        :param pulumi.Input[str] password: The system generated password for ingest authentication.
+        :param pulumi.Input[str] url: The ingest URL to which the source stream should be sent.
+        :param pulumi.Input[str] username: The system generated username for ingest authentication.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The system generated unique identifier for the IngestEndpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The system generated password for ingest authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The ingest URL to which the source stream should be sent.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The system generated username for ingest authentication.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

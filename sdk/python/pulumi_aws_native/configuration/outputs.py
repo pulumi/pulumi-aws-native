@@ -22,6 +22,7 @@ __all__ = [
     'ConfigurationRecorderRecordingGroup',
     'ConformancePackInputParameter',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
+    'OrganizationConfigRuleOrganizationCustomCodeRuleMetadata',
     'OrganizationConfigRuleOrganizationCustomRuleMetadata',
     'OrganizationConfigRuleOrganizationManagedRuleMetadata',
     'OrganizationConformancePackConformancePackInputParameter',
@@ -532,6 +533,130 @@ class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
     @pulumi.getter(name="deliveryFrequency")
     def delivery_frequency(self) -> Optional[str]:
         return pulumi.get(self, "delivery_frequency")
+
+
+@pulumi.output_type
+class OrganizationConfigRuleOrganizationCustomCodeRuleMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeText":
+            suggest = "code_text"
+        elif key == "debugLogDeliveryAccounts":
+            suggest = "debug_log_delivery_accounts"
+        elif key == "inputParameters":
+            suggest = "input_parameters"
+        elif key == "maximumExecutionFrequency":
+            suggest = "maximum_execution_frequency"
+        elif key == "organizationConfigRuleTriggerTypes":
+            suggest = "organization_config_rule_trigger_types"
+        elif key == "resourceIdScope":
+            suggest = "resource_id_scope"
+        elif key == "resourceTypesScope":
+            suggest = "resource_types_scope"
+        elif key == "tagKeyScope":
+            suggest = "tag_key_scope"
+        elif key == "tagValueScope":
+            suggest = "tag_value_scope"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigRuleOrganizationCustomCodeRuleMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigRuleOrganizationCustomCodeRuleMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigRuleOrganizationCustomCodeRuleMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_text: str,
+                 runtime: str,
+                 debug_log_delivery_accounts: Optional[Sequence[str]] = None,
+                 description: Optional[str] = None,
+                 input_parameters: Optional[str] = None,
+                 maximum_execution_frequency: Optional[str] = None,
+                 organization_config_rule_trigger_types: Optional[Sequence[str]] = None,
+                 resource_id_scope: Optional[str] = None,
+                 resource_types_scope: Optional[Sequence[str]] = None,
+                 tag_key_scope: Optional[str] = None,
+                 tag_value_scope: Optional[str] = None):
+        pulumi.set(__self__, "code_text", code_text)
+        pulumi.set(__self__, "runtime", runtime)
+        if debug_log_delivery_accounts is not None:
+            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if organization_config_rule_trigger_types is not None:
+            pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @property
+    @pulumi.getter(name="codeText")
+    def code_text(self) -> str:
+        return pulumi.get(self, "code_text")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> str:
+        return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="debugLogDeliveryAccounts")
+    def debug_log_delivery_accounts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "debug_log_delivery_accounts")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "input_parameters")
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[str]:
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @property
+    @pulumi.getter(name="organizationConfigRuleTriggerTypes")
+    def organization_config_rule_trigger_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "organization_config_rule_trigger_types")
+
+    @property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[str]:
+        return pulumi.get(self, "resource_id_scope")
+
+    @property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_types_scope")
+
+    @property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[str]:
+        return pulumi.get(self, "tag_key_scope")
+
+    @property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[str]:
+        return pulumi.get(self, "tag_value_scope")
 
 
 @pulumi.output_type

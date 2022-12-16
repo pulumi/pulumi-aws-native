@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.EKS
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The configuration values to use with the add-on
+        /// </summary>
+        public readonly string? ConfigurationValues;
+        /// <summary>
         /// IAM role to bind to the add-on's service account
         /// </summary>
         public readonly string? ServiceAccountRoleArn;
@@ -92,12 +96,15 @@ namespace Pulumi.AwsNative.EKS
 
             string? arn,
 
+            string? configurationValues,
+
             string? serviceAccountRoleArn,
 
             ImmutableArray<Outputs.AddonTag> tags)
         {
             AddonVersion = addonVersion;
             Arn = arn;
+            ConfigurationValues = configurationValues;
             ServiceAccountRoleArn = serviceAccountRoleArn;
             Tags = tags;
         }

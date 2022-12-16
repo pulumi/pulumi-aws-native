@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CodePipeline::CustomActionType
- *
- * @deprecated CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
  */
 export class CustomActionType extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class CustomActionType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomActionType {
-        pulumi.log.warn("CustomActionType is deprecated: CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new CustomActionType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,13 +37,37 @@ export class CustomActionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomActionType.__pulumiType;
     }
 
+    /**
+     * The category of the custom action, such as a build action or a test action.
+     */
     public readonly category!: pulumi.Output<string>;
+    /**
+     * The configuration properties for the custom action.
+     */
     public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperties[] | undefined>;
+    /**
+     * The details of the input artifact for the action, such as its commit ID.
+     */
     public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
+    /**
+     * The details of the output artifact of the action, such as its commit ID.
+     */
     public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeArtifactDetails>;
+    /**
+     * The provider of the service used in the custom action, such as AWS CodeDeploy.
+     */
     public readonly provider!: pulumi.Output<string>;
+    /**
+     * URLs that provide users information about this custom action.
+     */
     public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
+    /**
+     * Any tags assigned to the custom action.
+     */
     public readonly tags!: pulumi.Output<outputs.codepipeline.CustomActionTypeTag[] | undefined>;
+    /**
+     * The version identifier of the custom action.
+     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -56,9 +77,7 @@ export class CustomActionType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: CustomActionTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CustomActionType is deprecated: CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -104,12 +123,36 @@ export class CustomActionType extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomActionType resource.
  */
 export interface CustomActionTypeArgs {
+    /**
+     * The category of the custom action, such as a build action or a test action.
+     */
     category: pulumi.Input<string>;
+    /**
+     * The configuration properties for the custom action.
+     */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationPropertiesArgs>[]>;
+    /**
+     * The details of the input artifact for the action, such as its commit ID.
+     */
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeArtifactDetailsArgs>;
+    /**
+     * The details of the output artifact of the action, such as its commit ID.
+     */
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeArtifactDetailsArgs>;
+    /**
+     * The provider of the service used in the custom action, such as AWS CodeDeploy.
+     */
     provider: pulumi.Input<string>;
+    /**
+     * URLs that provide users information about this custom action.
+     */
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettingsArgs>;
+    /**
+     * Any tags assigned to the custom action.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeTagArgs>[]>;
+    /**
+     * The version identifier of the custom action.
+     */
     version: pulumi.Input<string>;
 }

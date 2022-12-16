@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
     /// </summary>
     public sealed class WebACLManagedRuleGroupConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aWSManagedRulesBotControlRuleSet")]
+        public Input<Inputs.WebACLAWSManagedRulesBotControlRuleSetArgs>? AWSManagedRulesBotControlRuleSet { get; set; }
+
         [Input("loginPath")]
         public Input<string>? LoginPath { get; set; }
 

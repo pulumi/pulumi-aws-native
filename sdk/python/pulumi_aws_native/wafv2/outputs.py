@@ -27,6 +27,7 @@ __all__ = [
     'RuleGroupBody',
     'RuleGroupByteMatchStatement',
     'RuleGroupCaptchaConfig',
+    'RuleGroupChallengeConfig',
     'RuleGroupCookieMatchPattern',
     'RuleGroupCookies',
     'RuleGroupCustomHTTPHeader',
@@ -58,6 +59,7 @@ __all__ = [
     'RuleGroupRuleActionAllowProperties',
     'RuleGroupRuleActionBlockProperties',
     'RuleGroupRuleActionCaptchaProperties',
+    'RuleGroupRuleActionChallengeProperties',
     'RuleGroupRuleActionCountProperties',
     'RuleGroupSizeConstraintStatement',
     'RuleGroupSqliMatchStatement',
@@ -66,6 +68,7 @@ __all__ = [
     'RuleGroupTextTransformation',
     'RuleGroupVisibilityConfig',
     'RuleGroupXssMatchStatement',
+    'WebACLAWSManagedRulesBotControlRuleSet',
     'WebACLAllowAction',
     'WebACLAndStatement',
     'WebACLBlockAction',
@@ -73,6 +76,8 @@ __all__ = [
     'WebACLByteMatchStatement',
     'WebACLCaptchaAction',
     'WebACLCaptchaConfig',
+    'WebACLChallengeAction',
+    'WebACLChallengeConfig',
     'WebACLCookieMatchPattern',
     'WebACLCookies',
     'WebACLCountAction',
@@ -107,6 +112,7 @@ __all__ = [
     'WebACLRegexPatternSetReferenceStatement',
     'WebACLRule',
     'WebACLRuleAction',
+    'WebACLRuleActionOverride',
     'WebACLRuleGroupReferenceStatement',
     'WebACLSizeConstraintStatement',
     'WebACLSqliMatchStatement',
@@ -732,6 +738,36 @@ class RuleGroupCaptchaConfig(dict):
 
     def get(self, key: str, default = None) -> Any:
         RuleGroupCaptchaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.RuleGroupImmunityTimeProperty']:
+        return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class RuleGroupChallengeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupChallengeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupChallengeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupChallengeConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -1803,6 +1839,8 @@ class RuleGroupRule(dict):
             suggest = "visibility_config"
         elif key == "captchaConfig":
             suggest = "captcha_config"
+        elif key == "challengeConfig":
+            suggest = "challenge_config"
         elif key == "ruleLabels":
             suggest = "rule_labels"
 
@@ -1824,6 +1862,7 @@ class RuleGroupRule(dict):
                  visibility_config: 'outputs.RuleGroupVisibilityConfig',
                  action: Optional['outputs.RuleGroupRuleAction'] = None,
                  captcha_config: Optional['outputs.RuleGroupCaptchaConfig'] = None,
+                 challenge_config: Optional['outputs.RuleGroupChallengeConfig'] = None,
                  rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None):
         """
         Rule of RuleGroup that contains condition and action.
@@ -1837,6 +1876,8 @@ class RuleGroupRule(dict):
             pulumi.set(__self__, "action", action)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if rule_labels is not None:
             pulumi.set(__self__, "rule_labels", rule_labels)
 
@@ -1871,6 +1912,11 @@ class RuleGroupRule(dict):
         return pulumi.get(self, "captcha_config")
 
     @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional['outputs.RuleGroupChallengeConfig']:
+        return pulumi.get(self, "challenge_config")
+
+    @property
     @pulumi.getter(name="ruleLabels")
     def rule_labels(self) -> Optional[Sequence['outputs.RuleGroupLabel']]:
         """
@@ -1888,12 +1934,14 @@ class RuleGroupRuleAction(dict):
                  allow: Optional['outputs.RuleGroupRuleActionAllowProperties'] = None,
                  block: Optional['outputs.RuleGroupRuleActionBlockProperties'] = None,
                  captcha: Optional['outputs.RuleGroupRuleActionCaptchaProperties'] = None,
+                 challenge: Optional['outputs.RuleGroupRuleActionChallengeProperties'] = None,
                  count: Optional['outputs.RuleGroupRuleActionCountProperties'] = None):
         """
         Action taken when Rule matches its condition.
         :param 'RuleGroupRuleActionAllowProperties' allow: Allow traffic towards application.
         :param 'RuleGroupRuleActionBlockProperties' block: Block traffic towards application.
         :param 'RuleGroupRuleActionCaptchaProperties' captcha: Checks valid token exists with request.
+        :param 'RuleGroupRuleActionChallengeProperties' challenge: Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         :param 'RuleGroupRuleActionCountProperties' count: Count traffic towards application.
         """
         if allow is not None:
@@ -1902,6 +1950,8 @@ class RuleGroupRuleAction(dict):
             pulumi.set(__self__, "block", block)
         if captcha is not None:
             pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -1928,6 +1978,14 @@ class RuleGroupRuleAction(dict):
         Checks valid token exists with request.
         """
         return pulumi.get(self, "captcha")
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> Optional['outputs.RuleGroupRuleActionChallengeProperties']:
+        """
+        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        """
+        return pulumi.get(self, "challenge")
 
     @property
     @pulumi.getter
@@ -2036,6 +2094,42 @@ class RuleGroupRuleActionCaptchaProperties(dict):
                  custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
         """
         Checks valid token exists with request.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.RuleGroupCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class RuleGroupRuleActionChallengeProperties(dict):
+    """
+    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupRuleActionChallengeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupRuleActionChallengeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupRuleActionChallengeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None):
+        """
+        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -2496,6 +2590,41 @@ class RuleGroupXssMatchStatement(dict):
 
 
 @pulumi.output_type
+class WebACLAWSManagedRulesBotControlRuleSet(dict):
+    """
+    Configures how to use the Bot Control managed rule group in the web ACL
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inspectionLevel":
+            suggest = "inspection_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLAWSManagedRulesBotControlRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLAWSManagedRulesBotControlRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLAWSManagedRulesBotControlRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inspection_level: 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel'):
+        """
+        Configures how to use the Bot Control managed rule group in the web ACL
+        """
+        pulumi.set(__self__, "inspection_level", inspection_level)
+
+    @property
+    @pulumi.getter(name="inspectionLevel")
+    def inspection_level(self) -> 'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel':
+        return pulumi.get(self, "inspection_level")
+
+
+@pulumi.output_type
 class WebACLAllowAction(dict):
     """
     Allow traffic towards application.
@@ -2741,6 +2870,72 @@ class WebACLCaptchaConfig(dict):
 
     def get(self, key: str, default = None) -> Any:
         WebACLCaptchaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 immunity_time_property: Optional['outputs.WebACLImmunityTimeProperty'] = None):
+        if immunity_time_property is not None:
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
+
+    @property
+    @pulumi.getter(name="immunityTimeProperty")
+    def immunity_time_property(self) -> Optional['outputs.WebACLImmunityTimeProperty']:
+        return pulumi.get(self, "immunity_time_property")
+
+
+@pulumi.output_type
+class WebACLChallengeAction(dict):
+    """
+    Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customRequestHandling":
+            suggest = "custom_request_handling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLChallengeAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLChallengeAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLChallengeAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_request_handling: Optional['outputs.WebACLCustomRequestHandling'] = None):
+        """
+        Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        """
+        if custom_request_handling is not None:
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
+
+    @property
+    @pulumi.getter(name="customRequestHandling")
+    def custom_request_handling(self) -> Optional['outputs.WebACLCustomRequestHandling']:
+        return pulumi.get(self, "custom_request_handling")
+
+
+@pulumi.output_type
+class WebACLChallengeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "immunityTimeProperty":
+            suggest = "immunity_time_property"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLChallengeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLChallengeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLChallengeConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -3716,7 +3911,9 @@ class WebACLManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "loginPath":
+        if key == "aWSManagedRulesBotControlRuleSet":
+            suggest = "a_ws_managed_rules_bot_control_rule_set"
+        elif key == "loginPath":
             suggest = "login_path"
         elif key == "passwordField":
             suggest = "password_field"
@@ -3737,6 +3934,7 @@ class WebACLManagedRuleGroupConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 a_ws_managed_rules_bot_control_rule_set: Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[str] = None,
                  password_field: Optional['outputs.WebACLFieldIdentifier'] = None,
                  payload_type: Optional['WebACLManagedRuleGroupConfigPayloadType'] = None,
@@ -3744,6 +3942,8 @@ class WebACLManagedRuleGroupConfig(dict):
         """
         ManagedRuleGroupConfig.
         """
+        if a_ws_managed_rules_bot_control_rule_set is not None:
+            pulumi.set(__self__, "a_ws_managed_rules_bot_control_rule_set", a_ws_managed_rules_bot_control_rule_set)
         if login_path is not None:
             pulumi.set(__self__, "login_path", login_path)
         if password_field is not None:
@@ -3752,6 +3952,11 @@ class WebACLManagedRuleGroupConfig(dict):
             pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
             pulumi.set(__self__, "username_field", username_field)
+
+    @property
+    @pulumi.getter(name="aWSManagedRulesBotControlRuleSet")
+    def a_ws_managed_rules_bot_control_rule_set(self) -> Optional['outputs.WebACLAWSManagedRulesBotControlRuleSet']:
+        return pulumi.get(self, "a_ws_managed_rules_bot_control_rule_set")
 
     @property
     @pulumi.getter(name="loginPath")
@@ -3785,6 +3990,8 @@ class WebACLManagedRuleGroupStatement(dict):
             suggest = "excluded_rules"
         elif key == "managedRuleGroupConfigs":
             suggest = "managed_rule_group_configs"
+        elif key == "ruleActionOverrides":
+            suggest = "rule_action_overrides"
         elif key == "scopeDownStatement":
             suggest = "scope_down_statement"
 
@@ -3804,10 +4011,12 @@ class WebACLManagedRuleGroupStatement(dict):
                  vendor_name: str,
                  excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
                  managed_rule_group_configs: Optional[Sequence['outputs.WebACLManagedRuleGroupConfig']] = None,
+                 rule_action_overrides: Optional[Sequence['outputs.WebACLRuleActionOverride']] = None,
                  scope_down_statement: Optional['outputs.WebACLStatement'] = None,
                  version: Optional[str] = None):
         """
         :param Sequence['WebACLManagedRuleGroupConfig'] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
+        :param Sequence['WebACLRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "vendor_name", vendor_name)
@@ -3815,6 +4024,8 @@ class WebACLManagedRuleGroupStatement(dict):
             pulumi.set(__self__, "excluded_rules", excluded_rules)
         if managed_rule_group_configs is not None:
             pulumi.set(__self__, "managed_rule_group_configs", managed_rule_group_configs)
+        if rule_action_overrides is not None:
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
         if scope_down_statement is not None:
             pulumi.set(__self__, "scope_down_statement", scope_down_statement)
         if version is not None:
@@ -3842,6 +4053,14 @@ class WebACLManagedRuleGroupStatement(dict):
         Collection of ManagedRuleGroupConfig.
         """
         return pulumi.get(self, "managed_rule_group_configs")
+
+    @property
+    @pulumi.getter(name="ruleActionOverrides")
+    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebACLRuleActionOverride']]:
+        """
+        Action overrides for rules in the rule group.
+        """
+        return pulumi.get(self, "rule_action_overrides")
 
     @property
     @pulumi.getter(name="scopeDownStatement")
@@ -4073,6 +4292,8 @@ class WebACLRule(dict):
             suggest = "visibility_config"
         elif key == "captchaConfig":
             suggest = "captcha_config"
+        elif key == "challengeConfig":
+            suggest = "challenge_config"
         elif key == "overrideAction":
             suggest = "override_action"
         elif key == "ruleLabels":
@@ -4096,6 +4317,7 @@ class WebACLRule(dict):
                  visibility_config: 'outputs.WebACLVisibilityConfig',
                  action: Optional['outputs.WebACLRuleAction'] = None,
                  captcha_config: Optional['outputs.WebACLCaptchaConfig'] = None,
+                 challenge_config: Optional['outputs.WebACLChallengeConfig'] = None,
                  override_action: Optional['outputs.WebACLOverrideAction'] = None,
                  rule_labels: Optional[Sequence['outputs.WebACLLabel']] = None):
         """
@@ -4110,6 +4332,8 @@ class WebACLRule(dict):
             pulumi.set(__self__, "action", action)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if override_action is not None:
             pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
@@ -4146,6 +4370,11 @@ class WebACLRule(dict):
         return pulumi.get(self, "captcha_config")
 
     @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional['outputs.WebACLChallengeConfig']:
+        return pulumi.get(self, "challenge_config")
+
+    @property
     @pulumi.getter(name="overrideAction")
     def override_action(self) -> Optional['outputs.WebACLOverrideAction']:
         return pulumi.get(self, "override_action")
@@ -4168,6 +4397,7 @@ class WebACLRuleAction(dict):
                  allow: Optional['outputs.WebACLAllowAction'] = None,
                  block: Optional['outputs.WebACLBlockAction'] = None,
                  captcha: Optional['outputs.WebACLCaptchaAction'] = None,
+                 challenge: Optional['outputs.WebACLChallengeAction'] = None,
                  count: Optional['outputs.WebACLCountAction'] = None):
         """
         Action taken when Rule matches its condition.
@@ -4178,6 +4408,8 @@ class WebACLRuleAction(dict):
             pulumi.set(__self__, "block", block)
         if captcha is not None:
             pulumi.set(__self__, "captcha", captcha)
+        if challenge is not None:
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
             pulumi.set(__self__, "count", count)
 
@@ -4198,8 +4430,55 @@ class WebACLRuleAction(dict):
 
     @property
     @pulumi.getter
+    def challenge(self) -> Optional['outputs.WebACLChallengeAction']:
+        return pulumi.get(self, "challenge")
+
+    @property
+    @pulumi.getter
     def count(self) -> Optional['outputs.WebACLCountAction']:
         return pulumi.get(self, "count")
+
+
+@pulumi.output_type
+class WebACLRuleActionOverride(dict):
+    """
+    Action override for rules in the rule group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionToUse":
+            suggest = "action_to_use"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebACLRuleActionOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebACLRuleActionOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebACLRuleActionOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_to_use: 'outputs.WebACLRuleAction',
+                 name: str):
+        """
+        Action override for rules in the rule group.
+        """
+        pulumi.set(__self__, "action_to_use", action_to_use)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="actionToUse")
+    def action_to_use(self) -> 'outputs.WebACLRuleAction':
+        return pulumi.get(self, "action_to_use")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -4209,6 +4488,8 @@ class WebACLRuleGroupReferenceStatement(dict):
         suggest = None
         if key == "excludedRules":
             suggest = "excluded_rules"
+        elif key == "ruleActionOverrides":
+            suggest = "rule_action_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebACLRuleGroupReferenceStatement. Access the value via the '{suggest}' property getter instead.")
@@ -4223,10 +4504,16 @@ class WebACLRuleGroupReferenceStatement(dict):
 
     def __init__(__self__, *,
                  arn: str,
-                 excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None):
+                 excluded_rules: Optional[Sequence['outputs.WebACLExcludedRule']] = None,
+                 rule_action_overrides: Optional[Sequence['outputs.WebACLRuleActionOverride']] = None):
+        """
+        :param Sequence['WebACLRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
+        """
         pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
             pulumi.set(__self__, "excluded_rules", excluded_rules)
+        if rule_action_overrides is not None:
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
 
     @property
     @pulumi.getter
@@ -4237,6 +4524,14 @@ class WebACLRuleGroupReferenceStatement(dict):
     @pulumi.getter(name="excludedRules")
     def excluded_rules(self) -> Optional[Sequence['outputs.WebACLExcludedRule']]:
         return pulumi.get(self, "excluded_rules")
+
+    @property
+    @pulumi.getter(name="ruleActionOverrides")
+    def rule_action_overrides(self) -> Optional[Sequence['outputs.WebACLRuleActionOverride']]:
+        """
+        Action overrides for rules in the rule group.
+        """
+        return pulumi.get(self, "rule_action_overrides")
 
 
 @pulumi.output_type

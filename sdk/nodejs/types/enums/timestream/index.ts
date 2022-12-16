@@ -39,6 +39,7 @@ export const ScheduledQueryMultiMeasureAttributeMappingMeasureValueType = {
     Boolean: "BOOLEAN",
     Double: "DOUBLE",
     Varchar: "VARCHAR",
+    Timestamp: "TIMESTAMP",
 } as const;
 
 /**

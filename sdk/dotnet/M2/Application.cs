@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.M2
         [Output("engineType")]
         public Output<Pulumi.AwsNative.M2.ApplicationEngineType> EngineType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -89,6 +95,12 @@ namespace Pulumi.AwsNative.M2
 
         [Input("engineType", required: true)]
         public Input<Pulumi.AwsNative.M2.ApplicationEngineType> EngineType { get; set; } = null!;
+
+        /// <summary>
+        /// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

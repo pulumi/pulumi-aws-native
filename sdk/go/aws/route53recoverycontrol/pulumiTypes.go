@@ -15,6 +15,59 @@ type ClusterEndpoint struct {
 	Region   *string `pulumi:"region"`
 }
 
+// ClusterEndpointInput is an input type that accepts ClusterEndpointArgs and ClusterEndpointOutput values.
+// You can construct a concrete instance of `ClusterEndpointInput` via:
+//
+//	ClusterEndpointArgs{...}
+type ClusterEndpointInput interface {
+	pulumi.Input
+
+	ToClusterEndpointOutput() ClusterEndpointOutput
+	ToClusterEndpointOutputWithContext(context.Context) ClusterEndpointOutput
+}
+
+type ClusterEndpointArgs struct {
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (ClusterEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterEndpoint)(nil)).Elem()
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointOutput() ClusterEndpointOutput {
+	return i.ToClusterEndpointOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointArgs) ToClusterEndpointOutputWithContext(ctx context.Context) ClusterEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointOutput)
+}
+
+// ClusterEndpointArrayInput is an input type that accepts ClusterEndpointArray and ClusterEndpointArrayOutput values.
+// You can construct a concrete instance of `ClusterEndpointArrayInput` via:
+//
+//	ClusterEndpointArray{ ClusterEndpointArgs{...} }
+type ClusterEndpointArrayInput interface {
+	pulumi.Input
+
+	ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput
+	ToClusterEndpointArrayOutputWithContext(context.Context) ClusterEndpointArrayOutput
+}
+
+type ClusterEndpointArray []ClusterEndpointInput
+
+func (ClusterEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterEndpoint)(nil)).Elem()
+}
+
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
+	return i.ToClusterEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterEndpointArray) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointArrayOutput)
+}
+
 type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
@@ -873,6 +926,8 @@ func (o SafetyRuleTagArrayOutput) Index(i pulumi.IntInput) SafetyRuleTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), ClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointArrayInput)(nil)).Elem(), ClusterEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagInput)(nil)).Elem(), ClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTagArrayInput)(nil)).Elem(), ClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelTagInput)(nil)).Elem(), ControlPanelTagArgs{})

@@ -25,10 +25,11 @@ type LookupOrganizationConfigRuleArgs struct {
 }
 
 type LookupOrganizationConfigRuleResult struct {
-	ExcludedAccounts                []string                                               `pulumi:"excludedAccounts"`
-	Id                              *string                                                `pulumi:"id"`
-	OrganizationCustomRuleMetadata  *OrganizationConfigRuleOrganizationCustomRuleMetadata  `pulumi:"organizationCustomRuleMetadata"`
-	OrganizationManagedRuleMetadata *OrganizationConfigRuleOrganizationManagedRuleMetadata `pulumi:"organizationManagedRuleMetadata"`
+	ExcludedAccounts                   []string                                                  `pulumi:"excludedAccounts"`
+	Id                                 *string                                                   `pulumi:"id"`
+	OrganizationCustomCodeRuleMetadata *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata `pulumi:"organizationCustomCodeRuleMetadata"`
+	OrganizationCustomRuleMetadata     *OrganizationConfigRuleOrganizationCustomRuleMetadata     `pulumi:"organizationCustomRuleMetadata"`
+	OrganizationManagedRuleMetadata    *OrganizationConfigRuleOrganizationManagedRuleMetadata    `pulumi:"organizationManagedRuleMetadata"`
 }
 
 func LookupOrganizationConfigRuleOutput(ctx *pulumi.Context, args LookupOrganizationConfigRuleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationConfigRuleResultOutput {
@@ -72,6 +73,12 @@ func (o LookupOrganizationConfigRuleResultOutput) ExcludedAccounts() pulumi.Stri
 
 func (o LookupOrganizationConfigRuleResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOrganizationConfigRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOrganizationConfigRuleResultOutput) OrganizationCustomCodeRuleMetadata() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationConfigRuleResult) *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata {
+		return v.OrganizationCustomCodeRuleMetadata
+	}).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput)
 }
 
 func (o LookupOrganizationConfigRuleResultOutput) OrganizationCustomRuleMetadata() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {

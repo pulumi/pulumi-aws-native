@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetRestApi
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RestApi.
+        /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RestApi.
+        /// Resource Type definition for AWS::ApiGateway::RestApi
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
@@ -53,11 +53,17 @@ namespace Pulumi.AwsNative.ApiGateway
     {
         public readonly string? ApiKeySourceType;
         public readonly ImmutableArray<string> BinaryMediaTypes;
+        public readonly object? Body;
+        public readonly Outputs.RestApiS3Location? BodyS3Location;
+        public readonly string? CloneFrom;
         public readonly string? Description;
         public readonly bool? DisableExecuteApiEndpoint;
         public readonly Outputs.RestApiEndpointConfiguration? EndpointConfiguration;
+        public readonly bool? FailOnWarnings;
         public readonly int? MinimumCompressionSize;
+        public readonly string? Mode;
         public readonly string? Name;
+        public readonly object? Parameters;
         public readonly object? Policy;
         public readonly string? RestApiId;
         public readonly string? RootResourceId;
@@ -69,15 +75,27 @@ namespace Pulumi.AwsNative.ApiGateway
 
             ImmutableArray<string> binaryMediaTypes,
 
+            object? body,
+
+            Outputs.RestApiS3Location? bodyS3Location,
+
+            string? cloneFrom,
+
             string? description,
 
             bool? disableExecuteApiEndpoint,
 
             Outputs.RestApiEndpointConfiguration? endpointConfiguration,
 
+            bool? failOnWarnings,
+
             int? minimumCompressionSize,
 
+            string? mode,
+
             string? name,
+
+            object? parameters,
 
             object? policy,
 
@@ -89,11 +107,17 @@ namespace Pulumi.AwsNative.ApiGateway
         {
             ApiKeySourceType = apiKeySourceType;
             BinaryMediaTypes = binaryMediaTypes;
+            Body = body;
+            BodyS3Location = bodyS3Location;
+            CloneFrom = cloneFrom;
             Description = description;
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
             EndpointConfiguration = endpointConfiguration;
+            FailOnWarnings = failOnWarnings;
             MinimumCompressionSize = minimumCompressionSize;
+            Mode = mode;
             Name = name;
+            Parameters = parameters;
             Policy = policy;
             RestApiId = restApiId;
             RootResourceId = rootResourceId;

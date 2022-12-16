@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
     public sealed class VpcAttachmentVpcOptions
     {
         /// <summary>
+        /// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        /// </summary>
+        public readonly bool? ApplianceModeSupport;
+        /// <summary>
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         /// </summary>
         public readonly bool? Ipv6Support;
 
         [OutputConstructor]
-        private VpcAttachmentVpcOptions(bool? ipv6Support)
+        private VpcAttachmentVpcOptions(
+            bool? applianceModeSupport,
+
+            bool? ipv6Support)
         {
+            ApplianceModeSupport = applianceModeSupport;
             Ipv6Support = ipv6Support;
         }
     }

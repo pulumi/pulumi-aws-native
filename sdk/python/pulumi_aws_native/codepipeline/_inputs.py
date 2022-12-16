@@ -34,12 +34,20 @@ class CustomActionTypeArtifactDetailsArgs:
     def __init__(__self__, *,
                  maximum_count: pulumi.Input[int],
                  minimum_count: pulumi.Input[int]):
+        """
+        Returns information about the details of an artifact.
+        :param pulumi.Input[int] maximum_count: The maximum number of artifacts allowed for the action type.
+        :param pulumi.Input[int] minimum_count: The minimum number of artifacts allowed for the action type.
+        """
         pulumi.set(__self__, "maximum_count", maximum_count)
         pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
     def maximum_count(self) -> pulumi.Input[int]:
+        """
+        The maximum number of artifacts allowed for the action type.
+        """
         return pulumi.get(self, "maximum_count")
 
     @maximum_count.setter
@@ -49,6 +57,9 @@ class CustomActionTypeArtifactDetailsArgs:
     @property
     @pulumi.getter(name="minimumCount")
     def minimum_count(self) -> pulumi.Input[int]:
+        """
+        The minimum number of artifacts allowed for the action type.
+        """
         return pulumi.get(self, "minimum_count")
 
     @minimum_count.setter
@@ -66,6 +77,16 @@ class CustomActionTypeConfigurationPropertiesArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  queryable: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        The configuration properties for the custom action.
+        :param pulumi.Input[bool] key: Whether the configuration property is a key.
+        :param pulumi.Input[str] name: The name of the action configuration property.
+        :param pulumi.Input[bool] required: Whether the configuration property is a required value.
+        :param pulumi.Input[bool] secret: Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+        :param pulumi.Input[str] description: The description of the action configuration property that is displayed to users. 
+        :param pulumi.Input[bool] queryable: Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+        :param pulumi.Input[str] type: The type of the configuration property.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -80,6 +101,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is a key.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -89,6 +113,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the action configuration property.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -98,6 +125,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def required(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is a required value.
+        """
         return pulumi.get(self, "required")
 
     @required.setter
@@ -107,6 +137,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Input[bool]:
+        """
+        Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -116,6 +149,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the action configuration property that is displayed to users. 
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,6 +161,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def queryable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+        """
         return pulumi.get(self, "queryable")
 
     @queryable.setter
@@ -134,6 +173,9 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the configuration property.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -148,6 +190,13 @@ class CustomActionTypeSettingsArgs:
                  execution_url_template: Optional[pulumi.Input[str]] = None,
                  revision_url_template: Optional[pulumi.Input[str]] = None,
                  third_party_configuration_url: Optional[pulumi.Input[str]] = None):
+        """
+        Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+        :param pulumi.Input[str] entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+        :param pulumi.Input[str] execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+        :param pulumi.Input[str] revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+        :param pulumi.Input[str] third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+        """
         if entity_url_template is not None:
             pulumi.set(__self__, "entity_url_template", entity_url_template)
         if execution_url_template is not None:
@@ -160,6 +209,9 @@ class CustomActionTypeSettingsArgs:
     @property
     @pulumi.getter(name="entityUrlTemplate")
     def entity_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+        """
         return pulumi.get(self, "entity_url_template")
 
     @entity_url_template.setter
@@ -169,6 +221,9 @@ class CustomActionTypeSettingsArgs:
     @property
     @pulumi.getter(name="executionUrlTemplate")
     def execution_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+        """
         return pulumi.get(self, "execution_url_template")
 
     @execution_url_template.setter
@@ -178,6 +233,9 @@ class CustomActionTypeSettingsArgs:
     @property
     @pulumi.getter(name="revisionUrlTemplate")
     def revision_url_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+        """
         return pulumi.get(self, "revision_url_template")
 
     @revision_url_template.setter
@@ -187,6 +245,9 @@ class CustomActionTypeSettingsArgs:
     @property
     @pulumi.getter(name="thirdPartyConfigurationUrl")
     def third_party_configuration_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+        """
         return pulumi.get(self, "third_party_configuration_url")
 
     @third_party_configuration_url.setter

@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'FlowEncryptionArgs',
     'FlowEntitlementEncryptionArgs',
+    'FlowFailoverConfigSourcePriorityPropertiesArgs',
     'FlowFailoverConfigArgs',
     'FlowOutputEncryptionArgs',
     'FlowOutputVpcInterfaceAttachmentArgs',
@@ -322,18 +323,61 @@ class FlowEntitlementEncryptionArgs:
 
 
 @pulumi.input_type
+class FlowFailoverConfigSourcePriorityPropertiesArgs:
+    def __init__(__self__, *,
+                 primary_source: pulumi.Input[str]):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param pulumi.Input[str] primary_source: The name of the source you choose as the primary source for this flow.
+        """
+        pulumi.set(__self__, "primary_source", primary_source)
+
+    @property
+    @pulumi.getter(name="primarySource")
+    def primary_source(self) -> pulumi.Input[str]:
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+        return pulumi.get(self, "primary_source")
+
+    @primary_source.setter
+    def primary_source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_source", value)
+
+
+@pulumi.input_type
 class FlowFailoverConfigArgs:
     def __init__(__self__, *,
+                 failover_mode: Optional[pulumi.Input['FlowFailoverConfigFailoverMode']] = None,
                  recovery_window: Optional[pulumi.Input[int]] = None,
+                 source_priority: Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']] = None,
                  state: Optional[pulumi.Input['FlowFailoverConfigState']] = None):
         """
         The settings for source failover
+        :param pulumi.Input['FlowFailoverConfigFailoverMode'] failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
         :param pulumi.Input[int] recovery_window: Search window time to look for dash-7 packets
+        :param pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         """
+        if failover_mode is not None:
+            pulumi.set(__self__, "failover_mode", failover_mode)
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> Optional[pulumi.Input['FlowFailoverConfigFailoverMode']]:
+        """
+        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @failover_mode.setter
+    def failover_mode(self, value: Optional[pulumi.Input['FlowFailoverConfigFailoverMode']]):
+        pulumi.set(self, "failover_mode", value)
 
     @property
     @pulumi.getter(name="recoveryWindow")
@@ -346,6 +390,18 @@ class FlowFailoverConfigArgs:
     @recovery_window.setter
     def recovery_window(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "recovery_window", value)
+
+    @property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']]:
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @source_priority.setter
+    def source_priority(self, value: Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']]):
+        pulumi.set(self, "source_priority", value)
 
     @property
     @pulumi.getter
@@ -614,8 +670,12 @@ class FlowSourceArgs:
                  min_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
+                 sender_control_port: Optional[pulumi.Input[int]] = None,
+                 sender_ip_address: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  source_ingest_port: Optional[pulumi.Input[str]] = None,
+                 source_listener_address: Optional[pulumi.Input[str]] = None,
+                 source_listener_port: Optional[pulumi.Input[int]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None):
@@ -630,9 +690,13 @@ class FlowSourceArgs:
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         :param pulumi.Input[int] min_latency: The minimum latency in milliseconds.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
+        :param pulumi.Input[int] sender_control_port: The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        :param pulumi.Input[str] sender_ip_address: The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
         :param pulumi.Input[str] source_arn: The ARN of the source.
         :param pulumi.Input[str] source_ingest_port: The port that the flow will be listening on for incoming content.(ReadOnly)
+        :param pulumi.Input[str] source_listener_address: Source IP or domain name for SRT-caller protocol.
+        :param pulumi.Input[int] source_listener_port: Source port for SRT-caller protocol.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -657,10 +721,18 @@ class FlowSourceArgs:
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if sender_control_port is not None:
+            pulumi.set(__self__, "sender_control_port", sender_control_port)
+        if sender_ip_address is not None:
+            pulumi.set(__self__, "sender_ip_address", sender_ip_address)
         if source_arn is not None:
             pulumi.set(__self__, "source_arn", source_arn)
         if source_ingest_port is not None:
             pulumi.set(__self__, "source_ingest_port", source_ingest_port)
+        if source_listener_address is not None:
+            pulumi.set(__self__, "source_listener_address", source_listener_address)
+        if source_listener_port is not None:
+            pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
         if vpc_interface_name is not None:
@@ -780,13 +852,37 @@ class FlowSourceArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input['FlowSourceProtocol']]:
         """
-        The protocol that is used by the source or output.
+        The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input['FlowSourceProtocol']]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="senderControlPort")
+    def sender_control_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_control_port")
+
+    @sender_control_port.setter
+    def sender_control_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sender_control_port", value)
+
+    @property
+    @pulumi.getter(name="senderIpAddress")
+    def sender_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_ip_address")
+
+    @sender_ip_address.setter
+    def sender_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sender_ip_address", value)
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -811,6 +907,30 @@ class FlowSourceArgs:
     @source_ingest_port.setter
     def source_ingest_port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_ingest_port", value)
+
+    @property
+    @pulumi.getter(name="sourceListenerAddress")
+    def source_listener_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_address")
+
+    @source_listener_address.setter
+    def source_listener_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_listener_address", value)
+
+    @property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Source port for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_port")
+
+    @source_listener_port.setter
+    def source_listener_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "source_listener_port", value)
 
     @property
     @pulumi.getter(name="streamId")

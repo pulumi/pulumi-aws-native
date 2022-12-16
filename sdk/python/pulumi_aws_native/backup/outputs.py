@@ -545,9 +545,9 @@ class BackupVaultLockConfigurationType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 min_retention_days: float,
-                 changeable_for_days: Optional[float] = None,
-                 max_retention_days: Optional[float] = None):
+                 min_retention_days: int,
+                 changeable_for_days: Optional[int] = None,
+                 max_retention_days: Optional[int] = None):
         pulumi.set(__self__, "min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             pulumi.set(__self__, "changeable_for_days", changeable_for_days)
@@ -556,17 +556,17 @@ class BackupVaultLockConfigurationType(dict):
 
     @property
     @pulumi.getter(name="minRetentionDays")
-    def min_retention_days(self) -> float:
+    def min_retention_days(self) -> int:
         return pulumi.get(self, "min_retention_days")
 
     @property
     @pulumi.getter(name="changeableForDays")
-    def changeable_for_days(self) -> Optional[float]:
+    def changeable_for_days(self) -> Optional[int]:
         return pulumi.get(self, "changeable_for_days")
 
     @property
     @pulumi.getter(name="maxRetentionDays")
-    def max_retention_days(self) -> Optional[float]:
+    def max_retention_days(self) -> Optional[int]:
         return pulumi.get(self, "max_retention_days")
 
 
@@ -922,6 +922,8 @@ class ReportSettingProperties(dict):
             suggest = "report_template"
         elif key == "frameworkArns":
             suggest = "framework_arns"
+        elif key == "organizationUnits":
+            suggest = "organization_units"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReportSettingProperties. Access the value via the '{suggest}' property getter instead.")
@@ -936,15 +938,27 @@ class ReportSettingProperties(dict):
 
     def __init__(__self__, *,
                  report_template: str,
-                 framework_arns: Optional[Sequence[str]] = None):
+                 accounts: Optional[Sequence[str]] = None,
+                 framework_arns: Optional[Sequence[str]] = None,
+                 organization_units: Optional[Sequence[str]] = None,
+                 regions: Optional[Sequence[str]] = None):
         """
         Identifies the report template for the report. Reports are built using a report template.
         :param str report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        :param Sequence[str] accounts: The list of AWS accounts that a report covers.
         :param Sequence[str] framework_arns: The Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param Sequence[str] organization_units: The list of AWS organization units that a report covers.
+        :param Sequence[str] regions: The list of AWS regions that a report covers.
         """
         pulumi.set(__self__, "report_template", report_template)
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
         if framework_arns is not None:
             pulumi.set(__self__, "framework_arns", framework_arns)
+        if organization_units is not None:
+            pulumi.set(__self__, "organization_units", organization_units)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter(name="reportTemplate")
@@ -955,11 +969,35 @@ class ReportSettingProperties(dict):
         return pulumi.get(self, "report_template")
 
     @property
+    @pulumi.getter
+    def accounts(self) -> Optional[Sequence[str]]:
+        """
+        The list of AWS accounts that a report covers.
+        """
+        return pulumi.get(self, "accounts")
+
+    @property
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Optional[Sequence[str]]:
         """
         The Amazon Resource Names (ARNs) of the frameworks a report covers.
         """
         return pulumi.get(self, "framework_arns")
+
+    @property
+    @pulumi.getter(name="organizationUnits")
+    def organization_units(self) -> Optional[Sequence[str]]:
+        """
+        The list of AWS organization units that a report covers.
+        """
+        return pulumi.get(self, "organization_units")
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[Sequence[str]]:
+        """
+        The list of AWS regions that a report covers.
+        """
+        return pulumi.get(self, "regions")
 
 

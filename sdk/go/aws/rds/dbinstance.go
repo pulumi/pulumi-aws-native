@@ -42,6 +42,16 @@ type DBInstance struct {
 	CustomIAMInstanceProfile pulumi.StringPtrOutput `pulumi:"customIAMInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterIdentifier"`
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+	//
+	// Constraints:
+	//  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	//  * Can't be specified when DBSnapshotIdentifier is specified.
+	//  * Must be specified when DBSnapshotIdentifier isn't specified.
+	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+	//  * Can't be the identifier of an Aurora DB cluster snapshot.
+	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+	DBClusterSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dBClusterSnapshotIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB instance.
 	DBInstanceArn pulumi.StringOutput `pulumi:"dBInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -122,8 +132,14 @@ type DBInstance struct {
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode pulumi.StringPtrOutput `pulumi:"replicaMode"`
+	// The date and time to restore from.
+	RestoreTime pulumi.StringPtrOutput `pulumi:"restoreTime"`
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrOutput `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier pulumi.StringPtrOutput `pulumi:"sourceDBInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore.
+	SourceDbiResourceId pulumi.StringPtrOutput `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
 	SourceRegion pulumi.StringPtrOutput `pulumi:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -142,6 +158,8 @@ type DBInstance struct {
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	UseDefaultProcessorFeatures pulumi.BoolPtrOutput `pulumi:"useDefaultProcessorFeatures"`
+	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	UseLatestRestorableTime pulumi.BoolPtrOutput `pulumi:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
 	VPCSecurityGroups pulumi.StringArrayOutput `pulumi:"vPCSecurityGroups"`
 }
@@ -213,6 +231,16 @@ type dbinstanceArgs struct {
 	CustomIAMInstanceProfile *string `pulumi:"customIAMInstanceProfile"`
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier *string `pulumi:"dBClusterIdentifier"`
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+	//
+	// Constraints:
+	//  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	//  * Can't be specified when DBSnapshotIdentifier is specified.
+	//  * Must be specified when DBSnapshotIdentifier isn't specified.
+	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+	//  * Can't be the identifier of an Aurora DB cluster snapshot.
+	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+	DBClusterSnapshotIdentifier *string `pulumi:"dBClusterSnapshotIdentifier"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	DBInstanceClass *string `pulumi:"dBInstanceClass"`
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
@@ -289,8 +317,14 @@ type dbinstanceArgs struct {
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode *string `pulumi:"replicaMode"`
+	// The date and time to restore from.
+	RestoreTime *string `pulumi:"restoreTime"`
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+	SourceDBInstanceAutomatedBackupsArn *string `pulumi:"sourceDBInstanceAutomatedBackupsArn"`
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier *string `pulumi:"sourceDBInstanceIdentifier"`
+	// The resource ID of the source DB instance from which to restore.
+	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
 	// The ID of the region that contains the source DB instance for the Read Replica.
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -309,6 +343,8 @@ type dbinstanceArgs struct {
 	Timezone *string `pulumi:"timezone"`
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	UseDefaultProcessorFeatures *bool `pulumi:"useDefaultProcessorFeatures"`
+	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
 	VPCSecurityGroups []string `pulumi:"vPCSecurityGroups"`
 }
@@ -343,6 +379,16 @@ type DBInstanceArgs struct {
 	CustomIAMInstanceProfile pulumi.StringPtrInput
 	// The identifier of the DB cluster that the instance will belong to.
 	DBClusterIdentifier pulumi.StringPtrInput
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+	//
+	// Constraints:
+	//  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	//  * Can't be specified when DBSnapshotIdentifier is specified.
+	//  * Must be specified when DBSnapshotIdentifier isn't specified.
+	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+	//  * Can't be the identifier of an Aurora DB cluster snapshot.
+	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+	DBClusterSnapshotIdentifier pulumi.StringPtrInput
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
 	DBInstanceClass pulumi.StringPtrInput
 	// A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
@@ -419,8 +465,14 @@ type DBInstanceArgs struct {
 	PubliclyAccessible pulumi.BoolPtrInput
 	// The open mode of an Oracle read replica. The default is open-read-only.
 	ReplicaMode pulumi.StringPtrInput
+	// The date and time to restore from.
+	RestoreTime pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+	SourceDBInstanceAutomatedBackupsArn pulumi.StringPtrInput
 	// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 	SourceDBInstanceIdentifier pulumi.StringPtrInput
+	// The resource ID of the source DB instance from which to restore.
+	SourceDbiResourceId pulumi.StringPtrInput
 	// The ID of the region that contains the source DB instance for the Read Replica.
 	SourceRegion pulumi.StringPtrInput
 	// A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -439,6 +491,8 @@ type DBInstanceArgs struct {
 	Timezone pulumi.StringPtrInput
 	// A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 	UseDefaultProcessorFeatures pulumi.BoolPtrInput
+	// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+	UseLatestRestorableTime pulumi.BoolPtrInput
 	// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
 	VPCSecurityGroups pulumi.StringArrayInput
 }
@@ -539,6 +593,19 @@ func (o DBInstanceOutput) CustomIAMInstanceProfile() pulumi.StringPtrOutput {
 // The identifier of the DB cluster that the instance will belong to.
 func (o DBInstanceOutput) DBClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+//
+// Constraints:
+//   - Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+//   - Can't be specified when DBSnapshotIdentifier is specified.
+//   - Must be specified when DBSnapshotIdentifier isn't specified.
+//   - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+//   - Can't be the identifier of an Aurora DB cluster snapshot.
+//   - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+func (o DBInstanceOutput) DBClusterSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the DB instance.
@@ -741,9 +808,24 @@ func (o DBInstanceOutput) ReplicaMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.ReplicaMode }).(pulumi.StringPtrOutput)
 }
 
+// The date and time to restore from.
+func (o DBInstanceOutput) RestoreTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.RestoreTime }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+func (o DBInstanceOutput) SourceDBInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBInstanceAutomatedBackupsArn }).(pulumi.StringPtrOutput)
+}
+
 // If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
 func (o DBInstanceOutput) SourceDBInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDBInstanceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the source DB instance from which to restore.
+func (o DBInstanceOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.SourceDbiResourceId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the region that contains the source DB instance for the Read Replica.
@@ -789,6 +871,11 @@ func (o DBInstanceOutput) Timezone() pulumi.StringPtrOutput {
 // A value that indicates whether the DB instance class of the DB instance uses its default processor features.
 func (o DBInstanceOutput) UseDefaultProcessorFeatures() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.UseDefaultProcessorFeatures }).(pulumi.BoolPtrOutput)
+}
+
+// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+func (o DBInstanceOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
 
 // A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.

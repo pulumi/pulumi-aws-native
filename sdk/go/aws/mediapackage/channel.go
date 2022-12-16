@@ -20,8 +20,8 @@ type Channel struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"egressAccessLogs"`
-	// A short text description of the Channel.
-	HlsIngest ChannelHlsIngestOutput `pulumi:"hlsIngest"`
+	// An HTTP Live Streaming (HLS) ingest resource configuration.
+	HlsIngest ChannelHlsIngestPtrOutput `pulumi:"hlsIngest"`
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"ingressAccessLogs"`
 	// A collection of tags associated with a resource
@@ -71,6 +71,8 @@ type channelArgs struct {
 	Description *string `pulumi:"description"`
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs *ChannelLogConfiguration `pulumi:"egressAccessLogs"`
+	// An HTTP Live Streaming (HLS) ingest resource configuration.
+	HlsIngest *ChannelHlsIngest `pulumi:"hlsIngest"`
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs *ChannelLogConfiguration `pulumi:"ingressAccessLogs"`
 	// A collection of tags associated with a resource
@@ -83,6 +85,8 @@ type ChannelArgs struct {
 	Description pulumi.StringPtrInput
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs ChannelLogConfigurationPtrInput
+	// An HTTP Live Streaming (HLS) ingest resource configuration.
+	HlsIngest ChannelHlsIngestPtrInput
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrInput
 	// A collection of tags associated with a resource
@@ -141,9 +145,9 @@ func (o ChannelOutput) EgressAccessLogs() ChannelLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelLogConfigurationPtrOutput { return v.EgressAccessLogs }).(ChannelLogConfigurationPtrOutput)
 }
 
-// A short text description of the Channel.
-func (o ChannelOutput) HlsIngest() ChannelHlsIngestOutput {
-	return o.ApplyT(func(v *Channel) ChannelHlsIngestOutput { return v.HlsIngest }).(ChannelHlsIngestOutput)
+// An HTTP Live Streaming (HLS) ingest resource configuration.
+func (o ChannelOutput) HlsIngest() ChannelHlsIngestPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelHlsIngestPtrOutput { return v.HlsIngest }).(ChannelHlsIngestPtrOutput)
 }
 
 // The configuration parameters for egress access logging.

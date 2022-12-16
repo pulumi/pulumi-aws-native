@@ -46,6 +46,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     public /*out*/ readonly ipAddressCount!: pulumi.Output<string>;
     public readonly ipAddresses!: pulumi.Output<outputs.route53resolver.ResolverEndpointIpAddressRequest[]>;
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    public readonly preferredInstanceType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly resolverEndpointId!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<outputs.route53resolver.ResolverEndpointTag[] | undefined>;
@@ -75,6 +77,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["direction"] = args ? args.direction : undefined;
             resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -88,6 +92,8 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddressCount"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["preferredInstanceType"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -104,6 +110,8 @@ export interface ResolverEndpointArgs {
     direction: pulumi.Input<string>;
     ipAddresses: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointIpAddressRequestArgs>[]>;
     name?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
+    preferredInstanceType?: pulumi.Input<string>;
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointTagArgs>[]>;
 }

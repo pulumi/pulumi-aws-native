@@ -46,3 +46,4 @@ class ScheduledQueryMultiMeasureAttributeMappingMeasureValueType(str, Enum):
     BOOLEAN = "BOOLEAN"
     DOUBLE = "DOUBLE"
     VARCHAR = "VARCHAR"
+    TIMESTAMP = "TIMESTAMP"

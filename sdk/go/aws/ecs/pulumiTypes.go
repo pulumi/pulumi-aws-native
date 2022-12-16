@@ -2142,6 +2142,169 @@ func (o ServiceConnectServiceArrayOutput) Index(i pulumi.IntInput) ServiceConnec
 	}).(ServiceConnectServiceOutput)
 }
 
+type ServiceDeploymentAlarms struct {
+	AlarmNames []string `pulumi:"alarmNames"`
+	Enable     bool     `pulumi:"enable"`
+	Rollback   bool     `pulumi:"rollback"`
+}
+
+// ServiceDeploymentAlarmsInput is an input type that accepts ServiceDeploymentAlarmsArgs and ServiceDeploymentAlarmsOutput values.
+// You can construct a concrete instance of `ServiceDeploymentAlarmsInput` via:
+//
+//	ServiceDeploymentAlarmsArgs{...}
+type ServiceDeploymentAlarmsInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentAlarmsOutput() ServiceDeploymentAlarmsOutput
+	ToServiceDeploymentAlarmsOutputWithContext(context.Context) ServiceDeploymentAlarmsOutput
+}
+
+type ServiceDeploymentAlarmsArgs struct {
+	AlarmNames pulumi.StringArrayInput `pulumi:"alarmNames"`
+	Enable     pulumi.BoolInput        `pulumi:"enable"`
+	Rollback   pulumi.BoolInput        `pulumi:"rollback"`
+}
+
+func (ServiceDeploymentAlarmsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentAlarms)(nil)).Elem()
+}
+
+func (i ServiceDeploymentAlarmsArgs) ToServiceDeploymentAlarmsOutput() ServiceDeploymentAlarmsOutput {
+	return i.ToServiceDeploymentAlarmsOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentAlarmsArgs) ToServiceDeploymentAlarmsOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentAlarmsOutput)
+}
+
+func (i ServiceDeploymentAlarmsArgs) ToServiceDeploymentAlarmsPtrOutput() ServiceDeploymentAlarmsPtrOutput {
+	return i.ToServiceDeploymentAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentAlarmsArgs) ToServiceDeploymentAlarmsPtrOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentAlarmsOutput).ToServiceDeploymentAlarmsPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentAlarmsPtrInput is an input type that accepts ServiceDeploymentAlarmsArgs, ServiceDeploymentAlarmsPtr and ServiceDeploymentAlarmsPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentAlarmsPtrInput` via:
+//
+//	        ServiceDeploymentAlarmsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentAlarmsPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentAlarmsPtrOutput() ServiceDeploymentAlarmsPtrOutput
+	ToServiceDeploymentAlarmsPtrOutputWithContext(context.Context) ServiceDeploymentAlarmsPtrOutput
+}
+
+type serviceDeploymentAlarmsPtrType ServiceDeploymentAlarmsArgs
+
+func ServiceDeploymentAlarmsPtr(v *ServiceDeploymentAlarmsArgs) ServiceDeploymentAlarmsPtrInput {
+	return (*serviceDeploymentAlarmsPtrType)(v)
+}
+
+func (*serviceDeploymentAlarmsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentAlarms)(nil)).Elem()
+}
+
+func (i *serviceDeploymentAlarmsPtrType) ToServiceDeploymentAlarmsPtrOutput() ServiceDeploymentAlarmsPtrOutput {
+	return i.ToServiceDeploymentAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentAlarmsPtrType) ToServiceDeploymentAlarmsPtrOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentAlarmsPtrOutput)
+}
+
+type ServiceDeploymentAlarmsOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentAlarmsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentAlarms)(nil)).Elem()
+}
+
+func (o ServiceDeploymentAlarmsOutput) ToServiceDeploymentAlarmsOutput() ServiceDeploymentAlarmsOutput {
+	return o
+}
+
+func (o ServiceDeploymentAlarmsOutput) ToServiceDeploymentAlarmsOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsOutput {
+	return o
+}
+
+func (o ServiceDeploymentAlarmsOutput) ToServiceDeploymentAlarmsPtrOutput() ServiceDeploymentAlarmsPtrOutput {
+	return o.ToServiceDeploymentAlarmsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentAlarmsOutput) ToServiceDeploymentAlarmsPtrOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentAlarms) *ServiceDeploymentAlarms {
+		return &v
+	}).(ServiceDeploymentAlarmsPtrOutput)
+}
+
+func (o ServiceDeploymentAlarmsOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceDeploymentAlarms) []string { return v.AlarmNames }).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceDeploymentAlarmsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceDeploymentAlarms) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+func (o ServiceDeploymentAlarmsOutput) Rollback() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceDeploymentAlarms) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+type ServiceDeploymentAlarmsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentAlarmsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentAlarms)(nil)).Elem()
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) ToServiceDeploymentAlarmsPtrOutput() ServiceDeploymentAlarmsPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) ToServiceDeploymentAlarmsPtrOutputWithContext(ctx context.Context) ServiceDeploymentAlarmsPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) Elem() ServiceDeploymentAlarmsOutput {
+	return o.ApplyT(func(v *ServiceDeploymentAlarms) ServiceDeploymentAlarms {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentAlarms
+		return ret
+	}).(ServiceDeploymentAlarmsOutput)
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) AlarmNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceDeploymentAlarms) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AlarmNames
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentAlarms) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDeploymentAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentAlarms) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Rollback
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServiceDeploymentCircuitBreaker struct {
 	Enable   bool `pulumi:"enable"`
 	Rollback bool `pulumi:"rollback"`
@@ -2291,6 +2454,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 }
 
 type ServiceDeploymentConfiguration struct {
+	Alarms                   *ServiceDeploymentAlarms         `pulumi:"alarms"`
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
 	MaximumPercent           *int                             `pulumi:"maximumPercent"`
 	MinimumHealthyPercent    *int                             `pulumi:"minimumHealthyPercent"`
@@ -2308,6 +2472,7 @@ type ServiceDeploymentConfigurationInput interface {
 }
 
 type ServiceDeploymentConfigurationArgs struct {
+	Alarms                   ServiceDeploymentAlarmsPtrInput         `pulumi:"alarms"`
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
 	MaximumPercent           pulumi.IntPtrInput                      `pulumi:"maximumPercent"`
 	MinimumHealthyPercent    pulumi.IntPtrInput                      `pulumi:"minimumHealthyPercent"`
@@ -2390,6 +2555,10 @@ func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPt
 	}).(ServiceDeploymentConfigurationPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationOutput) Alarms() ServiceDeploymentAlarmsPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentAlarms { return v.Alarms }).(ServiceDeploymentAlarmsPtrOutput)
+}
+
 func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		return v.DeploymentCircuitBreaker
@@ -2426,6 +2595,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) Elem() ServiceDeploymentConfigu
 		var ret ServiceDeploymentConfiguration
 		return ret
 	}).(ServiceDeploymentConfigurationOutput)
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) Alarms() ServiceDeploymentAlarmsPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentAlarms {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(ServiceDeploymentAlarmsPtrOutput)
 }
 
 func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
@@ -6372,11 +6550,12 @@ func (o TaskDefinitionPlacementConstraintArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TaskDefinitionPortMapping struct {
-	AppProtocol   *TaskDefinitionPortMappingAppProtocol `pulumi:"appProtocol"`
-	ContainerPort *int                                  `pulumi:"containerPort"`
-	HostPort      *int                                  `pulumi:"hostPort"`
-	Name          *string                               `pulumi:"name"`
-	Protocol      *string                               `pulumi:"protocol"`
+	AppProtocol        *TaskDefinitionPortMappingAppProtocol `pulumi:"appProtocol"`
+	ContainerPort      *int                                  `pulumi:"containerPort"`
+	ContainerPortRange *string                               `pulumi:"containerPortRange"`
+	HostPort           *int                                  `pulumi:"hostPort"`
+	Name               *string                               `pulumi:"name"`
+	Protocol           *string                               `pulumi:"protocol"`
 }
 
 // TaskDefinitionPortMappingInput is an input type that accepts TaskDefinitionPortMappingArgs and TaskDefinitionPortMappingOutput values.
@@ -6391,11 +6570,12 @@ type TaskDefinitionPortMappingInput interface {
 }
 
 type TaskDefinitionPortMappingArgs struct {
-	AppProtocol   TaskDefinitionPortMappingAppProtocolPtrInput `pulumi:"appProtocol"`
-	ContainerPort pulumi.IntPtrInput                           `pulumi:"containerPort"`
-	HostPort      pulumi.IntPtrInput                           `pulumi:"hostPort"`
-	Name          pulumi.StringPtrInput                        `pulumi:"name"`
-	Protocol      pulumi.StringPtrInput                        `pulumi:"protocol"`
+	AppProtocol        TaskDefinitionPortMappingAppProtocolPtrInput `pulumi:"appProtocol"`
+	ContainerPort      pulumi.IntPtrInput                           `pulumi:"containerPort"`
+	ContainerPortRange pulumi.StringPtrInput                        `pulumi:"containerPortRange"`
+	HostPort           pulumi.IntPtrInput                           `pulumi:"hostPort"`
+	Name               pulumi.StringPtrInput                        `pulumi:"name"`
+	Protocol           pulumi.StringPtrInput                        `pulumi:"protocol"`
 }
 
 func (TaskDefinitionPortMappingArgs) ElementType() reflect.Type {
@@ -6455,6 +6635,10 @@ func (o TaskDefinitionPortMappingOutput) AppProtocol() TaskDefinitionPortMapping
 
 func (o TaskDefinitionPortMappingOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+func (o TaskDefinitionPortMappingOutput) ContainerPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.ContainerPortRange }).(pulumi.StringPtrOutput)
 }
 
 func (o TaskDefinitionPortMappingOutput) HostPort() pulumi.IntPtrOutput {
@@ -8514,6 +8698,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectConfigurationPtrInput)(nil)).Elem(), ServiceConnectConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceInput)(nil)).Elem(), ServiceConnectServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceConnectServiceArrayInput)(nil)).Elem(), ServiceConnectServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentAlarmsInput)(nil)).Elem(), ServiceDeploymentAlarmsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentAlarmsPtrInput)(nil)).Elem(), ServiceDeploymentAlarmsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentCircuitBreakerPtrInput)(nil)).Elem(), ServiceDeploymentCircuitBreakerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
@@ -8640,6 +8826,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceConnectConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceOutput{})
 	pulumi.RegisterOutputType(ServiceConnectServiceArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentAlarmsOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentAlarmsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentCircuitBreakerPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationOutput{})

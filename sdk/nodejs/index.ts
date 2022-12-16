@@ -125,6 +125,7 @@ import * as directoryservice from "./directoryservice";
 import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
+import * as docdbelastic from "./docdbelastic";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -151,6 +152,7 @@ import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
+import * as grafana from "./grafana";
 import * as greengrass from "./greengrass";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
@@ -208,6 +210,7 @@ import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as opsworks from "./opsworks";
 import * as opsworkscm from "./opsworkscm";
@@ -333,6 +336,7 @@ export {
     dlm,
     dms,
     docdb,
+    docdbelastic,
     dynamodb,
     ec2,
     ecr,
@@ -359,6 +363,7 @@ export {
     gamelift,
     globalaccelerator,
     glue,
+    grafana,
     greengrass,
     greengrassv2,
     groundstation,
@@ -416,6 +421,7 @@ export {
     networkmanager,
     nimblestudio,
     oam,
+    opensearchserverless,
     opensearchservice,
     opsworks,
     opsworkscm,

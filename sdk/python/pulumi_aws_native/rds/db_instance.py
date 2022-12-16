@@ -28,6 +28,7 @@ class DBInstanceArgs:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
@@ -66,7 +67,10 @@ class DBInstanceArgs:
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
+                 restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
@@ -76,6 +80,7 @@ class DBInstanceArgs:
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBInstance resource.
@@ -96,6 +101,15 @@ class DBInstanceArgs:
                
                This setting is required for RDS Custom.
         :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] d_b_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+               
+               Constraints:
+                * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+                * Can't be specified when DBSnapshotIdentifier is specified.
+                * Must be specified when DBSnapshotIdentifier isn't specified.
+                * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+                * Can't be the identifier of an Aurora DB cluster snapshot.
+                * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
@@ -134,7 +148,10 @@ class DBInstanceArgs:
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
+        :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] source_db_instance_automated_backups_arn: The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
@@ -144,6 +161,7 @@ class DBInstanceArgs:
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
         :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
         if allocated_storage is not None:
@@ -168,6 +186,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if d_b_cluster_identifier is not None:
             pulumi.set(__self__, "d_b_cluster_identifier", d_b_cluster_identifier)
+        if d_b_cluster_snapshot_identifier is not None:
+            pulumi.set(__self__, "d_b_cluster_snapshot_identifier", d_b_cluster_snapshot_identifier)
         if d_b_instance_class is not None:
             pulumi.set(__self__, "d_b_instance_class", d_b_instance_class)
         if d_b_instance_identifier is not None:
@@ -244,8 +264,14 @@ class DBInstanceArgs:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if replica_mode is not None:
             pulumi.set(__self__, "replica_mode", replica_mode)
+        if restore_time is not None:
+            pulumi.set(__self__, "restore_time", restore_time)
+        if source_db_instance_automated_backups_arn is not None:
+            pulumi.set(__self__, "source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
         if source_db_instance_identifier is not None:
             pulumi.set(__self__, "source_db_instance_identifier", source_db_instance_identifier)
+        if source_dbi_resource_id is not None:
+            pulumi.set(__self__, "source_dbi_resource_id", source_dbi_resource_id)
         if source_region is not None:
             pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
@@ -264,6 +290,8 @@ class DBInstanceArgs:
             pulumi.set(__self__, "timezone", timezone)
         if use_default_processor_features is not None:
             pulumi.set(__self__, "use_default_processor_features", use_default_processor_features)
+        if use_latest_restorable_time is not None:
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if v_pc_security_groups is not None:
             pulumi.set(__self__, "v_pc_security_groups", v_pc_security_groups)
 
@@ -404,6 +432,26 @@ class DBInstanceArgs:
     @d_b_cluster_identifier.setter
     def d_b_cluster_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "d_b_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="dBClusterSnapshotIdentifier")
+    def d_b_cluster_snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+
+        Constraints:
+         * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+         * Can't be specified when DBSnapshotIdentifier is specified.
+         * Must be specified when DBSnapshotIdentifier isn't specified.
+         * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+         * Can't be the identifier of an Aurora DB cluster snapshot.
+         * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        """
+        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
+
+    @d_b_cluster_snapshot_identifier.setter
+    def d_b_cluster_snapshot_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "d_b_cluster_snapshot_identifier", value)
 
     @property
     @pulumi.getter(name="dBInstanceClass")
@@ -862,6 +910,30 @@ class DBInstanceArgs:
         pulumi.set(self, "replica_mode", value)
 
     @property
+    @pulumi.getter(name="restoreTime")
+    def restore_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to restore from.
+        """
+        return pulumi.get(self, "restore_time")
+
+    @restore_time.setter
+    def restore_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_time", value)
+
+    @property
+    @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")
+    def source_db_instance_automated_backups_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+        """
+        return pulumi.get(self, "source_db_instance_automated_backups_arn")
+
+    @source_db_instance_automated_backups_arn.setter
+    def source_db_instance_automated_backups_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_db_instance_automated_backups_arn", value)
+
+    @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")
     def source_db_instance_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -872,6 +944,18 @@ class DBInstanceArgs:
     @source_db_instance_identifier.setter
     def source_db_instance_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_db_instance_identifier", value)
+
+    @property
+    @pulumi.getter(name="sourceDbiResourceId")
+    def source_dbi_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the source DB instance from which to restore.
+        """
+        return pulumi.get(self, "source_dbi_resource_id")
+
+    @source_dbi_resource_id.setter
+    def source_dbi_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_dbi_resource_id", value)
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -982,6 +1066,18 @@ class DBInstanceArgs:
         pulumi.set(self, "use_default_processor_features", value)
 
     @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        """
+        return pulumi.get(self, "use_latest_restorable_time")
+
+    @use_latest_restorable_time.setter
+    def use_latest_restorable_time(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_latest_restorable_time", value)
+
+    @property
     @pulumi.getter(name="vPCSecurityGroups")
     def v_pc_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1010,6 +1106,7 @@ class DBInstance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
@@ -1048,7 +1145,10 @@ class DBInstance(pulumi.CustomResource):
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
+                 restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
@@ -1058,6 +1158,7 @@ class DBInstance(pulumi.CustomResource):
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -1082,6 +1183,15 @@ class DBInstance(pulumi.CustomResource):
                
                This setting is required for RDS Custom.
         :param pulumi.Input[str] d_b_cluster_identifier: The identifier of the DB cluster that the instance will belong to.
+        :param pulumi.Input[str] d_b_cluster_snapshot_identifier: The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+               
+               Constraints:
+                * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+                * Can't be specified when DBSnapshotIdentifier is specified.
+                * Must be specified when DBSnapshotIdentifier isn't specified.
+                * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+                * Can't be the identifier of an Aurora DB cluster snapshot.
+                * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
         :param pulumi.Input[str] d_b_instance_class: The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
         :param pulumi.Input[str] d_b_instance_identifier: A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lowercase. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance.
         :param pulumi.Input[str] d_b_name: The meaning of this parameter differs according to the database engine you use.
@@ -1120,7 +1230,10 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[int] promotion_tier: A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
         :param pulumi.Input[bool] publicly_accessible: Indicates whether the DB instance is an internet-facing instance. If you specify true, AWS CloudFormation creates an instance with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, AWS CloudFormation creates an internal instance with a DNS name that resolves to a private IP address.
         :param pulumi.Input[str] replica_mode: The open mode of an Oracle read replica. The default is open-read-only.
+        :param pulumi.Input[str] restore_time: The date and time to restore from.
+        :param pulumi.Input[str] source_db_instance_automated_backups_arn: The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
         :param pulumi.Input[str] source_db_instance_identifier: If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
+        :param pulumi.Input[str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore.
         :param pulumi.Input[str] source_region: The ID of the region that contains the source DB instance for the Read Replica.
         :param pulumi.Input[bool] storage_encrypted: A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
         :param pulumi.Input[int] storage_throughput: Specifies the storage throughput for the DB instance.
@@ -1130,6 +1243,7 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] tde_credential_password: The password for the given ARN from the key store in order to access the device.
         :param pulumi.Input[str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by Microsoft SQL Server.
         :param pulumi.Input[bool] use_default_processor_features: A value that indicates whether the DB instance class of the DB instance uses its default processor features.
+        :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] v_pc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
         ...
@@ -1167,6 +1281,7 @@ class DBInstance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  d_b_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 d_b_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_instance_class: Optional[pulumi.Input[str]] = None,
                  d_b_instance_identifier: Optional[pulumi.Input[str]] = None,
                  d_b_name: Optional[pulumi.Input[str]] = None,
@@ -1205,7 +1320,10 @@ class DBInstance(pulumi.CustomResource):
                  promotion_tier: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  replica_mode: Optional[pulumi.Input[str]] = None,
+                 restore_time: Optional[pulumi.Input[str]] = None,
+                 source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
                  source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                 source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  storage_throughput: Optional[pulumi.Input[int]] = None,
@@ -1215,6 +1333,7 @@ class DBInstance(pulumi.CustomResource):
                  tde_credential_password: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  use_default_processor_features: Optional[pulumi.Input[bool]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
                  v_pc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1236,6 +1355,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
             __props__.__dict__["d_b_cluster_identifier"] = d_b_cluster_identifier
+            __props__.__dict__["d_b_cluster_snapshot_identifier"] = d_b_cluster_snapshot_identifier
             __props__.__dict__["d_b_instance_class"] = d_b_instance_class
             __props__.__dict__["d_b_instance_identifier"] = d_b_instance_identifier
             __props__.__dict__["d_b_name"] = d_b_name
@@ -1274,7 +1394,10 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["promotion_tier"] = promotion_tier
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["replica_mode"] = replica_mode
+            __props__.__dict__["restore_time"] = restore_time
+            __props__.__dict__["source_db_instance_automated_backups_arn"] = source_db_instance_automated_backups_arn
             __props__.__dict__["source_db_instance_identifier"] = source_db_instance_identifier
+            __props__.__dict__["source_dbi_resource_id"] = source_dbi_resource_id
             __props__.__dict__["source_region"] = source_region
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["storage_throughput"] = storage_throughput
@@ -1284,6 +1407,7 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["tde_credential_password"] = tde_credential_password
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
+            __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["v_pc_security_groups"] = v_pc_security_groups
             __props__.__dict__["d_b_instance_arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
@@ -1320,6 +1444,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["custom_iam_instance_profile"] = None
         __props__.__dict__["d_b_cluster_identifier"] = None
+        __props__.__dict__["d_b_cluster_snapshot_identifier"] = None
         __props__.__dict__["d_b_instance_arn"] = None
         __props__.__dict__["d_b_instance_class"] = None
         __props__.__dict__["d_b_instance_identifier"] = None
@@ -1360,7 +1485,10 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["promotion_tier"] = None
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["replica_mode"] = None
+        __props__.__dict__["restore_time"] = None
+        __props__.__dict__["source_db_instance_automated_backups_arn"] = None
         __props__.__dict__["source_db_instance_identifier"] = None
+        __props__.__dict__["source_dbi_resource_id"] = None
         __props__.__dict__["source_region"] = None
         __props__.__dict__["storage_encrypted"] = None
         __props__.__dict__["storage_throughput"] = None
@@ -1370,6 +1498,7 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["tde_credential_password"] = None
         __props__.__dict__["timezone"] = None
         __props__.__dict__["use_default_processor_features"] = None
+        __props__.__dict__["use_latest_restorable_time"] = None
         __props__.__dict__["v_pc_security_groups"] = None
         return DBInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -1466,6 +1595,22 @@ class DBInstance(pulumi.CustomResource):
         The identifier of the DB cluster that the instance will belong to.
         """
         return pulumi.get(self, "d_b_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="dBClusterSnapshotIdentifier")
+    def d_b_cluster_snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+
+        Constraints:
+         * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+         * Can't be specified when DBSnapshotIdentifier is specified.
+         * Must be specified when DBSnapshotIdentifier isn't specified.
+         * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+         * Can't be the identifier of an Aurora DB cluster snapshot.
+         * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        """
+        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
 
     @property
     @pulumi.getter(name="dBInstanceArn")
@@ -1788,12 +1933,36 @@ class DBInstance(pulumi.CustomResource):
         return pulumi.get(self, "replica_mode")
 
     @property
+    @pulumi.getter(name="restoreTime")
+    def restore_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time to restore from.
+        """
+        return pulumi.get(self, "restore_time")
+
+    @property
+    @pulumi.getter(name="sourceDBInstanceAutomatedBackupsArn")
+    def source_db_instance_automated_backups_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+        """
+        return pulumi.get(self, "source_db_instance_automated_backups_arn")
+
+    @property
     @pulumi.getter(name="sourceDBInstanceIdentifier")
     def source_db_instance_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         """
         return pulumi.get(self, "source_db_instance_identifier")
+
+    @property
+    @pulumi.getter(name="sourceDbiResourceId")
+    def source_dbi_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource ID of the source DB instance from which to restore.
+        """
+        return pulumi.get(self, "source_dbi_resource_id")
 
     @property
     @pulumi.getter(name="sourceRegion")
@@ -1866,6 +2035,14 @@ class DBInstance(pulumi.CustomResource):
         A value that indicates whether the DB instance class of the DB instance uses its default processor features.
         """
         return pulumi.get(self, "use_default_processor_features")
+
+    @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        """
+        return pulumi.get(self, "use_latest_restorable_time")
 
     @property
     @pulumi.getter(name="vPCSecurityGroups")

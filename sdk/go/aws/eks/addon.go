@@ -23,6 +23,8 @@ type Addon struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of Cluster
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
+	// The configuration values to use with the add-on
+	ConfigurationValues pulumi.StringPtrOutput `pulumi:"configurationValues"`
 	// Resolve parameter value conflicts
 	ResolveConflicts AddonResolveConflictsPtrOutput `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
@@ -79,6 +81,8 @@ type addonArgs struct {
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Name of Cluster
 	ClusterName string `pulumi:"clusterName"`
+	// The configuration values to use with the add-on
+	ConfigurationValues *string `pulumi:"configurationValues"`
 	// Resolve parameter value conflicts
 	ResolveConflicts *AddonResolveConflicts `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
@@ -95,6 +99,8 @@ type AddonArgs struct {
 	AddonVersion pulumi.StringPtrInput
 	// Name of Cluster
 	ClusterName pulumi.StringInput
+	// The configuration values to use with the add-on
+	ConfigurationValues pulumi.StringPtrInput
 	// Resolve parameter value conflicts
 	ResolveConflicts AddonResolveConflictsPtrInput
 	// IAM role to bind to the add-on's service account
@@ -158,6 +164,11 @@ func (o AddonOutput) Arn() pulumi.StringOutput {
 // Name of Cluster
 func (o AddonOutput) ClusterName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// The configuration values to use with the add-on
+func (o AddonOutput) ConfigurationValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
 }
 
 // Resolve parameter value conflicts

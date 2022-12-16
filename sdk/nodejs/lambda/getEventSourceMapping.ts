@@ -82,6 +82,10 @@ export interface GetEventSourceMappingResult {
      */
     readonly queues?: string[];
     /**
+     * The scaling configuration for the event source.
+     */
+    readonly scalingConfig?: outputs.lambda.EventSourceMappingScalingConfig;
+    /**
      * A list of SourceAccessConfiguration.
      */
     readonly sourceAccessConfigurations?: outputs.lambda.EventSourceMappingSourceAccessConfiguration[];

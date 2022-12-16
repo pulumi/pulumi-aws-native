@@ -596,9 +596,13 @@ func (o FlowEntitlementEncryptionPtrOutput) Url() pulumi.StringPtrOutput {
 
 // The settings for source failover
 type FlowFailoverConfig struct {
+	// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+	FailoverMode *FlowFailoverConfigFailoverMode `pulumi:"failoverMode"`
 	// Search window time to look for dash-7 packets
-	RecoveryWindow *int                     `pulumi:"recoveryWindow"`
-	State          *FlowFailoverConfigState `pulumi:"state"`
+	RecoveryWindow *int `pulumi:"recoveryWindow"`
+	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+	SourcePriority *FlowFailoverConfigSourcePriorityProperties `pulumi:"sourcePriority"`
+	State          *FlowFailoverConfigState                    `pulumi:"state"`
 }
 
 // FlowFailoverConfigInput is an input type that accepts FlowFailoverConfigArgs and FlowFailoverConfigOutput values.
@@ -614,9 +618,13 @@ type FlowFailoverConfigInput interface {
 
 // The settings for source failover
 type FlowFailoverConfigArgs struct {
+	// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+	FailoverMode FlowFailoverConfigFailoverModePtrInput `pulumi:"failoverMode"`
 	// Search window time to look for dash-7 packets
-	RecoveryWindow pulumi.IntPtrInput              `pulumi:"recoveryWindow"`
-	State          FlowFailoverConfigStatePtrInput `pulumi:"state"`
+	RecoveryWindow pulumi.IntPtrInput `pulumi:"recoveryWindow"`
+	// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+	SourcePriority FlowFailoverConfigSourcePriorityPropertiesPtrInput `pulumi:"sourcePriority"`
+	State          FlowFailoverConfigStatePtrInput                    `pulumi:"state"`
 }
 
 func (FlowFailoverConfigArgs) ElementType() reflect.Type {
@@ -697,9 +705,19 @@ func (o FlowFailoverConfigOutput) ToFlowFailoverConfigPtrOutputWithContext(ctx c
 	}).(FlowFailoverConfigPtrOutput)
 }
 
+// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+func (o FlowFailoverConfigOutput) FailoverMode() FlowFailoverConfigFailoverModePtrOutput {
+	return o.ApplyT(func(v FlowFailoverConfig) *FlowFailoverConfigFailoverMode { return v.FailoverMode }).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
 // Search window time to look for dash-7 packets
 func (o FlowFailoverConfigOutput) RecoveryWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlowFailoverConfig) *int { return v.RecoveryWindow }).(pulumi.IntPtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+func (o FlowFailoverConfigOutput) SourcePriority() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o.ApplyT(func(v FlowFailoverConfig) *FlowFailoverConfigSourcePriorityProperties { return v.SourcePriority }).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
 }
 
 func (o FlowFailoverConfigOutput) State() FlowFailoverConfigStatePtrOutput {
@@ -730,6 +748,16 @@ func (o FlowFailoverConfigPtrOutput) Elem() FlowFailoverConfigOutput {
 	}).(FlowFailoverConfigOutput)
 }
 
+// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+func (o FlowFailoverConfigPtrOutput) FailoverMode() FlowFailoverConfigFailoverModePtrOutput {
+	return o.ApplyT(func(v *FlowFailoverConfig) *FlowFailoverConfigFailoverMode {
+		if v == nil {
+			return nil
+		}
+		return v.FailoverMode
+	}).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
 // Search window time to look for dash-7 packets
 func (o FlowFailoverConfigPtrOutput) RecoveryWindow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowFailoverConfig) *int {
@@ -740,6 +768,16 @@ func (o FlowFailoverConfigPtrOutput) RecoveryWindow() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+func (o FlowFailoverConfigPtrOutput) SourcePriority() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowFailoverConfig) *FlowFailoverConfigSourcePriorityProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePriority
+	}).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
+}
+
 func (o FlowFailoverConfigPtrOutput) State() FlowFailoverConfigStatePtrOutput {
 	return o.ApplyT(func(v *FlowFailoverConfig) *FlowFailoverConfigState {
 		if v == nil {
@@ -747,6 +785,146 @@ func (o FlowFailoverConfigPtrOutput) State() FlowFailoverConfigStatePtrOutput {
 		}
 		return v.State
 	}).(FlowFailoverConfigStatePtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type FlowFailoverConfigSourcePriorityProperties struct {
+	// The name of the source you choose as the primary source for this flow.
+	PrimarySource string `pulumi:"primarySource"`
+}
+
+// FlowFailoverConfigSourcePriorityPropertiesInput is an input type that accepts FlowFailoverConfigSourcePriorityPropertiesArgs and FlowFailoverConfigSourcePriorityPropertiesOutput values.
+// You can construct a concrete instance of `FlowFailoverConfigSourcePriorityPropertiesInput` via:
+//
+//	FlowFailoverConfigSourcePriorityPropertiesArgs{...}
+type FlowFailoverConfigSourcePriorityPropertiesInput interface {
+	pulumi.Input
+
+	ToFlowFailoverConfigSourcePriorityPropertiesOutput() FlowFailoverConfigSourcePriorityPropertiesOutput
+	ToFlowFailoverConfigSourcePriorityPropertiesOutputWithContext(context.Context) FlowFailoverConfigSourcePriorityPropertiesOutput
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type FlowFailoverConfigSourcePriorityPropertiesArgs struct {
+	// The name of the source you choose as the primary source for this flow.
+	PrimarySource pulumi.StringInput `pulumi:"primarySource"`
+}
+
+func (FlowFailoverConfigSourcePriorityPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFailoverConfigSourcePriorityProperties)(nil)).Elem()
+}
+
+func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSourcePriorityPropertiesOutput() FlowFailoverConfigSourcePriorityPropertiesOutput {
+	return i.ToFlowFailoverConfigSourcePriorityPropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSourcePriorityPropertiesOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigSourcePriorityPropertiesOutput)
+}
+
+func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return i.ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowFailoverConfigSourcePriorityPropertiesArgs) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigSourcePriorityPropertiesOutput).ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowFailoverConfigSourcePriorityPropertiesPtrInput is an input type that accepts FlowFailoverConfigSourcePriorityPropertiesArgs, FlowFailoverConfigSourcePriorityPropertiesPtr and FlowFailoverConfigSourcePriorityPropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowFailoverConfigSourcePriorityPropertiesPtrInput` via:
+//
+//	        FlowFailoverConfigSourcePriorityPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowFailoverConfigSourcePriorityPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput
+	ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput
+}
+
+type flowFailoverConfigSourcePriorityPropertiesPtrType FlowFailoverConfigSourcePriorityPropertiesArgs
+
+func FlowFailoverConfigSourcePriorityPropertiesPtr(v *FlowFailoverConfigSourcePriorityPropertiesArgs) FlowFailoverConfigSourcePriorityPropertiesPtrInput {
+	return (*flowFailoverConfigSourcePriorityPropertiesPtrType)(v)
+}
+
+func (*flowFailoverConfigSourcePriorityPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFailoverConfigSourcePriorityProperties)(nil)).Elem()
+}
+
+func (i *flowFailoverConfigSourcePriorityPropertiesPtrType) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return i.ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowFailoverConfigSourcePriorityPropertiesPtrType) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
+}
+
+// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+type FlowFailoverConfigSourcePriorityPropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowFailoverConfigSourcePriorityPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFailoverConfigSourcePriorityProperties)(nil)).Elem()
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToFlowFailoverConfigSourcePriorityPropertiesOutput() FlowFailoverConfigSourcePriorityPropertiesOutput {
+	return o
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToFlowFailoverConfigSourcePriorityPropertiesOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesOutput {
+	return o
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o.ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFailoverConfigSourcePriorityProperties) *FlowFailoverConfigSourcePriorityProperties {
+		return &v
+	}).(FlowFailoverConfigSourcePriorityPropertiesPtrOutput)
+}
+
+// The name of the source you choose as the primary source for this flow.
+func (o FlowFailoverConfigSourcePriorityPropertiesOutput) PrimarySource() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowFailoverConfigSourcePriorityProperties) string { return v.PrimarySource }).(pulumi.StringOutput)
+}
+
+type FlowFailoverConfigSourcePriorityPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFailoverConfigSourcePriorityProperties)(nil)).Elem()
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutput() FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) ToFlowFailoverConfigSourcePriorityPropertiesPtrOutputWithContext(ctx context.Context) FlowFailoverConfigSourcePriorityPropertiesPtrOutput {
+	return o
+}
+
+func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) Elem() FlowFailoverConfigSourcePriorityPropertiesOutput {
+	return o.ApplyT(func(v *FlowFailoverConfigSourcePriorityProperties) FlowFailoverConfigSourcePriorityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFailoverConfigSourcePriorityProperties
+		return ret
+	}).(FlowFailoverConfigSourcePriorityPropertiesOutput)
+}
+
+// The name of the source you choose as the primary source for this flow.
+func (o FlowFailoverConfigSourcePriorityPropertiesPtrOutput) PrimarySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowFailoverConfigSourcePriorityProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimarySource
+	}).(pulumi.StringPtrOutput)
 }
 
 // Information about the encryption of the flow.
@@ -1106,12 +1284,20 @@ type FlowSourceType struct {
 	MinLatency *int `pulumi:"minLatency"`
 	// The name of the source.
 	Name *string `pulumi:"name"`
-	// The protocol that is used by the source or output.
+	// The protocol that is used by the source.
 	Protocol *FlowSourceProtocol `pulumi:"protocol"`
+	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+	SenderControlPort *int `pulumi:"senderControlPort"`
+	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+	SenderIpAddress *string `pulumi:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn *string `pulumi:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.(ReadOnly)
 	SourceIngestPort *string `pulumi:"sourceIngestPort"`
+	// Source IP or domain name for SRT-caller protocol.
+	SourceListenerAddress *string `pulumi:"sourceListenerAddress"`
+	// Source port for SRT-caller protocol.
+	SourceListenerPort *int `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId *string `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -1151,12 +1337,20 @@ type FlowSourceTypeArgs struct {
 	MinLatency pulumi.IntPtrInput `pulumi:"minLatency"`
 	// The name of the source.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The protocol that is used by the source or output.
+	// The protocol that is used by the source.
 	Protocol FlowSourceProtocolPtrInput `pulumi:"protocol"`
+	// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+	SenderControlPort pulumi.IntPtrInput `pulumi:"senderControlPort"`
+	// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+	SenderIpAddress pulumi.StringPtrInput `pulumi:"senderIpAddress"`
 	// The ARN of the source.
 	SourceArn pulumi.StringPtrInput `pulumi:"sourceArn"`
 	// The port that the flow will be listening on for incoming content.(ReadOnly)
 	SourceIngestPort pulumi.StringPtrInput `pulumi:"sourceIngestPort"`
+	// Source IP or domain name for SRT-caller protocol.
+	SourceListenerAddress pulumi.StringPtrInput `pulumi:"sourceListenerAddress"`
+	// Source port for SRT-caller protocol.
+	SourceListenerPort pulumi.IntPtrInput `pulumi:"sourceListenerPort"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
 	StreamId pulumi.StringPtrInput `pulumi:"streamId"`
 	// The name of the VPC Interface this Source is configured with.
@@ -1237,9 +1431,19 @@ func (o FlowSourceTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The protocol that is used by the source or output.
+// The protocol that is used by the source.
 func (o FlowSourceTypeOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *FlowSourceProtocol { return v.Protocol }).(FlowSourceProtocolPtrOutput)
+}
+
+// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+func (o FlowSourceTypeOutput) SenderControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *int { return v.SenderControlPort }).(pulumi.IntPtrOutput)
+}
+
+// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+func (o FlowSourceTypeOutput) SenderIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *string { return v.SenderIpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the source.
@@ -1250,6 +1454,16 @@ func (o FlowSourceTypeOutput) SourceArn() pulumi.StringPtrOutput {
 // The port that the flow will be listening on for incoming content.(ReadOnly)
 func (o FlowSourceTypeOutput) SourceIngestPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceType) *string { return v.SourceIngestPort }).(pulumi.StringPtrOutput)
+}
+
+// Source IP or domain name for SRT-caller protocol.
+func (o FlowSourceTypeOutput) SourceListenerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *string { return v.SourceListenerAddress }).(pulumi.StringPtrOutput)
+}
+
+// Source port for SRT-caller protocol.
+func (o FlowSourceTypeOutput) SourceListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowSourceType) *int { return v.SourceListenerPort }).(pulumi.IntPtrOutput)
 }
 
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1381,7 +1595,7 @@ func (o FlowSourceTypePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol that is used by the source or output.
+// The protocol that is used by the source.
 func (o FlowSourceTypePtrOutput) Protocol() FlowSourceProtocolPtrOutput {
 	return o.ApplyT(func(v *FlowSourceType) *FlowSourceProtocol {
 		if v == nil {
@@ -1389,6 +1603,26 @@ func (o FlowSourceTypePtrOutput) Protocol() FlowSourceProtocolPtrOutput {
 		}
 		return v.Protocol
 	}).(FlowSourceProtocolPtrOutput)
+}
+
+// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+func (o FlowSourceTypePtrOutput) SenderControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SenderControlPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+func (o FlowSourceTypePtrOutput) SenderIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SenderIpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the source.
@@ -1409,6 +1643,26 @@ func (o FlowSourceTypePtrOutput) SourceIngestPort() pulumi.StringPtrOutput {
 		}
 		return v.SourceIngestPort
 	}).(pulumi.StringPtrOutput)
+}
+
+// Source IP or domain name for SRT-caller protocol.
+func (o FlowSourceTypePtrOutput) SourceListenerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceListenerAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source port for SRT-caller protocol.
+func (o FlowSourceTypePtrOutput) SourceListenerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowSourceType) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SourceListenerPort
+	}).(pulumi.IntPtrOutput)
 }
 
 // The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -1740,6 +1994,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionPtrInput)(nil)).Elem(), FlowEntitlementEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigInput)(nil)).Elem(), FlowFailoverConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigPtrInput)(nil)).Elem(), FlowFailoverConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigSourcePriorityPropertiesPtrInput)(nil)).Elem(), FlowFailoverConfigSourcePriorityPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionPtrInput)(nil)).Elem(), FlowOutputEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputVpcInterfaceAttachmentInput)(nil)).Elem(), FlowOutputVpcInterfaceAttachmentArgs{})
@@ -1753,6 +2009,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesOutput{})
+	pulumi.RegisterOutputType(FlowFailoverConfigSourcePriorityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputVpcInterfaceAttachmentOutput{})

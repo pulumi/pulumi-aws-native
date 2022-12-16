@@ -30,6 +30,11 @@ export const getScene: typeof import("./getScene").getScene = null as any;
 export const getSceneOutput: typeof import("./getScene").getSceneOutput = null as any;
 utilities.lazyLoad(exports, ["getScene","getSceneOutput"], () => require("./getScene"));
 
+export { GetSyncJobArgs, GetSyncJobResult, GetSyncJobOutputArgs } from "./getSyncJob";
+export const getSyncJob: typeof import("./getSyncJob").getSyncJob = null as any;
+export const getSyncJobOutput: typeof import("./getSyncJob").getSyncJobOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncJob","getSyncJobOutput"], () => require("./getSyncJob"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -39,6 +44,11 @@ export { SceneArgs } from "./scene";
 export type Scene = import("./scene").Scene;
 export const Scene: typeof import("./scene").Scene = null as any;
 utilities.lazyLoad(exports, ["Scene"], () => require("./scene"));
+
+export { SyncJobArgs } from "./syncJob";
+export type SyncJob = import("./syncJob").SyncJob;
+export const SyncJob: typeof import("./syncJob").SyncJob = null as any;
+utilities.lazyLoad(exports, ["SyncJob"], () => require("./syncJob"));
 
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
@@ -59,6 +69,8 @@ const _module = {
                 return new Entity(name, <any>undefined, { urn })
             case "aws-native:iottwinmaker:Scene":
                 return new Scene(name, <any>undefined, { urn })
+            case "aws-native:iottwinmaker:SyncJob":
+                return new SyncJob(name, <any>undefined, { urn })
             case "aws-native:iottwinmaker:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

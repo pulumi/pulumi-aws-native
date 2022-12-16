@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectorLambdaConnectorProvisioningConfig',
     'ConnectorProfileAmplitudeConnectorProfileCredentials',
     'ConnectorProfileApiKeyCredentials',
     'ConnectorProfileBasicAuthCredentials',
@@ -56,6 +57,7 @@ __all__ = [
     'ConnectorProfileVeevaConnectorProfileProperties',
     'ConnectorProfileZendeskConnectorProfileCredentials',
     'ConnectorProfileZendeskConnectorProfileProperties',
+    'ConnectorProvisioningConfig',
     'FlowAggregationConfig',
     'FlowAmplitudeSourceProperties',
     'FlowConnectorOperator',
@@ -105,6 +107,45 @@ __all__ = [
     'FlowZendeskDestinationProperties',
     'FlowZendeskSourceProperties',
 ]
+
+@pulumi.output_type
+class ConnectorLambdaConnectorProvisioningConfig(dict):
+    """
+    Contains information about the configuration of the lambda which is being registered as the connector.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorLambdaConnectorProvisioningConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorLambdaConnectorProvisioningConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorLambdaConnectorProvisioningConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str):
+        """
+        Contains information about the configuration of the lambda which is being registered as the connector.
+        :param str lambda_arn: Lambda ARN of the connector being registered.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        Lambda ARN of the connector being registered.
+        """
+        return pulumi.get(self, "lambda_arn")
+
 
 @pulumi.output_type
 class ConnectorProfileAmplitudeConnectorProfileCredentials(dict):
@@ -2486,6 +2527,46 @@ class ConnectorProfileZendeskConnectorProfileProperties(dict):
         The location of the Zendesk resource
         """
         return pulumi.get(self, "instance_url")
+
+
+@pulumi.output_type
+class ConnectorProvisioningConfig(dict):
+    """
+    Contains information about the configuration of the connector being registered.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorProvisioningConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorProvisioningConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorProvisioningConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_: Optional['outputs.ConnectorLambdaConnectorProvisioningConfig'] = None):
+        """
+        Contains information about the configuration of the connector being registered.
+        :param 'ConnectorLambdaConnectorProvisioningConfig' lambda_: Contains information about the configuration of the lambda which is being registered as the connector.
+        """
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+
+    @property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional['outputs.ConnectorLambdaConnectorProvisioningConfig']:
+        """
+        Contains information about the configuration of the lambda which is being registered as the connector.
+        """
+        return pulumi.get(self, "lambda_")
 
 
 @pulumi.output_type

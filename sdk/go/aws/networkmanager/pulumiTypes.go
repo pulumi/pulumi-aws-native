@@ -2186,6 +2186,8 @@ func (o VpcAttachmentTagArrayOutput) Index(i pulumi.IntInput) VpcAttachmentTagOu
 
 // Vpc options of the attachment.
 type VpcAttachmentVpcOptions struct {
+	// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+	ApplianceModeSupport *bool `pulumi:"applianceModeSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support *bool `pulumi:"ipv6Support"`
 }
@@ -2203,6 +2205,8 @@ type VpcAttachmentVpcOptionsInput interface {
 
 // Vpc options of the attachment.
 type VpcAttachmentVpcOptionsArgs struct {
+	// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+	ApplianceModeSupport pulumi.BoolPtrInput `pulumi:"applianceModeSupport"`
 	// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
 }
@@ -2285,6 +2289,11 @@ func (o VpcAttachmentVpcOptionsOutput) ToVpcAttachmentVpcOptionsPtrOutputWithCon
 	}).(VpcAttachmentVpcOptionsPtrOutput)
 }
 
+// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
 func (o VpcAttachmentVpcOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentVpcOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
@@ -2312,6 +2321,16 @@ func (o VpcAttachmentVpcOptionsPtrOutput) Elem() VpcAttachmentVpcOptionsOutput {
 		var ret VpcAttachmentVpcOptions
 		return ret
 	}).(VpcAttachmentVpcOptionsOutput)
+}
+
+// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+func (o VpcAttachmentVpcOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpcAttachmentVpcOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ApplianceModeSupport
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable

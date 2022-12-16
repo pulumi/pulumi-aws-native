@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationSetResult:
-    def __init__(__self__, arn=None, deletion_protected=None, regions=None):
+    def __init__(__self__, arn=None, deletion_protected=None, regions=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -29,6 +29,9 @@ class GetReplicationSetResult:
         if regions and not isinstance(regions, list):
             raise TypeError("Expected argument 'regions' to be a list")
         pulumi.set(__self__, "regions", regions)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -51,6 +54,14 @@ class GetReplicationSetResult:
         """
         return pulumi.get(self, "regions")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.ReplicationSetTag']]:
+        """
+        The tags to apply to the replication set.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetReplicationSetResult(GetReplicationSetResult):
     # pylint: disable=using-constant-test
@@ -60,7 +71,8 @@ class AwaitableGetReplicationSetResult(GetReplicationSetResult):
         return GetReplicationSetResult(
             arn=self.arn,
             deletion_protected=self.deletion_protected,
-            regions=self.regions)
+            regions=self.regions,
+            tags=self.tags)
 
 
 def get_replication_set(arn: Optional[str] = None,
@@ -79,7 +91,8 @@ def get_replication_set(arn: Optional[str] = None,
     return AwaitableGetReplicationSetResult(
         arn=__ret__.arn,
         deletion_protected=__ret__.deletion_protected,
-        regions=__ret__.regions)
+        regions=__ret__.regions,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_replication_set)

@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     {
         public readonly Outputs.RuleGroupRuleAction? Action;
         public readonly Outputs.RuleGroupCaptchaConfig? CaptchaConfig;
+        public readonly Outputs.RuleGroupChallengeConfig? ChallengeConfig;
         public readonly string Name;
         public readonly int Priority;
         /// <summary>
@@ -33,6 +34,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupCaptchaConfig? captchaConfig,
 
+            Outputs.RuleGroupChallengeConfig? challengeConfig,
+
             string name,
 
             int priority,
@@ -45,6 +48,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         {
             Action = action;
             CaptchaConfig = captchaConfig;
+            ChallengeConfig = challengeConfig;
             Name = name;
             Priority = priority;
             RuleLabels = ruleLabels;

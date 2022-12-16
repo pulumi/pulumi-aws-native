@@ -54,16 +54,19 @@ class AwaitableGetAggregationAuthorizationResult(GetAggregationAuthorizationResu
             tags=self.tags)
 
 
-def get_aggregation_authorization(aggregation_authorization_arn: Optional[str] = None,
+def get_aggregation_authorization(authorized_account_id: Optional[str] = None,
+                                  authorized_aws_region: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAggregationAuthorizationResult:
     """
     Resource Type definition for AWS::Config::AggregationAuthorization
 
 
-    :param str aggregation_authorization_arn: The ARN of the AggregationAuthorization.
+    :param str authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
+    :param str authorized_aws_region: The region authorized to collect aggregated data.
     """
     __args__ = dict()
-    __args__['aggregationAuthorizationArn'] = aggregation_authorization_arn
+    __args__['authorizedAccountId'] = authorized_account_id
+    __args__['authorizedAwsRegion'] = authorized_aws_region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getAggregationAuthorization', __args__, opts=opts, typ=GetAggregationAuthorizationResult).value
 
@@ -73,12 +76,14 @@ def get_aggregation_authorization(aggregation_authorization_arn: Optional[str] =
 
 
 @_utilities.lift_output_func(get_aggregation_authorization)
-def get_aggregation_authorization_output(aggregation_authorization_arn: Optional[pulumi.Input[str]] = None,
+def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.Input[str]] = None,
+                                         authorized_aws_region: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAggregationAuthorizationResult]:
     """
     Resource Type definition for AWS::Config::AggregationAuthorization
 
 
-    :param str aggregation_authorization_arn: The ARN of the AggregationAuthorization.
+    :param str authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
+    :param str authorized_aws_region: The region authorized to collect aggregated data.
     """
     ...

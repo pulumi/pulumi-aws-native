@@ -79,7 +79,7 @@ type LookupClusterResult struct {
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 	HsmConfigurationIdentifier *string `pulumi:"hsmConfigurationIdentifier"`
-	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles []string `pulumi:"iamRoles"`
 	Id       *string  `pulumi:"id"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
@@ -281,7 +281,7 @@ func (o LookupClusterResultOutput) HsmConfigurationIdentifier() pulumi.StringPtr
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.HsmConfigurationIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }

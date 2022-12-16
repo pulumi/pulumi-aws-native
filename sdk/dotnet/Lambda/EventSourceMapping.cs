@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// The scaling configuration for the event source.
+        /// </summary>
+        [Output("scalingConfig")]
+        public Output<Outputs.EventSourceMappingScalingConfig?> ScalingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Self-managed event source endpoints.
         /// </summary>
         [Output("selfManagedEventSource")]
@@ -281,6 +287,12 @@ namespace Pulumi.AwsNative.Lambda
             get => _queues ?? (_queues = new InputList<string>());
             set => _queues = value;
         }
+
+        /// <summary>
+        /// The scaling configuration for the event source.
+        /// </summary>
+        [Input("scalingConfig")]
+        public Input<Inputs.EventSourceMappingScalingConfigArgs>? ScalingConfig { get; set; }
 
         /// <summary>
         /// Self-managed event source endpoints.

@@ -60,6 +60,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
+     * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+     */
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the environment.
      */
     public readonly name!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["highAvailabilityConfig"] = args ? args.highAvailabilityConfig : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
@@ -127,6 +132,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["highAvailabilityConfig"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface EnvironmentArgs {
      * The type of instance underlying the environment.
      */
     instanceType: pulumi.Input<string>;
+    /**
+     * The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+     */
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name of the environment.
      */

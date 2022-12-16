@@ -17,18 +17,35 @@ export function getConfigurationTemplate(args: GetConfigurationTemplateArgs, opt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:elasticbeanstalk:getConfigurationTemplate", {
-        "id": args.id,
+        "applicationName": args.applicationName,
+        "templateName": args.templateName,
     }, opts);
 }
 
 export interface GetConfigurationTemplateArgs {
-    id: string;
+    /**
+     * The name of the Elastic Beanstalk application to associate with this configuration template. 
+     */
+    applicationName: string;
+    /**
+     * The name of the configuration template
+     */
+    templateName: string;
 }
 
 export interface GetConfigurationTemplateResult {
+    /**
+     * An optional description for this configuration.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+     */
     readonly optionSettings?: outputs.elasticbeanstalk.ConfigurationTemplateConfigurationOptionSetting[];
+    /**
+     * The name of the configuration template
+     */
+    readonly templateName?: string;
 }
 
 export function getConfigurationTemplateOutput(args: GetConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationTemplateResult> {
@@ -36,5 +53,12 @@ export function getConfigurationTemplateOutput(args: GetConfigurationTemplateOut
 }
 
 export interface GetConfigurationTemplateOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the Elastic Beanstalk application to associate with this configuration template. 
+     */
+    applicationName: pulumi.Input<string>;
+    /**
+     * The name of the configuration template
+     */
+    templateName: pulumi.Input<string>;
 }

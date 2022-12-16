@@ -21,8 +21,10 @@ func LookupAggregationAuthorization(ctx *pulumi.Context, args *LookupAggregation
 }
 
 type LookupAggregationAuthorizationArgs struct {
-	// The ARN of the AggregationAuthorization.
-	AggregationAuthorizationArn string `pulumi:"aggregationAuthorizationArn"`
+	// The 12-digit account ID of the account authorized to aggregate data.
+	AuthorizedAccountId string `pulumi:"authorizedAccountId"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion string `pulumi:"authorizedAwsRegion"`
 }
 
 type LookupAggregationAuthorizationResult struct {
@@ -46,8 +48,10 @@ func LookupAggregationAuthorizationOutput(ctx *pulumi.Context, args LookupAggreg
 }
 
 type LookupAggregationAuthorizationOutputArgs struct {
-	// The ARN of the AggregationAuthorization.
-	AggregationAuthorizationArn pulumi.StringInput `pulumi:"aggregationAuthorizationArn"`
+	// The 12-digit account ID of the account authorized to aggregate data.
+	AuthorizedAccountId pulumi.StringInput `pulumi:"authorizedAccountId"`
+	// The region authorized to collect aggregated data.
+	AuthorizedAwsRegion pulumi.StringInput `pulumi:"authorizedAwsRegion"`
 }
 
 func (LookupAggregationAuthorizationOutputArgs) ElementType() reflect.Type {

@@ -20,15 +20,19 @@ class ApplicationArgs:
                  definition: pulumi.Input['ApplicationDefinitionArgs'],
                  engine_type: pulumi.Input['ApplicationEngineType'],
                  description: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['ApplicationTagMapArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "engine_type", engine_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -62,6 +66,18 @@ class ApplicationArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -88,6 +104,7 @@ class Application(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ApplicationTagMapArgs']]] = None,
                  __props__=None):
@@ -96,6 +113,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
         """
         ...
     @overload
@@ -124,6 +142,7 @@ class Application(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ApplicationTagMapArgs']]] = None,
                  __props__=None):
@@ -142,6 +161,7 @@ class Application(pulumi.CustomResource):
             if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
             __props__.__dict__["engine_type"] = engine_type
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
@@ -173,6 +193,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["definition"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["engine_type"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
@@ -201,6 +222,14 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Output['ApplicationEngineType']:
         return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter

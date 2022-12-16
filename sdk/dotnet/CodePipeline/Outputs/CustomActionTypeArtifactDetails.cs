@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline.Outputs
 {
 
+    /// <summary>
+    /// Returns information about the details of an artifact.
+    /// </summary>
     [OutputType]
     public sealed class CustomActionTypeArtifactDetails
     {
+        /// <summary>
+        /// The maximum number of artifacts allowed for the action type.
+        /// </summary>
         public readonly int MaximumCount;
+        /// <summary>
+        /// The minimum number of artifacts allowed for the action type.
+        /// </summary>
         public readonly int MinimumCount;
 
         [OutputConstructor]

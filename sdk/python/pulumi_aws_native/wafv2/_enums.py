@@ -28,6 +28,7 @@ __all__ = [
     'RuleGroupSensitivityLevel',
     'RuleGroupSizeConstraintStatementComparisonOperator',
     'RuleGroupTextTransformationType',
+    'WebACLAWSManagedRulesBotControlRuleSetInspectionLevel',
     'WebACLBodyParsingFallbackBehavior',
     'WebACLForwardedIPConfigurationFallbackBehavior',
     'WebACLIPSetForwardedIPConfigurationFallbackBehavior',
@@ -70,6 +71,7 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(str, Enum):
     BLOCK = "BLOCK"
     COUNT = "COUNT"
     CAPTCHA = "CAPTCHA"
+    CHALLENGE = "CHALLENGE"
     EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
 
 
@@ -246,6 +248,11 @@ class RuleGroupTextTransformationType(str, Enum):
     BASE64_DECODE_EXT = "BASE64_DECODE_EXT"
     URL_DECODE_UNI = "URL_DECODE_UNI"
     UTF8_TO_UNICODE = "UTF8_TO_UNICODE"
+
+
+class WebACLAWSManagedRulesBotControlRuleSetInspectionLevel(str, Enum):
+    COMMON = "COMMON"
+    TARGETED = "TARGETED"
 
 
 class WebACLBodyParsingFallbackBehavior(str, Enum):

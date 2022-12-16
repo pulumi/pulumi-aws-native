@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.ECS.Outputs
     [OutputType]
     public sealed class ServiceDeploymentConfiguration
     {
+        public readonly Outputs.ServiceDeploymentAlarms? Alarms;
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
         public readonly int? MaximumPercent;
         public readonly int? MinimumHealthyPercent;
 
         [OutputConstructor]
         private ServiceDeploymentConfiguration(
+            Outputs.ServiceDeploymentAlarms? alarms,
+
             Outputs.ServiceDeploymentCircuitBreaker? deploymentCircuitBreaker,
 
             int? maximumPercent,
 
             int? minimumHealthyPercent)
         {
+            Alarms = alarms;
             DeploymentCircuitBreaker = deploymentCircuitBreaker;
             MaximumPercent = maximumPercent;
             MinimumHealthyPercent = minimumHealthyPercent;

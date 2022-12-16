@@ -22,6 +22,7 @@ class EndpointConfigArgs:
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
                  explainer_config: Optional[pulumi.Input['EndpointConfigExplainerConfigArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]] = None):
         """
         The set of arguments for constructing a EndpointConfig resource.
@@ -37,6 +38,8 @@ class EndpointConfigArgs:
             pulumi.set(__self__, "explainer_config", explainer_config)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if shadow_production_variants is not None:
+            pulumi.set(__self__, "shadow_production_variants", shadow_production_variants)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -95,6 +98,15 @@ class EndpointConfigArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="shadowProductionVariants")
+    def shadow_production_variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]]:
+        return pulumi.get(self, "shadow_production_variants")
+
+    @shadow_production_variants.setter
+    def shadow_production_variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]]):
+        pulumi.set(self, "shadow_production_variants", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -120,6 +132,7 @@ class EndpointConfig(pulumi.CustomResource):
                  explainer_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigExplainerConfigArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
+                 shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -158,6 +171,7 @@ class EndpointConfig(pulumi.CustomResource):
                  explainer_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigExplainerConfigArgs']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
+                 shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigProductionVariantArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointConfigTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""EndpointConfig is deprecated: EndpointConfig is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -177,6 +191,7 @@ class EndpointConfig(pulumi.CustomResource):
             if production_variants is None and not opts.urn:
                 raise TypeError("Missing required property 'production_variants'")
             __props__.__dict__["production_variants"] = production_variants
+            __props__.__dict__["shadow_production_variants"] = shadow_production_variants
             __props__.__dict__["tags"] = tags
         super(EndpointConfig, __self__).__init__(
             'aws-native:sagemaker:EndpointConfig',
@@ -206,6 +221,7 @@ class EndpointConfig(pulumi.CustomResource):
         __props__.__dict__["explainer_config"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["production_variants"] = None
+        __props__.__dict__["shadow_production_variants"] = None
         __props__.__dict__["tags"] = None
         return EndpointConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -238,6 +254,11 @@ class EndpointConfig(pulumi.CustomResource):
     @pulumi.getter(name="productionVariants")
     def production_variants(self) -> pulumi.Output[Sequence['outputs.EndpointConfigProductionVariant']]:
         return pulumi.get(self, "production_variants")
+
+    @property
+    @pulumi.getter(name="shadowProductionVariants")
+    def shadow_production_variants(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointConfigProductionVariant']]]:
+        return pulumi.get(self, "shadow_production_variants")
 
     @property
     @pulumi.getter

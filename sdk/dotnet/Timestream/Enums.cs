@@ -119,6 +119,7 @@ namespace Pulumi.AwsNative.Timestream
         public static ScheduledQueryMultiMeasureAttributeMappingMeasureValueType Boolean { get; } = new ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("BOOLEAN");
         public static ScheduledQueryMultiMeasureAttributeMappingMeasureValueType Double { get; } = new ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("DOUBLE");
         public static ScheduledQueryMultiMeasureAttributeMappingMeasureValueType Varchar { get; } = new ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("VARCHAR");
+        public static ScheduledQueryMultiMeasureAttributeMappingMeasureValueType Timestamp { get; } = new ScheduledQueryMultiMeasureAttributeMappingMeasureValueType("TIMESTAMP");
 
         public static bool operator ==(ScheduledQueryMultiMeasureAttributeMappingMeasureValueType left, ScheduledQueryMultiMeasureAttributeMappingMeasureValueType right) => left.Equals(right);
         public static bool operator !=(ScheduledQueryMultiMeasureAttributeMappingMeasureValueType left, ScheduledQueryMultiMeasureAttributeMappingMeasureValueType right) => !left.Equals(right);

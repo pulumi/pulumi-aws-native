@@ -17,15 +17,20 @@ export function getAggregationAuthorization(args: GetAggregationAuthorizationArg
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:configuration:getAggregationAuthorization", {
-        "aggregationAuthorizationArn": args.aggregationAuthorizationArn,
+        "authorizedAccountId": args.authorizedAccountId,
+        "authorizedAwsRegion": args.authorizedAwsRegion,
     }, opts);
 }
 
 export interface GetAggregationAuthorizationArgs {
     /**
-     * The ARN of the AggregationAuthorization.
+     * The 12-digit account ID of the account authorized to aggregate data.
      */
-    aggregationAuthorizationArn: string;
+    authorizedAccountId: string;
+    /**
+     * The region authorized to collect aggregated data.
+     */
+    authorizedAwsRegion: string;
 }
 
 export interface GetAggregationAuthorizationResult {
@@ -45,7 +50,11 @@ export function getAggregationAuthorizationOutput(args: GetAggregationAuthorizat
 
 export interface GetAggregationAuthorizationOutputArgs {
     /**
-     * The ARN of the AggregationAuthorization.
+     * The 12-digit account ID of the account authorized to aggregate data.
      */
-    aggregationAuthorizationArn: pulumi.Input<string>;
+    authorizedAccountId: pulumi.Input<string>;
+    /**
+     * The region authorized to collect aggregated data.
+     */
+    authorizedAwsRegion: pulumi.Input<string>;
 }

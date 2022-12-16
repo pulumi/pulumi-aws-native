@@ -31,6 +31,7 @@ class EventSourceMappingArgs:
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]]] = None,
@@ -54,6 +55,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
         :param pulumi.Input[int] parallelization_factor: (Streams) The number of batches to process from each shard concurrently.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (ActiveMQ) A list of ActiveMQ queues.
+        :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: The scaling configuration for the event source.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: Self-managed event source endpoints.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Specific configuration settings for a Self-Managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: A list of SourceAccessConfiguration.
@@ -89,6 +91,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if scaling_config is not None:
+            pulumi.set(__self__, "scaling_config", scaling_config)
         if self_managed_event_source is not None:
             pulumi.set(__self__, "self_managed_event_source", self_managed_event_source)
         if self_managed_kafka_event_source_config is not None:
@@ -273,6 +277,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "queues", value)
 
     @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
+        """
+        The scaling configuration for the event source.
+        """
+        return pulumi.get(self, "scaling_config")
+
+    @scaling_config.setter
+    def scaling_config(self, value: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]):
+        pulumi.set(self, "scaling_config", value)
+
+    @property
     @pulumi.getter(name="selfManagedEventSource")
     def self_managed_event_source(self) -> Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']]:
         """
@@ -376,6 +392,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
@@ -403,6 +420,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
         :param pulumi.Input[int] parallelization_factor: (Streams) The number of batches to process from each shard concurrently.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (ActiveMQ) A list of ActiveMQ queues.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']] scaling_config: The scaling configuration for the event source.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']] self_managed_event_source: Self-managed event source endpoints.
         :param pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']] self_managed_kafka_event_source_config: Specific configuration settings for a Self-Managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]] source_access_configurations: A list of SourceAccessConfiguration.
@@ -449,6 +467,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingScalingConfigArgs']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedEventSourceArgs']]] = None,
                  self_managed_kafka_event_source_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs']]] = None,
                  source_access_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourceMappingSourceAccessConfigurationArgs']]]]] = None,
@@ -481,6 +500,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["parallelization_factor"] = parallelization_factor
             __props__.__dict__["queues"] = queues
+            __props__.__dict__["scaling_config"] = scaling_config
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
             __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
             __props__.__dict__["source_access_configurations"] = source_access_configurations
@@ -524,6 +544,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["maximum_retry_attempts"] = None
         __props__.__dict__["parallelization_factor"] = None
         __props__.__dict__["queues"] = None
+        __props__.__dict__["scaling_config"] = None
         __props__.__dict__["self_managed_event_source"] = None
         __props__.__dict__["self_managed_kafka_event_source_config"] = None
         __props__.__dict__["source_access_configurations"] = None
@@ -644,6 +665,14 @@ class EventSourceMapping(pulumi.CustomResource):
         (ActiveMQ) A list of ActiveMQ queues.
         """
         return pulumi.get(self, "queues")
+
+    @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingScalingConfig']]:
+        """
+        The scaling configuration for the event source.
+        """
+        return pulumi.get(self, "scaling_config")
 
     @property
     @pulumi.getter(name="selfManagedEventSource")

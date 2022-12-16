@@ -45,12 +45,7 @@ class ThingArgs:
         pulumi.set(self, "thing_name", value)
 
 
-warnings.warn("""Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Thing(pulumi.CustomResource):
-    warnings.warn("""Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -91,7 +86,6 @@ class Thing(pulumi.CustomResource):
                  attribute_payload: Optional[pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']]] = None,
                  thing_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Thing is deprecated: Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -102,6 +96,7 @@ class Thing(pulumi.CustomResource):
 
             __props__.__dict__["attribute_payload"] = attribute_payload
             __props__.__dict__["thing_name"] = thing_name
+            __props__.__dict__["arn"] = None
         super(Thing, __self__).__init__(
             'aws-native:iot:Thing',
             resource_name,
@@ -124,9 +119,15 @@ class Thing(pulumi.CustomResource):
 
         __props__ = ThingArgs.__new__(ThingArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["attribute_payload"] = None
         __props__.__dict__["thing_name"] = None
         return Thing(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attributePayload")

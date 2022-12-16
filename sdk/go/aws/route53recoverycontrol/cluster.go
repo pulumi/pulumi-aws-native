@@ -65,6 +65,8 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// Endpoints for the cluster.
+	ClusterEndpoints []ClusterEndpoint `pulumi:"clusterEndpoints"`
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`
 	// A collection of tags associated with a resource
@@ -73,6 +75,8 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// Endpoints for the cluster.
+	ClusterEndpoints ClusterEndpointArrayInput
 	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrInput
 	// A collection of tags associated with a resource

@@ -66,6 +66,11 @@
     "EngineType" : {
       "$ref" : "#/definitions/EngineType"
     },
+    "KmsKeyId" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "description" : "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources."
+    },
     "Name" : {
       "type" : "string",
       "pattern" : "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$"
@@ -83,7 +88,7 @@
   "required" : [ "Definition", "EngineType", "Name" ],
   "readOnlyProperties" : [ "/properties/ApplicationArn", "/properties/ApplicationId" ],
   "writeOnlyProperties" : [ "/properties/Definition" ],
-  "createOnlyProperties" : [ "/properties/EngineType", "/properties/Name" ],
+  "createOnlyProperties" : [ "/properties/EngineType", "/properties/Name", "/properties/KmsKeyId" ],
   "primaryIdentifier" : [ "/properties/ApplicationArn" ],
   "handlers" : {
     "create" : {

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("captcha")]
         public Input<Inputs.WebACLCaptchaActionArgs>? Captcha { get; set; }
 
+        [Input("challenge")]
+        public Input<Inputs.WebACLChallengeActionArgs>? Challenge { get; set; }
+
         [Input("count")]
         public Input<Inputs.WebACLCountActionArgs>? Count { get; set; }
 

@@ -20,6 +20,8 @@ class ResolverEndpointArgs:
                  ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 preferred_instance_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
@@ -29,6 +31,10 @@ class ResolverEndpointArgs:
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if outpost_arn is not None:
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if preferred_instance_type is not None:
+            pulumi.set(__self__, "preferred_instance_type", preferred_instance_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -69,6 +75,24 @@ class ResolverEndpointArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "outpost_arn")
+
+    @outpost_arn.setter
+    def outpost_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outpost_arn", value)
+
+    @property
+    @pulumi.getter(name="preferredInstanceType")
+    def preferred_instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "preferred_instance_type")
+
+    @preferred_instance_type.setter
+    def preferred_instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_instance_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -91,6 +115,8 @@ class ResolverEndpoint(pulumi.CustomResource):
                  direction: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressRequestArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 preferred_instance_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointTagArgs']]]]] = None,
                  __props__=None):
@@ -127,6 +153,8 @@ class ResolverEndpoint(pulumi.CustomResource):
                  direction: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointIpAddressRequestArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 outpost_arn: Optional[pulumi.Input[str]] = None,
+                 preferred_instance_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointTagArgs']]]]] = None,
                  __props__=None):
@@ -146,6 +174,8 @@ class ResolverEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ip_addresses'")
             __props__.__dict__["ip_addresses"] = ip_addresses
             __props__.__dict__["name"] = name
+            __props__.__dict__["outpost_arn"] = outpost_arn
+            __props__.__dict__["preferred_instance_type"] = preferred_instance_type
             if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -182,6 +212,8 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__.__dict__["ip_address_count"] = None
         __props__.__dict__["ip_addresses"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["outpost_arn"] = None
+        __props__.__dict__["preferred_instance_type"] = None
         __props__.__dict__["resolver_endpoint_id"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["tags"] = None
@@ -216,6 +248,16 @@ class ResolverEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "outpost_arn")
+
+    @property
+    @pulumi.getter(name="preferredInstanceType")
+    def preferred_instance_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "preferred_instance_type")
 
     @property
     @pulumi.getter(name="resolverEndpointId")

@@ -65,7 +65,6 @@ namespace Pulumi.AwsNative.ECS
         public readonly ImmutableArray<Outputs.ClusterSettings> ClusterSettings;
         public readonly Outputs.ClusterConfiguration? Configuration;
         public readonly ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem> DefaultCapacityProviderStrategy;
-        public readonly Outputs.ClusterServiceConnectDefaults? ServiceConnectDefaults;
         public readonly ImmutableArray<Outputs.ClusterTag> Tags;
 
         [OutputConstructor]
@@ -80,8 +79,6 @@ namespace Pulumi.AwsNative.ECS
 
             ImmutableArray<Outputs.ClusterCapacityProviderStrategyItem> defaultCapacityProviderStrategy,
 
-            Outputs.ClusterServiceConnectDefaults? serviceConnectDefaults,
-
             ImmutableArray<Outputs.ClusterTag> tags)
         {
             Arn = arn;
@@ -89,7 +86,6 @@ namespace Pulumi.AwsNative.ECS
             ClusterSettings = clusterSettings;
             Configuration = configuration;
             DefaultCapacityProviderStrategy = defaultCapacityProviderStrategy;
-            ServiceConnectDefaults = serviceConnectDefaults;
             Tags = tags;
         }
     }

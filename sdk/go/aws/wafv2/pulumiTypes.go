@@ -2103,6 +2103,139 @@ func (o RuleGroupCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunit
 	}).(RuleGroupImmunityTimePropertyPtrOutput)
 }
 
+type RuleGroupChallengeConfig struct {
+	ImmunityTimeProperty *RuleGroupImmunityTimeProperty `pulumi:"immunityTimeProperty"`
+}
+
+// RuleGroupChallengeConfigInput is an input type that accepts RuleGroupChallengeConfigArgs and RuleGroupChallengeConfigOutput values.
+// You can construct a concrete instance of `RuleGroupChallengeConfigInput` via:
+//
+//	RuleGroupChallengeConfigArgs{...}
+type RuleGroupChallengeConfigInput interface {
+	pulumi.Input
+
+	ToRuleGroupChallengeConfigOutput() RuleGroupChallengeConfigOutput
+	ToRuleGroupChallengeConfigOutputWithContext(context.Context) RuleGroupChallengeConfigOutput
+}
+
+type RuleGroupChallengeConfigArgs struct {
+	ImmunityTimeProperty RuleGroupImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
+}
+
+func (RuleGroupChallengeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupChallengeConfig)(nil)).Elem()
+}
+
+func (i RuleGroupChallengeConfigArgs) ToRuleGroupChallengeConfigOutput() RuleGroupChallengeConfigOutput {
+	return i.ToRuleGroupChallengeConfigOutputWithContext(context.Background())
+}
+
+func (i RuleGroupChallengeConfigArgs) ToRuleGroupChallengeConfigOutputWithContext(ctx context.Context) RuleGroupChallengeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeConfigOutput)
+}
+
+func (i RuleGroupChallengeConfigArgs) ToRuleGroupChallengeConfigPtrOutput() RuleGroupChallengeConfigPtrOutput {
+	return i.ToRuleGroupChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupChallengeConfigArgs) ToRuleGroupChallengeConfigPtrOutputWithContext(ctx context.Context) RuleGroupChallengeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeConfigOutput).ToRuleGroupChallengeConfigPtrOutputWithContext(ctx)
+}
+
+// RuleGroupChallengeConfigPtrInput is an input type that accepts RuleGroupChallengeConfigArgs, RuleGroupChallengeConfigPtr and RuleGroupChallengeConfigPtrOutput values.
+// You can construct a concrete instance of `RuleGroupChallengeConfigPtrInput` via:
+//
+//	        RuleGroupChallengeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupChallengeConfigPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupChallengeConfigPtrOutput() RuleGroupChallengeConfigPtrOutput
+	ToRuleGroupChallengeConfigPtrOutputWithContext(context.Context) RuleGroupChallengeConfigPtrOutput
+}
+
+type ruleGroupChallengeConfigPtrType RuleGroupChallengeConfigArgs
+
+func RuleGroupChallengeConfigPtr(v *RuleGroupChallengeConfigArgs) RuleGroupChallengeConfigPtrInput {
+	return (*ruleGroupChallengeConfigPtrType)(v)
+}
+
+func (*ruleGroupChallengeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupChallengeConfig)(nil)).Elem()
+}
+
+func (i *ruleGroupChallengeConfigPtrType) ToRuleGroupChallengeConfigPtrOutput() RuleGroupChallengeConfigPtrOutput {
+	return i.ToRuleGroupChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupChallengeConfigPtrType) ToRuleGroupChallengeConfigPtrOutputWithContext(ctx context.Context) RuleGroupChallengeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupChallengeConfigPtrOutput)
+}
+
+type RuleGroupChallengeConfigOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupChallengeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupChallengeConfig)(nil)).Elem()
+}
+
+func (o RuleGroupChallengeConfigOutput) ToRuleGroupChallengeConfigOutput() RuleGroupChallengeConfigOutput {
+	return o
+}
+
+func (o RuleGroupChallengeConfigOutput) ToRuleGroupChallengeConfigOutputWithContext(ctx context.Context) RuleGroupChallengeConfigOutput {
+	return o
+}
+
+func (o RuleGroupChallengeConfigOutput) ToRuleGroupChallengeConfigPtrOutput() RuleGroupChallengeConfigPtrOutput {
+	return o.ToRuleGroupChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupChallengeConfigOutput) ToRuleGroupChallengeConfigPtrOutputWithContext(ctx context.Context) RuleGroupChallengeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupChallengeConfig) *RuleGroupChallengeConfig {
+		return &v
+	}).(RuleGroupChallengeConfigPtrOutput)
+}
+
+func (o RuleGroupChallengeConfigOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
+	return o.ApplyT(func(v RuleGroupChallengeConfig) *RuleGroupImmunityTimeProperty { return v.ImmunityTimeProperty }).(RuleGroupImmunityTimePropertyPtrOutput)
+}
+
+type RuleGroupChallengeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupChallengeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupChallengeConfig)(nil)).Elem()
+}
+
+func (o RuleGroupChallengeConfigPtrOutput) ToRuleGroupChallengeConfigPtrOutput() RuleGroupChallengeConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupChallengeConfigPtrOutput) ToRuleGroupChallengeConfigPtrOutputWithContext(ctx context.Context) RuleGroupChallengeConfigPtrOutput {
+	return o
+}
+
+func (o RuleGroupChallengeConfigPtrOutput) Elem() RuleGroupChallengeConfigOutput {
+	return o.ApplyT(func(v *RuleGroupChallengeConfig) RuleGroupChallengeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupChallengeConfig
+		return ret
+	}).(RuleGroupChallengeConfigOutput)
+}
+
+func (o RuleGroupChallengeConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
+	return o.ApplyT(func(v *RuleGroupChallengeConfig) *RuleGroupImmunityTimeProperty {
+		if v == nil {
+			return nil
+		}
+		return v.ImmunityTimeProperty
+	}).(RuleGroupImmunityTimePropertyPtrOutput)
+}
+
 // The pattern to look for in the request cookies.
 type RuleGroupCookieMatchPattern struct {
 	// Inspect all parts of the web request cookies.
@@ -5205,6 +5338,58 @@ type RuleGroupLabelSummary struct {
 	Name *string `pulumi:"name"`
 }
 
+// RuleGroupLabelSummaryInput is an input type that accepts RuleGroupLabelSummaryArgs and RuleGroupLabelSummaryOutput values.
+// You can construct a concrete instance of `RuleGroupLabelSummaryInput` via:
+//
+//	RuleGroupLabelSummaryArgs{...}
+type RuleGroupLabelSummaryInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelSummaryOutput() RuleGroupLabelSummaryOutput
+	ToRuleGroupLabelSummaryOutputWithContext(context.Context) RuleGroupLabelSummaryOutput
+}
+
+type RuleGroupLabelSummaryArgs struct {
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (RuleGroupLabelSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (i RuleGroupLabelSummaryArgs) ToRuleGroupLabelSummaryOutput() RuleGroupLabelSummaryOutput {
+	return i.ToRuleGroupLabelSummaryOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelSummaryArgs) ToRuleGroupLabelSummaryOutputWithContext(ctx context.Context) RuleGroupLabelSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelSummaryOutput)
+}
+
+// RuleGroupLabelSummaryArrayInput is an input type that accepts RuleGroupLabelSummaryArray and RuleGroupLabelSummaryArrayOutput values.
+// You can construct a concrete instance of `RuleGroupLabelSummaryArrayInput` via:
+//
+//	RuleGroupLabelSummaryArray{ RuleGroupLabelSummaryArgs{...} }
+type RuleGroupLabelSummaryArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupLabelSummaryArrayOutput() RuleGroupLabelSummaryArrayOutput
+	ToRuleGroupLabelSummaryArrayOutputWithContext(context.Context) RuleGroupLabelSummaryArrayOutput
+}
+
+type RuleGroupLabelSummaryArray []RuleGroupLabelSummaryInput
+
+func (RuleGroupLabelSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupLabelSummary)(nil)).Elem()
+}
+
+func (i RuleGroupLabelSummaryArray) ToRuleGroupLabelSummaryArrayOutput() RuleGroupLabelSummaryArrayOutput {
+	return i.ToRuleGroupLabelSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupLabelSummaryArray) ToRuleGroupLabelSummaryArrayOutputWithContext(ctx context.Context) RuleGroupLabelSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelSummaryArrayOutput)
+}
+
 type RuleGroupLabelSummaryOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupLabelSummaryOutput) ElementType() reflect.Type {
@@ -6019,10 +6204,11 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) TextTransformations
 
 // Rule of RuleGroup that contains condition and action.
 type RuleGroupRule struct {
-	Action        *RuleGroupRuleAction    `pulumi:"action"`
-	CaptchaConfig *RuleGroupCaptchaConfig `pulumi:"captchaConfig"`
-	Name          string                  `pulumi:"name"`
-	Priority      int                     `pulumi:"priority"`
+	Action          *RuleGroupRuleAction      `pulumi:"action"`
+	CaptchaConfig   *RuleGroupCaptchaConfig   `pulumi:"captchaConfig"`
+	ChallengeConfig *RuleGroupChallengeConfig `pulumi:"challengeConfig"`
+	Name            string                    `pulumi:"name"`
+	Priority        int                       `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels       []RuleGroupLabel          `pulumi:"ruleLabels"`
 	Statement        RuleGroupStatement        `pulumi:"statement"`
@@ -6042,10 +6228,11 @@ type RuleGroupRuleInput interface {
 
 // Rule of RuleGroup that contains condition and action.
 type RuleGroupRuleArgs struct {
-	Action        RuleGroupRuleActionPtrInput    `pulumi:"action"`
-	CaptchaConfig RuleGroupCaptchaConfigPtrInput `pulumi:"captchaConfig"`
-	Name          pulumi.StringInput             `pulumi:"name"`
-	Priority      pulumi.IntInput                `pulumi:"priority"`
+	Action          RuleGroupRuleActionPtrInput      `pulumi:"action"`
+	CaptchaConfig   RuleGroupCaptchaConfigPtrInput   `pulumi:"captchaConfig"`
+	ChallengeConfig RuleGroupChallengeConfigPtrInput `pulumi:"challengeConfig"`
+	Name            pulumi.StringInput               `pulumi:"name"`
+	Priority        pulumi.IntInput                  `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels       RuleGroupLabelArrayInput       `pulumi:"ruleLabels"`
 	Statement        RuleGroupStatementInput        `pulumi:"statement"`
@@ -6112,6 +6299,10 @@ func (o RuleGroupRuleOutput) CaptchaConfig() RuleGroupCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupCaptchaConfig { return v.CaptchaConfig }).(RuleGroupCaptchaConfigPtrOutput)
 }
 
+func (o RuleGroupRuleOutput) ChallengeConfig() RuleGroupChallengeConfigPtrOutput {
+	return o.ApplyT(func(v RuleGroupRule) *RuleGroupChallengeConfig { return v.ChallengeConfig }).(RuleGroupChallengeConfigPtrOutput)
+}
+
 func (o RuleGroupRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6161,6 +6352,8 @@ type RuleGroupRuleAction struct {
 	Block *RuleGroupRuleActionBlockProperties `pulumi:"block"`
 	// Checks valid token exists with request.
 	Captcha *RuleGroupRuleActionCaptchaProperties `pulumi:"captcha"`
+	// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+	Challenge *RuleGroupRuleActionChallengeProperties `pulumi:"challenge"`
 	// Count traffic towards application.
 	Count *RuleGroupRuleActionCountProperties `pulumi:"count"`
 }
@@ -6184,6 +6377,8 @@ type RuleGroupRuleActionArgs struct {
 	Block RuleGroupRuleActionBlockPropertiesPtrInput `pulumi:"block"`
 	// Checks valid token exists with request.
 	Captcha RuleGroupRuleActionCaptchaPropertiesPtrInput `pulumi:"captcha"`
+	// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+	Challenge RuleGroupRuleActionChallengePropertiesPtrInput `pulumi:"challenge"`
 	// Count traffic towards application.
 	Count RuleGroupRuleActionCountPropertiesPtrInput `pulumi:"count"`
 }
@@ -6281,6 +6476,11 @@ func (o RuleGroupRuleActionOutput) Captcha() RuleGroupRuleActionCaptchaPropertie
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCaptchaProperties { return v.Captcha }).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
 }
 
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+func (o RuleGroupRuleActionOutput) Challenge() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionChallengeProperties { return v.Challenge }).(RuleGroupRuleActionChallengePropertiesPtrOutput)
+}
+
 // Count traffic towards application.
 func (o RuleGroupRuleActionOutput) Count() RuleGroupRuleActionCountPropertiesPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupRuleActionCountProperties { return v.Count }).(RuleGroupRuleActionCountPropertiesPtrOutput)
@@ -6338,6 +6538,16 @@ func (o RuleGroupRuleActionPtrOutput) Captcha() RuleGroupRuleActionCaptchaProper
 		}
 		return v.Captcha
 	}).(RuleGroupRuleActionCaptchaPropertiesPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+func (o RuleGroupRuleActionPtrOutput) Challenge() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupRuleActionChallengeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Challenge
+	}).(RuleGroupRuleActionChallengePropertiesPtrOutput)
 }
 
 // Count traffic towards application.
@@ -6755,6 +6965,144 @@ func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) Elem() RuleGroupRuleActio
 
 func (o RuleGroupRuleActionCaptchaPropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleActionCaptchaProperties) *RuleGroupCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupRuleActionChallengeProperties struct {
+	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// RuleGroupRuleActionChallengePropertiesInput is an input type that accepts RuleGroupRuleActionChallengePropertiesArgs and RuleGroupRuleActionChallengePropertiesOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionChallengePropertiesInput` via:
+//
+//	RuleGroupRuleActionChallengePropertiesArgs{...}
+type RuleGroupRuleActionChallengePropertiesInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput
+	ToRuleGroupRuleActionChallengePropertiesOutputWithContext(context.Context) RuleGroupRuleActionChallengePropertiesOutput
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupRuleActionChallengePropertiesArgs struct {
+	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (RuleGroupRuleActionChallengePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionChallengeProperties)(nil)).Elem()
+}
+
+func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput {
+	return i.ToRuleGroupRuleActionChallengePropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesOutput)
+}
+
+func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupRuleActionChallengePropertiesArgs) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesOutput).ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupRuleActionChallengePropertiesPtrInput is an input type that accepts RuleGroupRuleActionChallengePropertiesArgs, RuleGroupRuleActionChallengePropertiesPtr and RuleGroupRuleActionChallengePropertiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupRuleActionChallengePropertiesPtrInput` via:
+//
+//	        RuleGroupRuleActionChallengePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupRuleActionChallengePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput
+	ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput
+}
+
+type ruleGroupRuleActionChallengePropertiesPtrType RuleGroupRuleActionChallengePropertiesArgs
+
+func RuleGroupRuleActionChallengePropertiesPtr(v *RuleGroupRuleActionChallengePropertiesArgs) RuleGroupRuleActionChallengePropertiesPtrInput {
+	return (*ruleGroupRuleActionChallengePropertiesPtrType)(v)
+}
+
+func (*ruleGroupRuleActionChallengePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionChallengeProperties)(nil)).Elem()
+}
+
+func (i *ruleGroupRuleActionChallengePropertiesPtrType) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return i.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupRuleActionChallengePropertiesPtrType) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionChallengePropertiesPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type RuleGroupRuleActionChallengePropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionChallengePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupRuleActionChallengeProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesOutput() RuleGroupRuleActionChallengePropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o.ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupRuleActionChallengePropertiesOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleActionChallengeProperties) *RuleGroupRuleActionChallengeProperties {
+		return &v
+	}).(RuleGroupRuleActionChallengePropertiesPtrOutput)
+}
+
+func (o RuleGroupRuleActionChallengePropertiesOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v RuleGroupRuleActionChallengeProperties) *RuleGroupCustomRequestHandling {
+		return v.CustomRequestHandling
+	}).(RuleGroupCustomRequestHandlingPtrOutput)
+}
+
+type RuleGroupRuleActionChallengePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupRuleActionChallengePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupRuleActionChallengeProperties)(nil)).Elem()
+}
+
+func (o RuleGroupRuleActionChallengePropertiesPtrOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutput() RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionChallengePropertiesPtrOutput) ToRuleGroupRuleActionChallengePropertiesPtrOutputWithContext(ctx context.Context) RuleGroupRuleActionChallengePropertiesPtrOutput {
+	return o
+}
+
+func (o RuleGroupRuleActionChallengePropertiesPtrOutput) Elem() RuleGroupRuleActionChallengePropertiesOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionChallengeProperties) RuleGroupRuleActionChallengeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleActionChallengeProperties
+		return ret
+	}).(RuleGroupRuleActionChallengePropertiesOutput)
+}
+
+func (o RuleGroupRuleActionChallengePropertiesPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *RuleGroupRuleActionChallengeProperties) *RuleGroupCustomRequestHandling {
 		if v == nil {
 			return nil
 		}
@@ -8081,6 +8429,144 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
+// Configures how to use the Bot Control managed rule group in the web ACL
+type WebACLAWSManagedRulesBotControlRuleSet struct {
+	InspectionLevel WebACLAWSManagedRulesBotControlRuleSetInspectionLevel `pulumi:"inspectionLevel"`
+}
+
+// WebACLAWSManagedRulesBotControlRuleSetInput is an input type that accepts WebACLAWSManagedRulesBotControlRuleSetArgs and WebACLAWSManagedRulesBotControlRuleSetOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesBotControlRuleSetInput` via:
+//
+//	WebACLAWSManagedRulesBotControlRuleSetArgs{...}
+type WebACLAWSManagedRulesBotControlRuleSetInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesBotControlRuleSetOutput() WebACLAWSManagedRulesBotControlRuleSetOutput
+	ToWebACLAWSManagedRulesBotControlRuleSetOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetOutput
+}
+
+// Configures how to use the Bot Control managed rule group in the web ACL
+type WebACLAWSManagedRulesBotControlRuleSetArgs struct {
+	InspectionLevel WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput `pulumi:"inspectionLevel"`
+}
+
+func (WebACLAWSManagedRulesBotControlRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSet)(nil)).Elem()
+}
+
+func (i WebACLAWSManagedRulesBotControlRuleSetArgs) ToWebACLAWSManagedRulesBotControlRuleSetOutput() WebACLAWSManagedRulesBotControlRuleSetOutput {
+	return i.ToWebACLAWSManagedRulesBotControlRuleSetOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesBotControlRuleSetArgs) ToWebACLAWSManagedRulesBotControlRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesBotControlRuleSetOutput)
+}
+
+func (i WebACLAWSManagedRulesBotControlRuleSetArgs) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutput() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLAWSManagedRulesBotControlRuleSetArgs) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesBotControlRuleSetOutput).ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(ctx)
+}
+
+// WebACLAWSManagedRulesBotControlRuleSetPtrInput is an input type that accepts WebACLAWSManagedRulesBotControlRuleSetArgs, WebACLAWSManagedRulesBotControlRuleSetPtr and WebACLAWSManagedRulesBotControlRuleSetPtrOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesBotControlRuleSetPtrInput` via:
+//
+//	        WebACLAWSManagedRulesBotControlRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLAWSManagedRulesBotControlRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesBotControlRuleSetPtrOutput() WebACLAWSManagedRulesBotControlRuleSetPtrOutput
+	ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetPtrOutput
+}
+
+type webACLAWSManagedRulesBotControlRuleSetPtrType WebACLAWSManagedRulesBotControlRuleSetArgs
+
+func WebACLAWSManagedRulesBotControlRuleSetPtr(v *WebACLAWSManagedRulesBotControlRuleSetArgs) WebACLAWSManagedRulesBotControlRuleSetPtrInput {
+	return (*webACLAWSManagedRulesBotControlRuleSetPtrType)(v)
+}
+
+func (*webACLAWSManagedRulesBotControlRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSet)(nil)).Elem()
+}
+
+func (i *webACLAWSManagedRulesBotControlRuleSetPtrType) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutput() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return i.ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLAWSManagedRulesBotControlRuleSetPtrType) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLAWSManagedRulesBotControlRuleSetPtrOutput)
+}
+
+// Configures how to use the Bot Control managed rule group in the web ACL
+type WebACLAWSManagedRulesBotControlRuleSetOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesBotControlRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetOutput) ToWebACLAWSManagedRulesBotControlRuleSetOutput() WebACLAWSManagedRulesBotControlRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetOutput) ToWebACLAWSManagedRulesBotControlRuleSetOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetOutput) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutput() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return o.ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetOutput) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAWSManagedRulesBotControlRuleSet) *WebACLAWSManagedRulesBotControlRuleSet {
+		return &v
+	}).(WebACLAWSManagedRulesBotControlRuleSetPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetOutput) InspectionLevel() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return o.ApplyT(func(v WebACLAWSManagedRulesBotControlRuleSet) WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+		return v.InspectionLevel
+	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+}
+
+type WebACLAWSManagedRulesBotControlRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesBotControlRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSet)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutput() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) Elem() WebACLAWSManagedRulesBotControlRuleSetOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesBotControlRuleSet) WebACLAWSManagedRulesBotControlRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAWSManagedRulesBotControlRuleSet
+		return ret
+	}).(WebACLAWSManagedRulesBotControlRuleSetOutput)
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetPtrOutput) InspectionLevel() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesBotControlRuleSet) *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.InspectionLevel
+	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
 // Allow traffic towards application.
 type WebACLAllowAction struct {
 	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -9080,6 +9566,275 @@ func (o WebACLCaptchaConfigPtrOutput) Elem() WebACLCaptchaConfigOutput {
 
 func (o WebACLCaptchaConfigPtrOutput) ImmunityTimeProperty() WebACLImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *WebACLCaptchaConfig) *WebACLImmunityTimeProperty {
+		if v == nil {
+			return nil
+		}
+		return v.ImmunityTimeProperty
+	}).(WebACLImmunityTimePropertyPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type WebACLChallengeAction struct {
+	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
+}
+
+// WebACLChallengeActionInput is an input type that accepts WebACLChallengeActionArgs and WebACLChallengeActionOutput values.
+// You can construct a concrete instance of `WebACLChallengeActionInput` via:
+//
+//	WebACLChallengeActionArgs{...}
+type WebACLChallengeActionInput interface {
+	pulumi.Input
+
+	ToWebACLChallengeActionOutput() WebACLChallengeActionOutput
+	ToWebACLChallengeActionOutputWithContext(context.Context) WebACLChallengeActionOutput
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type WebACLChallengeActionArgs struct {
+	CustomRequestHandling WebACLCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
+}
+
+func (WebACLChallengeActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLChallengeAction)(nil)).Elem()
+}
+
+func (i WebACLChallengeActionArgs) ToWebACLChallengeActionOutput() WebACLChallengeActionOutput {
+	return i.ToWebACLChallengeActionOutputWithContext(context.Background())
+}
+
+func (i WebACLChallengeActionArgs) ToWebACLChallengeActionOutputWithContext(ctx context.Context) WebACLChallengeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeActionOutput)
+}
+
+func (i WebACLChallengeActionArgs) ToWebACLChallengeActionPtrOutput() WebACLChallengeActionPtrOutput {
+	return i.ToWebACLChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLChallengeActionArgs) ToWebACLChallengeActionPtrOutputWithContext(ctx context.Context) WebACLChallengeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeActionOutput).ToWebACLChallengeActionPtrOutputWithContext(ctx)
+}
+
+// WebACLChallengeActionPtrInput is an input type that accepts WebACLChallengeActionArgs, WebACLChallengeActionPtr and WebACLChallengeActionPtrOutput values.
+// You can construct a concrete instance of `WebACLChallengeActionPtrInput` via:
+//
+//	        WebACLChallengeActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLChallengeActionPtrInput interface {
+	pulumi.Input
+
+	ToWebACLChallengeActionPtrOutput() WebACLChallengeActionPtrOutput
+	ToWebACLChallengeActionPtrOutputWithContext(context.Context) WebACLChallengeActionPtrOutput
+}
+
+type webACLChallengeActionPtrType WebACLChallengeActionArgs
+
+func WebACLChallengeActionPtr(v *WebACLChallengeActionArgs) WebACLChallengeActionPtrInput {
+	return (*webACLChallengeActionPtrType)(v)
+}
+
+func (*webACLChallengeActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLChallengeAction)(nil)).Elem()
+}
+
+func (i *webACLChallengeActionPtrType) ToWebACLChallengeActionPtrOutput() WebACLChallengeActionPtrOutput {
+	return i.ToWebACLChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLChallengeActionPtrType) ToWebACLChallengeActionPtrOutputWithContext(ctx context.Context) WebACLChallengeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeActionPtrOutput)
+}
+
+// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+type WebACLChallengeActionOutput struct{ *pulumi.OutputState }
+
+func (WebACLChallengeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLChallengeAction)(nil)).Elem()
+}
+
+func (o WebACLChallengeActionOutput) ToWebACLChallengeActionOutput() WebACLChallengeActionOutput {
+	return o
+}
+
+func (o WebACLChallengeActionOutput) ToWebACLChallengeActionOutputWithContext(ctx context.Context) WebACLChallengeActionOutput {
+	return o
+}
+
+func (o WebACLChallengeActionOutput) ToWebACLChallengeActionPtrOutput() WebACLChallengeActionPtrOutput {
+	return o.ToWebACLChallengeActionPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLChallengeActionOutput) ToWebACLChallengeActionPtrOutputWithContext(ctx context.Context) WebACLChallengeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLChallengeAction) *WebACLChallengeAction {
+		return &v
+	}).(WebACLChallengeActionPtrOutput)
+}
+
+func (o WebACLChallengeActionOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v WebACLChallengeAction) *WebACLCustomRequestHandling { return v.CustomRequestHandling }).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+type WebACLChallengeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLChallengeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLChallengeAction)(nil)).Elem()
+}
+
+func (o WebACLChallengeActionPtrOutput) ToWebACLChallengeActionPtrOutput() WebACLChallengeActionPtrOutput {
+	return o
+}
+
+func (o WebACLChallengeActionPtrOutput) ToWebACLChallengeActionPtrOutputWithContext(ctx context.Context) WebACLChallengeActionPtrOutput {
+	return o
+}
+
+func (o WebACLChallengeActionPtrOutput) Elem() WebACLChallengeActionOutput {
+	return o.ApplyT(func(v *WebACLChallengeAction) WebACLChallengeAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLChallengeAction
+		return ret
+	}).(WebACLChallengeActionOutput)
+}
+
+func (o WebACLChallengeActionPtrOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
+	return o.ApplyT(func(v *WebACLChallengeAction) *WebACLCustomRequestHandling {
+		if v == nil {
+			return nil
+		}
+		return v.CustomRequestHandling
+	}).(WebACLCustomRequestHandlingPtrOutput)
+}
+
+type WebACLChallengeConfig struct {
+	ImmunityTimeProperty *WebACLImmunityTimeProperty `pulumi:"immunityTimeProperty"`
+}
+
+// WebACLChallengeConfigInput is an input type that accepts WebACLChallengeConfigArgs and WebACLChallengeConfigOutput values.
+// You can construct a concrete instance of `WebACLChallengeConfigInput` via:
+//
+//	WebACLChallengeConfigArgs{...}
+type WebACLChallengeConfigInput interface {
+	pulumi.Input
+
+	ToWebACLChallengeConfigOutput() WebACLChallengeConfigOutput
+	ToWebACLChallengeConfigOutputWithContext(context.Context) WebACLChallengeConfigOutput
+}
+
+type WebACLChallengeConfigArgs struct {
+	ImmunityTimeProperty WebACLImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
+}
+
+func (WebACLChallengeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLChallengeConfig)(nil)).Elem()
+}
+
+func (i WebACLChallengeConfigArgs) ToWebACLChallengeConfigOutput() WebACLChallengeConfigOutput {
+	return i.ToWebACLChallengeConfigOutputWithContext(context.Background())
+}
+
+func (i WebACLChallengeConfigArgs) ToWebACLChallengeConfigOutputWithContext(ctx context.Context) WebACLChallengeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeConfigOutput)
+}
+
+func (i WebACLChallengeConfigArgs) ToWebACLChallengeConfigPtrOutput() WebACLChallengeConfigPtrOutput {
+	return i.ToWebACLChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLChallengeConfigArgs) ToWebACLChallengeConfigPtrOutputWithContext(ctx context.Context) WebACLChallengeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeConfigOutput).ToWebACLChallengeConfigPtrOutputWithContext(ctx)
+}
+
+// WebACLChallengeConfigPtrInput is an input type that accepts WebACLChallengeConfigArgs, WebACLChallengeConfigPtr and WebACLChallengeConfigPtrOutput values.
+// You can construct a concrete instance of `WebACLChallengeConfigPtrInput` via:
+//
+//	        WebACLChallengeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebACLChallengeConfigPtrInput interface {
+	pulumi.Input
+
+	ToWebACLChallengeConfigPtrOutput() WebACLChallengeConfigPtrOutput
+	ToWebACLChallengeConfigPtrOutputWithContext(context.Context) WebACLChallengeConfigPtrOutput
+}
+
+type webACLChallengeConfigPtrType WebACLChallengeConfigArgs
+
+func WebACLChallengeConfigPtr(v *WebACLChallengeConfigArgs) WebACLChallengeConfigPtrInput {
+	return (*webACLChallengeConfigPtrType)(v)
+}
+
+func (*webACLChallengeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLChallengeConfig)(nil)).Elem()
+}
+
+func (i *webACLChallengeConfigPtrType) ToWebACLChallengeConfigPtrOutput() WebACLChallengeConfigPtrOutput {
+	return i.ToWebACLChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *webACLChallengeConfigPtrType) ToWebACLChallengeConfigPtrOutputWithContext(ctx context.Context) WebACLChallengeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLChallengeConfigPtrOutput)
+}
+
+type WebACLChallengeConfigOutput struct{ *pulumi.OutputState }
+
+func (WebACLChallengeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLChallengeConfig)(nil)).Elem()
+}
+
+func (o WebACLChallengeConfigOutput) ToWebACLChallengeConfigOutput() WebACLChallengeConfigOutput {
+	return o
+}
+
+func (o WebACLChallengeConfigOutput) ToWebACLChallengeConfigOutputWithContext(ctx context.Context) WebACLChallengeConfigOutput {
+	return o
+}
+
+func (o WebACLChallengeConfigOutput) ToWebACLChallengeConfigPtrOutput() WebACLChallengeConfigPtrOutput {
+	return o.ToWebACLChallengeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLChallengeConfigOutput) ToWebACLChallengeConfigPtrOutputWithContext(ctx context.Context) WebACLChallengeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLChallengeConfig) *WebACLChallengeConfig {
+		return &v
+	}).(WebACLChallengeConfigPtrOutput)
+}
+
+func (o WebACLChallengeConfigOutput) ImmunityTimeProperty() WebACLImmunityTimePropertyPtrOutput {
+	return o.ApplyT(func(v WebACLChallengeConfig) *WebACLImmunityTimeProperty { return v.ImmunityTimeProperty }).(WebACLImmunityTimePropertyPtrOutput)
+}
+
+type WebACLChallengeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLChallengeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLChallengeConfig)(nil)).Elem()
+}
+
+func (o WebACLChallengeConfigPtrOutput) ToWebACLChallengeConfigPtrOutput() WebACLChallengeConfigPtrOutput {
+	return o
+}
+
+func (o WebACLChallengeConfigPtrOutput) ToWebACLChallengeConfigPtrOutputWithContext(ctx context.Context) WebACLChallengeConfigPtrOutput {
+	return o
+}
+
+func (o WebACLChallengeConfigPtrOutput) Elem() WebACLChallengeConfigOutput {
+	return o.ApplyT(func(v *WebACLChallengeConfig) WebACLChallengeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLChallengeConfig
+		return ret
+	}).(WebACLChallengeConfigOutput)
+}
+
+func (o WebACLChallengeConfigPtrOutput) ImmunityTimeProperty() WebACLImmunityTimePropertyPtrOutput {
+	return o.ApplyT(func(v *WebACLChallengeConfig) *WebACLImmunityTimeProperty {
 		if v == nil {
 			return nil
 		}
@@ -12653,10 +13408,11 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() WebACLLabelMatchScopePtrOutp
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfig struct {
-	LoginPath     *string                                  `pulumi:"loginPath"`
-	PasswordField *WebACLFieldIdentifier                   `pulumi:"passwordField"`
-	PayloadType   *WebACLManagedRuleGroupConfigPayloadType `pulumi:"payloadType"`
-	UsernameField *WebACLFieldIdentifier                   `pulumi:"usernameField"`
+	AWSManagedRulesBotControlRuleSet *WebACLAWSManagedRulesBotControlRuleSet  `pulumi:"aWSManagedRulesBotControlRuleSet"`
+	LoginPath                        *string                                  `pulumi:"loginPath"`
+	PasswordField                    *WebACLFieldIdentifier                   `pulumi:"passwordField"`
+	PayloadType                      *WebACLManagedRuleGroupConfigPayloadType `pulumi:"payloadType"`
+	UsernameField                    *WebACLFieldIdentifier                   `pulumi:"usernameField"`
 }
 
 // WebACLManagedRuleGroupConfigInput is an input type that accepts WebACLManagedRuleGroupConfigArgs and WebACLManagedRuleGroupConfigOutput values.
@@ -12672,10 +13428,11 @@ type WebACLManagedRuleGroupConfigInput interface {
 
 // ManagedRuleGroupConfig.
 type WebACLManagedRuleGroupConfigArgs struct {
-	LoginPath     pulumi.StringPtrInput                           `pulumi:"loginPath"`
-	PasswordField WebACLFieldIdentifierPtrInput                   `pulumi:"passwordField"`
-	PayloadType   WebACLManagedRuleGroupConfigPayloadTypePtrInput `pulumi:"payloadType"`
-	UsernameField WebACLFieldIdentifierPtrInput                   `pulumi:"usernameField"`
+	AWSManagedRulesBotControlRuleSet WebACLAWSManagedRulesBotControlRuleSetPtrInput  `pulumi:"aWSManagedRulesBotControlRuleSet"`
+	LoginPath                        pulumi.StringPtrInput                           `pulumi:"loginPath"`
+	PasswordField                    WebACLFieldIdentifierPtrInput                   `pulumi:"passwordField"`
+	PayloadType                      WebACLManagedRuleGroupConfigPayloadTypePtrInput `pulumi:"payloadType"`
+	UsernameField                    WebACLFieldIdentifierPtrInput                   `pulumi:"usernameField"`
 }
 
 func (WebACLManagedRuleGroupConfigArgs) ElementType() reflect.Type {
@@ -12730,6 +13487,12 @@ func (o WebACLManagedRuleGroupConfigOutput) ToWebACLManagedRuleGroupConfigOutput
 	return o
 }
 
+func (o WebACLManagedRuleGroupConfigOutput) AWSManagedRulesBotControlRuleSet() WebACLAWSManagedRulesBotControlRuleSetPtrOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *WebACLAWSManagedRulesBotControlRuleSet {
+		return v.AWSManagedRulesBotControlRuleSet
+	}).(WebACLAWSManagedRulesBotControlRuleSetPtrOutput)
+}
+
 func (o WebACLManagedRuleGroupConfigOutput) LoginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupConfig) *string { return v.LoginPath }).(pulumi.StringPtrOutput)
 }
@@ -12771,9 +13534,11 @@ type WebACLManagedRuleGroupStatement struct {
 	// Collection of ManagedRuleGroupConfig.
 	ManagedRuleGroupConfigs []WebACLManagedRuleGroupConfig `pulumi:"managedRuleGroupConfigs"`
 	Name                    string                         `pulumi:"name"`
-	ScopeDownStatement      *WebACLStatement               `pulumi:"scopeDownStatement"`
-	VendorName              string                         `pulumi:"vendorName"`
-	Version                 *string                        `pulumi:"version"`
+	// Action overrides for rules in the rule group.
+	RuleActionOverrides []WebACLRuleActionOverride `pulumi:"ruleActionOverrides"`
+	ScopeDownStatement  *WebACLStatement           `pulumi:"scopeDownStatement"`
+	VendorName          string                     `pulumi:"vendorName"`
+	Version             *string                    `pulumi:"version"`
 }
 
 // WebACLManagedRuleGroupStatementInput is an input type that accepts WebACLManagedRuleGroupStatementArgs and WebACLManagedRuleGroupStatementOutput values.
@@ -12792,9 +13557,11 @@ type WebACLManagedRuleGroupStatementArgs struct {
 	// Collection of ManagedRuleGroupConfig.
 	ManagedRuleGroupConfigs WebACLManagedRuleGroupConfigArrayInput `pulumi:"managedRuleGroupConfigs"`
 	Name                    pulumi.StringInput                     `pulumi:"name"`
-	ScopeDownStatement      WebACLStatementPtrInput                `pulumi:"scopeDownStatement"`
-	VendorName              pulumi.StringInput                     `pulumi:"vendorName"`
-	Version                 pulumi.StringPtrInput                  `pulumi:"version"`
+	// Action overrides for rules in the rule group.
+	RuleActionOverrides WebACLRuleActionOverrideArrayInput `pulumi:"ruleActionOverrides"`
+	ScopeDownStatement  WebACLStatementPtrInput            `pulumi:"scopeDownStatement"`
+	VendorName          pulumi.StringInput                 `pulumi:"vendorName"`
+	Version             pulumi.StringPtrInput              `pulumi:"version"`
 }
 
 func (WebACLManagedRuleGroupStatementArgs) ElementType() reflect.Type {
@@ -12889,6 +13656,11 @@ func (o WebACLManagedRuleGroupStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Action overrides for rules in the rule group.
+func (o WebACLManagedRuleGroupStatementOutput) RuleActionOverrides() WebACLRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) []WebACLRuleActionOverride { return v.RuleActionOverrides }).(WebACLRuleActionOverrideArrayOutput)
+}
+
 func (o WebACLManagedRuleGroupStatementOutput) ScopeDownStatement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) *WebACLStatement { return v.ScopeDownStatement }).(WebACLStatementPtrOutput)
 }
@@ -12951,6 +13723,16 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput 
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+// Action overrides for rules in the rule group.
+func (o WebACLManagedRuleGroupStatementPtrOutput) RuleActionOverrides() WebACLRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) []WebACLRuleActionOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RuleActionOverrides
+	}).(WebACLRuleActionOverrideArrayOutput)
 }
 
 func (o WebACLManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebACLStatementPtrOutput {
@@ -13913,11 +14695,12 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) TextTransformations() 
 
 // Rule of WebACL that contains condition and action.
 type WebACLRule struct {
-	Action         *WebACLRuleAction     `pulumi:"action"`
-	CaptchaConfig  *WebACLCaptchaConfig  `pulumi:"captchaConfig"`
-	Name           string                `pulumi:"name"`
-	OverrideAction *WebACLOverrideAction `pulumi:"overrideAction"`
-	Priority       int                   `pulumi:"priority"`
+	Action          *WebACLRuleAction      `pulumi:"action"`
+	CaptchaConfig   *WebACLCaptchaConfig   `pulumi:"captchaConfig"`
+	ChallengeConfig *WebACLChallengeConfig `pulumi:"challengeConfig"`
+	Name            string                 `pulumi:"name"`
+	OverrideAction  *WebACLOverrideAction  `pulumi:"overrideAction"`
+	Priority        int                    `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels       []WebACLLabel          `pulumi:"ruleLabels"`
 	Statement        WebACLStatement        `pulumi:"statement"`
@@ -13937,11 +14720,12 @@ type WebACLRuleInput interface {
 
 // Rule of WebACL that contains condition and action.
 type WebACLRuleArgs struct {
-	Action         WebACLRuleActionPtrInput     `pulumi:"action"`
-	CaptchaConfig  WebACLCaptchaConfigPtrInput  `pulumi:"captchaConfig"`
-	Name           pulumi.StringInput           `pulumi:"name"`
-	OverrideAction WebACLOverrideActionPtrInput `pulumi:"overrideAction"`
-	Priority       pulumi.IntInput              `pulumi:"priority"`
+	Action          WebACLRuleActionPtrInput      `pulumi:"action"`
+	CaptchaConfig   WebACLCaptchaConfigPtrInput   `pulumi:"captchaConfig"`
+	ChallengeConfig WebACLChallengeConfigPtrInput `pulumi:"challengeConfig"`
+	Name            pulumi.StringInput            `pulumi:"name"`
+	OverrideAction  WebACLOverrideActionPtrInput  `pulumi:"overrideAction"`
+	Priority        pulumi.IntInput               `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels       WebACLLabelArrayInput       `pulumi:"ruleLabels"`
 	Statement        WebACLStatementInput        `pulumi:"statement"`
@@ -14008,6 +14792,10 @@ func (o WebACLRuleOutput) CaptchaConfig() WebACLCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v WebACLRule) *WebACLCaptchaConfig { return v.CaptchaConfig }).(WebACLCaptchaConfigPtrOutput)
 }
 
+func (o WebACLRuleOutput) ChallengeConfig() WebACLChallengeConfigPtrOutput {
+	return o.ApplyT(func(v WebACLRule) *WebACLChallengeConfig { return v.ChallengeConfig }).(WebACLChallengeConfigPtrOutput)
+}
+
 func (o WebACLRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -14055,10 +14843,11 @@ func (o WebACLRuleArrayOutput) Index(i pulumi.IntInput) WebACLRuleOutput {
 
 // Action taken when Rule matches its condition.
 type WebACLRuleAction struct {
-	Allow   *WebACLAllowAction   `pulumi:"allow"`
-	Block   *WebACLBlockAction   `pulumi:"block"`
-	Captcha *WebACLCaptchaAction `pulumi:"captcha"`
-	Count   *WebACLCountAction   `pulumi:"count"`
+	Allow     *WebACLAllowAction     `pulumi:"allow"`
+	Block     *WebACLBlockAction     `pulumi:"block"`
+	Captcha   *WebACLCaptchaAction   `pulumi:"captcha"`
+	Challenge *WebACLChallengeAction `pulumi:"challenge"`
+	Count     *WebACLCountAction     `pulumi:"count"`
 }
 
 // WebACLRuleActionInput is an input type that accepts WebACLRuleActionArgs and WebACLRuleActionOutput values.
@@ -14074,10 +14863,11 @@ type WebACLRuleActionInput interface {
 
 // Action taken when Rule matches its condition.
 type WebACLRuleActionArgs struct {
-	Allow   WebACLAllowActionPtrInput   `pulumi:"allow"`
-	Block   WebACLBlockActionPtrInput   `pulumi:"block"`
-	Captcha WebACLCaptchaActionPtrInput `pulumi:"captcha"`
-	Count   WebACLCountActionPtrInput   `pulumi:"count"`
+	Allow     WebACLAllowActionPtrInput     `pulumi:"allow"`
+	Block     WebACLBlockActionPtrInput     `pulumi:"block"`
+	Captcha   WebACLCaptchaActionPtrInput   `pulumi:"captcha"`
+	Challenge WebACLChallengeActionPtrInput `pulumi:"challenge"`
+	Count     WebACLCountActionPtrInput     `pulumi:"count"`
 }
 
 func (WebACLRuleActionArgs) ElementType() reflect.Type {
@@ -14170,6 +14960,10 @@ func (o WebACLRuleActionOutput) Captcha() WebACLCaptchaActionPtrOutput {
 	return o.ApplyT(func(v WebACLRuleAction) *WebACLCaptchaAction { return v.Captcha }).(WebACLCaptchaActionPtrOutput)
 }
 
+func (o WebACLRuleActionOutput) Challenge() WebACLChallengeActionPtrOutput {
+	return o.ApplyT(func(v WebACLRuleAction) *WebACLChallengeAction { return v.Challenge }).(WebACLChallengeActionPtrOutput)
+}
+
 func (o WebACLRuleActionOutput) Count() WebACLCountActionPtrOutput {
 	return o.ApplyT(func(v WebACLRuleAction) *WebACLCountAction { return v.Count }).(WebACLCountActionPtrOutput)
 }
@@ -14225,6 +15019,15 @@ func (o WebACLRuleActionPtrOutput) Captcha() WebACLCaptchaActionPtrOutput {
 	}).(WebACLCaptchaActionPtrOutput)
 }
 
+func (o WebACLRuleActionPtrOutput) Challenge() WebACLChallengeActionPtrOutput {
+	return o.ApplyT(func(v *WebACLRuleAction) *WebACLChallengeAction {
+		if v == nil {
+			return nil
+		}
+		return v.Challenge
+	}).(WebACLChallengeActionPtrOutput)
+}
+
 func (o WebACLRuleActionPtrOutput) Count() WebACLCountActionPtrOutput {
 	return o.ApplyT(func(v *WebACLRuleAction) *WebACLCountAction {
 		if v == nil {
@@ -14234,9 +15037,114 @@ func (o WebACLRuleActionPtrOutput) Count() WebACLCountActionPtrOutput {
 	}).(WebACLCountActionPtrOutput)
 }
 
+// Action override for rules in the rule group.
+type WebACLRuleActionOverride struct {
+	ActionToUse WebACLRuleAction `pulumi:"actionToUse"`
+	Name        string           `pulumi:"name"`
+}
+
+// WebACLRuleActionOverrideInput is an input type that accepts WebACLRuleActionOverrideArgs and WebACLRuleActionOverrideOutput values.
+// You can construct a concrete instance of `WebACLRuleActionOverrideInput` via:
+//
+//	WebACLRuleActionOverrideArgs{...}
+type WebACLRuleActionOverrideInput interface {
+	pulumi.Input
+
+	ToWebACLRuleActionOverrideOutput() WebACLRuleActionOverrideOutput
+	ToWebACLRuleActionOverrideOutputWithContext(context.Context) WebACLRuleActionOverrideOutput
+}
+
+// Action override for rules in the rule group.
+type WebACLRuleActionOverrideArgs struct {
+	ActionToUse WebACLRuleActionInput `pulumi:"actionToUse"`
+	Name        pulumi.StringInput    `pulumi:"name"`
+}
+
+func (WebACLRuleActionOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRuleActionOverride)(nil)).Elem()
+}
+
+func (i WebACLRuleActionOverrideArgs) ToWebACLRuleActionOverrideOutput() WebACLRuleActionOverrideOutput {
+	return i.ToWebACLRuleActionOverrideOutputWithContext(context.Background())
+}
+
+func (i WebACLRuleActionOverrideArgs) ToWebACLRuleActionOverrideOutputWithContext(ctx context.Context) WebACLRuleActionOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRuleActionOverrideOutput)
+}
+
+// WebACLRuleActionOverrideArrayInput is an input type that accepts WebACLRuleActionOverrideArray and WebACLRuleActionOverrideArrayOutput values.
+// You can construct a concrete instance of `WebACLRuleActionOverrideArrayInput` via:
+//
+//	WebACLRuleActionOverrideArray{ WebACLRuleActionOverrideArgs{...} }
+type WebACLRuleActionOverrideArrayInput interface {
+	pulumi.Input
+
+	ToWebACLRuleActionOverrideArrayOutput() WebACLRuleActionOverrideArrayOutput
+	ToWebACLRuleActionOverrideArrayOutputWithContext(context.Context) WebACLRuleActionOverrideArrayOutput
+}
+
+type WebACLRuleActionOverrideArray []WebACLRuleActionOverrideInput
+
+func (WebACLRuleActionOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLRuleActionOverride)(nil)).Elem()
+}
+
+func (i WebACLRuleActionOverrideArray) ToWebACLRuleActionOverrideArrayOutput() WebACLRuleActionOverrideArrayOutput {
+	return i.ToWebACLRuleActionOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLRuleActionOverrideArray) ToWebACLRuleActionOverrideArrayOutputWithContext(ctx context.Context) WebACLRuleActionOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLRuleActionOverrideArrayOutput)
+}
+
+// Action override for rules in the rule group.
+type WebACLRuleActionOverrideOutput struct{ *pulumi.OutputState }
+
+func (WebACLRuleActionOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLRuleActionOverride)(nil)).Elem()
+}
+
+func (o WebACLRuleActionOverrideOutput) ToWebACLRuleActionOverrideOutput() WebACLRuleActionOverrideOutput {
+	return o
+}
+
+func (o WebACLRuleActionOverrideOutput) ToWebACLRuleActionOverrideOutputWithContext(ctx context.Context) WebACLRuleActionOverrideOutput {
+	return o
+}
+
+func (o WebACLRuleActionOverrideOutput) ActionToUse() WebACLRuleActionOutput {
+	return o.ApplyT(func(v WebACLRuleActionOverride) WebACLRuleAction { return v.ActionToUse }).(WebACLRuleActionOutput)
+}
+
+func (o WebACLRuleActionOverrideOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WebACLRuleActionOverride) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type WebACLRuleActionOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLRuleActionOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLRuleActionOverride)(nil)).Elem()
+}
+
+func (o WebACLRuleActionOverrideArrayOutput) ToWebACLRuleActionOverrideArrayOutput() WebACLRuleActionOverrideArrayOutput {
+	return o
+}
+
+func (o WebACLRuleActionOverrideArrayOutput) ToWebACLRuleActionOverrideArrayOutputWithContext(ctx context.Context) WebACLRuleActionOverrideArrayOutput {
+	return o
+}
+
+func (o WebACLRuleActionOverrideArrayOutput) Index(i pulumi.IntInput) WebACLRuleActionOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLRuleActionOverride {
+		return vs[0].([]WebACLRuleActionOverride)[vs[1].(int)]
+	}).(WebACLRuleActionOverrideOutput)
+}
+
 type WebACLRuleGroupReferenceStatement struct {
 	Arn           string               `pulumi:"arn"`
 	ExcludedRules []WebACLExcludedRule `pulumi:"excludedRules"`
+	// Action overrides for rules in the rule group.
+	RuleActionOverrides []WebACLRuleActionOverride `pulumi:"ruleActionOverrides"`
 }
 
 // WebACLRuleGroupReferenceStatementInput is an input type that accepts WebACLRuleGroupReferenceStatementArgs and WebACLRuleGroupReferenceStatementOutput values.
@@ -14253,6 +15161,8 @@ type WebACLRuleGroupReferenceStatementInput interface {
 type WebACLRuleGroupReferenceStatementArgs struct {
 	Arn           pulumi.StringInput           `pulumi:"arn"`
 	ExcludedRules WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
+	// Action overrides for rules in the rule group.
+	RuleActionOverrides WebACLRuleActionOverrideArrayInput `pulumi:"ruleActionOverrides"`
 }
 
 func (WebACLRuleGroupReferenceStatementArgs) ElementType() reflect.Type {
@@ -14340,6 +15250,11 @@ func (o WebACLRuleGroupReferenceStatementOutput) ExcludedRules() WebACLExcludedR
 	return o.ApplyT(func(v WebACLRuleGroupReferenceStatement) []WebACLExcludedRule { return v.ExcludedRules }).(WebACLExcludedRuleArrayOutput)
 }
 
+// Action overrides for rules in the rule group.
+func (o WebACLRuleGroupReferenceStatementOutput) RuleActionOverrides() WebACLRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v WebACLRuleGroupReferenceStatement) []WebACLRuleActionOverride { return v.RuleActionOverrides }).(WebACLRuleActionOverrideArrayOutput)
+}
+
 type WebACLRuleGroupReferenceStatementPtrOutput struct{ *pulumi.OutputState }
 
 func (WebACLRuleGroupReferenceStatementPtrOutput) ElementType() reflect.Type {
@@ -14380,6 +15295,16 @@ func (o WebACLRuleGroupReferenceStatementPtrOutput) ExcludedRules() WebACLExclud
 		}
 		return v.ExcludedRules
 	}).(WebACLExcludedRuleArrayOutput)
+}
+
+// Action overrides for rules in the rule group.
+func (o WebACLRuleGroupReferenceStatementPtrOutput) RuleActionOverrides() WebACLRuleActionOverrideArrayOutput {
+	return o.ApplyT(func(v *WebACLRuleGroupReferenceStatement) []WebACLRuleActionOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RuleActionOverrides
+	}).(WebACLRuleActionOverrideArrayOutput)
 }
 
 // Size Constraint statement.
@@ -15624,6 +16549,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupByteMatchStatementPtrInput)(nil)).Elem(), RuleGroupByteMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCaptchaConfigPtrInput)(nil)).Elem(), RuleGroupCaptchaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupChallengeConfigPtrInput)(nil)).Elem(), RuleGroupChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookieMatchPatternPtrInput)(nil)).Elem(), RuleGroupCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupCookiesInput)(nil)).Elem(), RuleGroupCookiesArgs{})
@@ -15664,6 +16591,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelArrayInput)(nil)).Elem(), RuleGroupLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchStatementInput)(nil)).Elem(), RuleGroupLabelMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelMatchStatementPtrInput)(nil)).Elem(), RuleGroupLabelMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelSummaryInput)(nil)).Elem(), RuleGroupLabelSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupLabelSummaryArrayInput)(nil)).Elem(), RuleGroupLabelSummaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNotStatementInput)(nil)).Elem(), RuleGroupNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNotStatementPtrInput)(nil)).Elem(), RuleGroupNotStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupOrStatementInput)(nil)).Elem(), RuleGroupOrStatementArgs{})
@@ -15684,6 +16613,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionBlockPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionBlockPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCaptchaPropertiesInput)(nil)).Elem(), RuleGroupRuleActionCaptchaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCaptchaPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionCaptchaPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionChallengePropertiesInput)(nil)).Elem(), RuleGroupRuleActionChallengePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionChallengePropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionChallengePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountPropertiesInput)(nil)).Elem(), RuleGroupRuleActionCountPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleActionCountPropertiesPtrInput)(nil)).Elem(), RuleGroupRuleActionCountPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementInput)(nil)).Elem(), RuleGroupSizeConstraintStatementArgs{})
@@ -15700,6 +16631,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupVisibilityConfigInput)(nil)).Elem(), RuleGroupVisibilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupXssMatchStatementPtrInput)(nil)).Elem(), RuleGroupXssMatchStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAllowActionPtrInput)(nil)).Elem(), WebACLAllowActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAndStatementInput)(nil)).Elem(), WebACLAndStatementArgs{})
@@ -15714,6 +16647,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaActionPtrInput)(nil)).Elem(), WebACLCaptchaActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaConfigInput)(nil)).Elem(), WebACLCaptchaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCaptchaConfigPtrInput)(nil)).Elem(), WebACLCaptchaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLChallengeActionInput)(nil)).Elem(), WebACLChallengeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLChallengeActionPtrInput)(nil)).Elem(), WebACLChallengeActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLChallengeConfigInput)(nil)).Elem(), WebACLChallengeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLChallengeConfigPtrInput)(nil)).Elem(), WebACLChallengeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookieMatchPatternInput)(nil)).Elem(), WebACLCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookieMatchPatternPtrInput)(nil)).Elem(), WebACLCookieMatchPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLCookiesInput)(nil)).Elem(), WebACLCookiesArgs{})
@@ -15781,6 +16718,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleArrayInput)(nil)).Elem(), WebACLRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleActionInput)(nil)).Elem(), WebACLRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleActionPtrInput)(nil)).Elem(), WebACLRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleActionOverrideInput)(nil)).Elem(), WebACLRuleActionOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleActionOverrideArrayInput)(nil)).Elem(), WebACLRuleActionOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleGroupReferenceStatementInput)(nil)).Elem(), WebACLRuleGroupReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLRuleGroupReferenceStatementPtrInput)(nil)).Elem(), WebACLRuleGroupReferenceStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLSizeConstraintStatementInput)(nil)).Elem(), WebACLSizeConstraintStatementArgs{})
@@ -15827,6 +16766,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(RuleGroupCaptchaConfigPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupChallengeConfigOutput{})
+	pulumi.RegisterOutputType(RuleGroupChallengeConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupCookiesOutput{})
@@ -15889,6 +16830,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupRuleActionBlockPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCaptchaPropertiesOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCaptchaPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionChallengePropertiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupRuleActionChallengePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleActionCountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementOutput{})
@@ -15906,6 +16849,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupXssMatchStatementPtrOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionOutput{})
 	pulumi.RegisterOutputType(WebACLAllowActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLAndStatementOutput{})
@@ -15920,6 +16865,10 @@ func init() {
 	pulumi.RegisterOutputType(WebACLCaptchaActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaConfigOutput{})
 	pulumi.RegisterOutputType(WebACLCaptchaConfigPtrOutput{})
+	pulumi.RegisterOutputType(WebACLChallengeActionOutput{})
+	pulumi.RegisterOutputType(WebACLChallengeActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLChallengeConfigOutput{})
+	pulumi.RegisterOutputType(WebACLChallengeConfigPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCookieMatchPatternOutput{})
 	pulumi.RegisterOutputType(WebACLCookieMatchPatternPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCookiesOutput{})
@@ -15988,6 +16937,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLRuleArrayOutput{})
 	pulumi.RegisterOutputType(WebACLRuleActionOutput{})
 	pulumi.RegisterOutputType(WebACLRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(WebACLRuleActionOverrideOutput{})
+	pulumi.RegisterOutputType(WebACLRuleActionOverrideArrayOutput{})
 	pulumi.RegisterOutputType(WebACLRuleGroupReferenceStatementOutput{})
 	pulumi.RegisterOutputType(WebACLRuleGroupReferenceStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLSizeConstraintStatementOutput{})

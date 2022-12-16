@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, enabled=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -60,6 +60,9 @@ class GetEventSourceMappingResult:
         if queues and not isinstance(queues, list):
             raise TypeError("Expected argument 'queues' to be a list")
         pulumi.set(__self__, "queues", queues)
+        if scaling_config and not isinstance(scaling_config, dict):
+            raise TypeError("Expected argument 'scaling_config' to be a dict")
+        pulumi.set(__self__, "scaling_config", scaling_config)
         if source_access_configurations and not isinstance(source_access_configurations, list):
             raise TypeError("Expected argument 'source_access_configurations' to be a list")
         pulumi.set(__self__, "source_access_configurations", source_access_configurations)
@@ -175,6 +178,14 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "queues")
 
     @property
+    @pulumi.getter(name="scalingConfig")
+    def scaling_config(self) -> Optional['outputs.EventSourceMappingScalingConfig']:
+        """
+        The scaling configuration for the event source.
+        """
+        return pulumi.get(self, "scaling_config")
+
+    @property
     @pulumi.getter(name="sourceAccessConfigurations")
     def source_access_configurations(self) -> Optional[Sequence['outputs.EventSourceMappingSourceAccessConfiguration']]:
         """
@@ -218,6 +229,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             maximum_retry_attempts=self.maximum_retry_attempts,
             parallelization_factor=self.parallelization_factor,
             queues=self.queues,
+            scaling_config=self.scaling_config,
             source_access_configurations=self.source_access_configurations,
             topics=self.topics,
             tumbling_window_in_seconds=self.tumbling_window_in_seconds)
@@ -250,6 +262,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         maximum_retry_attempts=__ret__.maximum_retry_attempts,
         parallelization_factor=__ret__.parallelization_factor,
         queues=__ret__.queues,
+        scaling_config=__ret__.scaling_config,
         source_access_configurations=__ret__.source_access_configurations,
         topics=__ret__.topics,
         tumbling_window_in_seconds=__ret__.tumbling_window_in_seconds)

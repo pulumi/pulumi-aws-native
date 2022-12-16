@@ -17,18 +17,32 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
     public sealed class FlowFailoverConfig
     {
         /// <summary>
+        /// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        /// </summary>
+        public readonly Pulumi.AwsNative.MediaConnect.FlowFailoverConfigFailoverMode? FailoverMode;
+        /// <summary>
         /// Search window time to look for dash-7 packets
         /// </summary>
         public readonly int? RecoveryWindow;
+        /// <summary>
+        /// The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        /// </summary>
+        public readonly Outputs.FlowFailoverConfigSourcePriorityProperties? SourcePriority;
         public readonly Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState? State;
 
         [OutputConstructor]
         private FlowFailoverConfig(
+            Pulumi.AwsNative.MediaConnect.FlowFailoverConfigFailoverMode? failoverMode,
+
             int? recoveryWindow,
+
+            Outputs.FlowFailoverConfigSourcePriorityProperties? sourcePriority,
 
             Pulumi.AwsNative.MediaConnect.FlowFailoverConfigState? state)
         {
+            FailoverMode = failoverMode;
             RecoveryWindow = recoveryWindow;
+            SourcePriority = sourcePriority;
             State = state;
         }
     }

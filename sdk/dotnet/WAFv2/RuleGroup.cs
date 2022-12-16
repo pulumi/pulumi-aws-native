@@ -105,8 +105,32 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availableLabels")]
+        private InputList<Inputs.RuleGroupLabelSummaryArgs>? _availableLabels;
+
+        /// <summary>
+        /// Collection of Available Labels.
+        /// </summary>
+        public InputList<Inputs.RuleGroupLabelSummaryArgs> AvailableLabels
+        {
+            get => _availableLabels ?? (_availableLabels = new InputList<Inputs.RuleGroupLabelSummaryArgs>());
+            set => _availableLabels = value;
+        }
+
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
+
+        [Input("consumedLabels")]
+        private InputList<Inputs.RuleGroupLabelSummaryArgs>? _consumedLabels;
+
+        /// <summary>
+        /// Collection of Consumed Labels.
+        /// </summary>
+        public InputList<Inputs.RuleGroupLabelSummaryArgs> ConsumedLabels
+        {
+            get => _consumedLabels ?? (_consumedLabels = new InputList<Inputs.RuleGroupLabelSummaryArgs>());
+            set => _consumedLabels = value;
+        }
 
         [Input("customResponseBodies")]
         public Input<Inputs.RuleGroupCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::RestApi.
+    /// Resource Type definition for AWS::ApiGateway::RestApi
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:RestApi")]
     public partial class RestApi : global::Pulumi.CustomResource

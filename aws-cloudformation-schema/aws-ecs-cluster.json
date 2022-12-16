@@ -164,5 +164,6 @@
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ClusterName" ],
+  "writeOnlyProperties" : [ "/properties/ServiceConnectDefaults" ],
   "additionalProperties" : false
 }

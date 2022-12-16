@@ -17,13 +17,14 @@ import (
 type EndpointConfig struct {
 	pulumi.CustomResourceState
 
-	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
-	DataCaptureConfig    EndpointConfigDataCaptureConfigPtrOutput    `pulumi:"dataCaptureConfig"`
-	EndpointConfigName   pulumi.StringPtrOutput                      `pulumi:"endpointConfigName"`
-	ExplainerConfig      EndpointConfigExplainerConfigPtrOutput      `pulumi:"explainerConfig"`
-	KmsKeyId             pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
-	ProductionVariants   EndpointConfigProductionVariantArrayOutput  `pulumi:"productionVariants"`
-	Tags                 EndpointConfigTagArrayOutput                `pulumi:"tags"`
+	AsyncInferenceConfig     EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
+	DataCaptureConfig        EndpointConfigDataCaptureConfigPtrOutput    `pulumi:"dataCaptureConfig"`
+	EndpointConfigName       pulumi.StringPtrOutput                      `pulumi:"endpointConfigName"`
+	ExplainerConfig          EndpointConfigExplainerConfigPtrOutput      `pulumi:"explainerConfig"`
+	KmsKeyId                 pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
+	ProductionVariants       EndpointConfigProductionVariantArrayOutput  `pulumi:"productionVariants"`
+	ShadowProductionVariants EndpointConfigProductionVariantArrayOutput  `pulumi:"shadowProductionVariants"`
+	Tags                     EndpointConfigTagArrayOutput                `pulumi:"tags"`
 }
 
 // NewEndpointConfig registers a new resource with the given unique name, arguments, and options.
@@ -68,24 +69,26 @@ func (EndpointConfigState) ElementType() reflect.Type {
 }
 
 type endpointConfigArgs struct {
-	AsyncInferenceConfig *EndpointConfigAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
-	DataCaptureConfig    *EndpointConfigDataCaptureConfig    `pulumi:"dataCaptureConfig"`
-	EndpointConfigName   *string                             `pulumi:"endpointConfigName"`
-	ExplainerConfig      *EndpointConfigExplainerConfig      `pulumi:"explainerConfig"`
-	KmsKeyId             *string                             `pulumi:"kmsKeyId"`
-	ProductionVariants   []EndpointConfigProductionVariant   `pulumi:"productionVariants"`
-	Tags                 []EndpointConfigTag                 `pulumi:"tags"`
+	AsyncInferenceConfig     *EndpointConfigAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
+	DataCaptureConfig        *EndpointConfigDataCaptureConfig    `pulumi:"dataCaptureConfig"`
+	EndpointConfigName       *string                             `pulumi:"endpointConfigName"`
+	ExplainerConfig          *EndpointConfigExplainerConfig      `pulumi:"explainerConfig"`
+	KmsKeyId                 *string                             `pulumi:"kmsKeyId"`
+	ProductionVariants       []EndpointConfigProductionVariant   `pulumi:"productionVariants"`
+	ShadowProductionVariants []EndpointConfigProductionVariant   `pulumi:"shadowProductionVariants"`
+	Tags                     []EndpointConfigTag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EndpointConfig resource.
 type EndpointConfigArgs struct {
-	AsyncInferenceConfig EndpointConfigAsyncInferenceConfigPtrInput
-	DataCaptureConfig    EndpointConfigDataCaptureConfigPtrInput
-	EndpointConfigName   pulumi.StringPtrInput
-	ExplainerConfig      EndpointConfigExplainerConfigPtrInput
-	KmsKeyId             pulumi.StringPtrInput
-	ProductionVariants   EndpointConfigProductionVariantArrayInput
-	Tags                 EndpointConfigTagArrayInput
+	AsyncInferenceConfig     EndpointConfigAsyncInferenceConfigPtrInput
+	DataCaptureConfig        EndpointConfigDataCaptureConfigPtrInput
+	EndpointConfigName       pulumi.StringPtrInput
+	ExplainerConfig          EndpointConfigExplainerConfigPtrInput
+	KmsKeyId                 pulumi.StringPtrInput
+	ProductionVariants       EndpointConfigProductionVariantArrayInput
+	ShadowProductionVariants EndpointConfigProductionVariantArrayInput
+	Tags                     EndpointConfigTagArrayInput
 }
 
 func (EndpointConfigArgs) ElementType() reflect.Type {
@@ -147,6 +150,10 @@ func (o EndpointConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 
 func (o EndpointConfigOutput) ProductionVariants() EndpointConfigProductionVariantArrayOutput {
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigProductionVariantArrayOutput { return v.ProductionVariants }).(EndpointConfigProductionVariantArrayOutput)
+}
+
+func (o EndpointConfigOutput) ShadowProductionVariants() EndpointConfigProductionVariantArrayOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigProductionVariantArrayOutput { return v.ShadowProductionVariants }).(EndpointConfigProductionVariantArrayOutput)
 }
 
 func (o EndpointConfigOutput) Tags() EndpointConfigTagArrayOutput {

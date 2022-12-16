@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Entity{}
 	case "aws-native:iottwinmaker:Scene":
 		r = &Scene{}
+	case "aws-native:iottwinmaker:SyncJob":
+		r = &SyncJob{}
 	case "aws-native:iottwinmaker:Workspace":
 		r = &Workspace{}
 	default:

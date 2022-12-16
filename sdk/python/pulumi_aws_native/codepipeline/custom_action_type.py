@@ -26,6 +26,14 @@ class CustomActionTypeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
+        :param pulumi.Input[str] category: The category of the custom action, such as a build action or a test action.
+        :param pulumi.Input['CustomActionTypeArtifactDetailsArgs'] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
+        :param pulumi.Input['CustomActionTypeArtifactDetailsArgs'] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
+        :param pulumi.Input[str] provider: The provider of the service used in the custom action, such as AWS CodeDeploy.
+        :param pulumi.Input[str] version: The version identifier of the custom action.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]] configuration_properties: The configuration properties for the custom action.
+        :param pulumi.Input['CustomActionTypeSettingsArgs'] settings: URLs that provide users information about this custom action.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]] tags: Any tags assigned to the custom action.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "input_artifact_details", input_artifact_details)
@@ -42,6 +50,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter
     def category(self) -> pulumi.Input[str]:
+        """
+        The category of the custom action, such as a build action or a test action.
+        """
         return pulumi.get(self, "category")
 
     @category.setter
@@ -51,6 +62,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter(name="inputArtifactDetails")
     def input_artifact_details(self) -> pulumi.Input['CustomActionTypeArtifactDetailsArgs']:
+        """
+        The details of the input artifact for the action, such as its commit ID.
+        """
         return pulumi.get(self, "input_artifact_details")
 
     @input_artifact_details.setter
@@ -60,6 +74,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter(name="outputArtifactDetails")
     def output_artifact_details(self) -> pulumi.Input['CustomActionTypeArtifactDetailsArgs']:
+        """
+        The details of the output artifact of the action, such as its commit ID.
+        """
         return pulumi.get(self, "output_artifact_details")
 
     @output_artifact_details.setter
@@ -69,6 +86,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter
     def provider(self) -> pulumi.Input[str]:
+        """
+        The provider of the service used in the custom action, such as AWS CodeDeploy.
+        """
         return pulumi.get(self, "provider")
 
     @provider.setter
@@ -78,6 +98,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
+        """
+        The version identifier of the custom action.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -87,6 +110,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter(name="configurationProperties")
     def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]]:
+        """
+        The configuration properties for the custom action.
+        """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
@@ -96,6 +122,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+        """
+        URLs that provide users information about this custom action.
+        """
         return pulumi.get(self, "settings")
 
     @settings.setter
@@ -105,6 +134,9 @@ class CustomActionTypeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]]:
+        """
+        Any tags assigned to the custom action.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -112,12 +144,7 @@ class CustomActionTypeArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class CustomActionType(pulumi.CustomResource):
-    warnings.warn("""CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,10 +159,18 @@ class CustomActionType(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CodePipeline::CustomActionType
+        The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] category: The category of the custom action, such as a build action or a test action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertiesArgs']]]] configuration_properties: The configuration properties for the custom action.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeArtifactDetailsArgs']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
+        :param pulumi.Input[str] provider: The provider of the service used in the custom action, such as AWS CodeDeploy.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']] settings: URLs that provide users information about this custom action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeTagArgs']]]] tags: Any tags assigned to the custom action.
+        :param pulumi.Input[str] version: The version identifier of the custom action.
         """
         ...
     @overload
@@ -144,7 +179,7 @@ class CustomActionType(pulumi.CustomResource):
                  args: CustomActionTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CodePipeline::CustomActionType
+        The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
 
         :param str resource_name: The name of the resource.
         :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.
@@ -170,7 +205,6 @@ class CustomActionType(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeTagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CustomActionType is deprecated: CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -232,40 +266,64 @@ class CustomActionType(pulumi.CustomResource):
     @property
     @pulumi.getter
     def category(self) -> pulumi.Output[str]:
+        """
+        The category of the custom action, such as a build action or a test action.
+        """
         return pulumi.get(self, "category")
 
     @property
     @pulumi.getter(name="configurationProperties")
     def configuration_properties(self) -> pulumi.Output[Optional[Sequence['outputs.CustomActionTypeConfigurationProperties']]]:
+        """
+        The configuration properties for the custom action.
+        """
         return pulumi.get(self, "configuration_properties")
 
     @property
     @pulumi.getter(name="inputArtifactDetails")
     def input_artifact_details(self) -> pulumi.Output['outputs.CustomActionTypeArtifactDetails']:
+        """
+        The details of the input artifact for the action, such as its commit ID.
+        """
         return pulumi.get(self, "input_artifact_details")
 
     @property
     @pulumi.getter(name="outputArtifactDetails")
     def output_artifact_details(self) -> pulumi.Output['outputs.CustomActionTypeArtifactDetails']:
+        """
+        The details of the output artifact of the action, such as its commit ID.
+        """
         return pulumi.get(self, "output_artifact_details")
 
     @property
     @pulumi.getter
     def provider(self) -> pulumi.Output[str]:
+        """
+        The provider of the service used in the custom action, such as AWS CodeDeploy.
+        """
         return pulumi.get(self, "provider")
 
     @property
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional['outputs.CustomActionTypeSettings']]:
+        """
+        URLs that provide users information about this custom action.
+        """
         return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CustomActionTypeTag']]]:
+        """
+        Any tags assigned to the custom action.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
+        """
+        The version identifier of the custom action.
+        """
         return pulumi.get(self, "version")
 

@@ -223,7 +223,7 @@ class RestApi(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestApiTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::RestApi.
+        Resource Type definition for AWS::ApiGateway::RestApi
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class RestApi(pulumi.CustomResource):
                  args: Optional[RestApiArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::RestApi.
+        Resource Type definition for AWS::ApiGateway::RestApi
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.

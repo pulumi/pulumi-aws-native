@@ -90,6 +90,18 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
+        /// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+        /// 
+        /// Constraints:
+        ///  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+        ///  * Can't be specified when DBSnapshotIdentifier is specified.
+        ///  * Must be specified when DBSnapshotIdentifier isn't specified.
+        ///  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+        ///  * Can't be the identifier of an Aurora DB cluster snapshot.
+        ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        /// </summary>
+        public readonly string? DBClusterSnapshotIdentifier;
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the DB instance.
         /// </summary>
         public readonly string? DBInstanceArn;
@@ -256,6 +268,8 @@ namespace Pulumi.AwsNative.RDS
 
             bool? copyTagsToSnapshot,
 
+            string? dBClusterSnapshotIdentifier,
+
             string? dBInstanceArn,
 
             string? dBInstanceClass,
@@ -338,6 +352,7 @@ namespace Pulumi.AwsNative.RDS
             BackupRetentionPeriod = backupRetentionPeriod;
             CACertificateIdentifier = cACertificateIdentifier;
             CopyTagsToSnapshot = copyTagsToSnapshot;
+            DBClusterSnapshotIdentifier = dBClusterSnapshotIdentifier;
             DBInstanceArn = dBInstanceArn;
             DBInstanceClass = dBInstanceClass;
             DBParameterGroupName = dBParameterGroupName;

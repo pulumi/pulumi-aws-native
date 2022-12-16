@@ -25,8 +25,7 @@ type LookupDeploymentArgs struct {
 }
 
 type LookupDeploymentResult struct {
-	Id   *string          `pulumi:"id"`
-	Tags []DeploymentTags `pulumi:"tags"`
+	Id *string `pulumi:"id"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -66,10 +65,6 @@ func (o LookupDeploymentResultOutput) ToLookupDeploymentResultOutputWithContext(
 
 func (o LookupDeploymentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupDeploymentResultOutput) Tags() DeploymentTagsArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) []DeploymentTags { return v.Tags }).(DeploymentTagsArrayOutput)
 }
 
 func init() {

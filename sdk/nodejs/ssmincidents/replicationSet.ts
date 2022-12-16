@@ -46,6 +46,10 @@ export class ReplicationSet extends pulumi.CustomResource {
      * The ReplicationSet configuration.
      */
     public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetReplicationRegion[]>;
+    /**
+     * The tags to apply to the replication set.
+     */
+    public readonly tags!: pulumi.Output<outputs.ssmincidents.ReplicationSetTag[] | undefined>;
 
     /**
      * Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -63,11 +67,13 @@ export class ReplicationSet extends pulumi.CustomResource {
             }
             resourceInputs["deletionProtected"] = args ? args.deletionProtected : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deletionProtected"] = undefined /*out*/;
             resourceInputs["regions"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReplicationSet.__pulumiType, name, resourceInputs, opts);
@@ -83,4 +89,8 @@ export interface ReplicationSetArgs {
      * The ReplicationSet configuration.
      */
     regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetReplicationRegionArgs>[]>;
+    /**
+     * The tags to apply to the replication set.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetTagArgs>[]>;
 }

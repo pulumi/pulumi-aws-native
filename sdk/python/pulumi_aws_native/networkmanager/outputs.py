@@ -967,7 +967,9 @@ class VpcAttachmentVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ipv6Support":
+        if key == "applianceModeSupport":
+            suggest = "appliance_mode_support"
+        elif key == "ipv6Support":
             suggest = "ipv6_support"
 
         if suggest:
@@ -982,13 +984,25 @@ class VpcAttachmentVpcOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 appliance_mode_support: Optional[bool] = None,
                  ipv6_support: Optional[bool] = None):
         """
         Vpc options of the attachment.
+        :param bool appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         :param bool ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         """
+        if appliance_mode_support is not None:
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> Optional[bool]:
+        """
+        Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "appliance_mode_support")
 
     @property
     @pulumi.getter(name="ipv6Support")

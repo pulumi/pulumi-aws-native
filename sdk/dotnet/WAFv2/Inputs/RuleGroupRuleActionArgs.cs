@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         public Input<Inputs.RuleGroupRuleActionCaptchaPropertiesArgs>? Captcha { get; set; }
 
         /// <summary>
+        /// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        /// </summary>
+        [Input("challenge")]
+        public Input<Inputs.RuleGroupRuleActionChallengePropertiesArgs>? Challenge { get; set; }
+
+        /// <summary>
         /// Count traffic towards application.
         /// </summary>
         [Input("count")]

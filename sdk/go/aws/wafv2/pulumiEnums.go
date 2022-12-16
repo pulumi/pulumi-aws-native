@@ -348,6 +348,7 @@ const (
 	LoggingConfigurationConditionActionConditionPropertiesActionBlock           = LoggingConfigurationConditionActionConditionPropertiesAction("BLOCK")
 	LoggingConfigurationConditionActionConditionPropertiesActionCount           = LoggingConfigurationConditionActionConditionPropertiesAction("COUNT")
 	LoggingConfigurationConditionActionConditionPropertiesActionCaptcha         = LoggingConfigurationConditionActionConditionPropertiesAction("CAPTCHA")
+	LoggingConfigurationConditionActionConditionPropertiesActionChallenge       = LoggingConfigurationConditionActionConditionPropertiesAction("CHALLENGE")
 	LoggingConfigurationConditionActionConditionPropertiesActionExcludedAsCount = LoggingConfigurationConditionActionConditionPropertiesAction("EXCLUDED_AS_COUNT")
 )
 
@@ -3835,6 +3836,170 @@ func (in *ruleGroupTextTransformationTypePtr) ToRuleGroupTextTransformationTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(RuleGroupTextTransformationTypePtrOutput)
 }
 
+type WebACLAWSManagedRulesBotControlRuleSetInspectionLevel string
+
+const (
+	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelCommon   = WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON")
+	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelTargeted = WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("TARGETED")
+)
+
+func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return pulumi.ToOutput(e).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return e.ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return WebACLAWSManagedRulesBotControlRuleSetInspectionLevel(e).ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx).ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx)
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o.ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+		return &v
+	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return o
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) Elem() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput {
+	return o.ApplyT(func(v *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) WebACLAWSManagedRulesBotControlRuleSetInspectionLevel {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLAWSManagedRulesBotControlRuleSetInspectionLevel
+		return ret
+	}).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput)
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WebACLAWSManagedRulesBotControlRuleSetInspectionLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput is an input type that accepts WebACLAWSManagedRulesBotControlRuleSetInspectionLevelArgs and WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput values.
+// You can construct a concrete instance of `WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput` via:
+//
+//	WebACLAWSManagedRulesBotControlRuleSetInspectionLevelArgs{...}
+type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput
+	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput
+}
+
+var webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrType = reflect.TypeOf((**WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)(nil)).Elem()
+
+type WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput interface {
+	pulumi.Input
+
+	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput
+	ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput
+}
+
+type webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr string
+
+func WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr(v string) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput {
+	return (*webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr)(&v)
+}
+
+func (*webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ElementType() reflect.Type {
+	return webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrType
+}
+
+func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput() WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return pulumi.ToOutput(in).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
+func (in *webACLAWSManagedRulesBotControlRuleSetInspectionLevelPtr) ToWebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutputWithContext(ctx context.Context) WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput)
+}
+
 // The inspection behavior to fall back to if the JSON in the request body is invalid.
 type WebACLBodyParsingFallbackBehavior string
 
@@ -6381,6 +6546,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupSizeConstraintStatementComparisonOperatorPtrInput)(nil)).Elem(), RuleGroupSizeConstraintStatementComparisonOperator("EQ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypeInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTextTransformationTypePtrInput)(nil)).Elem(), RuleGroupTextTransformationType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevelInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrInput)(nil)).Elem(), WebACLAWSManagedRulesBotControlRuleSetInspectionLevel("COMMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyParsingFallbackBehaviorInput)(nil)).Elem(), WebACLBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLBodyParsingFallbackBehaviorPtrInput)(nil)).Elem(), WebACLBodyParsingFallbackBehavior("MATCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WebACLForwardedIPConfigurationFallbackBehaviorInput)(nil)).Elem(), WebACLForwardedIPConfigurationFallbackBehavior("MATCH"))
@@ -6457,6 +6624,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypeOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationTypePtrOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelOutput{})
+	pulumi.RegisterOutputType(WebACLAWSManagedRulesBotControlRuleSetInspectionLevelPtrOutput{})
 	pulumi.RegisterOutputType(WebACLBodyParsingFallbackBehaviorOutput{})
 	pulumi.RegisterOutputType(WebACLBodyParsingFallbackBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(WebACLForwardedIPConfigurationFallbackBehaviorOutput{})

@@ -167,10 +167,10 @@ class ChannelIngestEndpoint(dict):
     An endpoint for ingesting source content for a Channel.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None,
-                 password: Optional[str] = None,
-                 url: Optional[str] = None,
-                 username: Optional[str] = None):
+                 id: str,
+                 password: str,
+                 url: str,
+                 username: str):
         """
         An endpoint for ingesting source content for a Channel.
         :param str id: The system generated unique identifier for the IngestEndpoint
@@ -178,18 +178,14 @@ class ChannelIngestEndpoint(dict):
         :param str url: The ingest URL to which the source stream should be sent.
         :param str username: The system generated username for ingest authentication.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
+    def id(self) -> str:
         """
         The system generated unique identifier for the IngestEndpoint
         """
@@ -197,7 +193,7 @@ class ChannelIngestEndpoint(dict):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> str:
         """
         The system generated password for ingest authentication.
         """
@@ -205,7 +201,7 @@ class ChannelIngestEndpoint(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[str]:
+    def url(self) -> str:
         """
         The ingest URL to which the source stream should be sent.
         """
@@ -213,7 +209,7 @@ class ChannelIngestEndpoint(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> str:
         """
         The system generated username for ingest authentication.
         """

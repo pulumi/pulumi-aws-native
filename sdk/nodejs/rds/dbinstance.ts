@@ -88,6 +88,18 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly dBClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+     *
+     * Constraints:
+     *  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+     *  * Can't be specified when DBSnapshotIdentifier is specified.
+     *  * Must be specified when DBSnapshotIdentifier isn't specified.
+     *  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+     *  * Can't be the identifier of an Aurora DB cluster snapshot.
+     *  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+     */
+    public readonly dBClusterSnapshotIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The Amazon Resource Name (ARN) for the DB instance.
      */
     public /*out*/ readonly dBInstanceArn!: pulumi.Output<string>;
@@ -248,9 +260,21 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly replicaMode!: pulumi.Output<string | undefined>;
     /**
+     * The date and time to restore from.
+     */
+    public readonly restoreTime!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+     */
+    public readonly sourceDBInstanceAutomatedBackupsArn!: pulumi.Output<string | undefined>;
+    /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */
     public readonly sourceDBInstanceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the source DB instance from which to restore.
+     */
+    public readonly sourceDbiResourceId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the region that contains the source DB instance for the Read Replica.
      */
@@ -288,6 +312,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly useDefaultProcessorFeatures!: pulumi.Output<boolean | undefined>;
     /**
+     * A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+     */
+    public readonly useLatestRestorableTime!: pulumi.Output<boolean | undefined>;
+    /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */
     public readonly vPCSecurityGroups!: pulumi.Output<string[] | undefined>;
@@ -314,6 +342,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["customIAMInstanceProfile"] = args ? args.customIAMInstanceProfile : undefined;
             resourceInputs["dBClusterIdentifier"] = args ? args.dBClusterIdentifier : undefined;
+            resourceInputs["dBClusterSnapshotIdentifier"] = args ? args.dBClusterSnapshotIdentifier : undefined;
             resourceInputs["dBInstanceClass"] = args ? args.dBInstanceClass : undefined;
             resourceInputs["dBInstanceIdentifier"] = args ? args.dBInstanceIdentifier : undefined;
             resourceInputs["dBName"] = args ? args.dBName : undefined;
@@ -352,7 +381,10 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["promotionTier"] = args ? args.promotionTier : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["replicaMode"] = args ? args.replicaMode : undefined;
+            resourceInputs["restoreTime"] = args ? args.restoreTime : undefined;
+            resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = args ? args.sourceDBInstanceAutomatedBackupsArn : undefined;
             resourceInputs["sourceDBInstanceIdentifier"] = args ? args.sourceDBInstanceIdentifier : undefined;
+            resourceInputs["sourceDbiResourceId"] = args ? args.sourceDbiResourceId : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["storageThroughput"] = args ? args.storageThroughput : undefined;
@@ -362,6 +394,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["tdeCredentialPassword"] = args ? args.tdeCredentialPassword : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
+            resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vPCSecurityGroups"] = args ? args.vPCSecurityGroups : undefined;
             resourceInputs["dBInstanceArn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
@@ -377,6 +410,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["customIAMInstanceProfile"] = undefined /*out*/;
             resourceInputs["dBClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["dBClusterSnapshotIdentifier"] = undefined /*out*/;
             resourceInputs["dBInstanceArn"] = undefined /*out*/;
             resourceInputs["dBInstanceClass"] = undefined /*out*/;
             resourceInputs["dBInstanceIdentifier"] = undefined /*out*/;
@@ -417,7 +451,10 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["promotionTier"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["replicaMode"] = undefined /*out*/;
+            resourceInputs["restoreTime"] = undefined /*out*/;
+            resourceInputs["sourceDBInstanceAutomatedBackupsArn"] = undefined /*out*/;
             resourceInputs["sourceDBInstanceIdentifier"] = undefined /*out*/;
+            resourceInputs["sourceDbiResourceId"] = undefined /*out*/;
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
@@ -427,6 +464,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["tdeCredentialPassword"] = undefined /*out*/;
             resourceInputs["timezone"] = undefined /*out*/;
             resourceInputs["useDefaultProcessorFeatures"] = undefined /*out*/;
+            resourceInputs["useLatestRestorableTime"] = undefined /*out*/;
             resourceInputs["vPCSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -488,6 +526,18 @@ export interface DBInstanceArgs {
      * The identifier of the DB cluster that the instance will belong to.
      */
     dBClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+     *
+     * Constraints:
+     *  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+     *  * Can't be specified when DBSnapshotIdentifier is specified.
+     *  * Must be specified when DBSnapshotIdentifier isn't specified.
+     *  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+     *  * Can't be the identifier of an Aurora DB cluster snapshot.
+     *  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+     */
+    dBClusterSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
      */
@@ -641,9 +691,21 @@ export interface DBInstanceArgs {
      */
     replicaMode?: pulumi.Input<string>;
     /**
+     * The date and time to restore from.
+     */
+    restoreTime?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+     */
+    sourceDBInstanceAutomatedBackupsArn?: pulumi.Input<string>;
+    /**
      * If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
      */
     sourceDBInstanceIdentifier?: pulumi.Input<string>;
+    /**
+     * The resource ID of the source DB instance from which to restore.
+     */
+    sourceDbiResourceId?: pulumi.Input<string>;
     /**
      * The ID of the region that contains the source DB instance for the Read Replica.
      */
@@ -680,6 +742,10 @@ export interface DBInstanceArgs {
      * A value that indicates whether the DB instance class of the DB instance uses its default processor features.
      */
     useDefaultProcessorFeatures?: pulumi.Input<boolean>;
+    /**
+     * A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+     */
+    useLatestRestorableTime?: pulumi.Input<boolean>;
     /**
      * A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
      */

@@ -22,6 +22,7 @@ class EnvironmentArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  high_availability_config: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -34,6 +35,7 @@ class EnvironmentArgs:
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] engine_version: The version of the runtime engine for the environment.
+        :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[bool] publicly_accessible: Specifies whether the environment is publicly accessible.
@@ -50,6 +52,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if high_availability_config is not None:
             pulumi.set(__self__, "high_availability_config", high_availability_config)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if preferred_maintenance_window is not None:
@@ -118,6 +122,18 @@ class EnvironmentArgs:
     @high_availability_config.setter
     def high_availability_config(self, value: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']]):
         pulumi.set(self, "high_availability_config", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter
@@ -214,6 +230,7 @@ class Environment(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -230,6 +247,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] engine_version: The version of the runtime engine for the environment.
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
+        :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[bool] publicly_accessible: Specifies whether the environment is publicly accessible.
@@ -267,6 +285,7 @@ class Environment(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
@@ -292,6 +311,7 @@ class Environment(pulumi.CustomResource):
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
@@ -330,6 +350,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["high_availability_config"] = None
         __props__.__dict__["instance_type"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["publicly_accessible"] = None
@@ -388,6 +409,14 @@ class Environment(pulumi.CustomResource):
         The type of instance underlying the environment.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter

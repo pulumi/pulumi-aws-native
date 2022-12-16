@@ -20,8 +20,10 @@ type Application struct {
 	Definition     ApplicationDefinitionOutput `pulumi:"definition"`
 	Description    pulumi.StringPtrOutput      `pulumi:"description"`
 	EngineType     ApplicationEngineTypeOutput `pulumi:"engineType"`
-	Name           pulumi.StringOutput         `pulumi:"name"`
-	Tags           ApplicationTagMapPtrOutput  `pulumi:"tags"`
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+	KmsKeyId pulumi.StringPtrOutput     `pulumi:"kmsKeyId"`
+	Name     pulumi.StringOutput        `pulumi:"name"`
+	Tags     ApplicationTagMapPtrOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +74,10 @@ type applicationArgs struct {
 	Definition  ApplicationDefinition `pulumi:"definition"`
 	Description *string               `pulumi:"description"`
 	EngineType  ApplicationEngineType `pulumi:"engineType"`
-	Name        *string               `pulumi:"name"`
-	Tags        *ApplicationTagMap    `pulumi:"tags"`
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+	KmsKeyId *string            `pulumi:"kmsKeyId"`
+	Name     *string            `pulumi:"name"`
+	Tags     *ApplicationTagMap `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -81,8 +85,10 @@ type ApplicationArgs struct {
 	Definition  ApplicationDefinitionInput
 	Description pulumi.StringPtrInput
 	EngineType  ApplicationEngineTypeInput
-	Name        pulumi.StringPtrInput
-	Tags        ApplicationTagMapPtrInput
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+	KmsKeyId pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Tags     ApplicationTagMapPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -140,6 +146,11 @@ func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 
 func (o ApplicationOutput) EngineType() ApplicationEngineTypeOutput {
 	return o.ApplyT(func(v *Application) ApplicationEngineTypeOutput { return v.EngineType }).(ApplicationEngineTypeOutput)
+}
+
+// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
+func (o ApplicationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o ApplicationOutput) Name() pulumi.StringOutput {

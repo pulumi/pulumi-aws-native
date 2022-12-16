@@ -45,6 +45,7 @@ import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
+import * as grafana from "./grafana";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as healthlake from "./healthlake";
@@ -84,6 +85,7 @@ import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
 import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
+import * as opensearchserverless from "./opensearchserverless";
 import * as organizations from "./organizations";
 import * as panorama from "./panorama";
 import * as personalize from "./personalize";
@@ -166,6 +168,7 @@ export {
     gamelift,
     globalaccelerator,
     glue,
+    grafana,
     greengrassv2,
     groundstation,
     healthlake,
@@ -205,6 +208,7 @@ export {
     networkfirewall,
     nimblestudio,
     oam,
+    opensearchserverless,
     organizations,
     panorama,
     personalize,

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
     public sealed class ServiceDeploymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("alarms")]
+        public Input<Inputs.ServiceDeploymentAlarmsArgs>? Alarms { get; set; }
+
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 

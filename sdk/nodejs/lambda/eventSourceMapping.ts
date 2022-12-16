@@ -94,6 +94,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly queues!: pulumi.Output<string[] | undefined>;
     /**
+     * The scaling configuration for the event source.
+     */
+    public readonly scalingConfig!: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
+    /**
      * Self-managed event source endpoints.
      */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
@@ -150,6 +154,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = args ? args.selfManagedKafkaEventSourceConfig : undefined;
             resourceInputs["sourceAccessConfigurations"] = args ? args.sourceAccessConfigurations : undefined;
@@ -172,6 +177,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
             resourceInputs["parallelizationFactor"] = undefined /*out*/;
             resourceInputs["queues"] = undefined /*out*/;
+            resourceInputs["scalingConfig"] = undefined /*out*/;
             resourceInputs["selfManagedEventSource"] = undefined /*out*/;
             resourceInputs["selfManagedKafkaEventSourceConfig"] = undefined /*out*/;
             resourceInputs["sourceAccessConfigurations"] = undefined /*out*/;
@@ -245,6 +251,10 @@ export interface EventSourceMappingArgs {
      * (ActiveMQ) A list of ActiveMQ queues.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The scaling configuration for the event source.
+     */
+    scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfigArgs>;
     /**
      * Self-managed event source endpoints.
      */

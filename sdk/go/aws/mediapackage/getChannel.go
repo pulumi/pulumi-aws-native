@@ -32,7 +32,7 @@ type LookupChannelResult struct {
 	Description *string `pulumi:"description"`
 	// The configuration parameters for egress access logging.
 	EgressAccessLogs *ChannelLogConfiguration `pulumi:"egressAccessLogs"`
-	// A short text description of the Channel.
+	// An HTTP Live Streaming (HLS) ingest resource configuration.
 	HlsIngest *ChannelHlsIngest `pulumi:"hlsIngest"`
 	// The configuration parameters for egress access logging.
 	IngressAccessLogs *ChannelLogConfiguration `pulumi:"ingressAccessLogs"`
@@ -89,7 +89,7 @@ func (o LookupChannelResultOutput) EgressAccessLogs() ChannelLogConfigurationPtr
 	return o.ApplyT(func(v LookupChannelResult) *ChannelLogConfiguration { return v.EgressAccessLogs }).(ChannelLogConfigurationPtrOutput)
 }
 
-// A short text description of the Channel.
+// An HTTP Live Streaming (HLS) ingest resource configuration.
 func (o LookupChannelResultOutput) HlsIngest() ChannelHlsIngestPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelHlsIngest { return v.HlsIngest }).(ChannelHlsIngestPtrOutput)
 }

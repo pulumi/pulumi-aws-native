@@ -42,6 +42,16 @@ type LookupDBInstanceResult struct {
 	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+	//
+	// Constraints:
+	//  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+	//  * Can't be specified when DBSnapshotIdentifier is specified.
+	//  * Must be specified when DBSnapshotIdentifier isn't specified.
+	//  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+	//  * Can't be the identifier of an Aurora DB cluster snapshot.
+	//  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+	DBClusterSnapshotIdentifier *string `pulumi:"dBClusterSnapshotIdentifier"`
 	// The Amazon Resource Name (ARN) for the DB instance.
 	DBInstanceArn *string `pulumi:"dBInstanceArn"`
 	// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -192,6 +202,19 @@ func (o LookupDBInstanceResultOutput) CACertificateIdentifier() pulumi.StringPtr
 // A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 func (o LookupDBInstanceResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+//
+// Constraints:
+//   - Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+//   - Can't be specified when DBSnapshotIdentifier is specified.
+//   - Must be specified when DBSnapshotIdentifier isn't specified.
+//   - If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+//   - Can't be the identifier of an Aurora DB cluster snapshot.
+//   - Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+func (o LookupDBInstanceResultOutput) DBClusterSnapshotIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBClusterSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the DB instance.

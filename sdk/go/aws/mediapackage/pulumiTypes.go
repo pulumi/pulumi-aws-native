@@ -169,6 +169,76 @@ type ChannelHlsIngest struct {
 	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
 }
 
+// ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestInput` via:
+//
+//	ChannelHlsIngestArgs{...}
+type ChannelHlsIngestInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestOutput() ChannelHlsIngestOutput
+	ToChannelHlsIngestOutputWithContext(context.Context) ChannelHlsIngestOutput
+}
+
+// An HTTP Live Streaming (HLS) ingest resource configuration.
+type ChannelHlsIngestArgs struct {
+	// A list of endpoints to which the source stream should be sent.
+	IngestEndpoints ChannelIngestEndpointArrayInput `pulumi:"ingestEndpoints"`
+}
+
+func (ChannelHlsIngestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
+	return i.ToChannelHlsIngestOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput).ToChannelHlsIngestPtrOutputWithContext(ctx)
+}
+
+// ChannelHlsIngestPtrInput is an input type that accepts ChannelHlsIngestArgs, ChannelHlsIngestPtr and ChannelHlsIngestPtrOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestPtrInput` via:
+//
+//	        ChannelHlsIngestArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelHlsIngestPtrInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput
+	ToChannelHlsIngestPtrOutputWithContext(context.Context) ChannelHlsIngestPtrOutput
+}
+
+type channelHlsIngestPtrType ChannelHlsIngestArgs
+
+func ChannelHlsIngestPtr(v *ChannelHlsIngestArgs) ChannelHlsIngestPtrInput {
+	return (*channelHlsIngestPtrType)(v)
+}
+
+func (*channelHlsIngestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+}
+
+func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestPtrOutput)
+}
+
 // An HTTP Live Streaming (HLS) ingest resource configuration.
 type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
 
@@ -182,6 +252,16 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutput() ChannelHlsIngestOutpu
 
 func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
 	return o
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return o.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsIngest) *ChannelHlsIngest {
+		return &v
+	}).(ChannelHlsIngestPtrOutput)
 }
 
 // A list of endpoints to which the source stream should be sent.
@@ -226,13 +306,73 @@ func (o ChannelHlsIngestPtrOutput) IngestEndpoints() ChannelIngestEndpointArrayO
 // An endpoint for ingesting source content for a Channel.
 type ChannelIngestEndpoint struct {
 	// The system generated unique identifier for the IngestEndpoint
-	Id *string `pulumi:"id"`
+	Id string `pulumi:"id"`
 	// The system generated password for ingest authentication.
-	Password *string `pulumi:"password"`
+	Password string `pulumi:"password"`
 	// The ingest URL to which the source stream should be sent.
-	Url *string `pulumi:"url"`
+	Url string `pulumi:"url"`
 	// The system generated username for ingest authentication.
-	Username *string `pulumi:"username"`
+	Username string `pulumi:"username"`
+}
+
+// ChannelIngestEndpointInput is an input type that accepts ChannelIngestEndpointArgs and ChannelIngestEndpointOutput values.
+// You can construct a concrete instance of `ChannelIngestEndpointInput` via:
+//
+//	ChannelIngestEndpointArgs{...}
+type ChannelIngestEndpointInput interface {
+	pulumi.Input
+
+	ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput
+	ToChannelIngestEndpointOutputWithContext(context.Context) ChannelIngestEndpointOutput
+}
+
+// An endpoint for ingesting source content for a Channel.
+type ChannelIngestEndpointArgs struct {
+	// The system generated unique identifier for the IngestEndpoint
+	Id pulumi.StringInput `pulumi:"id"`
+	// The system generated password for ingest authentication.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The ingest URL to which the source stream should be sent.
+	Url pulumi.StringInput `pulumi:"url"`
+	// The system generated username for ingest authentication.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ChannelIngestEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
+	return i.ToChannelIngestEndpointOutputWithContext(context.Background())
+}
+
+func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointOutput)
+}
+
+// ChannelIngestEndpointArrayInput is an input type that accepts ChannelIngestEndpointArray and ChannelIngestEndpointArrayOutput values.
+// You can construct a concrete instance of `ChannelIngestEndpointArrayInput` via:
+//
+//	ChannelIngestEndpointArray{ ChannelIngestEndpointArgs{...} }
+type ChannelIngestEndpointArrayInput interface {
+	pulumi.Input
+
+	ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput
+	ToChannelIngestEndpointArrayOutputWithContext(context.Context) ChannelIngestEndpointArrayOutput
+}
+
+type ChannelIngestEndpointArray []ChannelIngestEndpointInput
+
+func (ChannelIngestEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
+	return i.ToChannelIngestEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointArrayOutput)
 }
 
 // An endpoint for ingesting source content for a Channel.
@@ -251,23 +391,23 @@ func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ct
 }
 
 // The system generated unique identifier for the IngestEndpoint
-func (o ChannelIngestEndpointOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o ChannelIngestEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The system generated password for ingest authentication.
-func (o ChannelIngestEndpointOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
+func (o ChannelIngestEndpointOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) string { return v.Password }).(pulumi.StringOutput)
 }
 
 // The ingest URL to which the source stream should be sent.
-func (o ChannelIngestEndpointOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
+func (o ChannelIngestEndpointOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
 
 // The system generated username for ingest authentication.
-func (o ChannelIngestEndpointOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o ChannelIngestEndpointOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type ChannelIngestEndpointArrayOutput struct{ *pulumi.OutputState }
@@ -6210,6 +6350,10 @@ func (o PackagingGroupTagArrayOutput) Index(i pulumi.IntInput) PackagingGroupTag
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagInput)(nil)).Elem(), AssetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetTagArrayInput)(nil)).Elem(), AssetTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestInput)(nil)).Elem(), ChannelHlsIngestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestPtrInput)(nil)).Elem(), ChannelHlsIngestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIngestEndpointInput)(nil)).Elem(), ChannelIngestEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelIngestEndpointArrayInput)(nil)).Elem(), ChannelIngestEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationInput)(nil)).Elem(), ChannelLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLogConfigurationPtrInput)(nil)).Elem(), ChannelLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTagInput)(nil)).Elem(), ChannelTagArgs{})

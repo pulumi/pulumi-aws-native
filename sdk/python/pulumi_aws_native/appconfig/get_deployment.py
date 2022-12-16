@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetDeploymentResult',
@@ -19,23 +18,15 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentResult:
-    def __init__(__self__, id=None, tags=None):
+    def __init__(__self__, id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.DeploymentTags']]:
-        return pulumi.get(self, "tags")
 
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
@@ -44,8 +35,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
-            id=self.id,
-            tags=self.tags)
+            id=self.id)
 
 
 def get_deployment(id: Optional[str] = None,
@@ -59,8 +49,7 @@ def get_deployment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:appconfig:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        id=__ret__.id,
-        tags=__ret__.tags)
+        id=__ret__.id)
 
 
 @_utilities.lift_output_func(get_deployment)

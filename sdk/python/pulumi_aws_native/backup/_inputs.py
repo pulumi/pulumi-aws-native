@@ -462,9 +462,9 @@ class BackupSelectionResourceTypeArgs:
 @pulumi.input_type
 class BackupVaultLockConfigurationTypeArgs:
     def __init__(__self__, *,
-                 min_retention_days: pulumi.Input[float],
-                 changeable_for_days: Optional[pulumi.Input[float]] = None,
-                 max_retention_days: Optional[pulumi.Input[float]] = None):
+                 min_retention_days: pulumi.Input[int],
+                 changeable_for_days: Optional[pulumi.Input[int]] = None,
+                 max_retention_days: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             pulumi.set(__self__, "changeable_for_days", changeable_for_days)
@@ -473,29 +473,29 @@ class BackupVaultLockConfigurationTypeArgs:
 
     @property
     @pulumi.getter(name="minRetentionDays")
-    def min_retention_days(self) -> pulumi.Input[float]:
+    def min_retention_days(self) -> pulumi.Input[int]:
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
-    def min_retention_days(self, value: pulumi.Input[float]):
+    def min_retention_days(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_retention_days", value)
 
     @property
     @pulumi.getter(name="changeableForDays")
-    def changeable_for_days(self) -> Optional[pulumi.Input[float]]:
+    def changeable_for_days(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "changeable_for_days")
 
     @changeable_for_days.setter
-    def changeable_for_days(self, value: Optional[pulumi.Input[float]]):
+    def changeable_for_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "changeable_for_days", value)
 
     @property
     @pulumi.getter(name="maxRetentionDays")
-    def max_retention_days(self) -> Optional[pulumi.Input[float]]:
+    def max_retention_days(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
-    def max_retention_days(self, value: Optional[pulumi.Input[float]]):
+    def max_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_retention_days", value)
 
 
@@ -802,15 +802,27 @@ class ReportPlanTagArgs:
 class ReportSettingPropertiesArgs:
     def __init__(__self__, *,
                  report_template: pulumi.Input[str],
-                 framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 framework_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 organization_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identifies the report template for the report. Reports are built using a report template.
         :param pulumi.Input[str] report_template: Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: The list of AWS accounts that a report covers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] framework_arns: The Amazon Resource Names (ARNs) of the frameworks a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organization_units: The list of AWS organization units that a report covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: The list of AWS regions that a report covers.
         """
         pulumi.set(__self__, "report_template", report_template)
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
         if framework_arns is not None:
             pulumi.set(__self__, "framework_arns", framework_arns)
+        if organization_units is not None:
+            pulumi.set(__self__, "organization_units", organization_units)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter(name="reportTemplate")
@@ -825,6 +837,18 @@ class ReportSettingPropertiesArgs:
         pulumi.set(self, "report_template", value)
 
     @property
+    @pulumi.getter
+    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of AWS accounts that a report covers.
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accounts", value)
+
+    @property
     @pulumi.getter(name="frameworkArns")
     def framework_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -835,5 +859,29 @@ class ReportSettingPropertiesArgs:
     @framework_arns.setter
     def framework_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "framework_arns", value)
+
+    @property
+    @pulumi.getter(name="organizationUnits")
+    def organization_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of AWS organization units that a report covers.
+        """
+        return pulumi.get(self, "organization_units")
+
+    @organization_units.setter
+    def organization_units(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organization_units", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of AWS regions that a report covers.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
 
 

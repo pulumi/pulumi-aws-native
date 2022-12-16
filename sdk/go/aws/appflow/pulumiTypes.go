@@ -10,6 +10,146 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Contains information about the configuration of the lambda which is being registered as the connector.
+type ConnectorLambdaConnectorProvisioningConfig struct {
+	// Lambda ARN of the connector being registered.
+	LambdaArn string `pulumi:"lambdaArn"`
+}
+
+// ConnectorLambdaConnectorProvisioningConfigInput is an input type that accepts ConnectorLambdaConnectorProvisioningConfigArgs and ConnectorLambdaConnectorProvisioningConfigOutput values.
+// You can construct a concrete instance of `ConnectorLambdaConnectorProvisioningConfigInput` via:
+//
+//	ConnectorLambdaConnectorProvisioningConfigArgs{...}
+type ConnectorLambdaConnectorProvisioningConfigInput interface {
+	pulumi.Input
+
+	ToConnectorLambdaConnectorProvisioningConfigOutput() ConnectorLambdaConnectorProvisioningConfigOutput
+	ToConnectorLambdaConnectorProvisioningConfigOutputWithContext(context.Context) ConnectorLambdaConnectorProvisioningConfigOutput
+}
+
+// Contains information about the configuration of the lambda which is being registered as the connector.
+type ConnectorLambdaConnectorProvisioningConfigArgs struct {
+	// Lambda ARN of the connector being registered.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+}
+
+func (ConnectorLambdaConnectorProvisioningConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorLambdaConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (i ConnectorLambdaConnectorProvisioningConfigArgs) ToConnectorLambdaConnectorProvisioningConfigOutput() ConnectorLambdaConnectorProvisioningConfigOutput {
+	return i.ToConnectorLambdaConnectorProvisioningConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorLambdaConnectorProvisioningConfigArgs) ToConnectorLambdaConnectorProvisioningConfigOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLambdaConnectorProvisioningConfigOutput)
+}
+
+func (i ConnectorLambdaConnectorProvisioningConfigArgs) ToConnectorLambdaConnectorProvisioningConfigPtrOutput() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return i.ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorLambdaConnectorProvisioningConfigArgs) ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLambdaConnectorProvisioningConfigOutput).ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(ctx)
+}
+
+// ConnectorLambdaConnectorProvisioningConfigPtrInput is an input type that accepts ConnectorLambdaConnectorProvisioningConfigArgs, ConnectorLambdaConnectorProvisioningConfigPtr and ConnectorLambdaConnectorProvisioningConfigPtrOutput values.
+// You can construct a concrete instance of `ConnectorLambdaConnectorProvisioningConfigPtrInput` via:
+//
+//	        ConnectorLambdaConnectorProvisioningConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorLambdaConnectorProvisioningConfigPtrInput interface {
+	pulumi.Input
+
+	ToConnectorLambdaConnectorProvisioningConfigPtrOutput() ConnectorLambdaConnectorProvisioningConfigPtrOutput
+	ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(context.Context) ConnectorLambdaConnectorProvisioningConfigPtrOutput
+}
+
+type connectorLambdaConnectorProvisioningConfigPtrType ConnectorLambdaConnectorProvisioningConfigArgs
+
+func ConnectorLambdaConnectorProvisioningConfigPtr(v *ConnectorLambdaConnectorProvisioningConfigArgs) ConnectorLambdaConnectorProvisioningConfigPtrInput {
+	return (*connectorLambdaConnectorProvisioningConfigPtrType)(v)
+}
+
+func (*connectorLambdaConnectorProvisioningConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorLambdaConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (i *connectorLambdaConnectorProvisioningConfigPtrType) ToConnectorLambdaConnectorProvisioningConfigPtrOutput() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return i.ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorLambdaConnectorProvisioningConfigPtrType) ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLambdaConnectorProvisioningConfigPtrOutput)
+}
+
+// Contains information about the configuration of the lambda which is being registered as the connector.
+type ConnectorLambdaConnectorProvisioningConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorLambdaConnectorProvisioningConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorLambdaConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigOutput) ToConnectorLambdaConnectorProvisioningConfigOutput() ConnectorLambdaConnectorProvisioningConfigOutput {
+	return o
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigOutput) ToConnectorLambdaConnectorProvisioningConfigOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigOutput {
+	return o
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigOutput) ToConnectorLambdaConnectorProvisioningConfigPtrOutput() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o.ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigOutput) ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorLambdaConnectorProvisioningConfig) *ConnectorLambdaConnectorProvisioningConfig {
+		return &v
+	}).(ConnectorLambdaConnectorProvisioningConfigPtrOutput)
+}
+
+// Lambda ARN of the connector being registered.
+func (o ConnectorLambdaConnectorProvisioningConfigOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorLambdaConnectorProvisioningConfig) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+type ConnectorLambdaConnectorProvisioningConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorLambdaConnectorProvisioningConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorLambdaConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigPtrOutput) ToConnectorLambdaConnectorProvisioningConfigPtrOutput() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigPtrOutput) ToConnectorLambdaConnectorProvisioningConfigPtrOutputWithContext(ctx context.Context) ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorLambdaConnectorProvisioningConfigPtrOutput) Elem() ConnectorLambdaConnectorProvisioningConfigOutput {
+	return o.ApplyT(func(v *ConnectorLambdaConnectorProvisioningConfig) ConnectorLambdaConnectorProvisioningConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorLambdaConnectorProvisioningConfig
+		return ret
+	}).(ConnectorLambdaConnectorProvisioningConfigOutput)
+}
+
+// Lambda ARN of the connector being registered.
+func (o ConnectorLambdaConnectorProvisioningConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorLambdaConnectorProvisioningConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConnectorProfileAmplitudeConnectorProfileCredentials struct {
 	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 	ApiKey    string `pulumi:"apiKey"`
@@ -7658,6 +7798,95 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) InstanceUrl(
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains information about the configuration of the connector being registered.
+type ConnectorProvisioningConfig struct {
+	// Contains information about the configuration of the lambda which is being registered as the connector.
+	Lambda *ConnectorLambdaConnectorProvisioningConfig `pulumi:"lambda"`
+}
+
+// ConnectorProvisioningConfigInput is an input type that accepts ConnectorProvisioningConfigArgs and ConnectorProvisioningConfigOutput values.
+// You can construct a concrete instance of `ConnectorProvisioningConfigInput` via:
+//
+//	ConnectorProvisioningConfigArgs{...}
+type ConnectorProvisioningConfigInput interface {
+	pulumi.Input
+
+	ToConnectorProvisioningConfigOutput() ConnectorProvisioningConfigOutput
+	ToConnectorProvisioningConfigOutputWithContext(context.Context) ConnectorProvisioningConfigOutput
+}
+
+// Contains information about the configuration of the connector being registered.
+type ConnectorProvisioningConfigArgs struct {
+	// Contains information about the configuration of the lambda which is being registered as the connector.
+	Lambda ConnectorLambdaConnectorProvisioningConfigPtrInput `pulumi:"lambda"`
+}
+
+func (ConnectorProvisioningConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (i ConnectorProvisioningConfigArgs) ToConnectorProvisioningConfigOutput() ConnectorProvisioningConfigOutput {
+	return i.ToConnectorProvisioningConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectorProvisioningConfigArgs) ToConnectorProvisioningConfigOutputWithContext(ctx context.Context) ConnectorProvisioningConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProvisioningConfigOutput)
+}
+
+// Contains information about the configuration of the connector being registered.
+type ConnectorProvisioningConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProvisioningConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (o ConnectorProvisioningConfigOutput) ToConnectorProvisioningConfigOutput() ConnectorProvisioningConfigOutput {
+	return o
+}
+
+func (o ConnectorProvisioningConfigOutput) ToConnectorProvisioningConfigOutputWithContext(ctx context.Context) ConnectorProvisioningConfigOutput {
+	return o
+}
+
+// Contains information about the configuration of the lambda which is being registered as the connector.
+func (o ConnectorProvisioningConfigOutput) Lambda() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o.ApplyT(func(v ConnectorProvisioningConfig) *ConnectorLambdaConnectorProvisioningConfig { return v.Lambda }).(ConnectorLambdaConnectorProvisioningConfigPtrOutput)
+}
+
+type ConnectorProvisioningConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProvisioningConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProvisioningConfig)(nil)).Elem()
+}
+
+func (o ConnectorProvisioningConfigPtrOutput) ToConnectorProvisioningConfigPtrOutput() ConnectorProvisioningConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorProvisioningConfigPtrOutput) ToConnectorProvisioningConfigPtrOutputWithContext(ctx context.Context) ConnectorProvisioningConfigPtrOutput {
+	return o
+}
+
+func (o ConnectorProvisioningConfigPtrOutput) Elem() ConnectorProvisioningConfigOutput {
+	return o.ApplyT(func(v *ConnectorProvisioningConfig) ConnectorProvisioningConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProvisioningConfig
+		return ret
+	}).(ConnectorProvisioningConfigOutput)
+}
+
+// Contains information about the configuration of the lambda which is being registered as the connector.
+func (o ConnectorProvisioningConfigPtrOutput) Lambda() ConnectorLambdaConnectorProvisioningConfigPtrOutput {
+	return o.ApplyT(func(v *ConnectorProvisioningConfig) *ConnectorLambdaConnectorProvisioningConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
+	}).(ConnectorLambdaConnectorProvisioningConfigPtrOutput)
+}
+
 type FlowAggregationConfig struct {
 	AggregationType *FlowAggregationType `pulumi:"aggregationType"`
 	TargetFileSize  *int                 `pulumi:"targetFileSize"`
@@ -15275,6 +15504,8 @@ func (o FlowZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorLambdaConnectorProvisioningConfigInput)(nil)).Elem(), ConnectorLambdaConnectorProvisioningConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorLambdaConnectorProvisioningConfigPtrInput)(nil)).Elem(), ConnectorLambdaConnectorProvisioningConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileAmplitudeConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfileAmplitudeConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileAmplitudeConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileAmplitudeConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileApiKeyCredentialsInput)(nil)).Elem(), ConnectorProfileApiKeyCredentialsArgs{})
@@ -15363,6 +15594,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileZendeskConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfileZendeskConnectorProfileCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileZendeskConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfileZendeskConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileZendeskConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileZendeskConnectorProfilePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProvisioningConfigInput)(nil)).Elem(), ConnectorProvisioningConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAggregationConfigInput)(nil)).Elem(), FlowAggregationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAggregationConfigPtrInput)(nil)).Elem(), FlowAggregationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowAmplitudeSourcePropertiesInput)(nil)).Elem(), FlowAmplitudeSourcePropertiesArgs{})
@@ -15455,6 +15687,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowZendeskDestinationPropertiesPtrInput)(nil)).Elem(), FlowZendeskDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowZendeskSourcePropertiesInput)(nil)).Elem(), FlowZendeskSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowZendeskSourcePropertiesPtrInput)(nil)).Elem(), FlowZendeskSourcePropertiesArgs{})
+	pulumi.RegisterOutputType(ConnectorLambdaConnectorProvisioningConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorLambdaConnectorProvisioningConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileAmplitudeConnectorProfileCredentialsOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileApiKeyCredentialsOutput{})
@@ -15543,6 +15777,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileZendeskConnectorProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProvisioningConfigOutput{})
+	pulumi.RegisterOutputType(ConnectorProvisioningConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowAggregationConfigOutput{})
 	pulumi.RegisterOutputType(FlowAggregationConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowAmplitudeSourcePropertiesOutput{})

@@ -31,6 +31,8 @@ type LookupReplicationSetResult struct {
 	DeletionProtected *bool   `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
+	// The tags to apply to the replication set.
+	Tags []ReplicationSetTag `pulumi:"tags"`
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
@@ -81,6 +83,11 @@ func (o LookupReplicationSetResultOutput) DeletionProtected() pulumi.BoolPtrOutp
 // The ReplicationSet configuration.
 func (o LookupReplicationSetResultOutput) Regions() ReplicationSetReplicationRegionArrayOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) []ReplicationSetReplicationRegion { return v.Regions }).(ReplicationSetReplicationRegionArrayOutput)
+}
+
+// The tags to apply to the replication set.
+func (o LookupReplicationSetResultOutput) Tags() ReplicationSetTagArrayOutput {
+	return o.ApplyT(func(v LookupReplicationSetResult) []ReplicationSetTag { return v.Tags }).(ReplicationSetTagArrayOutput)
 }
 
 func init() {

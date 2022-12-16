@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebACLResult:
-    def __init__(__self__, arn=None, capacity=None, captcha_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, visibility_config=None):
+    def __init__(__self__, arn=None, capacity=None, captcha_config=None, challenge_config=None, custom_response_bodies=None, default_action=None, description=None, id=None, label_namespace=None, rules=None, tags=None, token_domains=None, visibility_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,6 +30,9 @@ class GetWebACLResult:
         if captcha_config and not isinstance(captcha_config, dict):
             raise TypeError("Expected argument 'captcha_config' to be a dict")
         pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config and not isinstance(challenge_config, dict):
+            raise TypeError("Expected argument 'challenge_config' to be a dict")
+        pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies and not isinstance(custom_response_bodies, dict):
             raise TypeError("Expected argument 'custom_response_bodies' to be a dict")
         pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
@@ -51,6 +54,9 @@ class GetWebACLResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if token_domains and not isinstance(token_domains, list):
+            raise TypeError("Expected argument 'token_domains' to be a list")
+        pulumi.set(__self__, "token_domains", token_domains)
         if visibility_config and not isinstance(visibility_config, dict):
             raise TypeError("Expected argument 'visibility_config' to be a dict")
         pulumi.set(__self__, "visibility_config", visibility_config)
@@ -69,6 +75,11 @@ class GetWebACLResult:
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional['outputs.WebACLCaptchaConfig']:
         return pulumi.get(self, "captcha_config")
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional['outputs.WebACLChallengeConfig']:
+        return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -109,6 +120,11 @@ class GetWebACLResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "token_domains")
+
+    @property
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> Optional['outputs.WebACLVisibilityConfig']:
         return pulumi.get(self, "visibility_config")
@@ -123,6 +139,7 @@ class AwaitableGetWebACLResult(GetWebACLResult):
             arn=self.arn,
             capacity=self.capacity,
             captcha_config=self.captcha_config,
+            challenge_config=self.challenge_config,
             custom_response_bodies=self.custom_response_bodies,
             default_action=self.default_action,
             description=self.description,
@@ -130,6 +147,7 @@ class AwaitableGetWebACLResult(GetWebACLResult):
             label_namespace=self.label_namespace,
             rules=self.rules,
             tags=self.tags,
+            token_domains=self.token_domains,
             visibility_config=self.visibility_config)
 
 
@@ -151,6 +169,7 @@ def get_web_acl(id: Optional[str] = None,
         arn=__ret__.arn,
         capacity=__ret__.capacity,
         captcha_config=__ret__.captcha_config,
+        challenge_config=__ret__.challenge_config,
         custom_response_bodies=__ret__.custom_response_bodies,
         default_action=__ret__.default_action,
         description=__ret__.description,
@@ -158,6 +177,7 @@ def get_web_acl(id: Optional[str] = None,
         label_namespace=__ret__.label_namespace,
         rules=__ret__.rules,
         tags=__ret__.tags,
+        token_domains=__ret__.token_domains,
         visibility_config=__ret__.visibility_config)
 
 

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::RestApi.
+// Resource Type definition for AWS::ApiGateway::RestApi
 type RestApi struct {
 	pulumi.CustomResourceState
 

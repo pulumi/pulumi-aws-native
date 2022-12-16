@@ -50,9 +50,9 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
-     * A short text description of the Channel.
+     * An HTTP Live Streaming (HLS) ingest resource configuration.
      */
-    public /*out*/ readonly hlsIngest!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest>;
+    public readonly hlsIngest!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest | undefined>;
     /**
      * The configuration parameters for egress access logging.
      */
@@ -75,10 +75,10 @@ export class Channel extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
+            resourceInputs["hlsIngest"] = args ? args.hlsIngest : undefined;
             resourceInputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["hlsIngest"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -104,6 +104,10 @@ export interface ChannelArgs {
      * The configuration parameters for egress access logging.
      */
     egressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
+    /**
+     * An HTTP Live Streaming (HLS) ingest resource configuration.
+     */
+    hlsIngest?: pulumi.Input<inputs.mediapackage.ChannelHlsIngestArgs>;
     /**
      * The configuration parameters for egress access logging.
      */

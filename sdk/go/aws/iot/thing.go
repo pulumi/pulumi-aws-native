@@ -11,11 +11,10 @@ import (
 )
 
 // Resource Type definition for AWS::IoT::Thing
-//
-// Deprecated: Thing is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Thing struct {
 	pulumi.CustomResourceState
 
+	Arn              pulumi.StringOutput            `pulumi:"arn"`
 	AttributePayload ThingAttributePayloadPtrOutput `pulumi:"attributePayload"`
 	ThingName        pulumi.StringPtrOutput         `pulumi:"thingName"`
 }
@@ -104,6 +103,10 @@ func (o ThingOutput) ToThingOutput() ThingOutput {
 
 func (o ThingOutput) ToThingOutputWithContext(ctx context.Context) ThingOutput {
 	return o
+}
+
+func (o ThingOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Thing) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 func (o ThingOutput) AttributePayload() ThingAttributePayloadPtrOutput {

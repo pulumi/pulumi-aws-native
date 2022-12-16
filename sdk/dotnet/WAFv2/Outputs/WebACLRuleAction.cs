@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         public readonly Outputs.WebACLAllowAction? Allow;
         public readonly Outputs.WebACLBlockAction? Block;
         public readonly Outputs.WebACLCaptchaAction? Captcha;
+        public readonly Outputs.WebACLChallengeAction? Challenge;
         public readonly Outputs.WebACLCountAction? Count;
 
         [OutputConstructor]
@@ -29,11 +30,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLCaptchaAction? captcha,
 
+            Outputs.WebACLChallengeAction? challenge,
+
             Outputs.WebACLCountAction? count)
         {
             Allow = allow;
             Block = block;
             Captcha = captcha;
+            Challenge = challenge;
             Count = count;
         }
     }

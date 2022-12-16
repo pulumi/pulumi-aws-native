@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticBeanstalk.Outputs
     [OutputType]
     public sealed class ConfigurationTemplateSourceConfiguration
     {
+        /// <summary>
+        /// The name of the application associated with the configuration.
+        /// </summary>
         public readonly string ApplicationName;
+        /// <summary>
+        /// The name of the configuration template.
+        /// </summary>
         public readonly string TemplateName;
 
         [OutputConstructor]

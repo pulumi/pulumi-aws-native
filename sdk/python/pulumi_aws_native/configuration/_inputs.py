@@ -21,6 +21,7 @@ __all__ = [
     'ConfigurationRecorderRecordingGroupArgs',
     'ConformancePackInputParameterArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
+    'OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs',
     'OrganizationConfigRuleOrganizationCustomRuleMetadataArgs',
     'OrganizationConfigRuleOrganizationManagedRuleMetadataArgs',
     'OrganizationConformancePackConformancePackInputParameterArgs',
@@ -457,6 +458,141 @@ class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs:
     @delivery_frequency.setter
     def delivery_frequency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delivery_frequency", value)
+
+
+@pulumi.input_type
+class OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs:
+    def __init__(__self__, *,
+                 code_text: pulumi.Input[str],
+                 runtime: pulumi.Input[str],
+                 debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 input_parameters: Optional[pulumi.Input[str]] = None,
+                 maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
+                 organization_config_rule_trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_id_scope: Optional[pulumi.Input[str]] = None,
+                 resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_key_scope: Optional[pulumi.Input[str]] = None,
+                 tag_value_scope: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "code_text", code_text)
+        pulumi.set(__self__, "runtime", runtime)
+        if debug_log_delivery_accounts is not None:
+            pulumi.set(__self__, "debug_log_delivery_accounts", debug_log_delivery_accounts)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if input_parameters is not None:
+            pulumi.set(__self__, "input_parameters", input_parameters)
+        if maximum_execution_frequency is not None:
+            pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
+        if organization_config_rule_trigger_types is not None:
+            pulumi.set(__self__, "organization_config_rule_trigger_types", organization_config_rule_trigger_types)
+        if resource_id_scope is not None:
+            pulumi.set(__self__, "resource_id_scope", resource_id_scope)
+        if resource_types_scope is not None:
+            pulumi.set(__self__, "resource_types_scope", resource_types_scope)
+        if tag_key_scope is not None:
+            pulumi.set(__self__, "tag_key_scope", tag_key_scope)
+        if tag_value_scope is not None:
+            pulumi.set(__self__, "tag_value_scope", tag_value_scope)
+
+    @property
+    @pulumi.getter(name="codeText")
+    def code_text(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "code_text")
+
+    @code_text.setter
+    def code_text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "code_text", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runtime", value)
+
+    @property
+    @pulumi.getter(name="debugLogDeliveryAccounts")
+    def debug_log_delivery_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "debug_log_delivery_accounts")
+
+    @debug_log_delivery_accounts.setter
+    def debug_log_delivery_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "debug_log_delivery_accounts", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="inputParameters")
+    def input_parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "input_parameters")
+
+    @input_parameters.setter
+    def input_parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_parameters", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionFrequency")
+    def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "maximum_execution_frequency")
+
+    @maximum_execution_frequency.setter
+    def maximum_execution_frequency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_execution_frequency", value)
+
+    @property
+    @pulumi.getter(name="organizationConfigRuleTriggerTypes")
+    def organization_config_rule_trigger_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "organization_config_rule_trigger_types")
+
+    @organization_config_rule_trigger_types.setter
+    def organization_config_rule_trigger_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organization_config_rule_trigger_types", value)
+
+    @property
+    @pulumi.getter(name="resourceIdScope")
+    def resource_id_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id_scope")
+
+    @resource_id_scope.setter
+    def resource_id_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id_scope", value)
+
+    @property
+    @pulumi.getter(name="resourceTypesScope")
+    def resource_types_scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_types_scope")
+
+    @resource_types_scope.setter
+    def resource_types_scope(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types_scope", value)
+
+    @property
+    @pulumi.getter(name="tagKeyScope")
+    def tag_key_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tag_key_scope")
+
+    @tag_key_scope.setter
+    def tag_key_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_key_scope", value)
+
+    @property
+    @pulumi.getter(name="tagValueScope")
+    def tag_value_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tag_value_scope")
+
+    @tag_value_scope.setter
+    def tag_value_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_value_scope", value)
 
 
 @pulumi.input_type

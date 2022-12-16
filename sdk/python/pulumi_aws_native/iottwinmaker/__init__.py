@@ -11,7 +11,9 @@ from .entity import *
 from .get_component_type import *
 from .get_entity import *
 from .get_scene import *
+from .get_sync_job import *
 from .get_workspace import *
 from .scene import *
+from .sync_job import *
 from .workspace import *
 from . import outputs

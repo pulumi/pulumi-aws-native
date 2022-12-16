@@ -42,6 +42,8 @@ type DBCluster struct {
 	DBInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dBInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	// Reserved for future use.
+	DBSystemId pulumi.StringPtrOutput `pulumi:"dBSystemId"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -190,6 +192,8 @@ type dbclusterArgs struct {
 	DBInstanceParameterGroupName *string `pulumi:"dBInstanceParameterGroupName"`
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName *string `pulumi:"dBSubnetGroupName"`
+	// Reserved for future use.
+	DBSystemId *string `pulumi:"dBSystemId"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName *string `pulumi:"databaseName"`
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -300,6 +304,8 @@ type DBClusterArgs struct {
 	DBInstanceParameterGroupName pulumi.StringPtrInput
 	// A DB subnet group that you want to associate with this DB cluster.
 	DBSubnetGroupName pulumi.StringPtrInput
+	// Reserved for future use.
+	DBSystemId pulumi.StringPtrInput
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
 	DatabaseName pulumi.StringPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -489,6 +495,11 @@ func (o DBClusterOutput) DBInstanceParameterGroupName() pulumi.StringPtrOutput {
 // A DB subnet group that you want to associate with this DB cluster.
 func (o DBClusterOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Reserved for future use.
+func (o DBClusterOutput) DBSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.DBSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.

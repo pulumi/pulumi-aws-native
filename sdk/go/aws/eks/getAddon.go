@@ -32,6 +32,8 @@ type LookupAddonResult struct {
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Amazon Resource Name (ARN) of the add-on
 	Arn *string `pulumi:"arn"`
+	// The configuration values to use with the add-on
+	ConfigurationValues *string `pulumi:"configurationValues"`
 	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
 	// An array of key-value pairs to apply to this resource.
@@ -84,6 +86,11 @@ func (o LookupAddonResultOutput) AddonVersion() pulumi.StringPtrOutput {
 // Amazon Resource Name (ARN) of the add-on
 func (o LookupAddonResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAddonResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The configuration values to use with the add-on
+func (o LookupAddonResultOutput) ConfigurationValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAddonResult) *string { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
 }
 
 // IAM role to bind to the add-on's service account

@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> DBSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [Output("dBSystemId")]
+        public Output<string?> DBSystemId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
         /// </summary>
         [Output("databaseName")]
@@ -462,6 +468,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("dBSubnetGroupName")]
         public Input<string>? DBSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [Input("dBSystemId")]
+        public Input<string>? DBSystemId { get; set; }
 
         /// <summary>
         /// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.

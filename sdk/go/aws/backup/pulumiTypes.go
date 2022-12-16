@@ -1088,9 +1088,9 @@ func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) StringNotLike(
 }
 
 type BackupVaultLockConfigurationType struct {
-	ChangeableForDays *float64 `pulumi:"changeableForDays"`
-	MaxRetentionDays  *float64 `pulumi:"maxRetentionDays"`
-	MinRetentionDays  float64  `pulumi:"minRetentionDays"`
+	ChangeableForDays *int `pulumi:"changeableForDays"`
+	MaxRetentionDays  *int `pulumi:"maxRetentionDays"`
+	MinRetentionDays  int  `pulumi:"minRetentionDays"`
 }
 
 // BackupVaultLockConfigurationTypeInput is an input type that accepts BackupVaultLockConfigurationTypeArgs and BackupVaultLockConfigurationTypeOutput values.
@@ -1105,9 +1105,9 @@ type BackupVaultLockConfigurationTypeInput interface {
 }
 
 type BackupVaultLockConfigurationTypeArgs struct {
-	ChangeableForDays pulumi.Float64PtrInput `pulumi:"changeableForDays"`
-	MaxRetentionDays  pulumi.Float64PtrInput `pulumi:"maxRetentionDays"`
-	MinRetentionDays  pulumi.Float64Input    `pulumi:"minRetentionDays"`
+	ChangeableForDays pulumi.IntPtrInput `pulumi:"changeableForDays"`
+	MaxRetentionDays  pulumi.IntPtrInput `pulumi:"maxRetentionDays"`
+	MinRetentionDays  pulumi.IntInput    `pulumi:"minRetentionDays"`
 }
 
 func (BackupVaultLockConfigurationTypeArgs) ElementType() reflect.Type {
@@ -1187,16 +1187,16 @@ func (o BackupVaultLockConfigurationTypeOutput) ToBackupVaultLockConfigurationTy
 	}).(BackupVaultLockConfigurationTypePtrOutput)
 }
 
-func (o BackupVaultLockConfigurationTypeOutput) ChangeableForDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BackupVaultLockConfigurationType) *float64 { return v.ChangeableForDays }).(pulumi.Float64PtrOutput)
+func (o BackupVaultLockConfigurationTypeOutput) ChangeableForDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) *int { return v.ChangeableForDays }).(pulumi.IntPtrOutput)
 }
 
-func (o BackupVaultLockConfigurationTypeOutput) MaxRetentionDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v BackupVaultLockConfigurationType) *float64 { return v.MaxRetentionDays }).(pulumi.Float64PtrOutput)
+func (o BackupVaultLockConfigurationTypeOutput) MaxRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) *int { return v.MaxRetentionDays }).(pulumi.IntPtrOutput)
 }
 
-func (o BackupVaultLockConfigurationTypeOutput) MinRetentionDays() pulumi.Float64Output {
-	return o.ApplyT(func(v BackupVaultLockConfigurationType) float64 { return v.MinRetentionDays }).(pulumi.Float64Output)
+func (o BackupVaultLockConfigurationTypeOutput) MinRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupVaultLockConfigurationType) int { return v.MinRetentionDays }).(pulumi.IntOutput)
 }
 
 type BackupVaultLockConfigurationTypePtrOutput struct{ *pulumi.OutputState }
@@ -1223,31 +1223,31 @@ func (o BackupVaultLockConfigurationTypePtrOutput) Elem() BackupVaultLockConfigu
 	}).(BackupVaultLockConfigurationTypeOutput)
 }
 
-func (o BackupVaultLockConfigurationTypePtrOutput) ChangeableForDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+func (o BackupVaultLockConfigurationTypePtrOutput) ChangeableForDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *int {
 		if v == nil {
 			return nil
 		}
 		return v.ChangeableForDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o BackupVaultLockConfigurationTypePtrOutput) MaxRetentionDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+func (o BackupVaultLockConfigurationTypePtrOutput) MaxRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *int {
 		if v == nil {
 			return nil
 		}
 		return v.MaxRetentionDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
-func (o BackupVaultLockConfigurationTypePtrOutput) MinRetentionDays() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *float64 {
+func (o BackupVaultLockConfigurationTypePtrOutput) MinRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupVaultLockConfigurationType) *int {
 		if v == nil {
 			return nil
 		}
 		return &v.MinRetentionDays
-	}).(pulumi.Float64PtrOutput)
+	}).(pulumi.IntPtrOutput)
 }
 
 type BackupVaultNotificationObjectType struct {
@@ -2138,8 +2138,14 @@ func (o ReportPlanTagArrayOutput) Index(i pulumi.IntInput) ReportPlanTagOutput {
 
 // Identifies the report template for the report. Reports are built using a report template.
 type ReportSettingProperties struct {
+	// The list of AWS accounts that a report covers.
+	Accounts []string `pulumi:"accounts"`
 	// The Amazon Resource Names (ARNs) of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
+	// The list of AWS organization units that a report covers.
+	OrganizationUnits []string `pulumi:"organizationUnits"`
+	// The list of AWS regions that a report covers.
+	Regions []string `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
 	ReportTemplate string `pulumi:"reportTemplate"`
 }
@@ -2157,8 +2163,14 @@ type ReportSettingPropertiesInput interface {
 
 // Identifies the report template for the report. Reports are built using a report template.
 type ReportSettingPropertiesArgs struct {
+	// The list of AWS accounts that a report covers.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// The Amazon Resource Names (ARNs) of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
+	// The list of AWS organization units that a report covers.
+	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
+	// The list of AWS regions that a report covers.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
 	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
 }
@@ -2190,9 +2202,24 @@ func (o ReportSettingPropertiesOutput) ToReportSettingPropertiesOutputWithContex
 	return o
 }
 
+// The list of AWS accounts that a report covers.
+func (o ReportSettingPropertiesOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportSettingProperties) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
 // The Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportSettingPropertiesOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportSettingProperties) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
+}
+
+// The list of AWS organization units that a report covers.
+func (o ReportSettingPropertiesOutput) OrganizationUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportSettingProperties) []string { return v.OrganizationUnits }).(pulumi.StringArrayOutput)
+}
+
+// The list of AWS regions that a report covers.
+func (o ReportSettingPropertiesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReportSettingProperties) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
 
 // Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
@@ -2224,6 +2251,16 @@ func (o ReportSettingPropertiesPtrOutput) Elem() ReportSettingPropertiesOutput {
 	}).(ReportSettingPropertiesOutput)
 }
 
+// The list of AWS accounts that a report covers.
+func (o ReportSettingPropertiesPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Amazon Resource Names (ARNs) of the frameworks a report covers.
 func (o ReportSettingPropertiesPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportSettingProperties) []string {
@@ -2231,6 +2268,26 @@ func (o ReportSettingPropertiesPtrOutput) FrameworkArns() pulumi.StringArrayOutp
 			return nil
 		}
 		return v.FrameworkArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of AWS organization units that a report covers.
+func (o ReportSettingPropertiesPtrOutput) OrganizationUnits() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationUnits
+	}).(pulumi.StringArrayOutput)
+}
+
+// The list of AWS regions that a report covers.
+func (o ReportSettingPropertiesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReportSettingProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
 	}).(pulumi.StringArrayOutput)
 }
 

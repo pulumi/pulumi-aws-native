@@ -3131,8 +3131,8 @@ func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionP
 }
 
 type MissionProfileTag struct {
-	Key   *string `pulumi:"key"`
-	Value *string `pulumi:"value"`
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // MissionProfileTagInput is an input type that accepts MissionProfileTagArgs and MissionProfileTagOutput values.
@@ -3147,8 +3147,8 @@ type MissionProfileTagInput interface {
 }
 
 type MissionProfileTagArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (MissionProfileTagArgs) ElementType() reflect.Type {
@@ -3202,12 +3202,12 @@ func (o MissionProfileTagOutput) ToMissionProfileTagOutputWithContext(ctx contex
 	return o
 }
 
-func (o MissionProfileTagOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MissionProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+func (o MissionProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MissionProfileTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o MissionProfileTagOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MissionProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o MissionProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MissionProfileTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
 type MissionProfileTagArrayOutput struct{ *pulumi.OutputState }

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class TargetGroupTag
     {
+        /// <summary>
+        /// The value for the tag. 
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The key name of the tag. 
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

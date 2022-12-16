@@ -18,12 +18,14 @@ class ChannelArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
+                 hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
                  ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
         :param pulumi.Input[str] description: A short text description of the Channel.
         :param pulumi.Input['ChannelLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input['ChannelHlsIngestArgs'] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
         :param pulumi.Input['ChannelLogConfigurationArgs'] ingress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A collection of tags associated with a resource
         """
@@ -31,6 +33,8 @@ class ChannelArgs:
             pulumi.set(__self__, "description", description)
         if egress_access_logs is not None:
             pulumi.set(__self__, "egress_access_logs", egress_access_logs)
+        if hls_ingest is not None:
+            pulumi.set(__self__, "hls_ingest", hls_ingest)
         if ingress_access_logs is not None:
             pulumi.set(__self__, "ingress_access_logs", ingress_access_logs)
         if tags is not None:
@@ -59,6 +63,18 @@ class ChannelArgs:
     @egress_access_logs.setter
     def egress_access_logs(self, value: Optional[pulumi.Input['ChannelLogConfigurationArgs']]):
         pulumi.set(self, "egress_access_logs", value)
+
+    @property
+    @pulumi.getter(name="hlsIngest")
+    def hls_ingest(self) -> Optional[pulumi.Input['ChannelHlsIngestArgs']]:
+        """
+        An HTTP Live Streaming (HLS) ingest resource configuration.
+        """
+        return pulumi.get(self, "hls_ingest")
+
+    @hls_ingest.setter
+    def hls_ingest(self, value: Optional[pulumi.Input['ChannelHlsIngestArgs']]):
+        pulumi.set(self, "hls_ingest", value)
 
     @property
     @pulumi.getter(name="ingressAccessLogs")
@@ -92,6 +108,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
+                 hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
                  ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
@@ -102,6 +119,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A short text description of the Channel.
         :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']] hls_ingest: An HTTP Live Streaming (HLS) ingest resource configuration.
         :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] ingress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A collection of tags associated with a resource
         """
@@ -131,6 +149,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
+                 hls_ingest: Optional[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]] = None,
                  ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
@@ -144,10 +163,10 @@ class Channel(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["egress_access_logs"] = egress_access_logs
+            __props__.__dict__["hls_ingest"] = hls_ingest
             __props__.__dict__["ingress_access_logs"] = ingress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["hls_ingest"] = None
         super(Channel, __self__).__init__(
             'aws-native:mediapackage:Channel',
             resource_name,
@@ -204,9 +223,9 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hlsIngest")
-    def hls_ingest(self) -> pulumi.Output['outputs.ChannelHlsIngest']:
+    def hls_ingest(self) -> pulumi.Output[Optional['outputs.ChannelHlsIngest']]:
         """
-        A short text description of the Channel.
+        An HTTP Live Streaming (HLS) ingest resource configuration.
         """
         return pulumi.get(self, "hls_ingest")
 

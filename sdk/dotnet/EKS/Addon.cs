@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.EKS
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration values to use with the add-on
+        /// </summary>
+        [Output("configurationValues")]
+        public Output<string?> ConfigurationValues { get; private set; } = null!;
+
+        /// <summary>
         /// Resolve parameter value conflicts
         /// </summary>
         [Output("resolveConflicts")]
@@ -119,6 +125,12 @@ namespace Pulumi.AwsNative.EKS
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration values to use with the add-on
+        /// </summary>
+        [Input("configurationValues")]
+        public Input<string>? ConfigurationValues { get; set; }
 
         /// <summary>
         /// Resolve parameter value conflicts

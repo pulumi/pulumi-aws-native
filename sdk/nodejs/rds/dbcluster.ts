@@ -94,6 +94,10 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
+     * Reserved for future use.
+     */
+    public readonly dBSystemId!: pulumi.Output<string | undefined>;
+    /**
      * The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
      */
     public readonly databaseName!: pulumi.Output<string | undefined>;
@@ -274,6 +278,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["dBClusterParameterGroupName"] = args ? args.dBClusterParameterGroupName : undefined;
             resourceInputs["dBInstanceParameterGroupName"] = args ? args.dBInstanceParameterGroupName : undefined;
             resourceInputs["dBSubnetGroupName"] = args ? args.dBSubnetGroupName : undefined;
+            resourceInputs["dBSystemId"] = args ? args.dBSystemId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
@@ -330,6 +335,7 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["dBClusterResourceId"] = undefined /*out*/;
             resourceInputs["dBInstanceParameterGroupName"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dBSystemId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
@@ -427,6 +433,10 @@ export interface DBClusterArgs {
      * A DB subnet group that you want to associate with this DB cluster.
      */
     dBSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * Reserved for future use.
+     */
+    dBSystemId?: pulumi.Input<string>;
     /**
      * The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see Naming Constraints in the Amazon RDS User Guide.
      */

@@ -38,6 +38,10 @@ export interface GetReplicationSetResult {
      * The ReplicationSet configuration.
      */
     readonly regions?: outputs.ssmincidents.ReplicationSetReplicationRegion[];
+    /**
+     * The tags to apply to the replication set.
+     */
+    readonly tags?: outputs.ssmincidents.ReplicationSetTag[];
 }
 
 export function getReplicationSetOutput(args: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {

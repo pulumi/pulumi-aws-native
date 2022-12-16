@@ -11,20 +11,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CodePipeline::CustomActionType
-//
-// Deprecated: CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
 type CustomActionType struct {
 	pulumi.CustomResourceState
 
-	Category                pulumi.StringOutput                                `pulumi:"category"`
+	// The category of the custom action, such as a build action or a test action.
+	Category pulumi.StringOutput `pulumi:"category"`
+	// The configuration properties for the custom action.
 	ConfigurationProperties CustomActionTypeConfigurationPropertiesArrayOutput `pulumi:"configurationProperties"`
-	InputArtifactDetails    CustomActionTypeArtifactDetailsOutput              `pulumi:"inputArtifactDetails"`
-	OutputArtifactDetails   CustomActionTypeArtifactDetailsOutput              `pulumi:"outputArtifactDetails"`
-	Provider                pulumi.StringOutput                                `pulumi:"provider"`
-	Settings                CustomActionTypeSettingsPtrOutput                  `pulumi:"settings"`
-	Tags                    CustomActionTypeTagArrayOutput                     `pulumi:"tags"`
-	Version                 pulumi.StringOutput                                `pulumi:"version"`
+	// The details of the input artifact for the action, such as its commit ID.
+	InputArtifactDetails CustomActionTypeArtifactDetailsOutput `pulumi:"inputArtifactDetails"`
+	// The details of the output artifact of the action, such as its commit ID.
+	OutputArtifactDetails CustomActionTypeArtifactDetailsOutput `pulumi:"outputArtifactDetails"`
+	// The provider of the service used in the custom action, such as AWS CodeDeploy.
+	Provider pulumi.StringOutput `pulumi:"provider"`
+	// URLs that provide users information about this custom action.
+	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
+	// Any tags assigned to the custom action.
+	Tags CustomActionTypeTagArrayOutput `pulumi:"tags"`
+	// The version identifier of the custom action.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewCustomActionType registers a new resource with the given unique name, arguments, and options.
@@ -81,26 +87,42 @@ func (CustomActionTypeState) ElementType() reflect.Type {
 }
 
 type customActionTypeArgs struct {
-	Category                string                                    `pulumi:"category"`
+	// The category of the custom action, such as a build action or a test action.
+	Category string `pulumi:"category"`
+	// The configuration properties for the custom action.
 	ConfigurationProperties []CustomActionTypeConfigurationProperties `pulumi:"configurationProperties"`
-	InputArtifactDetails    CustomActionTypeArtifactDetails           `pulumi:"inputArtifactDetails"`
-	OutputArtifactDetails   CustomActionTypeArtifactDetails           `pulumi:"outputArtifactDetails"`
-	Provider                string                                    `pulumi:"provider"`
-	Settings                *CustomActionTypeSettings                 `pulumi:"settings"`
-	Tags                    []CustomActionTypeTag                     `pulumi:"tags"`
-	Version                 string                                    `pulumi:"version"`
+	// The details of the input artifact for the action, such as its commit ID.
+	InputArtifactDetails CustomActionTypeArtifactDetails `pulumi:"inputArtifactDetails"`
+	// The details of the output artifact of the action, such as its commit ID.
+	OutputArtifactDetails CustomActionTypeArtifactDetails `pulumi:"outputArtifactDetails"`
+	// The provider of the service used in the custom action, such as AWS CodeDeploy.
+	Provider string `pulumi:"provider"`
+	// URLs that provide users information about this custom action.
+	Settings *CustomActionTypeSettings `pulumi:"settings"`
+	// Any tags assigned to the custom action.
+	Tags []CustomActionTypeTag `pulumi:"tags"`
+	// The version identifier of the custom action.
+	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
 type CustomActionTypeArgs struct {
-	Category                pulumi.StringInput
+	// The category of the custom action, such as a build action or a test action.
+	Category pulumi.StringInput
+	// The configuration properties for the custom action.
 	ConfigurationProperties CustomActionTypeConfigurationPropertiesArrayInput
-	InputArtifactDetails    CustomActionTypeArtifactDetailsInput
-	OutputArtifactDetails   CustomActionTypeArtifactDetailsInput
-	Provider                pulumi.StringInput
-	Settings                CustomActionTypeSettingsPtrInput
-	Tags                    CustomActionTypeTagArrayInput
-	Version                 pulumi.StringInput
+	// The details of the input artifact for the action, such as its commit ID.
+	InputArtifactDetails CustomActionTypeArtifactDetailsInput
+	// The details of the output artifact of the action, such as its commit ID.
+	OutputArtifactDetails CustomActionTypeArtifactDetailsInput
+	// The provider of the service used in the custom action, such as AWS CodeDeploy.
+	Provider pulumi.StringInput
+	// URLs that provide users information about this custom action.
+	Settings CustomActionTypeSettingsPtrInput
+	// Any tags assigned to the custom action.
+	Tags CustomActionTypeTagArrayInput
+	// The version identifier of the custom action.
+	Version pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
@@ -140,36 +162,44 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.
 	return o
 }
 
+// The category of the custom action, such as a build action or a test action.
 func (o CustomActionTypeOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
 }
 
+// The configuration properties for the custom action.
 func (o CustomActionTypeOutput) ConfigurationProperties() CustomActionTypeConfigurationPropertiesArrayOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeConfigurationPropertiesArrayOutput {
 		return v.ConfigurationProperties
 	}).(CustomActionTypeConfigurationPropertiesArrayOutput)
 }
 
+// The details of the input artifact for the action, such as its commit ID.
 func (o CustomActionTypeOutput) InputArtifactDetails() CustomActionTypeArtifactDetailsOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeArtifactDetailsOutput { return v.InputArtifactDetails }).(CustomActionTypeArtifactDetailsOutput)
 }
 
+// The details of the output artifact of the action, such as its commit ID.
 func (o CustomActionTypeOutput) OutputArtifactDetails() CustomActionTypeArtifactDetailsOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeArtifactDetailsOutput { return v.OutputArtifactDetails }).(CustomActionTypeArtifactDetailsOutput)
 }
 
+// The provider of the service used in the custom action, such as AWS CodeDeploy.
 func (o CustomActionTypeOutput) Provider() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Provider }).(pulumi.StringOutput)
 }
 
+// URLs that provide users information about this custom action.
 func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeSettingsPtrOutput { return v.Settings }).(CustomActionTypeSettingsPtrOutput)
 }
 
+// Any tags assigned to the custom action.
 func (o CustomActionTypeOutput) Tags() CustomActionTypeTagArrayOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeTagArrayOutput { return v.Tags }).(CustomActionTypeTagArrayOutput)
 }
 
+// The version identifier of the custom action.
 func (o CustomActionTypeOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

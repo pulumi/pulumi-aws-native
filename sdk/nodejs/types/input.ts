@@ -1859,6 +1859,16 @@ export namespace appconfig {
 }
 
 export namespace appflow {
+    /**
+     * Contains information about the configuration of the lambda which is being registered as the connector.
+     */
+    export interface ConnectorLambdaConnectorProvisioningConfigArgs {
+        /**
+         * Lambda ARN of the connector being registered.
+         */
+        lambdaArn: pulumi.Input<string>;
+    }
+
     export interface ConnectorProfileAmplitudeConnectorProfileCredentialsArgs {
         /**
          * A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
@@ -2345,6 +2355,16 @@ export namespace appflow {
          * The location of the Zendesk resource
          */
         instanceUrl: pulumi.Input<string>;
+    }
+
+    /**
+     * Contains information about the configuration of the connector being registered.
+     */
+    export interface ConnectorProvisioningConfigArgs {
+        /**
+         * Contains information about the configuration of the lambda which is being registered as the connector.
+         */
+        lambda?: pulumi.Input<inputs.appflow.ConnectorLambdaConnectorProvisioningConfigArgs>;
     }
 
     export interface FlowAggregationConfigArgs {
@@ -5179,9 +5199,21 @@ export namespace backup {
      */
     export interface ReportSettingPropertiesArgs {
         /**
+         * The list of AWS accounts that a report covers.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Amazon Resource Names (ARNs) of the frameworks a report covers.
          */
         frameworkArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of AWS organization units that a report covers.
+         */
+        organizationUnits?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of AWS regions that a report covers.
+         */
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
@@ -7000,25 +7032,73 @@ export namespace codegurureviewer {
 }
 
 export namespace codepipeline {
+    /**
+     * Returns information about the details of an artifact.
+     */
     export interface CustomActionTypeArtifactDetailsArgs {
+        /**
+         * The maximum number of artifacts allowed for the action type.
+         */
         maximumCount: pulumi.Input<number>;
+        /**
+         * The minimum number of artifacts allowed for the action type.
+         */
         minimumCount: pulumi.Input<number>;
     }
 
+    /**
+     * The configuration properties for the custom action.
+     */
     export interface CustomActionTypeConfigurationPropertiesArgs {
+        /**
+         * The description of the action configuration property that is displayed to users. 
+         */
         description?: pulumi.Input<string>;
+        /**
+         * Whether the configuration property is a key.
+         */
         key: pulumi.Input<boolean>;
+        /**
+         * The name of the action configuration property.
+         */
         name: pulumi.Input<string>;
+        /**
+         * Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+         */
         queryable?: pulumi.Input<boolean>;
+        /**
+         * Whether the configuration property is a required value.
+         */
         required: pulumi.Input<boolean>;
+        /**
+         * Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
+         */
         secret: pulumi.Input<boolean>;
+        /**
+         * The type of the configuration property.
+         */
         type?: pulumi.Input<string>;
     }
 
+    /**
+     * Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+     */
     export interface CustomActionTypeSettingsArgs {
+        /**
+         * The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+         */
         entityUrlTemplate?: pulumi.Input<string>;
+        /**
+         * The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+         */
         executionUrlTemplate?: pulumi.Input<string>;
+        /**
+         * The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+         */
         revisionUrlTemplate?: pulumi.Input<string>;
+        /**
+         * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
+         */
         thirdPartyConfigurationUrl?: pulumi.Input<string>;
     }
 
@@ -7435,6 +7515,20 @@ export namespace configuration {
 
     export interface DeliveryChannelConfigSnapshotDeliveryPropertiesArgs {
         deliveryFrequency?: pulumi.Input<string>;
+    }
+
+    export interface OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs {
+        codeText: pulumi.Input<string>;
+        debugLogDeliveryAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+        description?: pulumi.Input<string>;
+        inputParameters?: pulumi.Input<string>;
+        maximumExecutionFrequency?: pulumi.Input<string>;
+        organizationConfigRuleTriggerTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceIdScope?: pulumi.Input<string>;
+        resourceTypesScope?: pulumi.Input<pulumi.Input<string>[]>;
+        runtime: pulumi.Input<string>;
+        tagKeyScope?: pulumi.Input<string>;
+        tagValueScope?: pulumi.Input<string>;
     }
 
     export interface OrganizationConfigRuleOrganizationCustomRuleMetadataArgs {
@@ -9793,6 +9887,13 @@ export namespace docdb {
     }
 }
 
+export namespace docdbelastic {
+    export interface ClusterTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
 export namespace dynamodb {
     export interface GlobalTableAttributeDefinitionArgs {
         attributeName: pulumi.Input<string>;
@@ -11442,12 +11543,19 @@ export namespace ecs {
         portName: pulumi.Input<string>;
     }
 
+    export interface ServiceDeploymentAlarmsArgs {
+        alarmNames: pulumi.Input<pulumi.Input<string>[]>;
+        enable: pulumi.Input<boolean>;
+        rollback: pulumi.Input<boolean>;
+    }
+
     export interface ServiceDeploymentCircuitBreakerArgs {
         enable: pulumi.Input<boolean>;
         rollback: pulumi.Input<boolean>;
     }
 
     export interface ServiceDeploymentConfigurationArgs {
+        alarms?: pulumi.Input<inputs.ecs.ServiceDeploymentAlarmsArgs>;
         deploymentCircuitBreaker?: pulumi.Input<inputs.ecs.ServiceDeploymentCircuitBreakerArgs>;
         maximumPercent?: pulumi.Input<number>;
         minimumHealthyPercent?: pulumi.Input<number>;
@@ -11690,6 +11798,7 @@ export namespace ecs {
     export interface TaskDefinitionPortMappingArgs {
         appProtocol?: pulumi.Input<enums.ecs.TaskDefinitionPortMappingAppProtocol>;
         containerPort?: pulumi.Input<number>;
+        containerPortRange?: pulumi.Input<string>;
         hostPort?: pulumi.Input<number>;
         name?: pulumi.Input<string>;
         protocol?: pulumi.Input<string>;
@@ -12363,14 +12472,32 @@ export namespace elasticbeanstalk {
     }
 
     export interface ConfigurationTemplateConfigurationOptionSettingArgs {
+        /**
+         * A unique namespace that identifies the option's associated AWS resource.
+         */
         namespace: pulumi.Input<string>;
+        /**
+         * The name of the configuration option.
+         */
         optionName: pulumi.Input<string>;
+        /**
+         * A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+         */
         resourceName?: pulumi.Input<string>;
+        /**
+         * The current value for the configuration option.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface ConfigurationTemplateSourceConfigurationArgs {
+        /**
+         * The name of the application associated with the configuration.
+         */
         applicationName: pulumi.Input<string>;
+        /**
+         * The name of the configuration template.
+         */
         templateName: pulumi.Input<string>;
     }
 
@@ -12680,23 +12807,50 @@ export namespace elasticloadbalancingv2 {
     }
 
     export interface TargetGroupAttributeArgs {
+        /**
+         * The value of the attribute.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * The name of the attribute.
+         */
         value?: pulumi.Input<string>;
     }
 
     export interface TargetGroupMatcherArgs {
+        /**
+         * You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
+         */
         grpcCode?: pulumi.Input<string>;
+        /**
+         * For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+         */
         httpCode?: pulumi.Input<string>;
     }
 
     export interface TargetGroupTagArgs {
+        /**
+         * The value for the tag. 
+         */
         key: pulumi.Input<string>;
+        /**
+         * The key name of the tag. 
+         */
         value: pulumi.Input<string>;
     }
 
     export interface TargetGroupTargetDescriptionArgs {
+        /**
+         * An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
+         */
         availabilityZone?: pulumi.Input<string>;
+        /**
+         * The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+         */
         id: pulumi.Input<string>;
+        /**
+         * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
+         */
         port?: pulumi.Input<number>;
     }
 }
@@ -15113,6 +15267,83 @@ export namespace glue {
     }
 }
 
+export namespace grafana {
+    /**
+     * Maps Grafana friendly names to the IdPs SAML attributes.
+     */
+    export interface WorkspaceAssertionAttributesArgs {
+        /**
+         * Name of the attribute within the SAML assert to use as the users email in Grafana.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * Name of the attribute within the SAML assert to use as the users groups in Grafana.
+         */
+        groups?: pulumi.Input<string>;
+        /**
+         * Name of the attribute within the SAML assert to use as the users login handle in Grafana.
+         */
+        login?: pulumi.Input<string>;
+        /**
+         * Name of the attribute within the SAML assert to use as the users name in Grafana.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Name of the attribute within the SAML assert to use as the users organizations in Grafana.
+         */
+        org?: pulumi.Input<string>;
+        /**
+         * Name of the attribute within the SAML assert to use as the users roles in Grafana.
+         */
+        role?: pulumi.Input<string>;
+    }
+
+    /**
+     * IdP Metadata used to configure SAML authentication in Grafana.
+     */
+    export interface WorkspaceIdpMetadataArgs {
+        /**
+         * URL that vends the IdPs metadata.
+         */
+        url?: pulumi.Input<string>;
+        /**
+         * XML blob of the IdPs metadata.
+         */
+        xml?: pulumi.Input<string>;
+    }
+
+    /**
+     * Maps SAML roles to the Grafana Editor and Admin roles.
+     */
+    export interface WorkspaceRoleValuesArgs {
+        /**
+         * List of SAML roles which will be mapped into the Grafana Admin role.
+         */
+        admin?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of SAML roles which will be mapped into the Grafana Editor role.
+         */
+        editor?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * SAML configuration data associated with an AMG workspace.
+     */
+    export interface WorkspaceSamlConfigurationArgs {
+        /**
+         * List of SAML organizations allowed to access Grafana.
+         */
+        allowedOrganizations?: pulumi.Input<pulumi.Input<string>[]>;
+        assertionAttributes?: pulumi.Input<inputs.grafana.WorkspaceAssertionAttributesArgs>;
+        idpMetadata: pulumi.Input<inputs.grafana.WorkspaceIdpMetadataArgs>;
+        /**
+         * The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
+         */
+        loginValidityDuration?: pulumi.Input<number>;
+        roleValues?: pulumi.Input<inputs.grafana.WorkspaceRoleValuesArgs>;
+    }
+}
+
 export namespace greengrass {
     export interface ConnectorDefinitionConnectorArgs {
         connectorArn: pulumi.Input<string>;
@@ -15641,8 +15872,8 @@ export namespace groundstation {
     }
 
     export interface MissionProfileTagArgs {
-        key?: pulumi.Input<string>;
-        value?: pulumi.Input<string>;
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -21223,6 +21454,16 @@ export namespace lambda {
     }
 
     /**
+     * The scaling configuration for the event source.
+     */
+    export interface EventSourceMappingScalingConfigArgs {
+        /**
+         * The maximum number of concurrent functions that the event source can invoke.
+         */
+        maximumConcurrency?: pulumi.Input<number>;
+    }
+
+    /**
      * The configuration used by AWS Lambda to access a self-managed event source.
      */
     export interface EventSourceMappingSelfManagedEventSourceArgs {
@@ -23350,10 +23591,28 @@ export namespace mediaconnect {
      */
     export interface FlowFailoverConfigArgs {
         /**
+         * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+         */
+        failoverMode?: pulumi.Input<enums.mediaconnect.FlowFailoverConfigFailoverMode>;
+        /**
          * Search window time to look for dash-7 packets
          */
         recoveryWindow?: pulumi.Input<number>;
+        /**
+         * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+         */
+        sourcePriority?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigSourcePriorityPropertiesArgs>;
         state?: pulumi.Input<enums.mediaconnect.FlowFailoverConfigState>;
+    }
+
+    /**
+     * The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+     */
+    export interface FlowFailoverConfigSourcePriorityPropertiesArgs {
+        /**
+         * The name of the source you choose as the primary source for this flow.
+         */
+        primarySource: pulumi.Input<string>;
     }
 
     /**
@@ -23429,9 +23688,17 @@ export namespace mediaconnect {
          */
         name?: pulumi.Input<string>;
         /**
-         * The protocol that is used by the source or output.
+         * The protocol that is used by the source.
          */
         protocol?: pulumi.Input<enums.mediaconnect.FlowSourceProtocol>;
+        /**
+         * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+         */
+        senderControlPort?: pulumi.Input<number>;
+        /**
+         * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+         */
+        senderIpAddress?: pulumi.Input<string>;
         /**
          * The ARN of the source.
          */
@@ -23440,6 +23707,14 @@ export namespace mediaconnect {
          * The port that the flow will be listening on for incoming content.(ReadOnly)
          */
         sourceIngestPort?: pulumi.Input<string>;
+        /**
+         * Source IP or domain name for SRT-caller protocol.
+         */
+        sourceListenerAddress?: pulumi.Input<string>;
+        /**
+         * Source port for SRT-caller protocol.
+         */
+        sourceListenerPort?: pulumi.Input<number>;
         /**
          * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
          */
@@ -24643,6 +24918,38 @@ export namespace mediapackage {
     export interface AssetTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * An HTTP Live Streaming (HLS) ingest resource configuration.
+     */
+    export interface ChannelHlsIngestArgs {
+        /**
+         * A list of endpoints to which the source stream should be sent.
+         */
+        ingestEndpoints?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelIngestEndpointArgs>[]>;
+    }
+
+    /**
+     * An endpoint for ingesting source content for a Channel.
+     */
+    export interface ChannelIngestEndpointArgs {
+        /**
+         * The system generated unique identifier for the IngestEndpoint
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The system generated password for ingest authentication.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The ingest URL to which the source stream should be sent.
+         */
+        url: pulumi.Input<string>;
+        /**
+         * The system generated username for ingest authentication.
+         */
+        username: pulumi.Input<string>;
     }
 
     export interface ChannelLogConfigurationArgs {
@@ -26050,6 +26357,10 @@ export namespace networkmanager {
      */
     export interface VpcAttachmentVpcOptionsArgs {
         /**
+         * Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+         */
+        applianceModeSupport?: pulumi.Input<boolean>;
+        /**
          * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
          */
         ipv6Support?: pulumi.Input<boolean>;
@@ -26181,6 +26492,44 @@ export namespace nimblestudio {
     }
 
     export interface StudioTagsArgs {
+    }
+}
+
+export namespace opensearchserverless {
+    /**
+     * A key-value pair metadata associated with resource
+     */
+    export interface CollectionTagArgs {
+        /**
+         * The key in the key-value pair
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value in the key-value pair
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes saml options in form of key value map
+     */
+    export interface SecurityConfigSamlConfigOptionsArgs {
+        /**
+         * Group attribute for this saml integration
+         */
+        groupAttribute?: pulumi.Input<string>;
+        /**
+         * The XML saml provider metadata document that you want to use
+         */
+        metadata: pulumi.Input<string>;
+        /**
+         * Defines the session timeout in minutes
+         */
+        sessionTimeout?: pulumi.Input<number>;
+        /**
+         * Custom attribute for this saml integration
+         */
+        userAttribute?: pulumi.Input<string>;
     }
 }
 
@@ -28721,6 +29070,11 @@ export namespace rds {
          */
         minCapacity?: pulumi.Input<number>;
         /**
+         * The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+         * The default is 300.
+         */
+        secondsBeforeTimeout?: pulumi.Input<number>;
+        /**
          * The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
          */
         secondsUntilAutoPause?: pulumi.Input<number>;
@@ -29742,6 +30096,11 @@ export namespace route53 {
 }
 
 export namespace route53recoverycontrol {
+    export interface ClusterEndpointArgs {
+        endpoint?: pulumi.Input<string>;
+        region?: pulumi.Input<string>;
+    }
+
     export interface ClusterTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
@@ -34971,6 +35330,14 @@ export namespace ssmincidents {
     }
 
     /**
+     * A key-value pair to tag a resource.
+     */
+    export interface ReplicationSetTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * The automation configuration to launch.
      */
     export interface ResponsePlanActionArgs {
@@ -36103,6 +36470,10 @@ export namespace wafv2 {
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupImmunityTimePropertyArgs>;
     }
 
+    export interface RuleGroupChallengeConfigArgs {
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.RuleGroupImmunityTimePropertyArgs>;
+    }
+
     /**
      * The pattern to look for in the request cookies.
      */
@@ -36281,6 +36652,10 @@ export namespace wafv2 {
         scope: pulumi.Input<enums.wafv2.RuleGroupLabelMatchScope>;
     }
 
+    export interface RuleGroupLabelSummaryArgs {
+        name?: pulumi.Input<string>;
+    }
+
     export interface RuleGroupNotStatementArgs {
         statement: pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>;
     }
@@ -36314,6 +36689,7 @@ export namespace wafv2 {
     export interface RuleGroupRuleArgs {
         action?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionArgs>;
         captchaConfig?: pulumi.Input<inputs.wafv2.RuleGroupCaptchaConfigArgs>;
+        challengeConfig?: pulumi.Input<inputs.wafv2.RuleGroupChallengeConfigArgs>;
         name: pulumi.Input<string>;
         priority: pulumi.Input<number>;
         /**
@@ -36341,6 +36717,10 @@ export namespace wafv2 {
          */
         captcha?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCaptchaPropertiesArgs>;
         /**
+         * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+         */
+        challenge?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionChallengePropertiesArgs>;
+        /**
          * Count traffic towards application.
          */
         count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountPropertiesArgs>;
@@ -36364,6 +36744,13 @@ export namespace wafv2 {
      * Checks valid token exists with request.
      */
     export interface RuleGroupRuleActionCaptchaPropertiesArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface RuleGroupRuleActionChallengePropertiesArgs {
         customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupCustomRequestHandlingArgs>;
     }
 
@@ -36443,6 +36830,13 @@ export namespace wafv2 {
     }
 
     /**
+     * Configures how to use the Bot Control managed rule group in the web ACL
+     */
+    export interface WebACLAWSManagedRulesBotControlRuleSetArgs {
+        inspectionLevel: pulumi.Input<enums.wafv2.WebACLAWSManagedRulesBotControlRuleSetInspectionLevel>;
+    }
+
+    /**
      * Allow traffic towards application.
      */
     export interface WebACLAllowActionArgs {
@@ -36486,6 +36880,17 @@ export namespace wafv2 {
     }
 
     export interface WebACLCaptchaConfigArgs {
+        immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebACLImmunityTimePropertyArgs>;
+    }
+
+    /**
+     * Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+     */
+    export interface WebACLChallengeActionArgs {
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebACLCustomRequestHandlingArgs>;
+    }
+
+    export interface WebACLChallengeConfigArgs {
         immunityTimeProperty?: pulumi.Input<inputs.wafv2.WebACLImmunityTimePropertyArgs>;
     }
 
@@ -36697,6 +37102,7 @@ export namespace wafv2 {
      * ManagedRuleGroupConfig.
      */
     export interface WebACLManagedRuleGroupConfigArgs {
+        aWSManagedRulesBotControlRuleSet?: pulumi.Input<inputs.wafv2.WebACLAWSManagedRulesBotControlRuleSetArgs>;
         loginPath?: pulumi.Input<string>;
         passwordField?: pulumi.Input<inputs.wafv2.WebACLFieldIdentifierArgs>;
         payloadType?: pulumi.Input<enums.wafv2.WebACLManagedRuleGroupConfigPayloadType>;
@@ -36710,6 +37116,10 @@ export namespace wafv2 {
          */
         managedRuleGroupConfigs?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLManagedRuleGroupConfigArgs>[]>;
         name: pulumi.Input<string>;
+        /**
+         * Action overrides for rules in the rule group.
+         */
+        ruleActionOverrides?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleActionOverrideArgs>[]>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
         vendorName: pulumi.Input<string>;
         version?: pulumi.Input<string>;
@@ -36762,6 +37172,7 @@ export namespace wafv2 {
     export interface WebACLRuleArgs {
         action?: pulumi.Input<inputs.wafv2.WebACLRuleActionArgs>;
         captchaConfig?: pulumi.Input<inputs.wafv2.WebACLCaptchaConfigArgs>;
+        challengeConfig?: pulumi.Input<inputs.wafv2.WebACLChallengeConfigArgs>;
         name: pulumi.Input<string>;
         overrideAction?: pulumi.Input<inputs.wafv2.WebACLOverrideActionArgs>;
         priority: pulumi.Input<number>;
@@ -36780,12 +37191,25 @@ export namespace wafv2 {
         allow?: pulumi.Input<inputs.wafv2.WebACLAllowActionArgs>;
         block?: pulumi.Input<inputs.wafv2.WebACLBlockActionArgs>;
         captcha?: pulumi.Input<inputs.wafv2.WebACLCaptchaActionArgs>;
+        challenge?: pulumi.Input<inputs.wafv2.WebACLChallengeActionArgs>;
         count?: pulumi.Input<inputs.wafv2.WebACLCountActionArgs>;
+    }
+
+    /**
+     * Action override for rules in the rule group.
+     */
+    export interface WebACLRuleActionOverrideArgs {
+        actionToUse: pulumi.Input<inputs.wafv2.WebACLRuleActionArgs>;
+        name: pulumi.Input<string>;
     }
 
     export interface WebACLRuleGroupReferenceStatementArgs {
         arn: pulumi.Input<string>;
         excludedRules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLExcludedRuleArgs>[]>;
+        /**
+         * Action overrides for rules in the rule group.
+         */
+        ruleActionOverrides?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleActionOverrideArgs>[]>;
     }
 
     /**

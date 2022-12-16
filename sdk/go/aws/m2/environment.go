@@ -27,6 +27,8 @@ type Environment struct {
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrOutput `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the environment.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
@@ -96,6 +98,8 @@ type environmentArgs struct {
 	HighAvailabilityConfig *EnvironmentHighAvailabilityConfig `pulumi:"highAvailabilityConfig"`
 	// The type of instance underlying the environment.
 	InstanceType string `pulumi:"instanceType"`
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the environment.
 	Name *string `pulumi:"name"`
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
@@ -122,6 +126,8 @@ type EnvironmentArgs struct {
 	HighAvailabilityConfig EnvironmentHighAvailabilityConfigPtrInput
 	// The type of instance underlying the environment.
 	InstanceType pulumi.StringInput
+	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+	KmsKeyId pulumi.StringPtrInput
 	// The name of the environment.
 	Name pulumi.StringPtrInput
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
@@ -206,6 +212,11 @@ func (o EnvironmentOutput) HighAvailabilityConfig() EnvironmentHighAvailabilityC
 // The type of instance underlying the environment.
 func (o EnvironmentOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+func (o EnvironmentOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The name of the environment.

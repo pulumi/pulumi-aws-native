@@ -110,6 +110,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Queues;
         /// <summary>
+        /// The scaling configuration for the event source.
+        /// </summary>
+        public readonly Outputs.EventSourceMappingScalingConfig? ScalingConfig;
+        /// <summary>
         /// A list of SourceAccessConfiguration.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> SourceAccessConfigurations;
@@ -150,6 +154,8 @@ namespace Pulumi.AwsNative.Lambda
 
             ImmutableArray<string> queues,
 
+            Outputs.EventSourceMappingScalingConfig? scalingConfig,
+
             ImmutableArray<Outputs.EventSourceMappingSourceAccessConfiguration> sourceAccessConfigurations,
 
             ImmutableArray<string> topics,
@@ -169,6 +175,7 @@ namespace Pulumi.AwsNative.Lambda
             MaximumRetryAttempts = maximumRetryAttempts;
             ParallelizationFactor = parallelizationFactor;
             Queues = queues;
+            ScalingConfig = scalingConfig;
             SourceAccessConfigurations = sourceAccessConfigurations;
             Topics = topics;
             TumblingWindowInSeconds = tumblingWindowInSeconds;

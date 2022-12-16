@@ -19,29 +19,29 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// <summary>
         /// The system generated unique identifier for the IngestEndpoint
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// The system generated password for ingest authentication.
         /// </summary>
-        public readonly string? Password;
+        public readonly string Password;
         /// <summary>
         /// The ingest URL to which the source stream should be sent.
         /// </summary>
-        public readonly string? Url;
+        public readonly string Url;
         /// <summary>
         /// The system generated username for ingest authentication.
         /// </summary>
-        public readonly string? Username;
+        public readonly string Username;
 
         [OutputConstructor]
         private ChannelIngestEndpoint(
-            string? id,
+            string id,
 
-            string? password,
+            string password,
 
-            string? url,
+            string url,
 
-            string? username)
+            string username)
         {
             Id = id;
             Password = password;

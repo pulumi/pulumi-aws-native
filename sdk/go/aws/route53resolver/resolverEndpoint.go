@@ -17,15 +17,17 @@ import (
 type ResolverEndpoint struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                         `pulumi:"arn"`
-	Direction          pulumi.StringOutput                         `pulumi:"direction"`
-	HostVPCId          pulumi.StringOutput                         `pulumi:"hostVPCId"`
-	IpAddressCount     pulumi.StringOutput                         `pulumi:"ipAddressCount"`
-	IpAddresses        ResolverEndpointIpAddressRequestArrayOutput `pulumi:"ipAddresses"`
-	Name               pulumi.StringPtrOutput                      `pulumi:"name"`
-	ResolverEndpointId pulumi.StringOutput                         `pulumi:"resolverEndpointId"`
-	SecurityGroupIds   pulumi.StringArrayOutput                    `pulumi:"securityGroupIds"`
-	Tags               ResolverEndpointTagArrayOutput              `pulumi:"tags"`
+	Arn                   pulumi.StringOutput                         `pulumi:"arn"`
+	Direction             pulumi.StringOutput                         `pulumi:"direction"`
+	HostVPCId             pulumi.StringOutput                         `pulumi:"hostVPCId"`
+	IpAddressCount        pulumi.StringOutput                         `pulumi:"ipAddressCount"`
+	IpAddresses           ResolverEndpointIpAddressRequestArrayOutput `pulumi:"ipAddresses"`
+	Name                  pulumi.StringPtrOutput                      `pulumi:"name"`
+	OutpostArn            pulumi.StringPtrOutput                      `pulumi:"outpostArn"`
+	PreferredInstanceType pulumi.StringPtrOutput                      `pulumi:"preferredInstanceType"`
+	ResolverEndpointId    pulumi.StringOutput                         `pulumi:"resolverEndpointId"`
+	SecurityGroupIds      pulumi.StringArrayOutput                    `pulumi:"securityGroupIds"`
+	Tags                  ResolverEndpointTagArrayOutput              `pulumi:"tags"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -76,20 +78,24 @@ func (ResolverEndpointState) ElementType() reflect.Type {
 }
 
 type resolverEndpointArgs struct {
-	Direction        string                             `pulumi:"direction"`
-	IpAddresses      []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
-	Name             *string                            `pulumi:"name"`
-	SecurityGroupIds []string                           `pulumi:"securityGroupIds"`
-	Tags             []ResolverEndpointTag              `pulumi:"tags"`
+	Direction             string                             `pulumi:"direction"`
+	IpAddresses           []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
+	Name                  *string                            `pulumi:"name"`
+	OutpostArn            *string                            `pulumi:"outpostArn"`
+	PreferredInstanceType *string                            `pulumi:"preferredInstanceType"`
+	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
+	Tags                  []ResolverEndpointTag              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
 type ResolverEndpointArgs struct {
-	Direction        pulumi.StringInput
-	IpAddresses      ResolverEndpointIpAddressRequestArrayInput
-	Name             pulumi.StringPtrInput
-	SecurityGroupIds pulumi.StringArrayInput
-	Tags             ResolverEndpointTagArrayInput
+	Direction             pulumi.StringInput
+	IpAddresses           ResolverEndpointIpAddressRequestArrayInput
+	Name                  pulumi.StringPtrInput
+	OutpostArn            pulumi.StringPtrInput
+	PreferredInstanceType pulumi.StringPtrInput
+	SecurityGroupIds      pulumi.StringArrayInput
+	Tags                  ResolverEndpointTagArrayInput
 }
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
@@ -151,6 +157,14 @@ func (o ResolverEndpointOutput) IpAddresses() ResolverEndpointIpAddressRequestAr
 
 func (o ResolverEndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointOutput) PreferredInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.PreferredInstanceType }).(pulumi.StringPtrOutput)
 }
 
 func (o ResolverEndpointOutput) ResolverEndpointId() pulumi.StringOutput {

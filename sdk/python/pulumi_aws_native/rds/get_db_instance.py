@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -45,6 +45,9 @@ class GetDBInstanceResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if d_b_cluster_snapshot_identifier and not isinstance(d_b_cluster_snapshot_identifier, str):
+            raise TypeError("Expected argument 'd_b_cluster_snapshot_identifier' to be a str")
+        pulumi.set(__self__, "d_b_cluster_snapshot_identifier", d_b_cluster_snapshot_identifier)
         if d_b_instance_arn and not isinstance(d_b_instance_arn, str):
             raise TypeError("Expected argument 'd_b_instance_arn' to be a str")
         pulumi.set(__self__, "d_b_instance_arn", d_b_instance_arn)
@@ -220,6 +223,22 @@ class GetDBInstanceResult:
         A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="dBClusterSnapshotIdentifier")
+    def d_b_cluster_snapshot_identifier(self) -> Optional[str]:
+        """
+        The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+
+        Constraints:
+         * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+         * Can't be specified when DBSnapshotIdentifier is specified.
+         * Must be specified when DBSnapshotIdentifier isn't specified.
+         * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+         * Can't be the identifier of an Aurora DB cluster snapshot.
+         * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        """
+        return pulumi.get(self, "d_b_cluster_snapshot_identifier")
 
     @property
     @pulumi.getter(name="dBInstanceArn")
@@ -532,6 +551,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             backup_retention_period=self.backup_retention_period,
             c_a_certificate_identifier=self.c_a_certificate_identifier,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
+            d_b_cluster_snapshot_identifier=self.d_b_cluster_snapshot_identifier,
             d_b_instance_arn=self.d_b_instance_arn,
             d_b_instance_class=self.d_b_instance_class,
             d_b_parameter_group_name=self.d_b_parameter_group_name,
@@ -593,6 +613,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         backup_retention_period=__ret__.backup_retention_period,
         c_a_certificate_identifier=__ret__.c_a_certificate_identifier,
         copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
+        d_b_cluster_snapshot_identifier=__ret__.d_b_cluster_snapshot_identifier,
         d_b_instance_arn=__ret__.d_b_instance_arn,
         d_b_instance_class=__ret__.d_b_instance_class,
         d_b_parameter_group_name=__ret__.d_b_parameter_group_name,

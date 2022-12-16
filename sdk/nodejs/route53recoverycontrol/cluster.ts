@@ -44,7 +44,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Endpoints for the cluster.
      */
-    public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterEndpoint[]>;
+    public readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterEndpoint[] | undefined>;
     /**
      * Name of a Cluster. You can use any non-white space character in the name
      */
@@ -69,10 +69,10 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["clusterEndpoints"] = args ? args.clusterEndpoints : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["clusterArn"] = undefined /*out*/;
-            resourceInputs["clusterEndpoints"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["clusterArn"] = undefined /*out*/;
@@ -90,6 +90,10 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Endpoints for the cluster.
+     */
+    clusterEndpoints?: pulumi.Input<pulumi.Input<inputs.route53recoverycontrol.ClusterEndpointArgs>[]>;
     /**
      * Name of a Cluster. You can use any non-white space character in the name
      */

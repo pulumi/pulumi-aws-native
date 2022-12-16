@@ -838,6 +838,171 @@ func (in *flowEntitlementEntitlementStatusPtr) ToFlowEntitlementEntitlementStatu
 	return pulumi.ToOutputWithContext(ctx, in).(FlowEntitlementEntitlementStatusPtrOutput)
 }
 
+// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+type FlowFailoverConfigFailoverMode string
+
+const (
+	FlowFailoverConfigFailoverModeMerge    = FlowFailoverConfigFailoverMode("MERGE")
+	FlowFailoverConfigFailoverModeFailover = FlowFailoverConfigFailoverMode("FAILOVER")
+)
+
+func (FlowFailoverConfigFailoverMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFailoverConfigFailoverMode)(nil)).Elem()
+}
+
+func (e FlowFailoverConfigFailoverMode) ToFlowFailoverConfigFailoverModeOutput() FlowFailoverConfigFailoverModeOutput {
+	return pulumi.ToOutput(e).(FlowFailoverConfigFailoverModeOutput)
+}
+
+func (e FlowFailoverConfigFailoverMode) ToFlowFailoverConfigFailoverModeOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowFailoverConfigFailoverModeOutput)
+}
+
+func (e FlowFailoverConfigFailoverMode) ToFlowFailoverConfigFailoverModePtrOutput() FlowFailoverConfigFailoverModePtrOutput {
+	return e.ToFlowFailoverConfigFailoverModePtrOutputWithContext(context.Background())
+}
+
+func (e FlowFailoverConfigFailoverMode) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
+	return FlowFailoverConfigFailoverMode(e).ToFlowFailoverConfigFailoverModeOutputWithContext(ctx).ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx)
+}
+
+func (e FlowFailoverConfigFailoverMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFailoverConfigFailoverMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowFailoverConfigFailoverMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowFailoverConfigFailoverMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowFailoverConfigFailoverModeOutput struct{ *pulumi.OutputState }
+
+func (FlowFailoverConfigFailoverModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowFailoverConfigFailoverMode)(nil)).Elem()
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModeOutput() FlowFailoverConfigFailoverModeOutput {
+	return o
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModeOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModeOutput {
+	return o
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModePtrOutput() FlowFailoverConfigFailoverModePtrOutput {
+	return o.ToFlowFailoverConfigFailoverModePtrOutputWithContext(context.Background())
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowFailoverConfigFailoverMode) *FlowFailoverConfigFailoverMode {
+		return &v
+	}).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFailoverConfigFailoverMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFailoverConfigFailoverModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowFailoverConfigFailoverMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowFailoverConfigFailoverModePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowFailoverConfigFailoverModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowFailoverConfigFailoverMode)(nil)).Elem()
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) ToFlowFailoverConfigFailoverModePtrOutput() FlowFailoverConfigFailoverModePtrOutput {
+	return o
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
+	return o
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) Elem() FlowFailoverConfigFailoverModeOutput {
+	return o.ApplyT(func(v *FlowFailoverConfigFailoverMode) FlowFailoverConfigFailoverMode {
+		if v != nil {
+			return *v
+		}
+		var ret FlowFailoverConfigFailoverMode
+		return ret
+	}).(FlowFailoverConfigFailoverModeOutput)
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowFailoverConfigFailoverModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowFailoverConfigFailoverMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowFailoverConfigFailoverModeInput is an input type that accepts FlowFailoverConfigFailoverModeArgs and FlowFailoverConfigFailoverModeOutput values.
+// You can construct a concrete instance of `FlowFailoverConfigFailoverModeInput` via:
+//
+//	FlowFailoverConfigFailoverModeArgs{...}
+type FlowFailoverConfigFailoverModeInput interface {
+	pulumi.Input
+
+	ToFlowFailoverConfigFailoverModeOutput() FlowFailoverConfigFailoverModeOutput
+	ToFlowFailoverConfigFailoverModeOutputWithContext(context.Context) FlowFailoverConfigFailoverModeOutput
+}
+
+var flowFailoverConfigFailoverModePtrType = reflect.TypeOf((**FlowFailoverConfigFailoverMode)(nil)).Elem()
+
+type FlowFailoverConfigFailoverModePtrInput interface {
+	pulumi.Input
+
+	ToFlowFailoverConfigFailoverModePtrOutput() FlowFailoverConfigFailoverModePtrOutput
+	ToFlowFailoverConfigFailoverModePtrOutputWithContext(context.Context) FlowFailoverConfigFailoverModePtrOutput
+}
+
+type flowFailoverConfigFailoverModePtr string
+
+func FlowFailoverConfigFailoverModePtr(v string) FlowFailoverConfigFailoverModePtrInput {
+	return (*flowFailoverConfigFailoverModePtr)(&v)
+}
+
+func (*flowFailoverConfigFailoverModePtr) ElementType() reflect.Type {
+	return flowFailoverConfigFailoverModePtrType
+}
+
+func (in *flowFailoverConfigFailoverModePtr) ToFlowFailoverConfigFailoverModePtrOutput() FlowFailoverConfigFailoverModePtrOutput {
+	return pulumi.ToOutput(in).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
+func (in *flowFailoverConfigFailoverModePtr) ToFlowFailoverConfigFailoverModePtrOutputWithContext(ctx context.Context) FlowFailoverConfigFailoverModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowFailoverConfigFailoverModePtrOutput)
+}
+
 type FlowFailoverConfigState string
 
 const (
@@ -1342,7 +1507,9 @@ const (
 	FlowOutputProtocolRtp         = FlowOutputProtocol("rtp")
 	FlowOutputProtocolZixiPull    = FlowOutputProtocol("zixi-pull")
 	FlowOutputProtocolRist        = FlowOutputProtocol("rist")
+	FlowOutputProtocolFujitsuQos  = FlowOutputProtocol("fujitsu-qos")
 	FlowOutputProtocolSrtListener = FlowOutputProtocol("srt-listener")
+	FlowOutputProtocolSrtCaller   = FlowOutputProtocol("srt-caller")
 )
 
 func (FlowOutputProtocol) ElementType() reflect.Type {
@@ -1833,7 +2000,7 @@ func (in *flowSourceEncryptionKeyTypePtr) ToFlowSourceEncryptionKeyTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
-// The protocol that is used by the source or output.
+// The protocol that is used by the source.
 type FlowSourceProtocol string
 
 const (
@@ -1841,7 +2008,9 @@ const (
 	FlowSourceProtocolRtpFec      = FlowSourceProtocol("rtp-fec")
 	FlowSourceProtocolRtp         = FlowSourceProtocol("rtp")
 	FlowSourceProtocolRist        = FlowSourceProtocol("rist")
+	FlowSourceProtocolFujitsuQos  = FlowSourceProtocol("fujitsu-qos")
 	FlowSourceProtocolSrtListener = FlowSourceProtocol("srt-listener")
+	FlowSourceProtocolSrtCaller   = FlowSourceProtocol("srt-caller")
 )
 
 func (FlowSourceProtocol) ElementType() reflect.Type {
@@ -2012,6 +2181,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEncryptionKeyTypePtrInput)(nil)).Elem(), FlowEntitlementEncryptionKeyType("speke"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEntitlementStatusInput)(nil)).Elem(), FlowEntitlementEntitlementStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowEntitlementEntitlementStatusPtrInput)(nil)).Elem(), FlowEntitlementEntitlementStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigFailoverModeInput)(nil)).Elem(), FlowFailoverConfigFailoverMode("MERGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigFailoverModePtrInput)(nil)).Elem(), FlowFailoverConfigFailoverMode("MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigStateInput)(nil)).Elem(), FlowFailoverConfigState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowFailoverConfigStatePtrInput)(nil)).Elem(), FlowFailoverConfigState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOutputEncryptionAlgorithmInput)(nil)).Elem(), FlowOutputEncryptionAlgorithm("aes128"))
@@ -2036,6 +2207,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowEntitlementEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEntitlementStatusOutput{})
 	pulumi.RegisterOutputType(FlowEntitlementEntitlementStatusPtrOutput{})
+	pulumi.RegisterOutputType(FlowFailoverConfigFailoverModeOutput{})
+	pulumi.RegisterOutputType(FlowFailoverConfigFailoverModePtrOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigStateOutput{})
 	pulumi.RegisterOutputType(FlowFailoverConfigStatePtrOutput{})
 	pulumi.RegisterOutputType(FlowOutputEncryptionAlgorithmOutput{})

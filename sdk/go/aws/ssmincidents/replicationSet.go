@@ -20,6 +20,8 @@ type ReplicationSet struct {
 	DeletionProtected pulumi.BoolPtrOutput `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayOutput `pulumi:"regions"`
+	// The tags to apply to the replication set.
+	Tags ReplicationSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewReplicationSet registers a new resource with the given unique name, arguments, and options.
@@ -67,6 +69,8 @@ type replicationSetArgs struct {
 	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// The ReplicationSet configuration.
 	Regions []ReplicationSetReplicationRegion `pulumi:"regions"`
+	// The tags to apply to the replication set.
+	Tags []ReplicationSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReplicationSet resource.
@@ -74,6 +78,8 @@ type ReplicationSetArgs struct {
 	DeletionProtected pulumi.BoolPtrInput
 	// The ReplicationSet configuration.
 	Regions ReplicationSetReplicationRegionArrayInput
+	// The tags to apply to the replication set.
+	Tags ReplicationSetTagArrayInput
 }
 
 func (ReplicationSetArgs) ElementType() reflect.Type {
@@ -125,6 +131,11 @@ func (o ReplicationSetOutput) DeletionProtected() pulumi.BoolPtrOutput {
 // The ReplicationSet configuration.
 func (o ReplicationSetOutput) Regions() ReplicationSetReplicationRegionArrayOutput {
 	return o.ApplyT(func(v *ReplicationSet) ReplicationSetReplicationRegionArrayOutput { return v.Regions }).(ReplicationSetReplicationRegionArrayOutput)
+}
+
+// The tags to apply to the replication set.
+func (o ReplicationSetOutput) Tags() ReplicationSetTagArrayOutput {
+	return o.ApplyT(func(v *ReplicationSet) ReplicationSetTagArrayOutput { return v.Tags }).(ReplicationSetTagArrayOutput)
 }
 
 func init() {

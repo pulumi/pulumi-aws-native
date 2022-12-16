@@ -39,6 +39,25 @@
       },
       "additionalProperties" : false
     },
+    "DeploymentAlarms" : {
+      "type" : "object",
+      "properties" : {
+        "AlarmNames" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Rollback" : {
+          "type" : "boolean"
+        },
+        "Enable" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "AlarmNames", "Rollback", "Enable" ],
+      "additionalProperties" : false
+    },
     "DeploymentCircuitBreaker" : {
       "type" : "object",
       "properties" : {
@@ -63,6 +82,9 @@
         },
         "MinimumHealthyPercent" : {
           "type" : "integer"
+        },
+        "Alarms" : {
+          "$ref" : "#/definitions/DeploymentAlarms"
         }
       },
       "additionalProperties" : false

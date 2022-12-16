@@ -20,8 +20,8 @@ __all__ = [
 @pulumi.output_type
 class GetFrameworkResult:
     def __init__(__self__, creation_time=None, deployment_status=None, framework_arn=None, framework_controls=None, framework_description=None, framework_status=None, framework_tags=None):
-        if creation_time and not isinstance(creation_time, float):
-            raise TypeError("Expected argument 'creation_time' to be a float")
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
@@ -44,9 +44,9 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter(name="creationTime")
-    def creation_time(self) -> Optional[float]:
+    def creation_time(self) -> Optional[str]:
         """
-        The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC). The value of `CreationTime` is accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.
+        The date and time that a framework is created, in ISO 8601 representation. The value of CreationTime is accurate to milliseconds. For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind UTC.
         """
         return pulumi.get(self, "creation_time")
 

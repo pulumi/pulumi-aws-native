@@ -165,6 +165,37 @@ namespace Pulumi.AwsNative.MediaConnect
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowFailoverConfigFailoverMode : IEquatable<FlowFailoverConfigFailoverMode>
+    {
+        private readonly string _value;
+
+        private FlowFailoverConfigFailoverMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowFailoverConfigFailoverMode Merge { get; } = new FlowFailoverConfigFailoverMode("MERGE");
+        public static FlowFailoverConfigFailoverMode Failover { get; } = new FlowFailoverConfigFailoverMode("FAILOVER");
+
+        public static bool operator ==(FlowFailoverConfigFailoverMode left, FlowFailoverConfigFailoverMode right) => left.Equals(right);
+        public static bool operator !=(FlowFailoverConfigFailoverMode left, FlowFailoverConfigFailoverMode right) => !left.Equals(right);
+
+        public static explicit operator string(FlowFailoverConfigFailoverMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowFailoverConfigFailoverMode other && Equals(other);
+        public bool Equals(FlowFailoverConfigFailoverMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FlowFailoverConfigState : IEquatable<FlowFailoverConfigState>
     {
@@ -274,7 +305,9 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowOutputProtocol Rtp { get; } = new FlowOutputProtocol("rtp");
         public static FlowOutputProtocol ZixiPull { get; } = new FlowOutputProtocol("zixi-pull");
         public static FlowOutputProtocol Rist { get; } = new FlowOutputProtocol("rist");
+        public static FlowOutputProtocol FujitsuQos { get; } = new FlowOutputProtocol("fujitsu-qos");
         public static FlowOutputProtocol SrtListener { get; } = new FlowOutputProtocol("srt-listener");
+        public static FlowOutputProtocol SrtCaller { get; } = new FlowOutputProtocol("srt-caller");
 
         public static bool operator ==(FlowOutputProtocol left, FlowOutputProtocol right) => left.Equals(right);
         public static bool operator !=(FlowOutputProtocol left, FlowOutputProtocol right) => !left.Equals(right);
@@ -355,7 +388,7 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
-    /// The protocol that is used by the source or output.
+    /// The protocol that is used by the source.
     /// </summary>
     [EnumType]
     public readonly struct FlowSourceProtocol : IEquatable<FlowSourceProtocol>
@@ -371,7 +404,9 @@ namespace Pulumi.AwsNative.MediaConnect
         public static FlowSourceProtocol RtpFec { get; } = new FlowSourceProtocol("rtp-fec");
         public static FlowSourceProtocol Rtp { get; } = new FlowSourceProtocol("rtp");
         public static FlowSourceProtocol Rist { get; } = new FlowSourceProtocol("rist");
+        public static FlowSourceProtocol FujitsuQos { get; } = new FlowSourceProtocol("fujitsu-qos");
         public static FlowSourceProtocol SrtListener { get; } = new FlowSourceProtocol("srt-listener");
+        public static FlowSourceProtocol SrtCaller { get; } = new FlowSourceProtocol("srt-caller");
 
         public static bool operator ==(FlowSourceProtocol left, FlowSourceProtocol right) => left.Equals(right);
         public static bool operator !=(FlowSourceProtocol left, FlowSourceProtocol right) => !left.Equals(right);

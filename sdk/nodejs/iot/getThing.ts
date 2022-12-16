@@ -17,15 +17,16 @@ export function getThing(args: GetThingArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:iot:getThing", {
-        "id": args.id,
+        "thingName": args.thingName,
     }, opts);
 }
 
 export interface GetThingArgs {
-    id: string;
+    thingName: string;
 }
 
 export interface GetThingResult {
+    readonly arn?: string;
     readonly attributePayload?: outputs.iot.ThingAttributePayload;
     readonly id?: string;
 }
@@ -35,5 +36,5 @@ export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetThingOutputArgs {
-    id: pulumi.Input<string>;
+    thingName: pulumi.Input<string>;
 }

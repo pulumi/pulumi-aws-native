@@ -149,6 +149,8 @@ if typing.TYPE_CHECKING:
     dms = __dms
     import pulumi_aws_native.docdb as __docdb
     docdb = __docdb
+    import pulumi_aws_native.docdbelastic as __docdbelastic
+    docdbelastic = __docdbelastic
     import pulumi_aws_native.dynamodb as __dynamodb
     dynamodb = __dynamodb
     import pulumi_aws_native.ec2 as __ec2
@@ -201,6 +203,8 @@ if typing.TYPE_CHECKING:
     globalaccelerator = __globalaccelerator
     import pulumi_aws_native.glue as __glue
     glue = __glue
+    import pulumi_aws_native.grafana as __grafana
+    grafana = __grafana
     import pulumi_aws_native.greengrass as __greengrass
     greengrass = __greengrass
     import pulumi_aws_native.greengrassv2 as __greengrassv2
@@ -315,6 +319,8 @@ if typing.TYPE_CHECKING:
     nimblestudio = __nimblestudio
     import pulumi_aws_native.oam as __oam
     oam = __oam
+    import pulumi_aws_native.opensearchserverless as __opensearchserverless
+    opensearchserverless = __opensearchserverless
     import pulumi_aws_native.opensearchservice as __opensearchservice
     opensearchservice = __opensearchservice
     import pulumi_aws_native.opsworks as __opsworks
@@ -496,6 +502,7 @@ else:
     dlm = _utilities.lazy_import('pulumi_aws_native.dlm')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
     docdb = _utilities.lazy_import('pulumi_aws_native.docdb')
+    docdbelastic = _utilities.lazy_import('pulumi_aws_native.docdbelastic')
     dynamodb = _utilities.lazy_import('pulumi_aws_native.dynamodb')
     ec2 = _utilities.lazy_import('pulumi_aws_native.ec2')
     ecr = _utilities.lazy_import('pulumi_aws_native.ecr')
@@ -522,6 +529,7 @@ else:
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
     globalaccelerator = _utilities.lazy_import('pulumi_aws_native.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws_native.glue')
+    grafana = _utilities.lazy_import('pulumi_aws_native.grafana')
     greengrass = _utilities.lazy_import('pulumi_aws_native.greengrass')
     greengrassv2 = _utilities.lazy_import('pulumi_aws_native.greengrassv2')
     groundstation = _utilities.lazy_import('pulumi_aws_native.groundstation')
@@ -579,6 +587,7 @@ else:
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
     oam = _utilities.lazy_import('pulumi_aws_native.oam')
+    opensearchserverless = _utilities.lazy_import('pulumi_aws_native.opensearchserverless')
     opensearchservice = _utilities.lazy_import('pulumi_aws_native.opensearchservice')
     opsworks = _utilities.lazy_import('pulumi_aws_native.opsworks')
     opsworkscm = _utilities.lazy_import('pulumi_aws_native.opsworkscm')
@@ -754,6 +763,7 @@ _utilities.register(
   "mod": "appflow",
   "fqn": "pulumi_aws_native.appflow",
   "classes": {
+   "aws-native:appflow:Connector": "Connector",
    "aws-native:appflow:ConnectorProfile": "ConnectorProfile",
    "aws-native:appflow:Flow": "Flow"
   }
@@ -1352,6 +1362,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "docdbelastic",
+  "fqn": "pulumi_aws_native.docdbelastic",
+  "classes": {
+   "aws-native:docdbelastic:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "dynamodb",
   "fqn": "pulumi_aws_native.dynamodb",
   "classes": {
@@ -1729,6 +1747,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "grafana",
+  "fqn": "pulumi_aws_native.grafana",
+  "classes": {
+   "aws-native:grafana:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "greengrass",
   "fqn": "pulumi_aws_native.greengrass",
   "classes": {
@@ -1978,6 +2004,7 @@ _utilities.register(
    "aws-native:iottwinmaker:ComponentType": "ComponentType",
    "aws-native:iottwinmaker:Entity": "Entity",
    "aws-native:iottwinmaker:Scene": "Scene",
+   "aws-native:iottwinmaker:SyncJob": "SyncJob",
    "aws-native:iottwinmaker:Workspace": "Workspace"
   }
  },
@@ -2385,6 +2412,18 @@ _utilities.register(
   "classes": {
    "aws-native:oam:Link": "Link",
    "aws-native:oam:Sink": "Sink"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "opensearchserverless",
+  "fqn": "pulumi_aws_native.opensearchserverless",
+  "classes": {
+   "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
+   "aws-native:opensearchserverless:Collection": "Collection",
+   "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
+   "aws-native:opensearchserverless:SecurityPolicy": "SecurityPolicy",
+   "aws-native:opensearchserverless:VpcEndpoint": "VpcEndpoint"
   }
  },
  {

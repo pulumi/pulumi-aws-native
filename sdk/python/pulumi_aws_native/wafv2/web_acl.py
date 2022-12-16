@@ -21,11 +21,13 @@ class WebACLArgs:
                  scope: pulumi.Input['WebACLScope'],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
                  captcha_config: Optional[pulumi.Input['WebACLCaptchaConfigArgs']] = None,
+                 challenge_config: Optional[pulumi.Input['WebACLChallengeConfigArgs']] = None,
                  custom_response_bodies: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WebACL resource.
         :param pulumi.Input[Sequence[pulumi.Input['WebACLRuleArgs']]] rules: Collection of Rules.
@@ -35,6 +37,8 @@ class WebACLArgs:
         pulumi.set(__self__, "visibility_config", visibility_config)
         if captcha_config is not None:
             pulumi.set(__self__, "captcha_config", captcha_config)
+        if challenge_config is not None:
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
@@ -45,6 +49,8 @@ class WebACLArgs:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if token_domains is not None:
+            pulumi.set(__self__, "token_domains", token_domains)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -81,6 +87,15 @@ class WebACLArgs:
     @captcha_config.setter
     def captcha_config(self, value: Optional[pulumi.Input['WebACLCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> Optional[pulumi.Input['WebACLChallengeConfigArgs']]:
+        return pulumi.get(self, "challenge_config")
+
+    @challenge_config.setter
+    def challenge_config(self, value: Optional[pulumi.Input['WebACLChallengeConfigArgs']]):
+        pulumi.set(self, "challenge_config", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -130,6 +145,15 @@ class WebACLArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebACLTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "token_domains")
+
+    @token_domains.setter
+    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "token_domains", value)
+
 
 class WebACL(pulumi.CustomResource):
     @overload
@@ -137,6 +161,7 @@ class WebACL(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -144,6 +169,7 @@ class WebACL(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input['WebACLScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
                  __props__=None):
         """
@@ -178,6 +204,7 @@ class WebACL(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  captcha_config: Optional[pulumi.Input[pulumi.InputType['WebACLCaptchaConfigArgs']]] = None,
+                 challenge_config: Optional[pulumi.Input[pulumi.InputType['WebACLChallengeConfigArgs']]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['WebACLCustomResponseBodiesArgs']]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebACLDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -185,6 +212,7 @@ class WebACL(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input['WebACLScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
+                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -196,6 +224,7 @@ class WebACL(pulumi.CustomResource):
             __props__ = WebACLArgs.__new__(WebACLArgs)
 
             __props__.__dict__["captcha_config"] = captcha_config
+            __props__.__dict__["challenge_config"] = challenge_config
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -207,6 +236,7 @@ class WebACL(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["token_domains"] = token_domains
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
@@ -238,6 +268,7 @@ class WebACL(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["capacity"] = None
         __props__.__dict__["captcha_config"] = None
+        __props__.__dict__["challenge_config"] = None
         __props__.__dict__["custom_response_bodies"] = None
         __props__.__dict__["default_action"] = None
         __props__.__dict__["description"] = None
@@ -246,6 +277,7 @@ class WebACL(pulumi.CustomResource):
         __props__.__dict__["rules"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["token_domains"] = None
         __props__.__dict__["visibility_config"] = None
         return WebACL(resource_name, opts=opts, __props__=__props__)
 
@@ -263,6 +295,11 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> pulumi.Output[Optional['outputs.WebACLCaptchaConfig']]:
         return pulumi.get(self, "captcha_config")
+
+    @property
+    @pulumi.getter(name="challengeConfig")
+    def challenge_config(self) -> pulumi.Output[Optional['outputs.WebACLChallengeConfig']]:
+        return pulumi.get(self, "challenge_config")
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -306,6 +343,11 @@ class WebACL(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.WebACLTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tokenDomains")
+    def token_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "token_domains")
 
     @property
     @pulumi.getter(name="visibilityConfig")

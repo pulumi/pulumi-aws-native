@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class MissionProfileTag
     {
-        public readonly string? Key;
-        public readonly string? Value;
+        public readonly string Key;
+        public readonly string Value;
 
         [OutputConstructor]
         private MissionProfileTag(
-            string? key,
+            string key,
 
-            string? value)
+            string value)
         {
             Key = key;
             Value = value;

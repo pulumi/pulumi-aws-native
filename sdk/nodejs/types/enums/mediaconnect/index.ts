@@ -55,6 +55,16 @@ export const FlowEntitlementEntitlementStatus = {
  */
 export type FlowEntitlementEntitlementStatus = (typeof FlowEntitlementEntitlementStatus)[keyof typeof FlowEntitlementEntitlementStatus];
 
+export const FlowFailoverConfigFailoverMode = {
+    Merge: "MERGE",
+    Failover: "FAILOVER",
+} as const;
+
+/**
+ * The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+ */
+export type FlowFailoverConfigFailoverMode = (typeof FlowFailoverConfigFailoverMode)[keyof typeof FlowFailoverConfigFailoverMode];
+
 export const FlowFailoverConfigState = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -89,7 +99,9 @@ export const FlowOutputProtocol = {
     Rtp: "rtp",
     ZixiPull: "zixi-pull",
     Rist: "rist",
+    FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
+    SrtCaller: "srt-caller",
 } as const;
 
 /**
@@ -123,10 +135,12 @@ export const FlowSourceProtocol = {
     RtpFec: "rtp-fec",
     Rtp: "rtp",
     Rist: "rist",
+    FujitsuQos: "fujitsu-qos",
     SrtListener: "srt-listener",
+    SrtCaller: "srt-caller",
 } as const;
 
 /**
- * The protocol that is used by the source or output.
+ * The protocol that is used by the source.
  */
 export type FlowSourceProtocol = (typeof FlowSourceProtocol)[keyof typeof FlowSourceProtocol];

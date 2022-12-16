@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     {
         public readonly Outputs.WebACLRuleAction? Action;
         public readonly Outputs.WebACLCaptchaConfig? CaptchaConfig;
+        public readonly Outputs.WebACLChallengeConfig? ChallengeConfig;
         public readonly string Name;
         public readonly Outputs.WebACLOverrideAction? OverrideAction;
         public readonly int Priority;
@@ -34,6 +35,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLCaptchaConfig? captchaConfig,
 
+            Outputs.WebACLChallengeConfig? challengeConfig,
+
             string name,
 
             Outputs.WebACLOverrideAction? overrideAction,
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         {
             Action = action;
             CaptchaConfig = captchaConfig;
+            ChallengeConfig = challengeConfig;
             Name = name;
             OverrideAction = overrideAction;
             Priority = priority;

@@ -10,6 +10,7 @@ __all__ = [
     'FlowEntitlementEncryptionAlgorithm',
     'FlowEntitlementEncryptionKeyType',
     'FlowEntitlementEntitlementStatus',
+    'FlowFailoverConfigFailoverMode',
     'FlowFailoverConfigState',
     'FlowOutputEncryptionAlgorithm',
     'FlowOutputEncryptionKeyType',
@@ -63,6 +64,14 @@ class FlowEntitlementEntitlementStatus(str, Enum):
     DISABLED = "DISABLED"
 
 
+class FlowFailoverConfigFailoverMode(str, Enum):
+    """
+    The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+    """
+    MERGE = "MERGE"
+    FAILOVER = "FAILOVER"
+
+
 class FlowFailoverConfigState(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
@@ -94,7 +103,9 @@ class FlowOutputProtocol(str, Enum):
     RTP = "rtp"
     ZIXI_PULL = "zixi-pull"
     RIST = "rist"
+    FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
+    SRT_CALLER = "srt-caller"
 
 
 class FlowSourceEncryptionAlgorithm(str, Enum):
@@ -116,10 +127,12 @@ class FlowSourceEncryptionKeyType(str, Enum):
 
 class FlowSourceProtocol(str, Enum):
     """
-    The protocol that is used by the source or output.
+    The protocol that is used by the source.
     """
     ZIXI_PUSH = "zixi-push"
     RTP_FEC = "rtp-fec"
     RTP = "rtp"
     RIST = "rist"
+    FUJITSU_QOS = "fujitsu-qos"
     SRT_LISTENER = "srt-listener"
+    SRT_CALLER = "srt-caller"

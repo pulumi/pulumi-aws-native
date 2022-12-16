@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCaptchaProperties? Captcha;
         /// <summary>
+        /// Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleActionChallengeProperties? Challenge;
+        /// <summary>
         /// Count traffic towards application.
         /// </summary>
         public readonly Outputs.RuleGroupRuleActionCountProperties? Count;
@@ -41,11 +45,14 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.RuleGroupRuleActionCaptchaProperties? captcha,
 
+            Outputs.RuleGroupRuleActionChallengeProperties? challenge,
+
             Outputs.RuleGroupRuleActionCountProperties? count)
         {
             Allow = allow;
             Block = block;
             Captcha = captcha;
+            Challenge = challenge;
             Count = count;
         }
     }

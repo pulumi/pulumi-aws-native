@@ -33,6 +33,7 @@ export interface GetWebACLResult {
     readonly arn?: string;
     readonly capacity?: number;
     readonly captchaConfig?: outputs.wafv2.WebACLCaptchaConfig;
+    readonly challengeConfig?: outputs.wafv2.WebACLChallengeConfig;
     readonly customResponseBodies?: outputs.wafv2.WebACLCustomResponseBodies;
     readonly defaultAction?: outputs.wafv2.WebACLDefaultAction;
     readonly description?: string;
@@ -43,6 +44,7 @@ export interface GetWebACLResult {
      */
     readonly rules?: outputs.wafv2.WebACLRule[];
     readonly tags?: outputs.wafv2.WebACLTag[];
+    readonly tokenDomains?: string[];
     readonly visibilityConfig?: outputs.wafv2.WebACLVisibilityConfig;
 }
 

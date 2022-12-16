@@ -43,6 +43,8 @@ type EventSourceMapping struct {
 	ParallelizationFactor pulumi.IntPtrOutput `pulumi:"parallelizationFactor"`
 	// (ActiveMQ) A list of ActiveMQ queues.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
+	// The scaling configuration for the event source.
+	ScalingConfig EventSourceMappingScalingConfigPtrOutput `pulumi:"scalingConfig"`
 	// Self-managed event source endpoints.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrOutput `pulumi:"selfManagedEventSource"`
 	// Specific configuration settings for a Self-Managed Apache Kafka event source.
@@ -129,6 +131,8 @@ type eventSourceMappingArgs struct {
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
 	// (ActiveMQ) A list of ActiveMQ queues.
 	Queues []string `pulumi:"queues"`
+	// The scaling configuration for the event source.
+	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// Self-managed event source endpoints.
 	SelfManagedEventSource *EventSourceMappingSelfManagedEventSource `pulumi:"selfManagedEventSource"`
 	// Specific configuration settings for a Self-Managed Apache Kafka event source.
@@ -175,6 +179,8 @@ type EventSourceMappingArgs struct {
 	ParallelizationFactor pulumi.IntPtrInput
 	// (ActiveMQ) A list of ActiveMQ queues.
 	Queues pulumi.StringArrayInput
+	// The scaling configuration for the event source.
+	ScalingConfig EventSourceMappingScalingConfigPtrInput
 	// Self-managed event source endpoints.
 	SelfManagedEventSource EventSourceMappingSelfManagedEventSourcePtrInput
 	// Specific configuration settings for a Self-Managed Apache Kafka event source.
@@ -300,6 +306,11 @@ func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 // (ActiveMQ) A list of ActiveMQ queues.
 func (o EventSourceMappingOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
+}
+
+// The scaling configuration for the event source.
+func (o EventSourceMappingOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingScalingConfigPtrOutput { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
 }
 
 // Self-managed event source endpoints.

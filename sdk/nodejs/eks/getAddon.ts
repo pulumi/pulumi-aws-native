@@ -43,6 +43,10 @@ export interface GetAddonResult {
      */
     readonly arn?: string;
     /**
+     * The configuration values to use with the add-on
+     */
+    readonly configurationValues?: string;
+    /**
      * IAM role to bind to the add-on's service account
      */
     readonly serviceAccountRoleArn?: string;

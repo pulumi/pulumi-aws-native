@@ -321,6 +321,12 @@ class ConfigurationTemplateConfigurationOptionSetting(dict):
                  option_name: str,
                  resource_name: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str namespace: A unique namespace that identifies the option's associated AWS resource.
+        :param str option_name: The name of the configuration option.
+        :param str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        :param str value: The current value for the configuration option.
+        """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "option_name", option_name)
         if resource_name is not None:
@@ -331,21 +337,33 @@ class ConfigurationTemplateConfigurationOptionSetting(dict):
     @property
     @pulumi.getter
     def namespace(self) -> str:
+        """
+        A unique namespace that identifies the option's associated AWS resource.
+        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="optionName")
     def option_name(self) -> str:
+        """
+        The name of the configuration option.
+        """
         return pulumi.get(self, "option_name")
 
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[str]:
+        """
+        A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        """
         return pulumi.get(self, "resource_name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The current value for the configuration option.
+        """
         return pulumi.get(self, "value")
 
 
@@ -373,17 +391,27 @@ class ConfigurationTemplateSourceConfiguration(dict):
     def __init__(__self__, *,
                  application_name: str,
                  template_name: str):
+        """
+        :param str application_name: The name of the application associated with the configuration.
+        :param str template_name: The name of the configuration template.
+        """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "template_name", template_name)
 
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> str:
+        """
+        The name of the application associated with the configuration.
+        """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> str:
+        """
+        The name of the configuration template.
+        """
         return pulumi.get(self, "template_name")
 
 

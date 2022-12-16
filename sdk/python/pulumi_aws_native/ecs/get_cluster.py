@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, capacity_providers=None, cluster_settings=None, configuration=None, default_capacity_provider_strategy=None, service_connect_defaults=None, tags=None):
+    def __init__(__self__, arn=None, capacity_providers=None, cluster_settings=None, configuration=None, default_capacity_provider_strategy=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,9 +35,6 @@ class GetClusterResult:
         if default_capacity_provider_strategy and not isinstance(default_capacity_provider_strategy, list):
             raise TypeError("Expected argument 'default_capacity_provider_strategy' to be a list")
         pulumi.set(__self__, "default_capacity_provider_strategy", default_capacity_provider_strategy)
-        if service_connect_defaults and not isinstance(service_connect_defaults, dict):
-            raise TypeError("Expected argument 'service_connect_defaults' to be a dict")
-        pulumi.set(__self__, "service_connect_defaults", service_connect_defaults)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -71,11 +68,6 @@ class GetClusterResult:
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @property
-    @pulumi.getter(name="serviceConnectDefaults")
-    def service_connect_defaults(self) -> Optional['outputs.ClusterServiceConnectDefaults']:
-        return pulumi.get(self, "service_connect_defaults")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.ClusterTag']]:
         return pulumi.get(self, "tags")
@@ -92,7 +84,6 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_settings=self.cluster_settings,
             configuration=self.configuration,
             default_capacity_provider_strategy=self.default_capacity_provider_strategy,
-            service_connect_defaults=self.service_connect_defaults,
             tags=self.tags)
 
 
@@ -115,7 +106,6 @@ def get_cluster(cluster_name: Optional[str] = None,
         cluster_settings=__ret__.cluster_settings,
         configuration=__ret__.configuration,
         default_capacity_provider_strategy=__ret__.default_capacity_provider_strategy,
-        service_connect_defaults=__ret__.service_connect_defaults,
         tags=__ret__.tags)
 
 

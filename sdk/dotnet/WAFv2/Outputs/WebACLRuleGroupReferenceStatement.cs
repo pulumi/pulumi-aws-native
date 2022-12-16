@@ -15,15 +15,22 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     {
         public readonly string Arn;
         public readonly ImmutableArray<Outputs.WebACLExcludedRule> ExcludedRules;
+        /// <summary>
+        /// Action overrides for rules in the rule group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebACLRuleActionOverride> RuleActionOverrides;
 
         [OutputConstructor]
         private WebACLRuleGroupReferenceStatement(
             string arn,
 
-            ImmutableArray<Outputs.WebACLExcludedRule> excludedRules)
+            ImmutableArray<Outputs.WebACLExcludedRule> excludedRules,
+
+            ImmutableArray<Outputs.WebACLRuleActionOverride> ruleActionOverrides)
         {
             Arn = arn;
             ExcludedRules = excludedRules;
+            RuleActionOverrides = ruleActionOverrides;
         }
     }
 }

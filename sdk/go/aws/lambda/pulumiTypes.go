@@ -1821,6 +1821,146 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The scaling configuration for the event source.
+type EventSourceMappingScalingConfig struct {
+	// The maximum number of concurrent functions that the event source can invoke.
+	MaximumConcurrency *int `pulumi:"maximumConcurrency"`
+}
+
+// EventSourceMappingScalingConfigInput is an input type that accepts EventSourceMappingScalingConfigArgs and EventSourceMappingScalingConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingScalingConfigInput` via:
+//
+//	EventSourceMappingScalingConfigArgs{...}
+type EventSourceMappingScalingConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput
+	ToEventSourceMappingScalingConfigOutputWithContext(context.Context) EventSourceMappingScalingConfigOutput
+}
+
+// The scaling configuration for the event source.
+type EventSourceMappingScalingConfigArgs struct {
+	// The maximum number of concurrent functions that the event source can invoke.
+	MaximumConcurrency pulumi.IntPtrInput `pulumi:"maximumConcurrency"`
+}
+
+func (EventSourceMappingScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput {
+	return i.ToEventSourceMappingScalingConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigOutput)
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return i.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingScalingConfigArgs) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigOutput).ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingScalingConfigPtrInput is an input type that accepts EventSourceMappingScalingConfigArgs, EventSourceMappingScalingConfigPtr and EventSourceMappingScalingConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingScalingConfigPtrInput` via:
+//
+//	        EventSourceMappingScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput
+	ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Context) EventSourceMappingScalingConfigPtrOutput
+}
+
+type eventSourceMappingScalingConfigPtrType EventSourceMappingScalingConfigArgs
+
+func EventSourceMappingScalingConfigPtr(v *EventSourceMappingScalingConfigArgs) EventSourceMappingScalingConfigPtrInput {
+	return (*eventSourceMappingScalingConfigPtrType)(v)
+}
+
+func (*eventSourceMappingScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return i.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingScalingConfigPtrType) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingScalingConfigPtrOutput)
+}
+
+// The scaling configuration for the event source.
+type EventSourceMappingScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigOutput() EventSourceMappingScalingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return o.ToEventSourceMappingScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingScalingConfig) *EventSourceMappingScalingConfig {
+		return &v
+	}).(EventSourceMappingScalingConfigPtrOutput)
+}
+
+// The maximum number of concurrent functions that the event source can invoke.
+func (o EventSourceMappingScalingConfigOutput) MaximumConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingScalingConfig) *int { return v.MaximumConcurrency }).(pulumi.IntPtrOutput)
+}
+
+type EventSourceMappingScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingScalingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingConfigPtrOutput() EventSourceMappingScalingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) ToEventSourceMappingScalingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingScalingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingScalingConfigPtrOutput) Elem() EventSourceMappingScalingConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingScalingConfig) EventSourceMappingScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingScalingConfig
+		return ret
+	}).(EventSourceMappingScalingConfigOutput)
+}
+
+// The maximum number of concurrent functions that the event source can invoke.
+func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration used by AWS Lambda to access a self-managed event source.
 type EventSourceMappingSelfManagedEventSource struct {
 	// The endpoints for a self-managed event source.
@@ -4075,6 +4215,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailureInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailurePtrInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigPtrInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourcePtrInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
@@ -4133,6 +4275,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingScalingConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput{})

@@ -26,6 +26,7 @@ __all__ = [
     'EventSourceMappingFilter',
     'EventSourceMappingFilterCriteria',
     'EventSourceMappingOnFailure',
+    'EventSourceMappingScalingConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
     'EventSourceMappingSourceAccessConfiguration',
@@ -470,6 +471,46 @@ class EventSourceMappingOnFailure(dict):
         The Amazon Resource Name (ARN) of the destination resource.
         """
         return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class EventSourceMappingScalingConfig(dict):
+    """
+    The scaling configuration for the event source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumConcurrency":
+            suggest = "maximum_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingScalingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingScalingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingScalingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_concurrency: Optional[int] = None):
+        """
+        The scaling configuration for the event source.
+        :param int maximum_concurrency: The maximum number of concurrent functions that the event source can invoke.
+        """
+        if maximum_concurrency is not None:
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
+
+    @property
+    @pulumi.getter(name="maximumConcurrency")
+    def maximum_concurrency(self) -> Optional[int]:
+        """
+        The maximum number of concurrent functions that the event source can invoke.
+        """
+        return pulumi.get(self, "maximum_concurrency")
 
 
 @pulumi.output_type

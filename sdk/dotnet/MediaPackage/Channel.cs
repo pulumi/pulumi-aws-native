@@ -34,10 +34,10 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<Outputs.ChannelLogConfiguration?> EgressAccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// A short text description of the Channel.
+        /// An HTTP Live Streaming (HLS) ingest resource configuration.
         /// </summary>
         [Output("hlsIngest")]
-        public Output<Outputs.ChannelHlsIngest> HlsIngest { get; private set; } = null!;
+        public Output<Outputs.ChannelHlsIngest?> HlsIngest { get; private set; } = null!;
 
         /// <summary>
         /// The configuration parameters for egress access logging.
@@ -107,6 +107,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         [Input("egressAccessLogs")]
         public Input<Inputs.ChannelLogConfigurationArgs>? EgressAccessLogs { get; set; }
+
+        /// <summary>
+        /// An HTTP Live Streaming (HLS) ingest resource configuration.
+        /// </summary>
+        [Input("hlsIngest")]
+        public Input<Inputs.ChannelHlsIngestArgs>? HlsIngest { get; set; }
 
         /// <summary>
         /// The configuration parameters for egress access logging.

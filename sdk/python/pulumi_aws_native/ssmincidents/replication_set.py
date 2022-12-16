@@ -17,14 +17,18 @@ __all__ = ['ReplicationSetArgs', 'ReplicationSet']
 class ReplicationSetArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]],
-                 deletion_protected: Optional[pulumi.Input[bool]] = None):
+                 deletion_protected: Optional[pulumi.Input[bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]] regions: The ReplicationSet configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetTagArgs']]] tags: The tags to apply to the replication set.
         """
         pulumi.set(__self__, "regions", regions)
         if deletion_protected is not None:
             pulumi.set(__self__, "deletion_protected", deletion_protected)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -47,6 +51,18 @@ class ReplicationSetArgs:
     def deletion_protected(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protected", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetTagArgs']]]]:
+        """
+        The tags to apply to the replication set.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class ReplicationSet(pulumi.CustomResource):
     @overload
@@ -55,6 +71,7 @@ class ReplicationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protected: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SSMIncidents::ReplicationSet
@@ -62,6 +79,7 @@ class ReplicationSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]] regions: The ReplicationSet configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetTagArgs']]]] tags: The tags to apply to the replication set.
         """
         ...
     @overload
@@ -89,6 +107,7 @@ class ReplicationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protected: Optional[pulumi.Input[bool]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -102,6 +121,7 @@ class ReplicationSet(pulumi.CustomResource):
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
             __props__.__dict__["regions"] = regions
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(ReplicationSet, __self__).__init__(
             'aws-native:ssmincidents:ReplicationSet',
@@ -128,6 +148,7 @@ class ReplicationSet(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["deletion_protected"] = None
         __props__.__dict__["regions"] = None
+        __props__.__dict__["tags"] = None
         return ReplicationSet(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -150,4 +171,12 @@ class ReplicationSet(pulumi.CustomResource):
         The ReplicationSet configuration.
         """
         return pulumi.get(self, "regions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicationSetTag']]]:
+        """
+        The tags to apply to the replication set.
+        """
+        return pulumi.get(self, "tags")
 

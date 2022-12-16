@@ -66,6 +66,7 @@ namespace Pulumi.AwsNative.WAFv2
         public readonly string? Arn;
         public readonly int? Capacity;
         public readonly Outputs.WebACLCaptchaConfig? CaptchaConfig;
+        public readonly Outputs.WebACLChallengeConfig? ChallengeConfig;
         public readonly Outputs.WebACLCustomResponseBodies? CustomResponseBodies;
         public readonly Outputs.WebACLDefaultAction? DefaultAction;
         public readonly string? Description;
@@ -76,6 +77,7 @@ namespace Pulumi.AwsNative.WAFv2
         /// </summary>
         public readonly ImmutableArray<Outputs.WebACLRule> Rules;
         public readonly ImmutableArray<Outputs.WebACLTag> Tags;
+        public readonly ImmutableArray<string> TokenDomains;
         public readonly Outputs.WebACLVisibilityConfig? VisibilityConfig;
 
         [OutputConstructor]
@@ -85,6 +87,8 @@ namespace Pulumi.AwsNative.WAFv2
             int? capacity,
 
             Outputs.WebACLCaptchaConfig? captchaConfig,
+
+            Outputs.WebACLChallengeConfig? challengeConfig,
 
             Outputs.WebACLCustomResponseBodies? customResponseBodies,
 
@@ -100,11 +104,14 @@ namespace Pulumi.AwsNative.WAFv2
 
             ImmutableArray<Outputs.WebACLTag> tags,
 
+            ImmutableArray<string> tokenDomains,
+
             Outputs.WebACLVisibilityConfig? visibilityConfig)
         {
             Arn = arn;
             Capacity = capacity;
             CaptchaConfig = captchaConfig;
+            ChallengeConfig = challengeConfig;
             CustomResponseBodies = customResponseBodies;
             DefaultAction = defaultAction;
             Description = description;
@@ -112,6 +119,7 @@ namespace Pulumi.AwsNative.WAFv2
             LabelNamespace = labelNamespace;
             Rules = rules;
             Tags = tags;
+            TokenDomains = tokenDomains;
             VisibilityConfig = visibilityConfig;
         }
     }

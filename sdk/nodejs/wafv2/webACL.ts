@@ -40,6 +40,7 @@ export class WebACL extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebACLCaptchaConfig | undefined>;
+    public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebACLChallengeConfig | undefined>;
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebACLCustomResponseBodies | undefined>;
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebACLDefaultAction>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -51,6 +52,7 @@ export class WebACL extends pulumi.CustomResource {
     public readonly rules!: pulumi.Output<outputs.wafv2.WebACLRule[] | undefined>;
     public readonly scope!: pulumi.Output<enums.wafv2.WebACLScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.WebACLTag[] | undefined>;
+    public readonly tokenDomains!: pulumi.Output<string[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebACLVisibilityConfig>;
 
     /**
@@ -74,6 +76,7 @@ export class WebACL extends pulumi.CustomResource {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             resourceInputs["captchaConfig"] = args ? args.captchaConfig : undefined;
+            resourceInputs["challengeConfig"] = args ? args.challengeConfig : undefined;
             resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -81,6 +84,7 @@ export class WebACL extends pulumi.CustomResource {
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
@@ -89,6 +93,7 @@ export class WebACL extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["capacity"] = undefined /*out*/;
             resourceInputs["captchaConfig"] = undefined /*out*/;
+            resourceInputs["challengeConfig"] = undefined /*out*/;
             resourceInputs["customResponseBodies"] = undefined /*out*/;
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -97,6 +102,7 @@ export class WebACL extends pulumi.CustomResource {
             resourceInputs["rules"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tokenDomains"] = undefined /*out*/;
             resourceInputs["visibilityConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,7 @@ export class WebACL extends pulumi.CustomResource {
  */
 export interface WebACLArgs {
     captchaConfig?: pulumi.Input<inputs.wafv2.WebACLCaptchaConfigArgs>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebACLChallengeConfigArgs>;
     customResponseBodies?: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodiesArgs>;
     defaultAction: pulumi.Input<inputs.wafv2.WebACLDefaultActionArgs>;
     description?: pulumi.Input<string>;
@@ -119,5 +126,6 @@ export interface WebACLArgs {
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleArgs>[]>;
     scope: pulumi.Input<enums.wafv2.WebACLScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTagArgs>[]>;
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.WebACLVisibilityConfigArgs>;
 }

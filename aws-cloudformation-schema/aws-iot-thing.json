@@ -6,11 +6,17 @@
     "Id" : {
       "type" : "string"
     },
+    "Arn" : {
+      "type" : "string"
+    },
     "AttributePayload" : {
       "$ref" : "#/definitions/AttributePayload"
     },
     "ThingName" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "[a-zA-Z0-9:_-]+",
+      "minLength" : 1,
+      "maxLength" : 128
     }
   },
   "definitions" : {
@@ -20,8 +26,9 @@
       "properties" : {
         "Attributes" : {
           "type" : "object",
+          "additionalProperties" : false,
           "patternProperties" : {
-            "[a-zA-Z0-9]+" : {
+            "[a-zA-Z0-9_.,@/:#-]+" : {
               "type" : "string"
             }
           }
@@ -29,7 +36,25 @@
       }
     }
   },
+  "taggable" : false,
   "createOnlyProperties" : [ "/properties/ThingName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/ThingName" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "iot:CreateThing", "iot:DescribeThing" ]
+    },
+    "delete" : {
+      "permissions" : [ "iot:DeleteThing", "iot:DescribeThing" ]
+    },
+    "list" : {
+      "permissions" : [ "iot:ListThings" ]
+    },
+    "read" : {
+      "permissions" : [ "iot:DescribeThing" ]
+    },
+    "update" : {
+      "permissions" : [ "iot:UpdateThing", "iot:DescribeThing" ]
+    }
+  }
 }

@@ -42,7 +42,7 @@ export interface GetChannelResult {
      */
     readonly egressAccessLogs?: outputs.mediapackage.ChannelLogConfiguration;
     /**
-     * A short text description of the Channel.
+     * An HTTP Live Streaming (HLS) ingest resource configuration.
      */
     readonly hlsIngest?: outputs.mediapackage.ChannelHlsIngest;
     /**

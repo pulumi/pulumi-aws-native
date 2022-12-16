@@ -15,6 +15,7 @@ __all__ = [
     'FlowEncryption',
     'FlowEntitlementEncryption',
     'FlowFailoverConfig',
+    'FlowFailoverConfigSourcePriorityProperties',
     'FlowOutputEncryption',
     'FlowOutputVpcInterfaceAttachment',
     'FlowSource',
@@ -318,8 +319,12 @@ class FlowFailoverConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "recoveryWindow":
+        if key == "failoverMode":
+            suggest = "failover_mode"
+        elif key == "recoveryWindow":
             suggest = "recovery_window"
+        elif key == "sourcePriority":
+            suggest = "source_priority"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowFailoverConfig. Access the value via the '{suggest}' property getter instead.")
@@ -333,16 +338,32 @@ class FlowFailoverConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 failover_mode: Optional['FlowFailoverConfigFailoverMode'] = None,
                  recovery_window: Optional[int] = None,
+                 source_priority: Optional['outputs.FlowFailoverConfigSourcePriorityProperties'] = None,
                  state: Optional['FlowFailoverConfigState'] = None):
         """
         The settings for source failover
+        :param 'FlowFailoverConfigFailoverMode' failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
         :param int recovery_window: Search window time to look for dash-7 packets
+        :param 'FlowFailoverConfigSourcePriorityProperties' source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         """
+        if failover_mode is not None:
+            pulumi.set(__self__, "failover_mode", failover_mode)
         if recovery_window is not None:
             pulumi.set(__self__, "recovery_window", recovery_window)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> Optional['FlowFailoverConfigFailoverMode']:
+        """
+        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        """
+        return pulumi.get(self, "failover_mode")
 
     @property
     @pulumi.getter(name="recoveryWindow")
@@ -353,9 +374,56 @@ class FlowFailoverConfig(dict):
         return pulumi.get(self, "recovery_window")
 
     @property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> Optional['outputs.FlowFailoverConfigSourcePriorityProperties']:
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @property
     @pulumi.getter
     def state(self) -> Optional['FlowFailoverConfigState']:
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class FlowFailoverConfigSourcePriorityProperties(dict):
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primarySource":
+            suggest = "primary_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowFailoverConfigSourcePriorityProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowFailoverConfigSourcePriorityProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowFailoverConfigSourcePriorityProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_source: str):
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param str primary_source: The name of the source you choose as the primary source for this flow.
+        """
+        pulumi.set(__self__, "primary_source", primary_source)
+
+    @property
+    @pulumi.getter(name="primarySource")
+    def primary_source(self) -> str:
+        """
+        The name of the source you choose as the primary source for this flow.
+        """
+        return pulumi.get(self, "primary_source")
 
 
 @pulumi.output_type
@@ -496,10 +564,18 @@ class FlowSource(dict):
             suggest = "max_latency"
         elif key == "minLatency":
             suggest = "min_latency"
+        elif key == "senderControlPort":
+            suggest = "sender_control_port"
+        elif key == "senderIpAddress":
+            suggest = "sender_ip_address"
         elif key == "sourceArn":
             suggest = "source_arn"
         elif key == "sourceIngestPort":
             suggest = "source_ingest_port"
+        elif key == "sourceListenerAddress":
+            suggest = "source_listener_address"
+        elif key == "sourceListenerPort":
+            suggest = "source_listener_port"
         elif key == "streamId":
             suggest = "stream_id"
         elif key == "vpcInterfaceName":
@@ -529,8 +605,12 @@ class FlowSource(dict):
                  min_latency: Optional[int] = None,
                  name: Optional[str] = None,
                  protocol: Optional['FlowSourceProtocol'] = None,
+                 sender_control_port: Optional[int] = None,
+                 sender_ip_address: Optional[str] = None,
                  source_arn: Optional[str] = None,
                  source_ingest_port: Optional[str] = None,
+                 source_listener_address: Optional[str] = None,
+                 source_listener_port: Optional[int] = None,
                  stream_id: Optional[str] = None,
                  vpc_interface_name: Optional[str] = None,
                  whitelist_cidr: Optional[str] = None):
@@ -545,9 +625,13 @@ class FlowSource(dict):
         :param int max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         :param int min_latency: The minimum latency in milliseconds.
         :param str name: The name of the source.
-        :param 'FlowSourceProtocol' protocol: The protocol that is used by the source or output.
+        :param 'FlowSourceProtocol' protocol: The protocol that is used by the source.
+        :param int sender_control_port: The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        :param str sender_ip_address: The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
         :param str source_arn: The ARN of the source.
         :param str source_ingest_port: The port that the flow will be listening on for incoming content.(ReadOnly)
+        :param str source_listener_address: Source IP or domain name for SRT-caller protocol.
+        :param int source_listener_port: Source port for SRT-caller protocol.
         :param str stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param str vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param str whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -572,10 +656,18 @@ class FlowSource(dict):
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if sender_control_port is not None:
+            pulumi.set(__self__, "sender_control_port", sender_control_port)
+        if sender_ip_address is not None:
+            pulumi.set(__self__, "sender_ip_address", sender_ip_address)
         if source_arn is not None:
             pulumi.set(__self__, "source_arn", source_arn)
         if source_ingest_port is not None:
             pulumi.set(__self__, "source_ingest_port", source_ingest_port)
+        if source_listener_address is not None:
+            pulumi.set(__self__, "source_listener_address", source_listener_address)
+        if source_listener_port is not None:
+            pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
             pulumi.set(__self__, "stream_id", stream_id)
         if vpc_interface_name is not None:
@@ -659,9 +751,25 @@ class FlowSource(dict):
     @pulumi.getter
     def protocol(self) -> Optional['FlowSourceProtocol']:
         """
-        The protocol that is used by the source or output.
+        The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="senderControlPort")
+    def sender_control_port(self) -> Optional[int]:
+        """
+        The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_control_port")
+
+    @property
+    @pulumi.getter(name="senderIpAddress")
+    def sender_ip_address(self) -> Optional[str]:
+        """
+        The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        """
+        return pulumi.get(self, "sender_ip_address")
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -678,6 +786,22 @@ class FlowSource(dict):
         The port that the flow will be listening on for incoming content.(ReadOnly)
         """
         return pulumi.get(self, "source_ingest_port")
+
+    @property
+    @pulumi.getter(name="sourceListenerAddress")
+    def source_listener_address(self) -> Optional[str]:
+        """
+        Source IP or domain name for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_address")
+
+    @property
+    @pulumi.getter(name="sourceListenerPort")
+    def source_listener_port(self) -> Optional[int]:
+        """
+        Source port for SRT-caller protocol.
+        """
+        return pulumi.get(self, "source_listener_port")
 
     @property
     @pulumi.getter(name="streamId")

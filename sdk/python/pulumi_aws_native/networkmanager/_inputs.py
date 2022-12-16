@@ -544,13 +544,29 @@ class VpcAttachmentTagArgs:
 @pulumi.input_type
 class VpcAttachmentVpcOptionsArgs:
     def __init__(__self__, *,
+                 appliance_mode_support: Optional[pulumi.Input[bool]] = None,
                  ipv6_support: Optional[pulumi.Input[bool]] = None):
         """
         Vpc options of the attachment.
+        :param pulumi.Input[bool] appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         :param pulumi.Input[bool] ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         """
+        if appliance_mode_support is not None:
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+
+    @property
+    @pulumi.getter(name="applianceModeSupport")
+    def appliance_mode_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        """
+        return pulumi.get(self, "appliance_mode_support")
+
+    @appliance_mode_support.setter
+    def appliance_mode_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "appliance_mode_support", value)
 
     @property
     @pulumi.getter(name="ipv6Support")

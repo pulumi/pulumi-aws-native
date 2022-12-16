@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.SSMIncidents
         [Output("regions")]
         public Output<ImmutableArray<Outputs.ReplicationSetReplicationRegion>> Regions { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to apply to the replication set.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.ReplicationSetTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ReplicationSet resource with the given unique name, arguments, and options.
@@ -88,6 +94,18 @@ namespace Pulumi.AwsNative.SSMIncidents
         {
             get => _regions ?? (_regions = new InputList<Inputs.ReplicationSetReplicationRegionArgs>());
             set => _regions = value;
+        }
+
+        [Input("tags")]
+        private InputList<Inputs.ReplicationSetTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to apply to the replication set.
+        /// </summary>
+        public InputList<Inputs.ReplicationSetTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.ReplicationSetTagArgs>());
+            set => _tags = value;
         }
 
         public ReplicationSetArgs()

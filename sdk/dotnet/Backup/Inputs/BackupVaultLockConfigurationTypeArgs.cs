@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Backup.Inputs
     public sealed class BackupVaultLockConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         [Input("changeableForDays")]
-        public Input<double>? ChangeableForDays { get; set; }
+        public Input<int>? ChangeableForDays { get; set; }
 
         [Input("maxRetentionDays")]
-        public Input<double>? MaxRetentionDays { get; set; }
+        public Input<int>? MaxRetentionDays { get; set; }
 
         [Input("minRetentionDays", required: true)]
-        public Input<double> MinRetentionDays { get; set; } = null!;
+        public Input<int> MinRetentionDays { get; set; } = null!;
 
         public BackupVaultLockConfigurationTypeArgs()
         {

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.NetworkManager.Inputs
     public sealed class VpcAttachmentVpcOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
+        /// </summary>
+        [Input("applianceModeSupport")]
+        public Input<bool>? ApplianceModeSupport { get; set; }
+
+        /// <summary>
         /// Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         /// </summary>
         [Input("ipv6Support")]

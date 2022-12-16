@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
     [OutputType]
     public sealed class WebACLManagedRuleGroupConfig
     {
+        public readonly Outputs.WebACLAWSManagedRulesBotControlRuleSet? AWSManagedRulesBotControlRuleSet;
         public readonly string? LoginPath;
         public readonly Outputs.WebACLFieldIdentifier? PasswordField;
         public readonly Pulumi.AwsNative.WAFv2.WebACLManagedRuleGroupConfigPayloadType? PayloadType;
@@ -23,6 +24,8 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
         [OutputConstructor]
         private WebACLManagedRuleGroupConfig(
+            Outputs.WebACLAWSManagedRulesBotControlRuleSet? aWSManagedRulesBotControlRuleSet,
+
             string? loginPath,
 
             Outputs.WebACLFieldIdentifier? passwordField,
@@ -31,6 +34,7 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 
             Outputs.WebACLFieldIdentifier? usernameField)
         {
+            AWSManagedRulesBotControlRuleSet = aWSManagedRulesBotControlRuleSet;
             LoginPath = loginPath;
             PasswordField = passwordField;
             PayloadType = payloadType;

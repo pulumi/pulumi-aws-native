@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.ECS.Inputs
         [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }
 
+        [Input("containerPortRange")]
+        public Input<string>? ContainerPortRange { get; set; }
+
         [Input("hostPort")]
         public Input<int>? HostPort { get; set; }
 

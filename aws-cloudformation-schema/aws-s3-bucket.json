@@ -1266,6 +1266,13 @@
       "type" : "string"
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "createOnlyProperties" : [ "/properties/BucketName", "/properties/ObjectLockEnabled" ],
   "primaryIdentifier" : [ "/properties/BucketName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName", "/properties/DualStackDomainName", "/properties/RegionalDomainName", "/properties/WebsiteURL" ],
@@ -1283,7 +1290,7 @@
       "permissions" : [ "s3:DeleteBucket" ]
     },
     "list" : {
-      "permissions" : [ "s3:ListBuckets" ]
+      "permissions" : [ "s3:ListAllMyBuckets" ]
     }
   }
 }

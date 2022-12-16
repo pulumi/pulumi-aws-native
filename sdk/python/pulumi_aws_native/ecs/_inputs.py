@@ -27,6 +27,7 @@ __all__ = [
     'ServiceConnectClientAliasArgs',
     'ServiceConnectConfigurationArgs',
     'ServiceConnectServiceArgs',
+    'ServiceDeploymentAlarmsArgs',
     'ServiceDeploymentCircuitBreakerArgs',
     'ServiceDeploymentConfigurationArgs',
     'ServiceDeploymentControllerArgs',
@@ -732,6 +733,44 @@ class ServiceConnectServiceArgs:
 
 
 @pulumi.input_type
+class ServiceDeploymentAlarmsArgs:
+    def __init__(__self__, *,
+                 alarm_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 enable: pulumi.Input[bool],
+                 rollback: pulumi.Input[bool]):
+        pulumi.set(__self__, "alarm_names", alarm_names)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
+
+    @property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "alarm_names")
+
+    @alarm_names.setter
+    def alarm_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "alarm_names", value)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter
+    def rollback(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "rollback")
+
+    @rollback.setter
+    def rollback(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "rollback", value)
+
+
+@pulumi.input_type
 class ServiceDeploymentCircuitBreakerArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
@@ -761,15 +800,27 @@ class ServiceDeploymentCircuitBreakerArgs:
 @pulumi.input_type
 class ServiceDeploymentConfigurationArgs:
     def __init__(__self__, *,
+                 alarms: Optional[pulumi.Input['ServiceDeploymentAlarmsArgs']] = None,
                  deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
                  maximum_percent: Optional[pulumi.Input[int]] = None,
                  minimum_healthy_percent: Optional[pulumi.Input[int]] = None):
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
         if maximum_percent is not None:
             pulumi.set(__self__, "maximum_percent", maximum_percent)
         if minimum_healthy_percent is not None:
             pulumi.set(__self__, "minimum_healthy_percent", minimum_healthy_percent)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[pulumi.Input['ServiceDeploymentAlarmsArgs']]:
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: Optional[pulumi.Input['ServiceDeploymentAlarmsArgs']]):
+        pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="deploymentCircuitBreaker")
@@ -2317,6 +2368,7 @@ class TaskDefinitionPortMappingArgs:
     def __init__(__self__, *,
                  app_protocol: Optional[pulumi.Input['TaskDefinitionPortMappingAppProtocol']] = None,
                  container_port: Optional[pulumi.Input[int]] = None,
+                 container_port_range: Optional[pulumi.Input[str]] = None,
                  host_port: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
@@ -2324,6 +2376,8 @@ class TaskDefinitionPortMappingArgs:
             pulumi.set(__self__, "app_protocol", app_protocol)
         if container_port is not None:
             pulumi.set(__self__, "container_port", container_port)
+        if container_port_range is not None:
+            pulumi.set(__self__, "container_port_range", container_port_range)
         if host_port is not None:
             pulumi.set(__self__, "host_port", host_port)
         if name is not None:
@@ -2348,6 +2402,15 @@ class TaskDefinitionPortMappingArgs:
     @container_port.setter
     def container_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "container_port", value)
+
+    @property
+    @pulumi.getter(name="containerPortRange")
+    def container_port_range(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "container_port_range")
+
+    @container_port_range.setter
+    def container_port_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_port_range", value)
 
     @property
     @pulumi.getter(name="hostPort")

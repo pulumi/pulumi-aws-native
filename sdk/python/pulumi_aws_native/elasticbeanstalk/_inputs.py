@@ -254,6 +254,12 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
                  option_name: pulumi.Input[str],
                  resource_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] namespace: A unique namespace that identifies the option's associated AWS resource.
+        :param pulumi.Input[str] option_name: The name of the configuration option.
+        :param pulumi.Input[str] resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        :param pulumi.Input[str] value: The current value for the configuration option.
+        """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "option_name", option_name)
         if resource_name is not None:
@@ -264,6 +270,9 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
+        """
+        A unique namespace that identifies the option's associated AWS resource.
+        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -273,6 +282,9 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     @property
     @pulumi.getter(name="optionName")
     def option_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration option.
+        """
         return pulumi.get(self, "option_name")
 
     @option_name.setter
@@ -282,6 +294,9 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -291,6 +306,9 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current value for the configuration option.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -303,12 +321,19 @@ class ConfigurationTemplateSourceConfigurationArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[str],
                  template_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] application_name: The name of the application associated with the configuration.
+        :param pulumi.Input[str] template_name: The name of the configuration template.
+        """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "template_name", template_name)
 
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
+        """
+        The name of the application associated with the configuration.
+        """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
@@ -318,6 +343,9 @@ class ConfigurationTemplateSourceConfigurationArgs:
     @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> pulumi.Input[str]:
+        """
+        The name of the configuration template.
+        """
         return pulumi.get(self, "template_name")
 
     @template_name.setter

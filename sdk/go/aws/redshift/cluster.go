@@ -74,7 +74,7 @@ type Cluster struct {
 	HsmClientCertificateIdentifier pulumi.StringPtrOutput `pulumi:"hsmClientCertificateIdentifier"`
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 	HsmConfigurationIdentifier pulumi.StringPtrOutput `pulumi:"hsmConfigurationIdentifier"`
-	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	KmsKeyId          pulumi.StringPtrOutput            `pulumi:"kmsKeyId"`
@@ -237,7 +237,7 @@ type clusterArgs struct {
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 	HsmConfigurationIdentifier *string `pulumi:"hsmConfigurationIdentifier"`
-	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles []string `pulumi:"iamRoles"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	KmsKeyId          *string                   `pulumi:"kmsKeyId"`
@@ -348,7 +348,7 @@ type ClusterArgs struct {
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
 	// Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
 	HsmConfigurationIdentifier pulumi.StringPtrInput
-	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles pulumi.StringArrayInput
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	KmsKeyId          pulumi.StringPtrInput
@@ -574,7 +574,7 @@ func (o ClusterOutput) HsmConfigurationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.HsmConfigurationIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
 }

@@ -17,9 +17,21 @@ namespace Pulumi.AwsNative.Backup.Outputs
     public sealed class ReportSettingProperties
     {
         /// <summary>
+        /// The list of AWS accounts that a report covers.
+        /// </summary>
+        public readonly ImmutableArray<string> Accounts;
+        /// <summary>
         /// The Amazon Resource Names (ARNs) of the frameworks a report covers.
         /// </summary>
         public readonly ImmutableArray<string> FrameworkArns;
+        /// <summary>
+        /// The list of AWS organization units that a report covers.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationUnits;
+        /// <summary>
+        /// The list of AWS regions that a report covers.
+        /// </summary>
+        public readonly ImmutableArray<string> Regions;
         /// <summary>
         /// Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
         /// </summary>
@@ -27,11 +39,20 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
         [OutputConstructor]
         private ReportSettingProperties(
+            ImmutableArray<string> accounts,
+
             ImmutableArray<string> frameworkArns,
+
+            ImmutableArray<string> organizationUnits,
+
+            ImmutableArray<string> regions,
 
             string reportTemplate)
         {
+            Accounts = accounts;
             FrameworkArns = frameworkArns;
+            OrganizationUnits = organizationUnits;
+            Regions = regions;
             ReportTemplate = reportTemplate;
         }
     }

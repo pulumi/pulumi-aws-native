@@ -125,6 +125,11 @@
       "description" : "The type of instance underlying the environment.",
       "pattern" : "^\\S{1,20}$"
     },
+    "KmsKeyId" : {
+      "type" : "string",
+      "maxLength" : 2048,
+      "description" : "The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources."
+    },
     "Name" : {
       "type" : "string",
       "description" : "The name of the environment.",
@@ -178,7 +183,7 @@
   },
   "required" : [ "EngineType", "InstanceType", "Name" ],
   "readOnlyProperties" : [ "/properties/EnvironmentArn", "/properties/EnvironmentId" ],
-  "createOnlyProperties" : [ "/properties/Description", "/properties/EngineType", "/properties/Name", "/properties/PubliclyAccessible", "/properties/SecurityGroupIds", "/properties/StorageConfigurations", "/properties/SubnetIds" ],
+  "createOnlyProperties" : [ "/properties/Description", "/properties/EngineType", "/properties/KmsKeyId", "/properties/Name", "/properties/PubliclyAccessible", "/properties/SecurityGroupIds", "/properties/StorageConfigurations", "/properties/SubnetIds" ],
   "primaryIdentifier" : [ "/properties/EnvironmentArn" ],
   "handlers" : {
     "create" : {

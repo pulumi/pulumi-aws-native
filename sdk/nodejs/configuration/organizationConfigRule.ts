@@ -42,6 +42,7 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
 
     public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
     public readonly organizationConfigRuleName!: pulumi.Output<string>;
+    public readonly organizationCustomCodeRuleMetadata!: pulumi.Output<outputs.configuration.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata | undefined>;
     public readonly organizationCustomRuleMetadata!: pulumi.Output<outputs.configuration.OrganizationConfigRuleOrganizationCustomRuleMetadata | undefined>;
     public readonly organizationManagedRuleMetadata!: pulumi.Output<outputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadata | undefined>;
 
@@ -60,11 +61,13 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
             resourceInputs["organizationConfigRuleName"] = args ? args.organizationConfigRuleName : undefined;
+            resourceInputs["organizationCustomCodeRuleMetadata"] = args ? args.organizationCustomCodeRuleMetadata : undefined;
             resourceInputs["organizationCustomRuleMetadata"] = args ? args.organizationCustomRuleMetadata : undefined;
             resourceInputs["organizationManagedRuleMetadata"] = args ? args.organizationManagedRuleMetadata : undefined;
         } else {
             resourceInputs["excludedAccounts"] = undefined /*out*/;
             resourceInputs["organizationConfigRuleName"] = undefined /*out*/;
+            resourceInputs["organizationCustomCodeRuleMetadata"] = undefined /*out*/;
             resourceInputs["organizationCustomRuleMetadata"] = undefined /*out*/;
             resourceInputs["organizationManagedRuleMetadata"] = undefined /*out*/;
         }
@@ -79,6 +82,7 @@ export class OrganizationConfigRule extends pulumi.CustomResource {
 export interface OrganizationConfigRuleArgs {
     excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     organizationConfigRuleName?: pulumi.Input<string>;
+    organizationCustomCodeRuleMetadata?: pulumi.Input<inputs.configuration.OrganizationConfigRuleOrganizationCustomCodeRuleMetadataArgs>;
     organizationCustomRuleMetadata?: pulumi.Input<inputs.configuration.OrganizationConfigRuleOrganizationCustomRuleMetadataArgs>;
     organizationManagedRuleMetadata?: pulumi.Input<inputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadataArgs>;
 }

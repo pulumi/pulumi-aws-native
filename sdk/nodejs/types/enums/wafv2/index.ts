@@ -27,6 +27,7 @@ export const LoggingConfigurationConditionActionConditionPropertiesAction = {
     Block: "BLOCK",
     Count: "COUNT",
     Captcha: "CAPTCHA",
+    Challenge: "CHALLENGE",
     ExcludedAsCount: "EXCLUDED_AS_COUNT",
 } as const;
 
@@ -249,6 +250,13 @@ export const RuleGroupTextTransformationType = {
  * Type of text transformation.
  */
 export type RuleGroupTextTransformationType = (typeof RuleGroupTextTransformationType)[keyof typeof RuleGroupTextTransformationType];
+
+export const WebACLAWSManagedRulesBotControlRuleSetInspectionLevel = {
+    Common: "COMMON",
+    Targeted: "TARGETED",
+} as const;
+
+export type WebACLAWSManagedRulesBotControlRuleSetInspectionLevel = (typeof WebACLAWSManagedRulesBotControlRuleSetInspectionLevel)[keyof typeof WebACLAWSManagedRulesBotControlRuleSetInspectionLevel];
 
 export const WebACLBodyParsingFallbackBehavior = {
     Match: "MATCH",

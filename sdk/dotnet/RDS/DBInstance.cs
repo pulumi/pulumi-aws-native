@@ -88,6 +88,20 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> DBClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+        /// 
+        /// Constraints:
+        ///  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+        ///  * Can't be specified when DBSnapshotIdentifier is specified.
+        ///  * Must be specified when DBSnapshotIdentifier isn't specified.
+        ///  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+        ///  * Can't be the identifier of an Aurora DB cluster snapshot.
+        ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        /// </summary>
+        [Output("dBClusterSnapshotIdentifier")]
+        public Output<string?> DBClusterSnapshotIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the DB instance.
         /// </summary>
         [Output("dBInstanceArn")]
@@ -328,10 +342,28 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> ReplicaMode { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time to restore from.
+        /// </summary>
+        [Output("restoreTime")]
+        public Output<string?> RestoreTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+        /// </summary>
+        [Output("sourceDBInstanceAutomatedBackupsArn")]
+        public Output<string?> SourceDBInstanceAutomatedBackupsArn { get; private set; } = null!;
+
+        /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         /// </summary>
         [Output("sourceDBInstanceIdentifier")]
         public Output<string?> SourceDBInstanceIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the source DB instance from which to restore.
+        /// </summary>
+        [Output("sourceDbiResourceId")]
+        public Output<string?> SourceDbiResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the region that contains the source DB instance for the Read Replica.
@@ -386,6 +418,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Output("useDefaultProcessorFeatures")]
         public Output<bool?> UseDefaultProcessorFeatures { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        /// </summary>
+        [Output("useLatestRestorableTime")]
+        public Output<bool?> UseLatestRestorableTime { get; private set; } = null!;
 
         /// <summary>
         /// A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
@@ -515,6 +553,20 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("dBClusterIdentifier")]
         public Input<string>? DBClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
+        /// 
+        /// Constraints:
+        ///  * Must match the identifier of an existing Multi-AZ DB cluster snapshot.
+        ///  * Can't be specified when DBSnapshotIdentifier is specified.
+        ///  * Must be specified when DBSnapshotIdentifier isn't specified.
+        ///  * If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the DBClusterSnapshotIdentifier must be the ARN of the shared snapshot.
+        ///  * Can't be the identifier of an Aurora DB cluster snapshot.
+        ///  * Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.
+        /// </summary>
+        [Input("dBClusterSnapshotIdentifier")]
+        public Input<string>? DBClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
         /// The compute and memory capacity of the DB instance, for example, db.m4.large. Not all DB instance classes are available in all AWS Regions, or for all database engines.
@@ -763,10 +815,28 @@ namespace Pulumi.AwsNative.RDS
         public Input<string>? ReplicaMode { get; set; }
 
         /// <summary>
+        /// The date and time to restore from.
+        /// </summary>
+        [Input("restoreTime")]
+        public Input<string>? RestoreTime { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the replicated automated backups from which to restore.
+        /// </summary>
+        [Input("sourceDBInstanceAutomatedBackupsArn")]
+        public Input<string>? SourceDBInstanceAutomatedBackupsArn { get; set; }
+
+        /// <summary>
         /// If you want to create a Read Replica DB instance, specify the ID of the source DB instance. Each DB instance can have a limited number of Read Replicas.
         /// </summary>
         [Input("sourceDBInstanceIdentifier")]
         public Input<string>? SourceDBInstanceIdentifier { get; set; }
+
+        /// <summary>
+        /// The resource ID of the source DB instance from which to restore.
+        /// </summary>
+        [Input("sourceDbiResourceId")]
+        public Input<string>? SourceDbiResourceId { get; set; }
 
         /// <summary>
         /// The ID of the region that contains the source DB instance for the Read Replica.
@@ -827,6 +897,12 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("useDefaultProcessorFeatures")]
         public Input<bool>? UseDefaultProcessorFeatures { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+        /// </summary>
+        [Input("useLatestRestorableTime")]
+        public Input<bool>? UseLatestRestorableTime { get; set; }
 
         [Input("vPCSecurityGroups")]
         private InputList<string>? _vPCSecurityGroups;

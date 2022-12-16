@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.M2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
+        /// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+        /// </summary>
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the environment.
         /// </summary>
         [Output("name")]
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.M2
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The name of the environment.

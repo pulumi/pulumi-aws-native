@@ -188,6 +188,8 @@ class DBClusterScalingConfiguration(dict):
             suggest = "max_capacity"
         elif key == "minCapacity":
             suggest = "min_capacity"
+        elif key == "secondsBeforeTimeout":
+            suggest = "seconds_before_timeout"
         elif key == "secondsUntilAutoPause":
             suggest = "seconds_until_auto_pause"
         elif key == "timeoutAction":
@@ -208,6 +210,7 @@ class DBClusterScalingConfiguration(dict):
                  auto_pause: Optional[bool] = None,
                  max_capacity: Optional[int] = None,
                  min_capacity: Optional[int] = None,
+                 seconds_before_timeout: Optional[int] = None,
                  seconds_until_auto_pause: Optional[int] = None,
                  timeout_action: Optional[str] = None):
         """
@@ -221,6 +224,8 @@ class DBClusterScalingConfiguration(dict):
                For Aurora MySQL, valid capacity values are 1, 2, 4, 8, 16, 32, 64, 128, and 256.
                For Aurora PostgreSQL, valid capacity values are 2, 4, 8, 16, 32, 64, 192, and 384.
                The minimum capacity must be less than or equal to the maximum capacity.
+        :param int seconds_before_timeout: The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+               The default is 300.
         :param int seconds_until_auto_pause: The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
         :param str timeout_action: The action to take when the timeout is reached, either ForceApplyCapacityChange or RollbackCapacityChange.
                ForceApplyCapacityChange sets the capacity to the specified value as soon as possible.
@@ -234,6 +239,8 @@ class DBClusterScalingConfiguration(dict):
             pulumi.set(__self__, "max_capacity", max_capacity)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
+        if seconds_before_timeout is not None:
+            pulumi.set(__self__, "seconds_before_timeout", seconds_before_timeout)
         if seconds_until_auto_pause is not None:
             pulumi.set(__self__, "seconds_until_auto_pause", seconds_until_auto_pause)
         if timeout_action is not None:
@@ -268,6 +275,15 @@ class DBClusterScalingConfiguration(dict):
         The minimum capacity must be less than or equal to the maximum capacity.
         """
         return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter(name="secondsBeforeTimeout")
+    def seconds_before_timeout(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action.
+        The default is 300.
+        """
+        return pulumi.get(self, "seconds_before_timeout")
 
     @property
     @pulumi.getter(name="secondsUntilAutoPause")

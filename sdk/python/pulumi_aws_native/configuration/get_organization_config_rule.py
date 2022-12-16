@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetOrganizationConfigRuleResult:
-    def __init__(__self__, excluded_accounts=None, id=None, organization_custom_rule_metadata=None, organization_managed_rule_metadata=None):
+    def __init__(__self__, excluded_accounts=None, id=None, organization_custom_code_rule_metadata=None, organization_custom_rule_metadata=None, organization_managed_rule_metadata=None):
         if excluded_accounts and not isinstance(excluded_accounts, list):
             raise TypeError("Expected argument 'excluded_accounts' to be a list")
         pulumi.set(__self__, "excluded_accounts", excluded_accounts)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if organization_custom_code_rule_metadata and not isinstance(organization_custom_code_rule_metadata, dict):
+            raise TypeError("Expected argument 'organization_custom_code_rule_metadata' to be a dict")
+        pulumi.set(__self__, "organization_custom_code_rule_metadata", organization_custom_code_rule_metadata)
         if organization_custom_rule_metadata and not isinstance(organization_custom_rule_metadata, dict):
             raise TypeError("Expected argument 'organization_custom_rule_metadata' to be a dict")
         pulumi.set(__self__, "organization_custom_rule_metadata", organization_custom_rule_metadata)
@@ -42,6 +45,11 @@ class GetOrganizationConfigRuleResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="organizationCustomCodeRuleMetadata")
+    def organization_custom_code_rule_metadata(self) -> Optional['outputs.OrganizationConfigRuleOrganizationCustomCodeRuleMetadata']:
+        return pulumi.get(self, "organization_custom_code_rule_metadata")
 
     @property
     @pulumi.getter(name="organizationCustomRuleMetadata")
@@ -62,6 +70,7 @@ class AwaitableGetOrganizationConfigRuleResult(GetOrganizationConfigRuleResult):
         return GetOrganizationConfigRuleResult(
             excluded_accounts=self.excluded_accounts,
             id=self.id,
+            organization_custom_code_rule_metadata=self.organization_custom_code_rule_metadata,
             organization_custom_rule_metadata=self.organization_custom_rule_metadata,
             organization_managed_rule_metadata=self.organization_managed_rule_metadata)
 
@@ -79,6 +88,7 @@ def get_organization_config_rule(id: Optional[str] = None,
     return AwaitableGetOrganizationConfigRuleResult(
         excluded_accounts=__ret__.excluded_accounts,
         id=__ret__.id,
+        organization_custom_code_rule_metadata=__ret__.organization_custom_code_rule_metadata,
         organization_custom_rule_metadata=__ret__.organization_custom_rule_metadata,
         organization_managed_rule_metadata=__ret__.organization_managed_rule_metadata)
 

@@ -20,6 +20,8 @@ class RuleGroupArgs:
                  capacity: pulumi.Input[int],
                  scope: pulumi.Input['RuleGroupScope'],
                  visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
+                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
+                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
                  custom_response_bodies: Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,11 +29,17 @@ class RuleGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a RuleGroup resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]] available_labels: Collection of Available Labels.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]] consumed_labels: Collection of Consumed Labels.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]] rules: Collection of Rules.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if available_labels is not None:
+            pulumi.set(__self__, "available_labels", available_labels)
+        if consumed_labels is not None:
+            pulumi.set(__self__, "consumed_labels", consumed_labels)
         if custom_response_bodies is not None:
             pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
@@ -69,6 +77,30 @@ class RuleGroupArgs:
     @visibility_config.setter
     def visibility_config(self, value: pulumi.Input['RuleGroupVisibilityConfigArgs']):
         pulumi.set(self, "visibility_config", value)
+
+    @property
+    @pulumi.getter(name="availableLabels")
+    def available_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
+        """
+        Collection of Available Labels.
+        """
+        return pulumi.get(self, "available_labels")
+
+    @available_labels.setter
+    def available_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
+        pulumi.set(self, "available_labels", value)
+
+    @property
+    @pulumi.getter(name="consumedLabels")
+    def consumed_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]:
+        """
+        Collection of Consumed Labels.
+        """
+        return pulumi.get(self, "consumed_labels")
+
+    @consumed_labels.setter
+    def consumed_labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]]):
+        pulumi.set(self, "consumed_labels", value)
 
     @property
     @pulumi.getter(name="customResponseBodies")
@@ -124,7 +156,9 @@ class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -138,6 +172,8 @@ class RuleGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]] available_labels: Collection of Available Labels.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]] consumed_labels: Collection of Consumed Labels.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]] rules: Collection of Rules.
         """
         ...
@@ -164,7 +200,9 @@ class RuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 available_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupLabelSummaryArgs']]]]] = None,
                  custom_response_bodies: Optional[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -181,9 +219,11 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleGroupArgs.__new__(RuleGroupArgs)
 
+            __props__.__dict__["available_labels"] = available_labels
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
+            __props__.__dict__["consumed_labels"] = consumed_labels
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -196,8 +236,6 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config
             __props__.__dict__["arn"] = None
-            __props__.__dict__["available_labels"] = None
-            __props__.__dict__["consumed_labels"] = None
             __props__.__dict__["label_namespace"] = None
         super(RuleGroup, __self__).__init__(
             'aws-native:wafv2:RuleGroup',
@@ -242,7 +280,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="availableLabels")
-    def available_labels(self) -> pulumi.Output[Sequence['outputs.RuleGroupLabelSummary']]:
+    def available_labels(self) -> pulumi.Output[Optional[Sequence['outputs.RuleGroupLabelSummary']]]:
         """
         Collection of Available Labels.
         """
@@ -255,7 +293,7 @@ class RuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="consumedLabels")
-    def consumed_labels(self) -> pulumi.Output[Sequence['outputs.RuleGroupLabelSummary']]:
+    def consumed_labels(self) -> pulumi.Output[Optional[Sequence['outputs.RuleGroupLabelSummary']]]:
         """
         Collection of Consumed Labels.
         """

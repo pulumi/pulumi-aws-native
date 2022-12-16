@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("productionVariants")]
         public Output<ImmutableArray<Outputs.EndpointConfigProductionVariant>> ProductionVariants { get; private set; } = null!;
 
+        [Output("shadowProductionVariants")]
+        public Output<ImmutableArray<Outputs.EndpointConfigProductionVariant>> ShadowProductionVariants { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EndpointConfigTag>> Tags { get; private set; } = null!;
 
@@ -103,6 +106,14 @@ namespace Pulumi.AwsNative.SageMaker
         {
             get => _productionVariants ?? (_productionVariants = new InputList<Inputs.EndpointConfigProductionVariantArgs>());
             set => _productionVariants = value;
+        }
+
+        [Input("shadowProductionVariants")]
+        private InputList<Inputs.EndpointConfigProductionVariantArgs>? _shadowProductionVariants;
+        public InputList<Inputs.EndpointConfigProductionVariantArgs> ShadowProductionVariants
+        {
+            get => _shadowProductionVariants ?? (_shadowProductionVariants = new InputList<Inputs.EndpointConfigProductionVariantArgs>());
+            set => _shadowProductionVariants = value;
         }
 
         [Input("tags")]

@@ -18,6 +18,7 @@ type WebACL struct {
 	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
 	Capacity             pulumi.IntOutput                    `pulumi:"capacity"`
 	CaptchaConfig        WebACLCaptchaConfigPtrOutput        `pulumi:"captchaConfig"`
+	ChallengeConfig      WebACLChallengeConfigPtrOutput      `pulumi:"challengeConfig"`
 	CustomResponseBodies WebACLCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
 	DefaultAction        WebACLDefaultActionOutput           `pulumi:"defaultAction"`
 	Description          pulumi.StringPtrOutput              `pulumi:"description"`
@@ -27,6 +28,7 @@ type WebACL struct {
 	Rules            WebACLRuleArrayOutput        `pulumi:"rules"`
 	Scope            WebACLScopeOutput            `pulumi:"scope"`
 	Tags             WebACLTagArrayOutput         `pulumi:"tags"`
+	TokenDomains     pulumi.StringArrayOutput     `pulumi:"tokenDomains"`
 	VisibilityConfig WebACLVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -79,6 +81,7 @@ func (WebACLState) ElementType() reflect.Type {
 
 type webACLArgs struct {
 	CaptchaConfig        *WebACLCaptchaConfig        `pulumi:"captchaConfig"`
+	ChallengeConfig      *WebACLChallengeConfig      `pulumi:"challengeConfig"`
 	CustomResponseBodies *WebACLCustomResponseBodies `pulumi:"customResponseBodies"`
 	DefaultAction        WebACLDefaultAction         `pulumi:"defaultAction"`
 	Description          *string                     `pulumi:"description"`
@@ -87,12 +90,14 @@ type webACLArgs struct {
 	Rules            []WebACLRule           `pulumi:"rules"`
 	Scope            WebACLScope            `pulumi:"scope"`
 	Tags             []WebACLTag            `pulumi:"tags"`
+	TokenDomains     []string               `pulumi:"tokenDomains"`
 	VisibilityConfig WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a WebACL resource.
 type WebACLArgs struct {
 	CaptchaConfig        WebACLCaptchaConfigPtrInput
+	ChallengeConfig      WebACLChallengeConfigPtrInput
 	CustomResponseBodies WebACLCustomResponseBodiesPtrInput
 	DefaultAction        WebACLDefaultActionInput
 	Description          pulumi.StringPtrInput
@@ -101,6 +106,7 @@ type WebACLArgs struct {
 	Rules            WebACLRuleArrayInput
 	Scope            WebACLScopeInput
 	Tags             WebACLTagArrayInput
+	TokenDomains     pulumi.StringArrayInput
 	VisibilityConfig WebACLVisibilityConfigInput
 }
 
@@ -153,6 +159,10 @@ func (o WebACLOutput) CaptchaConfig() WebACLCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v *WebACL) WebACLCaptchaConfigPtrOutput { return v.CaptchaConfig }).(WebACLCaptchaConfigPtrOutput)
 }
 
+func (o WebACLOutput) ChallengeConfig() WebACLChallengeConfigPtrOutput {
+	return o.ApplyT(func(v *WebACL) WebACLChallengeConfigPtrOutput { return v.ChallengeConfig }).(WebACLChallengeConfigPtrOutput)
+}
+
 func (o WebACLOutput) CustomResponseBodies() WebACLCustomResponseBodiesPtrOutput {
 	return o.ApplyT(func(v *WebACL) WebACLCustomResponseBodiesPtrOutput { return v.CustomResponseBodies }).(WebACLCustomResponseBodiesPtrOutput)
 }
@@ -184,6 +194,10 @@ func (o WebACLOutput) Scope() WebACLScopeOutput {
 
 func (o WebACLOutput) Tags() WebACLTagArrayOutput {
 	return o.ApplyT(func(v *WebACL) WebACLTagArrayOutput { return v.Tags }).(WebACLTagArrayOutput)
+}
+
+func (o WebACLOutput) TokenDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebACL) pulumi.StringArrayOutput { return v.TokenDomains }).(pulumi.StringArrayOutput)
 }
 
 func (o WebACLOutput) VisibilityConfig() WebACLVisibilityConfigOutput {

@@ -35,6 +35,18 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("ruleActionOverrides")]
+        private InputList<Inputs.WebACLRuleActionOverrideArgs>? _ruleActionOverrides;
+
+        /// <summary>
+        /// Action overrides for rules in the rule group.
+        /// </summary>
+        public InputList<Inputs.WebACLRuleActionOverrideArgs> RuleActionOverrides
+        {
+            get => _ruleActionOverrides ?? (_ruleActionOverrides = new InputList<Inputs.WebACLRuleActionOverrideArgs>());
+            set => _ruleActionOverrides = value;
+        }
+
         [Input("scopeDownStatement")]
         public Input<Inputs.WebACLStatementArgs>? ScopeDownStatement { get; set; }
 

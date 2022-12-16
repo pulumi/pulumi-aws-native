@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetConfigurationTemplateArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public string ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the configuration template
+        /// </summary>
+        [Input("templateName", required: true)]
+        public string TemplateName { get; set; } = null!;
 
         public GetConfigurationTemplateArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
 
     public sealed class GetConfigurationTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Elastic Beanstalk application to associate with this configuration template. 
+        /// </summary>
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the configuration template
+        /// </summary>
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         public GetConfigurationTemplateInvokeArgs()
         {
@@ -51,21 +69,30 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
     [OutputType]
     public sealed class GetConfigurationTemplateResult
     {
+        /// <summary>
+        /// An optional description for this configuration.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationTemplateConfigurationOptionSetting> OptionSettings;
+        /// <summary>
+        /// The name of the configuration template
+        /// </summary>
+        public readonly string? TemplateName;
 
         [OutputConstructor]
         private GetConfigurationTemplateResult(
             string? description,
 
-            string? id,
+            ImmutableArray<Outputs.ConfigurationTemplateConfigurationOptionSetting> optionSettings,
 
-            ImmutableArray<Outputs.ConfigurationTemplateConfigurationOptionSetting> optionSettings)
+            string? templateName)
         {
             Description = description;
-            Id = id;
             OptionSettings = optionSettings;
+            TemplateName = templateName;
         }
     }
 }

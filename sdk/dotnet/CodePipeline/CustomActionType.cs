@@ -10,33 +10,56 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodePipeline
 {
     /// <summary>
-    /// Resource Type definition for AWS::CodePipeline::CustomActionType
+    /// The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
     /// </summary>
-    [Obsolete(@"CustomActionType is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:codepipeline:CustomActionType")]
     public partial class CustomActionType : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The category of the custom action, such as a build action or a test action.
+        /// </summary>
         [Output("category")]
         public Output<string> Category { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration properties for the custom action.
+        /// </summary>
         [Output("configurationProperties")]
         public Output<ImmutableArray<Outputs.CustomActionTypeConfigurationProperties>> ConfigurationProperties { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the input artifact for the action, such as its commit ID.
+        /// </summary>
         [Output("inputArtifactDetails")]
         public Output<Outputs.CustomActionTypeArtifactDetails> InputArtifactDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The details of the output artifact of the action, such as its commit ID.
+        /// </summary>
         [Output("outputArtifactDetails")]
         public Output<Outputs.CustomActionTypeArtifactDetails> OutputArtifactDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// The provider of the service used in the custom action, such as AWS CodeDeploy.
+        /// </summary>
         [Output("provider")]
         public Output<string> Provider { get; private set; } = null!;
 
+        /// <summary>
+        /// URLs that provide users information about this custom action.
+        /// </summary>
         [Output("settings")]
         public Output<Outputs.CustomActionTypeSettings?> Settings { get; private set; } = null!;
 
+        /// <summary>
+        /// Any tags assigned to the custom action.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.CustomActionTypeTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The version identifier of the custom action.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -85,37 +108,63 @@ namespace Pulumi.AwsNative.CodePipeline
 
     public sealed class CustomActionTypeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The category of the custom action, such as a build action or a test action.
+        /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         [Input("configurationProperties")]
         private InputList<Inputs.CustomActionTypeConfigurationPropertiesArgs>? _configurationProperties;
+
+        /// <summary>
+        /// The configuration properties for the custom action.
+        /// </summary>
         public InputList<Inputs.CustomActionTypeConfigurationPropertiesArgs> ConfigurationProperties
         {
             get => _configurationProperties ?? (_configurationProperties = new InputList<Inputs.CustomActionTypeConfigurationPropertiesArgs>());
             set => _configurationProperties = value;
         }
 
+        /// <summary>
+        /// The details of the input artifact for the action, such as its commit ID.
+        /// </summary>
         [Input("inputArtifactDetails", required: true)]
         public Input<Inputs.CustomActionTypeArtifactDetailsArgs> InputArtifactDetails { get; set; } = null!;
 
+        /// <summary>
+        /// The details of the output artifact of the action, such as its commit ID.
+        /// </summary>
         [Input("outputArtifactDetails", required: true)]
         public Input<Inputs.CustomActionTypeArtifactDetailsArgs> OutputArtifactDetails { get; set; } = null!;
 
+        /// <summary>
+        /// The provider of the service used in the custom action, such as AWS CodeDeploy.
+        /// </summary>
         [Input("provider", required: true)]
         public Input<string> Provider { get; set; } = null!;
 
+        /// <summary>
+        /// URLs that provide users information about this custom action.
+        /// </summary>
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsArgs>? Settings { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.CustomActionTypeTagArgs>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the custom action.
+        /// </summary>
         public InputList<Inputs.CustomActionTypeTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.CustomActionTypeTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The version identifier of the custom action.
+        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 

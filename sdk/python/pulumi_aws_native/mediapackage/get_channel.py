@@ -64,7 +64,7 @@ class GetChannelResult:
     @pulumi.getter(name="hlsIngest")
     def hls_ingest(self) -> Optional['outputs.ChannelHlsIngest']:
         """
-        A short text description of the Channel.
+        An HTTP Live Streaming (HLS) ingest resource configuration.
         """
         return pulumi.get(self, "hls_ingest")
 

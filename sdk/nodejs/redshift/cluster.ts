@@ -147,7 +147,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly hsmConfigurationIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+     * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
      */
     public readonly iamRoles!: pulumi.Output<string[] | undefined>;
     /**
@@ -480,7 +480,7 @@ export interface ClusterArgs {
      */
     hsmConfigurationIdentifier?: pulumi.Input<string>;
     /**
-     * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+     * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
      */
     iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

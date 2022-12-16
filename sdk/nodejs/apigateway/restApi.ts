@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RestApi.
+ * Resource Type definition for AWS::ApiGateway::RestApi
  */
 export class RestApi extends pulumi.CustomResource {
     /**

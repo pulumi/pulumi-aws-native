@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.Backup.Inputs
     /// </summary>
     public sealed class ReportSettingPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accounts")]
+        private InputList<string>? _accounts;
+
+        /// <summary>
+        /// The list of AWS accounts that a report covers.
+        /// </summary>
+        public InputList<string> Accounts
+        {
+            get => _accounts ?? (_accounts = new InputList<string>());
+            set => _accounts = value;
+        }
+
         [Input("frameworkArns")]
         private InputList<string>? _frameworkArns;
 
@@ -25,6 +37,30 @@ namespace Pulumi.AwsNative.Backup.Inputs
         {
             get => _frameworkArns ?? (_frameworkArns = new InputList<string>());
             set => _frameworkArns = value;
+        }
+
+        [Input("organizationUnits")]
+        private InputList<string>? _organizationUnits;
+
+        /// <summary>
+        /// The list of AWS organization units that a report covers.
+        /// </summary>
+        public InputList<string> OrganizationUnits
+        {
+            get => _organizationUnits ?? (_organizationUnits = new InputList<string>());
+            set => _organizationUnits = value;
+        }
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// The list of AWS regions that a report covers.
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
         }
 
         /// <summary>

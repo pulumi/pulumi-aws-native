@@ -25,6 +25,7 @@ __all__ = [
     'EventSourceMappingFilterCriteriaArgs',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingOnFailureArgs',
+    'EventSourceMappingScalingConfigArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
     'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
@@ -351,6 +352,30 @@ class EventSourceMappingOnFailureArgs:
     @destination.setter
     def destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "destination", value)
+
+
+@pulumi.input_type
+class EventSourceMappingScalingConfigArgs:
+    def __init__(__self__, *,
+                 maximum_concurrency: Optional[pulumi.Input[int]] = None):
+        """
+        The scaling configuration for the event source.
+        :param pulumi.Input[int] maximum_concurrency: The maximum number of concurrent functions that the event source can invoke.
+        """
+        if maximum_concurrency is not None:
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
+
+    @property
+    @pulumi.getter(name="maximumConcurrency")
+    def maximum_concurrency(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of concurrent functions that the event source can invoke.
+        """
+        return pulumi.get(self, "maximum_concurrency")
+
+    @maximum_concurrency.setter
+    def maximum_concurrency(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_concurrency", value)
 
 
 @pulumi.input_type

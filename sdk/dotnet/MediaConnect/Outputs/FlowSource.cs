@@ -53,9 +53,17 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The protocol that is used by the source or output.
+        /// The protocol that is used by the source.
         /// </summary>
         public readonly Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? Protocol;
+        /// <summary>
+        /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        public readonly int? SenderControlPort;
+        /// <summary>
+        /// The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
+        /// </summary>
+        public readonly string? SenderIpAddress;
         /// <summary>
         /// The ARN of the source.
         /// </summary>
@@ -64,6 +72,14 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// The port that the flow will be listening on for incoming content.(ReadOnly)
         /// </summary>
         public readonly string? SourceIngestPort;
+        /// <summary>
+        /// Source IP or domain name for SRT-caller protocol.
+        /// </summary>
+        public readonly string? SourceListenerAddress;
+        /// <summary>
+        /// Source port for SRT-caller protocol.
+        /// </summary>
+        public readonly int? SourceListenerPort;
         /// <summary>
         /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
@@ -99,9 +115,17 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 
             Pulumi.AwsNative.MediaConnect.FlowSourceProtocol? protocol,
 
+            int? senderControlPort,
+
+            string? senderIpAddress,
+
             string? sourceArn,
 
             string? sourceIngestPort,
+
+            string? sourceListenerAddress,
+
+            int? sourceListenerPort,
 
             string? streamId,
 
@@ -119,8 +143,12 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             MinLatency = minLatency;
             Name = name;
             Protocol = protocol;
+            SenderControlPort = senderControlPort;
+            SenderIpAddress = senderIpAddress;
             SourceArn = sourceArn;
             SourceIngestPort = sourceIngestPort;
+            SourceListenerAddress = sourceListenerAddress;
+            SourceListenerPort = sourceListenerPort;
             StreamId = streamId;
             VpcInterfaceName = vpcInterfaceName;
             WhitelistCidr = whitelistCidr;

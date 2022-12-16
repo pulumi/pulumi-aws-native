@@ -177,7 +177,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string?> HsmConfigurationIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+        /// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         /// </summary>
         [Output("iamRoles")]
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
@@ -524,7 +524,7 @@ namespace Pulumi.AwsNative.Redshift
         private InputList<string>? _iamRoles;
 
         /// <summary>
-        /// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+        /// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         /// </summary>
         public InputList<string> IamRoles
         {

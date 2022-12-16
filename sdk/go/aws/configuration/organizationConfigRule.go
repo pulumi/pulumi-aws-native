@@ -16,10 +16,11 @@ import (
 type OrganizationConfigRule struct {
 	pulumi.CustomResourceState
 
-	ExcludedAccounts                pulumi.StringArrayOutput                                       `pulumi:"excludedAccounts"`
-	OrganizationConfigRuleName      pulumi.StringOutput                                            `pulumi:"organizationConfigRuleName"`
-	OrganizationCustomRuleMetadata  OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput  `pulumi:"organizationCustomRuleMetadata"`
-	OrganizationManagedRuleMetadata OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput `pulumi:"organizationManagedRuleMetadata"`
+	ExcludedAccounts                   pulumi.StringArrayOutput                                          `pulumi:"excludedAccounts"`
+	OrganizationConfigRuleName         pulumi.StringOutput                                               `pulumi:"organizationConfigRuleName"`
+	OrganizationCustomCodeRuleMetadata OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput `pulumi:"organizationCustomCodeRuleMetadata"`
+	OrganizationCustomRuleMetadata     OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput     `pulumi:"organizationCustomRuleMetadata"`
+	OrganizationManagedRuleMetadata    OrganizationConfigRuleOrganizationManagedRuleMetadataPtrOutput    `pulumi:"organizationManagedRuleMetadata"`
 }
 
 // NewOrganizationConfigRule registers a new resource with the given unique name, arguments, and options.
@@ -61,18 +62,20 @@ func (OrganizationConfigRuleState) ElementType() reflect.Type {
 }
 
 type organizationConfigRuleArgs struct {
-	ExcludedAccounts                []string                                               `pulumi:"excludedAccounts"`
-	OrganizationConfigRuleName      *string                                                `pulumi:"organizationConfigRuleName"`
-	OrganizationCustomRuleMetadata  *OrganizationConfigRuleOrganizationCustomRuleMetadata  `pulumi:"organizationCustomRuleMetadata"`
-	OrganizationManagedRuleMetadata *OrganizationConfigRuleOrganizationManagedRuleMetadata `pulumi:"organizationManagedRuleMetadata"`
+	ExcludedAccounts                   []string                                                  `pulumi:"excludedAccounts"`
+	OrganizationConfigRuleName         *string                                                   `pulumi:"organizationConfigRuleName"`
+	OrganizationCustomCodeRuleMetadata *OrganizationConfigRuleOrganizationCustomCodeRuleMetadata `pulumi:"organizationCustomCodeRuleMetadata"`
+	OrganizationCustomRuleMetadata     *OrganizationConfigRuleOrganizationCustomRuleMetadata     `pulumi:"organizationCustomRuleMetadata"`
+	OrganizationManagedRuleMetadata    *OrganizationConfigRuleOrganizationManagedRuleMetadata    `pulumi:"organizationManagedRuleMetadata"`
 }
 
 // The set of arguments for constructing a OrganizationConfigRule resource.
 type OrganizationConfigRuleArgs struct {
-	ExcludedAccounts                pulumi.StringArrayInput
-	OrganizationConfigRuleName      pulumi.StringPtrInput
-	OrganizationCustomRuleMetadata  OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput
-	OrganizationManagedRuleMetadata OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput
+	ExcludedAccounts                   pulumi.StringArrayInput
+	OrganizationConfigRuleName         pulumi.StringPtrInput
+	OrganizationCustomCodeRuleMetadata OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrInput
+	OrganizationCustomRuleMetadata     OrganizationConfigRuleOrganizationCustomRuleMetadataPtrInput
+	OrganizationManagedRuleMetadata    OrganizationConfigRuleOrganizationManagedRuleMetadataPtrInput
 }
 
 func (OrganizationConfigRuleArgs) ElementType() reflect.Type {
@@ -118,6 +121,12 @@ func (o OrganizationConfigRuleOutput) ExcludedAccounts() pulumi.StringArrayOutpu
 
 func (o OrganizationConfigRuleOutput) OrganizationConfigRuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfigRule) pulumi.StringOutput { return v.OrganizationConfigRuleName }).(pulumi.StringOutput)
+}
+
+func (o OrganizationConfigRuleOutput) OrganizationCustomCodeRuleMetadata() OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigRule) OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput {
+		return v.OrganizationCustomCodeRuleMetadata
+	}).(OrganizationConfigRuleOrganizationCustomCodeRuleMetadataPtrOutput)
 }
 
 func (o OrganizationConfigRuleOutput) OrganizationCustomRuleMetadata() OrganizationConfigRuleOrganizationCustomRuleMetadataPtrOutput {
