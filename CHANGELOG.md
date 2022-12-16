@@ -1,5 +1,46 @@
 ## HEAD (Unreleased)
 
+## 0.45.0 (December 16, 2022)
+
+Breaking changes:
+- Resource "aws-native:backup:Framework" output "creationTime" type changed from "number" to "string"
+- Function "aws-native:configuration:getAggregationAuthorization" missing input "aggregationAuthorizationArn"
+- Function "aws-native:elasticloadbalancingv2:getTargetGroup" missing input "id"
+- Function "aws-native:elasticloadbalancingv2:getTargetGroup" missing output "id"
+- Function "aws-native:ecs:getCluster" missing output "serviceConnectDefaults"
+- Function "aws-native:backup:getFramework" output "creationTime" type changed from "number" to "string"
+- Type "aws-native:backup:BackupVaultLockConfigurationType" input "maxRetentionDays" type changed from "number" to "integer"
+- Type "aws-native:backup:BackupVaultLockConfigurationType" input "minRetentionDays" type changed from "number" to "integer"
+- Type "aws-native:backup:BackupVaultLockConfigurationType" input "changeableForDays" type changed from "number" to "integer"
+
+New resources:
+
+- `codepipeline.CustomActionType`
+- `docdbelastic.Cluster`
+- `elasticbeanstalk.ConfigurationTemplate`
+- `grafana.Workspace`
+- `iot.Thing`
+- `iottwinmaker.SyncJob`
+- `opensearchserverless.AccessPolicy`
+- `opensearchserverless.Collection`
+- `opensearchserverless.SecurityConfig`
+- `opensearchserverless.SecurityPolicy`
+- `opensearchserverless.VpcEndpoint`
+
+New functions:
+
+- `codepipeline.getCustomActionType`
+- `docdbelastic.getCluster`
+- `elasticbeanstalk.getConfigurationTemplate`
+- `grafana.getWorkspace`
+- `iot.getThing`
+- `iottwinmaker.getSyncJob`
+- `opensearchserverless.getAccessPolicy`
+- `opensearchserverless.getCollection`
+- `opensearchserverless.getSecurityConfig`
+- `opensearchserverless.getSecurityPolicy`
+- `opensearchserverless.getVpcEndpoint`
+
 ## 0.44.0 (December 7, 2022)
 
 Breaking changes:
