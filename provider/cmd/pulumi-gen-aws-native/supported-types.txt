@@ -108,6 +108,7 @@ AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
 AWS::CodeGuruProfiler::ProfilingGroup
 AWS::CodeGuruReviewer::RepositoryAssociation
+AWS::CodePipeline::CustomActionType
 AWS::CodeStarConnections::Connection
 AWS::CodeStarNotifications::NotificationRule
 AWS::Config::AggregationAuthorization
@@ -160,6 +161,7 @@ AWS::DeviceFarm::NetworkProfile
 AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
+AWS::DocDBElastic::Cluster
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
 AWS::EC2::CapacityReservation
@@ -242,6 +244,7 @@ AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
 AWS::ElasticBeanstalk::Application
 AWS::ElasticBeanstalk::ApplicationVersion
+AWS::ElasticBeanstalk::ConfigurationTemplate
 AWS::ElasticBeanstalk::Environment
 AWS::ElasticLoadBalancingV2::Listener
 AWS::ElasticLoadBalancingV2::ListenerRule
@@ -280,6 +283,7 @@ AWS::Glue::Registry
 AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
+AWS::Grafana::Workspace
 AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
 AWS::GroundStation::Config
@@ -326,6 +330,7 @@ AWS::IoT::ResourceSpecificLogging
 AWS::IoT::RoleAlias
 AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
+AWS::IoT::Thing
 AWS::IoT::TopicRule
 AWS::IoT::TopicRuleDestination
 AWS::IoTAnalytics::Channel
@@ -347,6 +352,7 @@ AWS::IoTSiteWise::Project
 AWS::IoTTwinMaker::ComponentType
 AWS::IoTTwinMaker::Entity
 AWS::IoTTwinMaker::Scene
+AWS::IoTTwinMaker::SyncJob
 AWS::IoTTwinMaker::Workspace
 AWS::IoTWireless::Destination
 AWS::IoTWireless::DeviceProfile
@@ -687,7 +693,24 @@ Lacework::Alerts::Channel
 Lacework::Alerts::Profile
 Lacework::Alerts::Rule
 Lacework::Queries::Query
+MongoDB::Atlas::AlertConfiguration
+MongoDB::Atlas::CloudBackUpRestoreJobs
+MongoDB::Atlas::CloudBackupSnapshot
+MongoDB::Atlas::Cluster
+MongoDB::Atlas::CustomDBRole
+MongoDB::Atlas::DatabaseUser
+MongoDB::Atlas::EncryptionAtRest
+MongoDB::Atlas::MaintenanceWindow
+MongoDB::Atlas::NetworkContainer
+MongoDB::Atlas::NetworkPeering
+MongoDB::Atlas::OrgInvitation
+MongoDB::Atlas::PrivateEndpoint
 MongoDB::Atlas::Project
+MongoDB::Atlas::ProjectInvitation
+MongoDB::Atlas::ProjectIpAccessList
+MongoDB::Atlas::Teams
+MongoDB::Atlas::ThirdPartyIntegration
+MongoDB::Atlas::X509AuthenticationDatabaseUser
 MongoDb::Atlas::AwsIamDatabaseUser
 Okta::Application::Application
 Okta::Group::Group

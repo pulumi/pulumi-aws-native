@@ -186,6 +186,9 @@
     },
     "delete" : {
       "permissions" : [ "states:DeleteStateMachine", "states:DescribeStateMachine" ]
+    },
+    "list" : {
+      "permissions" : [ "states:ListStateMachines" ]
     }
   }
 }
