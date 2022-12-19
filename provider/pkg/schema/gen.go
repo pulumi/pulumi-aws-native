@@ -478,6 +478,22 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 		}
 	}
 
+	p.Functions[packageName+":index:getPartition"] = pschema.FunctionSpec{
+		Outputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
+				"partition": {
+					TypeSpec:    primitiveTypeSpec("String"),
+					Description: "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).",
+				},
+				"dnsSuffix": {
+					TypeSpec:    primitiveTypeSpec("String"),
+					Description: "Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).",
+				},
+			},
+			Required: []string{"partition", "dnsSuffix"},
+		},
+	}
+
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
 		"packageReferences": map[string]string{
 			"Pulumi": "3.*",
@@ -1081,7 +1097,6 @@ func (ctx *context) genEnumType(enumName string, propSchema *jsschema.Schema) (*
 
 var pseudoParameters = map[string]string{
 	"AccountId": "accountId",
-	"Partition": "partition",
 	"Region":    "region",
 	"UrlSuffix": "urlSuffix",
 }

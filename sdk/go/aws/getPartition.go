@@ -17,5 +17,8 @@ func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartiti
 }
 
 type GetPartitionResult struct {
+	// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+	DnsSuffix string `pulumi:"dnsSuffix"`
+	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Partition string `pulumi:"partition"`
 }
