@@ -705,6 +705,7 @@ MongoDB::Atlas::NetworkContainer
 MongoDB::Atlas::NetworkPeering
 MongoDB::Atlas::OrgInvitation
 MongoDB::Atlas::PrivateEndpoint
+MongoDB::Atlas::PrivateEndpointADL
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList

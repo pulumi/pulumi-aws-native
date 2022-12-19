@@ -67,7 +67,7 @@
     }
   },
   "readOnlyProperties" : [ "/properties/FunctionARN", "/properties/FunctionMetadata/FunctionARN", "/properties/Stage" ],
-  "required" : [ "Name" ],
+  "required" : [ "Name", "FunctionConfig", "FunctionCode" ],
   "typeName" : "AWS::CloudFront::Function",
-  "writeOnlyProperties" : [ "/properties/AutoPublish", "/properties/FunctionCode" ]
+  "writeOnlyProperties" : [ "/properties/AutoPublish" ]
 }
