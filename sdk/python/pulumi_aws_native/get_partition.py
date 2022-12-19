@@ -17,14 +17,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetPartitionResult:
-    def __init__(__self__, partition=None):
+    def __init__(__self__, dns_suffix=None, partition=None):
+        if dns_suffix and not isinstance(dns_suffix, str):
+            raise TypeError("Expected argument 'dns_suffix' to be a str")
+        pulumi.set(__self__, "dns_suffix", dns_suffix)
         if partition and not isinstance(partition, str):
             raise TypeError("Expected argument 'partition' to be a str")
         pulumi.set(__self__, "partition", partition)
 
     @property
+    @pulumi.getter(name="dnsSuffix")
+    def dns_suffix(self) -> str:
+        """
+        Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        """
+        return pulumi.get(self, "dns_suffix")
+
+    @property
     @pulumi.getter
     def partition(self) -> str:
+        """
+        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        """
         return pulumi.get(self, "partition")
 
 
@@ -34,6 +48,7 @@ class AwaitableGetPartitionResult(GetPartitionResult):
         if False:
             yield self
         return GetPartitionResult(
+            dns_suffix=self.dns_suffix,
             partition=self.partition)
 
 
@@ -46,4 +61,5 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     __ret__ = pulumi.runtime.invoke('aws-native:index:getPartition', __args__, opts=opts, typ=GetPartitionResult).value
 
     return AwaitableGetPartitionResult(
+        dns_suffix=__ret__.dns_suffix,
         partition=__ret__.partition)
