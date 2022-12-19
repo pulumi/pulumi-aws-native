@@ -477,6 +477,7 @@ var functions = map[string]func(*cfnProvider, context.Context, resource.Property
 	"aws-native:index:getSsmParameterString": (*cfnProvider).getSSMParameterString,
 	"aws-native:index:getSsmParameterList":   (*cfnProvider).getSSMParameterList,
 	"aws-native:index:importValue":           (*cfnProvider).importValue,
+	"aws-native:index:getPartition":          (*cfnProvider).getPartition,
 }
 
 type invokeFunc func(p *cfnProvider, ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error)

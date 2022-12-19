@@ -25,3 +25,10 @@ func (p *cfnProvider) getRegion(ctx context.Context, inputs resource.PropertyMap
 		"region": p.region,
 	}), nil
 }
+
+func (p *cfnProvider) getPartition(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+	return resource.NewPropertyMapFromMap(map[string]interface{}{
+		"partition": p.partition.ID,
+		"dnsSuffix": p.partition.URLSuffix,
+	}), nil
+}
