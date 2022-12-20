@@ -117,6 +117,7 @@
   "primaryIdentifier" : [ "/properties/SubscriptionName" ],
   "createOnlyProperties" : [ "/properties/SubscriptionName" ],
   "readOnlyProperties" : [ "/properties/CustomerAwsId", "/properties/CustSubscriptionId", "/properties/Status", "/properties/SubscriptionCreationTime", "/properties/SourceIdsList", "/properties/EventCategoriesList" ],
+  "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "redshift:CreateEventSubscription", "redshift:CreateTags" ]
