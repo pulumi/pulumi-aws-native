@@ -33,6 +33,7 @@ AWS::ApiGatewayV2::Authorizer
 AWS::ApiGatewayV2::Deployment
 AWS::ApiGatewayV2::Model
 AWS::ApiGatewayV2::VpcLink
+AWS::AppFlow::Connector
 AWS::AppFlow::ConnectorProfile
 AWS::AppFlow::Flow
 AWS::AppIntegrations::DataIntegration
@@ -273,6 +274,7 @@ AWS::FraudDetector::Label
 AWS::FraudDetector::Outcome
 AWS::FraudDetector::Variable
 AWS::GameLift::Alias
+AWS::GameLift::Build
 AWS::GameLift::Fleet
 AWS::GameLift::GameServerGroup
 AWS::GameLift::Location
@@ -694,17 +696,20 @@ Lacework::Alerts::Profile
 Lacework::Alerts::Rule
 Lacework::Queries::Query
 MongoDB::Atlas::AlertConfiguration
+MongoDB::Atlas::Auditing
 MongoDB::Atlas::CloudBackUpRestoreJobs
 MongoDB::Atlas::CloudBackupSnapshot
 MongoDB::Atlas::Cluster
 MongoDB::Atlas::CustomDBRole
 MongoDB::Atlas::DatabaseUser
 MongoDB::Atlas::EncryptionAtRest
+MongoDB::Atlas::GlobalClusterConfig
 MongoDB::Atlas::MaintenanceWindow
 MongoDB::Atlas::NetworkContainer
 MongoDB::Atlas::NetworkPeering
 MongoDB::Atlas::OrgInvitation
 MongoDB::Atlas::PrivateEndpoint
+MongoDB::Atlas::PrivateEndpointADL
 MongoDB::Atlas::Project
 MongoDB::Atlas::ProjectInvitation
 MongoDB::Atlas::ProjectIpAccessList
