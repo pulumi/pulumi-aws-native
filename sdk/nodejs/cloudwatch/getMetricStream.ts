@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for Metric Stream
  */
 export function getMetricStream(args: GetMetricStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getMetricStream", {
         "name": args.name,
     }, opts);
@@ -70,9 +67,11 @@ export interface GetMetricStreamResult {
      */
     readonly statisticsConfigurations?: outputs.cloudwatch.MetricStreamStatisticsConfiguration[];
 }
-
+/**
+ * Resource Type definition for Metric Stream
+ */
 export function getMetricStreamOutput(args: GetMetricStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricStreamResult> {
-    return pulumi.output(args).apply(a => getMetricStream(a, opts))
+    return pulumi.output(args).apply((a: any) => getMetricStream(a, opts))
 }
 
 export interface GetMetricStreamOutputArgs {

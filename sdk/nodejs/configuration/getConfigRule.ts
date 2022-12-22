@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::ConfigRule
  */
 export function getConfigRule(args: GetConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConfigRule", {
         "configRuleId": args.configRuleId,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetConfigRuleResult {
     readonly scope?: outputs.configuration.ConfigRuleScope;
     readonly source?: outputs.configuration.ConfigRuleSource;
 }
-
+/**
+ * Resource Type definition for AWS::Config::ConfigRule
+ */
 export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
-    return pulumi.output(args).apply(a => getConfigRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigRule(a, opts))
 }
 
 export interface GetConfigRuleOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodePipeline::Webhook
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codepipeline:getWebhook", {
         "id": args.id,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetWebhookResult {
     readonly targetPipelineVersion?: number;
     readonly url?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CodePipeline::Webhook
+ */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
-    return pulumi.output(args).apply(a => getWebhook(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebhook(a, opts))
 }
 
 export interface GetWebhookOutputArgs {

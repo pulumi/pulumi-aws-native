@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create and manage wireless gateways, including LoRa gateways.
  */
 export function getWirelessDevice(args: GetWirelessDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetWirelessDeviceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getWirelessDevice", {
         "id": args.id,
     }, opts);
@@ -74,9 +71,11 @@ export interface GetWirelessDeviceResult {
      */
     readonly type?: enums.iotwireless.WirelessDeviceType;
 }
-
+/**
+ * Create and manage wireless gateways, including LoRa gateways.
+ */
 export function getWirelessDeviceOutput(args: GetWirelessDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessDeviceResult> {
-    return pulumi.output(args).apply(a => getWirelessDevice(a, opts))
+    return pulumi.output(args).apply((a: any) => getWirelessDevice(a, opts))
 }
 
 export interface GetWirelessDeviceOutputArgs {

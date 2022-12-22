@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeBuild::ReportGroup
  */
 export function getReportGroup(args: GetReportGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReportGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codebuild:getReportGroup", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetReportGroupResult {
     readonly id?: string;
     readonly tags?: outputs.codebuild.ReportGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::CodeBuild::ReportGroup
+ */
 export function getReportGroupOutput(args: GetReportGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportGroupResult> {
-    return pulumi.output(args).apply(a => getReportGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getReportGroup(a, opts))
 }
 
 export interface GetReportGroupOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The resource schema to create a CodeArtifact domain.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codeartifact:getDomain", {
         "arn": args.arn,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetDomainResult {
      */
     readonly tags?: outputs.codeartifact.DomainTag[];
 }
-
+/**
+ * The resource schema to create a CodeArtifact domain.
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

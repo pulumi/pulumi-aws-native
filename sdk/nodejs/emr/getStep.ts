@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EMR::Step
  */
 export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise<GetStepResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:emr:getStep", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetStepArgs {
 export interface GetStepResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EMR::Step
+ */
 export function getStepOutput(args: GetStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStepResult> {
-    return pulumi.output(args).apply(a => getStep(a, opts))
+    return pulumi.output(args).apply((a: any) => getStep(a, opts))
 }
 
 export interface GetStepOutputArgs {

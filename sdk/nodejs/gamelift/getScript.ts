@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GameLift::Script
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getScript", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetScriptResult {
     readonly tags?: outputs.gamelift.ScriptTag[];
     readonly version?: string;
 }
-
+/**
+ * Resource Type definition for AWS::GameLift::Script
+ */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
-    return pulumi.output(args).apply(a => getScript(a, opts))
+    return pulumi.output(args).apply((a: any) => getScript(a, opts))
 }
 
 export interface GetScriptOutputArgs {

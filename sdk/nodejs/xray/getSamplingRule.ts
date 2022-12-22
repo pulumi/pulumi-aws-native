@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
  */
 export function getSamplingRule(args: GetSamplingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSamplingRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:xray:getSamplingRule", {
         "ruleARN": args.ruleARN,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetSamplingRuleResult {
     readonly samplingRuleUpdate?: outputs.xray.SamplingRuleUpdate;
     readonly tags?: outputs.xray.TagsItemProperties[];
 }
-
+/**
+ * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
+ */
 export function getSamplingRuleOutput(args: GetSamplingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSamplingRuleResult> {
-    return pulumi.output(args).apply(a => getSamplingRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSamplingRule(a, opts))
 }
 
 export interface GetSamplingRuleOutputArgs {

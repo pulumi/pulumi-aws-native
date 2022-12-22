@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSM::PatchBaseline
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getPatchBaseline", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetPatchBaselineResult {
     readonly sources?: outputs.ssm.PatchBaselinePatchSource[];
     readonly tags?: outputs.ssm.PatchBaselineTag[];
 }
-
+/**
+ * Resource Type definition for AWS::SSM::PatchBaseline
+ */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
-    return pulumi.output(args).apply(a => getPatchBaseline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))
 }
 
 export interface GetPatchBaselineOutputArgs {

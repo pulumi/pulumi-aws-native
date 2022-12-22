@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::TaskTemplate.
  */
 export function getTaskTemplate(args: GetTaskTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getTaskTemplate", {
         "arn": args.arn,
     }, opts);
@@ -65,9 +62,11 @@ export interface GetTaskTemplateResult {
      */
     readonly tags?: outputs.connect.TaskTemplateTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Connect::TaskTemplate.
+ */
 export function getTaskTemplateOutput(args: GetTaskTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskTemplateResult> {
-    return pulumi.output(args).apply(a => getTaskTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getTaskTemplate(a, opts))
 }
 
 export interface GetTaskTemplateOutputArgs {

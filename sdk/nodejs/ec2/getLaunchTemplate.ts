@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::LaunchTemplate
  */
 export function getLaunchTemplate(args: GetLaunchTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLaunchTemplate", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetLaunchTemplateResult {
     readonly tagSpecifications?: outputs.ec2.LaunchTemplateTagSpecification[];
     readonly versionDescription?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::LaunchTemplate
+ */
 export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
-    return pulumi.output(args).apply(a => getLaunchTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchTemplate(a, opts))
 }
 
 export interface GetLaunchTemplateOutputArgs {

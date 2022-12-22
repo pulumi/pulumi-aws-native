@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::Timestream::Table resource creates a Timestream Table.
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:timestream:getTable", {
         "databaseName": args.databaseName,
         "tableName": args.tableName,
@@ -52,9 +49,11 @@ export interface GetTableResult {
      */
     readonly tags?: outputs.timestream.TableTag[];
 }
-
+/**
+ * The AWS::Timestream::Table resource creates a Timestream Table.
+ */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply(a => getTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Test and Publish a resource that has been registered in the CloudFormation Registry.
  */
 export function getPublicTypeVersion(args: GetPublicTypeVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicTypeVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getPublicTypeVersion", {
         "publicTypeArn": args.publicTypeArn,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetPublicTypeVersionResult {
      */
     readonly typeVersionArn?: string;
 }
-
+/**
+ * Test and Publish a resource that has been registered in the CloudFormation Registry.
+ */
 export function getPublicTypeVersionOutput(args: GetPublicTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicTypeVersionResult> {
-    return pulumi.output(args).apply(a => getPublicTypeVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicTypeVersion(a, opts))
 }
 
 export interface GetPublicTypeVersionOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::EC2Fleet
  */
 export function getEC2Fleet(args: GetEC2FleetArgs, opts?: pulumi.InvokeOptions): Promise<GetEC2FleetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEC2Fleet", {
         "fleetId": args.fleetId,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetEC2FleetResult {
     readonly fleetId?: string;
     readonly targetCapacitySpecification?: outputs.ec2.EC2FleetTargetCapacitySpecificationRequest;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::EC2Fleet
+ */
 export function getEC2FleetOutput(args: GetEC2FleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEC2FleetResult> {
-    return pulumi.output(args).apply(a => getEC2Fleet(a, opts))
+    return pulumi.output(args).apply((a: any) => getEC2Fleet(a, opts))
 }
 
 export interface GetEC2FleetOutputArgs {

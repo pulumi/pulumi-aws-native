@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeCommit::Repository
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codecommit:getRepository", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetRepositoryResult {
     readonly tags?: outputs.codecommit.RepositoryTag[];
     readonly triggers?: outputs.codecommit.RepositoryTrigger[];
 }
-
+/**
+ * Resource Type definition for AWS::CodeCommit::Repository
+ */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
-    return pulumi.output(args).apply(a => getRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepository(a, opts))
 }
 
 export interface GetRepositoryOutputArgs {

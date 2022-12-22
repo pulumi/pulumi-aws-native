@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::NetworkAclEntry
  */
 export function getNetworkAclEntry(args: GetNetworkAclEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclEntryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkAclEntry", {
         "id": args.id,
     }, opts);
@@ -52,9 +49,11 @@ export interface GetNetworkAclEntryResult {
      */
     readonly ruleAction?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::NetworkAclEntry
+ */
 export function getNetworkAclEntryOutput(args: GetNetworkAclEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclEntryResult> {
-    return pulumi.output(args).apply(a => getNetworkAclEntry(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkAclEntry(a, opts))
 }
 
 export interface GetNetworkAclEntryOutputArgs {

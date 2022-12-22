@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::CacheCluster
  */
 export function getCacheCluster(args: GetCacheClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getCacheCluster", {
         "id": args.id,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetCacheClusterResult {
     readonly transitEncryptionEnabled?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::ElastiCache::CacheCluster
+ */
 export function getCacheClusterOutput(args: GetCacheClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheClusterResult> {
-    return pulumi.output(args).apply(a => getCacheCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCacheCluster(a, opts))
 }
 
 export interface GetCacheClusterOutputArgs {

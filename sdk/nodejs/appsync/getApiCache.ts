@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::ApiCache
  */
 export function getApiCache(args: GetApiCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetApiCacheResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getApiCache", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetApiCacheResult {
     readonly ttl?: number;
     readonly type?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::ApiCache
+ */
 export function getApiCacheOutput(args: GetApiCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiCacheResult> {
-    return pulumi.output(args).apply(a => getApiCache(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiCache(a, opts))
 }
 
 export interface GetApiCacheOutputArgs {

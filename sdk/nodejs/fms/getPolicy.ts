@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Creates an AWS Firewall Manager policy.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fms:getPolicy", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetPolicyResult {
     readonly securityServicePolicyData?: outputs.fms.PolicySecurityServicePolicyData;
     readonly tags?: outputs.fms.PolicyTag[];
 }
-
+/**
+ * Creates an AWS Firewall Manager policy.
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 export interface GetPolicyOutputArgs {

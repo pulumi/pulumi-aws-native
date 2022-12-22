@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::ResourceExplorer2::Index Resource Type
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:resourceexplorer2:getIndex", {
         "arn": args.arn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetIndexResult {
     readonly tags?: outputs.resourceexplorer2.IndexTagMap;
     readonly type?: enums.resourceexplorer2.IndexType;
 }
-
+/**
+ * Definition of AWS::ResourceExplorer2::Index Resource Type
+ */
 export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
-    return pulumi.output(args).apply(a => getIndex(a, opts))
+    return pulumi.output(args).apply((a: any) => getIndex(a, opts))
 }
 
 export interface GetIndexOutputArgs {

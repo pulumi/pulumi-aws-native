@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::CertificateManager::Account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:certificatemanager:getAccount", {
         "accountId": args.accountId,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetAccountResult {
     readonly accountId?: string;
     readonly expiryEventsConfiguration?: outputs.certificatemanager.AccountExpiryEventsConfiguration;
 }
-
+/**
+ * Resource schema for AWS::CertificateManager::Account.
+ */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
-    return pulumi.output(args).apply(a => getAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }
 
 export interface GetAccountOutputArgs {

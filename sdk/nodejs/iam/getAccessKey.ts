@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::AccessKey
  */
 export function getAccessKey(args: GetAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getAccessKey", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetAccessKeyResult {
     readonly secretAccessKey?: string;
     readonly status?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IAM::AccessKey
+ */
 export function getAccessKeyOutput(args: GetAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessKeyResult> {
-    return pulumi.output(args).apply(a => getAccessKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessKey(a, opts))
 }
 
 export interface GetAccessKeyOutputArgs {

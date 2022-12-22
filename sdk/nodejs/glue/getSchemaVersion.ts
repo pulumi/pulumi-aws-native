@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
  */
 export function getSchemaVersion(args: GetSchemaVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getSchemaVersion", {
         "versionId": args.versionId,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetSchemaVersionResult {
      */
     readonly versionId?: string;
 }
-
+/**
+ * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
+ */
 export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
-    return pulumi.output(args).apply(a => getSchemaVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchemaVersion(a, opts))
 }
 
 export interface GetSchemaVersionOutputArgs {

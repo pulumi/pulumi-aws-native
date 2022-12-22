@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
  */
 export function getResolverDNSSECConfig(args: GetResolverDNSSECConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverDNSSECConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverDNSSECConfig", {
         "id": args.id,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetResolverDNSSECConfigResult {
      */
     readonly validationStatus?: enums.route53resolver.ResolverDNSSECConfigValidationStatus;
 }
-
+/**
+ * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
+ */
 export function getResolverDNSSECConfigOutput(args: GetResolverDNSSECConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverDNSSECConfigResult> {
-    return pulumi.output(args).apply(a => getResolverDNSSECConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolverDNSSECConfig(a, opts))
 }
 
 export interface GetResolverDNSSECConfigOutputArgs {

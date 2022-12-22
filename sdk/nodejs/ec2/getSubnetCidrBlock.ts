@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SubnetCidrBlock
  */
 export function getSubnetCidrBlock(args: GetSubnetCidrBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetCidrBlockResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSubnetCidrBlock", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetSubnetCidrBlockArgs {
 export interface GetSubnetCidrBlockResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::SubnetCidrBlock
+ */
 export function getSubnetCidrBlockOutput(args: GetSubnetCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetCidrBlockResult> {
-    return pulumi.output(args).apply(a => getSubnetCidrBlock(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnetCidrBlock(a, opts))
 }
 
 export interface GetSubnetCidrBlockOutputArgs {

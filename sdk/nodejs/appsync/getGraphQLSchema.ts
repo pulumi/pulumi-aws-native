@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::GraphQLSchema
  */
 export function getGraphQLSchema(args: GetGraphQLSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLSchemaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getGraphQLSchema", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetGraphQLSchemaResult {
     readonly definitionS3Location?: string;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::GraphQLSchema
+ */
 export function getGraphQLSchemaOutput(args: GetGraphQLSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLSchemaResult> {
-    return pulumi.output(args).apply(a => getGraphQLSchema(a, opts))
+    return pulumi.output(args).apply((a: any) => getGraphQLSchema(a, opts))
 }
 
 export interface GetGraphQLSchemaOutputArgs {

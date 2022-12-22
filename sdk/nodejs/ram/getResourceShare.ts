@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::RAM::ResourceShare
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ram:getResourceShare", {
         "id": args.id,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetResourceShareResult {
     readonly resourceArns?: string[];
     readonly tags?: outputs.ram.ResourceShareTag[];
 }
-
+/**
+ * Resource Type definition for AWS::RAM::ResourceShare
+ */
 export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
-    return pulumi.output(args).apply(a => getResourceShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceShare(a, opts))
 }
 
 export interface GetResourceShareOutputArgs {

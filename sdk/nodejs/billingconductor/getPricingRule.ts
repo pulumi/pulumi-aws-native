@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
  */
 export function getPricingRule(args: GetPricingRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetPricingRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:billingconductor:getPricingRule", {
         "arn": args.arn,
     }, opts);
@@ -67,9 +64,11 @@ export interface GetPricingRuleResult {
      */
     readonly type?: enums.billingconductor.PricingRuleType;
 }
-
+/**
+ * A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
+ */
 export function getPricingRuleOutput(args: GetPricingRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPricingRuleResult> {
-    return pulumi.output(args).apply(a => getPricingRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getPricingRule(a, opts))
 }
 
 export interface GetPricingRuleOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
  */
 export function getVPCEndpointServicePermissions(args: GetVPCEndpointServicePermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServicePermissionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpointServicePermissions", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetVPCEndpointServicePermissionsResult {
     readonly allowedPrincipals?: string[];
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
+ */
 export function getVPCEndpointServicePermissionsOutput(args: GetVPCEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServicePermissionsResult> {
-    return pulumi.output(args).apply(a => getVPCEndpointServicePermissions(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCEndpointServicePermissions(a, opts))
 }
 
 export interface GetVPCEndpointServicePermissionsOutputArgs {

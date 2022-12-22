@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
  */
 export function getBillingGroup(args: GetBillingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:billingconductor:getBillingGroup", {
         "arn": args.arn,
     }, opts);
@@ -53,9 +50,11 @@ export interface GetBillingGroupResult {
     readonly statusReason?: string;
     readonly tags?: outputs.billingconductor.BillingGroupTag[];
 }
-
+/**
+ * A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
+ */
 export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingGroupResult> {
-    return pulumi.output(args).apply(a => getBillingGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getBillingGroup(a, opts))
 }
 
 export interface GetBillingGroupOutputArgs {

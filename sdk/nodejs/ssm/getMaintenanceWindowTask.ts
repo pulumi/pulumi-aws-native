@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSM::MaintenanceWindowTask
  */
 export function getMaintenanceWindowTask(args: GetMaintenanceWindowTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceWindowTaskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getMaintenanceWindowTask", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetMaintenanceWindowTaskResult {
     readonly taskInvocationParameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParameters;
     readonly taskParameters?: any;
 }
-
+/**
+ * Resource Type definition for AWS::SSM::MaintenanceWindowTask
+ */
 export function getMaintenanceWindowTaskOutput(args: GetMaintenanceWindowTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceWindowTaskResult> {
-    return pulumi.output(args).apply(a => getMaintenanceWindowTask(a, opts))
+    return pulumi.output(args).apply((a: any) => getMaintenanceWindowTask(a, opts))
 }
 
 export interface GetMaintenanceWindowTaskOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SNS::TopicPolicy
  */
 export function getTopicPolicy(args: GetTopicPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sns:getTopicPolicy", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetTopicPolicyResult {
     readonly policyDocument?: any;
     readonly topics?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::SNS::TopicPolicy
+ */
 export function getTopicPolicyOutput(args: GetTopicPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicPolicyResult> {
-    return pulumi.output(args).apply(a => getTopicPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopicPolicy(a, opts))
 }
 
 export interface GetTopicPolicyOutputArgs {

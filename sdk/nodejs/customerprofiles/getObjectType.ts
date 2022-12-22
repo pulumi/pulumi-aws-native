@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An ObjectType resource of Amazon Connect Customer Profiles
  */
 export function getObjectType(args: GetObjectTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:customerprofiles:getObjectType", {
         "domainName": args.domainName,
         "objectTypeName": args.objectTypeName,
@@ -75,9 +72,11 @@ export interface GetObjectTypeResult {
      */
     readonly templateId?: string;
 }
-
+/**
+ * An ObjectType resource of Amazon Connect Customer Profiles
+ */
 export function getObjectTypeOutput(args: GetObjectTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectTypeResult> {
-    return pulumi.output(args).apply(a => getObjectType(a, opts))
+    return pulumi.output(args).apply((a: any) => getObjectType(a, opts))
 }
 
 export interface GetObjectTypeOutputArgs {

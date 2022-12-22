@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Kinesis::StreamConsumer
  */
 export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamConsumerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesis:getStreamConsumer", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetStreamConsumerResult {
     readonly consumerStatus?: string;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Kinesis::StreamConsumer
+ */
 export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamConsumerResult> {
-    return pulumi.output(args).apply(a => getStreamConsumer(a, opts))
+    return pulumi.output(args).apply((a: any) => getStreamConsumer(a, opts))
 }
 
 export interface GetStreamConsumerOutputArgs {

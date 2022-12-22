@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getSubscriptionFilter(args: GetSubscriptionFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFilterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getSubscriptionFilter", {
         "filterName": args.filterName,
         "logGroupName": args.logGroupName,
@@ -36,9 +33,11 @@ export interface GetSubscriptionFilterResult {
      */
     readonly filterName?: string;
 }
-
+/**
+ * An example resource schema demonstrating some basic constructs and validation rules.
+ */
 export function getSubscriptionFilterOutput(args: GetSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFilterResult> {
-    return pulumi.output(args).apply(a => getSubscriptionFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubscriptionFilter(a, opts))
 }
 
 export interface GetSubscriptionFilterOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
  */
 export function getThreatIntelSet(args: GetThreatIntelSetArgs, opts?: pulumi.InvokeOptions): Promise<GetThreatIntelSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getThreatIntelSet", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetThreatIntelSetResult {
     readonly name?: string;
     readonly tags?: outputs.guardduty.ThreatIntelSetTag[];
 }
-
+/**
+ * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
+ */
 export function getThreatIntelSetOutput(args: GetThreatIntelSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelSetResult> {
-    return pulumi.output(args).apply(a => getThreatIntelSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getThreatIntelSet(a, opts))
 }
 
 export interface GetThreatIntelSetOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::VpcLink
  */
 export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getVpcLink", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetVpcLinkResult {
     readonly name?: string;
     readonly tags?: outputs.apigateway.VpcLinkTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::VpcLink
+ */
 export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
-    return pulumi.output(args).apply(a => getVpcLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcLink(a, opts))
 }
 
 export interface GetVpcLinkOutputArgs {

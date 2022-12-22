@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Batch::ComputeEnvironment
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getComputeEnvironment", {
         "computeEnvironmentArn": args.computeEnvironmentArn,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetComputeEnvironmentResult {
     readonly state?: string;
     readonly unmanagedvCpus?: number;
 }
-
+/**
+ * Resource Type definition for AWS::Batch::ComputeEnvironment
+ */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
-    return pulumi.output(args).apply(a => getComputeEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getComputeEnvironment(a, opts))
 }
 
 export interface GetComputeEnvironmentOutputArgs {

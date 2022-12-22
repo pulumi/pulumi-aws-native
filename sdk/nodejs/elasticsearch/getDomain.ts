@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Elasticsearch::Domain
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticsearch:getDomain", {
         "id": args.id,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetDomainResult {
     readonly tags?: outputs.elasticsearch.DomainTag[];
     readonly vPCOptions?: outputs.elasticsearch.DomainVPCOptions;
 }
-
+/**
+ * Resource Type definition for AWS::Elasticsearch::Domain
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

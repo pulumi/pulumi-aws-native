@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::Location::Tracker Resource Type
  */
 export function getTracker(args: GetTrackerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrackerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:location:getTracker", {
         "trackerName": args.trackerName,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetTrackerResult {
     readonly trackerArn?: string;
     readonly updateTime?: string;
 }
-
+/**
+ * Definition of AWS::Location::Tracker Resource Type
+ */
 export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
-    return pulumi.output(args).apply(a => getTracker(a, opts))
+    return pulumi.output(args).apply((a: any) => getTracker(a, opts))
 }
 
 export interface GetTrackerOutputArgs {

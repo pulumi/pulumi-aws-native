@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::EmailTemplate
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getEmailTemplate", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetEmailTemplateResult {
     readonly templateDescription?: string;
     readonly textPart?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::EmailTemplate
+ */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
-    return pulumi.output(args).apply(a => getEmailTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
 }
 
 export interface GetEmailTemplateOutputArgs {

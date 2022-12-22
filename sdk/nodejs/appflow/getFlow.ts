@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::AppFlow::Flow.
  */
 export function getFlow(args: GetFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appflow:getFlow", {
         "flowName": args.flowName,
     }, opts);
@@ -62,9 +59,11 @@ export interface GetFlowResult {
      */
     readonly triggerConfig?: outputs.appflow.FlowTriggerConfig;
 }
-
+/**
+ * Resource schema for AWS::AppFlow::Flow.
+ */
 export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
-    return pulumi.output(args).apply(a => getFlow(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlow(a, opts))
 }
 
 export interface GetFlowOutputArgs {

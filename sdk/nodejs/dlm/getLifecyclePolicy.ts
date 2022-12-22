@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DLM::LifecyclePolicy
  */
 export function getLifecyclePolicy(args: GetLifecyclePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetLifecyclePolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dlm:getLifecyclePolicy", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetLifecyclePolicyResult {
     readonly state?: string;
     readonly tags?: outputs.dlm.LifecyclePolicyTag[];
 }
-
+/**
+ * Resource Type definition for AWS::DLM::LifecyclePolicy
+ */
 export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyResult> {
-    return pulumi.output(args).apply(a => getLifecyclePolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getLifecyclePolicy(a, opts))
 }
 
 export interface GetLifecyclePolicyOutputArgs {

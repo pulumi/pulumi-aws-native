@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::Analysis Resource Type.
  */
 export function getAnalysis(args: GetAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalysisResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getAnalysis", {
         "analysisId": args.analysisId,
         "awsAccountId": args.awsAccountId,
@@ -67,9 +64,11 @@ export interface GetAnalysisResult {
      */
     readonly themeArn?: string;
 }
-
+/**
+ * Definition of the AWS::QuickSight::Analysis Resource Type.
+ */
 export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisResult> {
-    return pulumi.output(args).apply(a => getAnalysis(a, opts))
+    return pulumi.output(args).apply((a: any) => getAnalysis(a, opts))
 }
 
 export interface GetAnalysisOutputArgs {

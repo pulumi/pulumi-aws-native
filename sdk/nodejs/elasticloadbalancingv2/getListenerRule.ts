@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
  */
 export function getListenerRule(args: GetListenerRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getListenerRule", {
         "ruleArn": args.ruleArn,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetListenerRuleResult {
     readonly priority?: number;
     readonly ruleArn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
+ */
 export function getListenerRuleOutput(args: GetListenerRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerRuleResult> {
-    return pulumi.output(args).apply(a => getListenerRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getListenerRule(a, opts))
 }
 
 export interface GetListenerRuleOutputArgs {

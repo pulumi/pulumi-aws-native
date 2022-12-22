@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codedeploy:getApplication", {
         "applicationName": args.applicationName,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetApplicationResult {
      */
     readonly tags?: outputs.codedeploy.ApplicationTag[];
 }
-
+/**
+ * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

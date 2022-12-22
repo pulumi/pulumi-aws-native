@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Represents a launch profile which delegates access to a collection of studio components to studio users
  */
 export function getLaunchProfile(args: GetLaunchProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getLaunchProfile", {
         "launchProfileId": args.launchProfileId,
         "studioId": args.studioId,
@@ -52,9 +49,11 @@ export interface GetLaunchProfileResult {
      */
     readonly studioComponentIds?: string[];
 }
-
+/**
+ * Represents a launch profile which delegates access to a collection of studio components to studio users
+ */
 export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchProfileResult> {
-    return pulumi.output(args).apply(a => getLaunchProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchProfile(a, opts))
 }
 
 export interface GetLaunchProfileOutputArgs {

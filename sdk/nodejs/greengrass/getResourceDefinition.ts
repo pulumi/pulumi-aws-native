@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::ResourceDefinition
  */
 export function getResourceDefinition(args: GetResourceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getResourceDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetResourceDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::ResourceDefinition
+ */
 export function getResourceDefinitionOutput(args: GetResourceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefinitionResult> {
-    return pulumi.output(args).apply(a => getResourceDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceDefinition(a, opts))
 }
 
 export interface GetResourceDefinitionOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MediaStore::Container
  */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediastore:getContainer", {
         "id": args.id,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetContainerResult {
     readonly policy?: string;
     readonly tags?: outputs.mediastore.ContainerTag[];
 }
-
+/**
+ * Resource Type definition for AWS::MediaStore::Container
+ */
 export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
-    return pulumi.output(args).apply(a => getContainer(a, opts))
+    return pulumi.output(args).apply((a: any) => getContainer(a, opts))
 }
 
 export interface GetContainerOutputArgs {

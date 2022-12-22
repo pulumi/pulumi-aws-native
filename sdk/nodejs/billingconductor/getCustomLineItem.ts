@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A custom line item is an one time charge that is applied to a specific billing group's bill.
  */
 export function getCustomLineItem(args: GetCustomLineItemArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLineItemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:billingconductor:getCustomLineItem", {
         "arn": args.arn,
     }, opts);
@@ -53,9 +50,11 @@ export interface GetCustomLineItemResult {
     readonly productCode?: string;
     readonly tags?: outputs.billingconductor.CustomLineItemTag[];
 }
-
+/**
+ * A custom line item is an one time charge that is applied to a specific billing group's bill.
+ */
 export function getCustomLineItemOutput(args: GetCustomLineItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLineItemResult> {
-    return pulumi.output(args).apply(a => getCustomLineItem(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomLineItem(a, opts))
 }
 
 export interface GetCustomLineItemOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeStarNotifications::NotificationRule
  */
 export function getNotificationRule(args: GetNotificationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codestarnotifications:getNotificationRule", {
         "arn": args.arn,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetNotificationRuleResult {
     readonly tags?: any;
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }
-
+/**
+ * Resource Type definition for AWS::CodeStarNotifications::NotificationRule
+ */
 export function getNotificationRuleOutput(args: GetNotificationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRuleResult> {
-    return pulumi.output(args).apply(a => getNotificationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationRule(a, opts))
 }
 
 export interface GetNotificationRuleOutputArgs {

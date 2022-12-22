@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
  */
 export function getAPNSSandboxChannel(args: GetAPNSSandboxChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSSandboxChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getAPNSSandboxChannel", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetAPNSSandboxChannelResult {
     readonly tokenKey?: string;
     readonly tokenKeyId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::APNSSandboxChannel
+ */
 export function getAPNSSandboxChannelOutput(args: GetAPNSSandboxChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSSandboxChannelResult> {
-    return pulumi.output(args).apply(a => getAPNSSandboxChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getAPNSSandboxChannel(a, opts))
 }
 
 export interface GetAPNSSandboxChannelOutputArgs {

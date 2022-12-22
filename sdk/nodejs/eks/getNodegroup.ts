@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EKS::Nodegroup
  */
 export function getNodegroup(args: GetNodegroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNodegroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eks:getNodegroup", {
         "id": args.id,
     }, opts);
@@ -61,9 +58,11 @@ export interface GetNodegroupResult {
      */
     readonly version?: string;
 }
-
+/**
+ * Resource schema for AWS::EKS::Nodegroup
+ */
 export function getNodegroupOutput(args: GetNodegroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodegroupResult> {
-    return pulumi.output(args).apply(a => getNodegroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getNodegroup(a, opts))
 }
 
 export interface GetNodegroupOutputArgs {

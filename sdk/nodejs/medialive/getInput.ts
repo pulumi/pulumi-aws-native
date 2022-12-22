@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MediaLive::Input
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getInput", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetInputResult {
     readonly sources?: outputs.medialive.InputSourceRequest[];
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::MediaLive::Input
+ */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
-    return pulumi.output(args).apply(a => getInput(a, opts))
+    return pulumi.output(args).apply((a: any) => getInput(a, opts))
 }
 
 export interface GetInputOutputArgs {

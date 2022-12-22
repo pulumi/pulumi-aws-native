@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
  */
 export function getRobot(args: GetRobotArgs, opts?: pulumi.InvokeOptions): Promise<GetRobotResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:robomaker:getRobot", {
         "arn": args.arn,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetRobotResult {
     readonly arn?: string;
     readonly tags?: outputs.robomaker.RobotTags;
 }
-
+/**
+ * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
+ */
 export function getRobotOutput(args: GetRobotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotResult> {
-    return pulumi.output(args).apply(a => getRobot(a, opts))
+    return pulumi.output(args).apply((a: any) => getRobot(a, opts))
 }
 
 export interface GetRobotOutputArgs {

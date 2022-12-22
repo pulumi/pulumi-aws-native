@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DocDB::DBInstance
  */
 export function getDBInstance(args: GetDBInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDBInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:docdb:getDBInstance", {
         "id": args.id,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetDBInstanceResult {
     readonly preferredMaintenanceWindow?: string;
     readonly tags?: outputs.docdb.DBInstanceTag[];
 }
-
+/**
+ * Resource Type definition for AWS::DocDB::DBInstance
+ */
 export function getDBInstanceOutput(args: GetDBInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBInstanceResult> {
-    return pulumi.output(args).apply(a => getDBInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBInstance(a, opts))
 }
 
 export interface GetDBInstanceOutputArgs {

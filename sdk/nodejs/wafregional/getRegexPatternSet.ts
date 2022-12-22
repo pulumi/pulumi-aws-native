@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::RegexPatternSet
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getRegexPatternSet", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetRegexPatternSetResult {
     readonly id?: string;
     readonly regexPatternStrings?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::RegexPatternSet
+ */
 export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
-    return pulumi.output(args).apply(a => getRegexPatternSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegexPatternSet(a, opts))
 }
 
 export interface GetRegexPatternSetOutputArgs {

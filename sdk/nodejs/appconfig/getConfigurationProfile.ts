@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppConfig::ConfigurationProfile
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getConfigurationProfile", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetConfigurationProfileResult {
     readonly tags?: outputs.appconfig.ConfigurationProfileTags[];
     readonly validators?: outputs.appconfig.ConfigurationProfileValidators[];
 }
-
+/**
+ * Resource Type definition for AWS::AppConfig::ConfigurationProfile
+ */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
-    return pulumi.output(args).apply(a => getConfigurationProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))
 }
 
 export interface GetConfigurationProfileOutputArgs {

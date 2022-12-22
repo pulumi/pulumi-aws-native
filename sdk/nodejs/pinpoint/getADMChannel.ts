@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::ADMChannel
  */
 export function getADMChannel(args: GetADMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetADMChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getADMChannel", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetADMChannelResult {
     readonly enabled?: boolean;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::ADMChannel
+ */
 export function getADMChannelOutput(args: GetADMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADMChannelResult> {
-    return pulumi.output(args).apply(a => getADMChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getADMChannel(a, opts))
 }
 
 export interface GetADMChannelOutputArgs {

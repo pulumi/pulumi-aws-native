@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::ThingPrincipalAttachment
  */
 export function getThingPrincipalAttachment(args: GetThingPrincipalAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetThingPrincipalAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getThingPrincipalAttachment", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetThingPrincipalAttachmentArgs {
 export interface GetThingPrincipalAttachmentResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoT::ThingPrincipalAttachment
+ */
 export function getThingPrincipalAttachmentOutput(args: GetThingPrincipalAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingPrincipalAttachmentResult> {
-    return pulumi.output(args).apply(a => getThingPrincipalAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getThingPrincipalAttachment(a, opts))
 }
 
 export interface GetThingPrincipalAttachmentOutputArgs {

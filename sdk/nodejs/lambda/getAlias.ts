@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::Alias
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getAlias", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetAliasResult {
     readonly provisionedConcurrencyConfig?: outputs.lambda.AliasProvisionedConcurrencyConfiguration;
     readonly routingConfig?: outputs.lambda.AliasRoutingConfiguration;
 }
-
+/**
+ * Resource Type definition for AWS::Lambda::Alias
+ */
 export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
-    return pulumi.output(args).apply(a => getAlias(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlias(a, opts))
 }
 
 export interface GetAliasOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::RefactorSpaces::Application Resource Type
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:refactorspaces:getApplication", {
         "applicationIdentifier": args.applicationIdentifier,
         "environmentIdentifier": args.environmentIdentifier,
@@ -41,9 +38,11 @@ export interface GetApplicationResult {
     readonly tags?: outputs.refactorspaces.ApplicationTag[];
     readonly vpcLinkId?: string;
 }
-
+/**
+ * Definition of AWS::RefactorSpaces::Application Resource Type
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

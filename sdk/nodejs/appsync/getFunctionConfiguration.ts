@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::FunctionConfiguration
  */
 export function getFunctionConfiguration(args: GetFunctionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getFunctionConfiguration", {
         "id": args.id,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetFunctionConfigurationResult {
     readonly runtime?: outputs.appsync.FunctionConfigurationAppSyncRuntime;
     readonly syncConfig?: outputs.appsync.FunctionConfigurationSyncConfig;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::FunctionConfiguration
+ */
 export function getFunctionConfigurationOutput(args: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionConfigurationResult> {
-    return pulumi.output(args).apply(a => getFunctionConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getFunctionConfiguration(a, opts))
 }
 
 export interface GetFunctionConfigurationOutputArgs {

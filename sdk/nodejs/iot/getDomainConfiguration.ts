@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create and manage a Domain Configuration
  */
 export function getDomainConfiguration(args: GetDomainConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getDomainConfiguration", {
         "domainConfigurationName": args.domainConfigurationName,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetDomainConfigurationResult {
     readonly serverCertificates?: outputs.iot.DomainConfigurationServerCertificateSummary[];
     readonly tags?: outputs.iot.DomainConfigurationTag[];
 }
-
+/**
+ * Create and manage a Domain Configuration
+ */
 export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainConfigurationResult> {
-    return pulumi.output(args).apply(a => getDomainConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainConfiguration(a, opts))
 }
 
 export interface GetDomainConfigurationOutputArgs {

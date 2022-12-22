@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCPeeringConnection
  */
 export function getVPCPeeringConnection(args: GetVPCPeeringConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCPeeringConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCPeeringConnection", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetVPCPeeringConnectionResult {
     readonly id?: string;
     readonly tags?: outputs.ec2.VPCPeeringConnectionTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCPeeringConnection
+ */
 export function getVPCPeeringConnectionOutput(args: GetVPCPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCPeeringConnectionResult> {
-    return pulumi.output(args).apply(a => getVPCPeeringConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCPeeringConnection(a, opts))
 }
 
 export interface GetVPCPeeringConnectionOutputArgs {

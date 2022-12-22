@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
  */
 export function getPrivateDnsNamespace(args: GetPrivateDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateDnsNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicediscovery:getPrivateDnsNamespace", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetPrivateDnsNamespaceResult {
     readonly properties?: outputs.servicediscovery.PrivateDnsNamespaceProperties;
     readonly tags?: outputs.servicediscovery.PrivateDnsNamespaceTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
+ */
 export function getPrivateDnsNamespaceOutput(args: GetPrivateDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsNamespaceResult> {
-    return pulumi.output(args).apply(a => getPrivateDnsNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrivateDnsNamespace(a, opts))
 }
 
 export interface GetPrivateDnsNamespaceOutputArgs {

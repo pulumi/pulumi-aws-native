@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
  */
 export function getSiteToSiteVpnAttachment(args: GetSiteToSiteVpnAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteToSiteVpnAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getSiteToSiteVpnAttachment", {
         "attachmentId": args.attachmentId,
     }, opts);
@@ -82,9 +79,11 @@ export interface GetSiteToSiteVpnAttachmentResult {
      */
     readonly updatedAt?: string;
 }
-
+/**
+ * AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
+ */
 export function getSiteToSiteVpnAttachmentOutput(args: GetSiteToSiteVpnAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteToSiteVpnAttachmentResult> {
-    return pulumi.output(args).apply(a => getSiteToSiteVpnAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getSiteToSiteVpnAttachment(a, opts))
 }
 
 export interface GetSiteToSiteVpnAttachmentOutputArgs {

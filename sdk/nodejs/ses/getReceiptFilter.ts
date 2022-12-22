@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::ReceiptFilter
  */
 export function getReceiptFilter(args: GetReceiptFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetReceiptFilterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getReceiptFilter", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetReceiptFilterArgs {
 export interface GetReceiptFilterResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SES::ReceiptFilter
+ */
 export function getReceiptFilterOutput(args: GetReceiptFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceiptFilterResult> {
-    return pulumi.output(args).apply(a => getReceiptFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getReceiptFilter(a, opts))
 }
 
 export interface GetReceiptFilterOutputArgs {

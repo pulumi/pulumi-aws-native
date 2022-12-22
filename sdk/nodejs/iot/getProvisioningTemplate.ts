@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Creates a fleet provisioning template.
  */
 export function getProvisioningTemplate(args: GetProvisioningTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetProvisioningTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getProvisioningTemplate", {
         "templateName": args.templateName,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetProvisioningTemplateResult {
     readonly templateArn?: string;
     readonly templateBody?: string;
 }
-
+/**
+ * Creates a fleet provisioning template.
+ */
 export function getProvisioningTemplateOutput(args: GetProvisioningTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningTemplateResult> {
-    return pulumi.output(args).apply(a => getProvisioningTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getProvisioningTemplate(a, opts))
 }
 
 export interface GetProvisioningTemplateOutputArgs {

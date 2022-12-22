@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::BasePathMapping
  */
 export function getBasePathMapping(args: GetBasePathMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBasePathMappingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getBasePathMapping", {
         "basePath": args.basePath,
         "domainName": args.domainName,
@@ -40,9 +37,11 @@ export interface GetBasePathMappingResult {
      */
     readonly stage?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::BasePathMapping
+ */
 export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingResult> {
-    return pulumi.output(args).apply(a => getBasePathMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getBasePathMapping(a, opts))
 }
 
 export interface GetBasePathMappingOutputArgs {

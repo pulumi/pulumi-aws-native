@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
  */
 export function getPricingPlan(args: GetPricingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPricingPlanResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:billingconductor:getPricingPlan", {
         "arn": args.arn,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetPricingPlanResult {
     readonly size?: number;
     readonly tags?: outputs.billingconductor.PricingPlanTag[];
 }
-
+/**
+ * Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
+ */
 export function getPricingPlanOutput(args: GetPricingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPricingPlanResult> {
-    return pulumi.output(args).apply(a => getPricingPlan(a, opts))
+    return pulumi.output(args).apply((a: any) => getPricingPlan(a, opts))
 }
 
 export interface GetPricingPlanOutputArgs {

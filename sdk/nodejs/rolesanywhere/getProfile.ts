@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::RolesAnywhere::Profile Resource Type
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rolesanywhere:getProfile", {
         "profileId": args.profileId,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetProfileResult {
     readonly sessionPolicy?: string;
     readonly tags?: outputs.rolesanywhere.ProfileTag[];
 }
-
+/**
+ * Definition of AWS::RolesAnywhere::Profile Resource Type
+ */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
-    return pulumi.output(args).apply(a => getProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getProfile(a, opts))
 }
 
 export interface GetProfileOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VolumeAttachment
  */
 export function getVolumeAttachment(args: GetVolumeAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVolumeAttachment", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetVolumeAttachmentArgs {
 export interface GetVolumeAttachmentResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VolumeAttachment
+ */
 export function getVolumeAttachmentOutput(args: GetVolumeAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeAttachmentResult> {
-    return pulumi.output(args).apply(a => getVolumeAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getVolumeAttachment(a, opts))
 }
 
 export interface GetVolumeAttachmentOutputArgs {

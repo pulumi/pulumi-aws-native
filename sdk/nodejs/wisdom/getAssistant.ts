@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::Wisdom::Assistant Resource Type
  */
 export function getAssistant(args: GetAssistantArgs, opts?: pulumi.InvokeOptions): Promise<GetAssistantResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wisdom:getAssistant", {
         "assistantId": args.assistantId,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetAssistantResult {
     readonly assistantArn?: string;
     readonly assistantId?: string;
 }
-
+/**
+ * Definition of AWS::Wisdom::Assistant Resource Type
+ */
 export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantResult> {
-    return pulumi.output(args).apply(a => getAssistant(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssistant(a, opts))
 }
 
 export interface GetAssistantOutputArgs {

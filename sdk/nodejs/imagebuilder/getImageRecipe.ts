@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::ImageRecipe
  */
 export function getImageRecipe(args: GetImageRecipeArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getImageRecipe", {
         "arn": args.arn,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetImageRecipeResult {
      */
     readonly arn?: string;
 }
-
+/**
+ * Resource schema for AWS::ImageBuilder::ImageRecipe
+ */
 export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipeResult> {
-    return pulumi.output(args).apply(a => getImageRecipe(a, opts))
+    return pulumi.output(args).apply((a: any) => getImageRecipe(a, opts))
 }
 
 export interface GetImageRecipeOutputArgs {

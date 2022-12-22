@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::PinpointEmail::Identity
  */
 export function getIdentity(args: GetIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpointemail:getIdentity", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetIdentityResult {
     readonly mailFromAttributes?: outputs.pinpointemail.IdentityMailFromAttributes;
     readonly tags?: outputs.pinpointemail.IdentityTags[];
 }
-
+/**
+ * Resource Type definition for AWS::PinpointEmail::Identity
+ */
 export function getIdentityOutput(args: GetIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityResult> {
-    return pulumi.output(args).apply(a => getIdentity(a, opts))
+    return pulumi.output(args).apply((a: any) => getIdentity(a, opts))
 }
 
 export interface GetIdentityOutputArgs {

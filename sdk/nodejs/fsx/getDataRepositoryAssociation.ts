@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::FSx::DataRepositoryAssociation
  */
 export function getDataRepositoryAssociation(args: GetDataRepositoryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataRepositoryAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fsx:getDataRepositoryAssociation", {
         "associationId": args.associationId,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetDataRepositoryAssociationResult {
      */
     readonly tags?: outputs.fsx.DataRepositoryAssociationTag[];
 }
-
+/**
+ * Resource Type definition for AWS::FSx::DataRepositoryAssociation
+ */
 export function getDataRepositoryAssociationOutput(args: GetDataRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataRepositoryAssociationResult> {
-    return pulumi.output(args).apply(a => getDataRepositoryAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataRepositoryAssociation(a, opts))
 }
 
 export interface GetDataRepositoryAssociationOutputArgs {

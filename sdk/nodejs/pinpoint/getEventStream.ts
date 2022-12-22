@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::EventStream
  */
 export function getEventStream(args: GetEventStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetEventStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getEventStream", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetEventStreamResult {
     readonly id?: string;
     readonly roleArn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::EventStream
+ */
 export function getEventStreamOutput(args: GetEventStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventStreamResult> {
-    return pulumi.output(args).apply(a => getEventStream(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventStream(a, opts))
 }
 
 export interface GetEventStreamOutputArgs {

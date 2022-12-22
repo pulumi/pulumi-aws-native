@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
  */
 export function getFlowTemplate(args: GetFlowTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotthingsgraph:getFlowTemplate", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetFlowTemplateResult {
     readonly definition?: outputs.iotthingsgraph.FlowTemplateDefinitionDocument;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
+ */
 export function getFlowTemplateOutput(args: GetFlowTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowTemplateResult> {
-    return pulumi.output(args).apply(a => getFlowTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlowTemplate(a, opts))
 }
 
 export interface GetFlowTemplateOutputArgs {

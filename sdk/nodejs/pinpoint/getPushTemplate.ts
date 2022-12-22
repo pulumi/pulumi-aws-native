@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::PushTemplate
  */
 export function getPushTemplate(args: GetPushTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetPushTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getPushTemplate", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetPushTemplateResult {
     readonly tags?: any;
     readonly templateDescription?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::PushTemplate
+ */
 export function getPushTemplateOutput(args: GetPushTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPushTemplateResult> {
-    return pulumi.output(args).apply(a => getPushTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getPushTemplate(a, opts))
 }
 
 export interface GetPushTemplateOutputArgs {

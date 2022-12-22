@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
  */
 export function getCustomActionType(args: GetCustomActionTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomActionTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codepipeline:getCustomActionType", {
         "category": args.category,
         "provider": args.provider,
@@ -45,9 +42,11 @@ export interface GetCustomActionTypeResult {
      */
     readonly tags?: outputs.codepipeline.CustomActionTypeTag[];
 }
-
+/**
+ * The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
+ */
 export function getCustomActionTypeOutput(args: GetCustomActionTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomActionTypeResult> {
-    return pulumi.output(args).apply(a => getCustomActionType(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomActionType(a, opts))
 }
 
 export interface GetCustomActionTypeOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Redshift::ClusterSecurityGroup
  */
 export function getClusterSecurityGroup(args: GetClusterSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getClusterSecurityGroup", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetClusterSecurityGroupResult {
     readonly id?: string;
     readonly tags?: outputs.redshift.ClusterSecurityGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Redshift::ClusterSecurityGroup
+ */
 export function getClusterSecurityGroupOutput(args: GetClusterSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getClusterSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterSecurityGroup(a, opts))
 }
 
 export interface GetClusterSecurityGroupOutputArgs {

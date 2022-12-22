@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::ConfigurationAggregator
  */
 export function getConfigurationAggregator(args: GetConfigurationAggregatorArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAggregatorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConfigurationAggregator", {
         "configurationAggregatorName": args.configurationAggregatorName,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetConfigurationAggregatorResult {
      */
     readonly tags?: outputs.configuration.ConfigurationAggregatorTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Config::ConfigurationAggregator
+ */
 export function getConfigurationAggregatorOutput(args: GetConfigurationAggregatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAggregatorResult> {
-    return pulumi.output(args).apply(a => getConfigurationAggregator(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationAggregator(a, opts))
 }
 
 export interface GetConfigurationAggregatorOutputArgs {

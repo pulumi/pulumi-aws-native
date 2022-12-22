@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::VoiceChannel
  */
 export function getVoiceChannel(args: GetVoiceChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetVoiceChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getVoiceChannel", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetVoiceChannelResult {
     readonly enabled?: boolean;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::VoiceChannel
+ */
 export function getVoiceChannelOutput(args: GetVoiceChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVoiceChannelResult> {
-    return pulumi.output(args).apply(a => getVoiceChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getVoiceChannel(a, opts))
 }
 
 export interface GetVoiceChannelOutputArgs {

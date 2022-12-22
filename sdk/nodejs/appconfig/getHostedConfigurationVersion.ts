@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
  */
 export function getHostedConfigurationVersion(args: GetHostedConfigurationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedConfigurationVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getHostedConfigurationVersion", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetHostedConfigurationVersionArgs {
 export interface GetHostedConfigurationVersionResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
+ */
 export function getHostedConfigurationVersionOutput(args: GetHostedConfigurationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedConfigurationVersionResult> {
-    return pulumi.output(args).apply(a => getHostedConfigurationVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getHostedConfigurationVersion(a, opts))
 }
 
 export interface GetHostedConfigurationVersionOutputArgs {

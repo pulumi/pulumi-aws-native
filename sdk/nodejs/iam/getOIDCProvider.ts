@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::OIDCProvider
  */
 export function getOIDCProvider(args: GetOIDCProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOIDCProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getOIDCProvider", {
         "arn": args.arn,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetOIDCProviderResult {
     readonly tags?: outputs.iam.OIDCProviderTag[];
     readonly thumbprintList?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::OIDCProvider
+ */
 export function getOIDCProviderOutput(args: GetOIDCProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOIDCProviderResult> {
-    return pulumi.output(args).apply(a => getOIDCProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getOIDCProvider(a, opts))
 }
 
 export interface GetOIDCProviderOutputArgs {
