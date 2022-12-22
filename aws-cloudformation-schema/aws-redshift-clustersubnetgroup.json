@@ -57,6 +57,7 @@
   "required" : [ "Description", "SubnetIds" ],
   "primaryIdentifier" : [ "/properties/ClusterSubnetGroupName" ],
   "readOnlyProperties" : [ "/properties/ClusterSubnetGroupName" ],
+  "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "tagging" : {
     "taggable" : true
   },
