@@ -1908,9 +1908,6 @@
                 "policy": {
                     "$ref": "pulumi.json#/Any"
                 },
-                "restApiId": {
-                    "type": "string"
-                },
                 "rootResourceId": {
                     "type": "string"
                 },
@@ -2549,6 +2546,56 @@
             "createOnly": [
                 "securityGroupIds",
                 "subnetIds"
+            ]
+        },
+        "aws-native:appflow:Connector": {
+            "cf": "AWS::AppFlow::Connector",
+            "inputs": {
+                "connectorLabel": {
+                    "type": "string",
+                    "description": " The name of the connector. The name is unique for each ConnectorRegistration in your AWS account."
+                },
+                "connectorProvisioningConfig": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProvisioningConfig",
+                    "description": "Contains information about the configuration of the connector being registered."
+                },
+                "connectorProvisioningType": {
+                    "type": "string",
+                    "description": "The provisioning type of the connector. Currently the only supported value is LAMBDA. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description about the connector that's being registered."
+                }
+            },
+            "outputs": {
+                "connectorArn": {
+                    "type": "string",
+                    "description": " The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account."
+                },
+                "connectorLabel": {
+                    "type": "string",
+                    "description": " The name of the connector. The name is unique for each ConnectorRegistration in your AWS account."
+                },
+                "connectorProvisioningConfig": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProvisioningConfig",
+                    "description": "Contains information about the configuration of the connector being registered."
+                },
+                "connectorProvisioningType": {
+                    "type": "string",
+                    "description": "The provisioning type of the connector. Currently the only supported value is LAMBDA. "
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description about the connector that's being registered."
+                }
+            },
+            "required": [
+                "connectorProvisioningConfig",
+                "connectorProvisioningType"
+            ],
+            "createOnly": [
+                "connectorLabel"
             ]
         },
         "aws-native:appflow:ConnectorProfile": {
@@ -6682,9 +6729,12 @@
             "autoNamingSpec": {
                 "sdkName": "name"
             },
+            "required": [
+                "functionCode",
+                "functionConfig"
+            ],
             "writeOnly": [
-                "autoPublish",
-                "functionCode"
+                "autoPublish"
             ]
         },
         "aws-native:cloudfront:KeyGroup": {
@@ -11926,6 +11976,111 @@
                 "resourceCollectionFilter"
             ]
         },
+        "aws-native:directoryservice:SimpleAD": {
+            "cf": "AWS::DirectoryService::SimpleAD",
+            "inputs": {
+                "createAlias": {
+                    "type": "boolean",
+                    "description": "The name of the configuration set."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description for the directory."
+                },
+                "enableSso": {
+                    "type": "boolean",
+                    "description": "Whether to enable single sign-on for a Simple Active Directory in AWS."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The fully qualified domain name for the AWS Managed Simple AD directory."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the default administrative user named Admin."
+                },
+                "shortName": {
+                    "type": "string",
+                    "description": "The NetBIOS name for your domain."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "The size of the directory."
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws-native:directoryservice:SimpleADVpcSettings",
+                    "description": "VPC settings of the Simple AD directory server in AWS."
+                }
+            },
+            "outputs": {
+                "alias": {
+                    "type": "string",
+                    "description": "The alias for a directory."
+                },
+                "createAlias": {
+                    "type": "boolean",
+                    "description": "The name of the configuration set."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description for the directory."
+                },
+                "directoryId": {
+                    "type": "string",
+                    "description": "The unique identifier for a directory."
+                },
+                "dnsIpAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The IP addresses of the DNS servers for the directory, such as [ \"172.31.3.154\", \"172.31.63.203\" ]."
+                },
+                "enableSso": {
+                    "type": "boolean",
+                    "description": "Whether to enable single sign-on for a Simple Active Directory in AWS."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The fully qualified domain name for the AWS Managed Simple AD directory."
+                },
+                "password": {
+                    "type": "string",
+                    "description": "The password for the default administrative user named Admin."
+                },
+                "shortName": {
+                    "type": "string",
+                    "description": "The NetBIOS name for your domain."
+                },
+                "size": {
+                    "type": "string",
+                    "description": "The size of the directory."
+                },
+                "vpcSettings": {
+                    "$ref": "#/types/aws-native:directoryservice:SimpleADVpcSettings",
+                    "description": "VPC settings of the Simple AD directory server in AWS."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "size",
+                "vpcSettings"
+            ],
+            "createOnly": [
+                "createAlias",
+                "description",
+                "name",
+                "password",
+                "shortName",
+                "size",
+                "vpcSettings"
+            ],
+            "writeOnly": [
+                "password"
+            ]
+        },
         "aws-native:docdbelastic:Cluster": {
             "cf": "AWS::DocDBElastic::Cluster",
             "inputs": {
@@ -15674,84 +15829,111 @@
             "cf": "AWS::EC2::Volume",
             "inputs": {
                 "autoEnableIO": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "The Availability Zone in which to create the volume."
                 },
                 "availabilityZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Availability Zone in which to create the volume."
                 },
                 "encrypted": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types."
                 },
                 "iops": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. "
                 },
                 "kmsKeyId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias."
                 },
                 "multiAttachEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether Amazon EBS Multi-Attach is enabled."
                 },
                 "outpostArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost."
                 },
                 "size": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. "
                 },
                 "snapshotId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. "
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
+                    },
+                    "description": "The tags to apply to the volume during creation."
                 },
                 "throughput": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s."
                 },
                 "volumeType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard"
                 }
             },
             "outputs": {
                 "autoEnableIO": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "The Availability Zone in which to create the volume."
                 },
                 "availabilityZone": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Availability Zone in which to create the volume."
                 },
                 "encrypted": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the volume should be encrypted. The effect of setting the encryption state to true depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see Encryption by default in the Amazon Elastic Compute Cloud User Guide. Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see Supported instance types."
                 },
                 "iops": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of I/O operations per second (IOPS) to provision for an io1 or io2 volume, with a maximum ratio of 50 IOPS/GiB for io1, and 500 IOPS/GiB for io2. Range is 100 to 64,000 IOPS for volumes in most Regions. Maximum IOPS of 64,000 is guaranteed only on Nitro-based instances. Other instance families guarantee performance up to 32,000 IOPS. For more information, see Amazon EBS volume types in the Amazon Elastic Compute Cloud User Guide. This parameter is valid only for Provisioned IOPS SSD (io1 and io2) volumes. "
                 },
                 "kmsKeyId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If KmsKeyId is specified, the encrypted state must be true. If you omit this property and your account is enabled for encryption by default, or Encrypted is set to true, then the volume is encrypted using the default CMK specified for your account. If your account does not have a default CMK, then the volume is encrypted using the AWS managed CMK.  Alternatively, if you want to specify a different CMK, you can specify one of the following:  Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab. Key alias. Specify the alias for the CMK, prefixed with alias/. For example, for a CMK with the alias my_cmk, use alias/my_cmk. Or to specify the AWS managed CMK, use alias/aws/ebs. Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab. Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias."
                 },
                 "multiAttachEnabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether Amazon EBS Multi-Attach is enabled."
                 },
                 "outpostArn": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the Outpost."
                 },
                 "size": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.  Constraints: 1-16,384 for gp2, 4-16,384 for io1 and io2, 500-16,384 for st1, 500-16,384 for sc1, and 1-1,024 for standard. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size. Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size. "
                 },
                 "snapshotId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size. "
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:ec2:VolumeTag"
-                    }
+                    },
+                    "description": "The tags to apply to the volume during creation."
                 },
                 "throughput": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The throughput that the volume supports, in MiB/s."
+                },
+                "volumeId": {
+                    "type": "string"
                 },
                 "volumeType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard"
                 }
             },
             "required": [
@@ -20542,6 +20724,59 @@
                 "routingStrategy"
             ]
         },
+        "aws-native:gamelift:Build": {
+            "cf": "AWS::GameLift::Build",
+            "inputs": {
+                "name": {
+                    "type": "string",
+                    "description": "A descriptive label that is associated with a build. Build names do not need to be unique."
+                },
+                "operatingSystem": {
+                    "$ref": "#/types/aws-native:gamelift:BuildOperatingSystem",
+                    "description": "The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later."
+                },
+                "storageLocation": {
+                    "$ref": "#/types/aws-native:gamelift:BuildStorageLocation",
+                    "description": "Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version information that is associated with this build. Version strings do not need to be unique."
+                }
+            },
+            "outputs": {
+                "buildId": {
+                    "type": "string",
+                    "description": "A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A descriptive label that is associated with a build. Build names do not need to be unique."
+                },
+                "operatingSystem": {
+                    "$ref": "#/types/aws-native:gamelift:BuildOperatingSystem",
+                    "description": "The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later."
+                },
+                "storageLocation": {
+                    "$ref": "#/types/aws-native:gamelift:BuildStorageLocation",
+                    "description": "Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region."
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Version information that is associated with this build. Version strings do not need to be unique."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "operatingSystem",
+                "storageLocation"
+            ],
+            "writeOnly": [
+                "storageLocation"
+            ]
+        },
         "aws-native:gamelift:Fleet": {
             "cf": "AWS::GameLift::Fleet",
             "inputs": {
@@ -21501,6 +21736,9 @@
                 "stackSetName": {
                     "type": "string",
                     "description": "The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace."
+                },
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceVpcConfiguration"
                 }
             },
             "outputs": {
@@ -21590,6 +21828,9 @@
                 },
                 "status": {
                     "$ref": "#/types/aws-native:grafana:WorkspaceStatus"
+                },
+                "vpcConfiguration": {
+                    "$ref": "#/types/aws-native:grafana:WorkspaceVpcConfiguration"
                 }
             },
             "autoNamingSpec": {
@@ -31178,6 +31419,14 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the destination."
                 },
+                "distribution": {
+                    "$ref": "#/types/aws-native:logs:SubscriptionFilterDistribution",
+                    "description": "The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream."
+                },
+                "filterName": {
+                    "type": "string",
+                    "description": "The name of the filter generated by resource."
+                },
                 "filterPattern": {
                     "type": "string",
                     "description": "The filtering expressions that restrict what gets delivered to the destination AWS resource."
@@ -31195,6 +31444,10 @@
                 "destinationArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the destination."
+                },
+                "distribution": {
+                    "$ref": "#/types/aws-native:logs:SubscriptionFilterDistribution",
+                    "description": "The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream."
                 },
                 "filterName": {
                     "type": "string",
@@ -31220,6 +31473,8 @@
             ],
             "createOnly": [
                 "destinationArn",
+                "distribution",
+                "filterName",
                 "filterPattern",
                 "logGroupName",
                 "roleArn"
@@ -38712,6 +38967,10 @@
                     "type": "string",
                     "description": "A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC."
                 },
+                "dBSystemId": {
+                    "type": "string",
+                    "description": "The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only."
+                },
                 "dbiResourceId": {
                     "type": "string",
                     "description": "The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed."
@@ -40097,6 +40356,11 @@
             "createOnly": [
                 "description",
                 "parameterGroupFamily"
+            ],
+            "writeOnly": [
+                "tags",
+                "tags/*/Key",
+                "tags/*/Value"
             ]
         },
         "aws-native:redshift:ClusterSubnetGroup": {
@@ -40148,6 +40412,11 @@
             "required": [
                 "description",
                 "subnetIds"
+            ],
+            "writeOnly": [
+                "tags",
+                "tags/*/Key",
+                "tags/*/Value"
             ]
         },
         "aws-native:redshift:EndpointAccess": {
@@ -40467,6 +40736,11 @@
             ],
             "createOnly": [
                 "subscriptionName"
+            ],
+            "writeOnly": [
+                "tags",
+                "tags/*/Key",
+                "tags/*/Value"
             ]
         },
         "aws-native:redshift:ScheduledAction": {
@@ -40602,6 +40876,14 @@
                     },
                     "description": "The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog"
                 },
+                "namespace": {
+                    "$ref": "#/types/aws-native:redshiftserverless:Namespace",
+                    "language": {
+                        "csharp": {
+                            "name": "NamespaceValue"
+                        }
+                    }
+                },
                 "namespaceName": {
                     "type": "string",
                     "description": "A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account."
@@ -40688,7 +40970,11 @@
             ],
             "writeOnly": [
                 "adminUserPassword",
-                "tags"
+                "finalSnapshotName",
+                "finalSnapshotRetentionPeriod",
+                "tags",
+                "tags/*/Key",
+                "tags/*/Value"
             ]
         },
         "aws-native:redshiftserverless:Workgroup": {
@@ -40728,6 +41014,14 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:redshiftserverless:WorkgroupTag"
+                    }
+                },
+                "workgroup": {
+                    "$ref": "#/types/aws-native:redshiftserverless:Workgroup",
+                    "language": {
+                        "csharp": {
+                            "name": "WorkgroupValue"
+                        }
                     }
                 },
                 "workgroupName": {
@@ -40795,11 +41089,11 @@
             "writeOnly": [
                 "baseCapacity",
                 "configParameters",
-                "enhancedVpcRouting",
-                "publiclyAccessible",
                 "securityGroupIds",
                 "subnetIds",
-                "tags"
+                "tags",
+                "tags/*/Key",
+                "tags/*/Value"
             ]
         },
         "aws-native:refactorspaces:Application": {
@@ -51570,6 +51864,15 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorLambdaConnectorProvisioningConfig": {
+            "type": "object",
+            "properties": {
+                "lambdaArn": {
+                    "type": "string",
+                    "description": "Lambda ARN of the connector being registered."
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileAmplitudeConnectorProfileCredentials": {
             "type": "object",
             "properties": {
@@ -52276,6 +52579,15 @@
                 "instanceUrl": {
                     "type": "string",
                     "description": "The location of the Zendesk resource"
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProvisioningConfig": {
+            "type": "object",
+            "properties": {
+                "lambda": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorLambdaConnectorProvisioningConfig",
+                    "description": "Contains information about the configuration of the lambda which is being registered as the connector."
                 }
             }
         },
@@ -60146,6 +60458,22 @@
         "aws-native:devopsguru:ResourceCollectionType": {
             "type": "string"
         },
+        "aws-native:directoryservice:SimpleADVpcSettings": {
+            "type": "object",
+            "properties": {
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets."
+                },
+                "vpcId": {
+                    "type": "string",
+                    "description": "The identifier of the VPC in which to create the directory."
+                }
+            }
+        },
         "aws-native:docdbelastic:ClusterTag": {
             "type": "object",
             "properties": {
@@ -62927,10 +63255,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -."
                 },
                 "value": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. "
                 }
             }
         },
@@ -66834,6 +67164,30 @@
         "aws-native:gamelift:AliasRoutingStrategyType": {
             "type": "string"
         },
+        "aws-native:gamelift:BuildOperatingSystem": {
+            "type": "string"
+        },
+        "aws-native:gamelift:BuildStorageLocation": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "An Amazon S3 bucket identifier. This is the name of the S3 bucket."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The name of the zip file that contains the build files or script files."
+                },
+                "objectVersion": {
+                    "type": "string",
+                    "description": "The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket."
+                }
+            }
+        },
         "aws-native:gamelift:FleetAnywhereConfiguration": {
             "type": "object",
             "properties": {
@@ -67289,6 +67643,25 @@
         },
         "aws-native:grafana:WorkspaceStatus": {
             "type": "string"
+        },
+        "aws-native:grafana:WorkspaceVpcConfiguration": {
+            "type": "object",
+            "properties": {
+                "securityGroupIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect."
+                },
+                "subnetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect."
+                }
+            }
         },
         "aws-native:greengrassv2:ComponentVersionComponentPlatform": {
             "type": "object",
@@ -78184,6 +78557,9 @@
         "aws-native:logs:MetricFilterMetricTransformationUnit": {
             "type": "string"
         },
+        "aws-native:logs:SubscriptionFilterDistribution": {
+            "type": "string"
+        },
         "aws-native:lookoutmetrics:AlertAction": {
             "type": "object",
             "properties": {
@@ -79470,6 +79846,10 @@
                     "type": "boolean",
                     "description": "When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback."
                 },
+                "includeIframeOnlyStream": {
+                    "type": "boolean",
+                    "description": "When enabled, an I-Frame only stream will be included in the output."
+                },
                 "periodTriggers": {
                     "type": "array",
                     "items": {
@@ -80456,6 +80836,9 @@
             "properties": {
                 "ruleOrder": {
                     "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyRuleOrder"
+                },
+                "streamExceptionPolicy": {
+                    "$ref": "#/types/aws-native:networkfirewall:FirewallPolicyStreamExceptionPolicy"
                 }
             }
         },
@@ -80491,6 +80874,9 @@
                     "type": "string"
                 }
             }
+        },
+        "aws-native:networkfirewall:FirewallPolicyStreamExceptionPolicy": {
+            "type": "string"
         },
         "aws-native:networkfirewall:FirewallPolicyTag": {
             "type": "object",
@@ -80558,6 +80944,9 @@
         "aws-native:networkfirewall:RuleGroup": {
             "type": "object",
             "properties": {
+                "referenceSets": {
+                    "$ref": "#/types/aws-native:networkfirewall:RuleGroupReferenceSets"
+                },
                 "ruleVariables": {
                     "$ref": "#/types/aws-native:networkfirewall:RuleGroupRuleVariables"
                 },
@@ -80696,6 +81085,14 @@
                     "items": {
                         "$ref": "#/types/aws-native:networkfirewall:RuleGroupDimension"
                     }
+                }
+            }
+        },
+        "aws-native:networkfirewall:RuleGroupReferenceSets": {
+            "type": "object",
+            "properties": {
+                "iPSetReferences": {
+                    "$ref": "pulumi.json#/Any"
                 }
             }
         },
@@ -83739,6 +84136,23 @@
                 }
             }
         },
+        "aws-native:quicksight:DataSourceDatabricksParameters": {
+            "type": "object",
+            "properties": {
+                "host": {
+                    "type": "string",
+                    "description": "\u003cp\u003eHost.\u003c/p\u003e"
+                },
+                "port": {
+                    "type": "number",
+                    "description": "\u003cp\u003ePort.\u003c/p\u003e"
+                },
+                "sqlEndpointPath": {
+                    "type": "string",
+                    "description": "\u003cp\u003eThe HTTP Path of the Databricks data source.\u003c/p\u003e"
+                }
+            }
+        },
         "aws-native:quicksight:DataSourceErrorInfo": {
             "type": "object",
             "properties": {
@@ -83832,6 +84246,9 @@
                 },
                 "auroraPostgreSqlParameters": {
                     "$ref": "#/types/aws-native:quicksight:DataSourceAuroraPostgreSqlParameters"
+                },
+                "databricksParameters": {
+                    "$ref": "#/types/aws-native:quicksight:DataSourceDatabricksParameters"
                 },
                 "mariaDbParameters": {
                     "$ref": "#/types/aws-native:quicksight:DataSourceMariaDbParameters"
@@ -84750,6 +85167,10 @@
                     "$ref": "#/types/aws-native:rds:DBProxyAuthFormatAuthScheme",
                     "description": "The type of authentication that the proxy uses for connections from the proxy to the underlying database. "
                 },
+                "clientPasswordAuthType": {
+                    "$ref": "#/types/aws-native:rds:DBProxyAuthFormatClientPasswordAuthType",
+                    "description": "The type of authentication the proxy uses for connections from clients."
+                },
                 "description": {
                     "type": "string",
                     "description": "A user-specified description about the authentication used by a proxy to log in as a specific database user. "
@@ -84769,6 +85190,9 @@
             }
         },
         "aws-native:rds:DBProxyAuthFormatAuthScheme": {
+            "type": "string"
+        },
+        "aws-native:rds:DBProxyAuthFormatClientPasswordAuthType": {
             "type": "string"
         },
         "aws-native:rds:DBProxyAuthFormatIAMAuth": {
@@ -95143,7 +95567,7 @@
         "aws-native:apigateway:getRestApi": {
             "cf": "AWS::ApiGateway::RestApi",
             "ids": [
-                "restApiId"
+                "id"
             ]
         },
         "aws-native:apigateway:getStage": {
@@ -95196,6 +95620,12 @@
             "cf": "AWS::ApiGatewayV2::VpcLink",
             "ids": [
                 "vpcLinkId"
+            ]
+        },
+        "aws-native:appflow:getConnector": {
+            "cf": "AWS::AppFlow::Connector",
+            "ids": [
+                "connectorLabel"
             ]
         },
         "aws-native:appflow:getConnectorProfile": {
@@ -95956,6 +96386,12 @@
                 "resourceCollectionType"
             ]
         },
+        "aws-native:directoryservice:getSimpleAD": {
+            "cf": "AWS::DirectoryService::SimpleAD",
+            "ids": [
+                "directoryId"
+            ]
+        },
         "aws-native:docdbelastic:getCluster": {
             "cf": "AWS::DocDBElastic::Cluster",
             "ids": [
@@ -96277,7 +96713,7 @@
         "aws-native:ec2:getVolume": {
             "cf": "AWS::EC2::Volume",
             "ids": [
-                "id"
+                "volumeId"
             ]
         },
         "aws-native:ecr:getRegistryPolicy": {
@@ -96632,6 +97068,12 @@
             "cf": "AWS::GameLift::Alias",
             "ids": [
                 "aliasId"
+            ]
+        },
+        "aws-native:gamelift:getBuild": {
+            "cf": "AWS::GameLift::Build",
+            "ids": [
+                "buildId"
             ]
         },
         "aws-native:gamelift:getFleet": {
@@ -97451,13 +97893,6 @@
             "cf": "AWS::Logs::ResourcePolicy",
             "ids": [
                 "policyName"
-            ]
-        },
-        "aws-native:logs:getSubscriptionFilter": {
-            "cf": "AWS::Logs::SubscriptionFilter",
-            "ids": [
-                "filterName",
-                "logGroupName"
             ]
         },
         "aws-native:lookoutmetrics:getAlert": {

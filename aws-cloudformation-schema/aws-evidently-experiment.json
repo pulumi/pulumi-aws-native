@@ -168,7 +168,7 @@
           "enum" : [ "INCREASE", "DECREASE" ]
         }
       },
-      "required" : [ "MetricName", "EntityIdKey", "ValueKey", "EventPattern", "DesiredChange" ],
+      "required" : [ "MetricName", "EntityIdKey", "ValueKey", "DesiredChange" ],
       "additionalProperties" : false
     },
     "OnlineAbConfigObject" : {
