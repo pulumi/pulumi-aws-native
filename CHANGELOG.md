@@ -1,5 +1,8 @@
 ## HEAD (Unreleased)
 
+Breaking changes:
+- Renamed broken type ClusterLogging to ClusterLoggingOuter, allowing the real ClusterLogging to be generated
+
 ## 0.45.0 (December 16, 2022)
 
 Breaking changes:

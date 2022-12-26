@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetClusterResult',
@@ -104,7 +105,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
-    def logging(self) -> Optional['outputs.ClusterLogging']:
+    def logging(self) -> Optional['outputs.ClusterLoggingOuter']:
         return pulumi.get(self, "logging")
 
     @property

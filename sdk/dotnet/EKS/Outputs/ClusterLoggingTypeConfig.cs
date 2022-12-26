@@ -11,17 +11,20 @@ namespace Pulumi.AwsNative.EKS.Outputs
 {
 
     /// <summary>
-    /// The cluster control plane logging configuration for your cluster. 
+    /// Enabled Logging Type
     /// </summary>
     [OutputType]
-    public sealed class ClusterLogging
+    public sealed class ClusterLoggingTypeConfig
     {
-        public readonly ImmutableArray<Outputs.ClusterLoggingTypeConfig> EnabledTypes;
+        /// <summary>
+        /// name of the log type
+        /// </summary>
+        public readonly Pulumi.AwsNative.EKS.ClusterLoggingTypeConfigType? Type;
 
         [OutputConstructor]
-        private ClusterLogging(ImmutableArray<Outputs.ClusterLoggingTypeConfig> enabledTypes)
+        private ClusterLoggingTypeConfig(Pulumi.AwsNative.EKS.ClusterLoggingTypeConfigType? type)
         {
-            EnabledTypes = enabledTypes;
+            Type = type;
         }
     }
 }

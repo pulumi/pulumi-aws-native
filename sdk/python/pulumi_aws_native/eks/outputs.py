@@ -17,6 +17,8 @@ __all__ = [
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLogging',
+    'ClusterLoggingOuter',
+    'ClusterLoggingTypeConfig',
     'ClusterOutpostConfig',
     'ClusterProvider',
     'ClusterResourcesVpcConfig',
@@ -213,13 +215,13 @@ class ClusterKubernetesNetworkConfig(dict):
 @pulumi.output_type
 class ClusterLogging(dict):
     """
-    Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+    The cluster control plane logging configuration for your cluster. 
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clusterLogging":
-            suggest = "cluster_logging"
+        if key == "enabledTypes":
+            suggest = "enabled_types"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterLogging. Access the value via the '{suggest}' property getter instead.")
@@ -230,6 +232,42 @@ class ClusterLogging(dict):
 
     def get(self, key: str, default = None) -> Any:
         ClusterLogging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        if enabled_types is not None:
+            pulumi.set(__self__, "enabled_types", enabled_types)
+
+    @property
+    @pulumi.getter(name="enabledTypes")
+    def enabled_types(self) -> Optional[Sequence['outputs.ClusterLoggingTypeConfig']]:
+        return pulumi.get(self, "enabled_types")
+
+
+@pulumi.output_type
+class ClusterLoggingOuter(dict):
+    """
+    Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterLogging":
+            suggest = "cluster_logging"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLoggingOuter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLoggingOuter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLoggingOuter.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -248,6 +286,29 @@ class ClusterLogging(dict):
         The cluster control plane logging configuration for your cluster. 
         """
         return pulumi.get(self, "cluster_logging")
+
+
+@pulumi.output_type
+class ClusterLoggingTypeConfig(dict):
+    """
+    Enabled Logging Type
+    """
+    def __init__(__self__, *,
+                 type: Optional['ClusterLoggingTypeConfigType'] = None):
+        """
+        Enabled Logging Type
+        :param 'ClusterLoggingTypeConfigType' type: name of the log type
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['ClusterLoggingTypeConfigType']:
+        """
+        name of the log type
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

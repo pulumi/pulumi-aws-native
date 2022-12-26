@@ -12345,13 +12345,30 @@ export namespace eks {
     }
 
     /**
-     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     * The cluster control plane logging configuration for your cluster. 
      */
     export interface ClusterLogging {
+        enabledTypes?: outputs.eks.ClusterLoggingTypeConfig[];
+    }
+
+    /**
+     * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
+     */
+    export interface ClusterLoggingOuter {
         /**
          * The cluster control plane logging configuration for your cluster. 
          */
         clusterLogging?: outputs.eks.ClusterLogging;
+    }
+
+    /**
+     * Enabled Logging Type
+     */
+    export interface ClusterLoggingTypeConfig {
+        /**
+         * name of the log type
+         */
+        type?: enums.eks.ClusterLoggingTypeConfigType;
     }
 
     /**

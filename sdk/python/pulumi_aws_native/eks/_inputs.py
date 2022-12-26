@@ -15,6 +15,8 @@ __all__ = [
     'ClusterControlPlanePlacementArgs',
     'ClusterEncryptionConfigArgs',
     'ClusterKubernetesNetworkConfigArgs',
+    'ClusterLoggingOuterArgs',
+    'ClusterLoggingTypeConfigArgs',
     'ClusterLoggingArgs',
     'ClusterOutpostConfigArgs',
     'ClusterProviderArgs',
@@ -192,7 +194,7 @@ class ClusterKubernetesNetworkConfigArgs:
 
 
 @pulumi.input_type
-class ClusterLoggingArgs:
+class ClusterLoggingOuterArgs:
     def __init__(__self__, *,
                  cluster_logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None):
         """
@@ -213,6 +215,50 @@ class ClusterLoggingArgs:
     @cluster_logging.setter
     def cluster_logging(self, value: Optional[pulumi.Input['ClusterLoggingArgs']]):
         pulumi.set(self, "cluster_logging", value)
+
+
+@pulumi.input_type
+class ClusterLoggingTypeConfigArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ClusterLoggingTypeConfigType']] = None):
+        """
+        Enabled Logging Type
+        :param pulumi.Input['ClusterLoggingTypeConfigType'] type: name of the log type
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ClusterLoggingTypeConfigType']]:
+        """
+        name of the log type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ClusterLoggingTypeConfigType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ClusterLoggingArgs:
+    def __init__(__self__, *,
+                 enabled_types: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]] = None):
+        """
+        The cluster control plane logging configuration for your cluster. 
+        """
+        if enabled_types is not None:
+            pulumi.set(__self__, "enabled_types", enabled_types)
+
+    @property
+    @pulumi.getter(name="enabledTypes")
+    def enabled_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]:
+        return pulumi.get(self, "enabled_types")
+
+    @enabled_types.setter
+    def enabled_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLoggingTypeConfigArgs']]]]):
+        pulumi.set(self, "enabled_types", value)
 
 
 @pulumi.input_type
