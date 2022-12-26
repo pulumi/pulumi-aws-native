@@ -29,9 +29,6 @@
     "Mode" : {
       "type" : "string"
     },
-    "RestApiId" : {
-      "type" : "string"
-    },
     "DisableExecuteApiEndpoint" : {
       "type" : "boolean"
     },
@@ -56,6 +53,9 @@
     },
     "EndpointConfiguration" : {
       "$ref" : "#/definitions/EndpointConfiguration"
+    },
+    "Id" : {
+      "type" : "string"
     },
     "Body" : {
       "type" : "object"
@@ -121,6 +121,6 @@
       }
     }
   },
-  "primaryIdentifier" : [ "/properties/RestApiId" ],
-  "readOnlyProperties" : [ "/properties/RootResourceId", "/properties/RestApiId" ]
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/RootResourceId" ]
 }
