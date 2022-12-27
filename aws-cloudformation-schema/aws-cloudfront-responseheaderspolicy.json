@@ -167,6 +167,31 @@
       "required" : [ "Override", "ReferrerPolicy" ],
       "type" : "object"
     },
+    "RemoveHeader" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "Header" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Header" ],
+      "type" : "object"
+    },
+    "RemoveHeadersConfig" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "Items" : {
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/RemoveHeader"
+          },
+          "type" : "array",
+          "uniqueItems" : true
+        }
+      },
+      "required" : [ "Items" ],
+      "type" : "object"
+    },
     "ResponseHeadersPolicyConfig" : {
       "additionalProperties" : false,
       "properties" : {
@@ -181,6 +206,9 @@
         },
         "Name" : {
           "type" : "string"
+        },
+        "RemoveHeadersConfig" : {
+          "$ref" : "#/definitions/RemoveHeadersConfig"
         },
         "SecurityHeadersConfig" : {
           "$ref" : "#/definitions/SecurityHeadersConfig"
@@ -224,8 +252,8 @@
           "type" : "boolean"
         },
         "SamplingRate" : {
-          "minimum" : 0,
           "maximum" : 100,
+          "minimum" : 0,
           "multipleOf" : 1.0E-4,
           "type" : "number"
         }

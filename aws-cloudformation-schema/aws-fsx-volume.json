@@ -124,6 +124,9 @@
         "StorageVirtualMachineId" : {
           "type" : "string"
         },
+        "SnapshotPolicy" : {
+          "type" : "string"
+        },
         "TieringPolicy" : {
           "$ref" : "#/definitions/TieringPolicy"
         },
@@ -133,11 +136,17 @@
         "SizeInMegabytes" : {
           "type" : "string"
         },
+        "CopyTagsToBackups" : {
+          "type" : "string"
+        },
         "SecurityStyle" : {
+          "type" : "string"
+        },
+        "OntapVolumeType" : {
           "type" : "string"
         }
       },
-      "required" : [ "JunctionPath", "StorageVirtualMachineId", "StorageEfficiencyEnabled", "SizeInMegabytes" ]
+      "required" : [ "StorageVirtualMachineId", "SizeInMegabytes" ]
     },
     "ClientConfigurations" : {
       "type" : "object",
