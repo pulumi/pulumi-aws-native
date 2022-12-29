@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
  */
 export function getLoggingConfiguration(args: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkfirewall:getLoggingConfiguration", {
         "firewallArn": args.firewallArn,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetLoggingConfigurationArgs {
 export interface GetLoggingConfigurationResult {
     readonly loggingConfiguration?: outputs.networkfirewall.LoggingConfiguration;
 }
-
+/**
+ * Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
+ */
 export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
-    return pulumi.output(args).apply(a => getLoggingConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoggingConfiguration(a, opts))
 }
 
 export interface GetLoggingConfigurationOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Redshift::ClusterParameterGroup
  */
 export function getClusterParameterGroup(args: GetClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterParameterGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getClusterParameterGroup", {
         "parameterGroupName": args.parameterGroupName,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetClusterParameterGroupResult {
      */
     readonly tags?: outputs.redshift.ClusterParameterGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Redshift::ClusterParameterGroup
+ */
 export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
-    return pulumi.output(args).apply(a => getClusterParameterGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getClusterParameterGroup(a, opts))
 }
 
 export interface GetClusterParameterGroupOutputArgs {

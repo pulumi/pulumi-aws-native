@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::ConfigurationRecorder
  */
 export function getConfigurationRecorder(args: GetConfigurationRecorderArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationRecorderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getConfigurationRecorder", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetConfigurationRecorderResult {
     readonly recordingGroup?: outputs.configuration.ConfigurationRecorderRecordingGroup;
     readonly roleARN?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Config::ConfigurationRecorder
+ */
 export function getConfigurationRecorderOutput(args: GetConfigurationRecorderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationRecorderResult> {
-    return pulumi.output(args).apply(a => getConfigurationRecorder(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationRecorder(a, opts))
 }
 
 export interface GetConfigurationRecorderOutputArgs {

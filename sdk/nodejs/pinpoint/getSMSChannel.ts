@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::SMSChannel
  */
 export function getSMSChannel(args: GetSMSChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetSMSChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getSMSChannel", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetSMSChannelResult {
     readonly senderId?: string;
     readonly shortCode?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::SMSChannel
+ */
 export function getSMSChannelOutput(args: GetSMSChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSMSChannelResult> {
-    return pulumi.output(args).apply(a => getSMSChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getSMSChannel(a, opts))
 }
 
 export interface GetSMSChannelOutputArgs {

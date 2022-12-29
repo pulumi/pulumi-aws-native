@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::Subnet
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSubnet", {
         "subnetId": args.subnetId,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetSubnetResult {
     readonly subnetId?: string;
     readonly tags?: outputs.ec2.SubnetTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::Subnet
+ */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
-    return pulumi.output(args).apply(a => getSubnet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubnet(a, opts))
 }
 
 export interface GetSubnetOutputArgs {

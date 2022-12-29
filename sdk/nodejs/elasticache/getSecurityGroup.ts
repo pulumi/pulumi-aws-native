@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::SecurityGroup
  */
 export function getSecurityGroup(args: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getSecurityGroup", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetSecurityGroupResult {
     readonly id?: string;
     readonly tags?: outputs.elasticache.SecurityGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ElastiCache::SecurityGroup
+ */
 export function getSecurityGroupOutput(args: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityGroup(a, opts))
 }
 
 export interface GetSecurityGroupOutputArgs {

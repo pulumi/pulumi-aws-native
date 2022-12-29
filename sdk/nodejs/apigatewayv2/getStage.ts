@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::Stage
  */
 export function getStage(args: GetStageArgs, opts?: pulumi.InvokeOptions): Promise<GetStageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getStage", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetStageResult {
     readonly stageVariables?: any;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::Stage
+ */
 export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
-    return pulumi.output(args).apply(a => getStage(a, opts))
+    return pulumi.output(args).apply((a: any) => getStage(a, opts))
 }
 
 export interface GetStageOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
  */
 export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetReportDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cur:getReportDefinition", {
         "reportName": args.reportName,
     }, opts);
@@ -58,9 +55,11 @@ export interface GetReportDefinitionResult {
      */
     readonly s3Region?: string;
 }
-
+/**
+ * The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
+ */
 export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportDefinitionResult> {
-    return pulumi.output(args).apply(a => getReportDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getReportDefinition(a, opts))
 }
 
 export interface GetReportDefinitionOutputArgs {

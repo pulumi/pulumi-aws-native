@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::Method
  */
 export function getMethod(args: GetMethodArgs, opts?: pulumi.InvokeOptions): Promise<GetMethodResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getMethod", {
         "httpMethod": args.httpMethod,
         "resourceId": args.resourceId,
@@ -80,9 +77,11 @@ export interface GetMethodResult {
      */
     readonly requestValidatorId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::Method
+ */
 export function getMethodOutput(args: GetMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMethodResult> {
-    return pulumi.output(args).apply(a => getMethod(a, opts))
+    return pulumi.output(args).apply((a: any) => getMethod(a, opts))
 }
 
 export interface GetMethodOutputArgs {

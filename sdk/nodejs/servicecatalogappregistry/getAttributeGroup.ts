@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
  */
 export function getAttributeGroup(args: GetAttributeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAttributeGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalogappregistry:getAttributeGroup", {
         "id": args.id,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetAttributeGroupResult {
     readonly name?: string;
     readonly tags?: outputs.servicecatalogappregistry.AttributeGroupTags;
 }
-
+/**
+ * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
+ */
 export function getAttributeGroupOutput(args: GetAttributeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupResult> {
-    return pulumi.output(args).apply(a => getAttributeGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getAttributeGroup(a, opts))
 }
 
 export interface GetAttributeGroupOutputArgs {

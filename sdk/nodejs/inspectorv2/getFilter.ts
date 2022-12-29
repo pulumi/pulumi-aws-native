@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Inspector Filter resource schema
  */
 export function getFilter(args: GetFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetFilterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:inspectorv2:getFilter", {
         "arn": args.arn,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetFilterResult {
      */
     readonly name?: string;
 }
-
+/**
+ * Inspector Filter resource schema
+ */
 export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
-    return pulumi.output(args).apply(a => getFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getFilter(a, opts))
 }
 
 export interface GetFilterOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::ApplicationSettings
  */
 export function getApplicationSettings(args: GetApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getApplicationSettings", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetApplicationSettingsResult {
     readonly limits?: outputs.pinpoint.ApplicationSettingsLimits;
     readonly quietTime?: outputs.pinpoint.ApplicationSettingsQuietTime;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::ApplicationSettings
+ */
 export function getApplicationSettingsOutput(args: GetApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationSettingsResult> {
-    return pulumi.output(args).apply(a => getApplicationSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationSettings(a, opts))
 }
 
 export interface GetApplicationSettingsOutputArgs {

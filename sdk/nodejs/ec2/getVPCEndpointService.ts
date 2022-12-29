@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointService
  */
 export function getVPCEndpointService(args: GetVPCEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpointService", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetVPCEndpointServiceResult {
     readonly networkLoadBalancerArns?: string[];
     readonly payerResponsibility?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCEndpointService
+ */
 export function getVPCEndpointServiceOutput(args: GetVPCEndpointServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointServiceResult> {
-    return pulumi.output(args).apply(a => getVPCEndpointService(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCEndpointService(a, opts))
 }
 
 export interface GetVPCEndpointServiceOutputArgs {

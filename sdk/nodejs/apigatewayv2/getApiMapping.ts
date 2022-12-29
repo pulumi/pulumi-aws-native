@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::ApiMapping
  */
 export function getApiMapping(args: GetApiMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetApiMappingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getApiMapping", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetApiMappingResult {
     readonly id?: string;
     readonly stage?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::ApiMapping
+ */
 export function getApiMappingOutput(args: GetApiMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiMappingResult> {
-    return pulumi.output(args).apply(a => getApiMapping(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiMapping(a, opts))
 }
 
 export interface GetApiMappingOutputArgs {

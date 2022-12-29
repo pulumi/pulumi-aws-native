@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AmazonMQ::Broker
  */
 export function getBroker(args: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amazonmq:getBroker", {
         "id": args.id,
     }, opts);
@@ -47,9 +44,11 @@ export interface GetBrokerResult {
     readonly users?: outputs.amazonmq.BrokerUser[];
     readonly wssEndpoints?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::AmazonMQ::Broker
+ */
 export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
-    return pulumi.output(args).apply(a => getBroker(a, opts))
+    return pulumi.output(args).apply((a: any) => getBroker(a, opts))
 }
 
 export interface GetBrokerOutputArgs {

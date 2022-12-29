@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create and manage NetworkAnalyzerConfiguration resource.
  */
 export function getNetworkAnalyzerConfiguration(args: GetNetworkAnalyzerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAnalyzerConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getNetworkAnalyzerConfiguration", {
         "name": args.name,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetNetworkAnalyzerConfigurationResult {
      */
     readonly wirelessGateways?: string[];
 }
-
+/**
+ * Create and manage NetworkAnalyzerConfiguration resource.
+ */
 export function getNetworkAnalyzerConfigurationOutput(args: GetNetworkAnalyzerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAnalyzerConfigurationResult> {
-    return pulumi.output(args).apply(a => getNetworkAnalyzerConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkAnalyzerConfiguration(a, opts))
 }
 
 export interface GetNetworkAnalyzerConfigurationOutputArgs {

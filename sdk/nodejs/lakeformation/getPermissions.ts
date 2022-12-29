@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::LakeFormation::Permissions
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getPermissions", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetPermissionsResult {
     readonly permissionsWithGrantOption?: string[];
     readonly resource?: outputs.lakeformation.PermissionsResource;
 }
-
+/**
+ * Resource Type definition for AWS::LakeFormation::Permissions
+ */
 export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
-    return pulumi.output(args).apply(a => getPermissions(a, opts))
+    return pulumi.output(args).apply((a: any) => getPermissions(a, opts))
 }
 
 export interface GetPermissionsOutputArgs {

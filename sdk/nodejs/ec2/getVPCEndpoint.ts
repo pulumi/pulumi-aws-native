@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpoint
  */
 export function getVPCEndpoint(args: GetVPCEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpoint", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVPCEndpointResult {
     readonly securityGroupIds?: string[];
     readonly subnetIds?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCEndpoint
+ */
 export function getVPCEndpointOutput(args: GetVPCEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointResult> {
-    return pulumi.output(args).apply(a => getVPCEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCEndpoint(a, opts))
 }
 
 export interface GetVPCEndpointOutputArgs {

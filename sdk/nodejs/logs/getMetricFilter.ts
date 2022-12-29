@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
  */
 export function getMetricFilter(args: GetMetricFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricFilterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getMetricFilter", {
         "filterName": args.filterName,
         "logGroupName": args.logGroupName,
@@ -43,9 +40,11 @@ export interface GetMetricFilterResult {
      */
     readonly metricTransformations?: outputs.logs.MetricFilterMetricTransformation[];
 }
-
+/**
+ * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
+ */
 export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
-    return pulumi.output(args).apply(a => getMetricFilter(a, opts))
+    return pulumi.output(args).apply((a: any) => getMetricFilter(a, opts))
 }
 
 export interface GetMetricFilterOutputArgs {

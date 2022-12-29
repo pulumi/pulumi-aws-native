@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DirectoryService::MicrosoftAD
  */
 export function getMicrosoftAD(args: GetMicrosoftADArgs, opts?: pulumi.InvokeOptions): Promise<GetMicrosoftADResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:directoryservice:getMicrosoftAD", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetMicrosoftADResult {
     readonly enableSso?: boolean;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::DirectoryService::MicrosoftAD
+ */
 export function getMicrosoftADOutput(args: GetMicrosoftADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftADResult> {
-    return pulumi.output(args).apply(a => getMicrosoftAD(a, opts))
+    return pulumi.output(args).apply((a: any) => getMicrosoftAD(a, opts))
 }
 
 export interface GetMicrosoftADOutputArgs {

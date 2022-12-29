@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolResourceServer
  */
 export function getUserPoolResourceServer(args: GetUserPoolResourceServerArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolResourceServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolResourceServer", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetUserPoolResourceServerResult {
     readonly name?: string;
     readonly scopes?: outputs.cognito.UserPoolResourceServerResourceServerScopeType[];
 }
-
+/**
+ * Resource Type definition for AWS::Cognito::UserPoolResourceServer
+ */
 export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolResourceServerResult> {
-    return pulumi.output(args).apply(a => getUserPoolResourceServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserPoolResourceServer(a, opts))
 }
 
 export interface GetUserPoolResourceServerOutputArgs {

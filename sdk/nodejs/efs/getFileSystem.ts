@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EFS::FileSystem
  */
 export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:efs:getFileSystem", {
         "fileSystemId": args.fileSystemId,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetFileSystemResult {
     readonly provisionedThroughputInMibps?: number;
     readonly throughputMode?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EFS::FileSystem
+ */
 export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
-    return pulumi.output(args).apply(a => getFileSystem(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))
 }
 
 export interface GetFileSystemOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
  */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplify:getDomain", {
         "arn": args.arn,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetDomainResult {
     readonly statusReason?: string;
     readonly subDomainSettings?: outputs.amplify.DomainSubDomainSetting[];
 }
-
+/**
+ * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+ */
 export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
-    return pulumi.output(args).apply(a => getDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomain(a, opts))
 }
 
 export interface GetDomainOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
  */
 export function getClientVpnAuthorizationRule(args: GetClientVpnAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnAuthorizationRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getClientVpnAuthorizationRule", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetClientVpnAuthorizationRuleArgs {
 export interface GetClientVpnAuthorizationRuleResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
+ */
 export function getClientVpnAuthorizationRuleOutput(args: GetClientVpnAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnAuthorizationRuleResult> {
-    return pulumi.output(args).apply(a => getClientVpnAuthorizationRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientVpnAuthorizationRule(a, opts))
 }
 
 export interface GetClientVpnAuthorizationRuleOutputArgs {

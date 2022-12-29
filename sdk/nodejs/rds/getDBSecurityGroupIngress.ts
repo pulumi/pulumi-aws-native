@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::RDS::DBSecurityGroupIngress
  */
 export function getDBSecurityGroupIngress(args: GetDBSecurityGroupIngressArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupIngressResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBSecurityGroupIngress", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDBSecurityGroupIngressResult {
     readonly eC2SecurityGroupOwnerId?: string;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::RDS::DBSecurityGroupIngress
+ */
 export function getDBSecurityGroupIngressOutput(args: GetDBSecurityGroupIngressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupIngressResult> {
-    return pulumi.output(args).apply(a => getDBSecurityGroupIngress(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBSecurityGroupIngress(a, opts))
 }
 
 export interface GetDBSecurityGroupIngressOutputArgs {

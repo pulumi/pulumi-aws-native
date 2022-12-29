@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::ClientCertificate
  */
 export function getClientCertificate(args: GetClientCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetClientCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getClientCertificate", {
         "clientCertificateId": args.clientCertificateId,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetClientCertificateResult {
      */
     readonly tags?: outputs.apigateway.ClientCertificateTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::ClientCertificate
+ */
 export function getClientCertificateOutput(args: GetClientCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientCertificateResult> {
-    return pulumi.output(args).apply(a => getClientCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientCertificate(a, opts))
 }
 
 export interface GetClientCertificateOutputArgs {

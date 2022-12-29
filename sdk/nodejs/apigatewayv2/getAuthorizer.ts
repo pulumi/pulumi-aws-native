@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::Authorizer
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getAuthorizer", {
         "apiId": args.apiId,
         "authorizerId": args.authorizerId,
@@ -40,9 +37,11 @@ export interface GetAuthorizerResult {
     readonly jwtConfiguration?: outputs.apigatewayv2.AuthorizerJWTConfiguration;
     readonly name?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::Authorizer
+ */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
-    return pulumi.output(args).apply(a => getAuthorizer(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))
 }
 
 export interface GetAuthorizerOutputArgs {

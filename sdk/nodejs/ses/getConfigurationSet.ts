@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::SES::ConfigurationSet.
  */
 export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getConfigurationSet", {
         "name": args.name,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetConfigurationSetResult {
     readonly trackingOptions?: outputs.ses.ConfigurationSetTrackingOptions;
     readonly vdmOptions?: outputs.ses.ConfigurationSetVdmOptions;
 }
-
+/**
+ * Resource schema for AWS::SES::ConfigurationSet.
+ */
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
-    return pulumi.output(args).apply(a => getConfigurationSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationSet(a, opts))
 }
 
 export interface GetConfigurationSetOutputArgs {

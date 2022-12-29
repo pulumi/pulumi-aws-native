@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
  */
 export function getVPCEndpointConnectionNotification(args: GetVPCEndpointConnectionNotificationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCEndpointConnectionNotificationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCEndpointConnectionNotification", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetVPCEndpointConnectionNotificationResult {
     readonly connectionNotificationArn?: string;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
+ */
 export function getVPCEndpointConnectionNotificationOutput(args: GetVPCEndpointConnectionNotificationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCEndpointConnectionNotificationResult> {
-    return pulumi.output(args).apply(a => getVPCEndpointConnectionNotification(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCEndpointConnectionNotification(a, opts))
 }
 
 export interface GetVPCEndpointConnectionNotificationOutputArgs {

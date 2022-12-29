@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT1Click::Placement
  */
 export function getPlacement(args: GetPlacementArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot1click:getPlacement", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetPlacementResult {
     readonly attributes?: any;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoT1Click::Placement
+ */
 export function getPlacementOutput(args: GetPlacementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementResult> {
-    return pulumi.output(args).apply(a => getPlacement(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacement(a, opts))
 }
 
 export interface GetPlacementOutputArgs {

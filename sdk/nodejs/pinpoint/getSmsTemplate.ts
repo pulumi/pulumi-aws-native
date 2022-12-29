@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::SmsTemplate
  */
 export function getSmsTemplate(args: GetSmsTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetSmsTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getSmsTemplate", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetSmsTemplateResult {
     readonly tags?: any;
     readonly templateDescription?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::SmsTemplate
+ */
 export function getSmsTemplateOutput(args: GetSmsTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmsTemplateResult> {
-    return pulumi.output(args).apply(a => getSmsTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getSmsTemplate(a, opts))
 }
 
 export interface GetSmsTemplateOutputArgs {

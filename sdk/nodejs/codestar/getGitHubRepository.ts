@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeStar::GitHubRepository
  */
 export function getGitHubRepository(args: GetGitHubRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codestar:getGitHubRepository", {
         "id": args.id,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetGitHubRepositoryResult {
     readonly repositoryName?: string;
     readonly repositoryOwner?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CodeStar::GitHubRepository
+ */
 export function getGitHubRepositoryOutput(args: GetGitHubRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubRepositoryResult> {
-    return pulumi.output(args).apply(a => getGitHubRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getGitHubRepository(a, opts))
 }
 
 export interface GetGitHubRepositoryOutputArgs {

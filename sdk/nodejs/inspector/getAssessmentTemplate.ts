@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Inspector::AssessmentTemplate
  */
 export function getAssessmentTemplate(args: GetAssessmentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:inspector:getAssessmentTemplate", {
         "arn": args.arn,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetAssessmentTemplateArgs {
 export interface GetAssessmentTemplateResult {
     readonly arn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Inspector::AssessmentTemplate
+ */
 export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTemplateResult> {
-    return pulumi.output(args).apply(a => getAssessmentTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssessmentTemplate(a, opts))
 }
 
 export interface GetAssessmentTemplateOutputArgs {

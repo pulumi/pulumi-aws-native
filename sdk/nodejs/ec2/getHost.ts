@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::Host
  */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getHost", {
         "hostId": args.hostId,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetHostResult {
      */
     readonly hostRecovery?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::Host
+ */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
-    return pulumi.output(args).apply(a => getHost(a, opts))
+    return pulumi.output(args).apply((a: any) => getHost(a, opts))
 }
 
 export interface GetHostOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::DirectoryConfig
  */
 export function getDirectoryConfig(args: GetDirectoryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getDirectoryConfig", {
         "directoryName": args.directoryName,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDirectoryConfigResult {
     readonly organizationalUnitDistinguishedNames?: string[];
     readonly serviceAccountCredentials?: outputs.appstream.DirectoryConfigServiceAccountCredentials;
 }
-
+/**
+ * Resource Type definition for AWS::AppStream::DirectoryConfig
+ */
 export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryConfigResult> {
-    return pulumi.output(args).apply(a => getDirectoryConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getDirectoryConfig(a, opts))
 }
 
 export interface GetDirectoryConfigOutputArgs {

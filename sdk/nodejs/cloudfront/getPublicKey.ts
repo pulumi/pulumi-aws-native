@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::PublicKey
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getPublicKey", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetPublicKeyResult {
     readonly id?: string;
     readonly publicKeyConfig?: outputs.cloudfront.PublicKeyConfig;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFront::PublicKey
+ */
 export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
-    return pulumi.output(args).apply(a => getPublicKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicKey(a, opts))
 }
 
 export interface GetPublicKeyOutputArgs {

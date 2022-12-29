@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::Api
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getApi", {
         "apiId": args.apiId,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetApiResult {
     readonly tags?: any;
     readonly version?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::Api
+ */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
-    return pulumi.output(args).apply(a => getApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getApi(a, opts))
 }
 
 export interface GetApiOutputArgs {

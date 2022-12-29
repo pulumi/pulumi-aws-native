@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::DomainNameApiAssociation
  */
 export function getDomainNameApiAssociation(args: GetDomainNameApiAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameApiAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getDomainNameApiAssociation", {
         "apiAssociationIdentifier": args.apiAssociationIdentifier,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetDomainNameApiAssociationResult {
     readonly apiAssociationIdentifier?: string;
     readonly apiId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::DomainNameApiAssociation
+ */
 export function getDomainNameApiAssociationOutput(args: GetDomainNameApiAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameApiAssociationResult> {
-    return pulumi.output(args).apply(a => getDomainNameApiAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainNameApiAssociation(a, opts))
 }
 
 export interface GetDomainNameApiAssociationOutputArgs {

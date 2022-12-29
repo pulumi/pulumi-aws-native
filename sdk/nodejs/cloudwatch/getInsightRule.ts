@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudWatch::InsightRule
  */
 export function getInsightRule(args: GetInsightRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getInsightRule", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetInsightRuleResult {
     readonly ruleState?: string;
     readonly tags?: outputs.cloudwatch.InsightRuleTags;
 }
-
+/**
+ * Resource Type definition for AWS::CloudWatch::InsightRule
+ */
 export function getInsightRuleOutput(args: GetInsightRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightRuleResult> {
-    return pulumi.output(args).apply(a => getInsightRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getInsightRule(a, opts))
 }
 
 export interface GetInsightRuleOutputArgs {

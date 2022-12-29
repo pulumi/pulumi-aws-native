@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::RequestValidator
  */
 export function getRequestValidator(args: GetRequestValidatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestValidatorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getRequestValidator", {
         "requestValidatorId": args.requestValidatorId,
         "restApiId": args.restApiId,
@@ -44,9 +41,11 @@ export interface GetRequestValidatorResult {
      */
     readonly validateRequestParameters?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::RequestValidator
+ */
 export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequestValidatorResult> {
-    return pulumi.output(args).apply(a => getRequestValidator(a, opts))
+    return pulumi.output(args).apply((a: any) => getRequestValidator(a, opts))
 }
 
 export interface GetRequestValidatorOutputArgs {

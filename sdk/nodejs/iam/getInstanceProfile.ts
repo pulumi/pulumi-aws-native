@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::InstanceProfile
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getInstanceProfile", {
         "instanceProfileName": args.instanceProfileName,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetInstanceProfileResult {
      */
     readonly roles?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::InstanceProfile
+ */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
-    return pulumi.output(args).apply(a => getInstanceProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
 }
 
 export interface GetInstanceProfileOutputArgs {

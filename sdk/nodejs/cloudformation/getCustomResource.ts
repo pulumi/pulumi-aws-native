@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFormation::CustomResource
  */
 export function getCustomResource(args: GetCustomResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getCustomResource", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetCustomResourceArgs {
 export interface GetCustomResourceResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFormation::CustomResource
+ */
 export function getCustomResourceOutput(args: GetCustomResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceResult> {
-    return pulumi.output(args).apply(a => getCustomResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomResource(a, opts))
 }
 
 export interface GetCustomResourceOutputArgs {

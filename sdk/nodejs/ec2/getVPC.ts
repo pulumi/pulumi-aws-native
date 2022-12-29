@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPC
  */
 export function getVPC(args: GetVPCArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPC", {
         "vpcId": args.vpcId,
     }, opts);
@@ -72,9 +69,11 @@ export interface GetVPCResult {
      */
     readonly vpcId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPC
+ */
 export function getVPCOutput(args: GetVPCOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCResult> {
-    return pulumi.output(args).apply(a => getVPC(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPC(a, opts))
 }
 
 export interface GetVPCOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::LakeFormation::DataLakeSettings
  */
 export function getDataLakeSettings(args: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getDataLakeSettings", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDataLakeSettingsResult {
     readonly id?: string;
     readonly trustedResourceOwners?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::LakeFormation::DataLakeSettings
+ */
 export function getDataLakeSettingsOutput(args: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
-    return pulumi.output(args).apply(a => getDataLakeSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataLakeSettings(a, opts))
 }
 
 export interface GetDataLakeSettingsOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A resource schema for an EventType in Amazon Fraud Detector.
  */
 export function getEventType(args: GetEventTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEventTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getEventType", {
         "arn": args.arn,
     }, opts);
@@ -53,9 +50,11 @@ export interface GetEventTypeResult {
      */
     readonly tags?: outputs.frauddetector.EventTypeTag[];
 }
-
+/**
+ * A resource schema for an EventType in Amazon Fraud Detector.
+ */
 export function getEventTypeOutput(args: GetEventTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventTypeResult> {
-    return pulumi.output(args).apply(a => getEventType(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventType(a, opts))
 }
 
 export interface GetEventTypeOutputArgs {

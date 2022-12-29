@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMScope Type
  */
 export function getIPAMScope(args: GetIPAMScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMScopeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIPAMScope", {
         "ipamScopeId": args.ipamScopeId,
     }, opts);
@@ -59,9 +56,11 @@ export interface GetIPAMScopeResult {
      */
     readonly tags?: outputs.ec2.IPAMScopeTag[];
 }
-
+/**
+ * Resource Schema of AWS::EC2::IPAMScope Type
+ */
 export function getIPAMScopeOutput(args: GetIPAMScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMScopeResult> {
-    return pulumi.output(args).apply(a => getIPAMScope(a, opts))
+    return pulumi.output(args).apply((a: any) => getIPAMScope(a, opts))
 }
 
 export interface GetIPAMScopeOutputArgs {

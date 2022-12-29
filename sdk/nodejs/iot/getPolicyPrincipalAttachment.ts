@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
  */
 export function getPolicyPrincipalAttachment(args: GetPolicyPrincipalAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyPrincipalAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getPolicyPrincipalAttachment", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetPolicyPrincipalAttachmentArgs {
 export interface GetPolicyPrincipalAttachmentResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoT::PolicyPrincipalAttachment
+ */
 export function getPolicyPrincipalAttachmentOutput(args: GetPolicyPrincipalAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyPrincipalAttachmentResult> {
-    return pulumi.output(args).apply(a => getPolicyPrincipalAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicyPrincipalAttachment(a, opts))
 }
 
 export interface GetPolicyPrincipalAttachmentOutputArgs {

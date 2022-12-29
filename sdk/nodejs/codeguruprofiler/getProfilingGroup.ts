@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
  */
 export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProfilingGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codeguruprofiler:getProfilingGroup", {
         "profilingGroupName": args.profilingGroupName,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetProfilingGroupResult {
      */
     readonly tags?: outputs.codeguruprofiler.ProfilingGroupTag[];
 }
-
+/**
+ * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
+ */
 export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
-    return pulumi.output(args).apply(a => getProfilingGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getProfilingGroup(a, opts))
 }
 
 export interface GetProfilingGroupOutputArgs {

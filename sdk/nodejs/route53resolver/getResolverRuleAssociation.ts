@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
  */
 export function getResolverRuleAssociation(args: GetResolverRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverRuleAssociation", {
         "resolverRuleAssociationId": args.resolverRuleAssociationId,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetResolverRuleAssociationResult {
      */
     readonly resolverRuleAssociationId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ */
 export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleAssociationResult> {
-    return pulumi.output(args).apply(a => getResolverRuleAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolverRuleAssociation(a, opts))
 }
 
 export interface GetResolverRuleAssociationOutputArgs {

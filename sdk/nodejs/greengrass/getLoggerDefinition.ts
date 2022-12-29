@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::LoggerDefinition
  */
 export function getLoggerDefinition(args: GetLoggerDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getLoggerDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetLoggerDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::LoggerDefinition
+ */
 export function getLoggerDefinitionOutput(args: GetLoggerDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerDefinitionResult> {
-    return pulumi.output(args).apply(a => getLoggerDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoggerDefinition(a, opts))
 }
 
 export interface GetLoggerDefinitionOutputArgs {

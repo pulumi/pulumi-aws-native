@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DAX::Cluster
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dax:getCluster", {
         "id": args.id,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetClusterResult {
     readonly securityGroupIds?: string[];
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::DAX::Cluster
+ */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
-    return pulumi.output(args).apply(a => getCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
 
 export interface GetClusterOutputArgs {

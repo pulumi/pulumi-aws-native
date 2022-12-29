@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::Table
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getTable", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetTableResult {
     readonly id?: string;
     readonly tableInput?: outputs.glue.TableInput;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::Table
+ */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply(a => getTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

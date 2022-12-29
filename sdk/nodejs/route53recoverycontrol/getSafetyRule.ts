@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
  */
 export function getSafetyRule(args: GetSafetyRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSafetyRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53recoverycontrol:getSafetyRule", {
         "safetyRuleArn": args.safetyRuleArn,
     }, opts);
@@ -41,9 +38,11 @@ export interface GetSafetyRuleResult {
      */
     readonly status?: enums.route53recoverycontrol.SafetyRuleStatus;
 }
-
+/**
+ * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
+ */
 export function getSafetyRuleOutput(args: GetSafetyRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSafetyRuleResult> {
-    return pulumi.output(args).apply(a => getSafetyRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getSafetyRule(a, opts))
 }
 
 export interface GetSafetyRuleOutputArgs {

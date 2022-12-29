@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Synthetics::Canary
  */
 export function getCanary(args: GetCanaryArgs, opts?: pulumi.InvokeOptions): Promise<GetCanaryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:synthetics:getCanary", {
         "name": args.name,
     }, opts);
@@ -91,9 +88,11 @@ export interface GetCanaryResult {
      */
     readonly visualReference?: outputs.synthetics.CanaryVisualReference;
 }
-
+/**
+ * Resource Type definition for AWS::Synthetics::Canary
+ */
 export function getCanaryOutput(args: GetCanaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCanaryResult> {
-    return pulumi.output(args).apply(a => getCanary(a, opts))
+    return pulumi.output(args).apply((a: any) => getCanary(a, opts))
 }
 
 export interface GetCanaryOutputArgs {

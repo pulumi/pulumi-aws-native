@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::EventInvokeConfig
  */
 export function getEventInvokeConfig(args: GetEventInvokeConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetEventInvokeConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getEventInvokeConfig", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetEventInvokeConfigResult {
     readonly maximumEventAgeInSeconds?: number;
     readonly maximumRetryAttempts?: number;
 }
-
+/**
+ * Resource Type definition for AWS::Lambda::EventInvokeConfig
+ */
 export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventInvokeConfigResult> {
-    return pulumi.output(args).apply(a => getEventInvokeConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventInvokeConfig(a, opts))
 }
 
 export interface GetEventInvokeConfigOutputArgs {

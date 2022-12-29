@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * RuleGroupsNamespace schema for cloudformation.
  */
 export function getRuleGroupsNamespace(args: GetRuleGroupsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleGroupsNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:aps:getRuleGroupsNamespace", {
         "arn": args.arn,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetRuleGroupsNamespaceResult {
      */
     readonly workspace?: string;
 }
-
+/**
+ * RuleGroupsNamespace schema for cloudformation.
+ */
 export function getRuleGroupsNamespaceOutput(args: GetRuleGroupsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupsNamespaceResult> {
-    return pulumi.output(args).apply(a => getRuleGroupsNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getRuleGroupsNamespace(a, opts))
 }
 
 export interface GetRuleGroupsNamespaceOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::RUM::AppMonitor
  */
 export function getAppMonitor(args: GetAppMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetAppMonitorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rum:getAppMonitor", {
         "name": args.name,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetAppMonitorResult {
     readonly domain?: string;
     readonly tags?: outputs.rum.AppMonitorTag[];
 }
-
+/**
+ * Resource Type definition for AWS::RUM::AppMonitor
+ */
 export function getAppMonitorOutput(args: GetAppMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppMonitorResult> {
-    return pulumi.output(args).apply(a => getAppMonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getAppMonitor(a, opts))
 }
 
 export interface GetAppMonitorOutputArgs {

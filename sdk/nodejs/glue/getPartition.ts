@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::Partition
  */
 export function getPartition(args: GetPartitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getPartition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetPartitionResult {
     readonly id?: string;
     readonly partitionInput?: outputs.glue.PartitionInput;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::Partition
+ */
 export function getPartitionOutput(args: GetPartitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
-    return pulumi.output(args).apply(a => getPartition(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartition(a, opts))
 }
 
 export interface GetPartitionOutputArgs {

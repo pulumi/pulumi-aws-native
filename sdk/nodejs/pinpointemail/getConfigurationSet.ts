@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::PinpointEmail::ConfigurationSet
  */
 export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpointemail:getConfigurationSet", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetConfigurationSetResult {
     readonly tags?: outputs.pinpointemail.ConfigurationSetTags[];
     readonly trackingOptions?: outputs.pinpointemail.ConfigurationSetTrackingOptions;
 }
-
+/**
+ * Resource Type definition for AWS::PinpointEmail::ConfigurationSet
+ */
 export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
-    return pulumi.output(args).apply(a => getConfigurationSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationSet(a, opts))
 }
 
 export interface GetConfigurationSetOutputArgs {

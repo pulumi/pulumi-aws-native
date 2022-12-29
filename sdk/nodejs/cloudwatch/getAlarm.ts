@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudWatch::Alarm
  */
 export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getAlarm", {
         "id": args.id,
     }, opts);
@@ -49,9 +46,11 @@ export interface GetAlarmResult {
     readonly treatMissingData?: string;
     readonly unit?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CloudWatch::Alarm
+ */
 export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
-    return pulumi.output(args).apply(a => getAlarm(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlarm(a, opts))
 }
 
 export interface GetAlarmOutputArgs {

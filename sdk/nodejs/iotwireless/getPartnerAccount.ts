@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create and manage partner account
  */
 export function getPartnerAccount(args: GetPartnerAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerAccountResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getPartnerAccount", {
         "partnerAccountId": args.partnerAccountId,
     }, opts);
@@ -62,9 +59,11 @@ export interface GetPartnerAccountResult {
      */
     readonly tags?: outputs.iotwireless.PartnerAccountTag[];
 }
-
+/**
+ * Create and manage partner account
+ */
 export function getPartnerAccountOutput(args: GetPartnerAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerAccountResult> {
-    return pulumi.output(args).apply(a => getPartnerAccount(a, opts))
+    return pulumi.output(args).apply((a: any) => getPartnerAccount(a, opts))
 }
 
 export interface GetPartnerAccountOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
  */
 export function getResourceUpdateConstraint(args: GetResourceUpdateConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceUpdateConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getResourceUpdateConstraint", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetResourceUpdateConstraintResult {
     readonly id?: string;
     readonly tagUpdateOnProvisionedProduct?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint
+ */
 export function getResourceUpdateConstraintOutput(args: GetResourceUpdateConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceUpdateConstraintResult> {
-    return pulumi.output(args).apply(a => getResourceUpdateConstraint(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourceUpdateConstraint(a, opts))
 }
 
 export interface GetResourceUpdateConstraintOutputArgs {

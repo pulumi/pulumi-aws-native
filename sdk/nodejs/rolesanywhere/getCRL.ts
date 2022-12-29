@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::RolesAnywhere::CRL Resource Type
  */
 export function getCRL(args: GetCRLArgs, opts?: pulumi.InvokeOptions): Promise<GetCRLResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rolesanywhere:getCRL", {
         "crlId": args.crlId,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetCRLResult {
     readonly tags?: outputs.rolesanywhere.CRLTag[];
     readonly trustAnchorArn?: string;
 }
-
+/**
+ * Definition of AWS::RolesAnywhere::CRL Resource Type
+ */
 export function getCRLOutput(args: GetCRLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCRLResult> {
-    return pulumi.output(args).apply(a => getCRL(a, opts))
+    return pulumi.output(args).apply((a: any) => getCRL(a, opts))
 }
 
 export interface GetCRLOutputArgs {

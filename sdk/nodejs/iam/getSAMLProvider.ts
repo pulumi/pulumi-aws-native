@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::SAMLProvider
  */
 export function getSAMLProvider(args: GetSAMLProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetSAMLProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getSAMLProvider", {
         "arn": args.arn,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetSAMLProviderResult {
     readonly samlMetadataDocument?: string;
     readonly tags?: outputs.iam.SAMLProviderTag[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::SAMLProvider
+ */
 export function getSAMLProviderOutput(args: GetSAMLProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAMLProviderResult> {
-    return pulumi.output(args).apply(a => getSAMLProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getSAMLProvider(a, opts))
 }
 
 export interface GetSAMLProviderOutputArgs {

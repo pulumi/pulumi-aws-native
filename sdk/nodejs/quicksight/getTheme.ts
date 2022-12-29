@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of the AWS::QuickSight::Theme Resource Type.
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:quicksight:getTheme", {
         "awsAccountId": args.awsAccountId,
         "themeId": args.themeId,
@@ -57,9 +54,11 @@ export interface GetThemeResult {
     readonly type?: enums.quicksight.ThemeType;
     readonly version?: outputs.quicksight.ThemeVersion;
 }
-
+/**
+ * Definition of the AWS::QuickSight::Theme Resource Type.
+ */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
-    return pulumi.output(args).apply(a => getTheme(a, opts))
+    return pulumi.output(args).apply((a: any) => getTheme(a, opts))
 }
 
 export interface GetThemeOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::SecurityGroup
  */
 export function getSecurityGroup(args: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getSecurityGroup", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetSecurityGroupResult {
     readonly securityGroupIngress?: outputs.ec2.SecurityGroupIngress[];
     readonly tags?: outputs.ec2.SecurityGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::SecurityGroup
+ */
 export function getSecurityGroupOutput(args: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityGroup(a, opts))
 }
 
 export interface GetSecurityGroupOutputArgs {

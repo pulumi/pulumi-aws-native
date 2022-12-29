@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::TopicRuleDestination
  */
 export function getTopicRuleDestination(args: GetTopicRuleDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicRuleDestinationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getTopicRuleDestination", {
         "arn": args.arn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetTopicRuleDestinationResult {
      */
     readonly statusReason?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoT::TopicRuleDestination
+ */
 export function getTopicRuleDestinationOutput(args: GetTopicRuleDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicRuleDestinationResult> {
-    return pulumi.output(args).apply(a => getTopicRuleDestination(a, opts))
+    return pulumi.output(args).apply((a: any) => getTopicRuleDestination(a, opts))
 }
 
 export interface GetTopicRuleDestinationOutputArgs {

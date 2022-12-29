@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Budgets::Budget
  */
 export function getBudget(args: GetBudgetArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:budgets:getBudget", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetBudgetResult {
     readonly budget?: outputs.budgets.BudgetData;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Budgets::Budget
+ */
 export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
-    return pulumi.output(args).apply(a => getBudget(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudget(a, opts))
 }
 
 export interface GetBudgetOutputArgs {

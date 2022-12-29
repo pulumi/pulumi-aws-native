@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:redshift:getScheduledAction", {
         "scheduledActionName": args.scheduledActionName,
     }, opts);
@@ -66,9 +63,11 @@ export interface GetScheduledActionResult {
      */
     readonly targetAction?: outputs.redshift.ScheduledActionType;
 }
-
+/**
+ * The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
+ */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
-    return pulumi.output(args).apply(a => getScheduledAction(a, opts))
+    return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))
 }
 
 export interface GetScheduledActionOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::KinesisAnalytics::Application
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesisanalytics:getApplication", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetApplicationResult {
     readonly id?: string;
     readonly inputs?: outputs.kinesisanalytics.ApplicationInput[];
 }
-
+/**
+ * Resource Type definition for AWS::KinesisAnalytics::Application
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

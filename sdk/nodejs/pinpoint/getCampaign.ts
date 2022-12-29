@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::Campaign
  */
 export function getCampaign(args: GetCampaignArgs, opts?: pulumi.InvokeOptions): Promise<GetCampaignResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getCampaign", {
         "campaignId": args.campaignId,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetCampaignResult {
     readonly treatmentDescription?: string;
     readonly treatmentName?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::Campaign
+ */
 export function getCampaignOutput(args: GetCampaignOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCampaignResult> {
-    return pulumi.output(args).apply(a => getCampaign(a, opts))
+    return pulumi.output(args).apply((a: any) => getCampaign(a, opts))
 }
 
 export interface GetCampaignOutputArgs {

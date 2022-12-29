@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
  */
 export function getRepositoryAssociation(args: GetRepositoryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codegurureviewer:getRepositoryAssociation", {
         "associationArn": args.associationArn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetRepositoryAssociationResult {
      */
     readonly associationArn?: string;
 }
-
+/**
+ * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
+ */
 export function getRepositoryAssociationOutput(args: GetRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAssociationResult> {
-    return pulumi.output(args).apply(a => getRepositoryAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositoryAssociation(a, opts))
 }
 
 export interface GetRepositoryAssociationOutputArgs {

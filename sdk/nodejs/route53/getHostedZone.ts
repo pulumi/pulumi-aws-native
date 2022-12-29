@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53::HostedZone.
  */
 export function getHostedZone(args: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53:getHostedZone", {
         "id": args.id,
     }, opts);
@@ -41,9 +38,11 @@ export interface GetHostedZoneResult {
      */
     readonly vPCs?: outputs.route53.HostedZoneVPC[];
 }
-
+/**
+ * Resource schema for AWS::Route53::HostedZone.
+ */
 export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
-    return pulumi.output(args).apply(a => getHostedZone(a, opts))
+    return pulumi.output(args).apply((a: any) => getHostedZone(a, opts))
 }
 
 export interface GetHostedZoneOutputArgs {

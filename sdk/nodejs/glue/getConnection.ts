@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::Connection
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getConnection", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetConnectionResult {
     readonly connectionInput?: outputs.glue.ConnectionInput;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::Connection
+ */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
-    return pulumi.output(args).apply(a => getConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnection(a, opts))
 }
 
 export interface GetConnectionOutputArgs {

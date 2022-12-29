@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
  */
 export function getVPCDHCPOptionsAssociation(args: GetVPCDHCPOptionsAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCDHCPOptionsAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCDHCPOptionsAssociation", {
         "dhcpOptionsId": args.dhcpOptionsId,
         "vpcId": args.vpcId,
@@ -36,9 +33,11 @@ export interface GetVPCDHCPOptionsAssociationResult {
      */
     readonly id?: string;
 }
-
+/**
+ * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
+ */
 export function getVPCDHCPOptionsAssociationOutput(args: GetVPCDHCPOptionsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCDHCPOptionsAssociationResult> {
-    return pulumi.output(args).apply(a => getVPCDHCPOptionsAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCDHCPOptionsAssociation(a, opts))
 }
 
 export interface GetVPCDHCPOptionsAssociationOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::Role
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getRole", {
         "roleName": args.roleName,
     }, opts);
@@ -66,9 +63,11 @@ export interface GetRoleResult {
      */
     readonly tags?: outputs.iam.RoleTag[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::Role
+ */
 export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
-    return pulumi.output(args).apply(a => getRole(a, opts))
+    return pulumi.output(args).apply((a: any) => getRole(a, opts))
 }
 
 export interface GetRoleOutputArgs {

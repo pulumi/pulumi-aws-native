@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::Wisdom::KnowledgeBase Resource Type
  */
 export function getKnowledgeBase(args: GetKnowledgeBaseArgs, opts?: pulumi.InvokeOptions): Promise<GetKnowledgeBaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wisdom:getKnowledgeBase", {
         "knowledgeBaseId": args.knowledgeBaseId,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetKnowledgeBaseResult {
     readonly knowledgeBaseId?: string;
     readonly renderingConfiguration?: outputs.wisdom.KnowledgeBaseRenderingConfiguration;
 }
-
+/**
+ * Definition of AWS::Wisdom::KnowledgeBase Resource Type
+ */
 export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKnowledgeBaseResult> {
-    return pulumi.output(args).apply(a => getKnowledgeBase(a, opts))
+    return pulumi.output(args).apply((a: any) => getKnowledgeBase(a, opts))
 }
 
 export interface GetKnowledgeBaseOutputArgs {

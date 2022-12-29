@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::StoredQuery
  */
 export function getStoredQuery(args: GetStoredQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetStoredQueryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getStoredQuery", {
         "queryName": args.queryName,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetStoredQueryResult {
      */
     readonly tags?: outputs.configuration.StoredQueryTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Config::StoredQuery
+ */
 export function getStoredQueryOutput(args: GetStoredQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoredQueryResult> {
-    return pulumi.output(args).apply(a => getStoredQuery(a, opts))
+    return pulumi.output(args).apply((a: any) => getStoredQuery(a, opts))
 }
 
 export interface GetStoredQueryOutputArgs {

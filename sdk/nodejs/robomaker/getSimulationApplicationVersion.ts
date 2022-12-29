@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
  */
 export function getSimulationApplicationVersion(args: GetSimulationApplicationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:robomaker:getSimulationApplicationVersion", {
         "arn": args.arn,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetSimulationApplicationVersionResult {
     readonly applicationVersion?: string;
     readonly arn?: string;
 }
-
+/**
+ * AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
+ */
 export function getSimulationApplicationVersionOutput(args: GetSimulationApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationVersionResult> {
-    return pulumi.output(args).apply(a => getSimulationApplicationVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getSimulationApplicationVersion(a, opts))
 }
 
 export interface GetSimulationApplicationVersionOutputArgs {

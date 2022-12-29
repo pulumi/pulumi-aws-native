@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
  */
 export function getRegistryPolicy(args: GetRegistryPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecr:getRegistryPolicy", {
         "registryId": args.registryId,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetRegistryPolicyResult {
     readonly policyText?: any;
     readonly registryId?: string;
 }
-
+/**
+ * The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
+ */
 export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
-    return pulumi.output(args).apply(a => getRegistryPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistryPolicy(a, opts))
 }
 
 export interface GetRegistryPolicyOutputArgs {

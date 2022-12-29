@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EMR::Studio
  */
 export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:emr:getStudio", {
         "studioId": args.studioId,
     }, opts);
@@ -70,9 +67,11 @@ export interface GetStudioResult {
      */
     readonly url?: string;
 }
-
+/**
+ * Resource schema for AWS::EMR::Studio
+ */
 export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
-    return pulumi.output(args).apply(a => getStudio(a, opts))
+    return pulumi.output(args).apply((a: any) => getStudio(a, opts))
 }
 
 export interface GetStudioOutputArgs {

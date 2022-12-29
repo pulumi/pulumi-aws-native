@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
  */
 export function getSignalCatalog(args: GetSignalCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalCatalogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotfleetwise:getSignalCatalog", {
         "name": args.name,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetSignalCatalogResult {
     readonly nodes?: outputs.iotfleetwise.SignalCatalogNode[];
     readonly tags?: outputs.iotfleetwise.SignalCatalogTag[];
 }
-
+/**
+ * Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
+ */
 export function getSignalCatalogOutput(args: GetSignalCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalCatalogResult> {
-    return pulumi.output(args).apply(a => getSignalCatalog(a, opts))
+    return pulumi.output(args).apply((a: any) => getSignalCatalog(a, opts))
 }
 
 export interface GetSignalCatalogOutputArgs {

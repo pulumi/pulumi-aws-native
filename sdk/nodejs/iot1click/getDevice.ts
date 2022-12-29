@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT1Click::Device
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot1click:getDevice", {
         "deviceId": args.deviceId,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetDeviceResult {
     readonly arn?: string;
     readonly enabled?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::IoT1Click::Device
+ */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply(a => getDevice(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }
 
 export interface GetDeviceOutputArgs {

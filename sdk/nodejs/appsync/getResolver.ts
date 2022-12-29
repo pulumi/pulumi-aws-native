@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::Resolver
  */
 export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getResolver", {
         "id": args.id,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetResolverResult {
     readonly runtime?: outputs.appsync.ResolverAppSyncRuntime;
     readonly syncConfig?: outputs.appsync.ResolverSyncConfig;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::Resolver
+ */
 export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverResult> {
-    return pulumi.output(args).apply(a => getResolver(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolver(a, opts))
 }
 
 export interface GetResolverOutputArgs {

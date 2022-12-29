@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::MLTransform
  */
 export function getMLTransform(args: GetMLTransformArgs, opts?: pulumi.InvokeOptions): Promise<GetMLTransformResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getMLTransform", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetMLTransformResult {
     readonly transformParameters?: outputs.glue.MLTransformTransformParameters;
     readonly workerType?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::MLTransform
+ */
 export function getMLTransformOutput(args: GetMLTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLTransformResult> {
-    return pulumi.output(args).apply(a => getMLTransform(a, opts))
+    return pulumi.output(args).apply((a: any) => getMLTransform(a, opts))
 }
 
 export interface GetMLTransformOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFormation::Stack
  */
 export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promise<GetStackResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getStack", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetStackResult {
     readonly templateURL?: string;
     readonly timeoutInMinutes?: number;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFormation::Stack
+ */
 export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackResult> {
-    return pulumi.output(args).apply(a => getStack(a, opts))
+    return pulumi.output(args).apply((a: any) => getStack(a, opts))
 }
 
 export interface GetStackOutputArgs {

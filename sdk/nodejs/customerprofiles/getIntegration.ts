@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The resource schema for creating an Amazon Connect Customer Profiles Integration.
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:customerprofiles:getIntegration", {
         "domainName": args.domainName,
         "uri": args.uri,
@@ -55,9 +52,11 @@ export interface GetIntegrationResult {
      */
     readonly tags?: outputs.customerprofiles.IntegrationTag[];
 }
-
+/**
+ * The resource schema for creating an Amazon Connect Customer Profiles Integration.
+ */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
-    return pulumi.output(args).apply(a => getIntegration(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegration(a, opts))
 }
 
 export interface GetIntegrationOutputArgs {

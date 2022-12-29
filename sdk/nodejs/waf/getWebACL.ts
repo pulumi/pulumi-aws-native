@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAF::WebACL
  */
 export function getWebACL(args: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:waf:getWebACL", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetWebACLResult {
     readonly id?: string;
     readonly rules?: outputs.waf.WebACLActivatedRule[];
 }
-
+/**
+ * Resource Type definition for AWS::WAF::WebACL
+ */
 export function getWebACLOutput(args: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
-    return pulumi.output(args).apply(a => getWebACL(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebACL(a, opts))
 }
 
 export interface GetWebACLOutputArgs {

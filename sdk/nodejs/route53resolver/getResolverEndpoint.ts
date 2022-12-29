@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
  */
 export function getResolverEndpoint(args: GetResolverEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverEndpoint", {
         "resolverEndpointId": args.resolverEndpointId,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetResolverEndpointResult {
     readonly resolverEndpointId?: string;
     readonly tags?: outputs.route53resolver.ResolverEndpointTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
+ */
 export function getResolverEndpointOutput(args: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
-    return pulumi.output(args).apply(a => getResolverEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getResolverEndpoint(a, opts))
 }
 
 export interface GetResolverEndpointOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationS3
  */
 export function getLocationS3(args: GetLocationS3Args, opts?: pulumi.InvokeOptions): Promise<GetLocationS3Result> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationS3", {
         "locationArn": args.locationArn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetLocationS3Result {
      */
     readonly tags?: outputs.datasync.LocationS3Tag[];
 }
-
+/**
+ * Resource schema for AWS::DataSync::LocationS3
+ */
 export function getLocationS3Output(args: GetLocationS3OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationS3Result> {
-    return pulumi.output(args).apply(a => getLocationS3(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocationS3(a, opts))
 }
 
 export interface GetLocationS3OutputArgs {

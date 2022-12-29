@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Endpoint
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getEndpoint", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetEndpointResult {
     readonly retainDeploymentConfig?: boolean;
     readonly tags?: outputs.sagemaker.EndpointTag[];
 }
-
+/**
+ * Resource Type definition for AWS::SageMaker::Endpoint
+ */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

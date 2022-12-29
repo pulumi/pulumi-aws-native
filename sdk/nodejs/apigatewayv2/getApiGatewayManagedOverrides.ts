@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
  */
 export function getApiGatewayManagedOverrides(args: GetApiGatewayManagedOverridesArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayManagedOverridesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getApiGatewayManagedOverrides", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetApiGatewayManagedOverridesResult {
     readonly route?: outputs.apigatewayv2.ApiGatewayManagedOverridesRouteOverrides;
     readonly stage?: outputs.apigatewayv2.ApiGatewayManagedOverridesStageOverrides;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
+ */
 export function getApiGatewayManagedOverridesOutput(args: GetApiGatewayManagedOverridesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayManagedOverridesResult> {
-    return pulumi.output(args).apply(a => getApiGatewayManagedOverrides(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiGatewayManagedOverrides(a, opts))
 }
 
 export interface GetApiGatewayManagedOverridesOutputArgs {

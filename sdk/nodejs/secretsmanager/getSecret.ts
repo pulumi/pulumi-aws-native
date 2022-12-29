@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecretsManager::Secret
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:secretsmanager:getSecret", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetSecretResult {
     readonly secretString?: string;
     readonly tags?: outputs.secretsmanager.SecretTag[];
 }
-
+/**
+ * Resource Type definition for AWS::SecretsManager::Secret
+ */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
-    return pulumi.output(args).apply(a => getSecret(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
 
 export interface GetSecretOutputArgs {

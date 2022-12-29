@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPCGatewayAttachment
  */
 export function getVPCGatewayAttachment(args: GetVPCGatewayAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVPCGatewayAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPCGatewayAttachment", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetVPCGatewayAttachmentResult {
     readonly vpcId?: string;
     readonly vpnGatewayId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPCGatewayAttachment
+ */
 export function getVPCGatewayAttachmentOutput(args: GetVPCGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPCGatewayAttachmentResult> {
-    return pulumi.output(args).apply(a => getVPCGatewayAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPCGatewayAttachment(a, opts))
 }
 
 export interface GetVPCGatewayAttachmentOutputArgs {
