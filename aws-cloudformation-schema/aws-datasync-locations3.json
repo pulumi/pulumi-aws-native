@@ -59,7 +59,7 @@
     "S3StorageClass" : {
       "description" : "The Amazon S3 storage class you want to store your files in when this location is used as a task destination.",
       "type" : "string",
-      "enum" : [ "STANDARD", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "GLACIER", "DEEP_ARCHIVE" ],
+      "enum" : [ "STANDARD", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "GLACIER", "GLACIER_INSTANT_RETRIEVAL", "DEEP_ARCHIVE" ],
       "default" : "STANDARD"
     },
     "Tags" : {

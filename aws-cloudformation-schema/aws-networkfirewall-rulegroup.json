@@ -41,6 +41,9 @@
         "RuleVariables" : {
           "$ref" : "#/definitions/RuleVariables"
         },
+        "ReferenceSets" : {
+          "$ref" : "#/definitions/ReferenceSets"
+        },
         "RulesSource" : {
           "$ref" : "#/definitions/RulesSource"
         },
@@ -107,6 +110,30 @@
       "type" : "string",
       "minLength" : 1,
       "pattern" : "^.*$"
+    },
+    "ReferenceSets" : {
+      "type" : "object",
+      "properties" : {
+        "IPSetReferences" : {
+          "type" : "object",
+          "patternProperties" : {
+            "^[A-Za-z0-9_]{1,32}$" : {
+              "$ref" : "#/definitions/IPSetReference"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "IPSetReference" : {
+      "type" : "object",
+      "properties" : {
+        "ReferenceArn" : {
+          "$ref" : "#/definitions/ResourceArn"
+        }
+      },
+      "additionalProperties" : false
     },
     "RulesSource" : {
       "type" : "object",

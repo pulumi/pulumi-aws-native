@@ -365,7 +365,7 @@
     }
   },
   "required" : [ "AuthMode", "DefaultUserSettings", "DomainName", "SubnetIds", "VpcId" ],
-  "createOnlyProperties" : [ "/properties/AppNetworkAccessType", "/properties/AppSecurityGroupManagement", "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/SecurityGroupIds", "/properties/DomainSettings/RStudioServerProDomainSettings/DomainExecutionRoleArn", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId", "/properties/SubnetIds", "/properties/VpcId", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AppNetworkAccessType", "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId", "/properties/SubnetIds", "/properties/VpcId", "/properties/Tags" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/DomainId" ],
   "readOnlyProperties" : [ "/properties/DomainArn", "/properties/Url", "/properties/DomainId", "/properties/HomeEfsFileSystemId", "/properties/SecurityGroupIdForDomainBoundary", "/properties/SingleSignOnManagedApplicationInstanceId" ],
@@ -377,7 +377,7 @@
       "permissions" : [ "sagemaker:DescribeDomain" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:PassRole" ]
+      "permissions" : [ "sagemaker:CreateApp", "sagemaker:UpdateDomain", "sagemaker:DescribeDomain", "sagemaker:DescribeImage", "sagemaker:DescribeImageVersion", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteApp", "sagemaker:DeleteDomain", "sagemaker:DescribeDomain" ]
