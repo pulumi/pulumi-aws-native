@@ -27,6 +27,9 @@
     "SubscriptionRoleArn" : {
       "type" : "string"
     },
+    "FilterPolicyScope" : {
+      "type" : "string"
+    },
     "Id" : {
       "type" : "string"
     },
