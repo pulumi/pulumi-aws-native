@@ -54,13 +54,13 @@ func NewProvider(ctx *pulumi.Context,
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
 	}
 	if args.AccessKey != nil {
-		args.AccessKey = pulumi.ToSecret(args.AccessKey).(pulumi.StringPtrOutput)
+		args.AccessKey = pulumi.ToSecret(args.AccessKey).(pulumi.StringPtrInput)
 	}
 	if args.SecretKey != nil {
-		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringPtrOutput)
+		args.SecretKey = pulumi.ToSecret(args.SecretKey).(pulumi.StringPtrInput)
 	}
 	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrOutput)
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:aws-native", name, args, &resource, opts...)
