@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeDeploy::DeploymentGroup
  */
 export function getDeploymentGroup(args: GetDeploymentGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codedeploy:getDeploymentGroup", {
         "id": args.id,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetDeploymentGroupResult {
     readonly tags?: outputs.codedeploy.DeploymentGroupTag[];
     readonly triggerConfigurations?: outputs.codedeploy.DeploymentGroupTriggerConfig[];
 }
-
+/**
+ * Resource Type definition for AWS::CodeDeploy::DeploymentGroup
+ */
 export function getDeploymentGroupOutput(args: GetDeploymentGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentGroupResult> {
-    return pulumi.output(args).apply(a => getDeploymentGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeploymentGroup(a, opts))
 }
 
 export interface GetDeploymentGroupOutputArgs {

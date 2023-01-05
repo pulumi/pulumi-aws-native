@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTSiteWise::Dashboard
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotsitewise:getDashboard", {
         "dashboardId": args.dashboardId,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetDashboardResult {
      */
     readonly tags?: outputs.iotsitewise.DashboardTag[];
 }
-
+/**
+ * Resource schema for AWS::IoTSiteWise::Dashboard
+ */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
-    return pulumi.output(args).apply(a => getDashboard(a, opts))
+    return pulumi.output(args).apply((a: any) => getDashboard(a, opts))
 }
 
 export interface GetDashboardOutputArgs {

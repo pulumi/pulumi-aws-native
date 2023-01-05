@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Schema describing various properties for ECS TaskDefinition
  */
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecs:getTaskDefinition", {
         "taskDefinitionArn": args.taskDefinitionArn,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetTaskDefinitionResult {
      */
     readonly taskDefinitionArn?: string;
 }
-
+/**
+ * Resource Schema describing various properties for ECS TaskDefinition
+ */
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskDefinitionResult> {
-    return pulumi.output(args).apply(a => getTaskDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getTaskDefinition(a, opts))
 }
 
 export interface GetTaskDefinitionOutputArgs {

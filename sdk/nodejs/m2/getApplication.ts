@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Represents an application that runs on an AWS Mainframe Modernization Environment
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:m2:getApplication", {
         "applicationArn": args.applicationArn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetApplicationResult {
     readonly description?: string;
     readonly tags?: outputs.m2.ApplicationTagMap;
 }
-
+/**
+ * Represents an application that runs on an AWS Mainframe Modernization Environment
+ */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
-    return pulumi.output(args).apply(a => getApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
 
 export interface GetApplicationOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * A certificate issued via a private certificate authority
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:acmpca:getCertificate", {
         "arn": args.arn,
         "certificateAuthorityArn": args.certificateAuthorityArn,
@@ -40,9 +37,11 @@ export interface GetCertificateResult {
      */
     readonly certificate?: string;
 }
-
+/**
+ * A certificate issued via a private certificate authority
+ */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
-    return pulumi.output(args).apply(a => getCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificate(a, opts))
 }
 
 export interface GetCertificateOutputArgs {

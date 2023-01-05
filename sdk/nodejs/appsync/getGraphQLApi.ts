@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::GraphQLApi
  */
 export function getGraphQLApi(args: GetGraphQLApiArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getGraphQLApi", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetGraphQLApiResult {
     readonly userPoolConfig?: outputs.appsync.GraphQLApiUserPoolConfig;
     readonly xrayEnabled?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::GraphQLApi
+ */
 export function getGraphQLApiOutput(args: GetGraphQLApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResult> {
-    return pulumi.output(args).apply(a => getGraphQLApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getGraphQLApi(a, opts))
 }
 
 export interface GetGraphQLApiOutputArgs {

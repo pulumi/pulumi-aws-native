@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAF::XssMatchSet
  */
 export function getXssMatchSet(args: GetXssMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetXssMatchSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:waf:getXssMatchSet", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetXssMatchSetResult {
     readonly id?: string;
     readonly xssMatchTuples?: outputs.waf.XssMatchSetXssMatchTuple[];
 }
-
+/**
+ * Resource Type definition for AWS::WAF::XssMatchSet
+ */
 export function getXssMatchSetOutput(args: GetXssMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetXssMatchSetResult> {
-    return pulumi.output(args).apply(a => getXssMatchSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getXssMatchSet(a, opts))
 }
 
 export interface GetXssMatchSetOutputArgs {

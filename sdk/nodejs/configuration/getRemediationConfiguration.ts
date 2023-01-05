@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::RemediationConfiguration
  */
 export function getRemediationConfiguration(args: GetRemediationConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getRemediationConfiguration", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetRemediationConfigurationResult {
     readonly targetType?: string;
     readonly targetVersion?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Config::RemediationConfiguration
+ */
 export function getRemediationConfigurationOutput(args: GetRemediationConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationConfigurationResult> {
-    return pulumi.output(args).apply(a => getRemediationConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getRemediationConfiguration(a, opts))
 }
 
 export interface GetRemediationConfigurationOutputArgs {

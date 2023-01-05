@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFormation::WaitCondition
  */
 export function getWaitCondition(args: GetWaitConditionArgs, opts?: pulumi.InvokeOptions): Promise<GetWaitConditionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getWaitCondition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetWaitConditionResult {
     readonly id?: string;
     readonly timeout?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFormation::WaitCondition
+ */
 export function getWaitConditionOutput(args: GetWaitConditionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWaitConditionResult> {
-    return pulumi.output(args).apply(a => getWaitCondition(a, opts))
+    return pulumi.output(args).apply((a: any) => getWaitCondition(a, opts))
 }
 
 export interface GetWaitConditionOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationNFS
  */
 export function getLocationNFS(args: GetLocationNFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationNFSResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationNFS", {
         "locationArn": args.locationArn,
     }, opts);
@@ -44,9 +41,11 @@ export interface GetLocationNFSResult {
      */
     readonly tags?: outputs.datasync.LocationNFSTag[];
 }
-
+/**
+ * Resource schema for AWS::DataSync::LocationNFS
+ */
 export function getLocationNFSOutput(args: GetLocationNFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationNFSResult> {
-    return pulumi.output(args).apply(a => getLocationNFS(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocationNFS(a, opts))
 }
 
 export interface GetLocationNFSOutputArgs {

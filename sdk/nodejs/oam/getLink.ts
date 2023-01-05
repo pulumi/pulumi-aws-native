@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::Oam::Link Resource Type
  */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:oam:getLink", {
         "arn": args.arn,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetLinkResult {
      */
     readonly tags?: any;
 }
-
+/**
+ * Definition of AWS::Oam::Link Resource Type
+ */
 export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
-    return pulumi.output(args).apply(a => getLink(a, opts))
+    return pulumi.output(args).apply((a: any) => getLink(a, opts))
 }
 
 export interface GetLinkOutputArgs {

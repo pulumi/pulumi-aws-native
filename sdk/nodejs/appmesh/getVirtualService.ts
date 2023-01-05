@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::VirtualService
  */
 export function getVirtualService(args: GetVirtualServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getVirtualService", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVirtualServiceResult {
     readonly tags?: outputs.appmesh.VirtualServiceTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::VirtualService
+ */
 export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
-    return pulumi.output(args).apply(a => getVirtualService(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualService(a, opts))
 }
 
 export interface GetVirtualServiceOutputArgs {

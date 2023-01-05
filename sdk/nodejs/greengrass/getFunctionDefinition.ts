@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::FunctionDefinition
  */
 export function getFunctionDefinition(args: GetFunctionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getFunctionDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetFunctionDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::FunctionDefinition
+ */
 export function getFunctionDefinitionOutput(args: GetFunctionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionDefinitionResult> {
-    return pulumi.output(args).apply(a => getFunctionDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getFunctionDefinition(a, opts))
 }
 
 export interface GetFunctionDefinitionOutputArgs {

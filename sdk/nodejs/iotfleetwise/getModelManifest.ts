@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::IoTFleetWise::ModelManifest Resource Type
  */
 export function getModelManifest(args: GetModelManifestArgs, opts?: pulumi.InvokeOptions): Promise<GetModelManifestResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotfleetwise:getModelManifest", {
         "name": args.name,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetModelManifestResult {
     readonly status?: enums.iotfleetwise.ModelManifestManifestStatus;
     readonly tags?: outputs.iotfleetwise.ModelManifestTag[];
 }
-
+/**
+ * Definition of AWS::IoTFleetWise::ModelManifest Resource Type
+ */
 export function getModelManifestOutput(args: GetModelManifestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelManifestResult> {
-    return pulumi.output(args).apply(a => getModelManifest(a, opts))
+    return pulumi.output(args).apply((a: any) => getModelManifest(a, opts))
 }
 
 export interface GetModelManifestOutputArgs {

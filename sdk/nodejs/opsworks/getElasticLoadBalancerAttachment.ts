@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
  */
 export function getElasticLoadBalancerAttachment(args: GetElasticLoadBalancerAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticLoadBalancerAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opsworks:getElasticLoadBalancerAttachment", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetElasticLoadBalancerAttachmentResult {
     readonly id?: string;
     readonly layerId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
+ */
 export function getElasticLoadBalancerAttachmentOutput(args: GetElasticLoadBalancerAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancerAttachmentResult> {
-    return pulumi.output(args).apply(a => getElasticLoadBalancerAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getElasticLoadBalancerAttachment(a, opts))
 }
 
 export interface GetElasticLoadBalancerAttachmentOutputArgs {

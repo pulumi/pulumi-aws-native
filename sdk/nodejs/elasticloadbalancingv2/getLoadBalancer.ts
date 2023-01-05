@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getLoadBalancer", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetLoadBalancerResult {
     readonly subnets?: string[];
     readonly tags?: outputs.elasticloadbalancingv2.LoadBalancerTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
+ */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {

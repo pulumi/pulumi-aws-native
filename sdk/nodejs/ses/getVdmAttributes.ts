@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::VdmAttributes
  */
 export function getVdmAttributes(args: GetVdmAttributesArgs, opts?: pulumi.InvokeOptions): Promise<GetVdmAttributesResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getVdmAttributes", {
         "vdmAttributesResourceId": args.vdmAttributesResourceId,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetVdmAttributesResult {
      */
     readonly vdmAttributesResourceId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SES::VdmAttributes
+ */
 export function getVdmAttributesOutput(args: GetVdmAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVdmAttributesResult> {
-    return pulumi.output(args).apply(a => getVdmAttributes(a, opts))
+    return pulumi.output(args).apply((a: any) => getVdmAttributes(a, opts))
 }
 
 export interface GetVdmAttributesOutputArgs {

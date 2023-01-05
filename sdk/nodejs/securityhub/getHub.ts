@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecurityHub::Hub
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:securityhub:getHub", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetHubResult {
     readonly id?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::SecurityHub::Hub
+ */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
-    return pulumi.output(args).apply(a => getHub(a, opts))
+    return pulumi.output(args).apply((a: any) => getHub(a, opts))
 }
 
 export interface GetHubOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::Entity
  */
 export function getEntity(args: GetEntityArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getEntity", {
         "entityId": args.entityId,
         "workspaceId": args.workspaceId,
@@ -75,9 +72,11 @@ export interface GetEntityResult {
      */
     readonly updateDateTime?: string;
 }
-
+/**
+ * Resource schema for AWS::IoTTwinMaker::Entity
+ */
 export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
-    return pulumi.output(args).apply(a => getEntity(a, opts))
+    return pulumi.output(args).apply((a: any) => getEntity(a, opts))
 }
 
 export interface GetEntityOutputArgs {

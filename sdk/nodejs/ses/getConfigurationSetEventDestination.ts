@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SES::ConfigurationSetEventDestination
  */
 export function getConfigurationSetEventDestination(args: GetConfigurationSetEventDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationSetEventDestinationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getConfigurationSetEventDestination", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetConfigurationSetEventDestinationResult {
     readonly eventDestination?: outputs.ses.ConfigurationSetEventDestinationEventDestination;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SES::ConfigurationSetEventDestination
+ */
 export function getConfigurationSetEventDestinationOutput(args: GetConfigurationSetEventDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetEventDestinationResult> {
-    return pulumi.output(args).apply(a => getConfigurationSetEventDestination(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationSetEventDestination(a, opts))
 }
 
 export interface GetConfigurationSetEventDestinationOutputArgs {

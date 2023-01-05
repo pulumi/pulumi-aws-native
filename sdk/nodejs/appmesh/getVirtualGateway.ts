@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::VirtualGateway
  */
 export function getVirtualGateway(args: GetVirtualGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getVirtualGateway", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVirtualGatewayResult {
     readonly tags?: outputs.appmesh.VirtualGatewayTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::VirtualGateway
+ */
 export function getVirtualGatewayOutput(args: GetVirtualGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualGatewayResult> {
-    return pulumi.output(args).apply(a => getVirtualGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualGateway(a, opts))
 }
 
 export interface GetVirtualGatewayOutputArgs {

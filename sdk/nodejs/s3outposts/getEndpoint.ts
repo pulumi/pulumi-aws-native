@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::S3Outposts::Endpoint
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3outposts:getEndpoint", {
         "arn": args.arn,
     }, opts);
@@ -51,9 +48,11 @@ export interface GetEndpointResult {
     readonly networkInterfaces?: outputs.s3outposts.EndpointNetworkInterface[];
     readonly status?: enums.s3outposts.EndpointStatus;
 }
-
+/**
+ * Resource Type Definition for AWS::S3Outposts::Endpoint
+ */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
-    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
 }
 
 export interface GetEndpointOutputArgs {

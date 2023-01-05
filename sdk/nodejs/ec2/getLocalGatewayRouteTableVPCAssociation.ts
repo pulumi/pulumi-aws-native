@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Describes an association between a local gateway route table and a VPC.
  */
 export function getLocalGatewayRouteTableVPCAssociation(args: GetLocalGatewayRouteTableVPCAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayRouteTableVPCAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getLocalGatewayRouteTableVPCAssociation", {
         "localGatewayRouteTableVpcAssociationId": args.localGatewayRouteTableVpcAssociationId,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetLocalGatewayRouteTableVPCAssociationResult {
      */
     readonly tags?: outputs.ec2.LocalGatewayRouteTableVPCAssociationTag[];
 }
-
+/**
+ * Describes an association between a local gateway route table and a VPC.
+ */
 export function getLocalGatewayRouteTableVPCAssociationOutput(args: GetLocalGatewayRouteTableVPCAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableVPCAssociationResult> {
-    return pulumi.output(args).apply(a => getLocalGatewayRouteTableVPCAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocalGatewayRouteTableVPCAssociation(a, opts))
 }
 
 export interface GetLocalGatewayRouteTableVPCAssociationOutputArgs {

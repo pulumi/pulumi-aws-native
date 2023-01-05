@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource type definition for AWS::SSMIncidents::ReplicationSet
  */
 export function getReplicationSet(args: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmincidents:getReplicationSet", {
         "arn": args.arn,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetReplicationSetResult {
      */
     readonly tags?: outputs.ssmincidents.ReplicationSetTag[];
 }
-
+/**
+ * Resource type definition for AWS::SSMIncidents::ReplicationSet
+ */
 export function getReplicationSetOutput(args: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
-    return pulumi.output(args).apply(a => getReplicationSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationSet(a, opts))
 }
 
 export interface GetReplicationSetOutputArgs {

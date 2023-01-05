@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::APNSChannel
  */
 export function getAPNSChannel(args: GetAPNSChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetAPNSChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getAPNSChannel", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetAPNSChannelResult {
     readonly tokenKey?: string;
     readonly tokenKeyId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::APNSChannel
+ */
 export function getAPNSChannelOutput(args: GetAPNSChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAPNSChannelResult> {
-    return pulumi.output(args).apply(a => getAPNSChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getAPNSChannel(a, opts))
 }
 
 export interface GetAPNSChannelOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
  */
 export function getScalingPolicy(args: GetScalingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getScalingPolicy", {
         "arn": args.arn,
     }, opts);
@@ -75,9 +72,11 @@ export interface GetScalingPolicyResult {
      */
     readonly targetTrackingConfiguration?: outputs.autoscaling.ScalingPolicyTargetTrackingConfiguration;
 }
-
+/**
+ * The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
+ */
 export function getScalingPolicyOutput(args: GetScalingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPolicyResult> {
-    return pulumi.output(args).apply(a => getScalingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getScalingPolicy(a, opts))
 }
 
 export interface GetScalingPolicyOutputArgs {

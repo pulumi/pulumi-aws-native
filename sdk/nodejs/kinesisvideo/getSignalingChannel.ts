@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::KinesisVideo::SignalingChannel
  */
 export function getSignalingChannel(args: GetSignalingChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalingChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesisvideo:getSignalingChannel", {
         "name": args.name,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetSignalingChannelResult {
      */
     readonly type?: enums.kinesisvideo.SignalingChannelType;
 }
-
+/**
+ * Resource Type Definition for AWS::KinesisVideo::SignalingChannel
+ */
 export function getSignalingChannelOutput(args: GetSignalingChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalingChannelResult> {
-    return pulumi.output(args).apply(a => getSignalingChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getSignalingChannel(a, opts))
 }
 
 export interface GetSignalingChannelOutputArgs {

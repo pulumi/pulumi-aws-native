@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ECS::CapacityProvider.
  */
 export function getCapacityProvider(args: GetCapacityProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityProviderResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecs:getCapacityProvider", {
         "name": args.name,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetCapacityProviderResult {
     readonly autoScalingGroupProvider?: outputs.ecs.CapacityProviderAutoScalingGroupProvider;
     readonly tags?: outputs.ecs.CapacityProviderTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ECS::CapacityProvider.
+ */
 export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityProviderResult> {
-    return pulumi.output(args).apply(a => getCapacityProvider(a, opts))
+    return pulumi.output(args).apply((a: any) => getCapacityProvider(a, opts))
 }
 
 export interface GetCapacityProviderOutputArgs {

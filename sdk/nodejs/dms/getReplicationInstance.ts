@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DMS::ReplicationInstance
  */
 export function getReplicationInstance(args: GetReplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getReplicationInstance", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetReplicationInstanceResult {
     readonly replicationInstancePublicIpAddresses?: string;
     readonly vpcSecurityGroupIds?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::DMS::ReplicationInstance
+ */
 export function getReplicationInstanceOutput(args: GetReplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationInstanceResult> {
-    return pulumi.output(args).apply(a => getReplicationInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationInstance(a, opts))
 }
 
 export interface GetReplicationInstanceOutputArgs {

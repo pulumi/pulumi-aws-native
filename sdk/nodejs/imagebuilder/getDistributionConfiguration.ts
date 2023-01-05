@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::DistributionConfiguration
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getDistributionConfiguration", {
         "arn": args.arn,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetDistributionConfigurationResult {
      */
     readonly tags?: any;
 }
-
+/**
+ * Resource schema for AWS::ImageBuilder::DistributionConfiguration
+ */
 export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
-    return pulumi.output(args).apply(a => getDistributionConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDistributionConfiguration(a, opts))
 }
 
 export interface GetDistributionConfigurationOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Set a version as default version for a hook in CloudFormation Registry.
  */
 export function getHookDefaultVersion(args: GetHookDefaultVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetHookDefaultVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getHookDefaultVersion", {
         "arn": args.arn,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetHookDefaultVersionResult {
      */
     readonly versionId?: string;
 }
-
+/**
+ * Set a version as default version for a hook in CloudFormation Registry.
+ */
 export function getHookDefaultVersionOutput(args: GetHookDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookDefaultVersionResult> {
-    return pulumi.output(args).apply(a => getHookDefaultVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getHookDefaultVersion(a, opts))
 }
 
 export interface GetHookDefaultVersionOutputArgs {

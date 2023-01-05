@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Amazon OpenSearchServerless vpc endpoint resource
  */
 export function getVpcEndpoint(args: GetVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opensearchserverless:getVpcEndpoint", {
         "id": args.id,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetVpcEndpointResult {
      */
     readonly subnetIds?: string[];
 }
-
+/**
+ * Amazon OpenSearchServerless vpc endpoint resource
+ */
 export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
-    return pulumi.output(args).apply(a => getVpcEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcEndpoint(a, opts))
 }
 
 export interface GetVpcEndpointOutputArgs {

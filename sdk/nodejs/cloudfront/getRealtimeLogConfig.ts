@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::RealtimeLogConfig
  */
 export function getRealtimeLogConfig(args: GetRealtimeLogConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetRealtimeLogConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getRealtimeLogConfig", {
         "arn": args.arn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetRealtimeLogConfigResult {
     readonly fields?: string[];
     readonly samplingRate?: number;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+ */
 export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
-    return pulumi.output(args).apply(a => getRealtimeLogConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getRealtimeLogConfig(a, opts))
 }
 
 export interface GetRealtimeLogConfigOutputArgs {

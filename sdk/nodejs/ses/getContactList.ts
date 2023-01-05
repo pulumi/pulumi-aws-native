@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::SES::ContactList.
  */
 export function getContactList(args: GetContactListArgs, opts?: pulumi.InvokeOptions): Promise<GetContactListResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ses:getContactList", {
         "contactListName": args.contactListName,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetContactListResult {
      */
     readonly topics?: outputs.ses.ContactListTopic[];
 }
-
+/**
+ * Resource schema for AWS::SES::ContactList.
+ */
 export function getContactListOutput(args: GetContactListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactListResult> {
-    return pulumi.output(args).apply(a => getContactList(a, opts))
+    return pulumi.output(args).apply((a: any) => getContactList(a, opts))
 }
 
 export interface GetContactListOutputArgs {

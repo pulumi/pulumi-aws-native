@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
  */
 export function getDedicatedIpPool(args: GetDedicatedIpPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedIpPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpointemail:getDedicatedIpPool", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetDedicatedIpPoolResult {
     readonly id?: string;
     readonly tags?: outputs.pinpointemail.DedicatedIpPoolTags[];
 }
-
+/**
+ * Resource Type definition for AWS::PinpointEmail::DedicatedIpPool
+ */
 export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
-    return pulumi.output(args).apply(a => getDedicatedIpPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getDedicatedIpPool(a, opts))
 }
 
 export interface GetDedicatedIpPoolOutputArgs {

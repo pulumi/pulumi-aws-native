@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
  */
 export function getIntegrationResponse(args: GetIntegrationResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResponseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getIntegrationResponse", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetIntegrationResponseResult {
     readonly responseTemplates?: any;
     readonly templateSelectionExpression?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::IntegrationResponse
+ */
 export function getIntegrationResponseOutput(args: GetIntegrationResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResponseResult> {
-    return pulumi.output(args).apply(a => getIntegrationResponse(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegrationResponse(a, opts))
 }
 
 export interface GetIntegrationResponseOutputArgs {

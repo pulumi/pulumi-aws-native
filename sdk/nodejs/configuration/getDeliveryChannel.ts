@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::DeliveryChannel
  */
 export function getDeliveryChannel(args: GetDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getDeliveryChannel", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetDeliveryChannelResult {
     readonly s3KmsKeyArn?: string;
     readonly snsTopicARN?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Config::DeliveryChannel
+ */
 export function getDeliveryChannelOutput(args: GetDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryChannelResult> {
-    return pulumi.output(args).apply(a => getDeliveryChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeliveryChannel(a, opts))
 }
 
 export interface GetDeliveryChannelOutputArgs {

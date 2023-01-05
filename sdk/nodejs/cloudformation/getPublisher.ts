@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Register as a publisher in the CloudFormation Registry.
  */
 export function getPublisher(args: GetPublisherArgs, opts?: pulumi.InvokeOptions): Promise<GetPublisherResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudformation:getPublisher", {
         "publisherId": args.publisherId,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetPublisherResult {
      */
     readonly publisherStatus?: enums.cloudformation.PublisherStatus;
 }
-
+/**
+ * Register as a publisher in the CloudFormation Registry.
+ */
 export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
-    return pulumi.output(args).apply(a => getPublisher(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublisher(a, opts))
 }
 
 export interface GetPublisherOutputArgs {

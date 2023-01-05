@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
  */
 export function getScalingPolicy(args: GetScalingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationautoscaling:getScalingPolicy", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetScalingPolicyResult {
     readonly stepScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfiguration;
     readonly targetTrackingScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfiguration;
 }
-
+/**
+ * Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
+ */
 export function getScalingPolicyOutput(args: GetScalingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPolicyResult> {
-    return pulumi.output(args).apply(a => getScalingPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getScalingPolicy(a, opts))
 }
 
 export interface GetScalingPolicyOutputArgs {

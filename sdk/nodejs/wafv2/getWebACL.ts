@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
  */
 export function getWebACL(args: GetWebACLArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafv2:getWebACL", {
         "id": args.id,
         "name": args.name,
@@ -47,9 +44,11 @@ export interface GetWebACLResult {
     readonly tokenDomains?: string[];
     readonly visibilityConfig?: outputs.wafv2.WebACLVisibilityConfig;
 }
-
+/**
+ * Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
+ */
 export function getWebACLOutput(args: GetWebACLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLResult> {
-    return pulumi.output(args).apply(a => getWebACL(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebACL(a, opts))
 }
 
 export interface GetWebACLOutputArgs {

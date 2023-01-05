@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
  */
 export function getListenerCertificate(args: GetListenerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetListenerCertificateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticloadbalancingv2:getListenerCertificate", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetListenerCertificateResult {
     readonly certificates?: outputs.elasticloadbalancingv2.ListenerCertificateCertificate[];
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerCertificate
+ */
 export function getListenerCertificateOutput(args: GetListenerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerCertificateResult> {
-    return pulumi.output(args).apply(a => getListenerCertificate(a, opts))
+    return pulumi.output(args).apply((a: any) => getListenerCertificate(a, opts))
 }
 
 export interface GetListenerCertificateOutputArgs {

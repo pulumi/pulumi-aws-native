@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
  */
 export function getSecretTargetAttachment(args: GetSecretTargetAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretTargetAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:secretsmanager:getSecretTargetAttachment", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetSecretTargetAttachmentResult {
     readonly targetId?: string;
     readonly targetType?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
+ */
 export function getSecretTargetAttachmentOutput(args: GetSecretTargetAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretTargetAttachmentResult> {
-    return pulumi.output(args).apply(a => getSecretTargetAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecretTargetAttachment(a, opts))
 }
 
 export interface GetSecretTargetAttachmentOutputArgs {

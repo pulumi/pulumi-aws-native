@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::FIS::ExperimentTemplate
  */
 export function getExperimentTemplate(args: GetExperimentTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetExperimentTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fis:getExperimentTemplate", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetExperimentTemplateResult {
     readonly stopConditions?: outputs.fis.ExperimentTemplateStopCondition[];
     readonly targets?: outputs.fis.ExperimentTemplateTargetMap;
 }
-
+/**
+ * Resource schema for AWS::FIS::ExperimentTemplate
+ */
 export function getExperimentTemplateOutput(args: GetExperimentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentTemplateResult> {
-    return pulumi.output(args).apply(a => getExperimentTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getExperimentTemplate(a, opts))
 }
 
 export interface GetExperimentTemplateOutputArgs {

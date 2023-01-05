@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::S3Outposts::Bucket
  */
 export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3outposts:getBucket", {
         "arn": args.arn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetBucketResult {
      */
     readonly tags?: outputs.s3outposts.BucketTag[];
 }
-
+/**
+ * Resource Type Definition for AWS::S3Outposts::Bucket
+ */
 export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
-    return pulumi.output(args).apply(a => getBucket(a, opts))
+    return pulumi.output(args).apply((a: any) => getBucket(a, opts))
 }
 
 export interface GetBucketOutputArgs {

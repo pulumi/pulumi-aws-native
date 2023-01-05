@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::ApiKey
  */
 export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getApiKey", {
         "aPIKeyId": args.aPIKeyId,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetApiKeyResult {
      */
     readonly tags?: outputs.apigateway.ApiKeyTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::ApiKey
+ */
 export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
-    return pulumi.output(args).apply(a => getApiKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiKey(a, opts))
 }
 
 export interface GetApiKeyOutputArgs {

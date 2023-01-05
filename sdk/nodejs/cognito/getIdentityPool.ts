@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::IdentityPool
  */
 export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIdentityPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getIdentityPool", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetIdentityPoolResult {
     readonly samlProviderARNs?: string[];
     readonly supportedLoginProviders?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Cognito::IdentityPool
+ */
 export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
-    return pulumi.output(args).apply(a => getIdentityPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getIdentityPool(a, opts))
 }
 
 export interface GetIdentityPoolOutputArgs {

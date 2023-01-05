@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoT::Thing
  */
 export function getThing(args: GetThingArgs, opts?: pulumi.InvokeOptions): Promise<GetThingResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getThing", {
         "thingName": args.thingName,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetThingResult {
     readonly attributePayload?: outputs.iot.ThingAttributePayload;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::IoT::Thing
+ */
 export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingResult> {
-    return pulumi.output(args).apply(a => getThing(a, opts))
+    return pulumi.output(args).apply((a: any) => getThing(a, opts))
 }
 
 export interface GetThingOutputArgs {

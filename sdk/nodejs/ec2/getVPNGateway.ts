@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Schema for EC2 VPN Gateway
  */
 export function getVPNGateway(args: GetVPNGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPNGateway", {
         "vPNGatewayId": args.vPNGatewayId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetVPNGatewayResult {
      */
     readonly vPNGatewayId?: string;
 }
-
+/**
+ * Schema for EC2 VPN Gateway
+ */
 export function getVPNGatewayOutput(args: GetVPNGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNGatewayResult> {
-    return pulumi.output(args).apply(a => getVPNGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPNGateway(a, opts))
 }
 
 export interface GetVPNGatewayOutputArgs {

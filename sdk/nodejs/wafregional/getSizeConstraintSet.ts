@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::SizeConstraintSet
  */
 export function getSizeConstraintSet(args: GetSizeConstraintSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSizeConstraintSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getSizeConstraintSet", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetSizeConstraintSetResult {
     readonly id?: string;
     readonly sizeConstraints?: outputs.wafregional.SizeConstraintSetSizeConstraint[];
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::SizeConstraintSet
+ */
 export function getSizeConstraintSetOutput(args: GetSizeConstraintSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSizeConstraintSetResult> {
-    return pulumi.output(args).apply(a => getSizeConstraintSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSizeConstraintSet(a, opts))
 }
 
 export interface GetSizeConstraintSetOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
  */
 export function getEventDataStore(args: GetEventDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetEventDataStoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudtrail:getEventDataStore", {
         "eventDataStoreArn": args.eventDataStoreArn,
     }, opts);
@@ -75,9 +72,11 @@ export interface GetEventDataStoreResult {
      */
     readonly updatedTimestamp?: string;
 }
-
+/**
+ * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+ */
 export function getEventDataStoreOutput(args: GetEventDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventDataStoreResult> {
-    return pulumi.output(args).apply(a => getEventDataStore(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventDataStore(a, opts))
 }
 
 export interface GetEventDataStoreOutputArgs {

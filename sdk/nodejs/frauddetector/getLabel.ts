@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An label for fraud detector.
  */
 export function getLabel(args: GetLabelArgs, opts?: pulumi.InvokeOptions): Promise<GetLabelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getLabel", {
         "arn": args.arn,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetLabelResult {
      */
     readonly tags?: outputs.frauddetector.LabelTag[];
 }
-
+/**
+ * An label for fraud detector.
+ */
 export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelResult> {
-    return pulumi.output(args).apply(a => getLabel(a, opts))
+    return pulumi.output(args).apply((a: any) => getLabel(a, opts))
 }
 
 export interface GetLabelOutputArgs {

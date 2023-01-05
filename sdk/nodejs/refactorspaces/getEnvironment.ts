@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::RefactorSpaces::Environment Resource Type
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:refactorspaces:getEnvironment", {
         "environmentIdentifier": args.environmentIdentifier,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetEnvironmentResult {
     readonly tags?: outputs.refactorspaces.EnvironmentTag[];
     readonly transitGatewayId?: string;
 }
-
+/**
+ * Definition of AWS::RefactorSpaces::Environment Resource Type
+ */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
-    return pulumi.output(args).apply(a => getEnvironment(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironment(a, opts))
 }
 
 export interface GetEnvironmentOutputArgs {

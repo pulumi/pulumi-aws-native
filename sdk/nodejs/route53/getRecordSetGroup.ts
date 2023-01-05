@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Route53::RecordSetGroup
  */
 export function getRecordSetGroup(args: GetRecordSetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53:getRecordSetGroup", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetRecordSetGroupResult {
     readonly id?: string;
     readonly recordSets?: outputs.route53.RecordSetGroupRecordSet[];
 }
-
+/**
+ * Resource Type definition for AWS::Route53::RecordSetGroup
+ */
 export function getRecordSetGroupOutput(args: GetRecordSetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetGroupResult> {
-    return pulumi.output(args).apply(a => getRecordSetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getRecordSetGroup(a, opts))
 }
 
 export interface GetRecordSetGroupOutputArgs {

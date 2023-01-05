@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAF::ByteMatchSet
  */
 export function getByteMatchSet(args: GetByteMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetByteMatchSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:waf:getByteMatchSet", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetByteMatchSetResult {
     readonly byteMatchTuples?: outputs.waf.ByteMatchSetByteMatchTuple[];
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::WAF::ByteMatchSet
+ */
 export function getByteMatchSetOutput(args: GetByteMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetByteMatchSetResult> {
-    return pulumi.output(args).apply(a => getByteMatchSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getByteMatchSet(a, opts))
 }
 
 export interface GetByteMatchSetOutputArgs {

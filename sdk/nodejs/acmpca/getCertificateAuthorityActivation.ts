@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Used to install the certificate authority certificate and update the certificate authority status.
  */
 export function getCertificateAuthorityActivation(args: GetCertificateAuthorityActivationArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityActivationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:acmpca:getCertificateAuthorityActivation", {
         "certificateAuthorityArn": args.certificateAuthorityArn,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetCertificateAuthorityActivationResult {
      */
     readonly status?: string;
 }
-
+/**
+ * Used to install the certificate authority certificate and update the certificate authority status.
+ */
 export function getCertificateAuthorityActivationOutput(args: GetCertificateAuthorityActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityActivationResult> {
-    return pulumi.output(args).apply(a => getCertificateAuthorityActivation(a, opts))
+    return pulumi.output(args).apply((a: any) => getCertificateAuthorityActivation(a, opts))
 }
 
 export interface GetCertificateAuthorityActivationOutputArgs {

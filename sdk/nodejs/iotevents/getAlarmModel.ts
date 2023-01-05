@@ -13,11 +13,8 @@ import * as utilities from "../utilities";
  * Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
  */
 export function getAlarmModel(args: GetAlarmModelArgs, opts?: pulumi.InvokeOptions): Promise<GetAlarmModelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotevents:getAlarmModel", {
         "alarmModelName": args.alarmModelName,
     }, opts);
@@ -53,9 +50,13 @@ export interface GetAlarmModelResult {
      */
     readonly tags?: outputs.iotevents.AlarmModelTag[];
 }
-
+/**
+ * The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
+ *
+ * Alarms are instances of alarm models. The alarm model specifies what to detect, when to send notifications, who gets notified, and more. You can also specify one or more supported actions that occur when the alarm state changes. AWS IoT Events routes input attributes derived from your data to the appropriate alarms. If the data that you're monitoring is outside the specified range, the alarm is invoked. You can also acknowledge the alarms or set them to the snooze mode.
+ */
 export function getAlarmModelOutput(args: GetAlarmModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmModelResult> {
-    return pulumi.output(args).apply(a => getAlarmModel(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlarmModel(a, opts))
 }
 
 export interface GetAlarmModelOutputArgs {

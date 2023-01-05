@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::QLDB::Ledger
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:qldb:getLedger", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetLedgerResult {
     readonly permissionsMode?: string;
     readonly tags?: outputs.qldb.LedgerTag[];
 }
-
+/**
+ * Resource Type definition for AWS::QLDB::Ledger
+ */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
-    return pulumi.output(args).apply(a => getLedger(a, opts))
+    return pulumi.output(args).apply((a: any) => getLedger(a, opts))
 }
 
 export interface GetLedgerOutputArgs {

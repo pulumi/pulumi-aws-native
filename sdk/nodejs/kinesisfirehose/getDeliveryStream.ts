@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
  */
 export function getDeliveryStream(args: GetDeliveryStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesisfirehose:getDeliveryStream", {
         "deliveryStreamName": args.deliveryStreamName,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetDeliveryStreamResult {
     readonly splunkDestinationConfiguration?: outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration;
     readonly tags?: outputs.kinesisfirehose.DeliveryStreamTag[];
 }
-
+/**
+ * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
+ */
 export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryStreamResult> {
-    return pulumi.output(args).apply(a => getDeliveryStream(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeliveryStream(a, opts))
 }
 
 export interface GetDeliveryStreamOutputArgs {

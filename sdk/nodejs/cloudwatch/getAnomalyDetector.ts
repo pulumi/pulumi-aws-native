@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudWatch::AnomalyDetector
  */
 export function getAnomalyDetector(args: GetAnomalyDetectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomalyDetectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudwatch:getAnomalyDetector", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetAnomalyDetectorResult {
     readonly configuration?: outputs.cloudwatch.AnomalyDetectorConfiguration;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CloudWatch::AnomalyDetector
+ */
 export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
-    return pulumi.output(args).apply(a => getAnomalyDetector(a, opts))
+    return pulumi.output(args).apply((a: any) => getAnomalyDetector(a, opts))
 }
 
 export interface GetAnomalyDetectorOutputArgs {

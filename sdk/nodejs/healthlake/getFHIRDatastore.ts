@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * HealthLake FHIR Datastore
  */
 export function getFHIRDatastore(args: GetFHIRDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetFHIRDatastoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:healthlake:getFHIRDatastore", {
         "datastoreId": args.datastoreId,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetFHIRDatastoreResult {
     readonly datastoreStatus?: enums.healthlake.FHIRDatastoreDatastoreStatus;
     readonly tags?: outputs.healthlake.FHIRDatastoreTag[];
 }
-
+/**
+ * HealthLake FHIR Datastore
+ */
 export function getFHIRDatastoreOutput(args: GetFHIRDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFHIRDatastoreResult> {
-    return pulumi.output(args).apply(a => getFHIRDatastore(a, opts))
+    return pulumi.output(args).apply((a: any) => getFHIRDatastore(a, opts))
 }
 
 export interface GetFHIRDatastoreOutputArgs {

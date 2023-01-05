@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
  */
 export function getVPNGatewayRoutePropagation(args: GetVPNGatewayRoutePropagationArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNGatewayRoutePropagationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPNGatewayRoutePropagation", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVPNGatewayRoutePropagationResult {
      */
     readonly vpnGatewayId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
+ */
 export function getVPNGatewayRoutePropagationOutput(args: GetVPNGatewayRoutePropagationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNGatewayRoutePropagationResult> {
-    return pulumi.output(args).apply(a => getVPNGatewayRoutePropagation(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPNGatewayRoutePropagation(a, opts))
 }
 
 export interface GetVPNGatewayRoutePropagationOutputArgs {

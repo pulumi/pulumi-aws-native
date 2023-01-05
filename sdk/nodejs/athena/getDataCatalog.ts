@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Athena::DataCatalog
  */
 export function getDataCatalog(args: GetDataCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:athena:getDataCatalog", {
         "name": args.name,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetDataCatalogResult {
      */
     readonly type?: enums.athena.DataCatalogType;
 }
-
+/**
+ * Resource schema for AWS::Athena::DataCatalog
+ */
 export function getDataCatalogOutput(args: GetDataCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogResult> {
-    return pulumi.output(args).apply(a => getDataCatalog(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataCatalog(a, opts))
 }
 
 export interface GetDataCatalogOutputArgs {

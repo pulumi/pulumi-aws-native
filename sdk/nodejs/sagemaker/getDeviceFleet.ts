@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::SageMaker::DeviceFleet
  */
 export function getDeviceFleet(args: GetDeviceFleetArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceFleetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getDeviceFleet", {
         "deviceFleetName": args.deviceFleetName,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetDeviceFleetResult {
      */
     readonly tags?: outputs.sagemaker.DeviceFleetTag[];
 }
-
+/**
+ * Resource schema for AWS::SageMaker::DeviceFleet
+ */
 export function getDeviceFleetOutput(args: GetDeviceFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceFleetResult> {
-    return pulumi.output(args).apply(a => getDeviceFleet(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeviceFleet(a, opts))
 }
 
 export interface GetDeviceFleetOutputArgs {

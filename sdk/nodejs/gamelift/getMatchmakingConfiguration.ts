@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GameLift::MatchmakingConfiguration
  */
 export function getMatchmakingConfiguration(args: GetMatchmakingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getMatchmakingConfiguration", {
         "id": args.id,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetMatchmakingConfigurationResult {
     readonly ruleSetName?: string;
     readonly tags?: outputs.gamelift.MatchmakingConfigurationTag[];
 }
-
+/**
+ * Resource Type definition for AWS::GameLift::MatchmakingConfiguration
+ */
 export function getMatchmakingConfigurationOutput(args: GetMatchmakingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingConfigurationResult> {
-    return pulumi.output(args).apply(a => getMatchmakingConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getMatchmakingConfiguration(a, opts))
 }
 
 export interface GetMatchmakingConfigurationOutputArgs {

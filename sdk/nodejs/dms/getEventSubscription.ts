@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DMS::EventSubscription
  */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getEventSubscription", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetEventSubscriptionResult {
     readonly snsTopicArn?: string;
     readonly sourceType?: string;
 }
-
+/**
+ * Resource Type definition for AWS::DMS::EventSubscription
+ */
 export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
-    return pulumi.output(args).apply(a => getEventSubscription(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventSubscription(a, opts))
 }
 
 export interface GetEventSubscriptionOutputArgs {

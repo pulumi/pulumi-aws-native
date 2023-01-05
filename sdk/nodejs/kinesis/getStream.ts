@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Kinesis::Stream
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesis:getStream", {
         "name": args.name,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetStreamResult {
      */
     readonly tags?: outputs.kinesis.StreamTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Kinesis::Stream
+ */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
-    return pulumi.output(args).apply(a => getStream(a, opts))
+    return pulumi.output(args).apply((a: any) => getStream(a, opts))
 }
 
 export interface GetStreamOutputArgs {

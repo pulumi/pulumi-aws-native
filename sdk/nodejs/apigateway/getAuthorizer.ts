@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
  */
 export function getAuthorizer(args: GetAuthorizerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getAuthorizer", {
         "authorizerId": args.authorizerId,
         "restApiId": args.restApiId,
@@ -66,9 +63,11 @@ export interface GetAuthorizerResult {
      */
     readonly type?: string;
 }
-
+/**
+ * Represents an authorization layer for methods. If enabled on a method, API Gateway will activate the authorizer when a client calls the method.
+ */
 export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
-    return pulumi.output(args).apply(a => getAuthorizer(a, opts))
+    return pulumi.output(args).apply((a: any) => getAuthorizer(a, opts))
 }
 
 export interface GetAuthorizerOutputArgs {

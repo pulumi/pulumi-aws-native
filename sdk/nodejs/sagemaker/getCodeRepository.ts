@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::CodeRepository
  */
 export function getCodeRepository(args: GetCodeRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getCodeRepository", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetCodeRepositoryResult {
     readonly id?: string;
     readonly tags?: outputs.sagemaker.CodeRepositoryTag[];
 }
-
+/**
+ * Resource Type definition for AWS::SageMaker::CodeRepository
+ */
 export function getCodeRepositoryOutput(args: GetCodeRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeRepositoryResult> {
-    return pulumi.output(args).apply(a => getCodeRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getCodeRepository(a, opts))
 }
 
 export interface GetCodeRepositoryOutputArgs {

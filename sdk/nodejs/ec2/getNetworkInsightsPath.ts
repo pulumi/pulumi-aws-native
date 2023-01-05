@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::EC2::NetworkInsightsPath
  */
 export function getNetworkInsightsPath(args: GetNetworkInsightsPathArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsPathResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInsightsPath", {
         "networkInsightsPathId": args.networkInsightsPathId,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetNetworkInsightsPathResult {
     readonly sourceArn?: string;
     readonly tags?: outputs.ec2.NetworkInsightsPathTag[];
 }
-
+/**
+ * Resource schema for AWS::EC2::NetworkInsightsPath
+ */
 export function getNetworkInsightsPathOutput(args: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsPathResult> {
-    return pulumi.output(args).apply(a => getNetworkInsightsPath(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkInsightsPath(a, opts))
 }
 
 export interface GetNetworkInsightsPathOutputArgs {

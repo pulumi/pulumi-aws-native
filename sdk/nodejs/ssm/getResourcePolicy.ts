@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSM::ResourcePolicy
  */
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getResourcePolicy", {
         "policyId": args.policyId,
         "resourceArn": args.resourceArn,
@@ -44,9 +41,11 @@ export interface GetResourcePolicyResult {
      */
     readonly policyId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SSM::ResourcePolicy
+ */
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
-    return pulumi.output(args).apply(a => getResourcePolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getResourcePolicy(a, opts))
 }
 
 export interface GetResourcePolicyOutputArgs {

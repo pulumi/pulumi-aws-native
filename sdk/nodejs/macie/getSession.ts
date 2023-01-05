@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
  */
 export function getSession(args: GetSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetSessionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:macie:getSession", {
         "awsAccountId": args.awsAccountId,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetSessionResult {
      */
     readonly status?: enums.macie.SessionStatus;
 }
-
+/**
+ * The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
+ */
 export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionResult> {
-    return pulumi.output(args).apply(a => getSession(a, opts))
+    return pulumi.output(args).apply((a: any) => getSession(a, opts))
 }
 
 export interface GetSessionOutputArgs {

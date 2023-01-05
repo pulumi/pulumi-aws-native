@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppSync::ApiKey
  */
 export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getApiKey", {
         "apiKeyId": args.apiKeyId,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetApiKeyResult {
     readonly description?: string;
     readonly expires?: number;
 }
-
+/**
+ * Resource Type definition for AWS::AppSync::ApiKey
+ */
 export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
-    return pulumi.output(args).apply(a => getApiKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getApiKey(a, opts))
 }
 
 export interface GetApiKeyOutputArgs {

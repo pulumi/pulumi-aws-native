@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A signing profile is a signing template that can be used to carry out a pre-defined signing job.
  */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:signer:getSigningProfile", {
         "arn": args.arn,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetSigningProfileResult {
      */
     readonly tags?: outputs.signer.SigningProfileTag[];
 }
-
+/**
+ * A signing profile is a signing template that can be used to carry out a pre-defined signing job.
+ */
 export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
-    return pulumi.output(args).apply(a => getSigningProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getSigningProfile(a, opts))
 }
 
 export interface GetSigningProfileOutputArgs {

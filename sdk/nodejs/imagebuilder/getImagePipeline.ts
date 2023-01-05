@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::ImageBuilder::ImagePipeline
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:imagebuilder:getImagePipeline", {
         "arn": args.arn,
     }, opts);
@@ -74,9 +71,11 @@ export interface GetImagePipelineResult {
      */
     readonly tags?: any;
 }
-
+/**
+ * Resource schema for AWS::ImageBuilder::ImagePipeline
+ */
 export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
-    return pulumi.output(args).apply(a => getImagePipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getImagePipeline(a, opts))
 }
 
 export interface GetImagePipelineOutputArgs {

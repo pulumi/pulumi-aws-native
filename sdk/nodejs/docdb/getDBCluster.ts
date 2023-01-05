@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DocDB::DBCluster
  */
 export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:docdb:getDBCluster", {
         "id": args.id,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetDBClusterResult {
     readonly useLatestRestorableTime?: boolean;
     readonly vpcSecurityGroupIds?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::DocDB::DBCluster
+ */
 export function getDBClusterOutput(args: GetDBClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterResult> {
-    return pulumi.output(args).apply(a => getDBCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBCluster(a, opts))
 }
 
 export interface GetDBClusterOutputArgs {

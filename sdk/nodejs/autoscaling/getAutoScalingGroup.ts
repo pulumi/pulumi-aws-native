@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AutoScaling::AutoScalingGroup
  */
 export function getAutoScalingGroup(args: GetAutoScalingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScalingGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getAutoScalingGroup", {
         "id": args.id,
     }, opts);
@@ -55,9 +52,11 @@ export interface GetAutoScalingGroupResult {
     readonly terminationPolicies?: string[];
     readonly vPCZoneIdentifier?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::AutoScaling::AutoScalingGroup
+ */
 export function getAutoScalingGroupOutput(args: GetAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingGroupResult> {
-    return pulumi.output(args).apply(a => getAutoScalingGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getAutoScalingGroup(a, opts))
 }
 
 export interface GetAutoScalingGroupOutputArgs {

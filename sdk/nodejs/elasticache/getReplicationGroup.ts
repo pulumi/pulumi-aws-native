@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ElastiCache::ReplicationGroup
  */
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:elasticache:getReplicationGroup", {
         "replicationGroupId": args.replicationGroupId,
     }, opts);
@@ -60,9 +57,11 @@ export interface GetReplicationGroupResult {
     readonly tags?: outputs.elasticache.ReplicationGroupTag[];
     readonly userGroupIds?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::ElastiCache::ReplicationGroup
+ */
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationGroupResult> {
-    return pulumi.output(args).apply(a => getReplicationGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationGroup(a, opts))
 }
 
 export interface GetReplicationGroupOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::UserToGroupAddition
  */
 export function getUserToGroupAddition(args: GetUserToGroupAdditionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserToGroupAdditionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getUserToGroupAddition", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetUserToGroupAdditionResult {
     readonly id?: string;
     readonly users?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::UserToGroupAddition
+ */
 export function getUserToGroupAdditionOutput(args: GetUserToGroupAdditionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserToGroupAdditionResult> {
-    return pulumi.output(args).apply(a => getUserToGroupAddition(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserToGroupAddition(a, opts))
 }
 
 export interface GetUserToGroupAdditionOutputArgs {

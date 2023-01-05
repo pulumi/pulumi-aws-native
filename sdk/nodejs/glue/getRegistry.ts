@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getRegistry", {
         "arn": args.arn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetRegistryResult {
      */
     readonly tags?: outputs.glue.RegistryTag[];
 }
-
+/**
+ * This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
+ */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
-    return pulumi.output(args).apply(a => getRegistry(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistry(a, opts))
 }
 
 export interface GetRegistryOutputArgs {

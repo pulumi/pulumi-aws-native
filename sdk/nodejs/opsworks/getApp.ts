@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::OpsWorks::App
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opsworks:getApp", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetAppResult {
     readonly sslConfiguration?: outputs.opsworks.AppSslConfiguration;
     readonly type?: string;
 }
-
+/**
+ * Resource Type definition for AWS::OpsWorks::App
+ */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply(a => getApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

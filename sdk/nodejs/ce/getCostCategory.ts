@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ce:getCostCategory", {
         "arn": args.arn,
     }, opts);
@@ -48,9 +45,11 @@ export interface GetCostCategoryResult {
      */
     readonly splitChargeRules?: string;
 }
-
+/**
+ * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
+ */
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
-    return pulumi.output(args).apply(a => getCostCategory(a, opts))
+    return pulumi.output(args).apply((a: any) => getCostCategory(a, opts))
 }
 
 export interface GetCostCategoryOutputArgs {

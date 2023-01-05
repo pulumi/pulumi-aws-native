@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
  */
 export function getLaunchRoleConstraint(args: GetLaunchRoleConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchRoleConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getLaunchRoleConstraint", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetLaunchRoleConstraintResult {
     readonly localRoleName?: string;
     readonly roleArn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
+ */
 export function getLaunchRoleConstraintOutput(args: GetLaunchRoleConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchRoleConstraintResult> {
-    return pulumi.output(args).apply(a => getLaunchRoleConstraint(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchRoleConstraint(a, opts))
 }
 
 export interface GetLaunchRoleConstraintOutputArgs {

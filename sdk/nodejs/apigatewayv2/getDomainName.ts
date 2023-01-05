@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::DomainName
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getDomainName", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetDomainNameResult {
     readonly regionalHostedZoneId?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::DomainName
+ */
 export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
-    return pulumi.output(args).apply(a => getDomainName(a, opts))
+    return pulumi.output(args).apply((a: any) => getDomainName(a, opts))
 }
 
 export interface GetDomainNameOutputArgs {

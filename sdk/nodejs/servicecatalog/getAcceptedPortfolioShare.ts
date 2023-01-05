@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::AcceptedPortfolioShare
  */
 export function getAcceptedPortfolioShare(args: GetAcceptedPortfolioShareArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceptedPortfolioShareResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getAcceptedPortfolioShare", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetAcceptedPortfolioShareArgs {
 export interface GetAcceptedPortfolioShareResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::AcceptedPortfolioShare
+ */
 export function getAcceptedPortfolioShareOutput(args: GetAcceptedPortfolioShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceptedPortfolioShareResult> {
-    return pulumi.output(args).apply(a => getAcceptedPortfolioShare(a, opts))
+    return pulumi.output(args).apply((a: any) => getAcceptedPortfolioShare(a, opts))
 }
 
 export interface GetAcceptedPortfolioShareOutputArgs {

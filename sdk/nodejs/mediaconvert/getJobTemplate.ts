@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MediaConvert::JobTemplate
  */
 export function getJobTemplate(args: GetJobTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetJobTemplateResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconvert:getJobTemplate", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetJobTemplateResult {
     readonly statusUpdateInterval?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::MediaConvert::JobTemplate
+ */
 export function getJobTemplateOutput(args: GetJobTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTemplateResult> {
-    return pulumi.output(args).apply(a => getJobTemplate(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobTemplate(a, opts))
 }
 
 export interface GetJobTemplateOutputArgs {
