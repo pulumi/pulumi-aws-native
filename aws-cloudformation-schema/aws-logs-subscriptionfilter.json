@@ -29,6 +29,11 @@
     "RoleArn" : {
       "description" : "The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.",
       "type" : "string"
+    },
+    "Distribution" : {
+      "description" : "The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.",
+      "type" : "string",
+      "enum" : [ "Random", "ByLogStream" ]
     }
   },
   "handlers" : {
@@ -46,8 +51,7 @@
     }
   },
   "required" : [ "DestinationArn", "FilterPattern", "LogGroupName" ],
-  "createOnlyProperties" : [ "/properties/DestinationArn", "/properties/FilterPattern", "/properties/LogGroupName", "/properties/RoleArn" ],
-  "readOnlyProperties" : [ "/properties/FilterName" ],
+  "createOnlyProperties" : [ "/properties/FilterName", "/properties/DestinationArn", "/properties/FilterPattern", "/properties/LogGroupName", "/properties/RoleArn", "/properties/Distribution" ],
   "primaryIdentifier" : [ "/properties/FilterName", "/properties/LogGroupName" ],
   "additionalProperties" : false
 }

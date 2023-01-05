@@ -77,6 +77,7 @@
   "createOnlyProperties" : [ "/properties/ParameterGroupFamily", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/ParameterGroupName" ],
   "readOnlyProperties" : [ "/properties/ParameterGroupName" ],
+  "writeOnlyProperties" : [ "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "redshift:CreateClusterParameterGroup", "redshift:ModifyClusterParameterGroup", "redshift:DescribeClusterParameterGroups", "redshift:CreateTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
