@@ -212,7 +212,7 @@
           "pattern" : ".*"
         }
       },
-      "required" : [ "MetricName", "EntityIdKey", "ValueKey", "EventPattern" ],
+      "required" : [ "MetricName", "EntityIdKey", "ValueKey" ],
       "additionalProperties" : false
     },
     "Tag" : {

@@ -14,7 +14,12 @@
       "type" : "string"
     }
   },
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "required" : [ "RouteTableId", "SubnetId" ],
   "createOnlyProperties" : [ "/properties/SubnetId", "/properties/RouteTableId" ],
   "readOnlyProperties" : [ "/properties/Id" ],
