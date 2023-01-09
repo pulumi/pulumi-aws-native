@@ -66,8 +66,10 @@ func (o MicrosoftADVpcSettingsOutput) VpcId() pulumi.StringOutput {
 }
 
 type SimpleADVpcSettings struct {
+	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	VpcId     string   `pulumi:"vpcId"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // SimpleADVpcSettingsInput is an input type that accepts SimpleADVpcSettingsArgs and SimpleADVpcSettingsOutput values.
@@ -82,8 +84,10 @@ type SimpleADVpcSettingsInput interface {
 }
 
 type SimpleADVpcSettingsArgs struct {
+	// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId     pulumi.StringInput      `pulumi:"vpcId"`
+	// The identifier of the VPC in which to create the directory.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (SimpleADVpcSettingsArgs) ElementType() reflect.Type {
@@ -112,10 +116,12 @@ func (o SimpleADVpcSettingsOutput) ToSimpleADVpcSettingsOutputWithContext(ctx co
 	return o
 }
 
+// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
 func (o SimpleADVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SimpleADVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The identifier of the VPC in which to create the directory.
 func (o SimpleADVpcSettingsOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v SimpleADVpcSettings) string { return v.VpcId }).(pulumi.StringOutput)
 }

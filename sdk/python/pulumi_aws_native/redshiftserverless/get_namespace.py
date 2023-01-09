@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNamespaceResult:
-    def __init__(__self__, admin_username=None, db_name=None, default_iam_role_arn=None, final_snapshot_name=None, final_snapshot_retention_period=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None):
+    def __init__(__self__, admin_username=None, db_name=None, default_iam_role_arn=None, iam_roles=None, kms_key_id=None, log_exports=None, namespace=None):
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
@@ -30,12 +30,6 @@ class GetNamespaceResult:
         if default_iam_role_arn and not isinstance(default_iam_role_arn, str):
             raise TypeError("Expected argument 'default_iam_role_arn' to be a str")
         pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
-        if final_snapshot_name and not isinstance(final_snapshot_name, str):
-            raise TypeError("Expected argument 'final_snapshot_name' to be a str")
-        pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
-        if final_snapshot_retention_period and not isinstance(final_snapshot_retention_period, int):
-            raise TypeError("Expected argument 'final_snapshot_retention_period' to be a int")
-        pulumi.set(__self__, "final_snapshot_retention_period", final_snapshot_retention_period)
         if iam_roles and not isinstance(iam_roles, list):
             raise TypeError("Expected argument 'iam_roles' to be a list")
         pulumi.set(__self__, "iam_roles", iam_roles)
@@ -72,22 +66,6 @@ class GetNamespaceResult:
         The default IAM role ARN for the namespace that is being created.
         """
         return pulumi.get(self, "default_iam_role_arn")
-
-    @property
-    @pulumi.getter(name="finalSnapshotName")
-    def final_snapshot_name(self) -> Optional[str]:
-        """
-        The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace
-        """
-        return pulumi.get(self, "final_snapshot_name")
-
-    @property
-    @pulumi.getter(name="finalSnapshotRetentionPeriod")
-    def final_snapshot_retention_period(self) -> Optional[int]:
-        """
-        The number of days to retain automated snapshot in the destination region after they are copied from the source region. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653.
-        """
-        return pulumi.get(self, "final_snapshot_retention_period")
 
     @property
     @pulumi.getter(name="iamRoles")
@@ -128,8 +106,6 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             admin_username=self.admin_username,
             db_name=self.db_name,
             default_iam_role_arn=self.default_iam_role_arn,
-            final_snapshot_name=self.final_snapshot_name,
-            final_snapshot_retention_period=self.final_snapshot_retention_period,
             iam_roles=self.iam_roles,
             kms_key_id=self.kms_key_id,
             log_exports=self.log_exports,
@@ -153,8 +129,6 @@ def get_namespace(namespace_name: Optional[str] = None,
         admin_username=__ret__.admin_username,
         db_name=__ret__.db_name,
         default_iam_role_arn=__ret__.default_iam_role_arn,
-        final_snapshot_name=__ret__.final_snapshot_name,
-        final_snapshot_retention_period=__ret__.final_snapshot_retention_period,
         iam_roles=__ret__.iam_roles,
         kms_key_id=__ret__.kms_key_id,
         log_exports=__ret__.log_exports,

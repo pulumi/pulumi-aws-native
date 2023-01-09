@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.Evidently.Inputs
         /// <summary>
         /// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         /// </summary>
-        [Input("eventPattern", required: true)]
-        public Input<string> EventPattern { get; set; } = null!;
+        [Input("eventPattern")]
+        public Input<string>? EventPattern { get; set; }
 
         [Input("metricName", required: true)]
         public Input<string> MetricName { get; set; } = null!;

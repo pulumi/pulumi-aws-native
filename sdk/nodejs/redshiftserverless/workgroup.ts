@@ -45,7 +45,7 @@ export class Workgroup extends pulumi.CustomResource {
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.redshiftserverless.WorkgroupTag[] | undefined>;
-    public /*out*/ readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup>;
+    public readonly workgroup!: pulumi.Output<outputs.redshiftserverless.Workgroup | undefined>;
     public readonly workgroupName!: pulumi.Output<string>;
 
     /**
@@ -67,8 +67,8 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workgroup"] = args ? args.workgroup : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
-            resourceInputs["workgroup"] = undefined /*out*/;
         } else {
             resourceInputs["baseCapacity"] = undefined /*out*/;
             resourceInputs["configParameters"] = undefined /*out*/;
@@ -98,5 +98,6 @@ export interface WorkgroupArgs {
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupTagArgs>[]>;
+    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs>;
     workgroupName?: pulumi.Input<string>;
 }

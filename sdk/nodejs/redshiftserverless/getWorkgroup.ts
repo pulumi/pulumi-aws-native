@@ -26,6 +26,8 @@ export interface GetWorkgroupArgs {
 }
 
 export interface GetWorkgroupResult {
+    readonly enhancedVpcRouting?: boolean;
+    readonly publiclyAccessible?: boolean;
     readonly workgroup?: outputs.redshiftserverless.Workgroup;
 }
 

@@ -70,14 +70,6 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         public readonly string? DefaultIamRoleArn;
         /// <summary>
-        /// The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace
-        /// </summary>
-        public readonly string? FinalSnapshotName;
-        /// <summary>
-        /// The number of days to retain automated snapshot in the destination region after they are copied from the source region. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653.
-        /// </summary>
-        public readonly int? FinalSnapshotRetentionPeriod;
-        /// <summary>
         /// A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
         /// </summary>
         public readonly ImmutableArray<string> IamRoles;
@@ -99,10 +91,6 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             string? defaultIamRoleArn,
 
-            string? finalSnapshotName,
-
-            int? finalSnapshotRetentionPeriod,
-
             ImmutableArray<string> iamRoles,
 
             string? kmsKeyId,
@@ -114,8 +102,6 @@ namespace Pulumi.AwsNative.RedshiftServerless
             AdminUsername = adminUsername;
             DbName = dbName;
             DefaultIamRoleArn = defaultIamRoleArn;
-            FinalSnapshotName = finalSnapshotName;
-            FinalSnapshotRetentionPeriod = finalSnapshotRetentionPeriod;
             IamRoles = iamRoles;
             KmsKeyId = kmsKeyId;
             LogExports = logExports;

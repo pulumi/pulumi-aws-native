@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<Outputs.WorkgroupTag>> Tags { get; private set; } = null!;
 
         [Output("workgroup")]
-        public Output<Outputs.Workgroup> WorkgroupValue { get; private set; } = null!;
+        public Output<Outputs.Workgroup?> WorkgroupValue { get; private set; } = null!;
 
         [Output("workgroupName")]
         public Output<string> WorkgroupName { get; private set; } = null!;
@@ -133,6 +133,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _tags ?? (_tags = new InputList<Inputs.WorkgroupTagArgs>());
             set => _tags = value;
         }
+
+        [Input("workgroup")]
+        public Input<Inputs.WorkgroupArgs>? WorkgroupValue { get; set; }
 
         [Input("workgroupName")]
         public Input<string>? WorkgroupName { get; set; }

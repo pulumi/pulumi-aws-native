@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AliasRoutingStrategyType',
+    'BuildOperatingSystem',
     'FleetCertificateConfigurationCertificateType',
     'FleetComputeType',
     'FleetIpPermissionProtocol',
@@ -23,6 +24,15 @@ class AliasRoutingStrategyType(str, Enum):
     """
     SIMPLE = "SIMPLE"
     TERMINAL = "TERMINAL"
+
+
+class BuildOperatingSystem(str, Enum):
+    """
+    The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+    """
+    AMAZON_LINUX = "AMAZON_LINUX"
+    AMAZON_LINUX2 = "AMAZON_LINUX_2"
+    WINDOWS2012 = "WINDOWS_2012"
 
 
 class FleetCertificateConfigurationCertificateType(str, Enum):

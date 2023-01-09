@@ -100,6 +100,13 @@
           "items" : {
             "$ref" : "#/definitions/KeyValuePair"
           }
+        },
+        "RuntimeEnvironmentSecrets" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/KeyValuePair"
+          },
+          "description" : "The secrets and parameters that get referenced by your service as environment variables"
         }
       },
       "required" : [ "Runtime" ],
@@ -145,6 +152,13 @@
           "items" : {
             "$ref" : "#/definitions/KeyValuePair"
           }
+        },
+        "RuntimeEnvironmentSecrets" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/KeyValuePair"
+          },
+          "description" : "The secrets and parameters that get referenced by your service as environment variables"
         }
       },
       "additionalProperties" : false
@@ -195,7 +209,7 @@
     "RoleArn" : {
       "type" : "string",
       "minLength" : 29,
-      "maxLength" : 102,
+      "maxLength" : 1024,
       "pattern" : "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):iam::[0-9]{12}:role/[\\w+=,.@-]{1,64}"
     },
     "EncryptionConfiguration" : {

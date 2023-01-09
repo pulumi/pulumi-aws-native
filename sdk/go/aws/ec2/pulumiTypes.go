@@ -18953,6 +18953,115 @@ func (o OptionsPropertiesPtrOutput) Ipv6Support() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type PlacementGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PlacementGroupTagInput is an input type that accepts PlacementGroupTagArgs and PlacementGroupTagOutput values.
+// You can construct a concrete instance of `PlacementGroupTagInput` via:
+//
+//	PlacementGroupTagArgs{...}
+type PlacementGroupTagInput interface {
+	pulumi.Input
+
+	ToPlacementGroupTagOutput() PlacementGroupTagOutput
+	ToPlacementGroupTagOutputWithContext(context.Context) PlacementGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type PlacementGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PlacementGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupTag)(nil)).Elem()
+}
+
+func (i PlacementGroupTagArgs) ToPlacementGroupTagOutput() PlacementGroupTagOutput {
+	return i.ToPlacementGroupTagOutputWithContext(context.Background())
+}
+
+func (i PlacementGroupTagArgs) ToPlacementGroupTagOutputWithContext(ctx context.Context) PlacementGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupTagOutput)
+}
+
+// PlacementGroupTagArrayInput is an input type that accepts PlacementGroupTagArray and PlacementGroupTagArrayOutput values.
+// You can construct a concrete instance of `PlacementGroupTagArrayInput` via:
+//
+//	PlacementGroupTagArray{ PlacementGroupTagArgs{...} }
+type PlacementGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput
+	ToPlacementGroupTagArrayOutputWithContext(context.Context) PlacementGroupTagArrayOutput
+}
+
+type PlacementGroupTagArray []PlacementGroupTagInput
+
+func (PlacementGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlacementGroupTag)(nil)).Elem()
+}
+
+func (i PlacementGroupTagArray) ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput {
+	return i.ToPlacementGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i PlacementGroupTagArray) ToPlacementGroupTagArrayOutputWithContext(ctx context.Context) PlacementGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type PlacementGroupTagOutput struct{ *pulumi.OutputState }
+
+func (PlacementGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementGroupTag)(nil)).Elem()
+}
+
+func (o PlacementGroupTagOutput) ToPlacementGroupTagOutput() PlacementGroupTagOutput {
+	return o
+}
+
+func (o PlacementGroupTagOutput) ToPlacementGroupTagOutputWithContext(ctx context.Context) PlacementGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PlacementGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PlacementGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PlacementGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PlacementGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlacementGroupTag)(nil)).Elem()
+}
+
+func (o PlacementGroupTagArrayOutput) ToPlacementGroupTagArrayOutput() PlacementGroupTagArrayOutput {
+	return o
+}
+
+func (o PlacementGroupTagArrayOutput) ToPlacementGroupTagArrayOutputWithContext(ctx context.Context) PlacementGroupTagArrayOutput {
+	return o
+}
+
+func (o PlacementGroupTagArrayOutput) Index(i pulumi.IntInput) PlacementGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlacementGroupTag {
+		return vs[0].([]PlacementGroupTag)[vs[1].(int)]
+	}).(PlacementGroupTagOutput)
+}
+
 type PrefixListEntry struct {
 	Cidr        string  `pulumi:"cidr"`
 	Description *string `pulumi:"description"`
@@ -26835,7 +26944,9 @@ func (o VPNGatewayTagArrayOutput) Index(i pulumi.IntInput) VPNGatewayTagOutput {
 }
 
 type VolumeTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -26851,7 +26962,9 @@ type VolumeTagInput interface {
 }
 
 type VolumeTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -26906,10 +27019,12 @@ func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) Volum
 	return o
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o VolumeTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o VolumeTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -27178,6 +27293,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceTagArrayInput)(nil)).Elem(), NetworkInterfaceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesInput)(nil)).Elem(), OptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesPtrInput)(nil)).Elem(), OptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupTagInput)(nil)).Elem(), PlacementGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupTagArrayInput)(nil)).Elem(), PlacementGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryInput)(nil)).Elem(), PrefixListEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListEntryArrayInput)(nil)).Elem(), PrefixListEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListTagInput)(nil)).Elem(), PrefixListTagArgs{})
@@ -27568,6 +27685,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceTagArrayOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PlacementGroupTagOutput{})
+	pulumi.RegisterOutputType(PlacementGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryArrayOutput{})
 	pulumi.RegisterOutputType(PrefixListTagOutput{})

@@ -62,4 +62,35 @@ namespace Pulumi.AwsNative.Logs
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+    /// </summary>
+    [EnumType]
+    public readonly struct SubscriptionFilterDistribution : IEquatable<SubscriptionFilterDistribution>
+    {
+        private readonly string _value;
+
+        private SubscriptionFilterDistribution(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SubscriptionFilterDistribution Random { get; } = new SubscriptionFilterDistribution("Random");
+        public static SubscriptionFilterDistribution ByLogStream { get; } = new SubscriptionFilterDistribution("ByLogStream");
+
+        public static bool operator ==(SubscriptionFilterDistribution left, SubscriptionFilterDistribution right) => left.Equals(right);
+        public static bool operator !=(SubscriptionFilterDistribution left, SubscriptionFilterDistribution right) => !left.Equals(right);
+
+        public static explicit operator string(SubscriptionFilterDistribution value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SubscriptionFilterDistribution other && Equals(other);
+        public bool Equals(SubscriptionFilterDistribution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

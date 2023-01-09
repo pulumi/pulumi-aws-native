@@ -120,6 +120,9 @@ namespace Pulumi.AwsNative.Grafana
         [Output("status")]
         public Output<Pulumi.AwsNative.Grafana.WorkspaceStatus> Status { get; private set; } = null!;
 
+        [Output("vpcConfiguration")]
+        public Output<Outputs.WorkspaceVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Workspace resource with the given unique name, arguments, and options.
@@ -257,6 +260,9 @@ namespace Pulumi.AwsNative.Grafana
         /// </summary>
         [Input("stackSetName")]
         public Input<string>? StackSetName { get; set; }
+
+        [Input("vpcConfiguration")]
+        public Input<Inputs.WorkspaceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 
         public WorkspaceArgs()
         {

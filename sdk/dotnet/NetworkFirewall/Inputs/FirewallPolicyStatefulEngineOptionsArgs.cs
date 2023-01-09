@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         [Input("ruleOrder")]
         public Input<Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder>? RuleOrder { get; set; }
 
+        [Input("streamExceptionPolicy")]
+        public Input<Pulumi.AwsNative.NetworkFirewall.FirewallPolicyStreamExceptionPolicy>? StreamExceptionPolicy { get; set; }
+
         public FirewallPolicyStatefulEngineOptionsArgs()
         {
         }

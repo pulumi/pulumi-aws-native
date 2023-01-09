@@ -27,6 +27,7 @@ type LookupSubscriptionArgs struct {
 type LookupSubscriptionResult struct {
 	DeliveryPolicy      interface{} `pulumi:"deliveryPolicy"`
 	FilterPolicy        interface{} `pulumi:"filterPolicy"`
+	FilterPolicyScope   *string     `pulumi:"filterPolicyScope"`
 	Id                  *string     `pulumi:"id"`
 	RawMessageDelivery  *bool       `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       interface{} `pulumi:"redrivePolicy"`
@@ -75,6 +76,10 @@ func (o LookupSubscriptionResultOutput) DeliveryPolicy() pulumi.AnyOutput {
 
 func (o LookupSubscriptionResultOutput) FilterPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.FilterPolicy }).(pulumi.AnyOutput)
+}
+
+func (o LookupSubscriptionResultOutput) FilterPolicyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.FilterPolicyScope }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSubscriptionResultOutput) Id() pulumi.StringPtrOutput {

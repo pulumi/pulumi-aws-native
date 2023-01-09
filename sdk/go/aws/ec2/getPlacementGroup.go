@@ -26,8 +26,8 @@ type LookupPlacementGroupArgs struct {
 }
 
 type LookupPlacementGroupResult struct {
-	// The Group Name of Placement Group.
-	GroupName *string `pulumi:"groupName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []PlacementGroupTag `pulumi:"tags"`
 }
 
 func LookupPlacementGroupOutput(ctx *pulumi.Context, args LookupPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupPlacementGroupResultOutput {
@@ -66,9 +66,9 @@ func (o LookupPlacementGroupResultOutput) ToLookupPlacementGroupResultOutputWith
 	return o
 }
 
-// The Group Name of Placement Group.
-func (o LookupPlacementGroupResultOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupPlacementGroupResult) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+// An array of key-value pairs to apply to this resource.
+func (o LookupPlacementGroupResultOutput) Tags() PlacementGroupTagArrayOutput {
+	return o.ApplyT(func(v LookupPlacementGroupResult) []PlacementGroupTag { return v.Tags }).(PlacementGroupTagArrayOutput)
 }
 
 func init() {

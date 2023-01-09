@@ -27,6 +27,7 @@ export interface GetFunctionArgs {
 
 export interface GetFunctionResult {
     readonly functionARN?: string;
+    readonly functionCode?: string;
     readonly functionConfig?: outputs.cloudfront.FunctionConfig;
     readonly functionMetadata?: outputs.cloudfront.FunctionMetadata;
     readonly name?: string;

@@ -20,6 +20,10 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// Port
         /// </summary>
         public readonly string? Port;
+        /// <summary>
+        /// The secrets and parameters that get referenced by your service as environment variables
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentSecrets;
         public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentVariables;
         /// <summary>
         /// Start Command
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         private ServiceImageConfiguration(
             string? port,
 
+            ImmutableArray<Outputs.ServiceKeyValuePair> runtimeEnvironmentSecrets,
+
             ImmutableArray<Outputs.ServiceKeyValuePair> runtimeEnvironmentVariables,
 
             string? startCommand)
         {
             Port = port;
+            RuntimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             RuntimeEnvironmentVariables = runtimeEnvironmentVariables;
             StartCommand = startCommand;
         }

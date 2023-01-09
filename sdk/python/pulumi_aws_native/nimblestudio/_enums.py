@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'LaunchProfileAutomaticTerminationMode',
+    'LaunchProfileSessionPersistenceMode',
     'LaunchProfileStreamingClipboardMode',
     'LaunchProfileStreamingInstanceType',
     'LaunchProfileStreamingSessionStorageMode',
@@ -15,6 +17,16 @@ __all__ = [
     'StudioComponentType',
     'StudioEncryptionConfigurationKeyType',
 ]
+
+
+class LaunchProfileAutomaticTerminationMode(str, Enum):
+    DEACTIVATED = "DEACTIVATED"
+    ACTIVATED = "ACTIVATED"
+
+
+class LaunchProfileSessionPersistenceMode(str, Enum):
+    DEACTIVATED = "DEACTIVATED"
+    ACTIVATED = "ACTIVATED"
 
 
 class LaunchProfileStreamingClipboardMode(str, Enum):

@@ -13,7 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AliasRoutingStrategy',
-    'BuildS3Location',
+    'BuildStorageLocation',
     'FleetAnywhereConfiguration',
     'FleetCertificateConfiguration',
     'FleetIpPermission',
@@ -100,7 +100,7 @@ class AliasRoutingStrategy(dict):
 
 
 @pulumi.output_type
-class BuildS3Location(dict):
+class BuildStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -110,14 +110,14 @@ class BuildS3Location(dict):
             suggest = "object_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BuildS3Location. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in BuildStorageLocation. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        BuildS3Location.__key_warning(key)
+        BuildStorageLocation.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        BuildS3Location.__key_warning(key)
+        BuildStorageLocation.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -125,6 +125,12 @@ class BuildS3Location(dict):
                  key: str,
                  role_arn: str,
                  object_version: Optional[str] = None):
+        """
+        :param str bucket: An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+        :param str key: The name of the zip file that contains the build files or script files.
+        :param str role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        :param str object_version: The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -134,21 +140,33 @@ class BuildS3Location(dict):
     @property
     @pulumi.getter
     def bucket(self) -> str:
+        """
+        An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The name of the zip file that contains the build files or script files.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[str]:
+        """
+        The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+        """
         return pulumi.get(self, "object_version")
 
 

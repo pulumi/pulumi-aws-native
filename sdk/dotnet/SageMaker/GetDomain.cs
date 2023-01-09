@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? AppSecurityGroupManagement;
+        /// <summary>
         /// The default user settings.
         /// </summary>
         public readonly Outputs.DomainUserSettings? DefaultUserSettings;
@@ -89,6 +93,8 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetDomainResult(
+            Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? appSecurityGroupManagement,
+
             Outputs.DomainUserSettings? defaultUserSettings,
 
             string? domainArn,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? url)
         {
+            AppSecurityGroupManagement = appSecurityGroupManagement;
             DefaultUserSettings = defaultUserSettings;
             DomainArn = domainArn;
             DomainId = domainId;

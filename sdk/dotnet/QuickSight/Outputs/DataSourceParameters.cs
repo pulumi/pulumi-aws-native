@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DataSourceAthenaParameters? AthenaParameters;
         public readonly Outputs.DataSourceAuroraParameters? AuroraParameters;
         public readonly Outputs.DataSourceAuroraPostgreSqlParameters? AuroraPostgreSqlParameters;
+        public readonly Outputs.DataSourceDatabricksParameters? DatabricksParameters;
         public readonly Outputs.DataSourceMariaDbParameters? MariaDbParameters;
         public readonly Outputs.DataSourceMySqlParameters? MySqlParameters;
         public readonly Outputs.DataSourceOracleParameters? OracleParameters;
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.DataSourceAuroraParameters? auroraParameters,
 
             Outputs.DataSourceAuroraPostgreSqlParameters? auroraPostgreSqlParameters,
+
+            Outputs.DataSourceDatabricksParameters? databricksParameters,
 
             Outputs.DataSourceMariaDbParameters? mariaDbParameters,
 
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             AthenaParameters = athenaParameters;
             AuroraParameters = auroraParameters;
             AuroraPostgreSqlParameters = auroraPostgreSqlParameters;
+            DatabricksParameters = databricksParameters;
             MariaDbParameters = mariaDbParameters;
             MySqlParameters = mySqlParameters;
             OracleParameters = oracleParameters;

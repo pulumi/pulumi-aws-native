@@ -1437,7 +1437,6 @@
         "logs/getMetricFilter.ts",
         "logs/getQueryDefinition.ts",
         "logs/getResourcePolicy.ts",
-        "logs/getSubscriptionFilter.ts",
         "logs/index.ts",
         "logs/logGroup.ts",
         "logs/logStream.ts",

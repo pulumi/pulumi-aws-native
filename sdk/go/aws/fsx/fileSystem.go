@@ -26,6 +26,7 @@ type FileSystem struct {
 	LustreMountName       pulumi.StringOutput                     `pulumi:"lustreMountName"`
 	OntapConfiguration    FileSystemOntapConfigurationPtrOutput   `pulumi:"ontapConfiguration"`
 	OpenZFSConfiguration  FileSystemOpenZFSConfigurationPtrOutput `pulumi:"openZFSConfiguration"`
+	ResourceARN           pulumi.StringOutput                     `pulumi:"resourceARN"`
 	RootVolumeId          pulumi.StringOutput                     `pulumi:"rootVolumeId"`
 	SecurityGroupIds      pulumi.StringArrayOutput                `pulumi:"securityGroupIds"`
 	StorageCapacity       pulumi.IntPtrOutput                     `pulumi:"storageCapacity"`
@@ -183,6 +184,10 @@ func (o FileSystemOutput) OntapConfiguration() FileSystemOntapConfigurationPtrOu
 
 func (o FileSystemOutput) OpenZFSConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemOpenZFSConfigurationPtrOutput { return v.OpenZFSConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+}
+
+func (o FileSystemOutput) ResourceARN() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.ResourceARN }).(pulumi.StringOutput)
 }
 
 func (o FileSystemOutput) RootVolumeId() pulumi.StringOutput {

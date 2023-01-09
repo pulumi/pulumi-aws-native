@@ -337,6 +337,170 @@ func (in *firewallPolicyRuleOrderPtr) ToFirewallPolicyRuleOrderPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyRuleOrderPtrOutput)
 }
 
+type FirewallPolicyStreamExceptionPolicy string
+
+const (
+	FirewallPolicyStreamExceptionPolicyDrop     = FirewallPolicyStreamExceptionPolicy("DROP")
+	FirewallPolicyStreamExceptionPolicyContinue = FirewallPolicyStreamExceptionPolicy("CONTINUE")
+)
+
+func (FirewallPolicyStreamExceptionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStreamExceptionPolicy)(nil)).Elem()
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToFirewallPolicyStreamExceptionPolicyOutput() FirewallPolicyStreamExceptionPolicyOutput {
+	return pulumi.ToOutput(e).(FirewallPolicyStreamExceptionPolicyOutput)
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToFirewallPolicyStreamExceptionPolicyOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallPolicyStreamExceptionPolicyOutput)
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToFirewallPolicyStreamExceptionPolicyPtrOutput() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return e.ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return FirewallPolicyStreamExceptionPolicy(e).ToFirewallPolicyStreamExceptionPolicyOutputWithContext(ctx).ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallPolicyStreamExceptionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallPolicyStreamExceptionPolicyOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStreamExceptionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyStreamExceptionPolicy)(nil)).Elem()
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToFirewallPolicyStreamExceptionPolicyOutput() FirewallPolicyStreamExceptionPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToFirewallPolicyStreamExceptionPolicyOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyOutput {
+	return o
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToFirewallPolicyStreamExceptionPolicyPtrOutput() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o.ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyStreamExceptionPolicy) *FirewallPolicyStreamExceptionPolicy {
+		return &v
+	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyStreamExceptionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStreamExceptionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallPolicyStreamExceptionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallPolicyStreamExceptionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyStreamExceptionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallPolicyStreamExceptionPolicy)(nil)).Elem()
+}
+
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToFirewallPolicyStreamExceptionPolicyPtrOutput() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o
+}
+
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) Elem() FirewallPolicyStreamExceptionPolicyOutput {
+	return o.ApplyT(func(v *FirewallPolicyStreamExceptionPolicy) FirewallPolicyStreamExceptionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyStreamExceptionPolicy
+		return ret
+	}).(FirewallPolicyStreamExceptionPolicyOutput)
+}
+
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallPolicyStreamExceptionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallPolicyStreamExceptionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallPolicyStreamExceptionPolicyInput is an input type that accepts FirewallPolicyStreamExceptionPolicyArgs and FirewallPolicyStreamExceptionPolicyOutput values.
+// You can construct a concrete instance of `FirewallPolicyStreamExceptionPolicyInput` via:
+//
+//	FirewallPolicyStreamExceptionPolicyArgs{...}
+type FirewallPolicyStreamExceptionPolicyInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStreamExceptionPolicyOutput() FirewallPolicyStreamExceptionPolicyOutput
+	ToFirewallPolicyStreamExceptionPolicyOutputWithContext(context.Context) FirewallPolicyStreamExceptionPolicyOutput
+}
+
+var firewallPolicyStreamExceptionPolicyPtrType = reflect.TypeOf((**FirewallPolicyStreamExceptionPolicy)(nil)).Elem()
+
+type FirewallPolicyStreamExceptionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyStreamExceptionPolicyPtrOutput() FirewallPolicyStreamExceptionPolicyPtrOutput
+	ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(context.Context) FirewallPolicyStreamExceptionPolicyPtrOutput
+}
+
+type firewallPolicyStreamExceptionPolicyPtr string
+
+func FirewallPolicyStreamExceptionPolicyPtr(v string) FirewallPolicyStreamExceptionPolicyPtrInput {
+	return (*firewallPolicyStreamExceptionPolicyPtr)(&v)
+}
+
+func (*firewallPolicyStreamExceptionPolicyPtr) ElementType() reflect.Type {
+	return firewallPolicyStreamExceptionPolicyPtrType
+}
+
+func (in *firewallPolicyStreamExceptionPolicyPtr) ToFirewallPolicyStreamExceptionPolicyPtrOutput() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(FirewallPolicyStreamExceptionPolicyPtrOutput)
+}
+
+func (in *firewallPolicyStreamExceptionPolicyPtr) ToFirewallPolicyStreamExceptionPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallPolicyStreamExceptionPolicyPtrOutput)
+}
+
 type LoggingConfigurationLogDestinationConfigLogDestinationType string
 
 const (
@@ -2097,6 +2261,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionPtrInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleOrderPtrInput)(nil)).Elem(), FirewallPolicyRuleOrder("DEFAULT_ACTION_ORDER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStreamExceptionPolicyInput)(nil)).Elem(), FirewallPolicyStreamExceptionPolicy("DROP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyStreamExceptionPolicyPtrInput)(nil)).Elem(), FirewallPolicyStreamExceptionPolicy("DROP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigLogDestinationTypeInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigLogDestinationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigLogDestinationTypePtrInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigLogDestinationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLogDestinationConfigLogTypeInput)(nil)).Elem(), LoggingConfigurationLogDestinationConfigLogType("ALERT"))
@@ -2123,6 +2289,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderPtrOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStreamExceptionPolicyOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyStreamExceptionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogDestinationTypeOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogDestinationTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLogDestinationConfigLogTypeOutput{})

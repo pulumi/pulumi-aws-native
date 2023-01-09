@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class RuleGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("referenceSets")]
+        public Input<Inputs.RuleGroupReferenceSetsArgs>? ReferenceSets { get; set; }
+
         [Input("ruleVariables")]
         public Input<Inputs.RuleGroupRuleVariablesArgs>? RuleVariables { get; set; }
 

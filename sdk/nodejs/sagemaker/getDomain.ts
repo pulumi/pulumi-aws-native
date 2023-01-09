@@ -30,6 +30,10 @@ export interface GetDomainArgs {
 
 export interface GetDomainResult {
     /**
+     * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+     */
+    readonly appSecurityGroupManagement?: enums.sagemaker.DomainAppSecurityGroupManagement;
+    /**
      * The default user settings.
      */
     readonly defaultUserSettings?: outputs.sagemaker.DomainUserSettings;

@@ -33,6 +33,7 @@ __all__ = [
     'RuleGroupMatchAttributesArgs',
     'RuleGroupPortRangeArgs',
     'RuleGroupPublishMetricActionArgs',
+    'RuleGroupReferenceSetsArgs',
     'RuleGroupRuleDefinitionArgs',
     'RuleGroupRuleOptionArgs',
     'RuleGroupRuleVariablesArgs',
@@ -126,9 +127,12 @@ class FirewallPolicyPublishMetricActionArgs:
 @pulumi.input_type
 class FirewallPolicyStatefulEngineOptionsArgs:
     def __init__(__self__, *,
-                 rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None):
+                 rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
+                 stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None):
         if rule_order is not None:
             pulumi.set(__self__, "rule_order", rule_order)
+        if stream_exception_policy is not None:
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -138,6 +142,15 @@ class FirewallPolicyStatefulEngineOptionsArgs:
     @rule_order.setter
     def rule_order(self, value: Optional[pulumi.Input['FirewallPolicyRuleOrder']]):
         pulumi.set(self, "rule_order", value)
+
+    @property
+    @pulumi.getter(name="streamExceptionPolicy")
+    def stream_exception_policy(self) -> Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']]:
+        return pulumi.get(self, "stream_exception_policy")
+
+    @stream_exception_policy.setter
+    def stream_exception_policy(self, value: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']]):
+        pulumi.set(self, "stream_exception_policy", value)
 
 
 @pulumi.input_type
@@ -715,6 +728,23 @@ class RuleGroupPublishMetricActionArgs:
 
 
 @pulumi.input_type
+class RuleGroupReferenceSetsArgs:
+    def __init__(__self__, *,
+                 i_p_set_references: Optional[Any] = None):
+        if i_p_set_references is not None:
+            pulumi.set(__self__, "i_p_set_references", i_p_set_references)
+
+    @property
+    @pulumi.getter(name="iPSetReferences")
+    def i_p_set_references(self) -> Optional[Any]:
+        return pulumi.get(self, "i_p_set_references")
+
+    @i_p_set_references.setter
+    def i_p_set_references(self, value: Optional[Any]):
+        pulumi.set(self, "i_p_set_references", value)
+
+
+@pulumi.input_type
 class RuleGroupRuleDefinitionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1058,9 +1088,12 @@ class RuleGroupTagArgs:
 class RuleGroupArgs:
     def __init__(__self__, *,
                  rules_source: pulumi.Input['RuleGroupRulesSourceArgs'],
+                 reference_sets: Optional[pulumi.Input['RuleGroupReferenceSetsArgs']] = None,
                  rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None,
                  stateful_rule_options: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']] = None):
         pulumi.set(__self__, "rules_source", rules_source)
+        if reference_sets is not None:
+            pulumi.set(__self__, "reference_sets", reference_sets)
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
         if stateful_rule_options is not None:
@@ -1074,6 +1107,15 @@ class RuleGroupArgs:
     @rules_source.setter
     def rules_source(self, value: pulumi.Input['RuleGroupRulesSourceArgs']):
         pulumi.set(self, "rules_source", value)
+
+    @property
+    @pulumi.getter(name="referenceSets")
+    def reference_sets(self) -> Optional[pulumi.Input['RuleGroupReferenceSetsArgs']]:
+        return pulumi.get(self, "reference_sets")
+
+    @reference_sets.setter
+    def reference_sets(self, value: Optional[pulumi.Input['RuleGroupReferenceSetsArgs']]):
+        pulumi.set(self, "reference_sets", value)
 
     @property
     @pulumi.getter(name="ruleVariables")

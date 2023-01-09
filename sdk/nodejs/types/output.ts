@@ -3343,6 +3343,10 @@ export namespace apprunner {
          * Runtime
          */
         runtime: enums.apprunner.ServiceCodeConfigurationValuesRuntime;
+        /**
+         * The secrets and parameters that get referenced by your service as environment variables
+         */
+        runtimeEnvironmentSecrets?: outputs.apprunner.ServiceKeyValuePair[];
         runtimeEnvironmentVariables?: outputs.apprunner.ServiceKeyValuePair[];
         /**
          * Start Command
@@ -3424,6 +3428,10 @@ export namespace apprunner {
          * Port
          */
         port?: string;
+        /**
+         * The secrets and parameters that get referenced by your service as environment variables
+         */
+        runtimeEnvironmentSecrets?: outputs.apprunner.ServiceKeyValuePair[];
         runtimeEnvironmentVariables?: outputs.apprunner.ServiceKeyValuePair[];
         /**
          * Start Command
@@ -5634,6 +5642,7 @@ export namespace cloudfront {
         corsConfig?: outputs.cloudfront.ResponseHeadersPolicyCorsConfig;
         customHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig;
         name: string;
+        removeHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfig;
         securityHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig;
         serverTimingHeadersConfig?: outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig;
     }
@@ -5675,6 +5684,14 @@ export namespace cloudfront {
     export interface ResponseHeadersPolicyReferrerPolicy {
         override: boolean;
         referrerPolicy: string;
+    }
+
+    export interface ResponseHeadersPolicyRemoveHeader {
+        header: string;
+    }
+
+    export interface ResponseHeadersPolicyRemoveHeadersConfig {
+        items: outputs.cloudfront.ResponseHeadersPolicyRemoveHeader[];
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfig {
@@ -9544,7 +9561,13 @@ export namespace directoryservice {
     }
 
     export interface SimpleADVpcSettings {
+        /**
+         * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+         */
         subnetIds: string[];
+        /**
+         * The identifier of the VPC in which to create the directory.
+         */
         vpcId: string;
     }
 
@@ -11171,6 +11194,20 @@ export namespace ec2 {
         ipv6Support?: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PlacementGroupTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface PrefixListEntry {
         cidr: string;
         description?: string;
@@ -11588,7 +11625,13 @@ export namespace ec2 {
     }
 
     export interface VolumeTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: string;
     }
 
@@ -13961,7 +14004,7 @@ export namespace evidently {
         /**
          * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
          */
-        eventPattern: string;
+        eventPattern?: string;
         metricName: string;
         unitLabel?: string;
         /**
@@ -14082,7 +14125,7 @@ export namespace evidently {
         /**
          * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
          */
-        eventPattern: string;
+        eventPattern?: string;
         metricName: string;
         unitLabel?: string;
         /**
@@ -14788,10 +14831,13 @@ export namespace fsx {
     }
 
     export interface VolumeOntapConfiguration {
-        junctionPath: string;
+        copyTagsToBackups?: string;
+        junctionPath?: string;
+        ontapVolumeType?: string;
         securityStyle?: string;
         sizeInMegabytes: string;
-        storageEfficiencyEnabled: string;
+        snapshotPolicy?: string;
+        storageEfficiencyEnabled?: string;
         storageVirtualMachineId: string;
         tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
     }
@@ -14849,10 +14895,22 @@ export namespace gamelift {
         type: enums.gamelift.AliasRoutingStrategyType;
     }
 
-    export interface BuildS3Location {
+    export interface BuildStorageLocation {
+        /**
+         * An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+         */
         bucket: string;
+        /**
+         * The name of the zip file that contains the build files or script files.
+         */
         key: string;
+        /**
+         * The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+         */
         objectVersion?: string;
+        /**
+         * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+         */
         roleArn: string;
     }
 
@@ -15646,6 +15704,20 @@ export namespace grafana {
          */
         loginValidityDuration?: number;
         roleValues?: outputs.grafana.WorkspaceRoleValues;
+    }
+
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+     */
+    export interface WorkspaceVpcConfiguration {
+        /**
+         * The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+         */
+        securityGroupIds: string[];
+        /**
+         * The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+         */
+        subnetIds: string[];
     }
 
 }
@@ -17166,6 +17238,10 @@ export namespace iot {
         value: string;
     }
 
+    export interface JobExecutionsRetryConfigProperties {
+        retryCriteriaList?: outputs.iot.JobTemplateRetryCriteria[];
+    }
+
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -17223,6 +17299,14 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteria {
         numberOfNotifiedThings?: number;
         numberOfSucceededThings?: number;
+    }
+
+    /**
+     * Specifies how many times a failure type should be retried.
+     */
+    export interface JobTemplateRetryCriteria {
+        failureType?: enums.iot.JobTemplateJobRetryFailureType;
+        numberOfRetries?: number;
     }
 
     /**
@@ -25800,6 +25884,10 @@ export namespace mediapackage {
          */
         includeEncoderConfigurationInSegments?: boolean;
         /**
+         * When enabled, an I-Frame only stream will be included in the output.
+         */
+        includeIframeOnlyStream?: boolean;
+        /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
          */
         periodTriggers?: enums.mediapackage.PackagingConfigurationDashPackagePeriodTriggersItem[];
@@ -26478,6 +26566,7 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyStatefulEngineOptions {
         ruleOrder?: enums.networkfirewall.FirewallPolicyRuleOrder;
+        streamExceptionPolicy?: enums.networkfirewall.FirewallPolicyStreamExceptionPolicy;
     }
 
     export interface FirewallPolicyStatefulRuleGroupOverride {
@@ -26526,6 +26615,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroup {
+        referenceSets?: outputs.networkfirewall.RuleGroupReferenceSets;
         ruleVariables?: outputs.networkfirewall.RuleGroupRuleVariables;
         rulesSource: outputs.networkfirewall.RuleGroupRulesSource;
         statefulRuleOptions?: outputs.networkfirewall.RuleGroupStatefulRuleOptions;
@@ -26573,6 +26663,10 @@ export namespace networkfirewall {
 
     export interface RuleGroupPublishMetricAction {
         dimensions: outputs.networkfirewall.RuleGroupDimension[];
+    }
+
+    export interface RuleGroupReferenceSets {
+        iPSetReferences?: any;
     }
 
     export interface RuleGroupRuleDefinition {
@@ -26919,6 +27013,7 @@ export namespace nimblestudio {
      * <p>A configuration for a streaming session.</p>
      */
     export interface LaunchProfileStreamConfiguration {
+        automaticTerminationMode?: enums.nimblestudio.LaunchProfileAutomaticTerminationMode;
         clipboardMode: enums.nimblestudio.LaunchProfileStreamingClipboardMode;
         /**
          * <p>The EC2 instance types that users can select from when launching a streaming session
@@ -26935,23 +27030,25 @@ export namespace nimblestudio {
         /**
          * <p>Integer that determines if you can start and stop your sessions and how long a session
          *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-         *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+         *          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
          *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
          *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
          *             session will automatically be terminated (instead of stopped).</p>
-         *         <p>If the value is set to a positive number, the session can be stopped. You can call
+         *          <p>If the value is set to a positive number, the session can be stopped. You can call
          *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
          *             that a session stays in the READY state exceeds the
          *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
          *             stopped (instead of terminated).</p>
          */
         maxStoppedSessionLengthInMinutes?: number;
+        sessionPersistenceMode?: enums.nimblestudio.LaunchProfileSessionPersistenceMode;
         sessionStorage?: outputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorage;
         /**
          * <p>The streaming images that users can select from when launching a streaming session
          *             with this launch profile.</p>
          */
         streamingImageIds: string[];
+        volumeConfiguration?: outputs.nimblestudio.LaunchProfileVolumeConfiguration;
     }
 
     /**
@@ -26982,6 +27079,12 @@ export namespace nimblestudio {
     }
 
     export interface LaunchProfileTags {
+    }
+
+    export interface LaunchProfileVolumeConfiguration {
+        iops?: number;
+        size?: number;
+        throughput?: number;
     }
 
     /**
@@ -29072,6 +29175,24 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Databricks parameters.</p>
+     */
+    export interface DataSourceDatabricksParameters {
+        /**
+         * <p>Host.</p>
+         */
+        host: string;
+        /**
+         * <p>Port.</p>
+         */
+        port: number;
+        /**
+         * <p>The HTTP Path of the Databricks data source.</p>
+         */
+        sqlEndpointPath: string;
+    }
+
+    /**
      * <p>Error information for the data source creation or update.</p>
      */
     export interface DataSourceErrorInfo {
@@ -29149,6 +29270,7 @@ export namespace quicksight {
         athenaParameters?: outputs.quicksight.DataSourceAthenaParameters;
         auroraParameters?: outputs.quicksight.DataSourceAuroraParameters;
         auroraPostgreSqlParameters?: outputs.quicksight.DataSourceAuroraPostgreSqlParameters;
+        databricksParameters?: outputs.quicksight.DataSourceDatabricksParameters;
         mariaDbParameters?: outputs.quicksight.DataSourceMariaDbParameters;
         mySqlParameters?: outputs.quicksight.DataSourceMySqlParameters;
         oracleParameters?: outputs.quicksight.DataSourceOracleParameters;
@@ -29896,6 +30018,17 @@ export namespace rds {
         port?: string;
     }
 
+    export interface DBClusterMasterUserSecret {
+        /**
+         * The AWS KMS key identifier that is used to encrypt the secret.
+         */
+        kmsKeyId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the secret.
+         */
+        secretArn?: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -30015,6 +30148,17 @@ export namespace rds {
         port?: string;
     }
 
+    export interface DBInstanceMasterUserSecret {
+        /**
+         * The AWS KMS key identifier that is used to encrypt the secret.
+         */
+        kmsKeyId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the secret.
+         */
+        secretArn?: string;
+    }
+
     export interface DBInstanceProcessorFeature {
         /**
          * The name of the processor feature. Valid names are coreCount and threadsPerCore.
@@ -30070,6 +30214,10 @@ export namespace rds {
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
          */
         authScheme?: enums.rds.DBProxyAuthFormatAuthScheme;
+        /**
+         * The type of authentication the proxy uses for connections from clients.
+         */
+        clientPasswordAuthType?: enums.rds.DBProxyAuthFormatClientPasswordAuthType;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user. 
          */

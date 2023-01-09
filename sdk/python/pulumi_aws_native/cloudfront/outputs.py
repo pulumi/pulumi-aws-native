@@ -74,6 +74,8 @@ __all__ = [
     'ResponseHeadersPolicyCustomHeadersConfig',
     'ResponseHeadersPolicyFrameOptions',
     'ResponseHeadersPolicyReferrerPolicy',
+    'ResponseHeadersPolicyRemoveHeader',
+    'ResponseHeadersPolicyRemoveHeadersConfig',
     'ResponseHeadersPolicySecurityHeadersConfig',
     'ResponseHeadersPolicyServerTimingHeadersConfig',
     'ResponseHeadersPolicyStrictTransportSecurity',
@@ -2734,6 +2736,8 @@ class ResponseHeadersPolicyConfig(dict):
             suggest = "cors_config"
         elif key == "customHeadersConfig":
             suggest = "custom_headers_config"
+        elif key == "removeHeadersConfig":
+            suggest = "remove_headers_config"
         elif key == "securityHeadersConfig":
             suggest = "security_headers_config"
         elif key == "serverTimingHeadersConfig":
@@ -2755,6 +2759,7 @@ class ResponseHeadersPolicyConfig(dict):
                  comment: Optional[str] = None,
                  cors_config: Optional['outputs.ResponseHeadersPolicyCorsConfig'] = None,
                  custom_headers_config: Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig'] = None,
+                 remove_headers_config: Optional['outputs.ResponseHeadersPolicyRemoveHeadersConfig'] = None,
                  security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None,
                  server_timing_headers_config: Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig'] = None):
         pulumi.set(__self__, "name", name)
@@ -2764,6 +2769,8 @@ class ResponseHeadersPolicyConfig(dict):
             pulumi.set(__self__, "cors_config", cors_config)
         if custom_headers_config is not None:
             pulumi.set(__self__, "custom_headers_config", custom_headers_config)
+        if remove_headers_config is not None:
+            pulumi.set(__self__, "remove_headers_config", remove_headers_config)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
         if server_timing_headers_config is not None:
@@ -2788,6 +2795,11 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="customHeadersConfig")
     def custom_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig']:
         return pulumi.get(self, "custom_headers_config")
+
+    @property
+    @pulumi.getter(name="removeHeadersConfig")
+    def remove_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyRemoveHeadersConfig']:
+        return pulumi.get(self, "remove_headers_config")
 
     @property
     @pulumi.getter(name="securityHeadersConfig")
@@ -3041,6 +3053,30 @@ class ResponseHeadersPolicyReferrerPolicy(dict):
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> str:
         return pulumi.get(self, "referrer_policy")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyRemoveHeader(dict):
+    def __init__(__self__, *,
+                 header: str):
+        pulumi.set(__self__, "header", header)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class ResponseHeadersPolicyRemoveHeadersConfig(dict):
+    def __init__(__self__, *,
+                 items: Sequence['outputs.ResponseHeadersPolicyRemoveHeader']):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence['outputs.ResponseHeadersPolicyRemoveHeader']:
+        return pulumi.get(self, "items")
 
 
 @pulumi.output_type

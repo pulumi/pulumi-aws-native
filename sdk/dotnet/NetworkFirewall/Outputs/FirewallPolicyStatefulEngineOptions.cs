@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class FirewallPolicyStatefulEngineOptions
     {
         public readonly Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder? RuleOrder;
+        public readonly Pulumi.AwsNative.NetworkFirewall.FirewallPolicyStreamExceptionPolicy? StreamExceptionPolicy;
 
         [OutputConstructor]
-        private FirewallPolicyStatefulEngineOptions(Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder? ruleOrder)
+        private FirewallPolicyStatefulEngineOptions(
+            Pulumi.AwsNative.NetworkFirewall.FirewallPolicyRuleOrder? ruleOrder,
+
+            Pulumi.AwsNative.NetworkFirewall.FirewallPolicyStreamExceptionPolicy? streamExceptionPolicy)
         {
             RuleOrder = ruleOrder;
+            StreamExceptionPolicy = streamExceptionPolicy;
         }
     }
 }

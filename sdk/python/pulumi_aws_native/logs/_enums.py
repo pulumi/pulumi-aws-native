@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'MetricFilterMetricTransformationUnit',
+    'SubscriptionFilterDistribution',
 ]
 
 
@@ -40,3 +41,11 @@ class MetricFilterMetricTransformationUnit(str, Enum):
     TERABITS_SECOND = "Terabits/Second"
     COUNT_SECOND = "Count/Second"
     NONE = "None"
+
+
+class SubscriptionFilterDistribution(str, Enum):
+    """
+    The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+    """
+    RANDOM = "Random"
+    BY_LOG_STREAM = "ByLogStream"

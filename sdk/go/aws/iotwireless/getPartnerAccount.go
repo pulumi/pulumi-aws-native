@@ -35,11 +35,7 @@ type LookupPartnerAccountResult struct {
 	// The partner type
 	PartnerType *PartnerAccountPartnerType `pulumi:"partnerType"`
 	// The Sidewalk account credentials.
-	Sidewalk *PartnerAccountSidewalkAccountInfo `pulumi:"sidewalk"`
-	// The Sidewalk account credentials.
 	SidewalkResponse *PartnerAccountSidewalkAccountInfoWithFingerprint `pulumi:"sidewalkResponse"`
-	// The Sidewalk account credentials.
-	SidewalkUpdate *PartnerAccountSidewalkUpdateAccount `pulumi:"sidewalkUpdate"`
 	// A list of key-value pairs that contain metadata for the destination.
 	Tags []PartnerAccountTag `pulumi:"tags"`
 }
@@ -101,20 +97,10 @@ func (o LookupPartnerAccountResultOutput) PartnerType() PartnerAccountPartnerTyp
 }
 
 // The Sidewalk account credentials.
-func (o LookupPartnerAccountResultOutput) Sidewalk() PartnerAccountSidewalkAccountInfoPtrOutput {
-	return o.ApplyT(func(v LookupPartnerAccountResult) *PartnerAccountSidewalkAccountInfo { return v.Sidewalk }).(PartnerAccountSidewalkAccountInfoPtrOutput)
-}
-
-// The Sidewalk account credentials.
 func (o LookupPartnerAccountResultOutput) SidewalkResponse() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
 	return o.ApplyT(func(v LookupPartnerAccountResult) *PartnerAccountSidewalkAccountInfoWithFingerprint {
 		return v.SidewalkResponse
 	}).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
-}
-
-// The Sidewalk account credentials.
-func (o LookupPartnerAccountResultOutput) SidewalkUpdate() PartnerAccountSidewalkUpdateAccountPtrOutput {
-	return o.ApplyT(func(v LookupPartnerAccountResult) *PartnerAccountSidewalkUpdateAccount { return v.SidewalkUpdate }).(PartnerAccountSidewalkUpdateAccountPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the destination.

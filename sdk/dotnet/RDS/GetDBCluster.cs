@@ -141,6 +141,14 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly int? Iops;
         /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        public readonly bool? ManageMasterUserPassword;
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        public readonly Outputs.DBClusterMasterUserSecret? MasterUserSecret;
+        /// <summary>
         /// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         /// </summary>
         public readonly string? MasterUsername;
@@ -250,6 +258,10 @@ namespace Pulumi.AwsNative.RDS
 
             int? iops,
 
+            bool? manageMasterUserPassword,
+
+            Outputs.DBClusterMasterUserSecret? masterUserSecret,
+
             string? masterUsername,
 
             int? monitoringInterval,
@@ -305,6 +317,8 @@ namespace Pulumi.AwsNative.RDS
             EngineVersion = engineVersion;
             GlobalClusterIdentifier = globalClusterIdentifier;
             Iops = iops;
+            ManageMasterUserPassword = manageMasterUserPassword;
+            MasterUserSecret = masterUserSecret;
             MasterUsername = masterUsername;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;

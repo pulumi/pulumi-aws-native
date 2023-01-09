@@ -49,6 +49,7 @@ export class FileSystem extends pulumi.CustomResource {
     public /*out*/ readonly lustreMountName!: pulumi.Output<string>;
     public readonly ontapConfiguration!: pulumi.Output<outputs.fsx.FileSystemOntapConfiguration | undefined>;
     public readonly openZFSConfiguration!: pulumi.Output<outputs.fsx.FileSystemOpenZFSConfiguration | undefined>;
+    public /*out*/ readonly resourceARN!: pulumi.Output<string>;
     public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
@@ -91,6 +92,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["windowsConfiguration"] = args ? args.windowsConfiguration : undefined;
             resourceInputs["dNSName"] = undefined /*out*/;
             resourceInputs["lustreMountName"] = undefined /*out*/;
+            resourceInputs["resourceARN"] = undefined /*out*/;
             resourceInputs["rootVolumeId"] = undefined /*out*/;
         } else {
             resourceInputs["backupId"] = undefined /*out*/;
@@ -102,6 +104,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["lustreMountName"] = undefined /*out*/;
             resourceInputs["ontapConfiguration"] = undefined /*out*/;
             resourceInputs["openZFSConfiguration"] = undefined /*out*/;
+            resourceInputs["resourceARN"] = undefined /*out*/;
             resourceInputs["rootVolumeId"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["storageCapacity"] = undefined /*out*/;

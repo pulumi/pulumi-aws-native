@@ -2167,6 +2167,171 @@ func (in *jobTemplateFailureTypePtr) ToJobTemplateFailureTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateFailureTypePtrOutput)
 }
 
+type JobTemplateJobRetryFailureType string
+
+const (
+	JobTemplateJobRetryFailureTypeFailed   = JobTemplateJobRetryFailureType("FAILED")
+	JobTemplateJobRetryFailureTypeTimedOut = JobTemplateJobRetryFailureType("TIMED_OUT")
+	JobTemplateJobRetryFailureTypeAll      = JobTemplateJobRetryFailureType("ALL")
+)
+
+func (JobTemplateJobRetryFailureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobRetryFailureType)(nil)).Elem()
+}
+
+func (e JobTemplateJobRetryFailureType) ToJobTemplateJobRetryFailureTypeOutput() JobTemplateJobRetryFailureTypeOutput {
+	return pulumi.ToOutput(e).(JobTemplateJobRetryFailureTypeOutput)
+}
+
+func (e JobTemplateJobRetryFailureType) ToJobTemplateJobRetryFailureTypeOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(JobTemplateJobRetryFailureTypeOutput)
+}
+
+func (e JobTemplateJobRetryFailureType) ToJobTemplateJobRetryFailureTypePtrOutput() JobTemplateJobRetryFailureTypePtrOutput {
+	return e.ToJobTemplateJobRetryFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateJobRetryFailureType) ToJobTemplateJobRetryFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypePtrOutput {
+	return JobTemplateJobRetryFailureType(e).ToJobTemplateJobRetryFailureTypeOutputWithContext(ctx).ToJobTemplateJobRetryFailureTypePtrOutputWithContext(ctx)
+}
+
+func (e JobTemplateJobRetryFailureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateJobRetryFailureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e JobTemplateJobRetryFailureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e JobTemplateJobRetryFailureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type JobTemplateJobRetryFailureTypeOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobRetryFailureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTemplateJobRetryFailureType)(nil)).Elem()
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToJobTemplateJobRetryFailureTypeOutput() JobTemplateJobRetryFailureTypeOutput {
+	return o
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToJobTemplateJobRetryFailureTypeOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypeOutput {
+	return o
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToJobTemplateJobRetryFailureTypePtrOutput() JobTemplateJobRetryFailureTypePtrOutput {
+	return o.ToJobTemplateJobRetryFailureTypePtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToJobTemplateJobRetryFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobTemplateJobRetryFailureType) *JobTemplateJobRetryFailureType {
+		return &v
+	}).(JobTemplateJobRetryFailureTypePtrOutput)
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateJobRetryFailureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobRetryFailureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e JobTemplateJobRetryFailureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobTemplateJobRetryFailureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (JobTemplateJobRetryFailureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobTemplateJobRetryFailureType)(nil)).Elem()
+}
+
+func (o JobTemplateJobRetryFailureTypePtrOutput) ToJobTemplateJobRetryFailureTypePtrOutput() JobTemplateJobRetryFailureTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateJobRetryFailureTypePtrOutput) ToJobTemplateJobRetryFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypePtrOutput {
+	return o
+}
+
+func (o JobTemplateJobRetryFailureTypePtrOutput) Elem() JobTemplateJobRetryFailureTypeOutput {
+	return o.ApplyT(func(v *JobTemplateJobRetryFailureType) JobTemplateJobRetryFailureType {
+		if v != nil {
+			return *v
+		}
+		var ret JobTemplateJobRetryFailureType
+		return ret
+	}).(JobTemplateJobRetryFailureTypeOutput)
+}
+
+func (o JobTemplateJobRetryFailureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o JobTemplateJobRetryFailureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *JobTemplateJobRetryFailureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// JobTemplateJobRetryFailureTypeInput is an input type that accepts JobTemplateJobRetryFailureTypeArgs and JobTemplateJobRetryFailureTypeOutput values.
+// You can construct a concrete instance of `JobTemplateJobRetryFailureTypeInput` via:
+//
+//	JobTemplateJobRetryFailureTypeArgs{...}
+type JobTemplateJobRetryFailureTypeInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobRetryFailureTypeOutput() JobTemplateJobRetryFailureTypeOutput
+	ToJobTemplateJobRetryFailureTypeOutputWithContext(context.Context) JobTemplateJobRetryFailureTypeOutput
+}
+
+var jobTemplateJobRetryFailureTypePtrType = reflect.TypeOf((**JobTemplateJobRetryFailureType)(nil)).Elem()
+
+type JobTemplateJobRetryFailureTypePtrInput interface {
+	pulumi.Input
+
+	ToJobTemplateJobRetryFailureTypePtrOutput() JobTemplateJobRetryFailureTypePtrOutput
+	ToJobTemplateJobRetryFailureTypePtrOutputWithContext(context.Context) JobTemplateJobRetryFailureTypePtrOutput
+}
+
+type jobTemplateJobRetryFailureTypePtr string
+
+func JobTemplateJobRetryFailureTypePtr(v string) JobTemplateJobRetryFailureTypePtrInput {
+	return (*jobTemplateJobRetryFailureTypePtr)(&v)
+}
+
+func (*jobTemplateJobRetryFailureTypePtr) ElementType() reflect.Type {
+	return jobTemplateJobRetryFailureTypePtrType
+}
+
+func (in *jobTemplateJobRetryFailureTypePtr) ToJobTemplateJobRetryFailureTypePtrOutput() JobTemplateJobRetryFailureTypePtrOutput {
+	return pulumi.ToOutput(in).(JobTemplateJobRetryFailureTypePtrOutput)
+}
+
+func (in *jobTemplateJobRetryFailureTypePtr) ToJobTemplateJobRetryFailureTypePtrOutputWithContext(ctx context.Context) JobTemplateJobRetryFailureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(JobTemplateJobRetryFailureTypePtrOutput)
+}
+
 // The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
 type LoggingDefaultLogLevel string
 
@@ -4866,6 +5031,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateActionPtrInput)(nil)).Elem(), JobTemplateAction("CANCEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypeInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateFailureTypePtrInput)(nil)).Elem(), JobTemplateFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobRetryFailureTypeInput)(nil)).Elem(), JobTemplateJobRetryFailureType("FAILED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateJobRetryFailureTypePtrInput)(nil)).Elem(), JobTemplateJobRetryFailureType("FAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingDefaultLogLevelPtrInput)(nil)).Elem(), LoggingDefaultLogLevel("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionEnableIoTLoggingParamsLogLevelInput)(nil)).Elem(), MitigationActionEnableIoTLoggingParamsLogLevel("DEBUG"))
@@ -4926,6 +5093,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateActionPtrOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypeOutput{})
 	pulumi.RegisterOutputType(JobTemplateFailureTypePtrOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobRetryFailureTypeOutput{})
+	pulumi.RegisterOutputType(JobTemplateJobRetryFailureTypePtrOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelOutput{})
 	pulumi.RegisterOutputType(LoggingDefaultLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionEnableIoTLoggingParamsLogLevelOutput{})

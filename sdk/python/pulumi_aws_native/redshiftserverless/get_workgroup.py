@@ -20,10 +20,26 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, workgroup=None):
+    def __init__(__self__, enhanced_vpc_routing=None, publicly_accessible=None, workgroup=None):
+        if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
+            raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
+        pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
+        if publicly_accessible and not isinstance(publicly_accessible, bool):
+            raise TypeError("Expected argument 'publicly_accessible' to be a bool")
+        pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if workgroup and not isinstance(workgroup, dict):
             raise TypeError("Expected argument 'workgroup' to be a dict")
         pulumi.set(__self__, "workgroup", workgroup)
+
+    @property
+    @pulumi.getter(name="enhancedVpcRouting")
+    def enhanced_vpc_routing(self) -> Optional[bool]:
+        return pulumi.get(self, "enhanced_vpc_routing")
+
+    @property
+    @pulumi.getter(name="publiclyAccessible")
+    def publicly_accessible(self) -> Optional[bool]:
+        return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter
@@ -37,6 +53,8 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
         if False:
             yield self
         return GetWorkgroupResult(
+            enhanced_vpc_routing=self.enhanced_vpc_routing,
+            publicly_accessible=self.publicly_accessible,
             workgroup=self.workgroup)
 
 
@@ -51,6 +69,8 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:redshiftserverless:getWorkgroup', __args__, opts=opts, typ=GetWorkgroupResult).value
 
     return AwaitableGetWorkgroupResult(
+        enhanced_vpc_routing=__ret__.enhanced_vpc_routing,
+        publicly_accessible=__ret__.publicly_accessible,
         workgroup=__ret__.workgroup)
 
 

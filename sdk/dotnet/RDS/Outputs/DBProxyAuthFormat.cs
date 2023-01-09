@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.RDS.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatAuthScheme? AuthScheme;
         /// <summary>
+        /// The type of authentication the proxy uses for connections from clients.
+        /// </summary>
+        public readonly Pulumi.AwsNative.RDS.DBProxyAuthFormatClientPasswordAuthType? ClientPasswordAuthType;
+        /// <summary>
         /// A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         /// </summary>
         public readonly string? Description;
@@ -38,6 +42,8 @@ namespace Pulumi.AwsNative.RDS.Outputs
         private DBProxyAuthFormat(
             Pulumi.AwsNative.RDS.DBProxyAuthFormatAuthScheme? authScheme,
 
+            Pulumi.AwsNative.RDS.DBProxyAuthFormatClientPasswordAuthType? clientPasswordAuthType,
+
             string? description,
 
             Pulumi.AwsNative.RDS.DBProxyAuthFormatIAMAuth? iAMAuth,
@@ -47,6 +53,7 @@ namespace Pulumi.AwsNative.RDS.Outputs
             string? userName)
         {
             AuthScheme = authScheme;
+            ClientPasswordAuthType = clientPasswordAuthType;
             Description = description;
             IAMAuth = iAMAuth;
             SecretArn = secretArn;

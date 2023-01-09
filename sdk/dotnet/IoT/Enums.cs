@@ -412,6 +412,35 @@ namespace Pulumi.AwsNative.IoT
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct JobTemplateJobRetryFailureType : IEquatable<JobTemplateJobRetryFailureType>
+    {
+        private readonly string _value;
+
+        private JobTemplateJobRetryFailureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTemplateJobRetryFailureType Failed { get; } = new JobTemplateJobRetryFailureType("FAILED");
+        public static JobTemplateJobRetryFailureType TimedOut { get; } = new JobTemplateJobRetryFailureType("TIMED_OUT");
+        public static JobTemplateJobRetryFailureType All { get; } = new JobTemplateJobRetryFailureType("ALL");
+
+        public static bool operator ==(JobTemplateJobRetryFailureType left, JobTemplateJobRetryFailureType right) => left.Equals(right);
+        public static bool operator !=(JobTemplateJobRetryFailureType left, JobTemplateJobRetryFailureType right) => !left.Equals(right);
+
+        public static explicit operator string(JobTemplateJobRetryFailureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTemplateJobRetryFailureType other && Equals(other);
+        public bool Equals(JobTemplateJobRetryFailureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
     /// </summary>

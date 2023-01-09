@@ -1602,12 +1602,13 @@ func (in *locationObjectStorageServerProtocolPtr) ToLocationObjectStorageServerP
 type LocationS3S3StorageClass string
 
 const (
-	LocationS3S3StorageClassStandard           = LocationS3S3StorageClass("STANDARD")
-	LocationS3S3StorageClassStandardIa         = LocationS3S3StorageClass("STANDARD_IA")
-	LocationS3S3StorageClassOnezoneIa          = LocationS3S3StorageClass("ONEZONE_IA")
-	LocationS3S3StorageClassIntelligentTiering = LocationS3S3StorageClass("INTELLIGENT_TIERING")
-	LocationS3S3StorageClassGlacier            = LocationS3S3StorageClass("GLACIER")
-	LocationS3S3StorageClassDeepArchive        = LocationS3S3StorageClass("DEEP_ARCHIVE")
+	LocationS3S3StorageClassStandard                = LocationS3S3StorageClass("STANDARD")
+	LocationS3S3StorageClassStandardIa              = LocationS3S3StorageClass("STANDARD_IA")
+	LocationS3S3StorageClassOnezoneIa               = LocationS3S3StorageClass("ONEZONE_IA")
+	LocationS3S3StorageClassIntelligentTiering      = LocationS3S3StorageClass("INTELLIGENT_TIERING")
+	LocationS3S3StorageClassGlacier                 = LocationS3S3StorageClass("GLACIER")
+	LocationS3S3StorageClassGlacierInstantRetrieval = LocationS3S3StorageClass("GLACIER_INSTANT_RETRIEVAL")
+	LocationS3S3StorageClassDeepArchive             = LocationS3S3StorageClass("DEEP_ARCHIVE")
 )
 
 func (LocationS3S3StorageClass) ElementType() reflect.Type {

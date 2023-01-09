@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None):
+    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -81,6 +81,9 @@ class GetWorkspaceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if vpc_configuration and not isinstance(vpc_configuration, dict):
+            raise TypeError("Expected argument 'vpc_configuration' to be a dict")
+        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="accountAccessType")
@@ -227,6 +230,11 @@ class GetWorkspaceResult:
     def status(self) -> Optional['WorkspaceStatus']:
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional['outputs.WorkspaceVpcConfiguration']:
+        return pulumi.get(self, "vpc_configuration")
+
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
     # pylint: disable=using-constant-test
@@ -253,7 +261,8 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             saml_configuration_status=self.saml_configuration_status,
             sso_client_id=self.sso_client_id,
             stack_set_name=self.stack_set_name,
-            status=self.status)
+            status=self.status,
+            vpc_configuration=self.vpc_configuration)
 
 
 def get_workspace(id: Optional[str] = None,
@@ -289,7 +298,8 @@ def get_workspace(id: Optional[str] = None,
         saml_configuration_status=__ret__.saml_configuration_status,
         sso_client_id=__ret__.sso_client_id,
         stack_set_name=__ret__.stack_set_name,
-        status=__ret__.status)
+        status=__ret__.status,
+        vpc_configuration=__ret__.vpc_configuration)
 
 
 @_utilities.lift_output_func(get_workspace)

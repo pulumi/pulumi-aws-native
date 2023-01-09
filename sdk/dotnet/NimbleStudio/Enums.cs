@@ -8,6 +8,62 @@ using Pulumi;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     [EnumType]
+    public readonly struct LaunchProfileAutomaticTerminationMode : IEquatable<LaunchProfileAutomaticTerminationMode>
+    {
+        private readonly string _value;
+
+        private LaunchProfileAutomaticTerminationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchProfileAutomaticTerminationMode Deactivated { get; } = new LaunchProfileAutomaticTerminationMode("DEACTIVATED");
+        public static LaunchProfileAutomaticTerminationMode Activated { get; } = new LaunchProfileAutomaticTerminationMode("ACTIVATED");
+
+        public static bool operator ==(LaunchProfileAutomaticTerminationMode left, LaunchProfileAutomaticTerminationMode right) => left.Equals(right);
+        public static bool operator !=(LaunchProfileAutomaticTerminationMode left, LaunchProfileAutomaticTerminationMode right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchProfileAutomaticTerminationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchProfileAutomaticTerminationMode other && Equals(other);
+        public bool Equals(LaunchProfileAutomaticTerminationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct LaunchProfileSessionPersistenceMode : IEquatable<LaunchProfileSessionPersistenceMode>
+    {
+        private readonly string _value;
+
+        private LaunchProfileSessionPersistenceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LaunchProfileSessionPersistenceMode Deactivated { get; } = new LaunchProfileSessionPersistenceMode("DEACTIVATED");
+        public static LaunchProfileSessionPersistenceMode Activated { get; } = new LaunchProfileSessionPersistenceMode("ACTIVATED");
+
+        public static bool operator ==(LaunchProfileSessionPersistenceMode left, LaunchProfileSessionPersistenceMode right) => left.Equals(right);
+        public static bool operator !=(LaunchProfileSessionPersistenceMode left, LaunchProfileSessionPersistenceMode right) => !left.Equals(right);
+
+        public static explicit operator string(LaunchProfileSessionPersistenceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LaunchProfileSessionPersistenceMode other && Equals(other);
+        public bool Equals(LaunchProfileSessionPersistenceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LaunchProfileStreamingClipboardMode : IEquatable<LaunchProfileStreamingClipboardMode>
     {
         private readonly string _value;

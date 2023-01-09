@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +40,11 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The Group Name of Placement Group.
      */
-    public /*out*/ readonly groupName!: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string | undefined>;
+    /**
+     * The number of partitions. Valid only when **Strategy** is set to `partition`
+     */
+    public readonly partitionCount!: pulumi.Output<number | undefined>;
     /**
      * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
      */
@@ -46,6 +53,10 @@ export class PlacementGroup extends pulumi.CustomResource {
      * The placement strategy.
      */
     public readonly strategy!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.ec2.PlacementGroupTag[] | undefined>;
 
     /**
      * Create a PlacementGroup resource with the given unique name, arguments, and options.
@@ -58,13 +69,17 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;
+            resourceInputs["partitionCount"] = undefined /*out*/;
             resourceInputs["spreadLevel"] = undefined /*out*/;
             resourceInputs["strategy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
@@ -76,6 +91,14 @@ export class PlacementGroup extends pulumi.CustomResource {
  */
 export interface PlacementGroupArgs {
     /**
+     * The Group Name of Placement Group.
+     */
+    groupName?: pulumi.Input<string>;
+    /**
+     * The number of partitions. Valid only when **Strategy** is set to `partition`
+     */
+    partitionCount?: pulumi.Input<number>;
+    /**
      * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
      */
     spreadLevel?: pulumi.Input<string>;
@@ -83,4 +106,8 @@ export interface PlacementGroupArgs {
      * The placement strategy.
      */
     strategy?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.PlacementGroupTagArgs>[]>;
 }

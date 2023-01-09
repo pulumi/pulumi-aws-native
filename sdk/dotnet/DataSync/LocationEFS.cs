@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon Resource Name (ARN) for the Amazon EFS file system.
         /// </summary>
         [Output("efsFilesystemArn")]
-        public Output<string> EfsFilesystemArn { get; private set; } = null!;
+        public Output<string?> EfsFilesystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) for the Amazon EFS file system.
         /// </summary>
-        [Input("efsFilesystemArn", required: true)]
-        public Input<string> EfsFilesystemArn { get; set; } = null!;
+        [Input("efsFilesystemArn")]
+        public Input<string>? EfsFilesystemArn { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.

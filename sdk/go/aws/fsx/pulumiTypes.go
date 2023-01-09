@@ -3563,10 +3563,13 @@ func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOu
 }
 
 type VolumeOntapConfiguration struct {
-	JunctionPath             string               `pulumi:"junctionPath"`
+	CopyTagsToBackups        *string              `pulumi:"copyTagsToBackups"`
+	JunctionPath             *string              `pulumi:"junctionPath"`
+	OntapVolumeType          *string              `pulumi:"ontapVolumeType"`
 	SecurityStyle            *string              `pulumi:"securityStyle"`
 	SizeInMegabytes          string               `pulumi:"sizeInMegabytes"`
-	StorageEfficiencyEnabled string               `pulumi:"storageEfficiencyEnabled"`
+	SnapshotPolicy           *string              `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled *string              `pulumi:"storageEfficiencyEnabled"`
 	StorageVirtualMachineId  string               `pulumi:"storageVirtualMachineId"`
 	TieringPolicy            *VolumeTieringPolicy `pulumi:"tieringPolicy"`
 }
@@ -3583,10 +3586,13 @@ type VolumeOntapConfigurationInput interface {
 }
 
 type VolumeOntapConfigurationArgs struct {
-	JunctionPath             pulumi.StringInput          `pulumi:"junctionPath"`
+	CopyTagsToBackups        pulumi.StringPtrInput       `pulumi:"copyTagsToBackups"`
+	JunctionPath             pulumi.StringPtrInput       `pulumi:"junctionPath"`
+	OntapVolumeType          pulumi.StringPtrInput       `pulumi:"ontapVolumeType"`
 	SecurityStyle            pulumi.StringPtrInput       `pulumi:"securityStyle"`
 	SizeInMegabytes          pulumi.StringInput          `pulumi:"sizeInMegabytes"`
-	StorageEfficiencyEnabled pulumi.StringInput          `pulumi:"storageEfficiencyEnabled"`
+	SnapshotPolicy           pulumi.StringPtrInput       `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled pulumi.StringPtrInput       `pulumi:"storageEfficiencyEnabled"`
 	StorageVirtualMachineId  pulumi.StringInput          `pulumi:"storageVirtualMachineId"`
 	TieringPolicy            VolumeTieringPolicyPtrInput `pulumi:"tieringPolicy"`
 }
@@ -3668,8 +3674,16 @@ func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutputWithC
 	}).(VolumeOntapConfigurationPtrOutput)
 }
 
-func (o VolumeOntapConfigurationOutput) JunctionPath() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.JunctionPath }).(pulumi.StringOutput)
+func (o VolumeOntapConfigurationOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.CopyTagsToBackups }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) JunctionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.JunctionPath }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) OntapVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.OntapVolumeType }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeOntapConfigurationOutput) SecurityStyle() pulumi.StringPtrOutput {
@@ -3680,8 +3694,12 @@ func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.SizeInMegabytes }).(pulumi.StringOutput)
 }
 
-func (o VolumeOntapConfigurationOutput) StorageEfficiencyEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.StorageEfficiencyEnabled }).(pulumi.StringOutput)
+func (o VolumeOntapConfigurationOutput) SnapshotPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SnapshotPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) StorageEfficiencyEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.StorageEfficiencyEnabled }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeOntapConfigurationOutput) StorageVirtualMachineId() pulumi.StringOutput {
@@ -3716,12 +3734,30 @@ func (o VolumeOntapConfigurationPtrOutput) Elem() VolumeOntapConfigurationOutput
 	}).(VolumeOntapConfigurationOutput)
 }
 
+func (o VolumeOntapConfigurationPtrOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToBackups
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o VolumeOntapConfigurationPtrOutput) JunctionPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.JunctionPath
+		return v.JunctionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) OntapVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OntapVolumeType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3743,12 +3779,21 @@ func (o VolumeOntapConfigurationPtrOutput) SizeInMegabytes() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o VolumeOntapConfigurationPtrOutput) SnapshotPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o VolumeOntapConfigurationPtrOutput) StorageEfficiencyEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageEfficiencyEnabled
+		return v.StorageEfficiencyEnabled
 	}).(pulumi.StringPtrOutput)
 }
 

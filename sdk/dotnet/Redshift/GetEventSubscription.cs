@@ -105,10 +105,6 @@ namespace Pulumi.AwsNative.Redshift
         /// The date and time the Amazon Redshift event notification subscription was created.
         /// </summary>
         public readonly string? SubscriptionCreationTime;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.EventSubscriptionTag> Tags;
 
         [OutputConstructor]
         private GetEventSubscriptionResult(
@@ -134,9 +130,7 @@ namespace Pulumi.AwsNative.Redshift
 
             Pulumi.AwsNative.Redshift.EventSubscriptionStatus? status,
 
-            string? subscriptionCreationTime,
-
-            ImmutableArray<Outputs.EventSubscriptionTag> tags)
+            string? subscriptionCreationTime)
         {
             CustSubscriptionId = custSubscriptionId;
             CustomerAwsId = customerAwsId;
@@ -150,7 +144,6 @@ namespace Pulumi.AwsNative.Redshift
             SourceType = sourceType;
             Status = status;
             SubscriptionCreationTime = subscriptionCreationTime;
-            Tags = tags;
         }
     }
 }

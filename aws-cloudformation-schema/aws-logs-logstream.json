@@ -12,12 +12,15 @@
       "description" : "The name of the log stream. The name must be unique wihtin the log group."
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "LogGroupName" ],
   "createOnlyProperties" : [ "/properties/LogGroupName", "/properties/LogStreamName" ],
   "primaryIdentifier" : [ "/properties/LogGroupName", "/properties/LogStreamName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:CreateLogStream", "logs:DescribeLogStreams" ]
+      "permissions" : [ "logs:CreateLogStream" ]
     },
     "read" : {
       "permissions" : [ "logs:DescribeLogStreams" ]

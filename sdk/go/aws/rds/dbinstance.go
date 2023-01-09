@@ -68,6 +68,8 @@ type DBInstance struct {
 	DBSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"dBSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 	DBSubnetGroupName pulumi.StringPtrOutput `pulumi:"dBSubnetGroupName"`
+	// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+	DBSystemId pulumi.StringOutput `pulumi:"dBSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -96,8 +98,12 @@ type DBInstance struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// License model information for this DB instance.
 	LicenseModel pulumi.StringPtrOutput `pulumi:"licenseModel"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
 	// The password for the master user.
 	MasterUserPassword pulumi.StringPtrOutput `pulumi:"masterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret DBInstanceMasterUserSecretPtrOutput `pulumi:"masterUserSecret"`
 	// The master user name for the DB instance.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
@@ -281,8 +287,12 @@ type dbinstanceArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// The password for the master user.
 	MasterUserPassword *string `pulumi:"masterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret *DBInstanceMasterUserSecret `pulumi:"masterUserSecret"`
 	// The master user name for the DB instance.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
@@ -429,8 +439,12 @@ type DBInstanceArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// License model information for this DB instance.
 	LicenseModel pulumi.StringPtrInput
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword pulumi.BoolPtrInput
 	// The password for the master user.
 	MasterUserPassword pulumi.StringPtrInput
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret DBInstanceMasterUserSecretPtrInput
 	// The master user name for the DB instance.
 	MasterUsername pulumi.StringPtrInput
 	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
@@ -648,6 +662,11 @@ func (o DBInstanceOutput) DBSubnetGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.DBSubnetGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+func (o DBInstanceOutput) DBSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DBSystemId }).(pulumi.StringOutput)
+}
+
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o DBInstanceOutput) DbiResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
@@ -718,9 +737,19 @@ func (o DBInstanceOutput) LicenseModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.LicenseModel }).(pulumi.StringPtrOutput)
 }
 
+// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+func (o DBInstanceOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
 // The password for the master user.
 func (o DBInstanceOutput) MasterUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
+}
+
+// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+func (o DBInstanceOutput) MasterUserSecret() DBInstanceMasterUserSecretPtrOutput {
+	return o.ApplyT(func(v *DBInstance) DBInstanceMasterUserSecretPtrOutput { return v.MasterUserSecret }).(DBInstanceMasterUserSecretPtrOutput)
 }
 
 // The master user name for the DB instance.

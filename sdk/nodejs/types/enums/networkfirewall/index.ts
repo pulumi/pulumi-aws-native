@@ -15,6 +15,13 @@ export const FirewallPolicyRuleOrder = {
 
 export type FirewallPolicyRuleOrder = (typeof FirewallPolicyRuleOrder)[keyof typeof FirewallPolicyRuleOrder];
 
+export const FirewallPolicyStreamExceptionPolicy = {
+    Drop: "DROP",
+    Continue: "CONTINUE",
+} as const;
+
+export type FirewallPolicyStreamExceptionPolicy = (typeof FirewallPolicyStreamExceptionPolicy)[keyof typeof FirewallPolicyStreamExceptionPolicy];
+
 export const LoggingConfigurationLogDestinationConfigLogDestinationType = {
     S3: "S3",
     CloudWatchLogs: "CloudWatchLogs",

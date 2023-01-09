@@ -18,32 +18,32 @@ __all__ = ['PartnerAccountArgs', 'PartnerAccount']
 class PartnerAccountArgs:
     def __init__(__self__, *,
                  account_linked: Optional[pulumi.Input[bool]] = None,
-                 fingerprint: Optional[pulumi.Input[str]] = None,
                  partner_account_id: Optional[pulumi.Input[str]] = None,
                  partner_type: Optional[pulumi.Input['PartnerAccountPartnerType']] = None,
                  sidewalk: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoArgs']] = None,
+                 sidewalk_response: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] = None,
                  sidewalk_update: Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]] = None):
         """
         The set of arguments for constructing a PartnerAccount resource.
         :param pulumi.Input[bool] account_linked: Whether the partner account is linked to the AWS account.
-        :param pulumi.Input[str] fingerprint: The fingerprint of the Sidewalk application server private key.
         :param pulumi.Input[str] partner_account_id: The partner account ID to disassociate from the AWS account
         :param pulumi.Input['PartnerAccountPartnerType'] partner_type: The partner type
         :param pulumi.Input['PartnerAccountSidewalkAccountInfoArgs'] sidewalk: The Sidewalk account credentials.
+        :param pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs'] sidewalk_response: The Sidewalk account credentials.
         :param pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs'] sidewalk_update: The Sidewalk account credentials.
         :param pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]] tags: A list of key-value pairs that contain metadata for the destination.
         """
         if account_linked is not None:
             pulumi.set(__self__, "account_linked", account_linked)
-        if fingerprint is not None:
-            pulumi.set(__self__, "fingerprint", fingerprint)
         if partner_account_id is not None:
             pulumi.set(__self__, "partner_account_id", partner_account_id)
         if partner_type is not None:
             pulumi.set(__self__, "partner_type", partner_type)
         if sidewalk is not None:
             pulumi.set(__self__, "sidewalk", sidewalk)
+        if sidewalk_response is not None:
+            pulumi.set(__self__, "sidewalk_response", sidewalk_response)
         if sidewalk_update is not None:
             pulumi.set(__self__, "sidewalk_update", sidewalk_update)
         if tags is not None:
@@ -60,18 +60,6 @@ class PartnerAccountArgs:
     @account_linked.setter
     def account_linked(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "account_linked", value)
-
-    @property
-    @pulumi.getter
-    def fingerprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        The fingerprint of the Sidewalk application server private key.
-        """
-        return pulumi.get(self, "fingerprint")
-
-    @fingerprint.setter
-    def fingerprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "fingerprint", value)
 
     @property
     @pulumi.getter(name="partnerAccountId")
@@ -110,6 +98,18 @@ class PartnerAccountArgs:
         pulumi.set(self, "sidewalk", value)
 
     @property
+    @pulumi.getter(name="sidewalkResponse")
+    def sidewalk_response(self) -> Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]:
+        """
+        The Sidewalk account credentials.
+        """
+        return pulumi.get(self, "sidewalk_response")
+
+    @sidewalk_response.setter
+    def sidewalk_response(self, value: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]):
+        pulumi.set(self, "sidewalk_response", value)
+
+    @property
     @pulumi.getter(name="sidewalkUpdate")
     def sidewalk_update(self) -> Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']]:
         """
@@ -145,10 +145,10 @@ class PartnerAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_linked: Optional[pulumi.Input[bool]] = None,
-                 fingerprint: Optional[pulumi.Input[str]] = None,
                  partner_account_id: Optional[pulumi.Input[str]] = None,
                  partner_type: Optional[pulumi.Input['PartnerAccountPartnerType']] = None,
                  sidewalk: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']]] = None,
+                 sidewalk_response: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]] = None,
                  sidewalk_update: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]]] = None,
                  __props__=None):
@@ -158,10 +158,10 @@ class PartnerAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] account_linked: Whether the partner account is linked to the AWS account.
-        :param pulumi.Input[str] fingerprint: The fingerprint of the Sidewalk application server private key.
         :param pulumi.Input[str] partner_account_id: The partner account ID to disassociate from the AWS account
         :param pulumi.Input['PartnerAccountPartnerType'] partner_type: The partner type
         :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']] sidewalk: The Sidewalk account credentials.
+        :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] sidewalk_response: The Sidewalk account credentials.
         :param pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']] sidewalk_update: The Sidewalk account credentials.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]] tags: A list of key-value pairs that contain metadata for the destination.
         """
@@ -190,10 +190,10 @@ class PartnerAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_linked: Optional[pulumi.Input[bool]] = None,
-                 fingerprint: Optional[pulumi.Input[str]] = None,
                  partner_account_id: Optional[pulumi.Input[str]] = None,
                  partner_type: Optional[pulumi.Input['PartnerAccountPartnerType']] = None,
                  sidewalk: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoArgs']]] = None,
+                 sidewalk_response: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']]] = None,
                  sidewalk_update: Optional[pulumi.Input[pulumi.InputType['PartnerAccountSidewalkUpdateAccountArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PartnerAccountTagArgs']]]]] = None,
                  __props__=None):
@@ -207,14 +207,14 @@ class PartnerAccount(pulumi.CustomResource):
             __props__ = PartnerAccountArgs.__new__(PartnerAccountArgs)
 
             __props__.__dict__["account_linked"] = account_linked
-            __props__.__dict__["fingerprint"] = fingerprint
             __props__.__dict__["partner_account_id"] = partner_account_id
             __props__.__dict__["partner_type"] = partner_type
             __props__.__dict__["sidewalk"] = sidewalk
+            __props__.__dict__["sidewalk_response"] = sidewalk_response
             __props__.__dict__["sidewalk_update"] = sidewalk_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["sidewalk_response"] = None
+            __props__.__dict__["fingerprint"] = None
         super(PartnerAccount, __self__).__init__(
             'aws-native:iotwireless:PartnerAccount',
             resource_name,
@@ -266,7 +266,7 @@ class PartnerAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fingerprint(self) -> pulumi.Output[Optional[str]]:
+    def fingerprint(self) -> pulumi.Output[str]:
         """
         The fingerprint of the Sidewalk application server private key.
         """
@@ -298,7 +298,7 @@ class PartnerAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sidewalkResponse")
-    def sidewalk_response(self) -> pulumi.Output['outputs.PartnerAccountSidewalkAccountInfoWithFingerprint']:
+    def sidewalk_response(self) -> pulumi.Output[Optional['outputs.PartnerAccountSidewalkAccountInfoWithFingerprint']]:
         """
         The Sidewalk account credentials.
         """

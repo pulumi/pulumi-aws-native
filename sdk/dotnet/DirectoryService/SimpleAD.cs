@@ -12,37 +12,72 @@ namespace Pulumi.AwsNative.DirectoryService
     /// <summary>
     /// Resource Type definition for AWS::DirectoryService::SimpleAD
     /// </summary>
-    [Obsolete(@"SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:directoryservice:SimpleAD")]
     public partial class SimpleAD : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The alias for a directory.
+        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
         [Output("createAlias")]
         public Output<bool?> CreateAlias { get; private set; } = null!;
 
+        /// <summary>
+        /// Description for the directory.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for a directory.
+        /// </summary>
+        [Output("directoryId")]
+        public Output<string> DirectoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+        /// </summary>
         [Output("dnsIpAddresses")]
         public Output<ImmutableArray<string>> DnsIpAddresses { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable single sign-on for a Simple Active Directory in AWS.
+        /// </summary>
         [Output("enableSso")]
         public Output<bool?> EnableSso { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully qualified domain name for the AWS Managed Simple AD directory.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The password for the default administrative user named Admin.
+        /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// The NetBIOS name for your domain.
+        /// </summary>
         [Output("shortName")]
         public Output<string?> ShortName { get; private set; } = null!;
 
+        /// <summary>
+        /// The size of the directory.
+        /// </summary>
         [Output("size")]
         public Output<string> Size { get; private set; } = null!;
 
+        /// <summary>
+        /// VPC settings of the Simple AD directory server in AWS.
+        /// </summary>
         [Output("vpcSettings")]
         public Output<Outputs.SimpleADVpcSettings> VpcSettings { get; private set; } = null!;
 
@@ -91,27 +126,51 @@ namespace Pulumi.AwsNative.DirectoryService
 
     public sealed class SimpleADArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the configuration set.
+        /// </summary>
         [Input("createAlias")]
         public Input<bool>? CreateAlias { get; set; }
 
+        /// <summary>
+        /// Description for the directory.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Whether to enable single sign-on for a Simple Active Directory in AWS.
+        /// </summary>
         [Input("enableSso")]
         public Input<bool>? EnableSso { get; set; }
 
+        /// <summary>
+        /// The fully qualified domain name for the AWS Managed Simple AD directory.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        /// <summary>
+        /// The password for the default administrative user named Admin.
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// The NetBIOS name for your domain.
+        /// </summary>
         [Input("shortName")]
         public Input<string>? ShortName { get; set; }
 
+        /// <summary>
+        /// The size of the directory.
+        /// </summary>
         [Input("size", required: true)]
         public Input<string> Size { get; set; } = null!;
 
+        /// <summary>
+        /// VPC settings of the Simple AD directory server in AWS.
+        /// </summary>
         [Input("vpcSettings", required: true)]
         public Input<Inputs.SimpleADVpcSettingsArgs> VpcSettings { get; set; } = null!;
 

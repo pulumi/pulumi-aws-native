@@ -38,6 +38,38 @@ namespace Pulumi.AwsNative.GameLift
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+    /// </summary>
+    [EnumType]
+    public readonly struct BuildOperatingSystem : IEquatable<BuildOperatingSystem>
+    {
+        private readonly string _value;
+
+        private BuildOperatingSystem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BuildOperatingSystem AmazonLinux { get; } = new BuildOperatingSystem("AMAZON_LINUX");
+        public static BuildOperatingSystem AmazonLinux2 { get; } = new BuildOperatingSystem("AMAZON_LINUX_2");
+        public static BuildOperatingSystem Windows2012 { get; } = new BuildOperatingSystem("WINDOWS_2012");
+
+        public static bool operator ==(BuildOperatingSystem left, BuildOperatingSystem right) => left.Equals(right);
+        public static bool operator !=(BuildOperatingSystem left, BuildOperatingSystem right) => !left.Equals(right);
+
+        public static explicit operator string(BuildOperatingSystem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BuildOperatingSystem other && Equals(other);
+        public bool Equals(BuildOperatingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FleetCertificateConfigurationCertificateType : IEquatable<FleetCertificateConfigurationCertificateType>
     {

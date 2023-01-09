@@ -575,8 +575,10 @@ type ServiceCodeConfigurationValues struct {
 	// Port
 	Port *string `pulumi:"port"`
 	// Runtime
-	Runtime                     ServiceCodeConfigurationValuesRuntime `pulumi:"runtime"`
-	RuntimeEnvironmentVariables []ServiceKeyValuePair                 `pulumi:"runtimeEnvironmentVariables"`
+	Runtime ServiceCodeConfigurationValuesRuntime `pulumi:"runtime"`
+	// The secrets and parameters that get referenced by your service as environment variables
+	RuntimeEnvironmentSecrets   []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
 }
@@ -599,8 +601,10 @@ type ServiceCodeConfigurationValuesArgs struct {
 	// Port
 	Port pulumi.StringPtrInput `pulumi:"port"`
 	// Runtime
-	Runtime                     ServiceCodeConfigurationValuesRuntimeInput `pulumi:"runtime"`
-	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput              `pulumi:"runtimeEnvironmentVariables"`
+	Runtime ServiceCodeConfigurationValuesRuntimeInput `pulumi:"runtime"`
+	// The secrets and parameters that get referenced by your service as environment variables
+	RuntimeEnvironmentSecrets   ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
+	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
 }
@@ -698,6 +702,11 @@ func (o ServiceCodeConfigurationValuesOutput) Runtime() ServiceCodeConfiguration
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) ServiceCodeConfigurationValuesRuntime { return v.Runtime }).(ServiceCodeConfigurationValuesRuntimeOutput)
 }
 
+// The secrets and parameters that get referenced by your service as environment variables
+func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentSecrets() ServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v ServiceCodeConfigurationValues) []ServiceKeyValuePair { return v.RuntimeEnvironmentSecrets }).(ServiceKeyValuePairArrayOutput)
+}
+
 func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
@@ -759,6 +768,16 @@ func (o ServiceCodeConfigurationValuesPtrOutput) Runtime() ServiceCodeConfigurat
 		}
 		return &v.Runtime
 	}).(ServiceCodeConfigurationValuesRuntimePtrOutput)
+}
+
+// The secrets and parameters that get referenced by your service as environment variables
+func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentSecrets() ServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *ServiceCodeConfigurationValues) []ServiceKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeEnvironmentSecrets
+	}).(ServiceKeyValuePairArrayOutput)
 }
 
 func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
@@ -1487,7 +1506,9 @@ func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.In
 // Image Configuration
 type ServiceImageConfiguration struct {
 	// Port
-	Port                        *string               `pulumi:"port"`
+	Port *string `pulumi:"port"`
+	// The secrets and parameters that get referenced by your service as environment variables
+	RuntimeEnvironmentSecrets   []ServiceKeyValuePair `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
@@ -1507,7 +1528,9 @@ type ServiceImageConfigurationInput interface {
 // Image Configuration
 type ServiceImageConfigurationArgs struct {
 	// Port
-	Port                        pulumi.StringPtrInput         `pulumi:"port"`
+	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The secrets and parameters that get referenced by your service as environment variables
+	RuntimeEnvironmentSecrets   ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentSecrets"`
 	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
 	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
@@ -1596,6 +1619,11 @@ func (o ServiceImageConfigurationOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
+// The secrets and parameters that get referenced by your service as environment variables
+func (o ServiceImageConfigurationOutput) RuntimeEnvironmentSecrets() ServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v ServiceImageConfiguration) []ServiceKeyValuePair { return v.RuntimeEnvironmentSecrets }).(ServiceKeyValuePairArrayOutput)
+}
+
 func (o ServiceImageConfigurationOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
@@ -1637,6 +1665,16 @@ func (o ServiceImageConfigurationPtrOutput) Port() pulumi.StringPtrOutput {
 		}
 		return v.Port
 	}).(pulumi.StringPtrOutput)
+}
+
+// The secrets and parameters that get referenced by your service as environment variables
+func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentSecrets() ServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *ServiceImageConfiguration) []ServiceKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeEnvironmentSecrets
+	}).(ServiceKeyValuePairArrayOutput)
 }
 
 func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {

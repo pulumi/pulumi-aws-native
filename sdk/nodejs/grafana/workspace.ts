@@ -102,6 +102,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly stackSetName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.grafana.WorkspaceStatus>;
+    public readonly vpcConfiguration!: pulumi.Output<outputs.grafana.WorkspaceVpcConfiguration | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -127,6 +128,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["samlConfiguration"] = args ? args.samlConfiguration : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["grafanaVersion"] = undefined /*out*/;
@@ -155,6 +157,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["ssoClientId"] = undefined /*out*/;
             resourceInputs["stackSetName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["vpcConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
@@ -208,4 +211,5 @@ export interface WorkspaceArgs {
      * The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
      */
     stackSetName?: pulumi.Input<string>;
+    vpcConfiguration?: pulumi.Input<inputs.grafana.WorkspaceVpcConfigurationArgs>;
 }

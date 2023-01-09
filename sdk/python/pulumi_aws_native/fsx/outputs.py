@@ -1212,16 +1212,22 @@ class VolumeOntapConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "junctionPath":
-            suggest = "junction_path"
-        elif key == "sizeInMegabytes":
+        if key == "sizeInMegabytes":
             suggest = "size_in_megabytes"
-        elif key == "storageEfficiencyEnabled":
-            suggest = "storage_efficiency_enabled"
         elif key == "storageVirtualMachineId":
             suggest = "storage_virtual_machine_id"
+        elif key == "copyTagsToBackups":
+            suggest = "copy_tags_to_backups"
+        elif key == "junctionPath":
+            suggest = "junction_path"
+        elif key == "ontapVolumeType":
+            suggest = "ontap_volume_type"
         elif key == "securityStyle":
             suggest = "security_style"
+        elif key == "snapshotPolicy":
+            suggest = "snapshot_policy"
+        elif key == "storageEfficiencyEnabled":
+            suggest = "storage_efficiency_enabled"
         elif key == "tieringPolicy":
             suggest = "tiering_policy"
 
@@ -1237,25 +1243,31 @@ class VolumeOntapConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 junction_path: str,
                  size_in_megabytes: str,
-                 storage_efficiency_enabled: str,
                  storage_virtual_machine_id: str,
+                 copy_tags_to_backups: Optional[str] = None,
+                 junction_path: Optional[str] = None,
+                 ontap_volume_type: Optional[str] = None,
                  security_style: Optional[str] = None,
+                 snapshot_policy: Optional[str] = None,
+                 storage_efficiency_enabled: Optional[str] = None,
                  tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None):
-        pulumi.set(__self__, "junction_path", junction_path)
         pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
-        pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if copy_tags_to_backups is not None:
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if junction_path is not None:
+            pulumi.set(__self__, "junction_path", junction_path)
+        if ontap_volume_type is not None:
+            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if snapshot_policy is not None:
+            pulumi.set(__self__, "snapshot_policy", snapshot_policy)
+        if storage_efficiency_enabled is not None:
+            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
-
-    @property
-    @pulumi.getter(name="junctionPath")
-    def junction_path(self) -> str:
-        return pulumi.get(self, "junction_path")
 
     @property
     @pulumi.getter(name="sizeInMegabytes")
@@ -1263,19 +1275,39 @@ class VolumeOntapConfiguration(dict):
         return pulumi.get(self, "size_in_megabytes")
 
     @property
-    @pulumi.getter(name="storageEfficiencyEnabled")
-    def storage_efficiency_enabled(self) -> str:
-        return pulumi.get(self, "storage_efficiency_enabled")
-
-    @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> str:
         return pulumi.get(self, "storage_virtual_machine_id")
 
     @property
+    @pulumi.getter(name="copyTagsToBackups")
+    def copy_tags_to_backups(self) -> Optional[str]:
+        return pulumi.get(self, "copy_tags_to_backups")
+
+    @property
+    @pulumi.getter(name="junctionPath")
+    def junction_path(self) -> Optional[str]:
+        return pulumi.get(self, "junction_path")
+
+    @property
+    @pulumi.getter(name="ontapVolumeType")
+    def ontap_volume_type(self) -> Optional[str]:
+        return pulumi.get(self, "ontap_volume_type")
+
+    @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[str]:
         return pulumi.get(self, "security_style")
+
+    @property
+    @pulumi.getter(name="snapshotPolicy")
+    def snapshot_policy(self) -> Optional[str]:
+        return pulumi.get(self, "snapshot_policy")
+
+    @property
+    @pulumi.getter(name="storageEfficiencyEnabled")
+    def storage_efficiency_enabled(self) -> Optional[str]:
+        return pulumi.get(self, "storage_efficiency_enabled")
 
     @property
     @pulumi.getter(name="tieringPolicy")

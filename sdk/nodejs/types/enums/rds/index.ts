@@ -21,6 +21,18 @@ export const DBProxyAuthFormatAuthScheme = {
  */
 export type DBProxyAuthFormatAuthScheme = (typeof DBProxyAuthFormatAuthScheme)[keyof typeof DBProxyAuthFormatAuthScheme];
 
+export const DBProxyAuthFormatClientPasswordAuthType = {
+    MysqlNativePassword: "MYSQL_NATIVE_PASSWORD",
+    PostgresScramSha256: "POSTGRES_SCRAM_SHA_256",
+    PostgresMd5: "POSTGRES_MD5",
+    SqlServerAuthentication: "SQL_SERVER_AUTHENTICATION",
+} as const;
+
+/**
+ * The type of authentication the proxy uses for connections from clients.
+ */
+export type DBProxyAuthFormatClientPasswordAuthType = (typeof DBProxyAuthFormatClientPasswordAuthType)[keyof typeof DBProxyAuthFormatClientPasswordAuthType];
+
 export const DBProxyAuthFormatIAMAuth = {
     Disabled: "DISABLED",
     Required: "REQUIRED",

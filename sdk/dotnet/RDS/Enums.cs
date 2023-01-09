@@ -69,6 +69,39 @@ namespace Pulumi.AwsNative.RDS
     }
 
     /// <summary>
+    /// The type of authentication the proxy uses for connections from clients.
+    /// </summary>
+    [EnumType]
+    public readonly struct DBProxyAuthFormatClientPasswordAuthType : IEquatable<DBProxyAuthFormatClientPasswordAuthType>
+    {
+        private readonly string _value;
+
+        private DBProxyAuthFormatClientPasswordAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DBProxyAuthFormatClientPasswordAuthType MysqlNativePassword { get; } = new DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD");
+        public static DBProxyAuthFormatClientPasswordAuthType PostgresScramSha256 { get; } = new DBProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256");
+        public static DBProxyAuthFormatClientPasswordAuthType PostgresMd5 { get; } = new DBProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5");
+        public static DBProxyAuthFormatClientPasswordAuthType SqlServerAuthentication { get; } = new DBProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION");
+
+        public static bool operator ==(DBProxyAuthFormatClientPasswordAuthType left, DBProxyAuthFormatClientPasswordAuthType right) => left.Equals(right);
+        public static bool operator !=(DBProxyAuthFormatClientPasswordAuthType left, DBProxyAuthFormatClientPasswordAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(DBProxyAuthFormatClientPasswordAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DBProxyAuthFormatClientPasswordAuthType other && Equals(other);
+        public bool Equals(DBProxyAuthFormatClientPasswordAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
     /// </summary>
     [EnumType]

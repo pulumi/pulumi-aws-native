@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const LaunchProfileAutomaticTerminationMode = {
+    Deactivated: "DEACTIVATED",
+    Activated: "ACTIVATED",
+} as const;
+
+export type LaunchProfileAutomaticTerminationMode = (typeof LaunchProfileAutomaticTerminationMode)[keyof typeof LaunchProfileAutomaticTerminationMode];
+
+export const LaunchProfileSessionPersistenceMode = {
+    Deactivated: "DEACTIVATED",
+    Activated: "ACTIVATED",
+} as const;
+
+export type LaunchProfileSessionPersistenceMode = (typeof LaunchProfileSessionPersistenceMode)[keyof typeof LaunchProfileSessionPersistenceMode];
+
 export const LaunchProfileStreamingClipboardMode = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

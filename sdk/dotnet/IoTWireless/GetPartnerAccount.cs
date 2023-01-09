@@ -76,15 +76,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// <summary>
         /// The Sidewalk account credentials.
         /// </summary>
-        public readonly Outputs.PartnerAccountSidewalkAccountInfo? Sidewalk;
-        /// <summary>
-        /// The Sidewalk account credentials.
-        /// </summary>
         public readonly Outputs.PartnerAccountSidewalkAccountInfoWithFingerprint? SidewalkResponse;
-        /// <summary>
-        /// The Sidewalk account credentials.
-        /// </summary>
-        public readonly Outputs.PartnerAccountSidewalkUpdateAccount? SidewalkUpdate;
         /// <summary>
         /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
@@ -100,11 +92,7 @@ namespace Pulumi.AwsNative.IoTWireless
 
             Pulumi.AwsNative.IoTWireless.PartnerAccountPartnerType? partnerType,
 
-            Outputs.PartnerAccountSidewalkAccountInfo? sidewalk,
-
             Outputs.PartnerAccountSidewalkAccountInfoWithFingerprint? sidewalkResponse,
-
-            Outputs.PartnerAccountSidewalkUpdateAccount? sidewalkUpdate,
 
             ImmutableArray<Outputs.PartnerAccountTag> tags)
         {
@@ -112,9 +100,7 @@ namespace Pulumi.AwsNative.IoTWireless
             Arn = arn;
             Fingerprint = fingerprint;
             PartnerType = partnerType;
-            Sidewalk = sidewalk;
             SidewalkResponse = sidewalkResponse;
-            SidewalkUpdate = sidewalkUpdate;
             Tags = tags;
         }
     }

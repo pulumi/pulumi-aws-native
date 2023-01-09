@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
     /// </summary>
     public sealed class LaunchProfileStreamConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("automaticTerminationMode")]
+        public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode>? AutomaticTerminationMode { get; set; }
+
         [Input("clipboardMode", required: true)]
         public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode> ClipboardMode { get; set; } = null!;
 
@@ -43,11 +46,11 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         /// <summary>
         /// &lt;p&gt;Integer that determines if you can start and stop your sessions and how long a session
         ///             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.&lt;/p&gt;
-        ///         &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+        ///          &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
         ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
         ///             stays in the READY state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the
         ///             session will automatically be terminated (instead of stopped).&lt;/p&gt;
-        ///         &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
+        ///          &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
         ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the READY state. If the time
         ///             that a session stays in the READY state exceeds the
         ///                 &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the session will automatically be
@@ -55,6 +58,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         /// </summary>
         [Input("maxStoppedSessionLengthInMinutes")]
         public Input<double>? MaxStoppedSessionLengthInMinutes { get; set; }
+
+        [Input("sessionPersistenceMode")]
+        public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode>? SessionPersistenceMode { get; set; }
 
         [Input("sessionStorage")]
         public Input<Inputs.LaunchProfileStreamConfigurationSessionStorageArgs>? SessionStorage { get; set; }
@@ -71,6 +77,9 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
             get => _streamingImageIds ?? (_streamingImageIds = new InputList<string>());
             set => _streamingImageIds = value;
         }
+
+        [Input("volumeConfiguration")]
+        public Input<Inputs.LaunchProfileVolumeConfigurationArgs>? VolumeConfiguration { get; set; }
 
         public LaunchProfileStreamConfigurationArgs()
         {

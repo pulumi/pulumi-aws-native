@@ -54,6 +54,7 @@ __all__ = [
     'DataSourceAuroraPostgreSqlParametersArgs',
     'DataSourceCredentialPairArgs',
     'DataSourceCredentialsArgs',
+    'DataSourceDatabricksParametersArgs',
     'DataSourceErrorInfoArgs',
     'DataSourceManifestFileLocationArgs',
     'DataSourceMariaDbParametersArgs',
@@ -1752,6 +1753,59 @@ class DataSourceCredentialsArgs:
 
 
 @pulumi.input_type
+class DataSourceDatabricksParametersArgs:
+    def __init__(__self__, *,
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float],
+                 sql_endpoint_path: pulumi.Input[str]):
+        """
+        <p>Databricks parameters.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
+        :param pulumi.Input[str] sql_endpoint_path: <p>The HTTP Path of the Databricks data source.</p>
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="sqlEndpointPath")
+    def sql_endpoint_path(self) -> pulumi.Input[str]:
+        """
+        <p>The HTTP Path of the Databricks data source.</p>
+        """
+        return pulumi.get(self, "sql_endpoint_path")
+
+    @sql_endpoint_path.setter
+    def sql_endpoint_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql_endpoint_path", value)
+
+
+@pulumi.input_type
 class DataSourceErrorInfoArgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
@@ -1977,6 +2031,7 @@ class DataSourceParametersArgs:
                  athena_parameters: Optional[pulumi.Input['DataSourceAthenaParametersArgs']] = None,
                  aurora_parameters: Optional[pulumi.Input['DataSourceAuroraParametersArgs']] = None,
                  aurora_postgre_sql_parameters: Optional[pulumi.Input['DataSourceAuroraPostgreSqlParametersArgs']] = None,
+                 databricks_parameters: Optional[pulumi.Input['DataSourceDatabricksParametersArgs']] = None,
                  maria_db_parameters: Optional[pulumi.Input['DataSourceMariaDbParametersArgs']] = None,
                  my_sql_parameters: Optional[pulumi.Input['DataSourceMySqlParametersArgs']] = None,
                  oracle_parameters: Optional[pulumi.Input['DataSourceOracleParametersArgs']] = None,
@@ -2004,6 +2059,8 @@ class DataSourceParametersArgs:
             pulumi.set(__self__, "aurora_parameters", aurora_parameters)
         if aurora_postgre_sql_parameters is not None:
             pulumi.set(__self__, "aurora_postgre_sql_parameters", aurora_postgre_sql_parameters)
+        if databricks_parameters is not None:
+            pulumi.set(__self__, "databricks_parameters", databricks_parameters)
         if maria_db_parameters is not None:
             pulumi.set(__self__, "maria_db_parameters", maria_db_parameters)
         if my_sql_parameters is not None:
@@ -2073,6 +2130,15 @@ class DataSourceParametersArgs:
     @aurora_postgre_sql_parameters.setter
     def aurora_postgre_sql_parameters(self, value: Optional[pulumi.Input['DataSourceAuroraPostgreSqlParametersArgs']]):
         pulumi.set(self, "aurora_postgre_sql_parameters", value)
+
+    @property
+    @pulumi.getter(name="databricksParameters")
+    def databricks_parameters(self) -> Optional[pulumi.Input['DataSourceDatabricksParametersArgs']]:
+        return pulumi.get(self, "databricks_parameters")
+
+    @databricks_parameters.setter
+    def databricks_parameters(self, value: Optional[pulumi.Input['DataSourceDatabricksParametersArgs']]):
+        pulumi.set(self, "databricks_parameters", value)
 
     @property
     @pulumi.getter(name="mariaDbParameters")

@@ -32,8 +32,6 @@ type LookupClusterSubnetGroupResult struct {
 	Description *string `pulumi:"description"`
 	// The list of VPC subnet IDs
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The list of tags for the cluster parameter group.
-	Tags []ClusterSubnetGroupTag `pulumi:"tags"`
 }
 
 func LookupClusterSubnetGroupOutput(ctx *pulumi.Context, args LookupClusterSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSubnetGroupResultOutput {
@@ -85,11 +83,6 @@ func (o LookupClusterSubnetGroupResultOutput) Description() pulumi.StringPtrOutp
 // The list of VPC subnet IDs
 func (o LookupClusterSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
-}
-
-// The list of tags for the cluster parameter group.
-func (o LookupClusterSubnetGroupResultOutput) Tags() ClusterSubnetGroupTagArrayOutput {
-	return o.ApplyT(func(v LookupClusterSubnetGroupResult) []ClusterSubnetGroupTag { return v.Tags }).(ClusterSubnetGroupTagArrayOutput)
 }
 
 func init() {

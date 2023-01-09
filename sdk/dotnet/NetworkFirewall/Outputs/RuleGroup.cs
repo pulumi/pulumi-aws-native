@@ -13,18 +13,22 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     [OutputType]
     public sealed class RuleGroup
     {
+        public readonly Outputs.RuleGroupReferenceSets? ReferenceSets;
         public readonly Outputs.RuleGroupRuleVariables? RuleVariables;
         public readonly Outputs.RuleGroupRulesSource RulesSource;
         public readonly Outputs.RuleGroupStatefulRuleOptions? StatefulRuleOptions;
 
         [OutputConstructor]
         private RuleGroup(
+            Outputs.RuleGroupReferenceSets? referenceSets,
+
             Outputs.RuleGroupRuleVariables? ruleVariables,
 
             Outputs.RuleGroupRulesSource rulesSource,
 
             Outputs.RuleGroupStatefulRuleOptions? statefulRuleOptions)
         {
+            ReferenceSets = referenceSets;
             RuleVariables = ruleVariables;
             RulesSource = rulesSource;
             StatefulRuleOptions = statefulRuleOptions;

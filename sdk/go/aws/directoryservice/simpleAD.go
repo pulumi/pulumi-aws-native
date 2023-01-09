@@ -12,21 +12,31 @@ import (
 )
 
 // Resource Type definition for AWS::DirectoryService::SimpleAD
-//
-// Deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SimpleAD struct {
 	pulumi.CustomResourceState
 
-	Alias          pulumi.StringOutput       `pulumi:"alias"`
-	CreateAlias    pulumi.BoolPtrOutput      `pulumi:"createAlias"`
-	Description    pulumi.StringPtrOutput    `pulumi:"description"`
-	DnsIpAddresses pulumi.StringArrayOutput  `pulumi:"dnsIpAddresses"`
-	EnableSso      pulumi.BoolPtrOutput      `pulumi:"enableSso"`
-	Name           pulumi.StringOutput       `pulumi:"name"`
-	Password       pulumi.StringOutput       `pulumi:"password"`
-	ShortName      pulumi.StringPtrOutput    `pulumi:"shortName"`
-	Size           pulumi.StringOutput       `pulumi:"size"`
-	VpcSettings    SimpleADVpcSettingsOutput `pulumi:"vpcSettings"`
+	// The alias for a directory.
+	Alias pulumi.StringOutput `pulumi:"alias"`
+	// The name of the configuration set.
+	CreateAlias pulumi.BoolPtrOutput `pulumi:"createAlias"`
+	// Description for the directory.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique identifier for a directory.
+	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
+	// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+	DnsIpAddresses pulumi.StringArrayOutput `pulumi:"dnsIpAddresses"`
+	// Whether to enable single sign-on for a Simple Active Directory in AWS.
+	EnableSso pulumi.BoolPtrOutput `pulumi:"enableSso"`
+	// The fully qualified domain name for the AWS Managed Simple AD directory.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The password for the default administrative user named Admin.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// The NetBIOS name for your domain.
+	ShortName pulumi.StringPtrOutput `pulumi:"shortName"`
+	// The size of the directory.
+	Size pulumi.StringOutput `pulumi:"size"`
+	// VPC settings of the Simple AD directory server in AWS.
+	VpcSettings SimpleADVpcSettingsOutput `pulumi:"vpcSettings"`
 }
 
 // NewSimpleAD registers a new resource with the given unique name, arguments, and options.
@@ -36,9 +46,6 @@ func NewSimpleAD(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
-	}
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
 	}
@@ -77,25 +84,41 @@ func (SimpleADState) ElementType() reflect.Type {
 }
 
 type simpleADArgs struct {
-	CreateAlias *bool               `pulumi:"createAlias"`
-	Description *string             `pulumi:"description"`
-	EnableSso   *bool               `pulumi:"enableSso"`
-	Name        *string             `pulumi:"name"`
-	Password    string              `pulumi:"password"`
-	ShortName   *string             `pulumi:"shortName"`
-	Size        string              `pulumi:"size"`
+	// The name of the configuration set.
+	CreateAlias *bool `pulumi:"createAlias"`
+	// Description for the directory.
+	Description *string `pulumi:"description"`
+	// Whether to enable single sign-on for a Simple Active Directory in AWS.
+	EnableSso *bool `pulumi:"enableSso"`
+	// The fully qualified domain name for the AWS Managed Simple AD directory.
+	Name *string `pulumi:"name"`
+	// The password for the default administrative user named Admin.
+	Password *string `pulumi:"password"`
+	// The NetBIOS name for your domain.
+	ShortName *string `pulumi:"shortName"`
+	// The size of the directory.
+	Size string `pulumi:"size"`
+	// VPC settings of the Simple AD directory server in AWS.
 	VpcSettings SimpleADVpcSettings `pulumi:"vpcSettings"`
 }
 
 // The set of arguments for constructing a SimpleAD resource.
 type SimpleADArgs struct {
+	// The name of the configuration set.
 	CreateAlias pulumi.BoolPtrInput
+	// Description for the directory.
 	Description pulumi.StringPtrInput
-	EnableSso   pulumi.BoolPtrInput
-	Name        pulumi.StringPtrInput
-	Password    pulumi.StringInput
-	ShortName   pulumi.StringPtrInput
-	Size        pulumi.StringInput
+	// Whether to enable single sign-on for a Simple Active Directory in AWS.
+	EnableSso pulumi.BoolPtrInput
+	// The fully qualified domain name for the AWS Managed Simple AD directory.
+	Name pulumi.StringPtrInput
+	// The password for the default administrative user named Admin.
+	Password pulumi.StringPtrInput
+	// The NetBIOS name for your domain.
+	ShortName pulumi.StringPtrInput
+	// The size of the directory.
+	Size pulumi.StringInput
+	// VPC settings of the Simple AD directory server in AWS.
 	VpcSettings SimpleADVpcSettingsInput
 }
 
@@ -136,42 +159,57 @@ func (o SimpleADOutput) ToSimpleADOutputWithContext(ctx context.Context) SimpleA
 	return o
 }
 
+// The alias for a directory.
 func (o SimpleADOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The name of the configuration set.
 func (o SimpleADOutput) CreateAlias() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.BoolPtrOutput { return v.CreateAlias }).(pulumi.BoolPtrOutput)
 }
 
+// Description for the directory.
 func (o SimpleADOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for a directory.
+func (o SimpleADOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
 func (o SimpleADOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringArrayOutput { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Whether to enable single sign-on for a Simple Active Directory in AWS.
 func (o SimpleADOutput) EnableSso() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.BoolPtrOutput { return v.EnableSso }).(pulumi.BoolPtrOutput)
 }
 
+// The fully qualified domain name for the AWS Managed Simple AD directory.
 func (o SimpleADOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o SimpleADOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+// The password for the default administrative user named Admin.
+func (o SimpleADOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimpleAD) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The NetBIOS name for your domain.
 func (o SimpleADOutput) ShortName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringPtrOutput { return v.ShortName }).(pulumi.StringPtrOutput)
 }
 
+// The size of the directory.
 func (o SimpleADOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *SimpleAD) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }
 
+// VPC settings of the Simple AD directory server in AWS.
 func (o SimpleADOutput) VpcSettings() SimpleADVpcSettingsOutput {
 	return o.ApplyT(func(v *SimpleAD) SimpleADVpcSettingsOutput { return v.VpcSettings }).(SimpleADVpcSettingsOutput)
 }

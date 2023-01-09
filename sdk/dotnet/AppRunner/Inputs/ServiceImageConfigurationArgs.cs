@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        [Input("runtimeEnvironmentSecrets")]
+        private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentSecrets;
+
+        /// <summary>
+        /// The secrets and parameters that get referenced by your service as environment variables
+        /// </summary>
+        public InputList<Inputs.ServiceKeyValuePairArgs> RuntimeEnvironmentSecrets
+        {
+            get => _runtimeEnvironmentSecrets ?? (_runtimeEnvironmentSecrets = new InputList<Inputs.ServiceKeyValuePairArgs>());
+            set => _runtimeEnvironmentSecrets = value;
+        }
+
         [Input("runtimeEnvironmentVariables")]
         private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentVariables;
         public InputList<Inputs.ServiceKeyValuePairArgs> RuntimeEnvironmentVariables

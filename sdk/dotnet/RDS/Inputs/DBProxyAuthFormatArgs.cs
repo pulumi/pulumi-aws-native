@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.RDS.Inputs
         public Input<Pulumi.AwsNative.RDS.DBProxyAuthFormatAuthScheme>? AuthScheme { get; set; }
 
         /// <summary>
+        /// The type of authentication the proxy uses for connections from clients.
+        /// </summary>
+        [Input("clientPasswordAuthType")]
+        public Input<Pulumi.AwsNative.RDS.DBProxyAuthFormatClientPasswordAuthType>? ClientPasswordAuthType { get; set; }
+
+        /// <summary>
         /// A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         /// </summary>
         [Input("description")]

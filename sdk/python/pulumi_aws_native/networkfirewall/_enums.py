@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'FirewallPolicyOverrideAction',
     'FirewallPolicyRuleOrder',
+    'FirewallPolicyStreamExceptionPolicy',
     'LoggingConfigurationLogDestinationConfigLogDestinationType',
     'LoggingConfigurationLogDestinationConfigLogType',
     'RuleGroupGeneratedRulesType',
@@ -27,6 +28,11 @@ class FirewallPolicyOverrideAction(str, Enum):
 class FirewallPolicyRuleOrder(str, Enum):
     DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER"
     STRICT_ORDER = "STRICT_ORDER"
+
+
+class FirewallPolicyStreamExceptionPolicy(str, Enum):
+    DROP = "DROP"
+    CONTINUE_ = "CONTINUE"
 
 
 class LoggingConfigurationLogDestinationConfigLogDestinationType(str, Enum):

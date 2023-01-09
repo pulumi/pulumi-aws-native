@@ -48,15 +48,7 @@ export interface GetPartnerAccountResult {
     /**
      * The Sidewalk account credentials.
      */
-    readonly sidewalk?: outputs.iotwireless.PartnerAccountSidewalkAccountInfo;
-    /**
-     * The Sidewalk account credentials.
-     */
     readonly sidewalkResponse?: outputs.iotwireless.PartnerAccountSidewalkAccountInfoWithFingerprint;
-    /**
-     * The Sidewalk account credentials.
-     */
-    readonly sidewalkUpdate?: outputs.iotwireless.PartnerAccountSidewalkUpdateAccount;
     /**
      * A list of key-value pairs that contain metadata for the destination.
      */

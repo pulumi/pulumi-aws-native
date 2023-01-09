@@ -22,7 +22,7 @@ type Workgroup struct {
 	SecurityGroupIds   pulumi.StringArrayOutput            `pulumi:"securityGroupIds"`
 	SubnetIds          pulumi.StringArrayOutput            `pulumi:"subnetIds"`
 	Tags               WorkgroupTagArrayOutput             `pulumi:"tags"`
-	Workgroup          WorkgroupTypeOutput                 `pulumi:"workgroup"`
+	Workgroup          WorkgroupTypePtrOutput              `pulumi:"workgroup"`
 	WorkgroupName      pulumi.StringOutput                 `pulumi:"workgroupName"`
 }
 
@@ -73,6 +73,7 @@ type workgroupArgs struct {
 	SecurityGroupIds   []string                   `pulumi:"securityGroupIds"`
 	SubnetIds          []string                   `pulumi:"subnetIds"`
 	Tags               []WorkgroupTag             `pulumi:"tags"`
+	Workgroup          *WorkgroupType             `pulumi:"workgroup"`
 	WorkgroupName      *string                    `pulumi:"workgroupName"`
 }
 
@@ -86,6 +87,7 @@ type WorkgroupArgs struct {
 	SecurityGroupIds   pulumi.StringArrayInput
 	SubnetIds          pulumi.StringArrayInput
 	Tags               WorkgroupTagArrayInput
+	Workgroup          WorkgroupTypePtrInput
 	WorkgroupName      pulumi.StringPtrInput
 }
 
@@ -158,8 +160,8 @@ func (o WorkgroupOutput) Tags() WorkgroupTagArrayOutput {
 	return o.ApplyT(func(v *Workgroup) WorkgroupTagArrayOutput { return v.Tags }).(WorkgroupTagArrayOutput)
 }
 
-func (o WorkgroupOutput) Workgroup() WorkgroupTypeOutput {
-	return o.ApplyT(func(v *Workgroup) WorkgroupTypeOutput { return v.Workgroup }).(WorkgroupTypeOutput)
+func (o WorkgroupOutput) Workgroup() WorkgroupTypePtrOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupTypePtrOutput { return v.Workgroup }).(WorkgroupTypePtrOutput)
 }
 
 func (o WorkgroupOutput) WorkgroupName() pulumi.StringOutput {

@@ -63,6 +63,34 @@ namespace Pulumi.AwsNative.NetworkFirewall
     }
 
     [EnumType]
+    public readonly struct FirewallPolicyStreamExceptionPolicy : IEquatable<FirewallPolicyStreamExceptionPolicy>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyStreamExceptionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyStreamExceptionPolicy Drop { get; } = new FirewallPolicyStreamExceptionPolicy("DROP");
+        public static FirewallPolicyStreamExceptionPolicy Continue { get; } = new FirewallPolicyStreamExceptionPolicy("CONTINUE");
+
+        public static bool operator ==(FirewallPolicyStreamExceptionPolicy left, FirewallPolicyStreamExceptionPolicy right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyStreamExceptionPolicy left, FirewallPolicyStreamExceptionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyStreamExceptionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyStreamExceptionPolicy other && Equals(other);
+        public bool Equals(FirewallPolicyStreamExceptionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LoggingConfigurationLogDestinationConfigLogDestinationType : IEquatable<LoggingConfigurationLogDestinationConfigLogDestinationType>
     {
         private readonly string _value;

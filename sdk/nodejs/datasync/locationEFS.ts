@@ -45,7 +45,7 @@ export class LocationEFS extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
-    public readonly efsFilesystemArn!: pulumi.Output<string>;
+    public readonly efsFilesystemArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
      */
@@ -85,9 +85,6 @@ export class LocationEFS extends pulumi.CustomResource {
             if ((!args || args.ec2Config === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ec2Config'");
             }
-            if ((!args || args.efsFilesystemArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'efsFilesystemArn'");
-            }
             resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
             resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
             resourceInputs["efsFilesystemArn"] = args ? args.efsFilesystemArn : undefined;
@@ -125,7 +122,7 @@ export interface LocationEFSArgs {
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
-    efsFilesystemArn: pulumi.Input<string>;
+    efsFilesystemArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
      */

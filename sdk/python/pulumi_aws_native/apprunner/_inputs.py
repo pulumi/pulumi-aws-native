@@ -133,6 +133,7 @@ class ServiceCodeConfigurationValuesArgs:
                  runtime: pulumi.Input['ServiceCodeConfigurationValuesRuntime'],
                  build_command: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
+                 runtime_environment_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
@@ -140,6 +141,7 @@ class ServiceCodeConfigurationValuesArgs:
         :param pulumi.Input['ServiceCodeConfigurationValuesRuntime'] runtime: Runtime
         :param pulumi.Input[str] build_command: Build Command
         :param pulumi.Input[str] port: Port
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
         :param pulumi.Input[str] start_command: Start Command
         """
         pulumi.set(__self__, "runtime", runtime)
@@ -147,6 +149,8 @@ class ServiceCodeConfigurationValuesArgs:
             pulumi.set(__self__, "build_command", build_command)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if runtime_environment_secrets is not None:
+            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
             pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
@@ -187,6 +191,18 @@ class ServiceCodeConfigurationValuesArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="runtimeEnvironmentSecrets")
+    def runtime_environment_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+        """
+        The secrets and parameters that get referenced by your service as environment variables
+        """
+        return pulumi.get(self, "runtime_environment_secrets")
+
+    @runtime_environment_secrets.setter
+    def runtime_environment_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+        pulumi.set(self, "runtime_environment_secrets", value)
 
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")
@@ -461,15 +477,19 @@ class ServiceHealthCheckConfigurationArgs:
 class ServiceImageConfigurationArgs:
     def __init__(__self__, *,
                  port: Optional[pulumi.Input[str]] = None,
+                 runtime_environment_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
         Image Configuration
         :param pulumi.Input[str] port: Port
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]] runtime_environment_secrets: The secrets and parameters that get referenced by your service as environment variables
         :param pulumi.Input[str] start_command: Start Command
         """
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if runtime_environment_secrets is not None:
+            pulumi.set(__self__, "runtime_environment_secrets", runtime_environment_secrets)
         if runtime_environment_variables is not None:
             pulumi.set(__self__, "runtime_environment_variables", runtime_environment_variables)
         if start_command is not None:
@@ -486,6 +506,18 @@ class ServiceImageConfigurationArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="runtimeEnvironmentSecrets")
+    def runtime_environment_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+        """
+        The secrets and parameters that get referenced by your service as environment variables
+        """
+        return pulumi.get(self, "runtime_environment_secrets")
+
+    @runtime_environment_secrets.setter
+    def runtime_environment_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+        pulumi.set(self, "runtime_environment_secrets", value)
 
     @property
     @pulumi.getter(name="runtimeEnvironmentVariables")

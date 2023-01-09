@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.FSx
         [Output("openZFSConfiguration")]
         public Output<Outputs.FileSystemOpenZFSConfiguration?> OpenZFSConfiguration { get; private set; } = null!;
 
+        [Output("resourceARN")]
+        public Output<string> ResourceARN { get; private set; } = null!;
+
         [Output("rootVolumeId")]
         public Output<string> RootVolumeId { get; private set; } = null!;
 

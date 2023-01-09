@@ -3999,6 +3999,10 @@ export namespace apprunner {
          * Runtime
          */
         runtime: pulumi.Input<enums.apprunner.ServiceCodeConfigurationValuesRuntime>;
+        /**
+         * The secrets and parameters that get referenced by your service as environment variables
+         */
+        runtimeEnvironmentSecrets?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceKeyValuePairArgs>[]>;
         runtimeEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceKeyValuePairArgs>[]>;
         /**
          * Start Command
@@ -4080,6 +4084,10 @@ export namespace apprunner {
          * Port
          */
         port?: pulumi.Input<string>;
+        /**
+         * The secrets and parameters that get referenced by your service as environment variables
+         */
+        runtimeEnvironmentSecrets?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceKeyValuePairArgs>[]>;
         runtimeEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceKeyValuePairArgs>[]>;
         /**
          * Start Command
@@ -6255,6 +6263,7 @@ export namespace cloudfront {
         corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigArgs>;
         customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs>;
         name: pulumi.Input<string>;
+        removeHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeadersConfigArgs>;
         securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigArgs>;
         serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs>;
     }
@@ -6296,6 +6305,14 @@ export namespace cloudfront {
     export interface ResponseHeadersPolicyReferrerPolicyArgs {
         override: pulumi.Input<boolean>;
         referrerPolicy: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicyRemoveHeaderArgs {
+        header: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicyRemoveHeadersConfigArgs {
+        items: pulumi.Input<pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyRemoveHeaderArgs>[]>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigArgs {
@@ -9436,7 +9453,13 @@ export namespace directoryservice {
     }
 
     export interface SimpleADVpcSettingsArgs {
+        /**
+         * The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+         */
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The identifier of the VPC in which to create the directory.
+         */
         vpcId: pulumi.Input<string>;
     }
 }
@@ -10902,6 +10925,20 @@ export namespace ec2 {
         ipv6Support?: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PlacementGroupTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface PrefixListEntryArgs {
         cidr: pulumi.Input<string>;
         description?: pulumi.Input<string>;
@@ -11308,7 +11345,13 @@ export namespace ec2 {
     }
 
     export interface VolumeTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
         value: pulumi.Input<string>;
     }
 }
@@ -13666,7 +13709,7 @@ export namespace evidently {
         /**
          * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
          */
-        eventPattern: pulumi.Input<string>;
+        eventPattern?: pulumi.Input<string>;
         metricName: pulumi.Input<string>;
         unitLabel?: pulumi.Input<string>;
         /**
@@ -13787,7 +13830,7 @@ export namespace evidently {
         /**
          * Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
          */
-        eventPattern: pulumi.Input<string>;
+        eventPattern?: pulumi.Input<string>;
         metricName: pulumi.Input<string>;
         unitLabel?: pulumi.Input<string>;
         /**
@@ -14487,10 +14530,13 @@ export namespace fsx {
     }
 
     export interface VolumeOntapConfigurationArgs {
-        junctionPath: pulumi.Input<string>;
+        copyTagsToBackups?: pulumi.Input<string>;
+        junctionPath?: pulumi.Input<string>;
+        ontapVolumeType?: pulumi.Input<string>;
         securityStyle?: pulumi.Input<string>;
         sizeInMegabytes: pulumi.Input<string>;
-        storageEfficiencyEnabled: pulumi.Input<string>;
+        snapshotPolicy?: pulumi.Input<string>;
+        storageEfficiencyEnabled?: pulumi.Input<string>;
         storageVirtualMachineId: pulumi.Input<string>;
         tieringPolicy?: pulumi.Input<inputs.fsx.VolumeTieringPolicyArgs>;
     }
@@ -14547,10 +14593,22 @@ export namespace gamelift {
         type: pulumi.Input<enums.gamelift.AliasRoutingStrategyType>;
     }
 
-    export interface BuildS3LocationArgs {
+    export interface BuildStorageLocationArgs {
+        /**
+         * An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+         */
         bucket: pulumi.Input<string>;
+        /**
+         * The name of the zip file that contains the build files or script files.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+         */
         objectVersion?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+         */
         roleArn: pulumi.Input<string>;
     }
 
@@ -15341,6 +15399,20 @@ export namespace grafana {
          */
         loginValidityDuration?: pulumi.Input<number>;
         roleValues?: pulumi.Input<inputs.grafana.WorkspaceRoleValuesArgs>;
+    }
+
+    /**
+     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+     */
+    export interface WorkspaceVpcConfigurationArgs {
+        /**
+         * The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+         */
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -16830,6 +16902,10 @@ export namespace iot {
         value: pulumi.Input<string>;
     }
 
+    export interface JobExecutionsRetryConfigPropertiesArgs {
+        retryCriteriaList?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateRetryCriteriaArgs>[]>;
+    }
+
     /**
      * Allows you to create a staged rollout of a job.
      */
@@ -16887,6 +16963,14 @@ export namespace iot {
     export interface JobTemplateRateIncreaseCriteriaArgs {
         numberOfNotifiedThings?: pulumi.Input<number>;
         numberOfSucceededThings?: pulumi.Input<number>;
+    }
+
+    /**
+     * Specifies how many times a failure type should be retried.
+     */
+    export interface JobTemplateRetryCriteriaArgs {
+        failureType?: pulumi.Input<enums.iot.JobTemplateJobRetryFailureType>;
+        numberOfRetries?: pulumi.Input<number>;
     }
 
     /**
@@ -19142,6 +19226,12 @@ export namespace iotwireless {
 
     export interface PartnerAccountSidewalkAccountInfoArgs {
         appServerPrivateKey: pulumi.Input<string>;
+    }
+
+    export interface PartnerAccountSidewalkAccountInfoWithFingerprintArgs {
+        amazonId?: pulumi.Input<string>;
+        arn?: pulumi.Input<string>;
+        fingerprint?: pulumi.Input<string>;
     }
 
     export interface PartnerAccountSidewalkUpdateAccountArgs {
@@ -25355,6 +25445,10 @@ export namespace mediapackage {
          */
         includeEncoderConfigurationInSegments?: pulumi.Input<boolean>;
         /**
+         * When enabled, an I-Frame only stream will be included in the output.
+         */
+        includeIframeOnlyStream?: pulumi.Input<boolean>;
+        /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
          */
         periodTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.PackagingConfigurationDashPackagePeriodTriggersItem>[]>;
@@ -26026,6 +26120,7 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyStatefulEngineOptionsArgs {
         ruleOrder?: pulumi.Input<enums.networkfirewall.FirewallPolicyRuleOrder>;
+        streamExceptionPolicy?: pulumi.Input<enums.networkfirewall.FirewallPolicyStreamExceptionPolicy>;
     }
 
     export interface FirewallPolicyStatefulRuleGroupOverrideArgs {
@@ -26074,6 +26169,7 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupArgs {
+        referenceSets?: pulumi.Input<inputs.networkfirewall.RuleGroupReferenceSetsArgs>;
         ruleVariables?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleVariablesArgs>;
         rulesSource: pulumi.Input<inputs.networkfirewall.RuleGroupRulesSourceArgs>;
         statefulRuleOptions?: pulumi.Input<inputs.networkfirewall.RuleGroupStatefulRuleOptionsArgs>;
@@ -26121,6 +26217,10 @@ export namespace networkfirewall {
 
     export interface RuleGroupPublishMetricActionArgs {
         dimensions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupDimensionArgs>[]>;
+    }
+
+    export interface RuleGroupReferenceSetsArgs {
+        iPSetReferences?: any;
     }
 
     export interface RuleGroupRuleDefinitionArgs {
@@ -26372,6 +26472,7 @@ export namespace nimblestudio {
      * <p>A configuration for a streaming session.</p>
      */
     export interface LaunchProfileStreamConfigurationArgs {
+        automaticTerminationMode?: pulumi.Input<enums.nimblestudio.LaunchProfileAutomaticTerminationMode>;
         clipboardMode: pulumi.Input<enums.nimblestudio.LaunchProfileStreamingClipboardMode>;
         /**
          * <p>The EC2 instance types that users can select from when launching a streaming session
@@ -26388,23 +26489,25 @@ export namespace nimblestudio {
         /**
          * <p>Integer that determines if you can start and stop your sessions and how long a session
          *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-         *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+         *          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
          *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
          *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
          *             session will automatically be terminated (instead of stopped).</p>
-         *         <p>If the value is set to a positive number, the session can be stopped. You can call
+         *          <p>If the value is set to a positive number, the session can be stopped. You can call
          *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
          *             that a session stays in the READY state exceeds the
          *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
          *             stopped (instead of terminated).</p>
          */
         maxStoppedSessionLengthInMinutes?: pulumi.Input<number>;
+        sessionPersistenceMode?: pulumi.Input<enums.nimblestudio.LaunchProfileSessionPersistenceMode>;
         sessionStorage?: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationSessionStorageArgs>;
         /**
          * <p>The streaming images that users can select from when launching a streaming session
          *             with this launch profile.</p>
          */
         streamingImageIds: pulumi.Input<pulumi.Input<string>[]>;
+        volumeConfiguration?: pulumi.Input<inputs.nimblestudio.LaunchProfileVolumeConfigurationArgs>;
     }
 
     /**
@@ -26435,6 +26538,12 @@ export namespace nimblestudio {
     }
 
     export interface LaunchProfileTagsArgs {
+    }
+
+    export interface LaunchProfileVolumeConfigurationArgs {
+        iops?: pulumi.Input<number>;
+        size?: pulumi.Input<number>;
+        throughput?: pulumi.Input<number>;
     }
 
     export interface StreamingImageTagsArgs {
@@ -28383,6 +28492,24 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Databricks parameters.</p>
+     */
+    export interface DataSourceDatabricksParametersArgs {
+        /**
+         * <p>Host.</p>
+         */
+        host: pulumi.Input<string>;
+        /**
+         * <p>Port.</p>
+         */
+        port: pulumi.Input<number>;
+        /**
+         * <p>The HTTP Path of the Databricks data source.</p>
+         */
+        sqlEndpointPath: pulumi.Input<string>;
+    }
+
+    /**
      * <p>Error information for the data source creation or update.</p>
      */
     export interface DataSourceErrorInfoArgs {
@@ -28460,6 +28587,7 @@ export namespace quicksight {
         athenaParameters?: pulumi.Input<inputs.quicksight.DataSourceAthenaParametersArgs>;
         auroraParameters?: pulumi.Input<inputs.quicksight.DataSourceAuroraParametersArgs>;
         auroraPostgreSqlParameters?: pulumi.Input<inputs.quicksight.DataSourceAuroraPostgreSqlParametersArgs>;
+        databricksParameters?: pulumi.Input<inputs.quicksight.DataSourceDatabricksParametersArgs>;
         mariaDbParameters?: pulumi.Input<inputs.quicksight.DataSourceMariaDbParametersArgs>;
         mySqlParameters?: pulumi.Input<inputs.quicksight.DataSourceMySqlParametersArgs>;
         oracleParameters?: pulumi.Input<inputs.quicksight.DataSourceOracleParametersArgs>;
@@ -29012,6 +29140,17 @@ export namespace ram {
 }
 
 export namespace rds {
+    export interface DBClusterMasterUserSecretArgs {
+        /**
+         * The AWS KMS key identifier that is used to encrypt the secret.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the secret.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -29131,6 +29270,17 @@ export namespace rds {
         port?: pulumi.Input<string>;
     }
 
+    export interface DBInstanceMasterUserSecretArgs {
+        /**
+         * The AWS KMS key identifier that is used to encrypt the secret.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the secret.
+         */
+        secretArn?: pulumi.Input<string>;
+    }
+
     export interface DBInstanceProcessorFeatureArgs {
         /**
          * The name of the processor feature. Valid names are coreCount and threadsPerCore.
@@ -29186,6 +29336,10 @@ export namespace rds {
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
          */
         authScheme?: pulumi.Input<enums.rds.DBProxyAuthFormatAuthScheme>;
+        /**
+         * The type of authentication the proxy uses for connections from clients.
+         */
+        clientPasswordAuthType?: pulumi.Input<enums.rds.DBProxyAuthFormatClientPasswordAuthType>;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user. 
          */
@@ -29478,9 +29632,39 @@ export namespace redshift {
 }
 
 export namespace redshiftserverless {
+    export interface NamespaceArgs {
+        adminUsername?: pulumi.Input<string>;
+        creationDate?: pulumi.Input<string>;
+        dbName?: pulumi.Input<string>;
+        defaultIamRoleArn?: pulumi.Input<string>;
+        iamRoles?: pulumi.Input<pulumi.Input<string>[]>;
+        kmsKeyId?: pulumi.Input<string>;
+        logExports?: pulumi.Input<pulumi.Input<enums.redshiftserverless.NamespaceLogExport>[]>;
+        namespaceArn?: pulumi.Input<string>;
+        namespaceId?: pulumi.Input<string>;
+        namespaceName?: pulumi.Input<string>;
+        status?: pulumi.Input<enums.redshiftserverless.NamespaceStatus>;
+    }
+
     export interface NamespaceTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface WorkgroupArgs {
+        baseCapacity?: pulumi.Input<number>;
+        configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[]>;
+        creationDate?: pulumi.Input<string>;
+        endpoint?: pulumi.Input<inputs.redshiftserverless.WorkgroupEndpointArgs>;
+        enhancedVpcRouting?: pulumi.Input<boolean>;
+        namespaceName?: pulumi.Input<string>;
+        publiclyAccessible?: pulumi.Input<boolean>;
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        status?: pulumi.Input<enums.redshiftserverless.WorkgroupStatus>;
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        workgroupArn?: pulumi.Input<string>;
+        workgroupId?: pulumi.Input<string>;
+        workgroupName?: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfigParameterArgs {
@@ -29488,11 +29672,29 @@ export namespace redshiftserverless {
         parameterValue?: pulumi.Input<string>;
     }
 
+    export interface WorkgroupEndpointArgs {
+        address?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupVpcEndpointArgs>[]>;
+    }
+
+    export interface WorkgroupNetworkInterfaceArgs {
+        availabilityZone?: pulumi.Input<string>;
+        networkInterfaceId?: pulumi.Input<string>;
+        privateIpAddress?: pulumi.Input<string>;
+        subnetId?: pulumi.Input<string>;
+    }
+
     export interface WorkgroupTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
+    export interface WorkgroupVpcEndpointArgs {
+        networkInterfaces?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupNetworkInterfaceArgs>[]>;
+        vpcEndpointId?: pulumi.Input<string>;
+        vpcId?: pulumi.Input<string>;
+    }
 }
 
 export namespace refactorspaces {

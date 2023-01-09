@@ -25,10 +25,12 @@ __all__ = [
     'DomainConfigurationTagArgs',
     'FleetMetricAggregationTypeArgs',
     'FleetMetricTagArgs',
+    'JobExecutionsRetryConfigPropertiesArgs',
     'JobExecutionsRolloutConfigPropertiesArgs',
     'JobTemplateAbortCriteriaArgs',
     'JobTemplateExponentialRolloutRateArgs',
     'JobTemplateRateIncreaseCriteriaArgs',
+    'JobTemplateRetryCriteriaArgs',
     'JobTemplateTagArgs',
     'MitigationActionActionParamsArgs',
     'MitigationActionAddThingsToThingGroupParamsArgs',
@@ -728,6 +730,23 @@ class FleetMetricTagArgs:
 
 
 @pulumi.input_type
+class JobExecutionsRetryConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 retry_criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None):
+        if retry_criteria_list is not None:
+            pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
+
+    @property
+    @pulumi.getter(name="retryCriteriaList")
+    def retry_criteria_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]:
+        return pulumi.get(self, "retry_criteria_list")
+
+    @retry_criteria_list.setter
+    def retry_criteria_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]):
+        pulumi.set(self, "retry_criteria_list", value)
+
+
+@pulumi.input_type
 class JobExecutionsRolloutConfigPropertiesArgs:
     def __init__(__self__, *,
                  exponential_rollout_rate: Optional[pulumi.Input['JobTemplateExponentialRolloutRateArgs']] = None,
@@ -915,6 +934,38 @@ class JobTemplateRateIncreaseCriteriaArgs:
     @number_of_succeeded_things.setter
     def number_of_succeeded_things(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_succeeded_things", value)
+
+
+@pulumi.input_type
+class JobTemplateRetryCriteriaArgs:
+    def __init__(__self__, *,
+                 failure_type: Optional[pulumi.Input['JobTemplateJobRetryFailureType']] = None,
+                 number_of_retries: Optional[pulumi.Input[int]] = None):
+        """
+        Specifies how many times a failure type should be retried.
+        """
+        if failure_type is not None:
+            pulumi.set(__self__, "failure_type", failure_type)
+        if number_of_retries is not None:
+            pulumi.set(__self__, "number_of_retries", number_of_retries)
+
+    @property
+    @pulumi.getter(name="failureType")
+    def failure_type(self) -> Optional[pulumi.Input['JobTemplateJobRetryFailureType']]:
+        return pulumi.get(self, "failure_type")
+
+    @failure_type.setter
+    def failure_type(self, value: Optional[pulumi.Input['JobTemplateJobRetryFailureType']]):
+        pulumi.set(self, "failure_type", value)
+
+    @property
+    @pulumi.getter(name="numberOfRetries")
+    def number_of_retries(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "number_of_retries")
+
+    @number_of_retries.setter
+    def number_of_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_retries", value)
 
 
 @pulumi.input_type

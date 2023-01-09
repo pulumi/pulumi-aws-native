@@ -339,6 +339,173 @@ func (in *dbproxyAuthFormatAuthSchemePtr) ToDBProxyAuthFormatAuthSchemePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatAuthSchemePtrOutput)
 }
 
+// The type of authentication the proxy uses for connections from clients.
+type DBProxyAuthFormatClientPasswordAuthType string
+
+const (
+	DBProxyAuthFormatClientPasswordAuthTypeMysqlNativePassword     = DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD")
+	DBProxyAuthFormatClientPasswordAuthTypePostgresScramSha256     = DBProxyAuthFormatClientPasswordAuthType("POSTGRES_SCRAM_SHA_256")
+	DBProxyAuthFormatClientPasswordAuthTypePostgresMd5             = DBProxyAuthFormatClientPasswordAuthType("POSTGRES_MD5")
+	DBProxyAuthFormatClientPasswordAuthTypeSqlServerAuthentication = DBProxyAuthFormatClientPasswordAuthType("SQL_SERVER_AUTHENTICATION")
+)
+
+func (DBProxyAuthFormatClientPasswordAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput {
+	return pulumi.ToOutput(e).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return e.ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return DBProxyAuthFormatClientPasswordAuthType(e).ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx).ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DBProxyAuthFormatClientPasswordAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DBProxyAuthFormatClientPasswordAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (DBProxyAuthFormatClientPasswordAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput {
+	return o
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput {
+	return o
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBProxyAuthFormatClientPasswordAuthType) *DBProxyAuthFormatClientPasswordAuthType {
+		return &v
+	}).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatClientPasswordAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DBProxyAuthFormatClientPasswordAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DBProxyAuthFormatClientPasswordAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) Elem() DBProxyAuthFormatClientPasswordAuthTypeOutput {
+	return o.ApplyT(func(v *DBProxyAuthFormatClientPasswordAuthType) DBProxyAuthFormatClientPasswordAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret DBProxyAuthFormatClientPasswordAuthType
+		return ret
+	}).(DBProxyAuthFormatClientPasswordAuthTypeOutput)
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DBProxyAuthFormatClientPasswordAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DBProxyAuthFormatClientPasswordAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DBProxyAuthFormatClientPasswordAuthTypeInput is an input type that accepts DBProxyAuthFormatClientPasswordAuthTypeArgs and DBProxyAuthFormatClientPasswordAuthTypeOutput values.
+// You can construct a concrete instance of `DBProxyAuthFormatClientPasswordAuthTypeInput` via:
+//
+//	DBProxyAuthFormatClientPasswordAuthTypeArgs{...}
+type DBProxyAuthFormatClientPasswordAuthTypeInput interface {
+	pulumi.Input
+
+	ToDBProxyAuthFormatClientPasswordAuthTypeOutput() DBProxyAuthFormatClientPasswordAuthTypeOutput
+	ToDBProxyAuthFormatClientPasswordAuthTypeOutputWithContext(context.Context) DBProxyAuthFormatClientPasswordAuthTypeOutput
+}
+
+var dbproxyAuthFormatClientPasswordAuthTypePtrType = reflect.TypeOf((**DBProxyAuthFormatClientPasswordAuthType)(nil)).Elem()
+
+type DBProxyAuthFormatClientPasswordAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput
+	ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput
+}
+
+type dbproxyAuthFormatClientPasswordAuthTypePtr string
+
+func DBProxyAuthFormatClientPasswordAuthTypePtr(v string) DBProxyAuthFormatClientPasswordAuthTypePtrInput {
+	return (*dbproxyAuthFormatClientPasswordAuthTypePtr)(&v)
+}
+
+func (*dbproxyAuthFormatClientPasswordAuthTypePtr) ElementType() reflect.Type {
+	return dbproxyAuthFormatClientPasswordAuthTypePtrType
+}
+
+func (in *dbproxyAuthFormatClientPasswordAuthTypePtr) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutput() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+}
+
+func (in *dbproxyAuthFormatClientPasswordAuthTypePtr) ToDBProxyAuthFormatClientPasswordAuthTypePtrOutputWithContext(ctx context.Context) DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
+}
+
 // Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
 type DBProxyAuthFormatIAMAuth string
 
@@ -1172,6 +1339,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureNamePtrInput)(nil)).Elem(), DBInstanceProcessorFeatureName("coreCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemeInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatAuthSchemePtrInput)(nil)).Elem(), DBProxyAuthFormatAuthScheme("SECRETS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthTypeInput)(nil)).Elem(), DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatClientPasswordAuthTypePtrInput)(nil)).Elem(), DBProxyAuthFormatClientPasswordAuthType("MYSQL_NATIVE_PASSWORD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyAuthFormatIAMAuthPtrInput)(nil)).Elem(), DBProxyAuthFormatIAMAuth("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DBProxyEndpointTargetRoleInput)(nil)).Elem(), DBProxyEndpointTargetRole("READ_WRITE"))
@@ -1186,6 +1355,8 @@ func init() {
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureNamePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemeOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatAuthSchemePtrOutput{})
+	pulumi.RegisterOutputType(DBProxyAuthFormatClientPasswordAuthTypeOutput{})
+	pulumi.RegisterOutputType(DBProxyAuthFormatClientPasswordAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthOutput{})
 	pulumi.RegisterOutputType(DBProxyAuthFormatIAMAuthPtrOutput{})
 	pulumi.RegisterOutputType(DBProxyEndpointTargetRoleOutput{})

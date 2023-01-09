@@ -30,10 +30,6 @@ export interface GetProjectArgs {
 
 export interface GetProjectResult {
     /**
-     * The IDs of the assets to be associated to the project.
-     */
-    readonly assetIds?: string[];
-    /**
      * The ARN of the project.
      */
     readonly projectArn?: string;

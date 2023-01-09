@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRestApiArgs : global::Pulumi.InvokeArgs
     {
-        [Input("restApiId", required: true)]
-        public string RestApiId { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetRestApiArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetRestApiInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("restApiId", required: true)]
-        public Input<string> RestApiId { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetRestApiInvokeArgs()
         {
@@ -60,12 +60,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public readonly bool? DisableExecuteApiEndpoint;
         public readonly Outputs.RestApiEndpointConfiguration? EndpointConfiguration;
         public readonly bool? FailOnWarnings;
+        public readonly string? Id;
         public readonly int? MinimumCompressionSize;
         public readonly string? Mode;
         public readonly string? Name;
         public readonly object? Parameters;
         public readonly object? Policy;
-        public readonly string? RestApiId;
         public readonly string? RootResourceId;
         public readonly ImmutableArray<Outputs.RestApiTag> Tags;
 
@@ -89,6 +89,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             bool? failOnWarnings,
 
+            string? id,
+
             int? minimumCompressionSize,
 
             string? mode,
@@ -98,8 +100,6 @@ namespace Pulumi.AwsNative.ApiGateway
             object? parameters,
 
             object? policy,
-
-            string? restApiId,
 
             string? rootResourceId,
 
@@ -114,12 +114,12 @@ namespace Pulumi.AwsNative.ApiGateway
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
             EndpointConfiguration = endpointConfiguration;
             FailOnWarnings = failOnWarnings;
+            Id = id;
             MinimumCompressionSize = minimumCompressionSize;
             Mode = mode;
             Name = name;
             Parameters = parameters;
             Policy = policy;
-            RestApiId = restApiId;
             RootResourceId = rootResourceId;
             Tags = tags;
         }

@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.DirectoryService
 
     public sealed class GetSimpleADArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The unique identifier for a directory.
+        /// </summary>
+        [Input("directoryId", required: true)]
+        public string DirectoryId { get; set; } = null!;
 
         public GetSimpleADArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.DirectoryService
 
     public sealed class GetSimpleADInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The unique identifier for a directory.
+        /// </summary>
+        [Input("directoryId", required: true)]
+        public Input<string> DirectoryId { get; set; } = null!;
 
         public GetSimpleADInvokeArgs()
         {
@@ -51,25 +57,37 @@ namespace Pulumi.AwsNative.DirectoryService
     [OutputType]
     public sealed class GetSimpleADResult
     {
+        /// <summary>
+        /// The alias for a directory.
+        /// </summary>
         public readonly string? Alias;
+        /// <summary>
+        /// The unique identifier for a directory.
+        /// </summary>
+        public readonly string? DirectoryId;
+        /// <summary>
+        /// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+        /// </summary>
         public readonly ImmutableArray<string> DnsIpAddresses;
+        /// <summary>
+        /// Whether to enable single sign-on for a Simple Active Directory in AWS.
+        /// </summary>
         public readonly bool? EnableSso;
-        public readonly string? Id;
 
         [OutputConstructor]
         private GetSimpleADResult(
             string? alias,
 
+            string? directoryId,
+
             ImmutableArray<string> dnsIpAddresses,
 
-            bool? enableSso,
-
-            string? id)
+            bool? enableSso)
         {
             Alias = alias;
+            DirectoryId = directoryId;
             DnsIpAddresses = dnsIpAddresses;
             EnableSso = enableSso;
-            Id = id;
         }
     }
 }

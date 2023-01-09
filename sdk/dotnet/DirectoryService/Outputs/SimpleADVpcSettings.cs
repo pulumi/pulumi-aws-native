@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DirectoryService.Outputs
     [OutputType]
     public sealed class SimpleADVpcSettings
     {
+        /// <summary>
+        /// The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// The identifier of the VPC in which to create the directory.
+        /// </summary>
         public readonly string VpcId;
 
         [OutputConstructor]

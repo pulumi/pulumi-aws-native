@@ -10,6 +10,334 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type LaunchProfileAutomaticTerminationMode string
+
+const (
+	LaunchProfileAutomaticTerminationModeDeactivated = LaunchProfileAutomaticTerminationMode("DEACTIVATED")
+	LaunchProfileAutomaticTerminationModeActivated   = LaunchProfileAutomaticTerminationMode("ACTIVATED")
+)
+
+func (LaunchProfileAutomaticTerminationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileAutomaticTerminationMode)(nil)).Elem()
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToLaunchProfileAutomaticTerminationModeOutput() LaunchProfileAutomaticTerminationModeOutput {
+	return pulumi.ToOutput(e).(LaunchProfileAutomaticTerminationModeOutput)
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToLaunchProfileAutomaticTerminationModeOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchProfileAutomaticTerminationModeOutput)
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToLaunchProfileAutomaticTerminationModePtrOutput() LaunchProfileAutomaticTerminationModePtrOutput {
+	return e.ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModePtrOutput {
+	return LaunchProfileAutomaticTerminationMode(e).ToLaunchProfileAutomaticTerminationModeOutputWithContext(ctx).ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx)
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileAutomaticTerminationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchProfileAutomaticTerminationModeOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileAutomaticTerminationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileAutomaticTerminationMode)(nil)).Elem()
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToLaunchProfileAutomaticTerminationModeOutput() LaunchProfileAutomaticTerminationModeOutput {
+	return o
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToLaunchProfileAutomaticTerminationModeOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModeOutput {
+	return o
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToLaunchProfileAutomaticTerminationModePtrOutput() LaunchProfileAutomaticTerminationModePtrOutput {
+	return o.ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileAutomaticTerminationMode) *LaunchProfileAutomaticTerminationMode {
+		return &v
+	}).(LaunchProfileAutomaticTerminationModePtrOutput)
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileAutomaticTerminationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileAutomaticTerminationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileAutomaticTerminationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchProfileAutomaticTerminationModePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileAutomaticTerminationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileAutomaticTerminationMode)(nil)).Elem()
+}
+
+func (o LaunchProfileAutomaticTerminationModePtrOutput) ToLaunchProfileAutomaticTerminationModePtrOutput() LaunchProfileAutomaticTerminationModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileAutomaticTerminationModePtrOutput) ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileAutomaticTerminationModePtrOutput) Elem() LaunchProfileAutomaticTerminationModeOutput {
+	return o.ApplyT(func(v *LaunchProfileAutomaticTerminationMode) LaunchProfileAutomaticTerminationMode {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileAutomaticTerminationMode
+		return ret
+	}).(LaunchProfileAutomaticTerminationModeOutput)
+}
+
+func (o LaunchProfileAutomaticTerminationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileAutomaticTerminationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchProfileAutomaticTerminationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchProfileAutomaticTerminationModeInput is an input type that accepts LaunchProfileAutomaticTerminationModeArgs and LaunchProfileAutomaticTerminationModeOutput values.
+// You can construct a concrete instance of `LaunchProfileAutomaticTerminationModeInput` via:
+//
+//	LaunchProfileAutomaticTerminationModeArgs{...}
+type LaunchProfileAutomaticTerminationModeInput interface {
+	pulumi.Input
+
+	ToLaunchProfileAutomaticTerminationModeOutput() LaunchProfileAutomaticTerminationModeOutput
+	ToLaunchProfileAutomaticTerminationModeOutputWithContext(context.Context) LaunchProfileAutomaticTerminationModeOutput
+}
+
+var launchProfileAutomaticTerminationModePtrType = reflect.TypeOf((**LaunchProfileAutomaticTerminationMode)(nil)).Elem()
+
+type LaunchProfileAutomaticTerminationModePtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileAutomaticTerminationModePtrOutput() LaunchProfileAutomaticTerminationModePtrOutput
+	ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(context.Context) LaunchProfileAutomaticTerminationModePtrOutput
+}
+
+type launchProfileAutomaticTerminationModePtr string
+
+func LaunchProfileAutomaticTerminationModePtr(v string) LaunchProfileAutomaticTerminationModePtrInput {
+	return (*launchProfileAutomaticTerminationModePtr)(&v)
+}
+
+func (*launchProfileAutomaticTerminationModePtr) ElementType() reflect.Type {
+	return launchProfileAutomaticTerminationModePtrType
+}
+
+func (in *launchProfileAutomaticTerminationModePtr) ToLaunchProfileAutomaticTerminationModePtrOutput() LaunchProfileAutomaticTerminationModePtrOutput {
+	return pulumi.ToOutput(in).(LaunchProfileAutomaticTerminationModePtrOutput)
+}
+
+func (in *launchProfileAutomaticTerminationModePtr) ToLaunchProfileAutomaticTerminationModePtrOutputWithContext(ctx context.Context) LaunchProfileAutomaticTerminationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileAutomaticTerminationModePtrOutput)
+}
+
+type LaunchProfileSessionPersistenceMode string
+
+const (
+	LaunchProfileSessionPersistenceModeDeactivated = LaunchProfileSessionPersistenceMode("DEACTIVATED")
+	LaunchProfileSessionPersistenceModeActivated   = LaunchProfileSessionPersistenceMode("ACTIVATED")
+)
+
+func (LaunchProfileSessionPersistenceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileSessionPersistenceMode)(nil)).Elem()
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToLaunchProfileSessionPersistenceModeOutput() LaunchProfileSessionPersistenceModeOutput {
+	return pulumi.ToOutput(e).(LaunchProfileSessionPersistenceModeOutput)
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToLaunchProfileSessionPersistenceModeOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LaunchProfileSessionPersistenceModeOutput)
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToLaunchProfileSessionPersistenceModePtrOutput() LaunchProfileSessionPersistenceModePtrOutput {
+	return e.ToLaunchProfileSessionPersistenceModePtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModePtrOutput {
+	return LaunchProfileSessionPersistenceMode(e).ToLaunchProfileSessionPersistenceModeOutputWithContext(ctx).ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx)
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LaunchProfileSessionPersistenceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LaunchProfileSessionPersistenceModeOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileSessionPersistenceModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileSessionPersistenceMode)(nil)).Elem()
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToLaunchProfileSessionPersistenceModeOutput() LaunchProfileSessionPersistenceModeOutput {
+	return o
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToLaunchProfileSessionPersistenceModeOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModeOutput {
+	return o
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToLaunchProfileSessionPersistenceModePtrOutput() LaunchProfileSessionPersistenceModePtrOutput {
+	return o.ToLaunchProfileSessionPersistenceModePtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileSessionPersistenceMode) *LaunchProfileSessionPersistenceMode {
+		return &v
+	}).(LaunchProfileSessionPersistenceModePtrOutput)
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileSessionPersistenceMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionPersistenceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LaunchProfileSessionPersistenceMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchProfileSessionPersistenceModePtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileSessionPersistenceModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileSessionPersistenceMode)(nil)).Elem()
+}
+
+func (o LaunchProfileSessionPersistenceModePtrOutput) ToLaunchProfileSessionPersistenceModePtrOutput() LaunchProfileSessionPersistenceModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileSessionPersistenceModePtrOutput) ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModePtrOutput {
+	return o
+}
+
+func (o LaunchProfileSessionPersistenceModePtrOutput) Elem() LaunchProfileSessionPersistenceModeOutput {
+	return o.ApplyT(func(v *LaunchProfileSessionPersistenceMode) LaunchProfileSessionPersistenceMode {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileSessionPersistenceMode
+		return ret
+	}).(LaunchProfileSessionPersistenceModeOutput)
+}
+
+func (o LaunchProfileSessionPersistenceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileSessionPersistenceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LaunchProfileSessionPersistenceMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LaunchProfileSessionPersistenceModeInput is an input type that accepts LaunchProfileSessionPersistenceModeArgs and LaunchProfileSessionPersistenceModeOutput values.
+// You can construct a concrete instance of `LaunchProfileSessionPersistenceModeInput` via:
+//
+//	LaunchProfileSessionPersistenceModeArgs{...}
+type LaunchProfileSessionPersistenceModeInput interface {
+	pulumi.Input
+
+	ToLaunchProfileSessionPersistenceModeOutput() LaunchProfileSessionPersistenceModeOutput
+	ToLaunchProfileSessionPersistenceModeOutputWithContext(context.Context) LaunchProfileSessionPersistenceModeOutput
+}
+
+var launchProfileSessionPersistenceModePtrType = reflect.TypeOf((**LaunchProfileSessionPersistenceMode)(nil)).Elem()
+
+type LaunchProfileSessionPersistenceModePtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileSessionPersistenceModePtrOutput() LaunchProfileSessionPersistenceModePtrOutput
+	ToLaunchProfileSessionPersistenceModePtrOutputWithContext(context.Context) LaunchProfileSessionPersistenceModePtrOutput
+}
+
+type launchProfileSessionPersistenceModePtr string
+
+func LaunchProfileSessionPersistenceModePtr(v string) LaunchProfileSessionPersistenceModePtrInput {
+	return (*launchProfileSessionPersistenceModePtr)(&v)
+}
+
+func (*launchProfileSessionPersistenceModePtr) ElementType() reflect.Type {
+	return launchProfileSessionPersistenceModePtrType
+}
+
+func (in *launchProfileSessionPersistenceModePtr) ToLaunchProfileSessionPersistenceModePtrOutput() LaunchProfileSessionPersistenceModePtrOutput {
+	return pulumi.ToOutput(in).(LaunchProfileSessionPersistenceModePtrOutput)
+}
+
+func (in *launchProfileSessionPersistenceModePtr) ToLaunchProfileSessionPersistenceModePtrOutputWithContext(ctx context.Context) LaunchProfileSessionPersistenceModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LaunchProfileSessionPersistenceModePtrOutput)
+}
+
 type LaunchProfileStreamingClipboardMode string
 
 const (
@@ -1519,6 +1847,10 @@ func (in *studioEncryptionConfigurationKeyTypePtr) ToStudioEncryptionConfigurati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileAutomaticTerminationModeInput)(nil)).Elem(), LaunchProfileAutomaticTerminationMode("DEACTIVATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileAutomaticTerminationModePtrInput)(nil)).Elem(), LaunchProfileAutomaticTerminationMode("DEACTIVATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionPersistenceModeInput)(nil)).Elem(), LaunchProfileSessionPersistenceMode("DEACTIVATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileSessionPersistenceModePtrInput)(nil)).Elem(), LaunchProfileSessionPersistenceMode("DEACTIVATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingClipboardModeInput)(nil)).Elem(), LaunchProfileStreamingClipboardMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingClipboardModePtrInput)(nil)).Elem(), LaunchProfileStreamingClipboardMode("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingInstanceTypeInput)(nil)).Elem(), LaunchProfileStreamingInstanceType("g4dn.xlarge"))
@@ -1537,6 +1869,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentTypePtrInput)(nil)).Elem(), StudioComponentType("ACTIVE_DIRECTORY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationKeyTypeInput)(nil)).Elem(), StudioEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioEncryptionConfigurationKeyTypePtrInput)(nil)).Elem(), StudioEncryptionConfigurationKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterOutputType(LaunchProfileAutomaticTerminationModeOutput{})
+	pulumi.RegisterOutputType(LaunchProfileAutomaticTerminationModePtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileSessionPersistenceModeOutput{})
+	pulumi.RegisterOutputType(LaunchProfileSessionPersistenceModePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingClipboardModeOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingClipboardModePtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamingInstanceTypeOutput{})

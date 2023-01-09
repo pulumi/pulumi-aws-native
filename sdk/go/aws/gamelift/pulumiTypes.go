@@ -134,150 +134,163 @@ func (o AliasRoutingStrategyPtrOutput) Type() AliasRoutingStrategyTypePtrOutput 
 	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
-type BuildS3Location struct {
-	Bucket        string  `pulumi:"bucket"`
-	Key           string  `pulumi:"key"`
+type BuildStorageLocation struct {
+	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// The name of the zip file that contains the build files or script files.
+	Key string `pulumi:"key"`
+	// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 	ObjectVersion *string `pulumi:"objectVersion"`
-	RoleArn       string  `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+	RoleArn string `pulumi:"roleArn"`
 }
 
-// BuildS3LocationInput is an input type that accepts BuildS3LocationArgs and BuildS3LocationOutput values.
-// You can construct a concrete instance of `BuildS3LocationInput` via:
+// BuildStorageLocationInput is an input type that accepts BuildStorageLocationArgs and BuildStorageLocationOutput values.
+// You can construct a concrete instance of `BuildStorageLocationInput` via:
 //
-//	BuildS3LocationArgs{...}
-type BuildS3LocationInput interface {
+//	BuildStorageLocationArgs{...}
+type BuildStorageLocationInput interface {
 	pulumi.Input
 
-	ToBuildS3LocationOutput() BuildS3LocationOutput
-	ToBuildS3LocationOutputWithContext(context.Context) BuildS3LocationOutput
+	ToBuildStorageLocationOutput() BuildStorageLocationOutput
+	ToBuildStorageLocationOutputWithContext(context.Context) BuildStorageLocationOutput
 }
 
-type BuildS3LocationArgs struct {
-	Bucket        pulumi.StringInput    `pulumi:"bucket"`
-	Key           pulumi.StringInput    `pulumi:"key"`
+type BuildStorageLocationArgs struct {
+	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the zip file that contains the build files or script files.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
-func (BuildS3LocationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildS3Location)(nil)).Elem()
+func (BuildStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildStorageLocation)(nil)).Elem()
 }
 
-func (i BuildS3LocationArgs) ToBuildS3LocationOutput() BuildS3LocationOutput {
-	return i.ToBuildS3LocationOutputWithContext(context.Background())
+func (i BuildStorageLocationArgs) ToBuildStorageLocationOutput() BuildStorageLocationOutput {
+	return i.ToBuildStorageLocationOutputWithContext(context.Background())
 }
 
-func (i BuildS3LocationArgs) ToBuildS3LocationOutputWithContext(ctx context.Context) BuildS3LocationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationOutput)
+func (i BuildStorageLocationArgs) ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput)
 }
 
-func (i BuildS3LocationArgs) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
-	return i.ToBuildS3LocationPtrOutputWithContext(context.Background())
+func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
+	return i.ToBuildStorageLocationPtrOutputWithContext(context.Background())
 }
 
-func (i BuildS3LocationArgs) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationOutput).ToBuildS3LocationPtrOutputWithContext(ctx)
+func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput).ToBuildStorageLocationPtrOutputWithContext(ctx)
 }
 
-// BuildS3LocationPtrInput is an input type that accepts BuildS3LocationArgs, BuildS3LocationPtr and BuildS3LocationPtrOutput values.
-// You can construct a concrete instance of `BuildS3LocationPtrInput` via:
+// BuildStorageLocationPtrInput is an input type that accepts BuildStorageLocationArgs, BuildStorageLocationPtr and BuildStorageLocationPtrOutput values.
+// You can construct a concrete instance of `BuildStorageLocationPtrInput` via:
 //
-//	        BuildS3LocationArgs{...}
+//	        BuildStorageLocationArgs{...}
 //
 //	or:
 //
 //	        nil
-type BuildS3LocationPtrInput interface {
+type BuildStorageLocationPtrInput interface {
 	pulumi.Input
 
-	ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput
-	ToBuildS3LocationPtrOutputWithContext(context.Context) BuildS3LocationPtrOutput
+	ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput
+	ToBuildStorageLocationPtrOutputWithContext(context.Context) BuildStorageLocationPtrOutput
 }
 
-type buildS3LocationPtrType BuildS3LocationArgs
+type buildStorageLocationPtrType BuildStorageLocationArgs
 
-func BuildS3LocationPtr(v *BuildS3LocationArgs) BuildS3LocationPtrInput {
-	return (*buildS3LocationPtrType)(v)
+func BuildStorageLocationPtr(v *BuildStorageLocationArgs) BuildStorageLocationPtrInput {
+	return (*buildStorageLocationPtrType)(v)
 }
 
-func (*buildS3LocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildS3Location)(nil)).Elem()
+func (*buildStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildStorageLocation)(nil)).Elem()
 }
 
-func (i *buildS3LocationPtrType) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
-	return i.ToBuildS3LocationPtrOutputWithContext(context.Background())
+func (i *buildStorageLocationPtrType) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
+	return i.ToBuildStorageLocationPtrOutputWithContext(context.Background())
 }
 
-func (i *buildS3LocationPtrType) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildS3LocationPtrOutput)
+func (i *buildStorageLocationPtrType) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationPtrOutput)
 }
 
-type BuildS3LocationOutput struct{ *pulumi.OutputState }
+type BuildStorageLocationOutput struct{ *pulumi.OutputState }
 
-func (BuildS3LocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildS3Location)(nil)).Elem()
+func (BuildStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildStorageLocation)(nil)).Elem()
 }
 
-func (o BuildS3LocationOutput) ToBuildS3LocationOutput() BuildS3LocationOutput {
+func (o BuildStorageLocationOutput) ToBuildStorageLocationOutput() BuildStorageLocationOutput {
 	return o
 }
 
-func (o BuildS3LocationOutput) ToBuildS3LocationOutputWithContext(ctx context.Context) BuildS3LocationOutput {
+func (o BuildStorageLocationOutput) ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput {
 	return o
 }
 
-func (o BuildS3LocationOutput) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
-	return o.ToBuildS3LocationPtrOutputWithContext(context.Background())
+func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
+	return o.ToBuildStorageLocationPtrOutputWithContext(context.Background())
 }
 
-func (o BuildS3LocationOutput) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildS3Location) *BuildS3Location {
+func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildStorageLocation) *BuildStorageLocation {
 		return &v
-	}).(BuildS3LocationPtrOutput)
+	}).(BuildStorageLocationPtrOutput)
 }
 
-func (o BuildS3LocationOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+func (o BuildStorageLocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildStorageLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-func (o BuildS3LocationOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildS3Location) string { return v.Key }).(pulumi.StringOutput)
+// The name of the zip file that contains the build files or script files.
+func (o BuildStorageLocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildStorageLocation) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o BuildS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BuildS3Location) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
+// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+func (o BuildStorageLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildStorageLocation) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o BuildS3LocationOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v BuildS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
+// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+func (o BuildStorageLocationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BuildStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-type BuildS3LocationPtrOutput struct{ *pulumi.OutputState }
+type BuildStorageLocationPtrOutput struct{ *pulumi.OutputState }
 
-func (BuildS3LocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildS3Location)(nil)).Elem()
+func (BuildStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildStorageLocation)(nil)).Elem()
 }
 
-func (o BuildS3LocationPtrOutput) ToBuildS3LocationPtrOutput() BuildS3LocationPtrOutput {
+func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
 	return o
 }
 
-func (o BuildS3LocationPtrOutput) ToBuildS3LocationPtrOutputWithContext(ctx context.Context) BuildS3LocationPtrOutput {
+func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
 	return o
 }
 
-func (o BuildS3LocationPtrOutput) Elem() BuildS3LocationOutput {
-	return o.ApplyT(func(v *BuildS3Location) BuildS3Location {
+func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) BuildStorageLocation {
 		if v != nil {
 			return *v
 		}
-		var ret BuildS3Location
+		var ret BuildStorageLocation
 		return ret
-	}).(BuildS3LocationOutput)
+	}).(BuildStorageLocationOutput)
 }
 
-func (o BuildS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildS3Location) *string {
+// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -285,8 +298,9 @@ func (o BuildS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BuildS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildS3Location) *string {
+// The name of the zip file that contains the build files or script files.
+func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -294,8 +308,9 @@ func (o BuildS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BuildS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildS3Location) *string {
+// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+func (o BuildStorageLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -303,8 +318,9 @@ func (o BuildS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o BuildS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildS3Location) *string {
+// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildStorageLocation) *string {
 		if v == nil {
 			return nil
 		}
@@ -3309,8 +3325,8 @@ func (o ScriptTagArrayOutput) Index(i pulumi.IntInput) ScriptTagOutput {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationInput)(nil)).Elem(), BuildS3LocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildS3LocationPtrInput)(nil)).Elem(), BuildS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationInput)(nil)).Elem(), BuildStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationPtrInput)(nil)).Elem(), BuildStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationPtrInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
@@ -3359,8 +3375,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScriptTagArrayInput)(nil)).Elem(), ScriptTagArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
-	pulumi.RegisterOutputType(BuildS3LocationOutput{})
-	pulumi.RegisterOutputType(BuildS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(BuildStorageLocationOutput{})
+	pulumi.RegisterOutputType(BuildStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetAnywhereConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetAnywhereConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})

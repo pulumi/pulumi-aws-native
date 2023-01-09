@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DBClusterMasterUserSecretArgs',
     'DBClusterParameterGroupTagArgs',
     'DBClusterReadEndpointArgs',
     'DBClusterRoleArgs',
@@ -18,6 +19,7 @@ __all__ = [
     'DBClusterServerlessV2ScalingConfigurationArgs',
     'DBClusterTagArgs',
     'DBInstanceEndpointArgs',
+    'DBInstanceMasterUserSecretArgs',
     'DBInstanceProcessorFeatureArgs',
     'DBInstanceRoleArgs',
     'DBInstanceTagArgs',
@@ -34,6 +36,45 @@ __all__ = [
     'OptionGroupOptionSettingArgs',
     'OptionGroupTagArgs',
 ]
+
+@pulumi.input_type
+class DBClusterMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
 
 @pulumi.input_type
 class DBClusterParameterGroupTagArgs:
@@ -397,6 +438,45 @@ class DBInstanceEndpointArgs:
 
 
 @pulumi.input_type
+class DBInstanceMasterUserSecretArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
 class DBInstanceProcessorFeatureArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input['DBInstanceProcessorFeatureName']] = None,
@@ -554,12 +634,14 @@ class DBParameterGroupTagArgs:
 class DBProxyAuthFormatArgs:
     def __init__(__self__, *,
                  auth_scheme: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']] = None,
+                 client_password_auth_type: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  i_am_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['DBProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param pulumi.Input['DBProxyAuthFormatClientPasswordAuthType'] client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         :param pulumi.Input['DBProxyAuthFormatIAMAuth'] i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
@@ -567,6 +649,8 @@ class DBProxyAuthFormatArgs:
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_password_auth_type is not None:
+            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if i_am_auth is not None:
@@ -587,6 +671,18 @@ class DBProxyAuthFormatArgs:
     @auth_scheme.setter
     def auth_scheme(self, value: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']]):
         pulumi.set(self, "auth_scheme", value)
+
+    @property
+    @pulumi.getter(name="clientPasswordAuthType")
+    def client_password_auth_type(self) -> Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']]:
+        """
+        The type of authentication the proxy uses for connections from clients.
+        """
+        return pulumi.get(self, "client_password_auth_type")
+
+    @client_password_auth_type.setter
+    def client_password_auth_type(self, value: Optional[pulumi.Input['DBProxyAuthFormatClientPasswordAuthType']]):
+        pulumi.set(self, "client_password_auth_type", value)
 
     @property
     @pulumi.getter

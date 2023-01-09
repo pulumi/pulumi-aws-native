@@ -21,12 +21,16 @@ func LookupBuild(ctx *pulumi.Context, args *LookupBuildArgs, opts ...pulumi.Invo
 }
 
 type LookupBuildArgs struct {
-	Id string `pulumi:"id"`
+	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+	BuildId string `pulumi:"buildId"`
 }
 
 type LookupBuildResult struct {
-	Id      *string `pulumi:"id"`
-	Name    *string `pulumi:"name"`
+	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+	BuildId *string `pulumi:"buildId"`
+	// A descriptive label that is associated with a build. Build names do not need to be unique.
+	Name *string `pulumi:"name"`
+	// Version information that is associated with this build. Version strings do not need to be unique.
 	Version *string `pulumi:"version"`
 }
 
@@ -44,7 +48,8 @@ func LookupBuildOutput(ctx *pulumi.Context, args LookupBuildOutputArgs, opts ...
 }
 
 type LookupBuildOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+	BuildId pulumi.StringInput `pulumi:"buildId"`
 }
 
 func (LookupBuildOutputArgs) ElementType() reflect.Type {
@@ -65,14 +70,17 @@ func (o LookupBuildResultOutput) ToLookupBuildResultOutputWithContext(ctx contex
 	return o
 }
 
-func (o LookupBuildResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupBuildResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+func (o LookupBuildResultOutput) BuildId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBuildResult) *string { return v.BuildId }).(pulumi.StringPtrOutput)
 }
 
+// A descriptive label that is associated with a build. Build names do not need to be unique.
 func (o LookupBuildResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBuildResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Version information that is associated with this build. Version strings do not need to be unique.
 func (o LookupBuildResultOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBuildResult) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

@@ -58,10 +58,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class GetProjectResult
     {
         /// <summary>
-        /// The IDs of the assets to be associated to the project.
-        /// </summary>
-        public readonly ImmutableArray<string> AssetIds;
-        /// <summary>
         /// The ARN of the project.
         /// </summary>
         public readonly string? ProjectArn;
@@ -84,8 +80,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
         [OutputConstructor]
         private GetProjectResult(
-            ImmutableArray<string> assetIds,
-
             string? projectArn,
 
             string? projectDescription,
@@ -96,7 +90,6 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             ImmutableArray<Outputs.ProjectTag> tags)
         {
-            AssetIds = assetIds;
             ProjectArn = projectArn;
             ProjectDescription = projectDescription;
             ProjectId = projectId;

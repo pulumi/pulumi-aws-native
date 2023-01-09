@@ -26,6 +26,8 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
+	// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+	AppSecurityGroupManagement *DomainAppSecurityGroupManagement `pulumi:"appSecurityGroupManagement"`
 	// The default user settings.
 	DefaultUserSettings *DomainUserSettings `pulumi:"defaultUserSettings"`
 	// The Amazon Resource Name (ARN) of the created domain.
@@ -77,6 +79,11 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResul
 
 func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
 	return o
+}
+
+// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+func (o LookupDomainResultOutput) AppSecurityGroupManagement() DomainAppSecurityGroupManagementPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainAppSecurityGroupManagement { return v.AppSecurityGroupManagement }).(DomainAppSecurityGroupManagementPtrOutput)
 }
 
 // The default user settings.

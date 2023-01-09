@@ -20,6 +20,7 @@ type Subscription struct {
 	DeliveryPolicy      pulumi.AnyOutput       `pulumi:"deliveryPolicy"`
 	Endpoint            pulumi.StringPtrOutput `pulumi:"endpoint"`
 	FilterPolicy        pulumi.AnyOutput       `pulumi:"filterPolicy"`
+	FilterPolicyScope   pulumi.StringPtrOutput `pulumi:"filterPolicyScope"`
 	Protocol            pulumi.StringOutput    `pulumi:"protocol"`
 	RawMessageDelivery  pulumi.BoolPtrOutput   `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       pulumi.AnyOutput       `pulumi:"redrivePolicy"`
@@ -76,6 +77,7 @@ type subscriptionArgs struct {
 	DeliveryPolicy      interface{} `pulumi:"deliveryPolicy"`
 	Endpoint            *string     `pulumi:"endpoint"`
 	FilterPolicy        interface{} `pulumi:"filterPolicy"`
+	FilterPolicyScope   *string     `pulumi:"filterPolicyScope"`
 	Protocol            string      `pulumi:"protocol"`
 	RawMessageDelivery  *bool       `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       interface{} `pulumi:"redrivePolicy"`
@@ -89,6 +91,7 @@ type SubscriptionArgs struct {
 	DeliveryPolicy      pulumi.Input
 	Endpoint            pulumi.StringPtrInput
 	FilterPolicy        pulumi.Input
+	FilterPolicyScope   pulumi.StringPtrInput
 	Protocol            pulumi.StringInput
 	RawMessageDelivery  pulumi.BoolPtrInput
 	RedrivePolicy       pulumi.Input
@@ -144,6 +147,10 @@ func (o SubscriptionOutput) Endpoint() pulumi.StringPtrOutput {
 
 func (o SubscriptionOutput) FilterPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.AnyOutput { return v.FilterPolicy }).(pulumi.AnyOutput)
+}
+
+func (o SubscriptionOutput) FilterPolicyScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.FilterPolicyScope }).(pulumi.StringPtrOutput)
 }
 
 func (o SubscriptionOutput) Protocol() pulumi.StringOutput {

@@ -15,6 +15,7 @@ __all__ = [
     'WorkspaceIdpMetadataArgs',
     'WorkspaceRoleValuesArgs',
     'WorkspaceSamlConfigurationArgs',
+    'WorkspaceVpcConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -274,5 +275,43 @@ class WorkspaceSamlConfigurationArgs:
     @role_values.setter
     def role_values(self, value: Optional[pulumi.Input['WorkspaceRoleValuesArgs']]):
         pulumi.set(self, "role_values", value)
+
+
+@pulumi.input_type
+class WorkspaceVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 

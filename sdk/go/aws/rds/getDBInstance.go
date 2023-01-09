@@ -60,6 +60,8 @@ type LookupDBInstanceResult struct {
 	DBParameterGroupName *string `pulumi:"dBParameterGroupName"`
 	// A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
 	DBSecurityGroups []string `pulumi:"dBSecurityGroups"`
+	// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+	DBSystemId *string `pulumi:"dBSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -86,6 +88,10 @@ type LookupDBInstanceResult struct {
 	Iops *int `pulumi:"iops"`
 	// License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret *DBInstanceMasterUserSecret `pulumi:"masterUserSecret"`
 	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
 	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -237,6 +243,11 @@ func (o LookupDBInstanceResultOutput) DBSecurityGroups() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupDBInstanceResult) []string { return v.DBSecurityGroups }).(pulumi.StringArrayOutput)
 }
 
+// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+func (o LookupDBInstanceResultOutput) DBSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DBSystemId }).(pulumi.StringPtrOutput)
+}
+
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o LookupDBInstanceResultOutput) DbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.DbiResourceId }).(pulumi.StringPtrOutput)
@@ -300,6 +311,16 @@ func (o LookupDBInstanceResultOutput) Iops() pulumi.IntPtrOutput {
 // License model information for this DB instance.
 func (o LookupDBInstanceResultOutput) LicenseModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.LicenseModel }).(pulumi.StringPtrOutput)
+}
+
+// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+func (o LookupDBInstanceResultOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *bool { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+func (o LookupDBInstanceResultOutput) MasterUserSecret() DBInstanceMasterUserSecretPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *DBInstanceMasterUserSecret { return v.MasterUserSecret }).(DBInstanceMasterUserSecretPtrOutput)
 }
 
 // The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.

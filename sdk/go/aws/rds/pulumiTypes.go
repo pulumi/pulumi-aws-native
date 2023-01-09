@@ -85,6 +85,162 @@ func (o DBClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DBClusterMasterUserSecret struct {
+	// The AWS KMS key identifier that is used to encrypt the secret.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// DBClusterMasterUserSecretInput is an input type that accepts DBClusterMasterUserSecretArgs and DBClusterMasterUserSecretOutput values.
+// You can construct a concrete instance of `DBClusterMasterUserSecretInput` via:
+//
+//	DBClusterMasterUserSecretArgs{...}
+type DBClusterMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput
+	ToDBClusterMasterUserSecretOutputWithContext(context.Context) DBClusterMasterUserSecretOutput
+}
+
+type DBClusterMasterUserSecretArgs struct {
+	// The AWS KMS key identifier that is used to encrypt the secret.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (DBClusterMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput {
+	return i.ToDBClusterMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretOutputWithContext(ctx context.Context) DBClusterMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretOutput)
+}
+
+func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
+	return i.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (i DBClusterMasterUserSecretArgs) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretOutput).ToDBClusterMasterUserSecretPtrOutputWithContext(ctx)
+}
+
+// DBClusterMasterUserSecretPtrInput is an input type that accepts DBClusterMasterUserSecretArgs, DBClusterMasterUserSecretPtr and DBClusterMasterUserSecretPtrOutput values.
+// You can construct a concrete instance of `DBClusterMasterUserSecretPtrInput` via:
+//
+//	        DBClusterMasterUserSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBClusterMasterUserSecretPtrInput interface {
+	pulumi.Input
+
+	ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput
+	ToDBClusterMasterUserSecretPtrOutputWithContext(context.Context) DBClusterMasterUserSecretPtrOutput
+}
+
+type dbclusterMasterUserSecretPtrType DBClusterMasterUserSecretArgs
+
+func DBClusterMasterUserSecretPtr(v *DBClusterMasterUserSecretArgs) DBClusterMasterUserSecretPtrInput {
+	return (*dbclusterMasterUserSecretPtrType)(v)
+}
+
+func (*dbclusterMasterUserSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (i *dbclusterMasterUserSecretPtrType) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
+	return i.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *dbclusterMasterUserSecretPtrType) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBClusterMasterUserSecretPtrOutput)
+}
+
+type DBClusterMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (DBClusterMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretOutput() DBClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretOutputWithContext(ctx context.Context) DBClusterMasterUserSecretOutput {
+	return o
+}
+
+func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
+	return o.ToDBClusterMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (o DBClusterMasterUserSecretOutput) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBClusterMasterUserSecret) *DBClusterMasterUserSecret {
+		return &v
+	}).(DBClusterMasterUserSecretPtrOutput)
+}
+
+// The AWS KMS key identifier that is used to encrypt the secret.
+func (o DBClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o DBClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type DBClusterMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (DBClusterMasterUserSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBClusterMasterUserSecret)(nil)).Elem()
+}
+
+func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutput() DBClusterMasterUserSecretPtrOutput {
+	return o
+}
+
+func (o DBClusterMasterUserSecretPtrOutput) ToDBClusterMasterUserSecretPtrOutputWithContext(ctx context.Context) DBClusterMasterUserSecretPtrOutput {
+	return o
+}
+
+func (o DBClusterMasterUserSecretPtrOutput) Elem() DBClusterMasterUserSecretOutput {
+	return o.ApplyT(func(v *DBClusterMasterUserSecret) DBClusterMasterUserSecret {
+		if v != nil {
+			return *v
+		}
+		var ret DBClusterMasterUserSecret
+		return ret
+	}).(DBClusterMasterUserSecretOutput)
+}
+
+// The AWS KMS key identifier that is used to encrypt the secret.
+func (o DBClusterMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterMasterUserSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o DBClusterMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBClusterMasterUserSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type DBClusterParameterGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1162,6 +1318,162 @@ func (o DBInstanceEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DBInstanceMasterUserSecret struct {
+	// The AWS KMS key identifier that is used to encrypt the secret.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// DBInstanceMasterUserSecretInput is an input type that accepts DBInstanceMasterUserSecretArgs and DBInstanceMasterUserSecretOutput values.
+// You can construct a concrete instance of `DBInstanceMasterUserSecretInput` via:
+//
+//	DBInstanceMasterUserSecretArgs{...}
+type DBInstanceMasterUserSecretInput interface {
+	pulumi.Input
+
+	ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput
+	ToDBInstanceMasterUserSecretOutputWithContext(context.Context) DBInstanceMasterUserSecretOutput
+}
+
+type DBInstanceMasterUserSecretArgs struct {
+	// The AWS KMS key identifier that is used to encrypt the secret.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (DBInstanceMasterUserSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput {
+	return i.ToDBInstanceMasterUserSecretOutputWithContext(context.Background())
+}
+
+func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretOutput)
+}
+
+func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
+	return i.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (i DBInstanceMasterUserSecretArgs) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretOutput).ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx)
+}
+
+// DBInstanceMasterUserSecretPtrInput is an input type that accepts DBInstanceMasterUserSecretArgs, DBInstanceMasterUserSecretPtr and DBInstanceMasterUserSecretPtrOutput values.
+// You can construct a concrete instance of `DBInstanceMasterUserSecretPtrInput` via:
+//
+//	        DBInstanceMasterUserSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBInstanceMasterUserSecretPtrInput interface {
+	pulumi.Input
+
+	ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput
+	ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Context) DBInstanceMasterUserSecretPtrOutput
+}
+
+type dbinstanceMasterUserSecretPtrType DBInstanceMasterUserSecretArgs
+
+func DBInstanceMasterUserSecretPtr(v *DBInstanceMasterUserSecretArgs) DBInstanceMasterUserSecretPtrInput {
+	return (*dbinstanceMasterUserSecretPtrType)(v)
+}
+
+func (*dbinstanceMasterUserSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (i *dbinstanceMasterUserSecretPtrType) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
+	return i.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *dbinstanceMasterUserSecretPtrType) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceMasterUserSecretPtrOutput)
+}
+
+type DBInstanceMasterUserSecretOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceMasterUserSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretOutput() DBInstanceMasterUserSecretOutput {
+	return o
+}
+
+func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretOutput {
+	return o
+}
+
+func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
+	return o.ToDBInstanceMasterUserSecretPtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceMasterUserSecretOutput) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceMasterUserSecret) *DBInstanceMasterUserSecret {
+		return &v
+	}).(DBInstanceMasterUserSecretPtrOutput)
+}
+
+// The AWS KMS key identifier that is used to encrypt the secret.
+func (o DBInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o DBInstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type DBInstanceMasterUserSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceMasterUserSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceMasterUserSecret)(nil)).Elem()
+}
+
+func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutput() DBInstanceMasterUserSecretPtrOutput {
+	return o
+}
+
+func (o DBInstanceMasterUserSecretPtrOutput) ToDBInstanceMasterUserSecretPtrOutputWithContext(ctx context.Context) DBInstanceMasterUserSecretPtrOutput {
+	return o
+}
+
+func (o DBInstanceMasterUserSecretPtrOutput) Elem() DBInstanceMasterUserSecretOutput {
+	return o.ApplyT(func(v *DBInstanceMasterUserSecret) DBInstanceMasterUserSecret {
+		if v != nil {
+			return *v
+		}
+		var ret DBInstanceMasterUserSecret
+		return ret
+	}).(DBInstanceMasterUserSecretOutput)
+}
+
+// The AWS KMS key identifier that is used to encrypt the secret.
+func (o DBInstanceMasterUserSecretPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceMasterUserSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o DBInstanceMasterUserSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceMasterUserSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DBInstanceProcessorFeature struct {
 	// The name of the processor feature. Valid names are coreCount and threadsPerCore.
 	Name *DBInstanceProcessorFeatureName `pulumi:"name"`
@@ -1595,6 +1907,8 @@ func (o DBParameterGroupTagArrayOutput) Index(i pulumi.IntInput) DBParameterGrou
 type DBProxyAuthFormat struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 	AuthScheme *DBProxyAuthFormatAuthScheme `pulumi:"authScheme"`
+	// The type of authentication the proxy uses for connections from clients.
+	ClientPasswordAuthType *DBProxyAuthFormatClientPasswordAuthType `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
@@ -1619,6 +1933,8 @@ type DBProxyAuthFormatInput interface {
 type DBProxyAuthFormatArgs struct {
 	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 	AuthScheme DBProxyAuthFormatAuthSchemePtrInput `pulumi:"authScheme"`
+	// The type of authentication the proxy uses for connections from clients.
+	ClientPasswordAuthType DBProxyAuthFormatClientPasswordAuthTypePtrInput `pulumi:"clientPasswordAuthType"`
 	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
@@ -1683,6 +1999,11 @@ func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutputWithContext(ctx contex
 // The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 func (o DBProxyAuthFormatOutput) AuthScheme() DBProxyAuthFormatAuthSchemePtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatAuthScheme { return v.AuthScheme }).(DBProxyAuthFormatAuthSchemePtrOutput)
+}
+
+// The type of authentication the proxy uses for connections from clients.
+func (o DBProxyAuthFormatOutput) ClientPasswordAuthType() DBProxyAuthFormatClientPasswordAuthTypePtrOutput {
+	return o.ApplyT(func(v DBProxyAuthFormat) *DBProxyAuthFormatClientPasswordAuthType { return v.ClientPasswordAuthType }).(DBProxyAuthFormatClientPasswordAuthTypePtrOutput)
 }
 
 // A user-specified description about the authentication used by a proxy to log in as a specific database user.
@@ -2936,6 +3257,8 @@ func (o OptionGroupTagArrayOutput) Index(i pulumi.IntInput) OptionGroupTagOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterMasterUserSecretPtrInput)(nil)).Elem(), DBClusterMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagInput)(nil)).Elem(), DBClusterParameterGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterParameterGroupTagArrayInput)(nil)).Elem(), DBClusterParameterGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterReadEndpointInput)(nil)).Elem(), DBClusterReadEndpointArgs{})
@@ -2950,6 +3273,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointInput)(nil)).Elem(), DBInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointPtrInput)(nil)).Elem(), DBInstanceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceMasterUserSecretInput)(nil)).Elem(), DBInstanceMasterUserSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceMasterUserSecretPtrInput)(nil)).Elem(), DBInstanceMasterUserSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureInput)(nil)).Elem(), DBInstanceProcessorFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceProcessorFeatureArrayInput)(nil)).Elem(), DBInstanceProcessorFeatureArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceRoleInput)(nil)).Elem(), DBInstanceRoleArgs{})
@@ -2982,6 +3307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupTagArrayInput)(nil)).Elem(), OptionGroupTagArray{})
 	pulumi.RegisterOutputType(DBClusterEndpointOutput{})
 	pulumi.RegisterOutputType(DBClusterEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DBClusterMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(DBClusterMasterUserSecretPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagOutput{})
 	pulumi.RegisterOutputType(DBClusterParameterGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(DBClusterReadEndpointOutput{})
@@ -2996,6 +3323,8 @@ func init() {
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceEndpointOutput{})
 	pulumi.RegisterOutputType(DBInstanceEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DBInstanceMasterUserSecretOutput{})
+	pulumi.RegisterOutputType(DBInstanceMasterUserSecretPtrOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureOutput{})
 	pulumi.RegisterOutputType(DBInstanceProcessorFeatureArrayOutput{})
 	pulumi.RegisterOutputType(DBInstanceRoleOutput{})

@@ -565,7 +565,8 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
-	RuleOrder *FirewallPolicyRuleOrder `pulumi:"ruleOrder"`
+	RuleOrder             *FirewallPolicyRuleOrder             `pulumi:"ruleOrder"`
+	StreamExceptionPolicy *FirewallPolicyStreamExceptionPolicy `pulumi:"streamExceptionPolicy"`
 }
 
 // FirewallPolicyStatefulEngineOptionsInput is an input type that accepts FirewallPolicyStatefulEngineOptionsArgs and FirewallPolicyStatefulEngineOptionsOutput values.
@@ -580,7 +581,8 @@ type FirewallPolicyStatefulEngineOptionsInput interface {
 }
 
 type FirewallPolicyStatefulEngineOptionsArgs struct {
-	RuleOrder FirewallPolicyRuleOrderPtrInput `pulumi:"ruleOrder"`
+	RuleOrder             FirewallPolicyRuleOrderPtrInput             `pulumi:"ruleOrder"`
+	StreamExceptionPolicy FirewallPolicyStreamExceptionPolicyPtrInput `pulumi:"streamExceptionPolicy"`
 }
 
 func (FirewallPolicyStatefulEngineOptionsArgs) ElementType() reflect.Type {
@@ -664,6 +666,12 @@ func (o FirewallPolicyStatefulEngineOptionsOutput) RuleOrder() FirewallPolicyRul
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyRuleOrder { return v.RuleOrder }).(FirewallPolicyRuleOrderPtrOutput)
 }
 
+func (o FirewallPolicyStatefulEngineOptionsOutput) StreamExceptionPolicy() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyStreamExceptionPolicy {
+		return v.StreamExceptionPolicy
+	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
+}
+
 type FirewallPolicyStatefulEngineOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatefulEngineOptionsPtrOutput) ElementType() reflect.Type {
@@ -695,6 +703,15 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) RuleOrder() FirewallPolicy
 		}
 		return v.RuleOrder
 	}).(FirewallPolicyRuleOrderPtrOutput)
+}
+
+func (o FirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() FirewallPolicyStreamExceptionPolicyPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyStreamExceptionPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.StreamExceptionPolicy
+	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
 }
 
 type FirewallPolicyStatefulRuleGroupOverride struct {
@@ -1533,6 +1550,7 @@ func (o LoggingConfigurationLogDestinationConfigArrayOutput) Index(i pulumi.IntI
 }
 
 type RuleGroupType struct {
+	ReferenceSets       *RuleGroupReferenceSets       `pulumi:"referenceSets"`
 	RuleVariables       *RuleGroupRuleVariables       `pulumi:"ruleVariables"`
 	RulesSource         RuleGroupRulesSource          `pulumi:"rulesSource"`
 	StatefulRuleOptions *RuleGroupStatefulRuleOptions `pulumi:"statefulRuleOptions"`
@@ -1550,6 +1568,7 @@ type RuleGroupTypeInput interface {
 }
 
 type RuleGroupTypeArgs struct {
+	ReferenceSets       RuleGroupReferenceSetsPtrInput       `pulumi:"referenceSets"`
 	RuleVariables       RuleGroupRuleVariablesPtrInput       `pulumi:"ruleVariables"`
 	RulesSource         RuleGroupRulesSourceInput            `pulumi:"rulesSource"`
 	StatefulRuleOptions RuleGroupStatefulRuleOptionsPtrInput `pulumi:"statefulRuleOptions"`
@@ -1632,6 +1651,10 @@ func (o RuleGroupTypeOutput) ToRuleGroupTypePtrOutputWithContext(ctx context.Con
 	}).(RuleGroupTypePtrOutput)
 }
 
+func (o RuleGroupTypeOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput {
+	return o.ApplyT(func(v RuleGroupType) *RuleGroupReferenceSets { return v.ReferenceSets }).(RuleGroupReferenceSetsPtrOutput)
+}
+
 func (o RuleGroupTypeOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
 	return o.ApplyT(func(v RuleGroupType) *RuleGroupRuleVariables { return v.RuleVariables }).(RuleGroupRuleVariablesPtrOutput)
 }
@@ -1666,6 +1689,15 @@ func (o RuleGroupTypePtrOutput) Elem() RuleGroupTypeOutput {
 		var ret RuleGroupType
 		return ret
 	}).(RuleGroupTypeOutput)
+}
+
+func (o RuleGroupTypePtrOutput) ReferenceSets() RuleGroupReferenceSetsPtrOutput {
+	return o.ApplyT(func(v *RuleGroupType) *RuleGroupReferenceSets {
+		if v == nil {
+			return nil
+		}
+		return v.ReferenceSets
+	}).(RuleGroupReferenceSetsPtrOutput)
 }
 
 func (o RuleGroupTypePtrOutput) RuleVariables() RuleGroupRuleVariablesPtrOutput {
@@ -2421,6 +2453,139 @@ func (o RuleGroupPublishMetricActionPtrOutput) Dimensions() RuleGroupDimensionAr
 		}
 		return v.Dimensions
 	}).(RuleGroupDimensionArrayOutput)
+}
+
+type RuleGroupReferenceSets struct {
+	IPSetReferences interface{} `pulumi:"iPSetReferences"`
+}
+
+// RuleGroupReferenceSetsInput is an input type that accepts RuleGroupReferenceSetsArgs and RuleGroupReferenceSetsOutput values.
+// You can construct a concrete instance of `RuleGroupReferenceSetsInput` via:
+//
+//	RuleGroupReferenceSetsArgs{...}
+type RuleGroupReferenceSetsInput interface {
+	pulumi.Input
+
+	ToRuleGroupReferenceSetsOutput() RuleGroupReferenceSetsOutput
+	ToRuleGroupReferenceSetsOutputWithContext(context.Context) RuleGroupReferenceSetsOutput
+}
+
+type RuleGroupReferenceSetsArgs struct {
+	IPSetReferences pulumi.Input `pulumi:"iPSetReferences"`
+}
+
+func (RuleGroupReferenceSetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsOutput() RuleGroupReferenceSetsOutput {
+	return i.ToRuleGroupReferenceSetsOutputWithContext(context.Background())
+}
+
+func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsOutputWithContext(ctx context.Context) RuleGroupReferenceSetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupReferenceSetsOutput)
+}
+
+func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput {
+	return i.ToRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupReferenceSetsArgs) ToRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupReferenceSetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupReferenceSetsOutput).ToRuleGroupReferenceSetsPtrOutputWithContext(ctx)
+}
+
+// RuleGroupReferenceSetsPtrInput is an input type that accepts RuleGroupReferenceSetsArgs, RuleGroupReferenceSetsPtr and RuleGroupReferenceSetsPtrOutput values.
+// You can construct a concrete instance of `RuleGroupReferenceSetsPtrInput` via:
+//
+//	        RuleGroupReferenceSetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleGroupReferenceSetsPtrInput interface {
+	pulumi.Input
+
+	ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput
+	ToRuleGroupReferenceSetsPtrOutputWithContext(context.Context) RuleGroupReferenceSetsPtrOutput
+}
+
+type ruleGroupReferenceSetsPtrType RuleGroupReferenceSetsArgs
+
+func RuleGroupReferenceSetsPtr(v *RuleGroupReferenceSetsArgs) RuleGroupReferenceSetsPtrInput {
+	return (*ruleGroupReferenceSetsPtrType)(v)
+}
+
+func (*ruleGroupReferenceSetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (i *ruleGroupReferenceSetsPtrType) ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput {
+	return i.ToRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleGroupReferenceSetsPtrType) ToRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupReferenceSetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupReferenceSetsPtrOutput)
+}
+
+type RuleGroupReferenceSetsOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupReferenceSetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsOutput() RuleGroupReferenceSetsOutput {
+	return o
+}
+
+func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsOutputWithContext(ctx context.Context) RuleGroupReferenceSetsOutput {
+	return o
+}
+
+func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput {
+	return o.ToRuleGroupReferenceSetsPtrOutputWithContext(context.Background())
+}
+
+func (o RuleGroupReferenceSetsOutput) ToRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupReferenceSetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupReferenceSets) *RuleGroupReferenceSets {
+		return &v
+	}).(RuleGroupReferenceSetsPtrOutput)
+}
+
+func (o RuleGroupReferenceSetsOutput) IPSetReferences() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleGroupReferenceSets) interface{} { return v.IPSetReferences }).(pulumi.AnyOutput)
+}
+
+type RuleGroupReferenceSetsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupReferenceSetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupReferenceSets)(nil)).Elem()
+}
+
+func (o RuleGroupReferenceSetsPtrOutput) ToRuleGroupReferenceSetsPtrOutput() RuleGroupReferenceSetsPtrOutput {
+	return o
+}
+
+func (o RuleGroupReferenceSetsPtrOutput) ToRuleGroupReferenceSetsPtrOutputWithContext(ctx context.Context) RuleGroupReferenceSetsPtrOutput {
+	return o
+}
+
+func (o RuleGroupReferenceSetsPtrOutput) Elem() RuleGroupReferenceSetsOutput {
+	return o.ApplyT(func(v *RuleGroupReferenceSets) RuleGroupReferenceSets {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupReferenceSets
+		return ret
+	}).(RuleGroupReferenceSetsOutput)
+}
+
+func (o RuleGroupReferenceSetsPtrOutput) IPSetReferences() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RuleGroupReferenceSets) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.IPSetReferences
+	}).(pulumi.AnyOutput)
 }
 
 type RuleGroupRuleDefinition struct {
@@ -3797,6 +3962,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPortRangeArrayInput)(nil)).Elem(), RuleGroupPortRangeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPublishMetricActionInput)(nil)).Elem(), RuleGroupPublishMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPublishMetricActionPtrInput)(nil)).Elem(), RuleGroupPublishMetricActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupReferenceSetsInput)(nil)).Elem(), RuleGroupReferenceSetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupReferenceSetsPtrInput)(nil)).Elem(), RuleGroupReferenceSetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleDefinitionInput)(nil)).Elem(), RuleGroupRuleDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleOptionInput)(nil)).Elem(), RuleGroupRuleOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleOptionArrayInput)(nil)).Elem(), RuleGroupRuleOptionArray{})
@@ -3860,6 +4027,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupPortRangeArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionOutput{})
 	pulumi.RegisterOutputType(RuleGroupPublishMetricActionPtrOutput{})
+	pulumi.RegisterOutputType(RuleGroupReferenceSetsOutput{})
+	pulumi.RegisterOutputType(RuleGroupReferenceSetsPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleDefinitionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleOptionArrayOutput{})

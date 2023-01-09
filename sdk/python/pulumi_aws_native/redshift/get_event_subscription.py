@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -20,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSubscriptionResult:
-    def __init__(__self__, cust_subscription_id=None, customer_aws_id=None, enabled=None, event_categories=None, event_categories_list=None, severity=None, sns_topic_arn=None, source_ids=None, source_ids_list=None, source_type=None, status=None, subscription_creation_time=None, tags=None):
+    def __init__(__self__, cust_subscription_id=None, customer_aws_id=None, enabled=None, event_categories=None, event_categories_list=None, severity=None, sns_topic_arn=None, source_ids=None, source_ids_list=None, source_type=None, status=None, subscription_creation_time=None):
         if cust_subscription_id and not isinstance(cust_subscription_id, str):
             raise TypeError("Expected argument 'cust_subscription_id' to be a str")
         pulumi.set(__self__, "cust_subscription_id", cust_subscription_id)
@@ -57,9 +56,6 @@ class GetEventSubscriptionResult:
         if subscription_creation_time and not isinstance(subscription_creation_time, str):
             raise TypeError("Expected argument 'subscription_creation_time' to be a str")
         pulumi.set(__self__, "subscription_creation_time", subscription_creation_time)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="custSubscriptionId")
@@ -157,14 +153,6 @@ class GetEventSubscriptionResult:
         """
         return pulumi.get(self, "subscription_creation_time")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.EventSubscriptionTag']]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
     # pylint: disable=using-constant-test
@@ -183,8 +171,7 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             source_ids_list=self.source_ids_list,
             source_type=self.source_type,
             status=self.status,
-            subscription_creation_time=self.subscription_creation_time,
-            tags=self.tags)
+            subscription_creation_time=self.subscription_creation_time)
 
 
 def get_event_subscription(subscription_name: Optional[str] = None,
@@ -212,8 +199,7 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         source_ids_list=__ret__.source_ids_list,
         source_type=__ret__.source_type,
         status=__ret__.status,
-        subscription_creation_time=__ret__.subscription_creation_time,
-        tags=__ret__.tags)
+        subscription_creation_time=__ret__.subscription_creation_time)
 
 
 @_utilities.lift_output_func(get_event_subscription)

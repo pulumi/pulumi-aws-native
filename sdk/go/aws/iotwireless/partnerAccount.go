@@ -21,7 +21,7 @@ type PartnerAccount struct {
 	// PartnerAccount arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The fingerprint of the Sidewalk application server private key.
-	Fingerprint pulumi.StringPtrOutput `pulumi:"fingerprint"`
+	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
 	// The partner account ID to disassociate from the AWS account
 	PartnerAccountId pulumi.StringPtrOutput `pulumi:"partnerAccountId"`
 	// The partner type
@@ -29,7 +29,7 @@ type PartnerAccount struct {
 	// The Sidewalk account credentials.
 	Sidewalk PartnerAccountSidewalkAccountInfoPtrOutput `pulumi:"sidewalk"`
 	// The Sidewalk account credentials.
-	SidewalkResponse PartnerAccountSidewalkAccountInfoWithFingerprintOutput `pulumi:"sidewalkResponse"`
+	SidewalkResponse PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput `pulumi:"sidewalkResponse"`
 	// The Sidewalk account credentials.
 	SidewalkUpdate PartnerAccountSidewalkUpdateAccountPtrOutput `pulumi:"sidewalkUpdate"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -77,14 +77,14 @@ func (PartnerAccountState) ElementType() reflect.Type {
 type partnerAccountArgs struct {
 	// Whether the partner account is linked to the AWS account.
 	AccountLinked *bool `pulumi:"accountLinked"`
-	// The fingerprint of the Sidewalk application server private key.
-	Fingerprint *string `pulumi:"fingerprint"`
 	// The partner account ID to disassociate from the AWS account
 	PartnerAccountId *string `pulumi:"partnerAccountId"`
 	// The partner type
 	PartnerType *PartnerAccountPartnerType `pulumi:"partnerType"`
 	// The Sidewalk account credentials.
 	Sidewalk *PartnerAccountSidewalkAccountInfo `pulumi:"sidewalk"`
+	// The Sidewalk account credentials.
+	SidewalkResponse *PartnerAccountSidewalkAccountInfoWithFingerprint `pulumi:"sidewalkResponse"`
 	// The Sidewalk account credentials.
 	SidewalkUpdate *PartnerAccountSidewalkUpdateAccount `pulumi:"sidewalkUpdate"`
 	// A list of key-value pairs that contain metadata for the destination.
@@ -95,14 +95,14 @@ type partnerAccountArgs struct {
 type PartnerAccountArgs struct {
 	// Whether the partner account is linked to the AWS account.
 	AccountLinked pulumi.BoolPtrInput
-	// The fingerprint of the Sidewalk application server private key.
-	Fingerprint pulumi.StringPtrInput
 	// The partner account ID to disassociate from the AWS account
 	PartnerAccountId pulumi.StringPtrInput
 	// The partner type
 	PartnerType PartnerAccountPartnerTypePtrInput
 	// The Sidewalk account credentials.
 	Sidewalk PartnerAccountSidewalkAccountInfoPtrInput
+	// The Sidewalk account credentials.
+	SidewalkResponse PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput
 	// The Sidewalk account credentials.
 	SidewalkUpdate PartnerAccountSidewalkUpdateAccountPtrInput
 	// A list of key-value pairs that contain metadata for the destination.
@@ -157,8 +157,8 @@ func (o PartnerAccountOutput) Arn() pulumi.StringOutput {
 }
 
 // The fingerprint of the Sidewalk application server private key.
-func (o PartnerAccountOutput) Fingerprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartnerAccount) pulumi.StringPtrOutput { return v.Fingerprint }).(pulumi.StringPtrOutput)
+func (o PartnerAccountOutput) Fingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerAccount) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
 // The partner account ID to disassociate from the AWS account
@@ -177,10 +177,10 @@ func (o PartnerAccountOutput) Sidewalk() PartnerAccountSidewalkAccountInfoPtrOut
 }
 
 // The Sidewalk account credentials.
-func (o PartnerAccountOutput) SidewalkResponse() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
-	return o.ApplyT(func(v *PartnerAccount) PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
+func (o PartnerAccountOutput) SidewalkResponse() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return o.ApplyT(func(v *PartnerAccount) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
 		return v.SidewalkResponse
-	}).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
+	}).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
 }
 
 // The Sidewalk account credentials.

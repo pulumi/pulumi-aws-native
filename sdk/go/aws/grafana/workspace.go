@@ -47,8 +47,9 @@ type Workspace struct {
 	// The client ID of the AWS SSO Managed Application.
 	SsoClientId pulumi.StringOutput `pulumi:"ssoClientId"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName pulumi.StringPtrOutput `pulumi:"stackSetName"`
-	Status       WorkspaceStatusOutput  `pulumi:"status"`
+	StackSetName     pulumi.StringPtrOutput             `pulumi:"stackSetName"`
+	Status           WorkspaceStatusOutput              `pulumi:"status"`
+	VpcConfiguration WorkspaceVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -112,7 +113,8 @@ type workspaceArgs struct {
 	RoleArn           *string                     `pulumi:"roleArn"`
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName *string `pulumi:"stackSetName"`
+	StackSetName     *string                    `pulumi:"stackSetName"`
+	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -139,7 +141,8 @@ type WorkspaceArgs struct {
 	RoleArn           pulumi.StringPtrInput
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName pulumi.StringPtrInput
+	StackSetName     pulumi.StringPtrInput
+	VpcConfiguration WorkspaceVpcConfigurationPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -272,6 +275,10 @@ func (o WorkspaceOutput) StackSetName() pulumi.StringPtrOutput {
 
 func (o WorkspaceOutput) Status() WorkspaceStatusOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceStatusOutput { return v.Status }).(WorkspaceStatusOutput)
+}
+
+func (o WorkspaceOutput) VpcConfiguration() WorkspaceVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceVpcConfigurationPtrOutput { return v.VpcConfiguration }).(WorkspaceVpcConfigurationPtrOutput)
 }
 
 func init() {

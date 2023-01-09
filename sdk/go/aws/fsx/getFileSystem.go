@@ -31,6 +31,7 @@ type LookupFileSystemResult struct {
 	LustreMountName      *string                         `pulumi:"lustreMountName"`
 	OntapConfiguration   *FileSystemOntapConfiguration   `pulumi:"ontapConfiguration"`
 	OpenZFSConfiguration *FileSystemOpenZFSConfiguration `pulumi:"openZFSConfiguration"`
+	ResourceARN          *string                         `pulumi:"resourceARN"`
 	RootVolumeId         *string                         `pulumi:"rootVolumeId"`
 	StorageCapacity      *int                            `pulumi:"storageCapacity"`
 	Tags                 []FileSystemTag                 `pulumi:"tags"`
@@ -94,6 +95,10 @@ func (o LookupFileSystemResultOutput) OntapConfiguration() FileSystemOntapConfig
 
 func (o LookupFileSystemResultOutput) OpenZFSConfiguration() FileSystemOpenZFSConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemOpenZFSConfiguration { return v.OpenZFSConfiguration }).(FileSystemOpenZFSConfigurationPtrOutput)
+}
+
+func (o LookupFileSystemResultOutput) ResourceARN() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) RootVolumeId() pulumi.StringPtrOutput {

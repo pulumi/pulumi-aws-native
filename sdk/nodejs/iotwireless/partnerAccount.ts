@@ -51,7 +51,7 @@ export class PartnerAccount extends pulumi.CustomResource {
     /**
      * The fingerprint of the Sidewalk application server private key.
      */
-    public readonly fingerprint!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
      * The partner account ID to disassociate from the AWS account
      */
@@ -67,7 +67,7 @@ export class PartnerAccount extends pulumi.CustomResource {
     /**
      * The Sidewalk account credentials.
      */
-    public /*out*/ readonly sidewalkResponse!: pulumi.Output<outputs.iotwireless.PartnerAccountSidewalkAccountInfoWithFingerprint>;
+    public readonly sidewalkResponse!: pulumi.Output<outputs.iotwireless.PartnerAccountSidewalkAccountInfoWithFingerprint | undefined>;
     /**
      * The Sidewalk account credentials.
      */
@@ -91,14 +91,14 @@ export class PartnerAccount extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["accountLinked"] = args ? args.accountLinked : undefined;
-            resourceInputs["fingerprint"] = args ? args.fingerprint : undefined;
             resourceInputs["partnerAccountId"] = args ? args.partnerAccountId : undefined;
             resourceInputs["partnerType"] = args ? args.partnerType : undefined;
             resourceInputs["sidewalk"] = args ? args.sidewalk : undefined;
+            resourceInputs["sidewalkResponse"] = args ? args.sidewalkResponse : undefined;
             resourceInputs["sidewalkUpdate"] = args ? args.sidewalkUpdate : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["sidewalkResponse"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
         } else {
             resourceInputs["accountLinked"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -124,10 +124,6 @@ export interface PartnerAccountArgs {
      */
     accountLinked?: pulumi.Input<boolean>;
     /**
-     * The fingerprint of the Sidewalk application server private key.
-     */
-    fingerprint?: pulumi.Input<string>;
-    /**
      * The partner account ID to disassociate from the AWS account
      */
     partnerAccountId?: pulumi.Input<string>;
@@ -139,6 +135,10 @@ export interface PartnerAccountArgs {
      * The Sidewalk account credentials.
      */
     sidewalk?: pulumi.Input<inputs.iotwireless.PartnerAccountSidewalkAccountInfoArgs>;
+    /**
+     * The Sidewalk account credentials.
+     */
+    sidewalkResponse?: pulumi.Input<inputs.iotwireless.PartnerAccountSidewalkAccountInfoWithFingerprintArgs>;
     /**
      * The Sidewalk account credentials.
      */

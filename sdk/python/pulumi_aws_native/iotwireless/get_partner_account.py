@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPartnerAccountResult:
-    def __init__(__self__, account_linked=None, arn=None, fingerprint=None, partner_type=None, sidewalk=None, sidewalk_response=None, sidewalk_update=None, tags=None):
+    def __init__(__self__, account_linked=None, arn=None, fingerprint=None, partner_type=None, sidewalk_response=None, tags=None):
         if account_linked and not isinstance(account_linked, bool):
             raise TypeError("Expected argument 'account_linked' to be a bool")
         pulumi.set(__self__, "account_linked", account_linked)
@@ -33,15 +33,9 @@ class GetPartnerAccountResult:
         if partner_type and not isinstance(partner_type, str):
             raise TypeError("Expected argument 'partner_type' to be a str")
         pulumi.set(__self__, "partner_type", partner_type)
-        if sidewalk and not isinstance(sidewalk, dict):
-            raise TypeError("Expected argument 'sidewalk' to be a dict")
-        pulumi.set(__self__, "sidewalk", sidewalk)
         if sidewalk_response and not isinstance(sidewalk_response, dict):
             raise TypeError("Expected argument 'sidewalk_response' to be a dict")
         pulumi.set(__self__, "sidewalk_response", sidewalk_response)
-        if sidewalk_update and not isinstance(sidewalk_update, dict):
-            raise TypeError("Expected argument 'sidewalk_update' to be a dict")
-        pulumi.set(__self__, "sidewalk_update", sidewalk_update)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -79,28 +73,12 @@ class GetPartnerAccountResult:
         return pulumi.get(self, "partner_type")
 
     @property
-    @pulumi.getter
-    def sidewalk(self) -> Optional['outputs.PartnerAccountSidewalkAccountInfo']:
-        """
-        The Sidewalk account credentials.
-        """
-        return pulumi.get(self, "sidewalk")
-
-    @property
     @pulumi.getter(name="sidewalkResponse")
     def sidewalk_response(self) -> Optional['outputs.PartnerAccountSidewalkAccountInfoWithFingerprint']:
         """
         The Sidewalk account credentials.
         """
         return pulumi.get(self, "sidewalk_response")
-
-    @property
-    @pulumi.getter(name="sidewalkUpdate")
-    def sidewalk_update(self) -> Optional['outputs.PartnerAccountSidewalkUpdateAccount']:
-        """
-        The Sidewalk account credentials.
-        """
-        return pulumi.get(self, "sidewalk_update")
 
     @property
     @pulumi.getter
@@ -121,9 +99,7 @@ class AwaitableGetPartnerAccountResult(GetPartnerAccountResult):
             arn=self.arn,
             fingerprint=self.fingerprint,
             partner_type=self.partner_type,
-            sidewalk=self.sidewalk,
             sidewalk_response=self.sidewalk_response,
-            sidewalk_update=self.sidewalk_update,
             tags=self.tags)
 
 
@@ -145,9 +121,7 @@ def get_partner_account(partner_account_id: Optional[str] = None,
         arn=__ret__.arn,
         fingerprint=__ret__.fingerprint,
         partner_type=__ret__.partner_type,
-        sidewalk=__ret__.sidewalk,
         sidewalk_response=__ret__.sidewalk_response,
-        sidewalk_update=__ret__.sidewalk_update,
         tags=__ret__.tags)
 
 

@@ -50,8 +50,6 @@ type LookupEventSubscriptionResult struct {
 	Status *EventSubscriptionStatus `pulumi:"status"`
 	// The date and time the Amazon Redshift event notification subscription was created.
 	SubscriptionCreationTime *string `pulumi:"subscriptionCreationTime"`
-	// An array of key-value pairs to apply to this resource.
-	Tags []EventSubscriptionTag `pulumi:"tags"`
 }
 
 func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupEventSubscriptionResultOutput {
@@ -148,11 +146,6 @@ func (o LookupEventSubscriptionResultOutput) Status() EventSubscriptionStatusPtr
 // The date and time the Amazon Redshift event notification subscription was created.
 func (o LookupEventSubscriptionResultOutput) SubscriptionCreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventSubscriptionResult) *string { return v.SubscriptionCreationTime }).(pulumi.StringPtrOutput)
-}
-
-// An array of key-value pairs to apply to this resource.
-func (o LookupEventSubscriptionResultOutput) Tags() EventSubscriptionTagArrayOutput {
-	return o.ApplyT(func(v LookupEventSubscriptionResult) []EventSubscriptionTag { return v.Tags }).(EventSubscriptionTagArrayOutput)
 }
 
 func init() {

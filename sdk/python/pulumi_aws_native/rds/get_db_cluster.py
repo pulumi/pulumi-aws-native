@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_arn=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, d_b_cluster_arn=None, d_b_cluster_instance_class=None, d_b_cluster_parameter_group_name=None, d_b_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -83,6 +83,12 @@ class GetDBClusterResult:
         if iops and not isinstance(iops, int):
             raise TypeError("Expected argument 'iops' to be a int")
         pulumi.set(__self__, "iops", iops)
+        if manage_master_user_password and not isinstance(manage_master_user_password, bool):
+            raise TypeError("Expected argument 'manage_master_user_password' to be a bool")
+        pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_secret and not isinstance(master_user_secret, dict):
+            raise TypeError("Expected argument 'master_user_secret' to be a dict")
+        pulumi.set(__self__, "master_user_secret", master_user_secret)
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
@@ -303,6 +309,22 @@ class GetDBClusterResult:
         return pulumi.get(self, "iops")
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[bool]:
+        """
+        A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecret")
+    def master_user_secret(self) -> Optional['outputs.DBClusterMasterUserSecret']:
+        """
+        Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        """
+        return pulumi.get(self, "master_user_secret")
+
+    @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> Optional[str]:
         """
@@ -463,6 +485,8 @@ class AwaitableGetDBClusterResult(GetDBClusterResult):
             engine_version=self.engine_version,
             global_cluster_identifier=self.global_cluster_identifier,
             iops=self.iops,
+            manage_master_user_password=self.manage_master_user_password,
+            master_user_secret=self.master_user_secret,
             master_username=self.master_username,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
@@ -517,6 +541,8 @@ def get_db_cluster(d_b_cluster_identifier: Optional[str] = None,
         engine_version=__ret__.engine_version,
         global_cluster_identifier=__ret__.global_cluster_identifier,
         iops=__ret__.iops,
+        manage_master_user_password=__ret__.manage_master_user_password,
+        master_user_secret=__ret__.master_user_secret,
         master_username=__ret__.master_username,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,

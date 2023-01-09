@@ -35,6 +35,7 @@ __all__ = [
     'RuleGroupMatchAttributes',
     'RuleGroupPortRange',
     'RuleGroupPublishMetricAction',
+    'RuleGroupReferenceSets',
     'RuleGroupRuleDefinition',
     'RuleGroupRuleOption',
     'RuleGroupRuleVariables',
@@ -235,6 +236,8 @@ class FirewallPolicyStatefulEngineOptions(dict):
         suggest = None
         if key == "ruleOrder":
             suggest = "rule_order"
+        elif key == "streamExceptionPolicy":
+            suggest = "stream_exception_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicyStatefulEngineOptions. Access the value via the '{suggest}' property getter instead.")
@@ -248,14 +251,22 @@ class FirewallPolicyStatefulEngineOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 rule_order: Optional['FirewallPolicyRuleOrder'] = None):
+                 rule_order: Optional['FirewallPolicyRuleOrder'] = None,
+                 stream_exception_policy: Optional['FirewallPolicyStreamExceptionPolicy'] = None):
         if rule_order is not None:
             pulumi.set(__self__, "rule_order", rule_order)
+        if stream_exception_policy is not None:
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
     def rule_order(self) -> Optional['FirewallPolicyRuleOrder']:
         return pulumi.get(self, "rule_order")
+
+    @property
+    @pulumi.getter(name="streamExceptionPolicy")
+    def stream_exception_policy(self) -> Optional['FirewallPolicyStreamExceptionPolicy']:
+        return pulumi.get(self, "stream_exception_policy")
 
 
 @pulumi.output_type
@@ -514,6 +525,8 @@ class RuleGroup(dict):
         suggest = None
         if key == "rulesSource":
             suggest = "rules_source"
+        elif key == "referenceSets":
+            suggest = "reference_sets"
         elif key == "ruleVariables":
             suggest = "rule_variables"
         elif key == "statefulRuleOptions":
@@ -532,9 +545,12 @@ class RuleGroup(dict):
 
     def __init__(__self__, *,
                  rules_source: 'outputs.RuleGroupRulesSource',
+                 reference_sets: Optional['outputs.RuleGroupReferenceSets'] = None,
                  rule_variables: Optional['outputs.RuleGroupRuleVariables'] = None,
                  stateful_rule_options: Optional['outputs.RuleGroupStatefulRuleOptions'] = None):
         pulumi.set(__self__, "rules_source", rules_source)
+        if reference_sets is not None:
+            pulumi.set(__self__, "reference_sets", reference_sets)
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
         if stateful_rule_options is not None:
@@ -544,6 +560,11 @@ class RuleGroup(dict):
     @pulumi.getter(name="rulesSource")
     def rules_source(self) -> 'outputs.RuleGroupRulesSource':
         return pulumi.get(self, "rules_source")
+
+    @property
+    @pulumi.getter(name="referenceSets")
+    def reference_sets(self) -> Optional['outputs.RuleGroupReferenceSets']:
+        return pulumi.get(self, "reference_sets")
 
     @property
     @pulumi.getter(name="ruleVariables")
@@ -853,6 +874,36 @@ class RuleGroupPublishMetricAction(dict):
     @pulumi.getter
     def dimensions(self) -> Sequence['outputs.RuleGroupDimension']:
         return pulumi.get(self, "dimensions")
+
+
+@pulumi.output_type
+class RuleGroupReferenceSets(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iPSetReferences":
+            suggest = "i_p_set_references"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleGroupReferenceSets. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleGroupReferenceSets.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleGroupReferenceSets.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 i_p_set_references: Optional[Any] = None):
+        if i_p_set_references is not None:
+            pulumi.set(__self__, "i_p_set_references", i_p_set_references)
+
+    @property
+    @pulumi.getter(name="iPSetReferences")
+    def i_p_set_references(self) -> Optional[Any]:
+        return pulumi.get(self, "i_p_set_references")
 
 
 @pulumi.output_type

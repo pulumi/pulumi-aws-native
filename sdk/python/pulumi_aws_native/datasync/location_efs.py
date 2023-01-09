@@ -18,25 +18,26 @@ __all__ = ['LocationEFSArgs', 'LocationEFS']
 class LocationEFSArgs:
     def __init__(__self__, *,
                  ec2_config: pulumi.Input['LocationEFSEc2ConfigArgs'],
-                 efs_filesystem_arn: pulumi.Input[str],
                  access_point_arn: Optional[pulumi.Input[str]] = None,
+                 efs_filesystem_arn: Optional[pulumi.Input[str]] = None,
                  file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
                  in_transit_encryption: Optional[pulumi.Input['LocationEFSInTransitEncryption']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationEFSTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationEFS resource.
-        :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
         :param pulumi.Input[str] access_point_arn: The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
+        :param pulumi.Input[str] efs_filesystem_arn: The Amazon Resource Name (ARN) for the Amazon EFS file system.
         :param pulumi.Input[str] file_system_access_role_arn: The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
         :param pulumi.Input['LocationEFSInTransitEncryption'] in_transit_encryption: Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationEFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ec2_config", ec2_config)
-        pulumi.set(__self__, "efs_filesystem_arn", efs_filesystem_arn)
         if access_point_arn is not None:
             pulumi.set(__self__, "access_point_arn", access_point_arn)
+        if efs_filesystem_arn is not None:
+            pulumi.set(__self__, "efs_filesystem_arn", efs_filesystem_arn)
         if file_system_access_role_arn is not None:
             pulumi.set(__self__, "file_system_access_role_arn", file_system_access_role_arn)
         if in_transit_encryption is not None:
@@ -56,18 +57,6 @@ class LocationEFSArgs:
         pulumi.set(self, "ec2_config", value)
 
     @property
-    @pulumi.getter(name="efsFilesystemArn")
-    def efs_filesystem_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) for the Amazon EFS file system.
-        """
-        return pulumi.get(self, "efs_filesystem_arn")
-
-    @efs_filesystem_arn.setter
-    def efs_filesystem_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "efs_filesystem_arn", value)
-
-    @property
     @pulumi.getter(name="accessPointArn")
     def access_point_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -78,6 +67,18 @@ class LocationEFSArgs:
     @access_point_arn.setter
     def access_point_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_point_arn", value)
+
+    @property
+    @pulumi.getter(name="efsFilesystemArn")
+    def efs_filesystem_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Amazon EFS file system.
+        """
+        return pulumi.get(self, "efs_filesystem_arn")
+
+    @efs_filesystem_arn.setter
+    def efs_filesystem_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "efs_filesystem_arn", value)
 
     @property
     @pulumi.getter(name="fileSystemAccessRoleArn")
@@ -197,8 +198,6 @@ class LocationEFS(pulumi.CustomResource):
             if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__.__dict__["ec2_config"] = ec2_config
-            if efs_filesystem_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'efs_filesystem_arn'")
             __props__.__dict__["efs_filesystem_arn"] = efs_filesystem_arn
             __props__.__dict__["file_system_access_role_arn"] = file_system_access_role_arn
             __props__.__dict__["in_transit_encryption"] = in_transit_encryption
@@ -254,7 +253,7 @@ class LocationEFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="efsFilesystemArn")
-    def efs_filesystem_arn(self) -> pulumi.Output[str]:
+    def efs_filesystem_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the Amazon EFS file system.
         """

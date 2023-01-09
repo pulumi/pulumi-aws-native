@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NamespaceArgs', 'Namespace']
+__all__ = ['NamespaceInitArgs', 'Namespace']
 
 @pulumi.input_type
-class NamespaceArgs:
+class NamespaceInitArgs:
     def __init__(__self__, *,
                  admin_user_password: Optional[pulumi.Input[str]] = None,
                  admin_username: Optional[pulumi.Input[str]] = None,
@@ -26,6 +26,7 @@ class NamespaceArgs:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 namespace: Optional[pulumi.Input['NamespaceArgs']] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceTagArgs']]]] = None):
         """
@@ -60,6 +61,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_exports is not None:
             pulumi.set(__self__, "log_exports", log_exports)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if tags is not None:
@@ -174,6 +177,15 @@ class NamespaceArgs:
         pulumi.set(self, "log_exports", value)
 
     @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input['NamespaceArgs']]:
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input['NamespaceArgs']]):
+        pulumi.set(self, "namespace", value)
+
+    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +224,7 @@ class Namespace(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 namespace: Optional[pulumi.Input[pulumi.InputType['NamespaceArgs']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceTagArgs']]]]] = None,
                  __props__=None):
@@ -236,18 +249,18 @@ class Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NamespaceArgs] = None,
+                 args: Optional[NamespaceInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RedshiftServerless::Namespace Resource Type
 
         :param str resource_name: The name of the resource.
-        :param NamespaceArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,6 +278,7 @@ class Namespace(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceLogExport']]]] = None,
+                 namespace: Optional[pulumi.Input[pulumi.InputType['NamespaceArgs']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceTagArgs']]]]] = None,
                  __props__=None):
@@ -274,7 +288,7 @@ class Namespace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceArgs.__new__(NamespaceArgs)
+            __props__ = NamespaceInitArgs.__new__(NamespaceInitArgs)
 
             __props__.__dict__["admin_user_password"] = admin_user_password
             __props__.__dict__["admin_username"] = admin_username
@@ -285,9 +299,9 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_exports"] = log_exports
+            __props__.__dict__["namespace"] = namespace
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["namespace"] = None
         super(Namespace, __self__).__init__(
             'aws-native:redshiftserverless:Namespace',
             resource_name,
@@ -308,7 +322,7 @@ class Namespace(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = NamespaceArgs.__new__(NamespaceArgs)
+        __props__ = NamespaceInitArgs.__new__(NamespaceInitArgs)
 
         __props__.__dict__["admin_user_password"] = None
         __props__.__dict__["admin_username"] = None
@@ -398,7 +412,7 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def namespace(self) -> pulumi.Output['outputs.Namespace']:
+    def namespace(self) -> pulumi.Output[Optional['outputs.Namespace']]:
         return pulumi.get(self, "namespace")
 
     @property

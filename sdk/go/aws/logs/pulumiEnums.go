@@ -200,9 +200,178 @@ func (in *metricFilterMetricTransformationUnitPtr) ToMetricFilterMetricTransform
 	return pulumi.ToOutputWithContext(ctx, in).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
+// The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+type SubscriptionFilterDistribution string
+
+const (
+	SubscriptionFilterDistributionRandom      = SubscriptionFilterDistribution("Random")
+	SubscriptionFilterDistributionByLogStream = SubscriptionFilterDistribution("ByLogStream")
+)
+
+func (SubscriptionFilterDistribution) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionFilterDistribution)(nil)).Elem()
+}
+
+func (e SubscriptionFilterDistribution) ToSubscriptionFilterDistributionOutput() SubscriptionFilterDistributionOutput {
+	return pulumi.ToOutput(e).(SubscriptionFilterDistributionOutput)
+}
+
+func (e SubscriptionFilterDistribution) ToSubscriptionFilterDistributionOutputWithContext(ctx context.Context) SubscriptionFilterDistributionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SubscriptionFilterDistributionOutput)
+}
+
+func (e SubscriptionFilterDistribution) ToSubscriptionFilterDistributionPtrOutput() SubscriptionFilterDistributionPtrOutput {
+	return e.ToSubscriptionFilterDistributionPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriptionFilterDistribution) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
+	return SubscriptionFilterDistribution(e).ToSubscriptionFilterDistributionOutputWithContext(ctx).ToSubscriptionFilterDistributionPtrOutputWithContext(ctx)
+}
+
+func (e SubscriptionFilterDistribution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionFilterDistribution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SubscriptionFilterDistribution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SubscriptionFilterDistribution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SubscriptionFilterDistributionOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionFilterDistributionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionFilterDistribution)(nil)).Elem()
+}
+
+func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionOutput() SubscriptionFilterDistributionOutput {
+	return o
+}
+
+func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionOutputWithContext(ctx context.Context) SubscriptionFilterDistributionOutput {
+	return o
+}
+
+func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionPtrOutput() SubscriptionFilterDistributionPtrOutput {
+	return o.ToSubscriptionFilterDistributionPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionFilterDistribution) *SubscriptionFilterDistribution {
+		return &v
+	}).(SubscriptionFilterDistributionPtrOutput)
+}
+
+func (o SubscriptionFilterDistributionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SubscriptionFilterDistributionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionFilterDistribution) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SubscriptionFilterDistributionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionFilterDistributionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SubscriptionFilterDistribution) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SubscriptionFilterDistributionPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionFilterDistributionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionFilterDistribution)(nil)).Elem()
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributionPtrOutput() SubscriptionFilterDistributionPtrOutput {
+	return o
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
+	return o
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) Elem() SubscriptionFilterDistributionOutput {
+	return o.ApplyT(func(v *SubscriptionFilterDistribution) SubscriptionFilterDistribution {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionFilterDistribution
+		return ret
+	}).(SubscriptionFilterDistributionOutput)
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionFilterDistributionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SubscriptionFilterDistribution) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SubscriptionFilterDistributionInput is an input type that accepts SubscriptionFilterDistributionArgs and SubscriptionFilterDistributionOutput values.
+// You can construct a concrete instance of `SubscriptionFilterDistributionInput` via:
+//
+//	SubscriptionFilterDistributionArgs{...}
+type SubscriptionFilterDistributionInput interface {
+	pulumi.Input
+
+	ToSubscriptionFilterDistributionOutput() SubscriptionFilterDistributionOutput
+	ToSubscriptionFilterDistributionOutputWithContext(context.Context) SubscriptionFilterDistributionOutput
+}
+
+var subscriptionFilterDistributionPtrType = reflect.TypeOf((**SubscriptionFilterDistribution)(nil)).Elem()
+
+type SubscriptionFilterDistributionPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionFilterDistributionPtrOutput() SubscriptionFilterDistributionPtrOutput
+	ToSubscriptionFilterDistributionPtrOutputWithContext(context.Context) SubscriptionFilterDistributionPtrOutput
+}
+
+type subscriptionFilterDistributionPtr string
+
+func SubscriptionFilterDistributionPtr(v string) SubscriptionFilterDistributionPtrInput {
+	return (*subscriptionFilterDistributionPtr)(&v)
+}
+
+func (*subscriptionFilterDistributionPtr) ElementType() reflect.Type {
+	return subscriptionFilterDistributionPtrType
+}
+
+func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtrOutput() SubscriptionFilterDistributionPtrOutput {
+	return pulumi.ToOutput(in).(SubscriptionFilterDistributionPtrOutput)
+}
+
+func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionFilterDistributionPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitPtrInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitPtrOutput{})
+	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})
+	pulumi.RegisterOutputType(SubscriptionFilterDistributionPtrOutput{})
 }

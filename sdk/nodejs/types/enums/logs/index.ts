@@ -36,3 +36,13 @@ export const MetricFilterMetricTransformationUnit = {
  * The unit to assign to the metric. If you omit this, the unit is set as None.
  */
 export type MetricFilterMetricTransformationUnit = (typeof MetricFilterMetricTransformationUnit)[keyof typeof MetricFilterMetricTransformationUnit];
+
+export const SubscriptionFilterDistribution = {
+    Random: "Random",
+    ByLogStream: "ByLogStream",
+} as const;
+
+/**
+ * The method used to distribute log data to the destination. By default, log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream.
+ */
+export type SubscriptionFilterDistribution = (typeof SubscriptionFilterDistribution)[keyof typeof SubscriptionFilterDistribution];

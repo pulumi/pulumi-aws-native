@@ -1309,6 +1309,76 @@ type PartnerAccountSidewalkAccountInfoWithFingerprint struct {
 	Fingerprint *string `pulumi:"fingerprint"`
 }
 
+// PartnerAccountSidewalkAccountInfoWithFingerprintInput is an input type that accepts PartnerAccountSidewalkAccountInfoWithFingerprintArgs and PartnerAccountSidewalkAccountInfoWithFingerprintOutput values.
+// You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoWithFingerprintInput` via:
+//
+//	PartnerAccountSidewalkAccountInfoWithFingerprintArgs{...}
+type PartnerAccountSidewalkAccountInfoWithFingerprintInput interface {
+	pulumi.Input
+
+	ToPartnerAccountSidewalkAccountInfoWithFingerprintOutput() PartnerAccountSidewalkAccountInfoWithFingerprintOutput
+	ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintOutput
+}
+
+type PartnerAccountSidewalkAccountInfoWithFingerprintArgs struct {
+	AmazonId    pulumi.StringPtrInput `pulumi:"amazonId"`
+	Arn         pulumi.StringPtrInput `pulumi:"arn"`
+	Fingerprint pulumi.StringPtrInput `pulumi:"fingerprint"`
+}
+
+func (PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprint)(nil)).Elem()
+}
+
+func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintOutput() PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
+	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(context.Background())
+}
+
+func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput)
+}
+
+func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i PartnerAccountSidewalkAccountInfoWithFingerprintArgs) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintOutput).ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx)
+}
+
+// PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput is an input type that accepts PartnerAccountSidewalkAccountInfoWithFingerprintArgs, PartnerAccountSidewalkAccountInfoWithFingerprintPtr and PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput values.
+// You can construct a concrete instance of `PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput` via:
+//
+//	        PartnerAccountSidewalkAccountInfoWithFingerprintArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput interface {
+	pulumi.Input
+
+	ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput
+	ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput
+}
+
+type partnerAccountSidewalkAccountInfoWithFingerprintPtrType PartnerAccountSidewalkAccountInfoWithFingerprintArgs
+
+func PartnerAccountSidewalkAccountInfoWithFingerprintPtr(v *PartnerAccountSidewalkAccountInfoWithFingerprintArgs) PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput {
+	return (*partnerAccountSidewalkAccountInfoWithFingerprintPtrType)(v)
+}
+
+func (*partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAccountSidewalkAccountInfoWithFingerprint)(nil)).Elem()
+}
+
+func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return i.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
+}
+
+func (i *partnerAccountSidewalkAccountInfoWithFingerprintPtrType) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
+}
+
 type PartnerAccountSidewalkAccountInfoWithFingerprintOutput struct{ *pulumi.OutputState }
 
 func (PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ElementType() reflect.Type {
@@ -1321,6 +1391,16 @@ func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccount
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintOutput {
 	return o
+}
+
+func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput() PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return o.ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) ToPartnerAccountSidewalkAccountInfoWithFingerprintPtrOutputWithContext(ctx context.Context) PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAccountSidewalkAccountInfoWithFingerprint) *PartnerAccountSidewalkAccountInfoWithFingerprint {
+		return &v
+	}).(PartnerAccountSidewalkAccountInfoWithFingerprintPtrOutput)
 }
 
 func (o PartnerAccountSidewalkAccountInfoWithFingerprintOutput) AmazonId() pulumi.StringPtrOutput {
@@ -4507,6 +4587,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationTagArrayInput)(nil)).Elem(), NetworkAnalyzerConfigurationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkAccountInfoWithFingerprintPtrInput)(nil)).Elem(), PartnerAccountSidewalkAccountInfoWithFingerprintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountSidewalkUpdateAccountPtrInput)(nil)).Elem(), PartnerAccountSidewalkUpdateAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAccountTagInput)(nil)).Elem(), PartnerAccountTagArgs{})

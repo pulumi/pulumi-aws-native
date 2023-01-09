@@ -59,10 +59,10 @@
   "primaryIdentifier" : [ "/properties/LocationName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "gamelift:CreateLocation", "gamelift:ListLocations", "gamelift:TagResource" ]
+      "permissions" : [ "gamelift:CreateLocation", "gamelift:ListLocations" ]
     },
     "read" : {
-      "permissions" : [ "gamelift:ListLocations" ]
+      "permissions" : [ "gamelift:ListLocations", "gamelift:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "gamelift:DeleteLocation" ]
@@ -71,7 +71,7 @@
       "permissions" : [ "gamelift:ListLocations" ]
     },
     "update" : {
-      "permissions" : [ "gamelift:TagResource", "gamelift:UntagResource" ]
+      "permissions" : [ "gamelift:ListLocations", "gamelift:ListTagsForResource", "gamelift:TagResource", "gamelift:UntagResource" ]
     }
   }
 }

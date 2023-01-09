@@ -37,10 +37,6 @@ export interface GetClusterParameterGroupResult {
      * An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
      */
     readonly parameters?: outputs.redshift.ClusterParameterGroupParameter[];
-    /**
-     * An array of key-value pairs to apply to this resource.
-     */
-    readonly tags?: outputs.redshift.ClusterParameterGroupTag[];
 }
 
 export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {

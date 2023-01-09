@@ -153,9 +153,17 @@ export class DBCluster extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    /**
      * The master password for the DB instance.
      */
     public readonly masterUserPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    public readonly masterUserSecret!: pulumi.Output<outputs.rds.DBClusterMasterUserSecret | undefined>;
     /**
      * The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
      */
@@ -292,7 +300,9 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             resourceInputs["iops"] = args ? args.iops : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
             resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
+            resourceInputs["masterUserSecret"] = args ? args.masterUserSecret : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
@@ -350,7 +360,9 @@ export class DBCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
             resourceInputs["iops"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["manageMasterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
+            resourceInputs["masterUserSecret"] = undefined /*out*/;
             resourceInputs["masterUsername"] = undefined /*out*/;
             resourceInputs["monitoringInterval"] = undefined /*out*/;
             resourceInputs["monitoringRoleArn"] = undefined /*out*/;
@@ -492,9 +504,17 @@ export interface DBClusterArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
      * The master password for the DB instance.
      */
     masterUserPassword?: pulumi.Input<string>;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    masterUserSecret?: pulumi.Input<inputs.rds.DBClusterMasterUserSecretArgs>;
     /**
      * The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
      */

@@ -18,13 +18,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubscriptionResult:
-    def __init__(__self__, delivery_policy=None, filter_policy=None, id=None, raw_message_delivery=None, redrive_policy=None, region=None, subscription_role_arn=None):
+    def __init__(__self__, delivery_policy=None, filter_policy=None, filter_policy_scope=None, id=None, raw_message_delivery=None, redrive_policy=None, region=None, subscription_role_arn=None):
         if delivery_policy and not isinstance(delivery_policy, dict):
             raise TypeError("Expected argument 'delivery_policy' to be a dict")
         pulumi.set(__self__, "delivery_policy", delivery_policy)
         if filter_policy and not isinstance(filter_policy, dict):
             raise TypeError("Expected argument 'filter_policy' to be a dict")
         pulumi.set(__self__, "filter_policy", filter_policy)
+        if filter_policy_scope and not isinstance(filter_policy_scope, str):
+            raise TypeError("Expected argument 'filter_policy_scope' to be a str")
+        pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +53,11 @@ class GetSubscriptionResult:
     @pulumi.getter(name="filterPolicy")
     def filter_policy(self) -> Optional[Any]:
         return pulumi.get(self, "filter_policy")
+
+    @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> Optional[str]:
+        return pulumi.get(self, "filter_policy_scope")
 
     @property
     @pulumi.getter
@@ -85,6 +93,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
         return GetSubscriptionResult(
             delivery_policy=self.delivery_policy,
             filter_policy=self.filter_policy,
+            filter_policy_scope=self.filter_policy_scope,
             id=self.id,
             raw_message_delivery=self.raw_message_delivery,
             redrive_policy=self.redrive_policy,
@@ -105,6 +114,7 @@ def get_subscription(id: Optional[str] = None,
     return AwaitableGetSubscriptionResult(
         delivery_policy=__ret__.delivery_policy,
         filter_policy=__ret__.filter_policy,
+        filter_policy_scope=__ret__.filter_policy_scope,
         id=__ret__.id,
         raw_message_delivery=__ret__.raw_message_delivery,
         redrive_policy=__ret__.redrive_policy,
