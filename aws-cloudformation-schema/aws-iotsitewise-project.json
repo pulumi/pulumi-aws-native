@@ -65,7 +65,7 @@
   "taggable" : true,
   "required" : [ "PortalId", "ProjectName" ],
   "readOnlyProperties" : [ "/properties/ProjectId", "/properties/ProjectArn" ],
-  "createOnlyProperties" : [ "/properties/PortalId" ],
+  "createOnlyProperties" : [ "/properties/PortalId", "/properties/AssetIds" ],
   "primaryIdentifier" : [ "/properties/ProjectId" ],
   "handlers" : {
     "create" : {

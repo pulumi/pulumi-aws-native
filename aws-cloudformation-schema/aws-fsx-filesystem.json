@@ -50,6 +50,9 @@
     "OpenZFSConfiguration" : {
       "$ref" : "#/definitions/OpenZFSConfiguration"
     },
+    "ResourceARN" : {
+      "type" : "string"
+    },
     "FileSystemType" : {
       "type" : "string"
     },
@@ -385,5 +388,5 @@
   "required" : [ "FileSystemType", "SubnetIds" ],
   "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/StorageType", "/properties/SecurityGroupIds", "/properties/FileSystemTypeVersion", "/properties/FileSystemType", "/properties/SubnetIds", "/properties/BackupId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/LustreMountName", "/properties/RootVolumeId", "/properties/DNSName" ]
+  "readOnlyProperties" : [ "/properties/ResourceARN", "/properties/Id", "/properties/LustreMountName", "/properties/RootVolumeId", "/properties/DNSName" ]
 }
