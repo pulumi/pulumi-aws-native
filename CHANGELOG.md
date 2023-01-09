@@ -1,5 +1,33 @@
 ## HEAD (Unreleased)
 
+## 0.46.0 (January 09, 2023)
+
+Breaking changes:
+- Resource "aws-native:apigateway:RestApi" missing output "restApiId"
+- Function "aws-native:redshift:getClusterSubnetGroup" missing output "tags"
+- Function "aws-native:ec2:getPlacementGroup" missing output "groupName"
+- Function "aws-native:redshiftserverless:getNamespace" missing output "finalSnapshotName"
+- Function "aws-native:redshiftserverless:getNamespace" missing output "finalSnapshotRetentionPeriod"
+- Function "aws-native:iotsitewise:getProject" missing output "assetIds"
+- Function "aws-native:logs:getSubscriptionFilter" missing
+- Function "aws-native:apigateway:getRestApi" missing input "restApiId"
+- Function "aws-native:apigateway:getRestApi" missing output "restApiId"
+- Function "aws-native:redshift:getEventSubscription" missing output "tags"
+- Function "aws-native:ec2:getVolume" missing input "id"
+- Function "aws-native:ec2:getVolume" missing output "id"
+- Function "aws-native:redshift:getClusterParameterGroup" missing output "tags"
+
+New resources:
+- `appflow.Connector`
+- `directoryservice.SimpleAD`
+- `gamelift.Build`
+
+New functions:
+- `appflow.getConnector`
+- `directoryservice.getSimpleAD`
+- `gamelift.getBuild`
+
+
 ## 0.45.0 (December 16, 2022)
 
 Breaking changes:
