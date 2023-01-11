@@ -704,6 +704,7 @@ namespace Pulumi.AwsNative.IoT
         public static ScheduledAuditDayOfWeek Thu { get; } = new ScheduledAuditDayOfWeek("THU");
         public static ScheduledAuditDayOfWeek Fri { get; } = new ScheduledAuditDayOfWeek("FRI");
         public static ScheduledAuditDayOfWeek Sat { get; } = new ScheduledAuditDayOfWeek("SAT");
+        public static ScheduledAuditDayOfWeek UnsetValue { get; } = new ScheduledAuditDayOfWeek("UNSET_VALUE");
 
         public static bool operator ==(ScheduledAuditDayOfWeek left, ScheduledAuditDayOfWeek right) => left.Equals(right);
         public static bool operator !=(ScheduledAuditDayOfWeek left, ScheduledAuditDayOfWeek right) => !left.Equals(right);

@@ -3659,13 +3659,14 @@ func (in *resourceSpecificLoggingTargetTypePtr) ToResourceSpecificLoggingTargetT
 type ScheduledAuditDayOfWeek string
 
 const (
-	ScheduledAuditDayOfWeekSun = ScheduledAuditDayOfWeek("SUN")
-	ScheduledAuditDayOfWeekMon = ScheduledAuditDayOfWeek("MON")
-	ScheduledAuditDayOfWeekTue = ScheduledAuditDayOfWeek("TUE")
-	ScheduledAuditDayOfWeekWed = ScheduledAuditDayOfWeek("WED")
-	ScheduledAuditDayOfWeekThu = ScheduledAuditDayOfWeek("THU")
-	ScheduledAuditDayOfWeekFri = ScheduledAuditDayOfWeek("FRI")
-	ScheduledAuditDayOfWeekSat = ScheduledAuditDayOfWeek("SAT")
+	ScheduledAuditDayOfWeekSun        = ScheduledAuditDayOfWeek("SUN")
+	ScheduledAuditDayOfWeekMon        = ScheduledAuditDayOfWeek("MON")
+	ScheduledAuditDayOfWeekTue        = ScheduledAuditDayOfWeek("TUE")
+	ScheduledAuditDayOfWeekWed        = ScheduledAuditDayOfWeek("WED")
+	ScheduledAuditDayOfWeekThu        = ScheduledAuditDayOfWeek("THU")
+	ScheduledAuditDayOfWeekFri        = ScheduledAuditDayOfWeek("FRI")
+	ScheduledAuditDayOfWeekSat        = ScheduledAuditDayOfWeek("SAT")
+	ScheduledAuditDayOfWeekUnsetValue = ScheduledAuditDayOfWeek("UNSET_VALUE")
 )
 
 func (ScheduledAuditDayOfWeek) ElementType() reflect.Type {

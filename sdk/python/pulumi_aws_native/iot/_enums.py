@@ -198,6 +198,7 @@ class ScheduledAuditDayOfWeek(str, Enum):
     THU = "THU"
     FRI = "FRI"
     SAT = "SAT"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class ScheduledAuditFrequency(str, Enum):

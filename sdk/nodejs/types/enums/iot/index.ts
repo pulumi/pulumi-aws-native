@@ -204,6 +204,7 @@ export const ScheduledAuditDayOfWeek = {
     Thu: "THU",
     Fri: "FRI",
     Sat: "SAT",
+    UnsetValue: "UNSET_VALUE",
 } as const;
 
 /**
