@@ -24,6 +24,7 @@ env:
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   AWS_REGION: us-west-2
   PULUMI_API: https://api.pulumi-staging.io
+  IS_PRERELEASE: true
 jobs:
   prerequisites:
     runs-on: ubuntu-latest
