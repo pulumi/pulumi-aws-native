@@ -846,8 +846,8 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		}
 		// See https://github.com/pulumi/pulumi-aws-native/issues/644, fixing this without special case
 		// is likely to be a breaking change.
-		if parentName == "Logging" && typName == "ClusterLogging" {
-			typName = fmt.Sprintf("%sOuter", typName)
+		if parentName == "ClusterLoggingClusterLogging" && typName == "ClusterLogging" {
+			typName = "ClusterLoggingEnabledTypes"
 		}
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
