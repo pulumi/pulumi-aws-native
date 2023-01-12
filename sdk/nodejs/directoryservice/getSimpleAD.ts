@@ -14,19 +14,34 @@ export function getSimpleAD(args: GetSimpleADArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:directoryservice:getSimpleAD", {
-        "id": args.id,
+        "directoryId": args.directoryId,
     }, opts);
 }
 
 export interface GetSimpleADArgs {
-    id: string;
+    /**
+     * The unique identifier for a directory.
+     */
+    directoryId: string;
 }
 
 export interface GetSimpleADResult {
+    /**
+     * The alias for a directory.
+     */
     readonly alias?: string;
+    /**
+     * The unique identifier for a directory.
+     */
+    readonly directoryId?: string;
+    /**
+     * The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+     */
     readonly dnsIpAddresses?: string[];
+    /**
+     * Whether to enable single sign-on for a Simple Active Directory in AWS.
+     */
     readonly enableSso?: boolean;
-    readonly id?: string;
 }
 
 export function getSimpleADOutput(args: GetSimpleADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleADResult> {
@@ -34,5 +49,8 @@ export function getSimpleADOutput(args: GetSimpleADOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetSimpleADOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The unique identifier for a directory.
+     */
+    directoryId: pulumi.Input<string>;
 }

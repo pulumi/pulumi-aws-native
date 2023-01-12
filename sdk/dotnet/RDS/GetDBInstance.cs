@@ -118,6 +118,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly ImmutableArray<string> DBSecurityGroups;
         /// <summary>
+        /// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+        /// </summary>
+        public readonly string? DBSystemId;
+        /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         /// </summary>
         public readonly string? DbiResourceId;
@@ -169,6 +173,14 @@ namespace Pulumi.AwsNative.RDS
         /// License model information for this DB instance.
         /// </summary>
         public readonly string? LicenseModel;
+        /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        public readonly bool? ManageMasterUserPassword;
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        public readonly Outputs.DBInstanceMasterUserSecret? MasterUserSecret;
         /// <summary>
         /// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
         /// </summary>
@@ -278,6 +290,8 @@ namespace Pulumi.AwsNative.RDS
 
             ImmutableArray<string> dBSecurityGroups,
 
+            string? dBSystemId,
+
             string? dbiResourceId,
 
             bool? deleteAutomatedBackups,
@@ -303,6 +317,10 @@ namespace Pulumi.AwsNative.RDS
             int? iops,
 
             string? licenseModel,
+
+            bool? manageMasterUserPassword,
+
+            Outputs.DBInstanceMasterUserSecret? masterUserSecret,
 
             int? maxAllocatedStorage,
 
@@ -357,6 +375,7 @@ namespace Pulumi.AwsNative.RDS
             DBInstanceClass = dBInstanceClass;
             DBParameterGroupName = dBParameterGroupName;
             DBSecurityGroups = dBSecurityGroups;
+            DBSystemId = dBSystemId;
             DbiResourceId = dbiResourceId;
             DeleteAutomatedBackups = deleteAutomatedBackups;
             DeletionProtection = deletionProtection;
@@ -370,6 +389,8 @@ namespace Pulumi.AwsNative.RDS
             EngineVersion = engineVersion;
             Iops = iops;
             LicenseModel = licenseModel;
+            ManageMasterUserPassword = manageMasterUserPassword;
+            MasterUserSecret = masterUserSecret;
             MaxAllocatedStorage = maxAllocatedStorage;
             MonitoringInterval = monitoringInterval;
             MonitoringRoleArn = monitoringRoleArn;

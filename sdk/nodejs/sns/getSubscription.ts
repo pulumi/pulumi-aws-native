@@ -25,6 +25,7 @@ export interface GetSubscriptionArgs {
 export interface GetSubscriptionResult {
     readonly deliveryPolicy?: any;
     readonly filterPolicy?: any;
+    readonly filterPolicyScope?: string;
     readonly id?: string;
     readonly rawMessageDelivery?: boolean;
     readonly redrivePolicy?: any;

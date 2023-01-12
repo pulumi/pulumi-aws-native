@@ -12,19 +12,36 @@ namespace Pulumi.AwsNative.GameLift
     /// <summary>
     /// Resource Type definition for AWS::GameLift::Build
     /// </summary>
-    [Obsolete(@"Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:Build")]
     public partial class Build : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        /// </summary>
+        [Output("buildId")]
+        public Output<string> BuildId { get; private set; } = null!;
+
+        /// <summary>
+        /// A descriptive label that is associated with a build. Build names do not need to be unique.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+        /// </summary>
         [Output("operatingSystem")]
-        public Output<string?> OperatingSystem { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.GameLift.BuildOperatingSystem?> OperatingSystem { get; private set; } = null!;
 
+        /// <summary>
+        /// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+        /// </summary>
         [Output("storageLocation")]
-        public Output<Outputs.BuildS3Location?> StorageLocation { get; private set; } = null!;
+        public Output<Outputs.BuildStorageLocation?> StorageLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// Version information that is associated with this build. Version strings do not need to be unique.
+        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -73,15 +90,27 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class BuildArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A descriptive label that is associated with a build. Build names do not need to be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+        /// </summary>
         [Input("operatingSystem")]
-        public Input<string>? OperatingSystem { get; set; }
+        public Input<Pulumi.AwsNative.GameLift.BuildOperatingSystem>? OperatingSystem { get; set; }
 
+        /// <summary>
+        /// Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+        /// </summary>
         [Input("storageLocation")]
-        public Input<Inputs.BuildS3LocationArgs>? StorageLocation { get; set; }
+        public Input<Inputs.BuildStorageLocationArgs>? StorageLocation { get; set; }
 
+        /// <summary>
+        /// Version information that is associated with this build. Version strings do not need to be unique.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

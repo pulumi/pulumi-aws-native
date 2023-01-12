@@ -18,10 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBuildResult:
-    def __init__(__self__, id=None, name=None, version=None):
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+    def __init__(__self__, build_id=None, name=None, version=None):
+        if build_id and not isinstance(build_id, str):
+            raise TypeError("Expected argument 'build_id' to be a str")
+        pulumi.set(__self__, "build_id", build_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,18 +30,27 @@ class GetBuildResult:
         pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="buildId")
+    def build_id(self) -> Optional[str]:
+        """
+        A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        """
+        return pulumi.get(self, "build_id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        A descriptive label that is associated with a build. Build names do not need to be unique.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        Version information that is associated with this build. Version strings do not need to be unique.
+        """
         return pulumi.get(self, "version")
 
 
@@ -51,31 +60,37 @@ class AwaitableGetBuildResult(GetBuildResult):
         if False:
             yield self
         return GetBuildResult(
-            id=self.id,
+            build_id=self.build_id,
             name=self.name,
             version=self.version)
 
 
-def get_build(id: Optional[str] = None,
+def get_build(build_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildResult:
     """
     Resource Type definition for AWS::GameLift::Build
+
+
+    :param str build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['buildId'] = build_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult).value
 
     return AwaitableGetBuildResult(
-        id=__ret__.id,
+        build_id=__ret__.build_id,
         name=__ret__.name,
         version=__ret__.version)
 
 
 @_utilities.lift_output_func(get_build)
-def get_build_output(id: Optional[pulumi.Input[str]] = None,
+def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildResult]:
     """
     Resource Type definition for AWS::GameLift::Build
+
+
+    :param str build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
     """
     ...

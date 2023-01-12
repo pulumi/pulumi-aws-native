@@ -19,7 +19,13 @@ namespace Pulumi.AwsNative.EC2
         /// The Group Name of Placement Group.
         /// </summary>
         [Output("groupName")]
-        public Output<string> GroupName { get; private set; } = null!;
+        public Output<string?> GroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of partitions. Valid only when **Strategy** is set to `partition`
+        /// </summary>
+        [Output("partitionCount")]
+        public Output<int?> PartitionCount { get; private set; } = null!;
 
         /// <summary>
         /// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -32,6 +38,12 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Output("strategy")]
         public Output<string?> Strategy { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.PlacementGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,6 +91,18 @@ namespace Pulumi.AwsNative.EC2
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// The number of partitions. Valid only when **Strategy** is set to `partition`
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
         /// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         /// </summary>
         [Input("spreadLevel")]
@@ -89,6 +113,18 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("strategy")]
         public Input<string>? Strategy { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.PlacementGroupTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.PlacementGroupTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.PlacementGroupTagArgs>());
+            set => _tags = value;
+        }
 
         public PlacementGroupArgs()
         {

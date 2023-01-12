@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::GameLift::Build
- *
- * @deprecated Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Build extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Build extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Build {
-        pulumi.log.warn("Build is deprecated: Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Build(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,9 +37,25 @@ export class Build extends pulumi.CustomResource {
         return obj['__pulumiType'] === Build.__pulumiType;
     }
 
+    /**
+     * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+     */
+    public /*out*/ readonly buildId!: pulumi.Output<string>;
+    /**
+     * A descriptive label that is associated with a build. Build names do not need to be unique.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly operatingSystem!: pulumi.Output<string | undefined>;
-    public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildS3Location | undefined>;
+    /**
+     * The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+     */
+    public readonly operatingSystem!: pulumi.Output<enums.gamelift.BuildOperatingSystem | undefined>;
+    /**
+     * Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+     */
+    public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation | undefined>;
+    /**
+     * Version information that is associated with this build. Version strings do not need to be unique.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -52,9 +65,7 @@ export class Build extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: BuildArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Build is deprecated: Build is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -62,7 +73,9 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["buildId"] = undefined /*out*/;
         } else {
+            resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
@@ -77,8 +90,20 @@ export class Build extends pulumi.CustomResource {
  * The set of arguments for constructing a Build resource.
  */
 export interface BuildArgs {
+    /**
+     * A descriptive label that is associated with a build. Build names do not need to be unique.
+     */
     name?: pulumi.Input<string>;
-    operatingSystem?: pulumi.Input<string>;
-    storageLocation?: pulumi.Input<inputs.gamelift.BuildS3LocationArgs>;
+    /**
+     * The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+     */
+    operatingSystem?: pulumi.Input<enums.gamelift.BuildOperatingSystem>;
+    /**
+     * Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
+     */
+    storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocationArgs>;
+    /**
+     * Version information that is associated with this build. Version strings do not need to be unique.
+     */
     version?: pulumi.Input<string>;
 }

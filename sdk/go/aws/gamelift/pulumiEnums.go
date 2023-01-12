@@ -175,6 +175,172 @@ func (in *aliasRoutingStrategyTypePtr) ToAliasRoutingStrategyTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(AliasRoutingStrategyTypePtrOutput)
 }
 
+// The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+type BuildOperatingSystem string
+
+const (
+	BuildOperatingSystemAmazonLinux  = BuildOperatingSystem("AMAZON_LINUX")
+	BuildOperatingSystemAmazonLinux2 = BuildOperatingSystem("AMAZON_LINUX_2")
+	BuildOperatingSystemWindows2012  = BuildOperatingSystem("WINDOWS_2012")
+)
+
+func (BuildOperatingSystem) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildOperatingSystem)(nil)).Elem()
+}
+
+func (e BuildOperatingSystem) ToBuildOperatingSystemOutput() BuildOperatingSystemOutput {
+	return pulumi.ToOutput(e).(BuildOperatingSystemOutput)
+}
+
+func (e BuildOperatingSystem) ToBuildOperatingSystemOutputWithContext(ctx context.Context) BuildOperatingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BuildOperatingSystemOutput)
+}
+
+func (e BuildOperatingSystem) ToBuildOperatingSystemPtrOutput() BuildOperatingSystemPtrOutput {
+	return e.ToBuildOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (e BuildOperatingSystem) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
+	return BuildOperatingSystem(e).ToBuildOperatingSystemOutputWithContext(ctx).ToBuildOperatingSystemPtrOutputWithContext(ctx)
+}
+
+func (e BuildOperatingSystem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BuildOperatingSystem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BuildOperatingSystem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BuildOperatingSystem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BuildOperatingSystemOutput struct{ *pulumi.OutputState }
+
+func (BuildOperatingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildOperatingSystem)(nil)).Elem()
+}
+
+func (o BuildOperatingSystemOutput) ToBuildOperatingSystemOutput() BuildOperatingSystemOutput {
+	return o
+}
+
+func (o BuildOperatingSystemOutput) ToBuildOperatingSystemOutputWithContext(ctx context.Context) BuildOperatingSystemOutput {
+	return o
+}
+
+func (o BuildOperatingSystemOutput) ToBuildOperatingSystemPtrOutput() BuildOperatingSystemPtrOutput {
+	return o.ToBuildOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o BuildOperatingSystemOutput) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildOperatingSystem) *BuildOperatingSystem {
+		return &v
+	}).(BuildOperatingSystemPtrOutput)
+}
+
+func (o BuildOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BuildOperatingSystemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BuildOperatingSystem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BuildOperatingSystemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BuildOperatingSystemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BuildOperatingSystem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BuildOperatingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (BuildOperatingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildOperatingSystem)(nil)).Elem()
+}
+
+func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutput() BuildOperatingSystemPtrOutput {
+	return o
+}
+
+func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
+	return o
+}
+
+func (o BuildOperatingSystemPtrOutput) Elem() BuildOperatingSystemOutput {
+	return o.ApplyT(func(v *BuildOperatingSystem) BuildOperatingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret BuildOperatingSystem
+		return ret
+	}).(BuildOperatingSystemOutput)
+}
+
+func (o BuildOperatingSystemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BuildOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BuildOperatingSystem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BuildOperatingSystemInput is an input type that accepts BuildOperatingSystemArgs and BuildOperatingSystemOutput values.
+// You can construct a concrete instance of `BuildOperatingSystemInput` via:
+//
+//	BuildOperatingSystemArgs{...}
+type BuildOperatingSystemInput interface {
+	pulumi.Input
+
+	ToBuildOperatingSystemOutput() BuildOperatingSystemOutput
+	ToBuildOperatingSystemOutputWithContext(context.Context) BuildOperatingSystemOutput
+}
+
+var buildOperatingSystemPtrType = reflect.TypeOf((**BuildOperatingSystem)(nil)).Elem()
+
+type BuildOperatingSystemPtrInput interface {
+	pulumi.Input
+
+	ToBuildOperatingSystemPtrOutput() BuildOperatingSystemPtrOutput
+	ToBuildOperatingSystemPtrOutputWithContext(context.Context) BuildOperatingSystemPtrOutput
+}
+
+type buildOperatingSystemPtr string
+
+func BuildOperatingSystemPtr(v string) BuildOperatingSystemPtrInput {
+	return (*buildOperatingSystemPtr)(&v)
+}
+
+func (*buildOperatingSystemPtr) ElementType() reflect.Type {
+	return buildOperatingSystemPtrType
+}
+
+func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutput() BuildOperatingSystemPtrOutput {
+	return pulumi.ToOutput(in).(BuildOperatingSystemPtrOutput)
+}
+
+func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BuildOperatingSystemPtrOutput)
+}
+
 type FleetCertificateConfigurationCertificateType string
 
 const (
@@ -1499,6 +1665,8 @@ func (in *gameServerGroupGameServerProtectionPolicyPtr) ToGameServerGroupGameSer
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypeInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemPtrInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypeInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypePtrInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("EC2"))
@@ -1517,6 +1685,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyPtrInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypeOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(BuildOperatingSystemOutput{})
+	pulumi.RegisterOutputType(BuildOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})

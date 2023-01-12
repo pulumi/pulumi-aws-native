@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Evidently.Outputs
         /// <summary>
         /// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         /// </summary>
-        public readonly string EventPattern;
+        public readonly string? EventPattern;
         public readonly string MetricName;
         public readonly string? UnitLabel;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Evidently.Outputs
         private LaunchMetricDefinitionObject(
             string entityIdKey,
 
-            string eventPattern,
+            string? eventPattern,
 
             string metricName,
 

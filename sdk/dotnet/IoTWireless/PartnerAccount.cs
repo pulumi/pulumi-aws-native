@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The fingerprint of the Sidewalk application server private key.
         /// </summary>
         [Output("fingerprint")]
-        public Output<string?> Fingerprint { get; private set; } = null!;
+        public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
         /// The partner account ID to disassociate from the AWS account
@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoTWireless
         /// The Sidewalk account credentials.
         /// </summary>
         [Output("sidewalkResponse")]
-        public Output<Outputs.PartnerAccountSidewalkAccountInfoWithFingerprint> SidewalkResponse { get; private set; } = null!;
+        public Output<Outputs.PartnerAccountSidewalkAccountInfoWithFingerprint?> SidewalkResponse { get; private set; } = null!;
 
         /// <summary>
         /// The Sidewalk account credentials.
@@ -122,12 +122,6 @@ namespace Pulumi.AwsNative.IoTWireless
         public Input<bool>? AccountLinked { get; set; }
 
         /// <summary>
-        /// The fingerprint of the Sidewalk application server private key.
-        /// </summary>
-        [Input("fingerprint")]
-        public Input<string>? Fingerprint { get; set; }
-
-        /// <summary>
         /// The partner account ID to disassociate from the AWS account
         /// </summary>
         [Input("partnerAccountId")]
@@ -144,6 +138,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         [Input("sidewalk")]
         public Input<Inputs.PartnerAccountSidewalkAccountInfoArgs>? Sidewalk { get; set; }
+
+        /// <summary>
+        /// The Sidewalk account credentials.
+        /// </summary>
+        [Input("sidewalkResponse")]
+        public Input<Inputs.PartnerAccountSidewalkAccountInfoWithFingerprintArgs>? SidewalkResponse { get; set; }
 
         /// <summary>
         /// The Sidewalk account credentials.

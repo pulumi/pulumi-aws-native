@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFileSystemResult:
-    def __init__(__self__, d_ns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, root_volume_id=None, storage_capacity=None, tags=None, windows_configuration=None):
+    def __init__(__self__, d_ns_name=None, id=None, lustre_configuration=None, lustre_mount_name=None, ontap_configuration=None, open_zfs_configuration=None, resource_arn=None, root_volume_id=None, storage_capacity=None, tags=None, windows_configuration=None):
         if d_ns_name and not isinstance(d_ns_name, str):
             raise TypeError("Expected argument 'd_ns_name' to be a str")
         pulumi.set(__self__, "d_ns_name", d_ns_name)
@@ -38,6 +38,9 @@ class GetFileSystemResult:
         if open_zfs_configuration and not isinstance(open_zfs_configuration, dict):
             raise TypeError("Expected argument 'open_zfs_configuration' to be a dict")
         pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
+        if resource_arn and not isinstance(resource_arn, str):
+            raise TypeError("Expected argument 'resource_arn' to be a str")
+        pulumi.set(__self__, "resource_arn", resource_arn)
         if root_volume_id and not isinstance(root_volume_id, str):
             raise TypeError("Expected argument 'root_volume_id' to be a str")
         pulumi.set(__self__, "root_volume_id", root_volume_id)
@@ -82,6 +85,11 @@ class GetFileSystemResult:
         return pulumi.get(self, "open_zfs_configuration")
 
     @property
+    @pulumi.getter(name="resourceARN")
+    def resource_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_arn")
+
+    @property
     @pulumi.getter(name="rootVolumeId")
     def root_volume_id(self) -> Optional[str]:
         return pulumi.get(self, "root_volume_id")
@@ -114,6 +122,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             lustre_mount_name=self.lustre_mount_name,
             ontap_configuration=self.ontap_configuration,
             open_zfs_configuration=self.open_zfs_configuration,
+            resource_arn=self.resource_arn,
             root_volume_id=self.root_volume_id,
             storage_capacity=self.storage_capacity,
             tags=self.tags,
@@ -137,6 +146,7 @@ def get_file_system(id: Optional[str] = None,
         lustre_mount_name=__ret__.lustre_mount_name,
         ontap_configuration=__ret__.ontap_configuration,
         open_zfs_configuration=__ret__.open_zfs_configuration,
+        resource_arn=__ret__.resource_arn,
         root_volume_id=__ret__.root_volume_id,
         storage_capacity=__ret__.storage_capacity,
         tags=__ret__.tags,

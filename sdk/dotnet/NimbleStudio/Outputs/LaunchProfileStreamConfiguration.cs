@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
     [OutputType]
     public sealed class LaunchProfileStreamConfiguration
     {
+        public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode? AutomaticTerminationMode;
         public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode ClipboardMode;
         /// <summary>
         /// &lt;p&gt;The EC2 instance types that users can select from when launching a streaming session
@@ -32,26 +33,30 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// <summary>
         /// &lt;p&gt;Integer that determines if you can start and stop your sessions and how long a session
         ///             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.&lt;/p&gt;
-        ///         &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+        ///          &lt;p&gt;If the value is missing or set to 0, your sessions can’t be stopped. If you then call
         ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
         ///             stays in the READY state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the
         ///             session will automatically be terminated (instead of stopped).&lt;/p&gt;
-        ///         &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
+        ///          &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
         ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the READY state. If the time
         ///             that a session stays in the READY state exceeds the
         ///                 &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the session will automatically be
         ///             stopped (instead of terminated).&lt;/p&gt;
         /// </summary>
         public readonly double? MaxStoppedSessionLengthInMinutes;
+        public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode? SessionPersistenceMode;
         public readonly Outputs.LaunchProfileStreamConfigurationSessionStorage? SessionStorage;
         /// <summary>
         /// &lt;p&gt;The streaming images that users can select from when launching a streaming session
         ///             with this launch profile.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> StreamingImageIds;
+        public readonly Outputs.LaunchProfileVolumeConfiguration? VolumeConfiguration;
 
         [OutputConstructor]
         private LaunchProfileStreamConfiguration(
+            Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode? automaticTerminationMode,
+
             Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode clipboardMode,
 
             ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingInstanceType> ec2InstanceTypes,
@@ -60,16 +65,23 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
 
             double? maxStoppedSessionLengthInMinutes,
 
+            Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode? sessionPersistenceMode,
+
             Outputs.LaunchProfileStreamConfigurationSessionStorage? sessionStorage,
 
-            ImmutableArray<string> streamingImageIds)
+            ImmutableArray<string> streamingImageIds,
+
+            Outputs.LaunchProfileVolumeConfiguration? volumeConfiguration)
         {
+            AutomaticTerminationMode = automaticTerminationMode;
             ClipboardMode = clipboardMode;
             Ec2InstanceTypes = ec2InstanceTypes;
             MaxSessionLengthInMinutes = maxSessionLengthInMinutes;
             MaxStoppedSessionLengthInMinutes = maxStoppedSessionLengthInMinutes;
+            SessionPersistenceMode = sessionPersistenceMode;
             SessionStorage = sessionStorage;
             StreamingImageIds = streamingImageIds;
+            VolumeConfiguration = volumeConfiguration;
         }
     }
 }

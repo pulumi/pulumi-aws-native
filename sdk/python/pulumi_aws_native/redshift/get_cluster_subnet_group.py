@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetClusterSubnetGroupResult',
@@ -19,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterSubnetGroupResult:
-    def __init__(__self__, cluster_subnet_group_name=None, description=None, subnet_ids=None, tags=None):
+    def __init__(__self__, cluster_subnet_group_name=None, description=None, subnet_ids=None):
         if cluster_subnet_group_name and not isinstance(cluster_subnet_group_name, str):
             raise TypeError("Expected argument 'cluster_subnet_group_name' to be a str")
         pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
@@ -29,9 +28,6 @@ class GetClusterSubnetGroupResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterSubnetGroupName")
@@ -57,14 +53,6 @@ class GetClusterSubnetGroupResult:
         """
         return pulumi.get(self, "subnet_ids")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ClusterSubnetGroupTag']]:
-        """
-        The list of tags for the cluster parameter group.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetClusterSubnetGroupResult(GetClusterSubnetGroupResult):
     # pylint: disable=using-constant-test
@@ -74,8 +62,7 @@ class AwaitableGetClusterSubnetGroupResult(GetClusterSubnetGroupResult):
         return GetClusterSubnetGroupResult(
             cluster_subnet_group_name=self.cluster_subnet_group_name,
             description=self.description,
-            subnet_ids=self.subnet_ids,
-            tags=self.tags)
+            subnet_ids=self.subnet_ids)
 
 
 def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
@@ -94,8 +81,7 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
     return AwaitableGetClusterSubnetGroupResult(
         cluster_subnet_group_name=__ret__.cluster_subnet_group_name,
         description=__ret__.description,
-        subnet_ids=__ret__.subnet_ids,
-        tags=__ret__.tags)
+        subnet_ids=__ret__.subnet_ids)
 
 
 @_utilities.lift_output_func(get_cluster_subnet_group)

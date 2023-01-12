@@ -19,6 +19,7 @@ __all__ = [
     'MulticastGroupLoRaWANArgs',
     'MulticastGroupTagArgs',
     'NetworkAnalyzerConfigurationTagArgs',
+    'PartnerAccountSidewalkAccountInfoWithFingerprintArgs',
     'PartnerAccountSidewalkAccountInfoArgs',
     'PartnerAccountSidewalkUpdateAccountArgs',
     'PartnerAccountTagArgs',
@@ -534,6 +535,47 @@ class NetworkAnalyzerConfigurationTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PartnerAccountSidewalkAccountInfoWithFingerprintArgs:
+    def __init__(__self__, *,
+                 amazon_id: Optional[pulumi.Input[str]] = None,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 fingerprint: Optional[pulumi.Input[str]] = None):
+        if amazon_id is not None:
+            pulumi.set(__self__, "amazon_id", amazon_id)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if fingerprint is not None:
+            pulumi.set(__self__, "fingerprint", fingerprint)
+
+    @property
+    @pulumi.getter(name="amazonId")
+    def amazon_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amazon_id")
+
+    @amazon_id.setter
+    def amazon_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amazon_id", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fingerprint")
+
+    @fingerprint.setter
+    def fingerprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fingerprint", value)
 
 
 @pulumi.input_type

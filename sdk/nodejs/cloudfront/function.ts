@@ -39,8 +39,8 @@ export class Function extends pulumi.CustomResource {
 
     public readonly autoPublish!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly functionARN!: pulumi.Output<string>;
-    public readonly functionCode!: pulumi.Output<string | undefined>;
-    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig | undefined>;
+    public readonly functionCode!: pulumi.Output<string>;
+    public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionConfig>;
     public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionMetadata | undefined>;
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly stage!: pulumi.Output<string>;
@@ -52,10 +52,16 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.functionCode === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'functionCode'");
+            }
+            if ((!args || args.functionConfig === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'functionConfig'");
+            }
             resourceInputs["autoPublish"] = args ? args.autoPublish : undefined;
             resourceInputs["functionCode"] = args ? args.functionCode : undefined;
             resourceInputs["functionConfig"] = args ? args.functionConfig : undefined;
@@ -82,8 +88,8 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionArgs {
     autoPublish?: pulumi.Input<boolean>;
-    functionCode?: pulumi.Input<string>;
-    functionConfig?: pulumi.Input<inputs.cloudfront.FunctionConfigArgs>;
+    functionCode: pulumi.Input<string>;
+    functionConfig: pulumi.Input<inputs.cloudfront.FunctionConfigArgs>;
     functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionMetadataArgs>;
     name?: pulumi.Input<string>;
 }

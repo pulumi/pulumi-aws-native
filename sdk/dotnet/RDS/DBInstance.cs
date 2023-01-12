@@ -150,6 +150,12 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> DBSubnetGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+        /// </summary>
+        [Output("dBSystemId")]
+        public Output<string> DBSystemId { get; private set; } = null!;
+
+        /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         /// </summary>
         [Output("dbiResourceId")]
@@ -234,10 +240,22 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> LicenseModel { get; private set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        [Output("manageMasterUserPassword")]
+        public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
         /// The password for the master user.
         /// </summary>
         [Output("masterUserPassword")]
         public Output<string?> MasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        [Output("masterUserSecret")]
+        public Output<Outputs.DBInstanceMasterUserSecret?> MasterUserSecret { get; private set; } = null!;
 
         /// <summary>
         /// The master user name for the DB instance.
@@ -701,10 +719,22 @@ namespace Pulumi.AwsNative.RDS
         public Input<string>? LicenseModel { get; set; }
 
         /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
+        /// <summary>
         /// The password for the master user.
         /// </summary>
         [Input("masterUserPassword")]
         public Input<string>? MasterUserPassword { get; set; }
+
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        [Input("masterUserSecret")]
+        public Input<Inputs.DBInstanceMasterUserSecretArgs>? MasterUserSecret { get; set; }
 
         /// <summary>
         /// The master user name for the DB instance.

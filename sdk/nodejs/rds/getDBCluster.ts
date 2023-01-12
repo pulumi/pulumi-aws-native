@@ -113,6 +113,14 @@ export interface GetDBClusterResult {
      */
     readonly iops?: number;
     /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    readonly manageMasterUserPassword?: boolean;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    readonly masterUserSecret?: outputs.rds.DBClusterMasterUserSecret;
+    /**
      * The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
      */
     readonly masterUsername?: string;

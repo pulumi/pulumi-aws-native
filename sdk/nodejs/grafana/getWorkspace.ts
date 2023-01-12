@@ -94,6 +94,7 @@ export interface GetWorkspaceResult {
      */
     readonly stackSetName?: string;
     readonly status?: enums.grafana.WorkspaceStatus;
+    readonly vpcConfiguration?: outputs.grafana.WorkspaceVpcConfiguration;
 }
 
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

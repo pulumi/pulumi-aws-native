@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.FSx
         public readonly string? LustreMountName;
         public readonly Outputs.FileSystemOntapConfiguration? OntapConfiguration;
         public readonly Outputs.FileSystemOpenZFSConfiguration? OpenZFSConfiguration;
+        public readonly string? ResourceARN;
         public readonly string? RootVolumeId;
         public readonly int? StorageCapacity;
         public readonly ImmutableArray<Outputs.FileSystemTag> Tags;
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.FSx
 
             Outputs.FileSystemOpenZFSConfiguration? openZFSConfiguration,
 
+            string? resourceARN,
+
             string? rootVolumeId,
 
             int? storageCapacity,
@@ -90,6 +93,7 @@ namespace Pulumi.AwsNative.FSx
             LustreMountName = lustreMountName;
             OntapConfiguration = ontapConfiguration;
             OpenZFSConfiguration = openZFSConfiguration;
+            ResourceARN = resourceARN;
             RootVolumeId = rootVolumeId;
             StorageCapacity = storageCapacity;
             Tags = tags;

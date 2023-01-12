@@ -271,6 +271,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["windows_configuration"] = windows_configuration
             __props__.__dict__["d_ns_name"] = None
             __props__.__dict__["lustre_mount_name"] = None
+            __props__.__dict__["resource_arn"] = None
             __props__.__dict__["root_volume_id"] = None
         super(FileSystem, __self__).__init__(
             'aws-native:fsx:FileSystem',
@@ -303,6 +304,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["lustre_mount_name"] = None
         __props__.__dict__["ontap_configuration"] = None
         __props__.__dict__["open_zfs_configuration"] = None
+        __props__.__dict__["resource_arn"] = None
         __props__.__dict__["root_volume_id"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["storage_capacity"] = None
@@ -356,6 +358,11 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="openZFSConfiguration")
     def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.FileSystemOpenZFSConfiguration']]:
         return pulumi.get(self, "open_zfs_configuration")
+
+    @property
+    @pulumi.getter(name="resourceARN")
+    def resource_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="rootVolumeId")

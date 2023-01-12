@@ -76,17 +76,27 @@ class SimpleADVpcSettings(dict):
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  vpc_id: str):
+        """
+        :param Sequence[str] subnet_ids: The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        :param str vpc_id: The identifier of the VPC in which to create the directory.
+        """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
+        """
+        The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
+        """
+        The identifier of the VPC in which to create the directory.
+        """
         return pulumi.get(self, "vpc_id")
 
 

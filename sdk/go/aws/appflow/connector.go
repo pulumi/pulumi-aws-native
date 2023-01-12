@@ -12,8 +12,6 @@ import (
 )
 
 // Resource schema for AWS::AppFlow::Connector
-//
-// Deprecated: Connector is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Connector struct {
 	pulumi.CustomResourceState
 

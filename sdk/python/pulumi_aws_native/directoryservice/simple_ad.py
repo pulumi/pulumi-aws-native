@@ -16,18 +16,25 @@ __all__ = ['SimpleADArgs', 'SimpleAD']
 @pulumi.input_type
 class SimpleADArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
                  size: pulumi.Input[str],
                  vpc_settings: pulumi.Input['SimpleADVpcSettingsArgs'],
                  create_alias: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_sso: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SimpleAD resource.
+        :param pulumi.Input[str] size: The size of the directory.
+        :param pulumi.Input['SimpleADVpcSettingsArgs'] vpc_settings: VPC settings of the Simple AD directory server in AWS.
+        :param pulumi.Input[bool] create_alias: The name of the configuration set.
+        :param pulumi.Input[str] description: Description for the directory.
+        :param pulumi.Input[bool] enable_sso: Whether to enable single sign-on for a Simple Active Directory in AWS.
+        :param pulumi.Input[str] name: The fully qualified domain name for the AWS Managed Simple AD directory.
+        :param pulumi.Input[str] password: The password for the default administrative user named Admin.
+        :param pulumi.Input[str] short_name: The NetBIOS name for your domain.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "vpc_settings", vpc_settings)
         if create_alias is not None:
@@ -38,21 +45,17 @@ class SimpleADArgs:
             pulumi.set(__self__, "enable_sso", enable_sso)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if short_name is not None:
             pulumi.set(__self__, "short_name", short_name)
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
     def size(self) -> pulumi.Input[str]:
+        """
+        The size of the directory.
+        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -62,6 +65,9 @@ class SimpleADArgs:
     @property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> pulumi.Input['SimpleADVpcSettingsArgs']:
+        """
+        VPC settings of the Simple AD directory server in AWS.
+        """
         return pulumi.get(self, "vpc_settings")
 
     @vpc_settings.setter
@@ -71,6 +77,9 @@ class SimpleADArgs:
     @property
     @pulumi.getter(name="createAlias")
     def create_alias(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The name of the configuration set.
+        """
         return pulumi.get(self, "create_alias")
 
     @create_alias.setter
@@ -80,6 +89,9 @@ class SimpleADArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description for the directory.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,6 +101,9 @@ class SimpleADArgs:
     @property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable single sign-on for a Simple Active Directory in AWS.
+        """
         return pulumi.get(self, "enable_sso")
 
     @enable_sso.setter
@@ -98,6 +113,9 @@ class SimpleADArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fully qualified domain name for the AWS Managed Simple AD directory.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -105,8 +123,23 @@ class SimpleADArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the default administrative user named Admin.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
     @pulumi.getter(name="shortName")
     def short_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The NetBIOS name for your domain.
+        """
         return pulumi.get(self, "short_name")
 
     @short_name.setter
@@ -114,12 +147,7 @@ class SimpleADArgs:
         pulumi.set(self, "short_name", value)
 
 
-warnings.warn("""SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SimpleAD(pulumi.CustomResource):
-    warnings.warn("""SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -138,6 +166,14 @@ class SimpleAD(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_alias: The name of the configuration set.
+        :param pulumi.Input[str] description: Description for the directory.
+        :param pulumi.Input[bool] enable_sso: Whether to enable single sign-on for a Simple Active Directory in AWS.
+        :param pulumi.Input[str] name: The fully qualified domain name for the AWS Managed Simple AD directory.
+        :param pulumi.Input[str] password: The password for the default administrative user named Admin.
+        :param pulumi.Input[str] short_name: The NetBIOS name for your domain.
+        :param pulumi.Input[str] size: The size of the directory.
+        :param pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         """
         ...
     @overload
@@ -172,7 +208,6 @@ class SimpleAD(pulumi.CustomResource):
                  size: Optional[pulumi.Input[str]] = None,
                  vpc_settings: Optional[pulumi.Input[pulumi.InputType['SimpleADVpcSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SimpleAD is deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -185,8 +220,6 @@ class SimpleAD(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_sso"] = enable_sso
             __props__.__dict__["name"] = name
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = password
             __props__.__dict__["short_name"] = short_name
             if size is None and not opts.urn:
@@ -196,6 +229,7 @@ class SimpleAD(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings
             __props__.__dict__["alias"] = None
+            __props__.__dict__["directory_id"] = None
             __props__.__dict__["dns_ip_addresses"] = None
         super(SimpleAD, __self__).__init__(
             'aws-native:directoryservice:SimpleAD',
@@ -222,6 +256,7 @@ class SimpleAD(pulumi.CustomResource):
         __props__.__dict__["alias"] = None
         __props__.__dict__["create_alias"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["directory_id"] = None
         __props__.__dict__["dns_ip_addresses"] = None
         __props__.__dict__["enable_sso"] = None
         __props__.__dict__["name"] = None
@@ -234,50 +269,88 @@ class SimpleAD(pulumi.CustomResource):
     @property
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
+        """
+        The alias for a directory.
+        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter(name="createAlias")
     def create_alias(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The name of the configuration set.
+        """
         return pulumi.get(self, "create_alias")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Description for the directory.
+        """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier for a directory.
+        """
+        return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="dnsIpAddresses")
     def dns_ip_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+        """
         return pulumi.get(self, "dns_ip_addresses")
 
     @property
     @pulumi.getter(name="enableSso")
     def enable_sso(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable single sign-on for a Simple Active Directory in AWS.
+        """
         return pulumi.get(self, "enable_sso")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The fully qualified domain name for the AWS Managed Simple AD directory.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password for the default administrative user named Admin.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="shortName")
     def short_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The NetBIOS name for your domain.
+        """
         return pulumi.get(self, "short_name")
 
     @property
     @pulumi.getter
     def size(self) -> pulumi.Output[str]:
+        """
+        The size of the directory.
+        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="vpcSettings")
     def vpc_settings(self) -> pulumi.Output['outputs.SimpleADVpcSettings']:
+        """
+        VPC settings of the Simple AD directory server in AWS.
+        """
         return pulumi.get(self, "vpc_settings")
 

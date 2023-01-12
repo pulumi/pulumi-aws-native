@@ -26,6 +26,10 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly bool? IncludeEncoderConfigurationInSegments;
         /// <summary>
+        /// When enabled, an I-Frame only stream will be included in the output.
+        /// </summary>
+        public readonly bool? IncludeIframeOnlyStream;
+        /// <summary>
         /// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem> PeriodTriggers;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 
             bool? includeEncoderConfigurationInSegments,
 
+            bool? includeIframeOnlyStream,
+
             ImmutableArray<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem> periodTriggers,
 
             int? segmentDurationSeconds,
@@ -52,6 +58,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
             DashManifests = dashManifests;
             Encryption = encryption;
             IncludeEncoderConfigurationInSegments = includeEncoderConfigurationInSegments;
+            IncludeIframeOnlyStream = includeIframeOnlyStream;
             PeriodTriggers = periodTriggers;
             SegmentDurationSeconds = segmentDurationSeconds;
             SegmentTemplateFormat = segmentTemplateFormat;

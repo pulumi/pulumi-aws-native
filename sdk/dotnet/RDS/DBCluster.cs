@@ -189,10 +189,22 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        [Output("manageMasterUserPassword")]
+        public Output<bool?> ManageMasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
         /// The master password for the DB instance.
         /// </summary>
         [Output("masterUserPassword")]
         public Output<string?> MasterUserPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        [Output("masterUserSecret")]
+        public Output<Outputs.DBClusterMasterUserSecret?> MasterUserSecret { get; private set; } = null!;
 
         /// <summary>
         /// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
@@ -562,10 +574,22 @@ namespace Pulumi.AwsNative.RDS
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        /// </summary>
+        [Input("manageMasterUserPassword")]
+        public Input<bool>? ManageMasterUserPassword { get; set; }
+
+        /// <summary>
         /// The master password for the DB instance.
         /// </summary>
         [Input("masterUserPassword")]
         public Input<string>? MasterUserPassword { get; set; }
+
+        /// <summary>
+        /// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        /// </summary>
+        [Input("masterUserSecret")]
+        public Input<Inputs.DBClusterMasterUserSecretArgs>? MasterUserSecret { get; set; }
 
         /// <summary>
         /// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.

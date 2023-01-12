@@ -13,30 +13,42 @@ namespace Pulumi.AwsNative.FSx.Outputs
     [OutputType]
     public sealed class VolumeOntapConfiguration
     {
-        public readonly string JunctionPath;
+        public readonly string? CopyTagsToBackups;
+        public readonly string? JunctionPath;
+        public readonly string? OntapVolumeType;
         public readonly string? SecurityStyle;
         public readonly string SizeInMegabytes;
-        public readonly string StorageEfficiencyEnabled;
+        public readonly string? SnapshotPolicy;
+        public readonly string? StorageEfficiencyEnabled;
         public readonly string StorageVirtualMachineId;
         public readonly Outputs.VolumeTieringPolicy? TieringPolicy;
 
         [OutputConstructor]
         private VolumeOntapConfiguration(
-            string junctionPath,
+            string? copyTagsToBackups,
+
+            string? junctionPath,
+
+            string? ontapVolumeType,
 
             string? securityStyle,
 
             string sizeInMegabytes,
 
-            string storageEfficiencyEnabled,
+            string? snapshotPolicy,
+
+            string? storageEfficiencyEnabled,
 
             string storageVirtualMachineId,
 
             Outputs.VolumeTieringPolicy? tieringPolicy)
         {
+            CopyTagsToBackups = copyTagsToBackups;
             JunctionPath = junctionPath;
+            OntapVolumeType = ontapVolumeType;
             SecurityStyle = securityStyle;
             SizeInMegabytes = sizeInMegabytes;
+            SnapshotPolicy = snapshotPolicy;
             StorageEfficiencyEnabled = storageEfficiencyEnabled;
             StorageVirtualMachineId = storageVirtualMachineId;
             TieringPolicy = tieringPolicy;

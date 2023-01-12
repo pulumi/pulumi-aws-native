@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,8 +17,8 @@ type Function struct {
 
 	AutoPublish      pulumi.BoolPtrOutput      `pulumi:"autoPublish"`
 	FunctionARN      pulumi.StringOutput       `pulumi:"functionARN"`
-	FunctionCode     pulumi.StringPtrOutput    `pulumi:"functionCode"`
-	FunctionConfig   FunctionConfigPtrOutput   `pulumi:"functionConfig"`
+	FunctionCode     pulumi.StringOutput       `pulumi:"functionCode"`
+	FunctionConfig   FunctionConfigOutput      `pulumi:"functionConfig"`
 	FunctionMetadata FunctionMetadataPtrOutput `pulumi:"functionMetadata"`
 	Name             pulumi.StringOutput       `pulumi:"name"`
 	Stage            pulumi.StringOutput       `pulumi:"stage"`
@@ -27,9 +28,15 @@ type Function struct {
 func NewFunction(ctx *pulumi.Context,
 	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
 	if args == nil {
-		args = &FunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.FunctionCode == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionCode'")
+	}
+	if args.FunctionConfig == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionConfig'")
+	}
 	var resource Function
 	err := ctx.RegisterResource("aws-native:cloudfront:Function", name, args, &resource, opts...)
 	if err != nil {
@@ -63,8 +70,8 @@ func (FunctionState) ElementType() reflect.Type {
 
 type functionArgs struct {
 	AutoPublish      *bool             `pulumi:"autoPublish"`
-	FunctionCode     *string           `pulumi:"functionCode"`
-	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
+	FunctionCode     string            `pulumi:"functionCode"`
+	FunctionConfig   FunctionConfig    `pulumi:"functionConfig"`
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
 	Name             *string           `pulumi:"name"`
 }
@@ -72,8 +79,8 @@ type functionArgs struct {
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	AutoPublish      pulumi.BoolPtrInput
-	FunctionCode     pulumi.StringPtrInput
-	FunctionConfig   FunctionConfigPtrInput
+	FunctionCode     pulumi.StringInput
+	FunctionConfig   FunctionConfigInput
 	FunctionMetadata FunctionMetadataPtrInput
 	Name             pulumi.StringPtrInput
 }
@@ -123,12 +130,12 @@ func (o FunctionOutput) FunctionARN() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionARN }).(pulumi.StringOutput)
 }
 
-func (o FunctionOutput) FunctionCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionCode }).(pulumi.StringPtrOutput)
+func (o FunctionOutput) FunctionCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.FunctionCode }).(pulumi.StringOutput)
 }
 
-func (o FunctionOutput) FunctionConfig() FunctionConfigPtrOutput {
-	return o.ApplyT(func(v *Function) FunctionConfigPtrOutput { return v.FunctionConfig }).(FunctionConfigPtrOutput)
+func (o FunctionOutput) FunctionConfig() FunctionConfigOutput {
+	return o.ApplyT(func(v *Function) FunctionConfigOutput { return v.FunctionConfig }).(FunctionConfigOutput)
 }
 
 func (o FunctionOutput) FunctionMetadata() FunctionMetadataPtrOutput {

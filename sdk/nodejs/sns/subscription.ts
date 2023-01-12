@@ -40,6 +40,7 @@ export class Subscription extends pulumi.CustomResource {
     public readonly deliveryPolicy!: pulumi.Output<any | undefined>;
     public readonly endpoint!: pulumi.Output<string | undefined>;
     public readonly filterPolicy!: pulumi.Output<any | undefined>;
+    public readonly filterPolicyScope!: pulumi.Output<string | undefined>;
     public readonly protocol!: pulumi.Output<string>;
     public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
     public readonly redrivePolicy!: pulumi.Output<any | undefined>;
@@ -69,6 +70,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["filterPolicy"] = args ? args.filterPolicy : undefined;
+            resourceInputs["filterPolicyScope"] = args ? args.filterPolicyScope : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
@@ -79,6 +81,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["deliveryPolicy"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["filterPolicy"] = undefined /*out*/;
+            resourceInputs["filterPolicyScope"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["rawMessageDelivery"] = undefined /*out*/;
             resourceInputs["redrivePolicy"] = undefined /*out*/;
@@ -98,6 +101,7 @@ export interface SubscriptionArgs {
     deliveryPolicy?: any;
     endpoint?: pulumi.Input<string>;
     filterPolicy?: any;
+    filterPolicyScope?: pulumi.Input<string>;
     protocol: pulumi.Input<string>;
     rawMessageDelivery?: pulumi.Input<boolean>;
     redrivePolicy?: any;

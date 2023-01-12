@@ -59,8 +59,9 @@ type LookupWorkspaceResult struct {
 	// The client ID of the AWS SSO Managed Application.
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
-	StackSetName *string          `pulumi:"stackSetName"`
-	Status       *WorkspaceStatus `pulumi:"status"`
+	StackSetName     *string                    `pulumi:"stackSetName"`
+	Status           *WorkspaceStatus           `pulumi:"status"`
+	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -194,6 +195,10 @@ func (o LookupWorkspaceResultOutput) StackSetName() pulumi.StringPtrOutput {
 
 func (o LookupWorkspaceResultOutput) Status() WorkspaceStatusPtrOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceStatus { return v.Status }).(WorkspaceStatusPtrOutput)
+}
+
+func (o LookupWorkspaceResultOutput) VpcConfiguration() WorkspaceVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) *WorkspaceVpcConfiguration { return v.VpcConfiguration }).(WorkspaceVpcConfigurationPtrOutput)
 }
 
 func init() {

@@ -60,6 +60,7 @@ __all__ = [
     'DataSourceAuroraPostgreSqlParameters',
     'DataSourceCredentialPair',
     'DataSourceCredentials',
+    'DataSourceDatabricksParameters',
     'DataSourceErrorInfo',
     'DataSourceManifestFileLocation',
     'DataSourceMariaDbParameters',
@@ -2298,6 +2299,67 @@ class DataSourceCredentials(dict):
 
 
 @pulumi.output_type
+class DataSourceDatabricksParameters(dict):
+    """
+    <p>Databricks parameters.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlEndpointPath":
+            suggest = "sql_endpoint_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDatabricksParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDatabricksParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDatabricksParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host: str,
+                 port: float,
+                 sql_endpoint_path: str):
+        """
+        <p>Databricks parameters.</p>
+        :param str host: <p>Host.</p>
+        :param float port: <p>Port.</p>
+        :param str sql_endpoint_path: <p>The HTTP Path of the Databricks data source.</p>
+        """
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "sql_endpoint_path", sql_endpoint_path)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> float:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="sqlEndpointPath")
+    def sql_endpoint_path(self) -> str:
+        """
+        <p>The HTTP Path of the Databricks data source.</p>
+        """
+        return pulumi.get(self, "sql_endpoint_path")
+
+
+@pulumi.output_type
 class DataSourceErrorInfo(dict):
     """
     <p>Error information for the data source creation or update.</p>
@@ -2495,6 +2557,8 @@ class DataSourceParameters(dict):
             suggest = "aurora_parameters"
         elif key == "auroraPostgreSqlParameters":
             suggest = "aurora_postgre_sql_parameters"
+        elif key == "databricksParameters":
+            suggest = "databricks_parameters"
         elif key == "mariaDbParameters":
             suggest = "maria_db_parameters"
         elif key == "mySqlParameters":
@@ -2537,6 +2601,7 @@ class DataSourceParameters(dict):
                  athena_parameters: Optional['outputs.DataSourceAthenaParameters'] = None,
                  aurora_parameters: Optional['outputs.DataSourceAuroraParameters'] = None,
                  aurora_postgre_sql_parameters: Optional['outputs.DataSourceAuroraPostgreSqlParameters'] = None,
+                 databricks_parameters: Optional['outputs.DataSourceDatabricksParameters'] = None,
                  maria_db_parameters: Optional['outputs.DataSourceMariaDbParameters'] = None,
                  my_sql_parameters: Optional['outputs.DataSourceMySqlParameters'] = None,
                  oracle_parameters: Optional['outputs.DataSourceOracleParameters'] = None,
@@ -2564,6 +2629,8 @@ class DataSourceParameters(dict):
             pulumi.set(__self__, "aurora_parameters", aurora_parameters)
         if aurora_postgre_sql_parameters is not None:
             pulumi.set(__self__, "aurora_postgre_sql_parameters", aurora_postgre_sql_parameters)
+        if databricks_parameters is not None:
+            pulumi.set(__self__, "databricks_parameters", databricks_parameters)
         if maria_db_parameters is not None:
             pulumi.set(__self__, "maria_db_parameters", maria_db_parameters)
         if my_sql_parameters is not None:
@@ -2613,6 +2680,11 @@ class DataSourceParameters(dict):
     @pulumi.getter(name="auroraPostgreSqlParameters")
     def aurora_postgre_sql_parameters(self) -> Optional['outputs.DataSourceAuroraPostgreSqlParameters']:
         return pulumi.get(self, "aurora_postgre_sql_parameters")
+
+    @property
+    @pulumi.getter(name="databricksParameters")
+    def databricks_parameters(self) -> Optional['outputs.DataSourceDatabricksParameters']:
+        return pulumi.get(self, "databricks_parameters")
 
     @property
     @pulumi.getter(name="mariaDbParameters")

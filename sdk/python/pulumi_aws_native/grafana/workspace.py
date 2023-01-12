@@ -29,7 +29,8 @@ class WorkspaceArgs:
                  permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
-                 stack_set_name: Optional[pulumi.Input[str]] = None):
+                 stack_set_name: Optional[pulumi.Input[str]] = None,
+                 vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]] authentication_providers: List of authentication providers to enable.
@@ -69,6 +70,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "saml_configuration", saml_configuration)
         if stack_set_name is not None:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="accountAccessType")
@@ -217,6 +220,15 @@ class WorkspaceArgs:
     def stack_set_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stack_set_name", value)
 
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
+
 
 class Workspace(pulumi.CustomResource):
     @overload
@@ -236,6 +248,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceSamlConfigurationArgs']]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
         Definition of AWS::Grafana::Workspace Resource Type
@@ -290,6 +303,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceSamlConfigurationArgs']]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceVpcConfigurationArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,6 +326,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["saml_configuration"] = saml_configuration
             __props__.__dict__["stack_set_name"] = stack_set_name
+            __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["grafana_version"] = None
@@ -361,6 +376,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["sso_client_id"] = None
         __props__.__dict__["stack_set_name"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["vpc_configuration"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -507,4 +523,9 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['WorkspaceStatus']:
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceVpcConfiguration']]:
+        return pulumi.get(self, "vpc_configuration")
 

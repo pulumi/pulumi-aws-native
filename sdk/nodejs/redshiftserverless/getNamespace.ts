@@ -42,14 +42,6 @@ export interface GetNamespaceResult {
      */
     readonly defaultIamRoleArn?: string;
     /**
-     * The name of the namespace the source snapshot was created from. Please specify the name if needed before deleting namespace
-     */
-    readonly finalSnapshotName?: string;
-    /**
-     * The number of days to retain automated snapshot in the destination region after they are copied from the source region. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3,653.
-     */
-    readonly finalSnapshotRetentionPeriod?: number;
-    /**
      * A list of AWS Identity and Access Management (IAM) roles that can be used by the namespace to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. The Default role limit for each request is 10.
      */
     readonly iamRoles?: string[];

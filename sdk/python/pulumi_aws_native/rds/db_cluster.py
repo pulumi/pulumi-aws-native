@@ -42,7 +42,9 @@ class DBClusterArgs:
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret: Optional[pulumi.Input['DBClusterMasterUserSecretArgs']] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -97,7 +99,9 @@ class DBClusterArgs:
                If you aren't configuring a global database cluster, don't specify this property.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
+        :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The master password for the DB instance.
+        :param pulumi.Input['DBClusterMasterUserSecretArgs'] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
@@ -179,8 +183,12 @@ class DBClusterArgs:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if manage_master_user_password is not None:
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_user_password is not None:
             pulumi.set(__self__, "master_user_password", master_user_password)
+        if master_user_secret is not None:
+            pulumi.set(__self__, "master_user_secret", master_user_secret)
         if master_username is not None:
             pulumi.set(__self__, "master_username", master_username)
         if monitoring_interval is not None:
@@ -545,6 +553,18 @@ class DBClusterArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @manage_master_user_password.setter
+    def manage_master_user_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_user_password", value)
+
+    @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> Optional[pulumi.Input[str]]:
         """
@@ -555,6 +575,18 @@ class DBClusterArgs:
     @master_user_password.setter
     def master_user_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_user_password", value)
+
+    @property
+    @pulumi.getter(name="masterUserSecret")
+    def master_user_secret(self) -> Optional[pulumi.Input['DBClusterMasterUserSecretArgs']]:
+        """
+        Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        """
+        return pulumi.get(self, "master_user_secret")
+
+    @master_user_secret.setter
+    def master_user_secret(self, value: Optional[pulumi.Input['DBClusterMasterUserSecretArgs']]):
+        pulumi.set(self, "master_user_secret", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -878,7 +910,9 @@ class DBCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -937,7 +971,9 @@ class DBCluster(pulumi.CustomResource):
                If you aren't configuring a global database cluster, don't specify this property.
         :param pulumi.Input[int] iops: The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
+        :param pulumi.Input[bool] manage_master_user_password: A value that indicates whether to manage the master user password with AWS Secrets Manager.
         :param pulumi.Input[str] master_user_password: The master password for the DB instance.
+        :param pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']] master_user_secret: Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs.
@@ -1017,7 +1053,9 @@ class DBCluster(pulumi.CustomResource):
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 manage_master_user_password: Optional[pulumi.Input[bool]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
+                 master_user_secret: Optional[pulumi.Input[pulumi.InputType['DBClusterMasterUserSecretArgs']]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  monitoring_interval: Optional[pulumi.Input[int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1077,7 +1115,9 @@ class DBCluster(pulumi.CustomResource):
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_user_password"] = master_user_password
+            __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
@@ -1156,7 +1196,9 @@ class DBCluster(pulumi.CustomResource):
         __props__.__dict__["global_cluster_identifier"] = None
         __props__.__dict__["iops"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["manage_master_user_password"] = None
         __props__.__dict__["master_user_password"] = None
+        __props__.__dict__["master_user_secret"] = None
         __props__.__dict__["master_username"] = None
         __props__.__dict__["monitoring_interval"] = None
         __props__.__dict__["monitoring_role_arn"] = None
@@ -1415,12 +1457,28 @@ class DBCluster(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> pulumi.Output[Optional[str]]:
         """
         The master password for the DB instance.
         """
         return pulumi.get(self, "master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecret")
+    def master_user_secret(self) -> pulumi.Output[Optional['outputs.DBClusterMasterUserSecret']]:
+        """
+        Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        """
+        return pulumi.get(self, "master_user_secret")
 
     @property
     @pulumi.getter(name="masterUsername")

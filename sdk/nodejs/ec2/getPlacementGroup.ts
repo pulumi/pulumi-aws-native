@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -27,9 +30,9 @@ export interface GetPlacementGroupArgs {
 
 export interface GetPlacementGroupResult {
     /**
-     * The Group Name of Placement Group.
+     * An array of key-value pairs to apply to this resource.
      */
-    readonly groupName?: string;
+    readonly tags?: outputs.ec2.PlacementGroupTag[];
 }
 
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {

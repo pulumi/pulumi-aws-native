@@ -21,14 +21,19 @@ func LookupSimpleAD(ctx *pulumi.Context, args *LookupSimpleADArgs, opts ...pulum
 }
 
 type LookupSimpleADArgs struct {
-	Id string `pulumi:"id"`
+	// The unique identifier for a directory.
+	DirectoryId string `pulumi:"directoryId"`
 }
 
 type LookupSimpleADResult struct {
-	Alias          *string  `pulumi:"alias"`
+	// The alias for a directory.
+	Alias *string `pulumi:"alias"`
+	// The unique identifier for a directory.
+	DirectoryId *string `pulumi:"directoryId"`
+	// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
 	DnsIpAddresses []string `pulumi:"dnsIpAddresses"`
-	EnableSso      *bool    `pulumi:"enableSso"`
-	Id             *string  `pulumi:"id"`
+	// Whether to enable single sign-on for a Simple Active Directory in AWS.
+	EnableSso *bool `pulumi:"enableSso"`
 }
 
 func LookupSimpleADOutput(ctx *pulumi.Context, args LookupSimpleADOutputArgs, opts ...pulumi.InvokeOption) LookupSimpleADResultOutput {
@@ -45,7 +50,8 @@ func LookupSimpleADOutput(ctx *pulumi.Context, args LookupSimpleADOutputArgs, op
 }
 
 type LookupSimpleADOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The unique identifier for a directory.
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
 }
 
 func (LookupSimpleADOutputArgs) ElementType() reflect.Type {
@@ -66,20 +72,24 @@ func (o LookupSimpleADResultOutput) ToLookupSimpleADResultOutputWithContext(ctx 
 	return o
 }
 
+// The alias for a directory.
 func (o LookupSimpleADResultOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSimpleADResult) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier for a directory.
+func (o LookupSimpleADResultOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSimpleADResult) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
 func (o LookupSimpleADResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSimpleADResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
 }
 
+// Whether to enable single sign-on for a Simple Active Directory in AWS.
 func (o LookupSimpleADResultOutput) EnableSso() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSimpleADResult) *bool { return v.EnableSso }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupSimpleADResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSimpleADResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func init() {

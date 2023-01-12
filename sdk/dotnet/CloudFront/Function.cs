@@ -22,10 +22,10 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> FunctionARN { get; private set; } = null!;
 
         [Output("functionCode")]
-        public Output<string?> FunctionCode { get; private set; } = null!;
+        public Output<string> FunctionCode { get; private set; } = null!;
 
         [Output("functionConfig")]
-        public Output<Outputs.FunctionConfig?> FunctionConfig { get; private set; } = null!;
+        public Output<Outputs.FunctionConfig> FunctionConfig { get; private set; } = null!;
 
         [Output("functionMetadata")]
         public Output<Outputs.FunctionMetadata?> FunctionMetadata { get; private set; } = null!;
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Function(string name, FunctionArgs? args = null, CustomResourceOptions? options = null)
+        public Function(string name, FunctionArgs args, CustomResourceOptions? options = null)
             : base("aws-native:cloudfront:Function", name, args ?? new FunctionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -84,11 +84,11 @@ namespace Pulumi.AwsNative.CloudFront
         [Input("autoPublish")]
         public Input<bool>? AutoPublish { get; set; }
 
-        [Input("functionCode")]
-        public Input<string>? FunctionCode { get; set; }
+        [Input("functionCode", required: true)]
+        public Input<string> FunctionCode { get; set; } = null!;
 
-        [Input("functionConfig")]
-        public Input<Inputs.FunctionConfigArgs>? FunctionConfig { get; set; }
+        [Input("functionConfig", required: true)]
+        public Input<Inputs.FunctionConfigArgs> FunctionConfig { get; set; } = null!;
 
         [Input("functionMetadata")]
         public Input<Inputs.FunctionMetadataArgs>? FunctionMetadata { get; set; }

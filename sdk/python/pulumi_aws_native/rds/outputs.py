@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'DBClusterEndpoint',
+    'DBClusterMasterUserSecret',
     'DBClusterParameterGroupTag',
     'DBClusterReadEndpoint',
     'DBClusterRole',
@@ -20,6 +21,7 @@ __all__ = [
     'DBClusterServerlessV2ScalingConfiguration',
     'DBClusterTag',
     'DBInstanceEndpoint',
+    'DBInstanceMasterUserSecret',
     'DBInstanceProcessorFeature',
     'DBInstanceRole',
     'DBInstanceTag',
@@ -66,6 +68,56 @@ class DBClusterEndpoint(dict):
         The port number that will accept connections on this DB cluster.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DBClusterMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBClusterMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBClusterMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBClusterMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None):
+        """
+        :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -455,6 +507,56 @@ class DBInstanceEndpoint(dict):
 
 
 @pulumi.output_type
+class DBInstanceMasterUserSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBInstanceMasterUserSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBInstanceMasterUserSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBInstanceMasterUserSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[str] = None,
+                 secret_arn: Optional[str] = None):
+        """
+        :param str kms_key_id: The AWS KMS key identifier that is used to encrypt the secret.
+        :param str secret_arn: The Amazon Resource Name (ARN) of the secret.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS KMS key identifier that is used to encrypt the secret.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
 class DBInstanceProcessorFeature(dict):
     def __init__(__self__, *,
                  name: Optional['DBInstanceProcessorFeatureName'] = None,
@@ -608,6 +710,8 @@ class DBProxyAuthFormat(dict):
         suggest = None
         if key == "authScheme":
             suggest = "auth_scheme"
+        elif key == "clientPasswordAuthType":
+            suggest = "client_password_auth_type"
         elif key == "iAMAuth":
             suggest = "i_am_auth"
         elif key == "secretArn":
@@ -628,12 +732,14 @@ class DBProxyAuthFormat(dict):
 
     def __init__(__self__, *,
                  auth_scheme: Optional['DBProxyAuthFormatAuthScheme'] = None,
+                 client_password_auth_type: Optional['DBProxyAuthFormatClientPasswordAuthType'] = None,
                  description: Optional[str] = None,
                  i_am_auth: Optional['DBProxyAuthFormatIAMAuth'] = None,
                  secret_arn: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
         :param 'DBProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param 'DBProxyAuthFormatClientPasswordAuthType' client_password_auth_type: The type of authentication the proxy uses for connections from clients.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         :param 'DBProxyAuthFormatIAMAuth' i_am_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
@@ -641,6 +747,8 @@ class DBProxyAuthFormat(dict):
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
+        if client_password_auth_type is not None:
+            pulumi.set(__self__, "client_password_auth_type", client_password_auth_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if i_am_auth is not None:
@@ -657,6 +765,14 @@ class DBProxyAuthFormat(dict):
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
         return pulumi.get(self, "auth_scheme")
+
+    @property
+    @pulumi.getter(name="clientPasswordAuthType")
+    def client_password_auth_type(self) -> Optional['DBProxyAuthFormatClientPasswordAuthType']:
+        """
+        The type of authentication the proxy uses for connections from clients.
+        """
+        return pulumi.get(self, "client_password_auth_type")
 
     @property
     @pulumi.getter

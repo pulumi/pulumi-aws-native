@@ -6157,6 +6157,184 @@ func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>Databricks parameters.</p>
+type DataSourceDatabricksParameters struct {
+	// <p>Host.</p>
+	Host string `pulumi:"host"`
+	// <p>Port.</p>
+	Port float64 `pulumi:"port"`
+	// <p>The HTTP Path of the Databricks data source.</p>
+	SqlEndpointPath string `pulumi:"sqlEndpointPath"`
+}
+
+// DataSourceDatabricksParametersInput is an input type that accepts DataSourceDatabricksParametersArgs and DataSourceDatabricksParametersOutput values.
+// You can construct a concrete instance of `DataSourceDatabricksParametersInput` via:
+//
+//	DataSourceDatabricksParametersArgs{...}
+type DataSourceDatabricksParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceDatabricksParametersOutput() DataSourceDatabricksParametersOutput
+	ToDataSourceDatabricksParametersOutputWithContext(context.Context) DataSourceDatabricksParametersOutput
+}
+
+// <p>Databricks parameters.</p>
+type DataSourceDatabricksParametersArgs struct {
+	// <p>Host.</p>
+	Host pulumi.StringInput `pulumi:"host"`
+	// <p>Port.</p>
+	Port pulumi.Float64Input `pulumi:"port"`
+	// <p>The HTTP Path of the Databricks data source.</p>
+	SqlEndpointPath pulumi.StringInput `pulumi:"sqlEndpointPath"`
+}
+
+func (DataSourceDatabricksParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDatabricksParameters)(nil)).Elem()
+}
+
+func (i DataSourceDatabricksParametersArgs) ToDataSourceDatabricksParametersOutput() DataSourceDatabricksParametersOutput {
+	return i.ToDataSourceDatabricksParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceDatabricksParametersArgs) ToDataSourceDatabricksParametersOutputWithContext(ctx context.Context) DataSourceDatabricksParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDatabricksParametersOutput)
+}
+
+func (i DataSourceDatabricksParametersArgs) ToDataSourceDatabricksParametersPtrOutput() DataSourceDatabricksParametersPtrOutput {
+	return i.ToDataSourceDatabricksParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDatabricksParametersArgs) ToDataSourceDatabricksParametersPtrOutputWithContext(ctx context.Context) DataSourceDatabricksParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDatabricksParametersOutput).ToDataSourceDatabricksParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceDatabricksParametersPtrInput is an input type that accepts DataSourceDatabricksParametersArgs, DataSourceDatabricksParametersPtr and DataSourceDatabricksParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceDatabricksParametersPtrInput` via:
+//
+//	        DataSourceDatabricksParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDatabricksParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDatabricksParametersPtrOutput() DataSourceDatabricksParametersPtrOutput
+	ToDataSourceDatabricksParametersPtrOutputWithContext(context.Context) DataSourceDatabricksParametersPtrOutput
+}
+
+type dataSourceDatabricksParametersPtrType DataSourceDatabricksParametersArgs
+
+func DataSourceDatabricksParametersPtr(v *DataSourceDatabricksParametersArgs) DataSourceDatabricksParametersPtrInput {
+	return (*dataSourceDatabricksParametersPtrType)(v)
+}
+
+func (*dataSourceDatabricksParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDatabricksParameters)(nil)).Elem()
+}
+
+func (i *dataSourceDatabricksParametersPtrType) ToDataSourceDatabricksParametersPtrOutput() DataSourceDatabricksParametersPtrOutput {
+	return i.ToDataSourceDatabricksParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDatabricksParametersPtrType) ToDataSourceDatabricksParametersPtrOutputWithContext(ctx context.Context) DataSourceDatabricksParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDatabricksParametersPtrOutput)
+}
+
+// <p>Databricks parameters.</p>
+type DataSourceDatabricksParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDatabricksParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDatabricksParameters)(nil)).Elem()
+}
+
+func (o DataSourceDatabricksParametersOutput) ToDataSourceDatabricksParametersOutput() DataSourceDatabricksParametersOutput {
+	return o
+}
+
+func (o DataSourceDatabricksParametersOutput) ToDataSourceDatabricksParametersOutputWithContext(ctx context.Context) DataSourceDatabricksParametersOutput {
+	return o
+}
+
+func (o DataSourceDatabricksParametersOutput) ToDataSourceDatabricksParametersPtrOutput() DataSourceDatabricksParametersPtrOutput {
+	return o.ToDataSourceDatabricksParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDatabricksParametersOutput) ToDataSourceDatabricksParametersPtrOutputWithContext(ctx context.Context) DataSourceDatabricksParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDatabricksParameters) *DataSourceDatabricksParameters {
+		return &v
+	}).(DataSourceDatabricksParametersPtrOutput)
+}
+
+// <p>Host.</p>
+func (o DataSourceDatabricksParametersOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDatabricksParameters) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// <p>Port.</p>
+func (o DataSourceDatabricksParametersOutput) Port() pulumi.Float64Output {
+	return o.ApplyT(func(v DataSourceDatabricksParameters) float64 { return v.Port }).(pulumi.Float64Output)
+}
+
+// <p>The HTTP Path of the Databricks data source.</p>
+func (o DataSourceDatabricksParametersOutput) SqlEndpointPath() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDatabricksParameters) string { return v.SqlEndpointPath }).(pulumi.StringOutput)
+}
+
+type DataSourceDatabricksParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDatabricksParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDatabricksParameters)(nil)).Elem()
+}
+
+func (o DataSourceDatabricksParametersPtrOutput) ToDataSourceDatabricksParametersPtrOutput() DataSourceDatabricksParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceDatabricksParametersPtrOutput) ToDataSourceDatabricksParametersPtrOutputWithContext(ctx context.Context) DataSourceDatabricksParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceDatabricksParametersPtrOutput) Elem() DataSourceDatabricksParametersOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) DataSourceDatabricksParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDatabricksParameters
+		return ret
+	}).(DataSourceDatabricksParametersOutput)
+}
+
+// <p>Host.</p>
+func (o DataSourceDatabricksParametersPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Port.</p>
+func (o DataSourceDatabricksParametersPtrOutput) Port() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>The HTTP Path of the Databricks data source.</p>
+func (o DataSourceDatabricksParametersPtrOutput) SqlEndpointPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDatabricksParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SqlEndpointPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>Error information for the data source creation or update.</p>
 type DataSourceErrorInfo struct {
 	// <p>Error message.</p>
@@ -7000,6 +7178,7 @@ type DataSourceParameters struct {
 	AthenaParameters              *DataSourceAthenaParameters              `pulumi:"athenaParameters"`
 	AuroraParameters              *DataSourceAuroraParameters              `pulumi:"auroraParameters"`
 	AuroraPostgreSqlParameters    *DataSourceAuroraPostgreSqlParameters    `pulumi:"auroraPostgreSqlParameters"`
+	DatabricksParameters          *DataSourceDatabricksParameters          `pulumi:"databricksParameters"`
 	MariaDbParameters             *DataSourceMariaDbParameters             `pulumi:"mariaDbParameters"`
 	MySqlParameters               *DataSourceMySqlParameters               `pulumi:"mySqlParameters"`
 	OracleParameters              *DataSourceOracleParameters              `pulumi:"oracleParameters"`
@@ -7035,6 +7214,7 @@ type DataSourceParametersArgs struct {
 	AthenaParameters              DataSourceAthenaParametersPtrInput              `pulumi:"athenaParameters"`
 	AuroraParameters              DataSourceAuroraParametersPtrInput              `pulumi:"auroraParameters"`
 	AuroraPostgreSqlParameters    DataSourceAuroraPostgreSqlParametersPtrInput    `pulumi:"auroraPostgreSqlParameters"`
+	DatabricksParameters          DataSourceDatabricksParametersPtrInput          `pulumi:"databricksParameters"`
 	MariaDbParameters             DataSourceMariaDbParametersPtrInput             `pulumi:"mariaDbParameters"`
 	MySqlParameters               DataSourceMySqlParametersPtrInput               `pulumi:"mySqlParameters"`
 	OracleParameters              DataSourceOracleParametersPtrInput              `pulumi:"oracleParameters"`
@@ -7181,6 +7361,10 @@ func (o DataSourceParametersOutput) AuroraPostgreSqlParameters() DataSourceAuror
 	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
 }
 
+func (o DataSourceParametersOutput) DatabricksParameters() DataSourceDatabricksParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceParameters) *DataSourceDatabricksParameters { return v.DatabricksParameters }).(DataSourceDatabricksParametersPtrOutput)
+}
+
 func (o DataSourceParametersOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceMariaDbParameters { return v.MariaDbParameters }).(DataSourceMariaDbParametersPtrOutput)
 }
@@ -7296,6 +7480,15 @@ func (o DataSourceParametersPtrOutput) AuroraPostgreSqlParameters() DataSourceAu
 		}
 		return v.AuroraPostgreSqlParameters
 	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
+}
+
+func (o DataSourceParametersPtrOutput) DatabricksParameters() DataSourceDatabricksParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceParameters) *DataSourceDatabricksParameters {
+		if v == nil {
+			return nil
+		}
+		return v.DatabricksParameters
+	}).(DataSourceDatabricksParametersPtrOutput)
 }
 
 func (o DataSourceParametersPtrOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
@@ -13313,6 +13506,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialPairPtrInput)(nil)).Elem(), DataSourceCredentialPairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsInput)(nil)).Elem(), DataSourceCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsPtrInput)(nil)).Elem(), DataSourceCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDatabricksParametersInput)(nil)).Elem(), DataSourceDatabricksParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDatabricksParametersPtrInput)(nil)).Elem(), DataSourceDatabricksParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoInput)(nil)).Elem(), DataSourceErrorInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoPtrInput)(nil)).Elem(), DataSourceErrorInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceManifestFileLocationInput)(nil)).Elem(), DataSourceManifestFileLocationArgs{})
@@ -13482,6 +13677,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCredentialPairPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDatabricksParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceDatabricksParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceManifestFileLocationOutput{})

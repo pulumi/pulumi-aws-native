@@ -26,8 +26,6 @@ type LookupProjectArgs struct {
 }
 
 type LookupProjectResult struct {
-	// The IDs of the assets to be associated to the project.
-	AssetIds []string `pulumi:"assetIds"`
 	// The ARN of the project.
 	ProjectArn *string `pulumi:"projectArn"`
 	// A description for the project.
@@ -74,11 +72,6 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectRe
 
 func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
 	return o
-}
-
-// The IDs of the assets to be associated to the project.
-func (o LookupProjectResultOutput) AssetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupProjectResult) []string { return v.AssetIds }).(pulumi.StringArrayOutput)
 }
 
 // The ARN of the project.

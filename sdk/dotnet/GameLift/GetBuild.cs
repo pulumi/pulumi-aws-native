@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetBuildArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        /// </summary>
+        [Input("buildId", required: true)]
+        public string BuildId { get; set; } = null!;
 
         public GetBuildArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetBuildInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        /// </summary>
+        [Input("buildId", required: true)]
+        public Input<string> BuildId { get; set; } = null!;
 
         public GetBuildInvokeArgs()
         {
@@ -51,19 +57,28 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetBuildResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+        /// </summary>
+        public readonly string? BuildId;
+        /// <summary>
+        /// A descriptive label that is associated with a build. Build names do not need to be unique.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Version information that is associated with this build. Version strings do not need to be unique.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private GetBuildResult(
-            string? id,
+            string? buildId,
 
             string? name,
 
             string? version)
         {
-            Id = id;
+            BuildId = buildId;
             Name = name;
             Version = version;
         }

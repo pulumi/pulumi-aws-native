@@ -16,6 +16,7 @@ __all__ = [
     'WorkspaceIdpMetadata',
     'WorkspaceRoleValues',
     'WorkspaceSamlConfiguration',
+    'WorkspaceVpcConfiguration',
 ]
 
 @pulumi.output_type
@@ -252,5 +253,57 @@ class WorkspaceSamlConfiguration(dict):
     @pulumi.getter(name="roleValues")
     def role_values(self) -> Optional['outputs.WorkspaceRoleValues']:
         return pulumi.get(self, "role_values")
+
+
+@pulumi.output_type
+class WorkspaceVpcConfiguration(dict):
+    """
+    The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnet_ids: Sequence[str]):
+        """
+        The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
+        :param Sequence[str] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        :param Sequence[str] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        """
+        The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        """
+        return pulumi.get(self, "subnet_ids")
 
 

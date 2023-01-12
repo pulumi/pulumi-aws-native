@@ -19,16 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterParameterGroupResult:
-    def __init__(__self__, parameter_group_name=None, parameters=None, tags=None):
+    def __init__(__self__, parameter_group_name=None, parameters=None):
         if parameter_group_name and not isinstance(parameter_group_name, str):
             raise TypeError("Expected argument 'parameter_group_name' to be a str")
         pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if parameters and not isinstance(parameters, list):
             raise TypeError("Expected argument 'parameters' to be a list")
         pulumi.set(__self__, "parameters", parameters)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="parameterGroupName")
@@ -46,14 +43,6 @@ class GetClusterParameterGroupResult:
         """
         return pulumi.get(self, "parameters")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.ClusterParameterGroupTag']]:
-        """
-        An array of key-value pairs to apply to this resource.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
     # pylint: disable=using-constant-test
@@ -62,8 +51,7 @@ class AwaitableGetClusterParameterGroupResult(GetClusterParameterGroupResult):
             yield self
         return GetClusterParameterGroupResult(
             parameter_group_name=self.parameter_group_name,
-            parameters=self.parameters,
-            tags=self.tags)
+            parameters=self.parameters)
 
 
 def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
@@ -81,8 +69,7 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
 
     return AwaitableGetClusterParameterGroupResult(
         parameter_group_name=__ret__.parameter_group_name,
-        parameters=__ret__.parameters,
-        tags=__ret__.tags)
+        parameters=__ret__.parameters)
 
 
 @_utilities.lift_output_func(get_cluster_parameter_group)

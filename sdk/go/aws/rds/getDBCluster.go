@@ -69,6 +69,10 @@ type LookupDBClusterResult struct {
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
 	Iops *int `pulumi:"iops"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret *DBClusterMasterUserSecret `pulumi:"masterUserSecret"`
 	// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -244,6 +248,16 @@ func (o LookupDBClusterResultOutput) GlobalClusterIdentifier() pulumi.StringPtrO
 // The amount of Provisioned IOPS (input/output operations per second) to be initially allocated for each DB instance in the Multi-AZ DB cluster.
 func (o LookupDBClusterResultOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDBClusterResult) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+func (o LookupDBClusterResultOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *bool { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
+// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+func (o LookupDBClusterResultOutput) MasterUserSecret() DBClusterMasterUserSecretPtrOutput {
+	return o.ApplyT(func(v LookupDBClusterResult) *DBClusterMasterUserSecret { return v.MasterUserSecret }).(DBClusterMasterUserSecretPtrOutput)
 }
 
 // The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.

@@ -426,6 +426,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Aurora { get; } = new DataSourceType("AURORA");
         public static DataSourceType AuroraPostgresql { get; } = new DataSourceType("AURORA_POSTGRESQL");
         public static DataSourceType AwsIotAnalytics { get; } = new DataSourceType("AWS_IOT_ANALYTICS");
+        public static DataSourceType Databricks { get; } = new DataSourceType("DATABRICKS");
         public static DataSourceType Github { get; } = new DataSourceType("GITHUB");
         public static DataSourceType Jira { get; } = new DataSourceType("JIRA");
         public static DataSourceType Mariadb { get; } = new DataSourceType("MARIADB");

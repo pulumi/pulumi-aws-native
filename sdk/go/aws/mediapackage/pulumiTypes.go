@@ -4154,6 +4154,8 @@ type PackagingConfigurationDashPackage struct {
 	Encryption    *PackagingConfigurationDashEncryption `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
 	PeriodTriggers         []PackagingConfigurationDashPackagePeriodTriggersItem `pulumi:"periodTriggers"`
 	SegmentDurationSeconds *int                                                  `pulumi:"segmentDurationSeconds"`
@@ -4179,6 +4181,8 @@ type PackagingConfigurationDashPackageArgs struct {
 	Encryption    PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
 	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
 	PeriodTriggers         PackagingConfigurationDashPackagePeriodTriggersItemArrayInput `pulumi:"periodTriggers"`
 	SegmentDurationSeconds pulumi.IntPtrInput                                            `pulumi:"segmentDurationSeconds"`
@@ -4278,6 +4282,11 @@ func (o PackagingConfigurationDashPackageOutput) IncludeEncoderConfigurationInSe
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
 }
 
+// When enabled, an I-Frame only stream will be included in the output.
+func (o PackagingConfigurationDashPackageOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PackagingConfigurationDashPackage) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
+}
+
 // A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
 func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() PackagingConfigurationDashPackagePeriodTriggersItemArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []PackagingConfigurationDashPackagePeriodTriggersItem {
@@ -4346,6 +4355,16 @@ func (o PackagingConfigurationDashPackagePtrOutput) IncludeEncoderConfigurationI
 			return nil
 		}
 		return v.IncludeEncoderConfigurationInSegments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When enabled, an I-Frame only stream will be included in the output.
+func (o PackagingConfigurationDashPackagePtrOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeIframeOnlyStream
 	}).(pulumi.BoolPtrOutput)
 }
 

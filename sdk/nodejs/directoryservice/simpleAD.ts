@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::DirectoryService::SimpleAD
- *
- * @deprecated SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class SimpleAD extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SimpleAD extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SimpleAD {
-        pulumi.log.warn("SimpleAD is deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SimpleAD(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,15 +37,49 @@ export class SimpleAD extends pulumi.CustomResource {
         return obj['__pulumiType'] === SimpleAD.__pulumiType;
     }
 
+    /**
+     * The alias for a directory.
+     */
     public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The name of the configuration set.
+     */
     public readonly createAlias!: pulumi.Output<boolean | undefined>;
+    /**
+     * Description for the directory.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier for a directory.
+     */
+    public /*out*/ readonly directoryId!: pulumi.Output<string>;
+    /**
+     * The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
+     */
     public /*out*/ readonly dnsIpAddresses!: pulumi.Output<string[]>;
+    /**
+     * Whether to enable single sign-on for a Simple Active Directory in AWS.
+     */
     public readonly enableSso!: pulumi.Output<boolean | undefined>;
+    /**
+     * The fully qualified domain name for the AWS Managed Simple AD directory.
+     */
     public readonly name!: pulumi.Output<string>;
-    public readonly password!: pulumi.Output<string>;
+    /**
+     * The password for the default administrative user named Admin.
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * The NetBIOS name for your domain.
+     */
     public readonly shortName!: pulumi.Output<string | undefined>;
+    /**
+     * The size of the directory.
+     */
     public readonly size!: pulumi.Output<string>;
+    /**
+     * VPC settings of the Simple AD directory server in AWS.
+     */
     public readonly vpcSettings!: pulumi.Output<outputs.directoryservice.SimpleADVpcSettings>;
 
     /**
@@ -58,15 +89,10 @@ export class SimpleAD extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SimpleADArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SimpleAD is deprecated: SimpleAD is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
             if ((!args || args.size === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
@@ -82,11 +108,13 @@ export class SimpleAD extends pulumi.CustomResource {
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
             resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
         } else {
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["createAlias"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["directoryId"] = undefined /*out*/;
             resourceInputs["dnsIpAddresses"] = undefined /*out*/;
             resourceInputs["enableSso"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -104,12 +132,36 @@ export class SimpleAD extends pulumi.CustomResource {
  * The set of arguments for constructing a SimpleAD resource.
  */
 export interface SimpleADArgs {
+    /**
+     * The name of the configuration set.
+     */
     createAlias?: pulumi.Input<boolean>;
+    /**
+     * Description for the directory.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * Whether to enable single sign-on for a Simple Active Directory in AWS.
+     */
     enableSso?: pulumi.Input<boolean>;
+    /**
+     * The fully qualified domain name for the AWS Managed Simple AD directory.
+     */
     name?: pulumi.Input<string>;
-    password: pulumi.Input<string>;
+    /**
+     * The password for the default administrative user named Admin.
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * The NetBIOS name for your domain.
+     */
     shortName?: pulumi.Input<string>;
+    /**
+     * The size of the directory.
+     */
     size: pulumi.Input<string>;
+    /**
+     * VPC settings of the Simple AD directory server in AWS.
+     */
     vpcSettings: pulumi.Input<inputs.directoryservice.SimpleADVpcSettingsArgs>;
 }

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -60,6 +60,9 @@ class GetDBInstanceResult:
         if d_b_security_groups and not isinstance(d_b_security_groups, list):
             raise TypeError("Expected argument 'd_b_security_groups' to be a list")
         pulumi.set(__self__, "d_b_security_groups", d_b_security_groups)
+        if d_b_system_id and not isinstance(d_b_system_id, str):
+            raise TypeError("Expected argument 'd_b_system_id' to be a str")
+        pulumi.set(__self__, "d_b_system_id", d_b_system_id)
         if dbi_resource_id and not isinstance(dbi_resource_id, str):
             raise TypeError("Expected argument 'dbi_resource_id' to be a str")
         pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
@@ -99,6 +102,12 @@ class GetDBInstanceResult:
         if license_model and not isinstance(license_model, str):
             raise TypeError("Expected argument 'license_model' to be a str")
         pulumi.set(__self__, "license_model", license_model)
+        if manage_master_user_password and not isinstance(manage_master_user_password, bool):
+            raise TypeError("Expected argument 'manage_master_user_password' to be a bool")
+        pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
+        if master_user_secret and not isinstance(master_user_secret, dict):
+            raise TypeError("Expected argument 'master_user_secret' to be a dict")
+        pulumi.set(__self__, "master_user_secret", master_user_secret)
         if max_allocated_storage and not isinstance(max_allocated_storage, int):
             raise TypeError("Expected argument 'max_allocated_storage' to be a int")
         pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
@@ -273,6 +282,14 @@ class GetDBInstanceResult:
         return pulumi.get(self, "d_b_security_groups")
 
     @property
+    @pulumi.getter(name="dBSystemId")
+    def d_b_system_id(self) -> Optional[str]:
+        """
+        The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+        """
+        return pulumi.get(self, "d_b_system_id")
+
+    @property
     @pulumi.getter(name="dbiResourceId")
     def dbi_resource_id(self) -> Optional[str]:
         """
@@ -375,6 +392,22 @@ class GetDBInstanceResult:
         License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")
+
+    @property
+    @pulumi.getter(name="manageMasterUserPassword")
+    def manage_master_user_password(self) -> Optional[bool]:
+        """
+        A value that indicates whether to manage the master user password with AWS Secrets Manager.
+        """
+        return pulumi.get(self, "manage_master_user_password")
+
+    @property
+    @pulumi.getter(name="masterUserSecret")
+    def master_user_secret(self) -> Optional['outputs.DBInstanceMasterUserSecret']:
+        """
+        Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+        """
+        return pulumi.get(self, "master_user_secret")
 
     @property
     @pulumi.getter(name="maxAllocatedStorage")
@@ -556,6 +589,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             d_b_instance_class=self.d_b_instance_class,
             d_b_parameter_group_name=self.d_b_parameter_group_name,
             d_b_security_groups=self.d_b_security_groups,
+            d_b_system_id=self.d_b_system_id,
             dbi_resource_id=self.dbi_resource_id,
             delete_automated_backups=self.delete_automated_backups,
             deletion_protection=self.deletion_protection,
@@ -569,6 +603,8 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             engine_version=self.engine_version,
             iops=self.iops,
             license_model=self.license_model,
+            manage_master_user_password=self.manage_master_user_password,
+            master_user_secret=self.master_user_secret,
             max_allocated_storage=self.max_allocated_storage,
             monitoring_interval=self.monitoring_interval,
             monitoring_role_arn=self.monitoring_role_arn,
@@ -618,6 +654,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         d_b_instance_class=__ret__.d_b_instance_class,
         d_b_parameter_group_name=__ret__.d_b_parameter_group_name,
         d_b_security_groups=__ret__.d_b_security_groups,
+        d_b_system_id=__ret__.d_b_system_id,
         dbi_resource_id=__ret__.dbi_resource_id,
         delete_automated_backups=__ret__.delete_automated_backups,
         deletion_protection=__ret__.deletion_protection,
@@ -631,6 +668,8 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         engine_version=__ret__.engine_version,
         iops=__ret__.iops,
         license_model=__ret__.license_model,
+        manage_master_user_password=__ret__.manage_master_user_password,
+        master_user_secret=__ret__.master_user_secret,
         max_allocated_storage=__ret__.max_allocated_storage,
         monitoring_interval=__ret__.monitoring_interval,
         monitoring_role_arn=__ret__.monitoring_role_arn,

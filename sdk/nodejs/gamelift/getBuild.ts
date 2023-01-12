@@ -14,17 +14,29 @@ export function getBuild(args: GetBuildArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:gamelift:getBuild", {
-        "id": args.id,
+        "buildId": args.buildId,
     }, opts);
 }
 
 export interface GetBuildArgs {
-    id: string;
+    /**
+     * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+     */
+    buildId: string;
 }
 
 export interface GetBuildResult {
-    readonly id?: string;
+    /**
+     * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+     */
+    readonly buildId?: string;
+    /**
+     * A descriptive label that is associated with a build. Build names do not need to be unique.
+     */
     readonly name?: string;
+    /**
+     * Version information that is associated with this build. Version strings do not need to be unique.
+     */
     readonly version?: string;
 }
 
@@ -33,5 +45,8 @@ export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetBuildOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
+     */
+    buildId: pulumi.Input<string>;
 }

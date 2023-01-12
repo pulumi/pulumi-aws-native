@@ -73,8 +73,12 @@ type DBCluster struct {
 	Iops pulumi.IntPtrOutput `pulumi:"iops"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
 	// The master password for the DB instance.
 	MasterUserPassword pulumi.StringPtrOutput `pulumi:"masterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret DBClusterMasterUserSecretPtrOutput `pulumi:"masterUserSecret"`
 	// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -222,8 +226,12 @@ type dbclusterArgs struct {
 	Iops *int `pulumi:"iops"`
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
 	// The master password for the DB instance.
 	MasterUserPassword *string `pulumi:"masterUserPassword"`
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret *DBClusterMasterUserSecret `pulumi:"masterUserSecret"`
 	// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
 	MasterUsername *string `pulumi:"masterUsername"`
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -334,8 +342,12 @@ type DBClusterArgs struct {
 	Iops pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.
 	KmsKeyId pulumi.StringPtrInput
+	// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+	ManageMasterUserPassword pulumi.BoolPtrInput
 	// The master password for the DB instance.
 	MasterUserPassword pulumi.StringPtrInput
+	// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+	MasterUserSecret DBClusterMasterUserSecretPtrInput
 	// The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.
 	MasterUsername pulumi.StringPtrInput
 	// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -573,9 +585,19 @@ func (o DBClusterOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// A value that indicates whether to manage the master user password with AWS Secrets Manager.
+func (o DBClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBCluster) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
+}
+
 // The master password for the DB instance.
 func (o DBClusterOutput) MasterUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBCluster) pulumi.StringPtrOutput { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
+}
+
+// Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+func (o DBClusterOutput) MasterUserSecret() DBClusterMasterUserSecretPtrOutput {
+	return o.ApplyT(func(v *DBCluster) DBClusterMasterUserSecretPtrOutput { return v.MasterUserSecret }).(DBClusterMasterUserSecretPtrOutput)
 }
 
 // The name of the master user for the DB cluster. You must specify MasterUsername, unless you specify SnapshotIdentifier. In that case, don't specify MasterUsername.

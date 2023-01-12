@@ -132,6 +132,10 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly dBSubnetGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+     */
+    public /*out*/ readonly dBSystemId!: pulumi.Output<string>;
+    /**
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
     public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
@@ -188,9 +192,17 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly licenseModel!: pulumi.Output<string | undefined>;
     /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    public readonly manageMasterUserPassword!: pulumi.Output<boolean | undefined>;
+    /**
      * The password for the master user.
      */
     public readonly masterUserPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    public readonly masterUserSecret!: pulumi.Output<outputs.rds.DBInstanceMasterUserSecret | undefined>;
     /**
      * The master user name for the DB instance.
      */
@@ -363,7 +375,9 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["iops"] = args ? args.iops : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = args ? args.licenseModel : undefined;
+            resourceInputs["manageMasterUserPassword"] = args ? args.manageMasterUserPassword : undefined;
             resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
+            resourceInputs["masterUserSecret"] = args ? args.masterUserSecret : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["maxAllocatedStorage"] = args ? args.maxAllocatedStorage : undefined;
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
@@ -397,6 +411,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vPCSecurityGroups"] = args ? args.vPCSecurityGroups : undefined;
             resourceInputs["dBInstanceArn"] = undefined /*out*/;
+            resourceInputs["dBSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -419,6 +434,7 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["dBSecurityGroups"] = undefined /*out*/;
             resourceInputs["dBSnapshotIdentifier"] = undefined /*out*/;
             resourceInputs["dBSubnetGroupName"] = undefined /*out*/;
+            resourceInputs["dBSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
@@ -433,7 +449,9 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["iops"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["licenseModel"] = undefined /*out*/;
+            resourceInputs["manageMasterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
+            resourceInputs["masterUserSecret"] = undefined /*out*/;
             resourceInputs["masterUsername"] = undefined /*out*/;
             resourceInputs["maxAllocatedStorage"] = undefined /*out*/;
             resourceInputs["monitoringInterval"] = undefined /*out*/;
@@ -619,9 +637,17 @@ export interface DBInstanceArgs {
      */
     licenseModel?: pulumi.Input<string>;
     /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    manageMasterUserPassword?: pulumi.Input<boolean>;
+    /**
      * The password for the master user.
      */
     masterUserPassword?: pulumi.Input<string>;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    masterUserSecret?: pulumi.Input<inputs.rds.DBInstanceMasterUserSecretArgs>;
     /**
      * The master user name for the DB instance.
      */

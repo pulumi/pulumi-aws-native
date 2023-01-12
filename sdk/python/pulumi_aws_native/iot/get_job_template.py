@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetJobTemplateResult',
@@ -18,15 +20,23 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobTemplateResult:
-    def __init__(__self__, arn=None):
+    def __init__(__self__, arn=None, job_executions_retry_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if job_executions_retry_config and not isinstance(job_executions_retry_config, dict):
+            raise TypeError("Expected argument 'job_executions_retry_config' to be a dict")
+        pulumi.set(__self__, "job_executions_retry_config", job_executions_retry_config)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="jobExecutionsRetryConfig")
+    def job_executions_retry_config(self) -> Optional['outputs.JobExecutionsRetryConfigProperties']:
+        return pulumi.get(self, "job_executions_retry_config")
 
 
 class AwaitableGetJobTemplateResult(GetJobTemplateResult):
@@ -35,7 +45,8 @@ class AwaitableGetJobTemplateResult(GetJobTemplateResult):
         if False:
             yield self
         return GetJobTemplateResult(
-            arn=self.arn)
+            arn=self.arn,
+            job_executions_retry_config=self.job_executions_retry_config)
 
 
 def get_job_template(job_template_id: Optional[str] = None,
@@ -49,7 +60,8 @@ def get_job_template(job_template_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iot:getJobTemplate', __args__, opts=opts, typ=GetJobTemplateResult).value
 
     return AwaitableGetJobTemplateResult(
-        arn=__ret__.arn)
+        arn=__ret__.arn,
+        job_executions_retry_config=__ret__.job_executions_retry_config)
 
 
 @_utilities.lift_output_func(get_job_template)

@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetFunctionResult
     {
         public readonly string? FunctionARN;
+        public readonly string? FunctionCode;
         public readonly Outputs.FunctionConfig? FunctionConfig;
         public readonly Outputs.FunctionMetadata? FunctionMetadata;
         public readonly string? Name;
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.CloudFront
         [OutputConstructor]
         private GetFunctionResult(
             string? functionARN,
+
+            string? functionCode,
 
             Outputs.FunctionConfig? functionConfig,
 
@@ -70,6 +73,7 @@ namespace Pulumi.AwsNative.CloudFront
             string? stage)
         {
             FunctionARN = functionARN;
+            FunctionCode = functionCode;
             FunctionConfig = functionConfig;
             FunctionMetadata = functionMetadata;
             Name = name;

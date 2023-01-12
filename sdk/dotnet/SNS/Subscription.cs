@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.SNS
         [Output("filterPolicy")]
         public Output<object?> FilterPolicy { get; private set; } = null!;
 
+        [Output("filterPolicyScope")]
+        public Output<string?> FilterPolicyScope { get; private set; } = null!;
+
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.SNS
 
         [Input("filterPolicy")]
         public Input<object>? FilterPolicy { get; set; }
+
+        [Input("filterPolicyScope")]
+        public Input<string>? FilterPolicyScope { get; set; }
 
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

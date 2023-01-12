@@ -32,7 +32,7 @@ type Namespace struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
 	LogExports NamespaceLogExportArrayOutput `pulumi:"logExports"`
-	Namespace  NamespaceTypeOutput           `pulumi:"namespace"`
+	Namespace  NamespaceTypePtrOutput        `pulumi:"namespace"`
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// The list of tags for the namespace.
@@ -96,6 +96,7 @@ type namespaceArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
 	LogExports []NamespaceLogExport `pulumi:"logExports"`
+	Namespace  *NamespaceType       `pulumi:"namespace"`
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The list of tags for the namespace.
@@ -122,6 +123,7 @@ type NamespaceArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
 	LogExports NamespaceLogExportArrayInput
+	Namespace  NamespaceTypePtrInput
 	// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
 	NamespaceName pulumi.StringPtrInput
 	// The list of tags for the namespace.
@@ -210,8 +212,8 @@ func (o NamespaceOutput) LogExports() NamespaceLogExportArrayOutput {
 	return o.ApplyT(func(v *Namespace) NamespaceLogExportArrayOutput { return v.LogExports }).(NamespaceLogExportArrayOutput)
 }
 
-func (o NamespaceOutput) Namespace() NamespaceTypeOutput {
-	return o.ApplyT(func(v *Namespace) NamespaceTypeOutput { return v.Namespace }).(NamespaceTypeOutput)
+func (o NamespaceOutput) Namespace() NamespaceTypePtrOutput {
+	return o.ApplyT(func(v *Namespace) NamespaceTypePtrOutput { return v.Namespace }).(NamespaceTypePtrOutput)
 }
 
 // A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.

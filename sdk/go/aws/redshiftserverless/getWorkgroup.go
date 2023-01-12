@@ -25,7 +25,9 @@ type LookupWorkgroupArgs struct {
 }
 
 type LookupWorkgroupResult struct {
-	Workgroup *WorkgroupType `pulumi:"workgroup"`
+	EnhancedVpcRouting *bool          `pulumi:"enhancedVpcRouting"`
+	PubliclyAccessible *bool          `pulumi:"publiclyAccessible"`
+	Workgroup          *WorkgroupType `pulumi:"workgroup"`
 }
 
 func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkgroupResultOutput {
@@ -61,6 +63,14 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutput() LookupWorkg
 
 func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ctx context.Context) LookupWorkgroupResultOutput {
 	return o
+}
+
+func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.EnhancedVpcRouting }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupWorkgroupResultOutput) Workgroup() WorkgroupTypePtrOutput {

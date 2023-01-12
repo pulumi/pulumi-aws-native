@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRestApiResult:
-    def __init__(__self__, api_key_source_type=None, binary_media_types=None, body=None, body_s3_location=None, clone_from=None, description=None, disable_execute_api_endpoint=None, endpoint_configuration=None, fail_on_warnings=None, minimum_compression_size=None, mode=None, name=None, parameters=None, policy=None, rest_api_id=None, root_resource_id=None, tags=None):
+    def __init__(__self__, api_key_source_type=None, binary_media_types=None, body=None, body_s3_location=None, clone_from=None, description=None, disable_execute_api_endpoint=None, endpoint_configuration=None, fail_on_warnings=None, id=None, minimum_compression_size=None, mode=None, name=None, parameters=None, policy=None, root_resource_id=None, tags=None):
         if api_key_source_type and not isinstance(api_key_source_type, str):
             raise TypeError("Expected argument 'api_key_source_type' to be a str")
         pulumi.set(__self__, "api_key_source_type", api_key_source_type)
@@ -47,6 +47,9 @@ class GetRestApiResult:
         if fail_on_warnings and not isinstance(fail_on_warnings, bool):
             raise TypeError("Expected argument 'fail_on_warnings' to be a bool")
         pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if minimum_compression_size and not isinstance(minimum_compression_size, int):
             raise TypeError("Expected argument 'minimum_compression_size' to be a int")
         pulumi.set(__self__, "minimum_compression_size", minimum_compression_size)
@@ -62,9 +65,6 @@ class GetRestApiResult:
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
-        if rest_api_id and not isinstance(rest_api_id, str):
-            raise TypeError("Expected argument 'rest_api_id' to be a str")
-        pulumi.set(__self__, "rest_api_id", rest_api_id)
         if root_resource_id and not isinstance(root_resource_id, str):
             raise TypeError("Expected argument 'root_resource_id' to be a str")
         pulumi.set(__self__, "root_resource_id", root_resource_id)
@@ -118,6 +118,11 @@ class GetRestApiResult:
         return pulumi.get(self, "fail_on_warnings")
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="minimumCompressionSize")
     def minimum_compression_size(self) -> Optional[int]:
         return pulumi.get(self, "minimum_compression_size")
@@ -141,11 +146,6 @@ class GetRestApiResult:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="restApiId")
-    def rest_api_id(self) -> Optional[str]:
-        return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="rootResourceId")
@@ -173,23 +173,23 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             disable_execute_api_endpoint=self.disable_execute_api_endpoint,
             endpoint_configuration=self.endpoint_configuration,
             fail_on_warnings=self.fail_on_warnings,
+            id=self.id,
             minimum_compression_size=self.minimum_compression_size,
             mode=self.mode,
             name=self.name,
             parameters=self.parameters,
             policy=self.policy,
-            rest_api_id=self.rest_api_id,
             root_resource_id=self.root_resource_id,
             tags=self.tags)
 
 
-def get_rest_api(rest_api_id: Optional[str] = None,
+def get_rest_api(id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestApiResult:
     """
     Resource Type definition for AWS::ApiGateway::RestApi
     """
     __args__ = dict()
-    __args__['restApiId'] = rest_api_id
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:apigateway:getRestApi', __args__, opts=opts, typ=GetRestApiResult).value
 
@@ -203,18 +203,18 @@ def get_rest_api(rest_api_id: Optional[str] = None,
         disable_execute_api_endpoint=__ret__.disable_execute_api_endpoint,
         endpoint_configuration=__ret__.endpoint_configuration,
         fail_on_warnings=__ret__.fail_on_warnings,
+        id=__ret__.id,
         minimum_compression_size=__ret__.minimum_compression_size,
         mode=__ret__.mode,
         name=__ret__.name,
         parameters=__ret__.parameters,
         policy=__ret__.policy,
-        rest_api_id=__ret__.rest_api_id,
         root_resource_id=__ret__.root_resource_id,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_rest_api)
-def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
+def get_rest_api_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
     """
     Resource Type definition for AWS::ApiGateway::RestApi

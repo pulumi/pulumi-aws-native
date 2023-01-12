@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("removeHeadersConfig")]
+        public Input<Inputs.ResponseHeadersPolicyRemoveHeadersConfigArgs>? RemoveHeadersConfig { get; set; }
+
         [Input("securityHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs>? SecurityHeadersConfig { get; set; }
 

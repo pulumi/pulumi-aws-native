@@ -21,7 +21,7 @@ func LookupRestApi(ctx *pulumi.Context, args *LookupRestApiArgs, opts ...pulumi.
 }
 
 type LookupRestApiArgs struct {
-	RestApiId string `pulumi:"restApiId"`
+	Id string `pulumi:"id"`
 }
 
 type LookupRestApiResult struct {
@@ -34,12 +34,12 @@ type LookupRestApiResult struct {
 	DisableExecuteApiEndpoint *bool                         `pulumi:"disableExecuteApiEndpoint"`
 	EndpointConfiguration     *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	FailOnWarnings            *bool                         `pulumi:"failOnWarnings"`
+	Id                        *string                       `pulumi:"id"`
 	MinimumCompressionSize    *int                          `pulumi:"minimumCompressionSize"`
 	Mode                      *string                       `pulumi:"mode"`
 	Name                      *string                       `pulumi:"name"`
 	Parameters                interface{}                   `pulumi:"parameters"`
 	Policy                    interface{}                   `pulumi:"policy"`
-	RestApiId                 *string                       `pulumi:"restApiId"`
 	RootResourceId            *string                       `pulumi:"rootResourceId"`
 	Tags                      []RestApiTag                  `pulumi:"tags"`
 }
@@ -58,7 +58,7 @@ func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts
 }
 
 type LookupRestApiOutputArgs struct {
-	RestApiId pulumi.StringInput `pulumi:"restApiId"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupRestApiOutputArgs) ElementType() reflect.Type {
@@ -115,6 +115,10 @@ func (o LookupRestApiResultOutput) FailOnWarnings() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *bool { return v.FailOnWarnings }).(pulumi.BoolPtrOutput)
 }
 
+func (o LookupRestApiResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupRestApiResultOutput) MinimumCompressionSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *int { return v.MinimumCompressionSize }).(pulumi.IntPtrOutput)
 }
@@ -133,10 +137,6 @@ func (o LookupRestApiResultOutput) Parameters() pulumi.AnyOutput {
 
 func (o LookupRestApiResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRestApiResult) interface{} { return v.Policy }).(pulumi.AnyOutput)
-}
-
-func (o LookupRestApiResultOutput) RestApiId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {

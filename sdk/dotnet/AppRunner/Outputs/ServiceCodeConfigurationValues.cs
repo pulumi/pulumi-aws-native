@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// Runtime
         /// </summary>
         public readonly Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationValuesRuntime Runtime;
+        /// <summary>
+        /// The secrets and parameters that get referenced by your service as environment variables
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentSecrets;
         public readonly ImmutableArray<Outputs.ServiceKeyValuePair> RuntimeEnvironmentVariables;
         /// <summary>
         /// Start Command
@@ -42,6 +46,8 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 
             Pulumi.AwsNative.AppRunner.ServiceCodeConfigurationValuesRuntime runtime,
 
+            ImmutableArray<Outputs.ServiceKeyValuePair> runtimeEnvironmentSecrets,
+
             ImmutableArray<Outputs.ServiceKeyValuePair> runtimeEnvironmentVariables,
 
             string? startCommand)
@@ -49,6 +55,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
             BuildCommand = buildCommand;
             Port = port;
             Runtime = runtime;
+            RuntimeEnvironmentSecrets = runtimeEnvironmentSecrets;
             RuntimeEnvironmentVariables = runtimeEnvironmentVariables;
             StartCommand = startCommand;
         }

@@ -19,6 +19,7 @@ __all__ = [
     'DomainConfigurationStatus',
     'JobTemplateAction',
     'JobTemplateFailureType',
+    'JobTemplateJobRetryFailureType',
     'LoggingDefaultLogLevel',
     'MitigationActionEnableIoTLoggingParamsLogLevel',
     'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName',
@@ -121,6 +122,12 @@ class JobTemplateFailureType(str, Enum):
     ALL = "ALL"
 
 
+class JobTemplateJobRetryFailureType(str, Enum):
+    FAILED = "FAILED"
+    TIMED_OUT = "TIMED_OUT"
+    ALL = "ALL"
+
+
 class LoggingDefaultLogLevel(str, Enum):
     """
     The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
@@ -191,6 +198,7 @@ class ScheduledAuditDayOfWeek(str, Enum):
     THU = "THU"
     FRI = "FRI"
     SAT = "SAT"
+    UNSET_VALUE = "UNSET_VALUE"
 
 
 class ScheduledAuditFrequency(str, Enum):

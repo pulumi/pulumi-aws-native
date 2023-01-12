@@ -12,7 +12,6 @@ from .get_log_group import *
 from .get_metric_filter import *
 from .get_query_definition import *
 from .get_resource_policy import *
-from .get_subscription_filter import *
 from .log_group import *
 from .log_stream import *
 from .metric_filter import *

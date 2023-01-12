@@ -90,6 +90,10 @@ export interface GetDBInstanceResult {
      */
     readonly dBSecurityGroups?: string[];
     /**
+     * The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also the name of the CDB. This setting is valid for RDS Custom only.
+     */
+    readonly dBSystemId?: string;
+    /**
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
     readonly dbiResourceId?: string;
@@ -141,6 +145,14 @@ export interface GetDBInstanceResult {
      * License model information for this DB instance.
      */
     readonly licenseModel?: string;
+    /**
+     * A value that indicates whether to manage the master user password with AWS Secrets Manager.
+     */
+    readonly manageMasterUserPassword?: boolean;
+    /**
+     * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+     */
+    readonly masterUserSecret?: outputs.rds.DBInstanceMasterUserSecret;
     /**
      * The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
      */

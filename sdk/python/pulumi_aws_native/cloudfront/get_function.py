@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, function_arn=None, function_config=None, function_metadata=None, name=None, stage=None):
+    def __init__(__self__, function_arn=None, function_code=None, function_config=None, function_metadata=None, name=None, stage=None):
         if function_arn and not isinstance(function_arn, str):
             raise TypeError("Expected argument 'function_arn' to be a str")
         pulumi.set(__self__, "function_arn", function_arn)
+        if function_code and not isinstance(function_code, str):
+            raise TypeError("Expected argument 'function_code' to be a str")
+        pulumi.set(__self__, "function_code", function_code)
         if function_config and not isinstance(function_config, dict):
             raise TypeError("Expected argument 'function_config' to be a dict")
         pulumi.set(__self__, "function_config", function_config)
@@ -40,6 +43,11 @@ class GetFunctionResult:
     @pulumi.getter(name="functionARN")
     def function_arn(self) -> Optional[str]:
         return pulumi.get(self, "function_arn")
+
+    @property
+    @pulumi.getter(name="functionCode")
+    def function_code(self) -> Optional[str]:
+        return pulumi.get(self, "function_code")
 
     @property
     @pulumi.getter(name="functionConfig")
@@ -69,6 +77,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             yield self
         return GetFunctionResult(
             function_arn=self.function_arn,
+            function_code=self.function_code,
             function_config=self.function_config,
             function_metadata=self.function_metadata,
             name=self.name,
@@ -87,6 +96,7 @@ def get_function(function_arn: Optional[str] = None,
 
     return AwaitableGetFunctionResult(
         function_arn=__ret__.function_arn,
+        function_code=__ret__.function_code,
         function_config=__ret__.function_config,
         function_metadata=__ret__.function_metadata,
         name=__ret__.name,

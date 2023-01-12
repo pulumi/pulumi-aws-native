@@ -73,7 +73,7 @@ export class Namespace extends pulumi.CustomResource {
      * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
      */
     public readonly logExports!: pulumi.Output<enums.redshiftserverless.NamespaceLogExport[] | undefined>;
-    public /*out*/ readonly namespace!: pulumi.Output<outputs.redshiftserverless.Namespace>;
+    public readonly namespace!: pulumi.Output<outputs.redshiftserverless.Namespace | undefined>;
     /**
      * A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
      */
@@ -103,9 +103,9 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logExports"] = args ? args.logExports : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["namespace"] = undefined /*out*/;
         } else {
             resourceInputs["adminUserPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
@@ -165,6 +165,7 @@ export interface NamespaceArgs {
      * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
      */
     logExports?: pulumi.Input<pulumi.Input<enums.redshiftserverless.NamespaceLogExport>[]>;
+    namespace?: pulumi.Input<inputs.redshiftserverless.NamespaceArgs>;
     /**
      * A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
      */

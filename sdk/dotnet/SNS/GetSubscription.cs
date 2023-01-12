@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.SNS
     {
         public readonly object? DeliveryPolicy;
         public readonly object? FilterPolicy;
+        public readonly string? FilterPolicyScope;
         public readonly string? Id;
         public readonly bool? RawMessageDelivery;
         public readonly object? RedrivePolicy;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.SNS
             object? deliveryPolicy,
 
             object? filterPolicy,
+
+            string? filterPolicyScope,
 
             string? id,
 
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.SNS
         {
             DeliveryPolicy = deliveryPolicy;
             FilterPolicy = filterPolicy;
+            FilterPolicyScope = filterPolicyScope;
             Id = id;
             RawMessageDelivery = rawMessageDelivery;
             RedrivePolicy = redrivePolicy;

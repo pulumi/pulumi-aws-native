@@ -1820,6 +1820,7 @@ const (
 	DataSourceTypeAurora              = DataSourceType("AURORA")
 	DataSourceTypeAuroraPostgresql    = DataSourceType("AURORA_POSTGRESQL")
 	DataSourceTypeAwsIotAnalytics     = DataSourceType("AWS_IOT_ANALYTICS")
+	DataSourceTypeDatabricks          = DataSourceType("DATABRICKS")
 	DataSourceTypeGithub              = DataSourceType("GITHUB")
 	DataSourceTypeJira                = DataSourceType("JIRA")
 	DataSourceTypeMariadb             = DataSourceType("MARIADB")

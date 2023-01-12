@@ -44,12 +44,12 @@ class ExperimentMetricGoalObject(dict):
             suggest = "desired_change"
         elif key == "entityIdKey":
             suggest = "entity_id_key"
-        elif key == "eventPattern":
-            suggest = "event_pattern"
         elif key == "metricName":
             suggest = "metric_name"
         elif key == "valueKey":
             suggest = "value_key"
+        elif key == "eventPattern":
+            suggest = "event_pattern"
         elif key == "unitLabel":
             suggest = "unit_label"
 
@@ -67,20 +67,21 @@ class ExperimentMetricGoalObject(dict):
     def __init__(__self__, *,
                  desired_change: 'ExperimentMetricGoalObjectDesiredChange',
                  entity_id_key: str,
-                 event_pattern: str,
                  metric_name: str,
                  value_key: str,
+                 event_pattern: Optional[str] = None,
                  unit_label: Optional[str] = None):
         """
         :param str entity_id_key: The JSON path to reference the entity id in the event.
-        :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         :param str value_key: The JSON path to reference the numerical metric value in the event.
+        :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         pulumi.set(__self__, "desired_change", desired_change)
         pulumi.set(__self__, "entity_id_key", entity_id_key)
-        pulumi.set(__self__, "event_pattern", event_pattern)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "value_key", value_key)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
             pulumi.set(__self__, "unit_label", unit_label)
 
@@ -98,14 +99,6 @@ class ExperimentMetricGoalObject(dict):
         return pulumi.get(self, "entity_id_key")
 
     @property
-    @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> str:
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        return pulumi.get(self, "event_pattern")
-
-    @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
         return pulumi.get(self, "metric_name")
@@ -117,6 +110,14 @@ class ExperimentMetricGoalObject(dict):
         The JSON path to reference the numerical metric value in the event.
         """
         return pulumi.get(self, "value_key")
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[str]:
+        """
+        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        """
+        return pulumi.get(self, "event_pattern")
 
     @property
     @pulumi.getter(name="unitLabel")
@@ -654,12 +655,12 @@ class LaunchMetricDefinitionObject(dict):
         suggest = None
         if key == "entityIdKey":
             suggest = "entity_id_key"
-        elif key == "eventPattern":
-            suggest = "event_pattern"
         elif key == "metricName":
             suggest = "metric_name"
         elif key == "valueKey":
             suggest = "value_key"
+        elif key == "eventPattern":
+            suggest = "event_pattern"
         elif key == "unitLabel":
             suggest = "unit_label"
 
@@ -676,19 +677,20 @@ class LaunchMetricDefinitionObject(dict):
 
     def __init__(__self__, *,
                  entity_id_key: str,
-                 event_pattern: str,
                  metric_name: str,
                  value_key: str,
+                 event_pattern: Optional[str] = None,
                  unit_label: Optional[str] = None):
         """
         :param str entity_id_key: The JSON path to reference the entity id in the event.
-        :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         :param str value_key: The JSON path to reference the numerical metric value in the event.
+        :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         pulumi.set(__self__, "entity_id_key", entity_id_key)
-        pulumi.set(__self__, "event_pattern", event_pattern)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "value_key", value_key)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
             pulumi.set(__self__, "unit_label", unit_label)
 
@@ -699,14 +701,6 @@ class LaunchMetricDefinitionObject(dict):
         The JSON path to reference the entity id in the event.
         """
         return pulumi.get(self, "entity_id_key")
-
-    @property
-    @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> str:
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        return pulumi.get(self, "event_pattern")
 
     @property
     @pulumi.getter(name="metricName")
@@ -720,6 +714,14 @@ class LaunchMetricDefinitionObject(dict):
         The JSON path to reference the numerical metric value in the event.
         """
         return pulumi.get(self, "value_key")
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[str]:
+        """
+        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        """
+        return pulumi.get(self, "event_pattern")
 
     @property
     @pulumi.getter(name="unitLabel")

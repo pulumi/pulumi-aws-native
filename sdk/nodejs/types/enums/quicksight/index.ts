@@ -139,6 +139,7 @@ export const DataSourceType = {
     Aurora: "AURORA",
     AuroraPostgresql: "AURORA_POSTGRESQL",
     AwsIotAnalytics: "AWS_IOT_ANALYTICS",
+    Databricks: "DATABRICKS",
     Github: "GITHUB",
     Jira: "JIRA",
     Mariadb: "MARIADB",

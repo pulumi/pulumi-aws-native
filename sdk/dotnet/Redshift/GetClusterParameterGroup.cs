@@ -65,22 +65,15 @@ namespace Pulumi.AwsNative.Redshift
         /// An array of parameters to be modified. A maximum of 20 parameters can be modified in a single request.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterParameterGroupParameter> Parameters;
-        /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterParameterGroupTag> Tags;
 
         [OutputConstructor]
         private GetClusterParameterGroupResult(
             string? parameterGroupName,
 
-            ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters,
-
-            ImmutableArray<Outputs.ClusterParameterGroupTag> tags)
+            ImmutableArray<Outputs.ClusterParameterGroupParameter> parameters)
         {
             ParameterGroupName = parameterGroupName;
             Parameters = parameters;
-            Tags = tags;
         }
     }
 }

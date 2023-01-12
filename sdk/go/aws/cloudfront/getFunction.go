@@ -26,6 +26,7 @@ type LookupFunctionArgs struct {
 
 type LookupFunctionResult struct {
 	FunctionARN      *string           `pulumi:"functionARN"`
+	FunctionCode     *string           `pulumi:"functionCode"`
 	FunctionConfig   *FunctionConfig   `pulumi:"functionConfig"`
 	FunctionMetadata *FunctionMetadata `pulumi:"functionMetadata"`
 	Name             *string           `pulumi:"name"`
@@ -69,6 +70,10 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 
 func (o LookupFunctionResultOutput) FunctionARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionResultOutput) FunctionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *string { return v.FunctionCode }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) FunctionConfig() FunctionConfigPtrOutput {

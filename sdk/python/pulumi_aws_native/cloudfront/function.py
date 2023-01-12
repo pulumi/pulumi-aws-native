@@ -16,24 +16,40 @@ __all__ = ['FunctionArgs', 'Function']
 @pulumi.input_type
 class FunctionArgs:
     def __init__(__self__, *,
+                 function_code: pulumi.Input[str],
+                 function_config: pulumi.Input['FunctionConfigArgs'],
                  auto_publish: Optional[pulumi.Input[bool]] = None,
-                 function_code: Optional[pulumi.Input[str]] = None,
-                 function_config: Optional[pulumi.Input['FunctionConfigArgs']] = None,
                  function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Function resource.
         """
+        pulumi.set(__self__, "function_code", function_code)
+        pulumi.set(__self__, "function_config", function_config)
         if auto_publish is not None:
             pulumi.set(__self__, "auto_publish", auto_publish)
-        if function_code is not None:
-            pulumi.set(__self__, "function_code", function_code)
-        if function_config is not None:
-            pulumi.set(__self__, "function_config", function_config)
         if function_metadata is not None:
             pulumi.set(__self__, "function_metadata", function_metadata)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="functionCode")
+    def function_code(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "function_code")
+
+    @function_code.setter
+    def function_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_code", value)
+
+    @property
+    @pulumi.getter(name="functionConfig")
+    def function_config(self) -> pulumi.Input['FunctionConfigArgs']:
+        return pulumi.get(self, "function_config")
+
+    @function_config.setter
+    def function_config(self, value: pulumi.Input['FunctionConfigArgs']):
+        pulumi.set(self, "function_config", value)
 
     @property
     @pulumi.getter(name="autoPublish")
@@ -43,24 +59,6 @@ class FunctionArgs:
     @auto_publish.setter
     def auto_publish(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_publish", value)
-
-    @property
-    @pulumi.getter(name="functionCode")
-    def function_code(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "function_code")
-
-    @function_code.setter
-    def function_code(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "function_code", value)
-
-    @property
-    @pulumi.getter(name="functionConfig")
-    def function_config(self) -> Optional[pulumi.Input['FunctionConfigArgs']]:
-        return pulumi.get(self, "function_config")
-
-    @function_config.setter
-    def function_config(self, value: Optional[pulumi.Input['FunctionConfigArgs']]):
-        pulumi.set(self, "function_config", value)
 
     @property
     @pulumi.getter(name="functionMetadata")
@@ -102,7 +100,7 @@ class Function(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[FunctionArgs] = None,
+                 args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CloudFront::Function
@@ -137,7 +135,11 @@ class Function(pulumi.CustomResource):
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
             __props__.__dict__["auto_publish"] = auto_publish
+            if function_code is None and not opts.urn:
+                raise TypeError("Missing required property 'function_code'")
             __props__.__dict__["function_code"] = function_code
+            if function_config is None and not opts.urn:
+                raise TypeError("Missing required property 'function_config'")
             __props__.__dict__["function_config"] = function_config
             __props__.__dict__["function_metadata"] = function_metadata
             __props__.__dict__["name"] = name
@@ -186,12 +188,12 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionCode")
-    def function_code(self) -> pulumi.Output[Optional[str]]:
+    def function_code(self) -> pulumi.Output[str]:
         return pulumi.get(self, "function_code")
 
     @property
     @pulumi.getter(name="functionConfig")
-    def function_config(self) -> pulumi.Output[Optional['outputs.FunctionConfig']]:
+    def function_config(self) -> pulumi.Output['outputs.FunctionConfig']:
         return pulumi.get(self, "function_config")
 
     @property

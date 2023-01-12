@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("auroraPostgreSqlParameters")]
         public Input<Inputs.DataSourceAuroraPostgreSqlParametersArgs>? AuroraPostgreSqlParameters { get; set; }
 
+        [Input("databricksParameters")]
+        public Input<Inputs.DataSourceDatabricksParametersArgs>? DatabricksParameters { get; set; }
+
         [Input("mariaDbParameters")]
         public Input<Inputs.DataSourceMariaDbParametersArgs>? MariaDbParameters { get; set; }
 

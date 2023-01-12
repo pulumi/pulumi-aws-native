@@ -120,6 +120,7 @@ export const LocationS3S3StorageClass = {
     OnezoneIa: "ONEZONE_IA",
     IntelligentTiering: "INTELLIGENT_TIERING",
     Glacier: "GLACIER",
+    GlacierInstantRetrieval: "GLACIER_INSTANT_RETRIEVAL",
     DeepArchive: "DEEP_ARCHIVE",
 } as const;
 

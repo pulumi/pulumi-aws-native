@@ -19,6 +19,7 @@ class SubscriptionArgs:
                  delivery_policy: Optional[Any] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  filter_policy: Optional[Any] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,8 @@ class SubscriptionArgs:
             pulumi.set(__self__, "endpoint", endpoint)
         if filter_policy is not None:
             pulumi.set(__self__, "filter_policy", filter_policy)
+        if filter_policy_scope is not None:
+            pulumi.set(__self__, "filter_policy_scope", filter_policy_scope)
         if raw_message_delivery is not None:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
@@ -89,6 +92,15 @@ class SubscriptionArgs:
         pulumi.set(self, "filter_policy", value)
 
     @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filter_policy_scope")
+
+    @filter_policy_scope.setter
+    def filter_policy_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_policy_scope", value)
+
+    @property
     @pulumi.getter(name="rawMessageDelivery")
     def raw_message_delivery(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "raw_message_delivery")
@@ -138,6 +150,7 @@ class Subscription(pulumi.CustomResource):
                  delivery_policy: Optional[Any] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  filter_policy: Optional[Any] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
@@ -178,6 +191,7 @@ class Subscription(pulumi.CustomResource):
                  delivery_policy: Optional[Any] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  filter_policy: Optional[Any] = None,
+                 filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
@@ -197,6 +211,7 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["delivery_policy"] = delivery_policy
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["filter_policy"] = filter_policy
+            __props__.__dict__["filter_policy_scope"] = filter_policy_scope
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
@@ -232,6 +247,7 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["delivery_policy"] = None
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["filter_policy"] = None
+        __props__.__dict__["filter_policy_scope"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["raw_message_delivery"] = None
         __props__.__dict__["redrive_policy"] = None
@@ -254,6 +270,11 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="filterPolicy")
     def filter_policy(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "filter_policy")
+
+    @property
+    @pulumi.getter(name="filterPolicyScope")
+    def filter_policy_scope(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "filter_policy_scope")
 
     @property
     @pulumi.getter

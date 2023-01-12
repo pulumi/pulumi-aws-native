@@ -12,7 +12,8 @@ import (
 
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfiguration struct {
-	ClipboardMode LaunchProfileStreamingClipboardMode `pulumi:"clipboardMode"`
+	AutomaticTerminationMode *LaunchProfileAutomaticTerminationMode `pulumi:"automaticTerminationMode"`
+	ClipboardMode            LaunchProfileStreamingClipboardMode    `pulumi:"clipboardMode"`
 	// <p>The EC2 instance types that users can select from when launching a streaming session
 	//             with this launch profile.</p>
 	Ec2InstanceTypes []LaunchProfileStreamingInstanceType `pulumi:"ec2InstanceTypes"`
@@ -23,20 +24,22 @@ type LaunchProfileStreamConfiguration struct {
 	MaxSessionLengthInMinutes *float64 `pulumi:"maxSessionLengthInMinutes"`
 	// <p>Integer that determines if you can start and stop your sessions and how long a session
 	//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-	//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+	//          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
 	//                 <code>StopStreamingSession</code>, the session fails. If the time that a session
 	//             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
 	//             session will automatically be terminated (instead of stopped).</p>
-	//         <p>If the value is set to a positive number, the session can be stopped. You can call
+	//          <p>If the value is set to a positive number, the session can be stopped. You can call
 	//                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
 	//             that a session stays in the READY state exceeds the
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
 	MaxStoppedSessionLengthInMinutes *float64                                        `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionPersistenceMode           *LaunchProfileSessionPersistenceMode            `pulumi:"sessionPersistenceMode"`
 	SessionStorage                   *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
-	StreamingImageIds []string `pulumi:"streamingImageIds"`
+	StreamingImageIds   []string                          `pulumi:"streamingImageIds"`
+	VolumeConfiguration *LaunchProfileVolumeConfiguration `pulumi:"volumeConfiguration"`
 }
 
 // LaunchProfileStreamConfigurationInput is an input type that accepts LaunchProfileStreamConfigurationArgs and LaunchProfileStreamConfigurationOutput values.
@@ -52,7 +55,8 @@ type LaunchProfileStreamConfigurationInput interface {
 
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationArgs struct {
-	ClipboardMode LaunchProfileStreamingClipboardModeInput `pulumi:"clipboardMode"`
+	AutomaticTerminationMode LaunchProfileAutomaticTerminationModePtrInput `pulumi:"automaticTerminationMode"`
+	ClipboardMode            LaunchProfileStreamingClipboardModeInput      `pulumi:"clipboardMode"`
 	// <p>The EC2 instance types that users can select from when launching a streaming session
 	//             with this launch profile.</p>
 	Ec2InstanceTypes LaunchProfileStreamingInstanceTypeArrayInput `pulumi:"ec2InstanceTypes"`
@@ -63,20 +67,22 @@ type LaunchProfileStreamConfigurationArgs struct {
 	MaxSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxSessionLengthInMinutes"`
 	// <p>Integer that determines if you can start and stop your sessions and how long a session
 	//             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-	//         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+	//          <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
 	//                 <code>StopStreamingSession</code>, the session fails. If the time that a session
 	//             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
 	//             session will automatically be terminated (instead of stopped).</p>
-	//         <p>If the value is set to a positive number, the session can be stopped. You can call
+	//          <p>If the value is set to a positive number, the session can be stopped. You can call
 	//                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
 	//             that a session stays in the READY state exceeds the
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
 	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput                                 `pulumi:"maxStoppedSessionLengthInMinutes"`
+	SessionPersistenceMode           LaunchProfileSessionPersistenceModePtrInput            `pulumi:"sessionPersistenceMode"`
 	SessionStorage                   LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
-	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
+	StreamingImageIds   pulumi.StringArrayInput                  `pulumi:"streamingImageIds"`
+	VolumeConfiguration LaunchProfileVolumeConfigurationPtrInput `pulumi:"volumeConfiguration"`
 }
 
 func (LaunchProfileStreamConfigurationArgs) ElementType() reflect.Type {
@@ -106,6 +112,12 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 	return o
 }
 
+func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
+		return v.AutomaticTerminationMode
+	}).(LaunchProfileAutomaticTerminationModePtrOutput)
+}
+
 func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() LaunchProfileStreamingClipboardModeOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) LaunchProfileStreamingClipboardMode { return v.ClipboardMode }).(LaunchProfileStreamingClipboardModeOutput)
 }
@@ -130,18 +142,24 @@ func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulu
 
 // <p>Integer that determines if you can start and stop your sessions and how long a session
 //
-//	    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//	   can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
 //	<p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-//	        <code>StopStreamingSession</code>, the session fails. If the time that a session
-//	    stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-//	    session will automatically be terminated (instead of stopped).</p>
+//	       <code>StopStreamingSession</code>, the session fails. If the time that a session
+//	   stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+//	   session will automatically be terminated (instead of stopped).</p>
 //	<p>If the value is set to a positive number, the session can be stopped. You can call
-//	        <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-//	    that a session stays in the READY state exceeds the
-//	        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-//	    stopped (instead of terminated).</p>
+//	       <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+//	   that a session stays in the READY state exceeds the
+//	       <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+//	   stopped (instead of terminated).</p>
 func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
+		return v.SessionPersistenceMode
+	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
 func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
@@ -155,6 +173,12 @@ func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileSt
 //	with this launch profile.</p>
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchProfileStreamConfigurationOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
+		return v.VolumeConfiguration
+	}).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
 type LaunchProfileStreamConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -179,6 +203,15 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamCon
 		var ret LaunchProfileStreamConfiguration
 		return ret
 	}).(LaunchProfileStreamConfigurationOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticTerminationMode
+	}).(LaunchProfileAutomaticTerminationModePtrOutput)
 }
 
 func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfileStreamingClipboardModePtrOutput {
@@ -218,16 +251,16 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 
 // <p>Integer that determines if you can start and stop your sessions and how long a session
 //
-//	    can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+//	   can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
 //	<p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-//	        <code>StopStreamingSession</code>, the session fails. If the time that a session
-//	    stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-//	    session will automatically be terminated (instead of stopped).</p>
+//	       <code>StopStreamingSession</code>, the session fails. If the time that a session
+//	   stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+//	   session will automatically be terminated (instead of stopped).</p>
 //	<p>If the value is set to a positive number, the session can be stopped. You can call
-//	        <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-//	    that a session stays in the READY state exceeds the
-//	        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-//	    stopped (instead of terminated).</p>
+//	       <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+//	   that a session stays in the READY state exceeds the
+//	       <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+//	   stopped (instead of terminated).</p>
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -235,6 +268,15 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinu
 		}
 		return v.MaxStoppedSessionLengthInMinutes
 	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
+		if v == nil {
+			return nil
+		}
+		return v.SessionPersistenceMode
+	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
@@ -256,6 +298,15 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 		}
 		return v.StreamingImageIds
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchProfileVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileVolumeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeConfiguration
+	}).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
 // <p>The configuration for a streaming session’s upload storage.</p>
@@ -704,6 +755,169 @@ func (o LaunchProfileTagsPtrOutput) Elem() LaunchProfileTagsOutput {
 		var ret LaunchProfileTags
 		return ret
 	}).(LaunchProfileTagsOutput)
+}
+
+type LaunchProfileVolumeConfiguration struct {
+	Iops       *float64 `pulumi:"iops"`
+	Size       *float64 `pulumi:"size"`
+	Throughput *float64 `pulumi:"throughput"`
+}
+
+// LaunchProfileVolumeConfigurationInput is an input type that accepts LaunchProfileVolumeConfigurationArgs and LaunchProfileVolumeConfigurationOutput values.
+// You can construct a concrete instance of `LaunchProfileVolumeConfigurationInput` via:
+//
+//	LaunchProfileVolumeConfigurationArgs{...}
+type LaunchProfileVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToLaunchProfileVolumeConfigurationOutput() LaunchProfileVolumeConfigurationOutput
+	ToLaunchProfileVolumeConfigurationOutputWithContext(context.Context) LaunchProfileVolumeConfigurationOutput
+}
+
+type LaunchProfileVolumeConfigurationArgs struct {
+	Iops       pulumi.Float64PtrInput `pulumi:"iops"`
+	Size       pulumi.Float64PtrInput `pulumi:"size"`
+	Throughput pulumi.Float64PtrInput `pulumi:"throughput"`
+}
+
+func (LaunchProfileVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileVolumeConfiguration)(nil)).Elem()
+}
+
+func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationOutput() LaunchProfileVolumeConfigurationOutput {
+	return i.ToLaunchProfileVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationOutput)
+}
+
+func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
+	return i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationOutput).ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// LaunchProfileVolumeConfigurationPtrInput is an input type that accepts LaunchProfileVolumeConfigurationArgs, LaunchProfileVolumeConfigurationPtr and LaunchProfileVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `LaunchProfileVolumeConfigurationPtrInput` via:
+//
+//	        LaunchProfileVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchProfileVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput
+	ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Context) LaunchProfileVolumeConfigurationPtrOutput
+}
+
+type launchProfileVolumeConfigurationPtrType LaunchProfileVolumeConfigurationArgs
+
+func LaunchProfileVolumeConfigurationPtr(v *LaunchProfileVolumeConfigurationArgs) LaunchProfileVolumeConfigurationPtrInput {
+	return (*launchProfileVolumeConfigurationPtrType)(v)
+}
+
+func (*launchProfileVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *launchProfileVolumeConfigurationPtrType) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
+	return i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchProfileVolumeConfigurationPtrType) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationPtrOutput)
+}
+
+type LaunchProfileVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchProfileVolumeConfiguration)(nil)).Elem()
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurationOutput() LaunchProfileVolumeConfigurationOutput {
+	return o
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurationOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationOutput {
+	return o
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
+	return o.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileVolumeConfiguration) *LaunchProfileVolumeConfiguration {
+		return &v
+	}).(LaunchProfileVolumeConfigurationPtrOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) Iops() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Iops }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationOutput) Throughput() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Throughput }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchProfileVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchProfileVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchProfileVolumeConfiguration)(nil)).Elem()
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) Elem() LaunchProfileVolumeConfigurationOutput {
+	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) LaunchProfileVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchProfileVolumeConfiguration
+		return ret
+	}).(LaunchProfileVolumeConfigurationOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) Iops() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) Size() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.Float64PtrOutput)
 }
 
 // <p>TODO</p>
@@ -1656,6 +1870,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileStreamingSessionStorageRootPtrInput)(nil)).Elem(), LaunchProfileStreamingSessionStorageRootArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsInput)(nil)).Elem(), LaunchProfileTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileTagsPtrInput)(nil)).Elem(), LaunchProfileTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileVolumeConfigurationInput)(nil)).Elem(), LaunchProfileVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchProfileVolumeConfigurationPtrInput)(nil)).Elem(), LaunchProfileVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsInput)(nil)).Elem(), StreamingImageTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamingImageTagsPtrInput)(nil)).Elem(), StreamingImageTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfigurationInput)(nil)).Elem(), StudioComponentConfigurationArgs{})
@@ -1678,6 +1894,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchProfileStreamingSessionStorageRootPtrOutput{})
 	pulumi.RegisterOutputType(LaunchProfileTagsOutput{})
 	pulumi.RegisterOutputType(LaunchProfileTagsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchProfileVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(LaunchProfileVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(StreamingImageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamingImageTagsOutput{})

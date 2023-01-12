@@ -32,6 +32,7 @@ export interface GetFileSystemResult {
     readonly lustreMountName?: string;
     readonly ontapConfiguration?: outputs.fsx.FileSystemOntapConfiguration;
     readonly openZFSConfiguration?: outputs.fsx.FileSystemOpenZFSConfiguration;
+    readonly resourceARN?: string;
     readonly rootVolumeId?: string;
     readonly storageCapacity?: number;
     readonly tags?: outputs.fsx.FileSystemTag[];

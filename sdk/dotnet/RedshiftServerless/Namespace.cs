@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport>> LogExports { get; private set; } = null!;
 
         [Output("namespace")]
-        public Output<Outputs.Namespace> NamespaceValue { get; private set; } = null!;
+        public Output<Outputs.Namespace?> NamespaceValue { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.
@@ -194,6 +194,9 @@ namespace Pulumi.AwsNative.RedshiftServerless
             get => _logExports ?? (_logExports = new InputList<Pulumi.AwsNative.RedshiftServerless.NamespaceLogExport>());
             set => _logExports = value;
         }
+
+        [Input("namespace")]
+        public Input<Inputs.NamespaceArgs>? NamespaceValue { get; set; }
 
         /// <summary>
         /// A unique identifier for the namespace. You use this identifier to refer to the namespace for any subsequent namespace operations such as deleting or modifying. All alphabetical characters must be lower case. Namespace name should be unique for all namespaces within an AWS account.

@@ -57,9 +57,6 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
 
-        [Output("restApiId")]
-        public Output<string> RestApiId { get; private set; } = null!;
-
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
 

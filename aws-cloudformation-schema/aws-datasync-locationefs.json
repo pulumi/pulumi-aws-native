@@ -116,7 +116,7 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ "Ec2Config", "EfsFilesystemArn" ],
+  "required" : [ "Ec2Config" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "createOnlyProperties" : [ "/properties/Ec2Config", "/properties/EfsFilesystemArn", "/properties/Subdirectory", "/properties/FileSystemAccessRoleArn", "/properties/InTransitEncryption", "/properties/AccessPointArn" ],

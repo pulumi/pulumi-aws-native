@@ -12,8 +12,14 @@ namespace Pulumi.AwsNative.FSx.Inputs
 
     public sealed class VolumeOntapConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("junctionPath", required: true)]
-        public Input<string> JunctionPath { get; set; } = null!;
+        [Input("copyTagsToBackups")]
+        public Input<string>? CopyTagsToBackups { get; set; }
+
+        [Input("junctionPath")]
+        public Input<string>? JunctionPath { get; set; }
+
+        [Input("ontapVolumeType")]
+        public Input<string>? OntapVolumeType { get; set; }
 
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
@@ -21,8 +27,11 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("sizeInMegabytes", required: true)]
         public Input<string> SizeInMegabytes { get; set; } = null!;
 
-        [Input("storageEfficiencyEnabled", required: true)]
-        public Input<string> StorageEfficiencyEnabled { get; set; } = null!;
+        [Input("snapshotPolicy")]
+        public Input<string>? SnapshotPolicy { get; set; }
+
+        [Input("storageEfficiencyEnabled")]
+        public Input<string>? StorageEfficiencyEnabled { get; set; }
 
         [Input("storageVirtualMachineId", required: true)]
         public Input<string> StorageVirtualMachineId { get; set; } = null!;

@@ -122,6 +122,7 @@ namespace Pulumi.AwsNative.Grafana
         /// </summary>
         public readonly string? StackSetName;
         public readonly Pulumi.AwsNative.Grafana.WorkspaceStatus? Status;
+        public readonly Outputs.WorkspaceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]
         private GetWorkspaceResult(
@@ -163,7 +164,9 @@ namespace Pulumi.AwsNative.Grafana
 
             string? stackSetName,
 
-            Pulumi.AwsNative.Grafana.WorkspaceStatus? status)
+            Pulumi.AwsNative.Grafana.WorkspaceStatus? status,
+
+            Outputs.WorkspaceVpcConfiguration? vpcConfiguration)
         {
             AccountAccessType = accountAccessType;
             AuthenticationProviders = authenticationProviders;
@@ -185,6 +188,7 @@ namespace Pulumi.AwsNative.Grafana
             SsoClientId = ssoClientId;
             StackSetName = stackSetName;
             Status = status;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

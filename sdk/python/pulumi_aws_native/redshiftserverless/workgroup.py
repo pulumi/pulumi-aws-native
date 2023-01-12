@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WorkgroupArgs', 'Workgroup']
+__all__ = ['WorkgroupInitArgs', 'Workgroup']
 
 @pulumi.input_type
-class WorkgroupArgs:
+class WorkgroupInitArgs:
     def __init__(__self__, *,
                  base_capacity: Optional[pulumi.Input[int]] = None,
                  config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigParameterArgs']]]] = None,
@@ -25,6 +25,7 @@ class WorkgroupArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkgroupTagArgs']]]] = None,
+                 workgroup: Optional[pulumi.Input['WorkgroupArgs']] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
@@ -45,6 +46,8 @@ class WorkgroupArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workgroup is not None:
+            pulumi.set(__self__, "workgroup", workgroup)
         if workgroup_name is not None:
             pulumi.set(__self__, "workgroup_name", workgroup_name)
 
@@ -121,6 +124,15 @@ class WorkgroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter
+    def workgroup(self) -> Optional[pulumi.Input['WorkgroupArgs']]:
+        return pulumi.get(self, "workgroup")
+
+    @workgroup.setter
+    def workgroup(self, value: Optional[pulumi.Input['WorkgroupArgs']]):
+        pulumi.set(self, "workgroup", value)
+
+    @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "workgroup_name")
@@ -143,6 +155,7 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupTagArgs']]]]] = None,
+                 workgroup: Optional[pulumi.Input[pulumi.InputType['WorkgroupArgs']]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -155,18 +168,18 @@ class Workgroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkgroupArgs] = None,
+                 args: Optional[WorkgroupInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RedshiftServerless::Workgroup Resource Type
 
         :param str resource_name: The name of the resource.
-        :param WorkgroupArgs args: The arguments to use to populate this resource's properties.
+        :param WorkgroupInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -183,6 +196,7 @@ class Workgroup(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupTagArgs']]]]] = None,
+                 workgroup: Optional[pulumi.Input[pulumi.InputType['WorkgroupArgs']]] = None,
                  workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -191,7 +205,7 @@ class Workgroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkgroupArgs.__new__(WorkgroupArgs)
+            __props__ = WorkgroupInitArgs.__new__(WorkgroupInitArgs)
 
             __props__.__dict__["base_capacity"] = base_capacity
             __props__.__dict__["config_parameters"] = config_parameters
@@ -201,8 +215,8 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["workgroup"] = workgroup
             __props__.__dict__["workgroup_name"] = workgroup_name
-            __props__.__dict__["workgroup"] = None
         super(Workgroup, __self__).__init__(
             'aws-native:redshiftserverless:Workgroup',
             resource_name,
@@ -223,7 +237,7 @@ class Workgroup(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WorkgroupArgs.__new__(WorkgroupArgs)
+        __props__ = WorkgroupInitArgs.__new__(WorkgroupInitArgs)
 
         __props__.__dict__["base_capacity"] = None
         __props__.__dict__["config_parameters"] = None
@@ -279,7 +293,7 @@ class Workgroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def workgroup(self) -> pulumi.Output['outputs.Workgroup']:
+    def workgroup(self) -> pulumi.Output[Optional['outputs.Workgroup']]:
         return pulumi.get(self, "workgroup")
 
     @property

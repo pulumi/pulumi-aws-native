@@ -15,7 +15,7 @@ type ExperimentMetricGoalObject struct {
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey string `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-	EventPattern string  `pulumi:"eventPattern"`
+	EventPattern *string `pulumi:"eventPattern"`
 	MetricName   string  `pulumi:"metricName"`
 	UnitLabel    *string `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
@@ -38,7 +38,7 @@ type ExperimentMetricGoalObjectArgs struct {
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey pulumi.StringInput `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-	EventPattern pulumi.StringInput    `pulumi:"eventPattern"`
+	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
 	MetricName   pulumi.StringInput    `pulumi:"metricName"`
 	UnitLabel    pulumi.StringPtrInput `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
@@ -106,8 +106,8 @@ func (o ExperimentMetricGoalObjectOutput) EntityIdKey() pulumi.StringOutput {
 }
 
 // Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-func (o ExperimentMetricGoalObjectOutput) EventPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentMetricGoalObject) string { return v.EventPattern }).(pulumi.StringOutput)
+func (o ExperimentMetricGoalObjectOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentMetricGoalObject) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o ExperimentMetricGoalObjectOutput) MetricName() pulumi.StringOutput {
@@ -1473,7 +1473,7 @@ type LaunchMetricDefinitionObject struct {
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey string `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-	EventPattern string  `pulumi:"eventPattern"`
+	EventPattern *string `pulumi:"eventPattern"`
 	MetricName   string  `pulumi:"metricName"`
 	UnitLabel    *string `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
@@ -1495,7 +1495,7 @@ type LaunchMetricDefinitionObjectArgs struct {
 	// The JSON path to reference the entity id in the event.
 	EntityIdKey pulumi.StringInput `pulumi:"entityIdKey"`
 	// Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-	EventPattern pulumi.StringInput    `pulumi:"eventPattern"`
+	EventPattern pulumi.StringPtrInput `pulumi:"eventPattern"`
 	MetricName   pulumi.StringInput    `pulumi:"metricName"`
 	UnitLabel    pulumi.StringPtrInput `pulumi:"unitLabel"`
 	// The JSON path to reference the numerical metric value in the event.
@@ -1559,8 +1559,8 @@ func (o LaunchMetricDefinitionObjectOutput) EntityIdKey() pulumi.StringOutput {
 }
 
 // Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-func (o LaunchMetricDefinitionObjectOutput) EventPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v LaunchMetricDefinitionObject) string { return v.EventPattern }).(pulumi.StringOutput)
+func (o LaunchMetricDefinitionObjectOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchMetricDefinitionObject) *string { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
 func (o LaunchMetricDefinitionObjectOutput) MetricName() pulumi.StringOutput {

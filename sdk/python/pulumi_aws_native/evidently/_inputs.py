@@ -39,20 +39,21 @@ class ExperimentMetricGoalObjectArgs:
     def __init__(__self__, *,
                  desired_change: pulumi.Input['ExperimentMetricGoalObjectDesiredChange'],
                  entity_id_key: pulumi.Input[str],
-                 event_pattern: pulumi.Input[str],
                  metric_name: pulumi.Input[str],
                  value_key: pulumi.Input[str],
+                 event_pattern: Optional[pulumi.Input[str]] = None,
                  unit_label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] entity_id_key: The JSON path to reference the entity id in the event.
-        :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         :param pulumi.Input[str] value_key: The JSON path to reference the numerical metric value in the event.
+        :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         pulumi.set(__self__, "desired_change", desired_change)
         pulumi.set(__self__, "entity_id_key", entity_id_key)
-        pulumi.set(__self__, "event_pattern", event_pattern)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "value_key", value_key)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
             pulumi.set(__self__, "unit_label", unit_label)
 
@@ -78,18 +79,6 @@ class ExperimentMetricGoalObjectArgs:
         pulumi.set(self, "entity_id_key", value)
 
     @property
-    @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> pulumi.Input[str]:
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        return pulumi.get(self, "event_pattern")
-
-    @event_pattern.setter
-    def event_pattern(self, value: pulumi.Input[str]):
-        pulumi.set(self, "event_pattern", value)
-
-    @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "metric_name")
@@ -109,6 +98,18 @@ class ExperimentMetricGoalObjectArgs:
     @value_key.setter
     def value_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "value_key", value)
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @event_pattern.setter
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_pattern", value)
 
     @property
     @pulumi.getter(name="unitLabel")
@@ -602,19 +603,20 @@ class LaunchGroupToWeightArgs:
 class LaunchMetricDefinitionObjectArgs:
     def __init__(__self__, *,
                  entity_id_key: pulumi.Input[str],
-                 event_pattern: pulumi.Input[str],
                  metric_name: pulumi.Input[str],
                  value_key: pulumi.Input[str],
+                 event_pattern: Optional[pulumi.Input[str]] = None,
                  unit_label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] entity_id_key: The JSON path to reference the entity id in the event.
-        :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         :param pulumi.Input[str] value_key: The JSON path to reference the numerical metric value in the event.
+        :param pulumi.Input[str] event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         pulumi.set(__self__, "entity_id_key", entity_id_key)
-        pulumi.set(__self__, "event_pattern", event_pattern)
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "value_key", value_key)
+        if event_pattern is not None:
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
             pulumi.set(__self__, "unit_label", unit_label)
 
@@ -629,18 +631,6 @@ class LaunchMetricDefinitionObjectArgs:
     @entity_id_key.setter
     def entity_id_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "entity_id_key", value)
-
-    @property
-    @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> pulumi.Input[str]:
-        """
-        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
-        """
-        return pulumi.get(self, "event_pattern")
-
-    @event_pattern.setter
-    def event_pattern(self, value: pulumi.Input[str]):
-        pulumi.set(self, "event_pattern", value)
 
     @property
     @pulumi.getter(name="metricName")
@@ -662,6 +652,18 @@ class LaunchMetricDefinitionObjectArgs:
     @value_key.setter
     def value_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "value_key", value)
+
+    @property
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
+        """
+        return pulumi.get(self, "event_pattern")
+
+    @event_pattern.setter
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_pattern", value)
 
     @property
     @pulumi.getter(name="unitLabel")

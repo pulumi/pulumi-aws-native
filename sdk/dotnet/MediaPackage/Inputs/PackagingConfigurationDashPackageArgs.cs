@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         [Input("includeEncoderConfigurationInSegments")]
         public Input<bool>? IncludeEncoderConfigurationInSegments { get; set; }
 
+        /// <summary>
+        /// When enabled, an I-Frame only stream will be included in the output.
+        /// </summary>
+        [Input("includeIframeOnlyStream")]
+        public Input<bool>? IncludeIframeOnlyStream { get; set; }
+
         [Input("periodTriggers")]
         private InputList<Pulumi.AwsNative.MediaPackage.PackagingConfigurationDashPackagePeriodTriggersItem>? _periodTriggers;
 

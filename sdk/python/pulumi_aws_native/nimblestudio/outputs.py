@@ -16,6 +16,7 @@ __all__ = [
     'LaunchProfileStreamConfigurationSessionStorage',
     'LaunchProfileStreamingSessionStorageRoot',
     'LaunchProfileTags',
+    'LaunchProfileVolumeConfiguration',
     'StreamingImageEncryptionConfiguration',
     'StreamingImageTags',
     'StudioComponentConfiguration',
@@ -40,12 +41,18 @@ class LaunchProfileStreamConfiguration(dict):
             suggest = "ec2_instance_types"
         elif key == "streamingImageIds":
             suggest = "streaming_image_ids"
+        elif key == "automaticTerminationMode":
+            suggest = "automatic_termination_mode"
         elif key == "maxSessionLengthInMinutes":
             suggest = "max_session_length_in_minutes"
         elif key == "maxStoppedSessionLengthInMinutes":
             suggest = "max_stopped_session_length_in_minutes"
+        elif key == "sessionPersistenceMode":
+            suggest = "session_persistence_mode"
         elif key == "sessionStorage":
             suggest = "session_storage"
+        elif key == "volumeConfiguration":
+            suggest = "volume_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LaunchProfileStreamConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -62,9 +69,12 @@ class LaunchProfileStreamConfiguration(dict):
                  clipboard_mode: 'LaunchProfileStreamingClipboardMode',
                  ec2_instance_types: Sequence['LaunchProfileStreamingInstanceType'],
                  streaming_image_ids: Sequence[str],
+                 automatic_termination_mode: Optional['LaunchProfileAutomaticTerminationMode'] = None,
                  max_session_length_in_minutes: Optional[float] = None,
                  max_stopped_session_length_in_minutes: Optional[float] = None,
-                 session_storage: Optional['outputs.LaunchProfileStreamConfigurationSessionStorage'] = None):
+                 session_persistence_mode: Optional['LaunchProfileSessionPersistenceMode'] = None,
+                 session_storage: Optional['outputs.LaunchProfileStreamConfigurationSessionStorage'] = None,
+                 volume_configuration: Optional['outputs.LaunchProfileVolumeConfiguration'] = None):
         """
         <p>A configuration for a streaming session.</p>
         :param Sequence['LaunchProfileStreamingInstanceType'] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session
@@ -77,11 +87,11 @@ class LaunchProfileStreamConfiguration(dict):
                            time is 30 days.</p>
         :param float max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
                            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-                       <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+                        <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
                                <code>StopStreamingSession</code>, the session fails. If the time that a session
                            stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
                            session will automatically be terminated (instead of stopped).</p>
-                       <p>If the value is set to a positive number, the session can be stopped. You can call
+                        <p>If the value is set to a positive number, the session can be stopped. You can call
                                <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
                            that a session stays in the READY state exceeds the
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
@@ -90,12 +100,18 @@ class LaunchProfileStreamConfiguration(dict):
         pulumi.set(__self__, "clipboard_mode", clipboard_mode)
         pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
         pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
+        if automatic_termination_mode is not None:
+            pulumi.set(__self__, "automatic_termination_mode", automatic_termination_mode)
         if max_session_length_in_minutes is not None:
             pulumi.set(__self__, "max_session_length_in_minutes", max_session_length_in_minutes)
         if max_stopped_session_length_in_minutes is not None:
             pulumi.set(__self__, "max_stopped_session_length_in_minutes", max_stopped_session_length_in_minutes)
+        if session_persistence_mode is not None:
+            pulumi.set(__self__, "session_persistence_mode", session_persistence_mode)
         if session_storage is not None:
             pulumi.set(__self__, "session_storage", session_storage)
+        if volume_configuration is not None:
+            pulumi.set(__self__, "volume_configuration", volume_configuration)
 
     @property
     @pulumi.getter(name="clipboardMode")
@@ -121,6 +137,11 @@ class LaunchProfileStreamConfiguration(dict):
         return pulumi.get(self, "streaming_image_ids")
 
     @property
+    @pulumi.getter(name="automaticTerminationMode")
+    def automatic_termination_mode(self) -> Optional['LaunchProfileAutomaticTerminationMode']:
+        return pulumi.get(self, "automatic_termination_mode")
+
+    @property
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[float]:
         """
@@ -137,11 +158,11 @@ class LaunchProfileStreamConfiguration(dict):
         """
         <p>Integer that determines if you can start and stop your sessions and how long a session
                     can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-                <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+                 <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
                         <code>StopStreamingSession</code>, the session fails. If the time that a session
                     stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
                     session will automatically be terminated (instead of stopped).</p>
-                <p>If the value is set to a positive number, the session can be stopped. You can call
+                 <p>If the value is set to a positive number, the session can be stopped. You can call
                         <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
                     that a session stays in the READY state exceeds the
                         <code>maxSessionLengthInMinutes</code> value, the session will automatically be
@@ -150,9 +171,19 @@ class LaunchProfileStreamConfiguration(dict):
         return pulumi.get(self, "max_stopped_session_length_in_minutes")
 
     @property
+    @pulumi.getter(name="sessionPersistenceMode")
+    def session_persistence_mode(self) -> Optional['LaunchProfileSessionPersistenceMode']:
+        return pulumi.get(self, "session_persistence_mode")
+
+    @property
     @pulumi.getter(name="sessionStorage")
     def session_storage(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionStorage']:
         return pulumi.get(self, "session_storage")
+
+    @property
+    @pulumi.getter(name="volumeConfiguration")
+    def volume_configuration(self) -> Optional['outputs.LaunchProfileVolumeConfiguration']:
+        return pulumi.get(self, "volume_configuration")
 
 
 @pulumi.output_type
@@ -228,6 +259,35 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
 class LaunchProfileTags(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class LaunchProfileVolumeConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[float] = None,
+                 size: Optional[float] = None,
+                 throughput: Optional[float] = None):
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[float]:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[float]:
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[float]:
+        return pulumi.get(self, "throughput")
 
 
 @pulumi.output_type

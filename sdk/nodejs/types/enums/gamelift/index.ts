@@ -12,6 +12,17 @@ export const AliasRoutingStrategyType = {
  */
 export type AliasRoutingStrategyType = (typeof AliasRoutingStrategyType)[keyof typeof AliasRoutingStrategyType];
 
+export const BuildOperatingSystem = {
+    AmazonLinux: "AMAZON_LINUX",
+    AmazonLinux2: "AMAZON_LINUX_2",
+    Windows2012: "WINDOWS_2012",
+} as const;
+
+/**
+ * The operating system that the game server binaries are built to run on. This value determines the type of fleet resources that you can use for this build. If your game build contains multiple executables, they all must run on the same operating system. If an operating system is not specified when creating a build, Amazon GameLift uses the default value (WINDOWS_2012). This value cannot be changed later.
+ */
+export type BuildOperatingSystem = (typeof BuildOperatingSystem)[keyof typeof BuildOperatingSystem];
+
 export const FleetCertificateConfigurationCertificateType = {
     Disabled: "DISABLED",
     Generated: "GENERATED",

@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("jobArn")]
         public Output<string?> JobArn { get; private set; } = null!;
 
+        [Output("jobExecutionsRetryConfig")]
+        public Output<Outputs.JobExecutionsRetryConfigProperties?> JobExecutionsRetryConfig { get; private set; } = null!;
+
         /// <summary>
         /// Allows you to create a staged rollout of a job.
         /// </summary>
@@ -149,6 +152,9 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         [Input("jobArn")]
         public Input<string>? JobArn { get; set; }
+
+        [Input("jobExecutionsRetryConfig")]
+        public Input<Inputs.JobExecutionsRetryConfigPropertiesArgs>? JobExecutionsRetryConfig { get; set; }
 
         /// <summary>
         /// Allows you to create a staged rollout of a job.

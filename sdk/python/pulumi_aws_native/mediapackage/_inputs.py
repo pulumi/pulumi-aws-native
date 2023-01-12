@@ -1628,6 +1628,7 @@ class PackagingConfigurationDashPackageArgs:
                  dash_manifests: pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]],
                  encryption: Optional[pulumi.Input['PackagingConfigurationDashEncryptionArgs']] = None,
                  include_encoder_configuration_in_segments: Optional[pulumi.Input[bool]] = None,
+                 include_iframe_only_stream: Optional[pulumi.Input[bool]] = None,
                  period_triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  segment_template_format: Optional[pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat']] = None):
@@ -1635,6 +1636,7 @@ class PackagingConfigurationDashPackageArgs:
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: A list of DASH manifest configurations.
         :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+        :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         :param pulumi.Input['PackagingConfigurationDashPackageSegmentTemplateFormat'] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
@@ -1643,6 +1645,8 @@ class PackagingConfigurationDashPackageArgs:
             pulumi.set(__self__, "encryption", encryption)
         if include_encoder_configuration_in_segments is not None:
             pulumi.set(__self__, "include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
+        if include_iframe_only_stream is not None:
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if period_triggers is not None:
             pulumi.set(__self__, "period_triggers", period_triggers)
         if segment_duration_seconds is not None:
@@ -1682,6 +1686,18 @@ class PackagingConfigurationDashPackageArgs:
     @include_encoder_configuration_in_segments.setter
     def include_encoder_configuration_in_segments(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "include_encoder_configuration_in_segments", value)
+
+    @property
+    @pulumi.getter(name="includeIframeOnlyStream")
+    def include_iframe_only_stream(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, an I-Frame only stream will be included in the output.
+        """
+        return pulumi.get(self, "include_iframe_only_stream")
+
+    @include_iframe_only_stream.setter
+    def include_iframe_only_stream(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_iframe_only_stream", value)
 
     @property
     @pulumi.getter(name="periodTriggers")

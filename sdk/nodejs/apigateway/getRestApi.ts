@@ -17,12 +17,12 @@ export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): P
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws-native:apigateway:getRestApi", {
-        "restApiId": args.restApiId,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetRestApiArgs {
-    restApiId: string;
+    id: string;
 }
 
 export interface GetRestApiResult {
@@ -35,12 +35,12 @@ export interface GetRestApiResult {
     readonly disableExecuteApiEndpoint?: boolean;
     readonly endpointConfiguration?: outputs.apigateway.RestApiEndpointConfiguration;
     readonly failOnWarnings?: boolean;
+    readonly id?: string;
     readonly minimumCompressionSize?: number;
     readonly mode?: string;
     readonly name?: string;
     readonly parameters?: any;
     readonly policy?: any;
-    readonly restApiId?: string;
     readonly rootResourceId?: string;
     readonly tags?: outputs.apigateway.RestApiTag[];
 }
@@ -50,5 +50,5 @@ export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetRestApiOutputArgs {
-    restApiId: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

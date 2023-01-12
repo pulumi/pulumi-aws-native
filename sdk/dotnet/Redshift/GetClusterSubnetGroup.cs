@@ -69,10 +69,6 @@ namespace Pulumi.AwsNative.Redshift
         /// The list of VPC subnet IDs
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
-        /// <summary>
-        /// The list of tags for the cluster parameter group.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ClusterSubnetGroupTag> Tags;
 
         [OutputConstructor]
         private GetClusterSubnetGroupResult(
@@ -80,14 +76,11 @@ namespace Pulumi.AwsNative.Redshift
 
             string? description,
 
-            ImmutableArray<string> subnetIds,
-
-            ImmutableArray<Outputs.ClusterSubnetGroupTag> tags)
+            ImmutableArray<string> subnetIds)
         {
             ClusterSubnetGroupName = clusterSubnetGroupName;
             Description = description;
             SubnetIds = subnetIds;
-            Tags = tags;
         }
     }
 }

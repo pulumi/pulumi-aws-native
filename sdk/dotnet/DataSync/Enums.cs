@@ -347,6 +347,7 @@ namespace Pulumi.AwsNative.DataSync
         public static LocationS3S3StorageClass OnezoneIa { get; } = new LocationS3S3StorageClass("ONEZONE_IA");
         public static LocationS3S3StorageClass IntelligentTiering { get; } = new LocationS3S3StorageClass("INTELLIGENT_TIERING");
         public static LocationS3S3StorageClass Glacier { get; } = new LocationS3S3StorageClass("GLACIER");
+        public static LocationS3S3StorageClass GlacierInstantRetrieval { get; } = new LocationS3S3StorageClass("GLACIER_INSTANT_RETRIEVAL");
         public static LocationS3S3StorageClass DeepArchive { get; } = new LocationS3S3StorageClass("DEEP_ARCHIVE");
 
         public static bool operator ==(LocationS3S3StorageClass left, LocationS3S3StorageClass right) => left.Equals(right);
