@@ -64333,7 +64333,7 @@
             "type": "object",
             "properties": {
                 "clusterLogging": {
-                    "$ref": "#/types/aws-native:eks:ClusterLogging",
+                    "$ref": "#/types/aws-native:eks:ClusterLoggingEnabledTypes",
                     "description": "The cluster control plane logging configuration for your cluster. ",
                     "language": {
                         "csharp": {
@@ -64342,6 +64342,29 @@
                     }
                 }
             }
+        },
+        "aws-native:eks:ClusterLoggingEnabledTypes": {
+            "type": "object",
+            "properties": {
+                "enabledTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:eks:ClusterLoggingTypeConfig"
+                    }
+                }
+            }
+        },
+        "aws-native:eks:ClusterLoggingTypeConfig": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:eks:ClusterLoggingTypeConfigType",
+                    "description": "name of the log type"
+                }
+            }
+        },
+        "aws-native:eks:ClusterLoggingTypeConfigType": {
+            "type": "string"
         },
         "aws-native:eks:ClusterOutpostConfig": {
             "type": "object",

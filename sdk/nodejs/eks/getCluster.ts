@@ -53,7 +53,7 @@ export interface GetClusterResult {
      * The unique ID given to your cluster.
      */
     readonly id?: string;
-    readonly logging?: outputs.eks.ClusterLoggingOuter;
+    readonly logging?: outputs.eks.ClusterLogging;
     /**
      * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
      */

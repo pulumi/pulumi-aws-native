@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.EKS
         public Output<Outputs.ClusterKubernetesNetworkConfig?> KubernetesNetworkConfig { get; private set; } = null!;
 
         [Output("logging")]
-        public Output<Outputs.ClusterLoggingOuter?> Logging { get; private set; } = null!;
+        public Output<Outputs.ClusterLogging?> Logging { get; private set; } = null!;
 
         /// <summary>
         /// The unique name to give to your cluster.
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.EKS
         public Input<Inputs.ClusterKubernetesNetworkConfigArgs>? KubernetesNetworkConfig { get; set; }
 
         [Input("logging")]
-        public Input<Inputs.ClusterLoggingOuterArgs>? Logging { get; set; }
+        public Input<Inputs.ClusterLoggingArgs>? Logging { get; set; }
 
         /// <summary>
         /// The unique name to give to your cluster.

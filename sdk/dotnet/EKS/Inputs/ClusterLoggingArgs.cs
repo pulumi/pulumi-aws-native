@@ -11,17 +11,15 @@ namespace Pulumi.AwsNative.EKS.Inputs
 {
 
     /// <summary>
-    /// The cluster control plane logging configuration for your cluster. 
+    /// Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
     /// </summary>
     public sealed class ClusterLoggingArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enabledTypes")]
-        private InputList<Inputs.ClusterLoggingTypeConfigArgs>? _enabledTypes;
-        public InputList<Inputs.ClusterLoggingTypeConfigArgs> EnabledTypes
-        {
-            get => _enabledTypes ?? (_enabledTypes = new InputList<Inputs.ClusterLoggingTypeConfigArgs>());
-            set => _enabledTypes = value;
-        }
+        /// <summary>
+        /// The cluster control plane logging configuration for your cluster. 
+        /// </summary>
+        [Input("clusterLogging")]
+        public Input<Inputs.ClusterLoggingEnabledTypesArgs>? ClusterLoggingValue { get; set; }
 
         public ClusterLoggingArgs()
         {

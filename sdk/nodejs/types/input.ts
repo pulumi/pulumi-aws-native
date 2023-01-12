@@ -12061,20 +12061,20 @@ export namespace eks {
     }
 
     /**
-     * The cluster control plane logging configuration for your cluster. 
-     */
-    export interface ClusterLoggingArgs {
-        enabledTypes?: pulumi.Input<pulumi.Input<inputs.eks.ClusterLoggingTypeConfigArgs>[]>;
-    }
-
-    /**
      * Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
      */
-    export interface ClusterLoggingOuterArgs {
+    export interface ClusterLoggingArgs {
         /**
          * The cluster control plane logging configuration for your cluster. 
          */
-        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingEnabledTypesArgs>;
+    }
+
+    /**
+     * The cluster control plane logging configuration for your cluster. 
+     */
+    export interface ClusterLoggingEnabledTypesArgs {
+        enabledTypes?: pulumi.Input<pulumi.Input<inputs.eks.ClusterLoggingTypeConfigArgs>[]>;
     }
 
     /**
