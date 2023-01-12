@@ -1908,6 +1908,9 @@
                 "policy": {
                     "$ref": "pulumi.json#/Any"
                 },
+                "restApiId": {
+                    "type": "string"
+                },
                 "rootResourceId": {
                     "type": "string"
                 },
@@ -1920,7 +1923,15 @@
             },
             "autoNamingSpec": {
                 "sdkName": "name"
-            }
+            },
+            "writeOnly": [
+                "body",
+                "bodyS3Location",
+                "cloneFrom",
+                "failOnWarnings",
+                "mode",
+                "parameters"
+            ]
         },
         "aws-native:apigateway:Stage": {
             "cf": "AWS::ApiGateway::Stage",
@@ -95759,7 +95770,7 @@
         "aws-native:apigateway:getRestApi": {
             "cf": "AWS::ApiGateway::RestApi",
             "ids": [
-                "id"
+                "restApiId"
             ]
         },
         "aws-native:apigateway:getStage": {
