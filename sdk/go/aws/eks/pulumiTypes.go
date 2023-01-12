@@ -549,7 +549,7 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ServiceIpv6Cidr() pulumi.String
 // Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
 type ClusterLogging struct {
 	// The cluster control plane logging configuration for your cluster.
-	ClusterLogging *ClusterLogging `pulumi:"clusterLogging"`
+	ClusterLogging *ClusterLoggingEnabledTypes `pulumi:"clusterLogging"`
 }
 
 // ClusterLoggingInput is an input type that accepts ClusterLoggingArgs and ClusterLoggingOutput values.
@@ -566,7 +566,7 @@ type ClusterLoggingInput interface {
 // Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
 type ClusterLoggingArgs struct {
 	// The cluster control plane logging configuration for your cluster.
-	ClusterLogging ClusterLoggingPtrInput `pulumi:"clusterLogging"`
+	ClusterLogging ClusterLoggingEnabledTypesPtrInput `pulumi:"clusterLogging"`
 }
 
 func (ClusterLoggingArgs) ElementType() reflect.Type {
@@ -648,8 +648,8 @@ func (o ClusterLoggingOutput) ToClusterLoggingPtrOutputWithContext(ctx context.C
 }
 
 // The cluster control plane logging configuration for your cluster.
-func (o ClusterLoggingOutput) ClusterLogging() ClusterLoggingPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *ClusterLogging { return v.ClusterLogging }).(ClusterLoggingPtrOutput)
+func (o ClusterLoggingOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
+	return o.ApplyT(func(v ClusterLogging) *ClusterLoggingEnabledTypes { return v.ClusterLogging }).(ClusterLoggingEnabledTypesPtrOutput)
 }
 
 type ClusterLoggingPtrOutput struct{ *pulumi.OutputState }
@@ -677,13 +677,249 @@ func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
 }
 
 // The cluster control plane logging configuration for your cluster.
-func (o ClusterLoggingPtrOutput) ClusterLogging() ClusterLoggingPtrOutput {
-	return o.ApplyT(func(v *ClusterLogging) *ClusterLogging {
+func (o ClusterLoggingPtrOutput) ClusterLogging() ClusterLoggingEnabledTypesPtrOutput {
+	return o.ApplyT(func(v *ClusterLogging) *ClusterLoggingEnabledTypes {
 		if v == nil {
 			return nil
 		}
 		return v.ClusterLogging
-	}).(ClusterLoggingPtrOutput)
+	}).(ClusterLoggingEnabledTypesPtrOutput)
+}
+
+// The cluster control plane logging configuration for your cluster.
+type ClusterLoggingEnabledTypes struct {
+	EnabledTypes []ClusterLoggingTypeConfig `pulumi:"enabledTypes"`
+}
+
+// ClusterLoggingEnabledTypesInput is an input type that accepts ClusterLoggingEnabledTypesArgs and ClusterLoggingEnabledTypesOutput values.
+// You can construct a concrete instance of `ClusterLoggingEnabledTypesInput` via:
+//
+//	ClusterLoggingEnabledTypesArgs{...}
+type ClusterLoggingEnabledTypesInput interface {
+	pulumi.Input
+
+	ToClusterLoggingEnabledTypesOutput() ClusterLoggingEnabledTypesOutput
+	ToClusterLoggingEnabledTypesOutputWithContext(context.Context) ClusterLoggingEnabledTypesOutput
+}
+
+// The cluster control plane logging configuration for your cluster.
+type ClusterLoggingEnabledTypesArgs struct {
+	EnabledTypes ClusterLoggingTypeConfigArrayInput `pulumi:"enabledTypes"`
+}
+
+func (ClusterLoggingEnabledTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingEnabledTypes)(nil)).Elem()
+}
+
+func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesOutput() ClusterLoggingEnabledTypesOutput {
+	return i.ToClusterLoggingEnabledTypesOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingEnabledTypesOutput)
+}
+
+func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput {
+	return i.ToClusterLoggingEnabledTypesPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingEnabledTypesArgs) ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingEnabledTypesOutput).ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx)
+}
+
+// ClusterLoggingEnabledTypesPtrInput is an input type that accepts ClusterLoggingEnabledTypesArgs, ClusterLoggingEnabledTypesPtr and ClusterLoggingEnabledTypesPtrOutput values.
+// You can construct a concrete instance of `ClusterLoggingEnabledTypesPtrInput` via:
+//
+//	        ClusterLoggingEnabledTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterLoggingEnabledTypesPtrInput interface {
+	pulumi.Input
+
+	ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput
+	ToClusterLoggingEnabledTypesPtrOutputWithContext(context.Context) ClusterLoggingEnabledTypesPtrOutput
+}
+
+type clusterLoggingEnabledTypesPtrType ClusterLoggingEnabledTypesArgs
+
+func ClusterLoggingEnabledTypesPtr(v *ClusterLoggingEnabledTypesArgs) ClusterLoggingEnabledTypesPtrInput {
+	return (*clusterLoggingEnabledTypesPtrType)(v)
+}
+
+func (*clusterLoggingEnabledTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingEnabledTypes)(nil)).Elem()
+}
+
+func (i *clusterLoggingEnabledTypesPtrType) ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput {
+	return i.ToClusterLoggingEnabledTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterLoggingEnabledTypesPtrType) ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingEnabledTypesPtrOutput)
+}
+
+// The cluster control plane logging configuration for your cluster.
+type ClusterLoggingEnabledTypesOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingEnabledTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingEnabledTypes)(nil)).Elem()
+}
+
+func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesOutput() ClusterLoggingEnabledTypesOutput {
+	return o
+}
+
+func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesOutput {
+	return o
+}
+
+func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput {
+	return o.ToClusterLoggingEnabledTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterLoggingEnabledTypesOutput) ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingEnabledTypes) *ClusterLoggingEnabledTypes {
+		return &v
+	}).(ClusterLoggingEnabledTypesPtrOutput)
+}
+
+func (o ClusterLoggingEnabledTypesOutput) EnabledTypes() ClusterLoggingTypeConfigArrayOutput {
+	return o.ApplyT(func(v ClusterLoggingEnabledTypes) []ClusterLoggingTypeConfig { return v.EnabledTypes }).(ClusterLoggingTypeConfigArrayOutput)
+}
+
+type ClusterLoggingEnabledTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingEnabledTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterLoggingEnabledTypes)(nil)).Elem()
+}
+
+func (o ClusterLoggingEnabledTypesPtrOutput) ToClusterLoggingEnabledTypesPtrOutput() ClusterLoggingEnabledTypesPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingEnabledTypesPtrOutput) ToClusterLoggingEnabledTypesPtrOutputWithContext(ctx context.Context) ClusterLoggingEnabledTypesPtrOutput {
+	return o
+}
+
+func (o ClusterLoggingEnabledTypesPtrOutput) Elem() ClusterLoggingEnabledTypesOutput {
+	return o.ApplyT(func(v *ClusterLoggingEnabledTypes) ClusterLoggingEnabledTypes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingEnabledTypes
+		return ret
+	}).(ClusterLoggingEnabledTypesOutput)
+}
+
+func (o ClusterLoggingEnabledTypesPtrOutput) EnabledTypes() ClusterLoggingTypeConfigArrayOutput {
+	return o.ApplyT(func(v *ClusterLoggingEnabledTypes) []ClusterLoggingTypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledTypes
+	}).(ClusterLoggingTypeConfigArrayOutput)
+}
+
+// Enabled Logging Type
+type ClusterLoggingTypeConfig struct {
+	// name of the log type
+	Type *ClusterLoggingTypeConfigType `pulumi:"type"`
+}
+
+// ClusterLoggingTypeConfigInput is an input type that accepts ClusterLoggingTypeConfigArgs and ClusterLoggingTypeConfigOutput values.
+// You can construct a concrete instance of `ClusterLoggingTypeConfigInput` via:
+//
+//	ClusterLoggingTypeConfigArgs{...}
+type ClusterLoggingTypeConfigInput interface {
+	pulumi.Input
+
+	ToClusterLoggingTypeConfigOutput() ClusterLoggingTypeConfigOutput
+	ToClusterLoggingTypeConfigOutputWithContext(context.Context) ClusterLoggingTypeConfigOutput
+}
+
+// Enabled Logging Type
+type ClusterLoggingTypeConfigArgs struct {
+	// name of the log type
+	Type ClusterLoggingTypeConfigTypePtrInput `pulumi:"type"`
+}
+
+func (ClusterLoggingTypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterLoggingTypeConfigArgs) ToClusterLoggingTypeConfigOutput() ClusterLoggingTypeConfigOutput {
+	return i.ToClusterLoggingTypeConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingTypeConfigArgs) ToClusterLoggingTypeConfigOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingTypeConfigOutput)
+}
+
+// ClusterLoggingTypeConfigArrayInput is an input type that accepts ClusterLoggingTypeConfigArray and ClusterLoggingTypeConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterLoggingTypeConfigArrayInput` via:
+//
+//	ClusterLoggingTypeConfigArray{ ClusterLoggingTypeConfigArgs{...} }
+type ClusterLoggingTypeConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterLoggingTypeConfigArrayOutput() ClusterLoggingTypeConfigArrayOutput
+	ToClusterLoggingTypeConfigArrayOutputWithContext(context.Context) ClusterLoggingTypeConfigArrayOutput
+}
+
+type ClusterLoggingTypeConfigArray []ClusterLoggingTypeConfigInput
+
+func (ClusterLoggingTypeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLoggingTypeConfig)(nil)).Elem()
+}
+
+func (i ClusterLoggingTypeConfigArray) ToClusterLoggingTypeConfigArrayOutput() ClusterLoggingTypeConfigArrayOutput {
+	return i.ToClusterLoggingTypeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLoggingTypeConfigArray) ToClusterLoggingTypeConfigArrayOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLoggingTypeConfigArrayOutput)
+}
+
+// Enabled Logging Type
+type ClusterLoggingTypeConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingTypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLoggingTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterLoggingTypeConfigOutput) ToClusterLoggingTypeConfigOutput() ClusterLoggingTypeConfigOutput {
+	return o
+}
+
+func (o ClusterLoggingTypeConfigOutput) ToClusterLoggingTypeConfigOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigOutput {
+	return o
+}
+
+// name of the log type
+func (o ClusterLoggingTypeConfigOutput) Type() ClusterLoggingTypeConfigTypePtrOutput {
+	return o.ApplyT(func(v ClusterLoggingTypeConfig) *ClusterLoggingTypeConfigType { return v.Type }).(ClusterLoggingTypeConfigTypePtrOutput)
+}
+
+type ClusterLoggingTypeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLoggingTypeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLoggingTypeConfig)(nil)).Elem()
+}
+
+func (o ClusterLoggingTypeConfigArrayOutput) ToClusterLoggingTypeConfigArrayOutput() ClusterLoggingTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterLoggingTypeConfigArrayOutput) ToClusterLoggingTypeConfigArrayOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigArrayOutput {
+	return o
+}
+
+func (o ClusterLoggingTypeConfigArrayOutput) Index(i pulumi.IntInput) ClusterLoggingTypeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLoggingTypeConfig {
+		return vs[0].([]ClusterLoggingTypeConfig)[vs[1].(int)]
+	}).(ClusterLoggingTypeConfigOutput)
 }
 
 // An object representing the Outpost configuration to use for AWS EKS outpost cluster.
@@ -2825,6 +3061,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingInput)(nil)).Elem(), ClusterLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPtrInput)(nil)).Elem(), ClusterLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingEnabledTypesInput)(nil)).Elem(), ClusterLoggingEnabledTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingEnabledTypesPtrInput)(nil)).Elem(), ClusterLoggingEnabledTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigInput)(nil)).Elem(), ClusterLoggingTypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigArrayInput)(nil)).Elem(), ClusterLoggingTypeConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderInput)(nil)).Elem(), ClusterProviderArgs{})
@@ -2864,6 +3104,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingEnabledTypesOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingEnabledTypesPtrOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingTypeConfigOutput{})
+	pulumi.RegisterOutputType(ClusterLoggingTypeConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterProviderOutput{})

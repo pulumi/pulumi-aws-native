@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AddonResolveConflicts',
     'ClusterKubernetesNetworkConfigIpFamily',
+    'ClusterLoggingTypeConfigType',
     'IdentityProviderConfigType',
 ]
 
@@ -26,6 +27,17 @@ class ClusterKubernetesNetworkConfigIpFamily(str, Enum):
     """
     IPV4 = "ipv4"
     IPV6 = "ipv6"
+
+
+class ClusterLoggingTypeConfigType(str, Enum):
+    """
+    name of the log type
+    """
+    API = "api"
+    AUDIT = "audit"
+    AUTHENTICATOR = "authenticator"
+    CONTROLLER_MANAGER = "controllerManager"
+    SCHEDULER = "scheduler"
 
 
 class IdentityProviderConfigType(str, Enum):

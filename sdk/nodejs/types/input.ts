@@ -12110,7 +12110,24 @@ export namespace eks {
         /**
          * The cluster control plane logging configuration for your cluster. 
          */
-        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingArgs>;
+        clusterLogging?: pulumi.Input<inputs.eks.ClusterLoggingEnabledTypesArgs>;
+    }
+
+    /**
+     * The cluster control plane logging configuration for your cluster. 
+     */
+    export interface ClusterLoggingEnabledTypesArgs {
+        enabledTypes?: pulumi.Input<pulumi.Input<inputs.eks.ClusterLoggingTypeConfigArgs>[]>;
+    }
+
+    /**
+     * Enabled Logging Type
+     */
+    export interface ClusterLoggingTypeConfigArgs {
+        /**
+         * name of the log type
+         */
+        type?: pulumi.Input<enums.eks.ClusterLoggingTypeConfigType>;
     }
 
     /**

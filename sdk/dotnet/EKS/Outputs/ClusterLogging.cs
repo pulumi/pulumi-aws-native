@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.EKS.Outputs
         /// <summary>
         /// The cluster control plane logging configuration for your cluster. 
         /// </summary>
-        public readonly Outputs.ClusterLogging? ClusterLoggingValue;
+        public readonly Outputs.ClusterLoggingEnabledTypes? ClusterLoggingValue;
 
         [OutputConstructor]
-        private ClusterLogging(Outputs.ClusterLogging? clusterLogging)
+        private ClusterLogging(Outputs.ClusterLoggingEnabledTypes? clusterLogging)
         {
             ClusterLoggingValue = clusterLogging;
         }

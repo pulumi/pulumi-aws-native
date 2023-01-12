@@ -12394,7 +12394,24 @@ export namespace eks {
         /**
          * The cluster control plane logging configuration for your cluster. 
          */
-        clusterLogging?: outputs.eks.ClusterLogging;
+        clusterLogging?: outputs.eks.ClusterLoggingEnabledTypes;
+    }
+
+    /**
+     * The cluster control plane logging configuration for your cluster. 
+     */
+    export interface ClusterLoggingEnabledTypes {
+        enabledTypes?: outputs.eks.ClusterLoggingTypeConfig[];
+    }
+
+    /**
+     * Enabled Logging Type
+     */
+    export interface ClusterLoggingTypeConfig {
+        /**
+         * name of the log type
+         */
+        type?: enums.eks.ClusterLoggingTypeConfigType;
     }
 
     /**

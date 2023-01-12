@@ -23,6 +23,19 @@ export const ClusterKubernetesNetworkConfigIpFamily = {
  */
 export type ClusterKubernetesNetworkConfigIpFamily = (typeof ClusterKubernetesNetworkConfigIpFamily)[keyof typeof ClusterKubernetesNetworkConfigIpFamily];
 
+export const ClusterLoggingTypeConfigType = {
+    Api: "api",
+    Audit: "audit",
+    Authenticator: "authenticator",
+    ControllerManager: "controllerManager",
+    Scheduler: "scheduler",
+} as const;
+
+/**
+ * name of the log type
+ */
+export type ClusterLoggingTypeConfigType = (typeof ClusterLoggingTypeConfigType)[keyof typeof ClusterLoggingTypeConfigType];
+
 export const IdentityProviderConfigType = {
     Oidc: "oidc",
 } as const;

@@ -844,6 +844,11 @@ func (ctx *context) propertyTypeSpec(parentName string, propSchema *jsschema.Sch
 		if !strings.HasPrefix(schemaName, ctx.resourceName) {
 			typName = fmt.Sprintf("%s%s", ctx.resourceName, schemaName)
 		}
+		// See https://github.com/pulumi/pulumi-aws-native/issues/644, fixing this without special case
+		// is likely to be a breaking change.
+		if parentName == "ClusterLoggingClusterLogging" && typName == "ClusterLogging" {
+			typName = "ClusterLoggingEnabledTypes"
+		}
 		tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
