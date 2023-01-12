@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Macie CustomDataIdentifier resource schema
  */
 export function getCustomDataIdentifier(args: GetCustomDataIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDataIdentifierResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:macie:getCustomDataIdentifier", {
         "id": args.id,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetCustomDataIdentifierResult {
      */
     readonly id?: string;
 }
-
+/**
+ * Macie CustomDataIdentifier resource schema
+ */
 export function getCustomDataIdentifierOutput(args: GetCustomDataIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDataIdentifierResult> {
-    return pulumi.output(args).apply(a => getCustomDataIdentifier(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomDataIdentifier(a, opts))
 }
 
 export interface GetCustomDataIdentifierOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::OpsWorks::UserProfile
  */
 export function getUserProfile(args: GetUserProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetUserProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opsworks:getUserProfile", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetUserProfileResult {
     readonly sshPublicKey?: string;
     readonly sshUsername?: string;
 }
-
+/**
+ * Resource Type definition for AWS::OpsWorks::UserProfile
+ */
 export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
-    return pulumi.output(args).apply(a => getUserProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserProfile(a, opts))
 }
 
 export interface GetUserProfileOutputArgs {

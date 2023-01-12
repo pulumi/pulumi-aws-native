@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
  */
 export function getSimulationApplication(args: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:robomaker:getSimulationApplication", {
         "arn": args.arn,
     }, opts);
@@ -53,9 +50,11 @@ export interface GetSimulationApplicationResult {
     readonly sources?: outputs.robomaker.SimulationApplicationSourceConfig[];
     readonly tags?: outputs.robomaker.SimulationApplicationTags;
 }
-
+/**
+ * AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+ */
 export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
-    return pulumi.output(args).apply(a => getSimulationApplication(a, opts))
+    return pulumi.output(args).apply((a: any) => getSimulationApplication(a, opts))
 }
 
 export interface GetSimulationApplicationOutputArgs {

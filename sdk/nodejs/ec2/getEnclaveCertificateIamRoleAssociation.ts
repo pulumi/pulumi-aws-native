@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
  */
 export function getEnclaveCertificateIamRoleAssociation(args: GetEnclaveCertificateIamRoleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetEnclaveCertificateIamRoleAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", {
         "certificateArn": args.certificateArn,
         "roleArn": args.roleArn,
@@ -44,9 +41,11 @@ export interface GetEnclaveCertificateIamRoleAssociationResult {
      */
     readonly encryptionKmsKeyId?: string;
 }
-
+/**
+ * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
+ */
 export function getEnclaveCertificateIamRoleAssociationOutput(args: GetEnclaveCertificateIamRoleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnclaveCertificateIamRoleAssociationResult> {
-    return pulumi.output(args).apply(a => getEnclaveCertificateIamRoleAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnclaveCertificateIamRoleAssociation(a, opts))
 }
 
 export interface GetEnclaveCertificateIamRoleAssociationOutputArgs {

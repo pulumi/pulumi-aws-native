@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Detective::Graph
  */
 export function getGraph(args: GetGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:detective:getGraph", {
         "arn": args.arn,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetGraphResult {
     readonly arn?: string;
     readonly tags?: outputs.detective.GraphTag[];
 }
-
+/**
+ * Resource schema for AWS::Detective::Graph
+ */
 export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
-    return pulumi.output(args).apply(a => getGraph(a, opts))
+    return pulumi.output(args).apply((a: any) => getGraph(a, opts))
 }
 
 export interface GetGraphOutputArgs {

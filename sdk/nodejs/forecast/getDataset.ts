@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type Definition for AWS::Forecast::Dataset
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:forecast:getDataset", {
         "arn": args.arn,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetDatasetResult {
     readonly schema?: outputs.forecast.SchemaProperties;
     readonly tags?: outputs.forecast.TagsItemProperties[];
 }
-
+/**
+ * Resource Type Definition for AWS::Forecast::Dataset
+ */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
-    return pulumi.output(args).apply(a => getDataset(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataset(a, opts))
 }
 
 export interface GetDatasetOutputArgs {

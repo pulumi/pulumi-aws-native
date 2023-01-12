@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppStream::StackFleetAssociation
  */
 export function getStackFleetAssociation(args: GetStackFleetAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetStackFleetAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appstream:getStackFleetAssociation", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetStackFleetAssociationResult {
     readonly id?: string;
     readonly stackName?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppStream::StackFleetAssociation
+ */
 export function getStackFleetAssociationOutput(args: GetStackFleetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackFleetAssociationResult> {
-    return pulumi.output(args).apply(a => getStackFleetAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getStackFleetAssociation(a, opts))
 }
 
 export interface GetStackFleetAssociationOutputArgs {

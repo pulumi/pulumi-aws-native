@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Batch::JobDefinition
  */
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getJobDefinition", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetJobDefinitionResult {
     readonly timeout?: outputs.batch.JobDefinitionTimeout;
     readonly type?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Batch::JobDefinition
+ */
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
-    return pulumi.output(args).apply(a => getJobDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))
 }
 
 export interface GetJobDefinitionOutputArgs {

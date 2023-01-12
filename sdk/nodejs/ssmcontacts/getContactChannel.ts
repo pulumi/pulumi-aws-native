@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSMContacts::ContactChannel
  */
 export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetContactChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssmcontacts:getContactChannel", {
         "arn": args.arn,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetContactChannelResult {
      */
     readonly deferActivation?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::SSMContacts::ContactChannel
+ */
 export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactChannelResult> {
-    return pulumi.output(args).apply(a => getContactChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getContactChannel(a, opts))
 }
 
 export interface GetContactChannelOutputArgs {

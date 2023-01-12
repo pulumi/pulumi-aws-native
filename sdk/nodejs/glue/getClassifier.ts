@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::Classifier
  */
 export function getClassifier(args: GetClassifierArgs, opts?: pulumi.InvokeOptions): Promise<GetClassifierResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getClassifier", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetClassifierResult {
     readonly jsonClassifier?: outputs.glue.ClassifierJsonClassifier;
     readonly xMLClassifier?: outputs.glue.ClassifierXMLClassifier;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::Classifier
+ */
 export function getClassifierOutput(args: GetClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClassifierResult> {
-    return pulumi.output(args).apply(a => getClassifier(a, opts))
+    return pulumi.output(args).apply((a: any) => getClassifier(a, opts))
 }
 
 export interface GetClassifierOutputArgs {

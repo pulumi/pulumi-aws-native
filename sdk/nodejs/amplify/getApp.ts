@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplify:getApp", {
         "arn": args.arn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetAppResult {
     readonly repository?: string;
     readonly tags?: outputs.amplify.AppTag[];
 }
-
+/**
+ * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
+ */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
-    return pulumi.output(args).apply(a => getApp(a, opts))
+    return pulumi.output(args).apply((a: any) => getApp(a, opts))
 }
 
 export interface GetAppOutputArgs {

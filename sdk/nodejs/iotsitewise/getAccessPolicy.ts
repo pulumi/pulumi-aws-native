@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTSiteWise::AccessPolicy
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotsitewise:getAccessPolicy", {
         "accessPolicyId": args.accessPolicyId,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetAccessPolicyResult {
      */
     readonly accessPolicyResource?: outputs.iotsitewise.AccessPolicyResource;
 }
-
+/**
+ * Resource schema for AWS::IoTSiteWise::AccessPolicy
+ */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
-    return pulumi.output(args).apply(a => getAccessPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))
 }
 
 export interface GetAccessPolicyOutputArgs {

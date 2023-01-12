@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::ComponentType
  */
 export function getComponentType(args: GetComponentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentTypeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getComponentType", {
         "componentTypeId": args.componentTypeId,
         "workspaceId": args.workspaceId,
@@ -87,9 +84,11 @@ export interface GetComponentTypeResult {
      */
     readonly updateDateTime?: string;
 }
-
+/**
+ * Resource schema for AWS::IoTTwinMaker::ComponentType
+ */
 export function getComponentTypeOutput(args: GetComponentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentTypeResult> {
-    return pulumi.output(args).apply(a => getComponentType(a, opts))
+    return pulumi.output(args).apply((a: any) => getComponentType(a, opts))
 }
 
 export interface GetComponentTypeOutputArgs {

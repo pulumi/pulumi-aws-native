@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGatewayV2::Integration
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigatewayv2:getIntegration", {
         "id": args.id,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetIntegrationResult {
     readonly timeoutInMillis?: number;
     readonly tlsConfig?: outputs.apigatewayv2.IntegrationTlsConfig;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGatewayV2::Integration
+ */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
-    return pulumi.output(args).apply(a => getIntegration(a, opts))
+    return pulumi.output(args).apply((a: any) => getIntegration(a, opts))
 }
 
 export interface GetIntegrationOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for Alexa::ASK::Skill
  */
 export function getSkill(args: GetSkillArgs, opts?: pulumi.InvokeOptions): Promise<GetSkillResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ask:getSkill", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetSkillResult {
     readonly id?: string;
     readonly skillPackage?: outputs.ask.SkillPackage;
 }
-
+/**
+ * Resource Type definition for Alexa::ASK::Skill
+ */
 export function getSkillOutput(args: GetSkillOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkillResult> {
-    return pulumi.output(args).apply(a => getSkill(a, opts))
+    return pulumi.output(args).apply((a: any) => getSkill(a, opts))
 }
 
 export interface GetSkillOutputArgs {

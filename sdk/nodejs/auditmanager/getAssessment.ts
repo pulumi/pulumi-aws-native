@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An entity that defines the scope of audit evidence collected by AWS Audit Manager.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:auditmanager:getAssessment", {
         "assessmentId": args.assessmentId,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetAssessmentResult {
      */
     readonly tags?: outputs.auditmanager.AssessmentTag[];
 }
-
+/**
+ * An entity that defines the scope of audit evidence collected by AWS Audit Manager.
+ */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
-    return pulumi.output(args).apply(a => getAssessment(a, opts))
+    return pulumi.output(args).apply((a: any) => getAssessment(a, opts))
 }
 
 export interface GetAssessmentOutputArgs {

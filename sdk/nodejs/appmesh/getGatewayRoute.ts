@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::GatewayRoute
  */
 export function getGatewayRoute(args: GetGatewayRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayRouteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getGatewayRoute", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetGatewayRouteResult {
     readonly tags?: outputs.appmesh.GatewayRouteTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::GatewayRoute
+ */
 export function getGatewayRouteOutput(args: GetGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteResult> {
-    return pulumi.output(args).apply(a => getGatewayRoute(a, opts))
+    return pulumi.output(args).apply((a: any) => getGatewayRoute(a, opts))
 }
 
 export interface GetGatewayRouteOutputArgs {

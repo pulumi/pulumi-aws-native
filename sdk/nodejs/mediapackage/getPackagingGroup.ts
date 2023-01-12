@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::PackagingGroup
  */
 export function getPackagingGroup(args: GetPackagingGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPackagingGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getPackagingGroup", {
         "id": args.id,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetPackagingGroupResult {
      */
     readonly egressAccessLogs?: outputs.mediapackage.PackagingGroupLogConfiguration;
 }
-
+/**
+ * Resource schema for AWS::MediaPackage::PackagingGroup
+ */
 export function getPackagingGroupOutput(args: GetPackagingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingGroupResult> {
-    return pulumi.output(args).apply(a => getPackagingGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getPackagingGroup(a, opts))
 }
 
 export interface GetPackagingGroupOutputArgs {

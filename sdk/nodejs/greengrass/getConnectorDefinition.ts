@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::ConnectorDefinition
  */
 export function getConnectorDefinition(args: GetConnectorDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getConnectorDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetConnectorDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::ConnectorDefinition
+ */
 export function getConnectorDefinitionOutput(args: GetConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDefinitionResult> {
-    return pulumi.output(args).apply(a => getConnectorDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectorDefinition(a, opts))
 }
 
 export interface GetConnectorDefinitionOutputArgs {

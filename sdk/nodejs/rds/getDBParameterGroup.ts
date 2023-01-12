@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
  */
 export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBParameterGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBParameterGroup", {
         "dBParameterGroupName": args.dBParameterGroupName,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetDBParameterGroupResult {
      */
     readonly tags?: outputs.rds.DBParameterGroupTag[];
 }
-
+/**
+ * The AWS::RDS::DBParameterGroup resource creates a custom parameter group for an RDS database family
+ */
 export function getDBParameterGroupOutput(args: GetDBParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBParameterGroupResult> {
-    return pulumi.output(args).apply(a => getDBParameterGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBParameterGroup(a, opts))
 }
 
 export interface GetDBParameterGroupOutputArgs {

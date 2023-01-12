@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::HoursOfOperation
  */
 export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getHoursOfOperation", {
         "hoursOfOperationArn": args.hoursOfOperationArn,
     }, opts);
@@ -58,9 +55,11 @@ export interface GetHoursOfOperationResult {
      */
     readonly timeZone?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Connect::HoursOfOperation
+ */
 export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
-    return pulumi.output(args).apply(a => getHoursOfOperation(a, opts))
+    return pulumi.output(args).apply((a: any) => getHoursOfOperation(a, opts))
 }
 
 export interface GetHoursOfOperationOutputArgs {

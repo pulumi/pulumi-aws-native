@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Schema of AWS::EC2::IPAMPool Type
  */
 export function getIPAMPool(args: GetIPAMPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetIPAMPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getIPAMPool", {
         "ipamPoolId": args.ipamPoolId,
     }, opts);
@@ -91,9 +88,11 @@ export interface GetIPAMPoolResult {
      */
     readonly tags?: outputs.ec2.IPAMPoolTag[];
 }
-
+/**
+ * Resource Schema of AWS::EC2::IPAMPool Type
+ */
 export function getIPAMPoolOutput(args: GetIPAMPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPAMPoolResult> {
-    return pulumi.output(args).apply(a => getIPAMPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getIPAMPool(a, opts))
 }
 
 export interface GetIPAMPoolOutputArgs {

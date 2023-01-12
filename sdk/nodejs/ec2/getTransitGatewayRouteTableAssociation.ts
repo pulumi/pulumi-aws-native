@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
  */
 export function getTransitGatewayRouteTableAssociation(args: GetTransitGatewayRouteTableAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTableAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayRouteTableAssociation", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetTransitGatewayRouteTableAssociationArgs {
 export interface GetTransitGatewayRouteTableAssociationResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::TransitGatewayRouteTableAssociation
+ */
 export function getTransitGatewayRouteTableAssociationOutput(args: GetTransitGatewayRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTableAssociationResult> {
-    return pulumi.output(args).apply(a => getTransitGatewayRouteTableAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTableAssociation(a, opts))
 }
 
 export interface GetTransitGatewayRouteTableAssociationOutputArgs {

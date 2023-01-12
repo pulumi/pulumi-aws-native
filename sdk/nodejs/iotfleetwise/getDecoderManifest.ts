@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
  */
 export function getDecoderManifest(args: GetDecoderManifestArgs, opts?: pulumi.InvokeOptions): Promise<GetDecoderManifestResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotfleetwise:getDecoderManifest", {
         "name": args.name,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetDecoderManifestResult {
     readonly status?: enums.iotfleetwise.DecoderManifestManifestStatus;
     readonly tags?: outputs.iotfleetwise.DecoderManifestTag[];
 }
-
+/**
+ * Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
+ */
 export function getDecoderManifestOutput(args: GetDecoderManifestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDecoderManifestResult> {
-    return pulumi.output(args).apply(a => getDecoderManifest(a, opts))
+    return pulumi.output(args).apply((a: any) => getDecoderManifest(a, opts))
 }
 
 export interface GetDecoderManifestOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ManagedBlockchain::Node
  */
 export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:managedblockchain:getNode", {
         "nodeId": args.nodeId,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetNodeResult {
     readonly nodeConfiguration?: outputs.managedblockchain.NodeConfiguration;
     readonly nodeId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ManagedBlockchain::Node
+ */
 export function getNodeOutput(args: GetNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeResult> {
-    return pulumi.output(args).apply(a => getNode(a, opts))
+    return pulumi.output(args).apply((a: any) => getNode(a, opts))
 }
 
 export interface GetNodeOutputArgs {

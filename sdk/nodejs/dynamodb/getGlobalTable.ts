@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  */
 export function getGlobalTable(args: GetGlobalTableArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dynamodb:getGlobalTable", {
         "tableName": args.tableName,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetGlobalTableResult {
     readonly timeToLiveSpecification?: outputs.dynamodb.GlobalTableTimeToLiveSpecification;
     readonly writeProvisionedThroughputSettings?: outputs.dynamodb.GlobalTableWriteProvisionedThroughputSettings;
 }
-
+/**
+ * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
+ */
 export function getGlobalTableOutput(args: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalTableResult> {
-    return pulumi.output(args).apply(a => getGlobalTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getGlobalTable(a, opts))
 }
 
 export interface GetGlobalTableOutputArgs {

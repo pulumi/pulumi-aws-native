@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
  */
 export function getConfigurationAssociation(args: GetConfigurationAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amazonmq:getConfigurationAssociation", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetConfigurationAssociationResult {
     readonly configuration?: outputs.amazonmq.ConfigurationAssociationConfigurationId;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
+ */
 export function getConfigurationAssociationOutput(args: GetConfigurationAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssociationResult> {
-    return pulumi.output(args).apply(a => getConfigurationAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfigurationAssociation(a, opts))
 }
 
 export interface GetConfigurationAssociationOutputArgs {

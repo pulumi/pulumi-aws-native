@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * A snapshot of the documentation of an API.
  */
 export function getDocumentationVersion(args: GetDocumentationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getDocumentationVersion", {
         "documentationVersion": args.documentationVersion,
         "restApiId": args.restApiId,
@@ -36,9 +33,11 @@ export interface GetDocumentationVersionResult {
      */
     readonly description?: string;
 }
-
+/**
+ * A snapshot of the documentation of an API.
+ */
 export function getDocumentationVersionOutput(args: GetDocumentationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationVersionResult> {
-    return pulumi.output(args).apply(a => getDocumentationVersion(a, opts))
+    return pulumi.output(args).apply((a: any) => getDocumentationVersion(a, opts))
 }
 
 export interface GetDocumentationVersionOutputArgs {

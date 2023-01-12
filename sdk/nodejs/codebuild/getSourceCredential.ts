@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodeBuild::SourceCredential
  */
 export function getSourceCredential(args: GetSourceCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceCredentialResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codebuild:getSourceCredential", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetSourceCredentialResult {
     readonly token?: string;
     readonly username?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CodeBuild::SourceCredential
+ */
 export function getSourceCredentialOutput(args: GetSourceCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceCredentialResult> {
-    return pulumi.output(args).apply(a => getSourceCredential(a, opts))
+    return pulumi.output(args).apply((a: any) => getSourceCredential(a, opts))
 }
 
 export interface GetSourceCredentialOutputArgs {

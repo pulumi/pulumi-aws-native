@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::LookoutMetrics::Alert
  */
 export function getAlert(args: GetAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lookoutmetrics:getAlert", {
         "arn": args.arn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetAlertResult {
      */
     readonly arn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::LookoutMetrics::Alert
+ */
 export function getAlertOutput(args: GetAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertResult> {
-    return pulumi.output(args).apply(a => getAlert(a, opts))
+    return pulumi.output(args).apply((a: any) => getAlert(a, opts))
 }
 
 export interface GetAlertOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
  */
 export function getStackSetConstraint(args: GetStackSetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetStackSetConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getStackSetConstraint", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetStackSetConstraintResult {
     readonly regionList?: string[];
     readonly stackInstanceControl?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
+ */
 export function getStackSetConstraintOutput(args: GetStackSetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetConstraintResult> {
-    return pulumi.output(args).apply(a => getStackSetConstraint(a, opts))
+    return pulumi.output(args).apply((a: any) => getStackSetConstraint(a, opts))
 }
 
 export interface GetStackSetConstraintOutputArgs {

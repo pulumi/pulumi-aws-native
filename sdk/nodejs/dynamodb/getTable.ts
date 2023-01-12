@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Version: None. Resource Type definition for AWS::DynamoDB::Table
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dynamodb:getTable", {
         "tableName": args.tableName,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetTableResult {
     readonly tags?: outputs.dynamodb.TableTag[];
     readonly timeToLiveSpecification?: outputs.dynamodb.TableTimeToLiveSpecification;
 }
-
+/**
+ * Version: None. Resource Type definition for AWS::DynamoDB::Table
+ */
 export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
-    return pulumi.output(args).apply(a => getTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getTable(a, opts))
 }
 
 export interface GetTableOutputArgs {

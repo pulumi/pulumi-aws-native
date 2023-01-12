@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getBudgetsAction(args: GetBudgetsActionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetsActionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:budgets:getBudgetsAction", {
         "actionId": args.actionId,
         "budgetName": args.budgetName,
@@ -36,9 +33,11 @@ export interface GetBudgetsActionResult {
     readonly notificationType?: enums.budgets.BudgetsActionNotificationType;
     readonly subscribers?: outputs.budgets.BudgetsActionSubscriber[];
 }
-
+/**
+ * An example resource schema demonstrating some basic constructs and validation rules.
+ */
 export function getBudgetsActionOutput(args: GetBudgetsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetsActionResult> {
-    return pulumi.output(args).apply(a => getBudgetsAction(a, opts))
+    return pulumi.output(args).apply((a: any) => getBudgetsAction(a, opts))
 }
 
 export interface GetBudgetsActionOutputArgs {

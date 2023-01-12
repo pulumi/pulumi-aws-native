@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
  */
 export function getTestGridProject(args: GetTestGridProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetTestGridProjectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devicefarm:getTestGridProject", {
         "arn": args.arn,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetTestGridProjectResult {
     readonly name?: string;
     readonly tags?: outputs.devicefarm.TestGridProjectTag[];
 }
-
+/**
+ * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
+ */
 export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGridProjectResult> {
-    return pulumi.output(args).apply(a => getTestGridProject(a, opts))
+    return pulumi.output(args).apply((a: any) => getTestGridProject(a, opts))
 }
 
 export interface GetTestGridProjectOutputArgs {

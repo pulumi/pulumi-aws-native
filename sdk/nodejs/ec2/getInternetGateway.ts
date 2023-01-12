@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::InternetGateway
  */
 export function getInternetGateway(args: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getInternetGateway", {
         "internetGatewayId": args.internetGatewayId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetInternetGatewayResult {
      */
     readonly tags?: outputs.ec2.InternetGatewayTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::InternetGateway
+ */
 export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
-    return pulumi.output(args).apply(a => getInternetGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getInternetGateway(a, opts))
 }
 
 export interface GetInternetGatewayOutputArgs {

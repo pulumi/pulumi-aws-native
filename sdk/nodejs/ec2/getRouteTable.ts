@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::RouteTable
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getRouteTable", {
         "routeTableId": args.routeTableId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetRouteTableResult {
      */
     readonly tags?: outputs.ec2.RouteTableTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::RouteTable
+ */
 export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
-    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+    return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }
 
 export interface GetRouteTableOutputArgs {

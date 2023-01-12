@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::GeoMatchSet
  */
 export function getGeoMatchSet(args: GetGeoMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetGeoMatchSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getGeoMatchSet", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetGeoMatchSetResult {
     readonly geoMatchConstraints?: outputs.wafregional.GeoMatchSetGeoMatchConstraint[];
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::GeoMatchSet
+ */
 export function getGeoMatchSetOutput(args: GetGeoMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoMatchSetResult> {
-    return pulumi.output(args).apply(a => getGeoMatchSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getGeoMatchSet(a, opts))
 }
 
 export interface GetGeoMatchSetOutputArgs {

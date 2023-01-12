@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::QuickConnect
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getQuickConnect", {
         "quickConnectArn": args.quickConnectArn,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetQuickConnectResult {
      */
     readonly tags?: outputs.connect.QuickConnectTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Connect::QuickConnect
+ */
 export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
-    return pulumi.output(args).apply(a => getQuickConnect(a, opts))
+    return pulumi.output(args).apply((a: any) => getQuickConnect(a, opts))
 }
 
 export interface GetQuickConnectOutputArgs {

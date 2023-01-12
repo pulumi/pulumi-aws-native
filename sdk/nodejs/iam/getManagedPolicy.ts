@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::ManagedPolicy
  */
 export function getManagedPolicy(args: GetManagedPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getManagedPolicy", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetManagedPolicyResult {
     readonly roles?: string[];
     readonly users?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::ManagedPolicy
+ */
 export function getManagedPolicyOutput(args: GetManagedPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPolicyResult> {
-    return pulumi.output(args).apply(a => getManagedPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getManagedPolicy(a, opts))
 }
 
 export interface GetManagedPolicyOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IAM::VirtualMFADevice
  */
 export function getVirtualMFADevice(args: GetVirtualMFADeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMFADeviceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getVirtualMFADevice", {
         "serialNumber": args.serialNumber,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetVirtualMFADeviceResult {
     readonly tags?: outputs.iam.VirtualMFADeviceTag[];
     readonly users?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::IAM::VirtualMFADevice
+ */
 export function getVirtualMFADeviceOutput(args: GetVirtualMFADeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMFADeviceResult> {
-    return pulumi.output(args).apply(a => getVirtualMFADevice(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualMFADevice(a, opts))
 }
 
 export interface GetVirtualMFADeviceOutputArgs {

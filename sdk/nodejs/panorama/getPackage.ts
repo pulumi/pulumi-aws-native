@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Schema for Package CloudFormation Resource
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:panorama:getPackage", {
         "packageId": args.packageId,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetPackageResult {
     readonly storageLocation?: outputs.panorama.PackageStorageLocation;
     readonly tags?: outputs.panorama.PackageTag[];
 }
-
+/**
+ * Schema for Package CloudFormation Resource
+ */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
-    return pulumi.output(args).apply(a => getPackage(a, opts))
+    return pulumi.output(args).apply((a: any) => getPackage(a, opts))
 }
 
 export interface GetPackageOutputArgs {

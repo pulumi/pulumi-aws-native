@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::StreamingDistribution
  */
 export function getStreamingDistribution(args: GetStreamingDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingDistributionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getStreamingDistribution", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetStreamingDistributionResult {
     readonly streamingDistributionConfig?: outputs.cloudfront.StreamingDistributionConfig;
     readonly tags?: outputs.cloudfront.StreamingDistributionTag[];
 }
-
+/**
+ * Resource Type definition for AWS::CloudFront::StreamingDistribution
+ */
 export function getStreamingDistributionOutput(args: GetStreamingDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingDistributionResult> {
-    return pulumi.output(args).apply(a => getStreamingDistribution(a, opts))
+    return pulumi.output(args).apply((a: any) => getStreamingDistribution(a, opts))
 }
 
 export interface GetStreamingDistributionOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create and manage Multicast groups.
  */
 export function getMulticastGroup(args: GetMulticastGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetMulticastGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotwireless:getMulticastGroup", {
         "id": args.id,
     }, opts);
@@ -66,9 +63,11 @@ export interface GetMulticastGroupResult {
      */
     readonly tags?: outputs.iotwireless.MulticastGroupTag[];
 }
-
+/**
+ * Create and manage Multicast groups.
+ */
 export function getMulticastGroupOutput(args: GetMulticastGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastGroupResult> {
-    return pulumi.output(args).apply(a => getMulticastGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getMulticastGroup(a, opts))
 }
 
 export interface GetMulticastGroupOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Config::OrganizationConfigRule
  */
 export function getOrganizationConfigRule(args: GetOrganizationConfigRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationConfigRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getOrganizationConfigRule", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetOrganizationConfigRuleResult {
     readonly organizationCustomRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationCustomRuleMetadata;
     readonly organizationManagedRuleMetadata?: outputs.configuration.OrganizationConfigRuleOrganizationManagedRuleMetadata;
 }
-
+/**
+ * Resource Type definition for AWS::Config::OrganizationConfigRule
+ */
 export function getOrganizationConfigRuleOutput(args: GetOrganizationConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConfigRuleResult> {
-    return pulumi.output(args).apply(a => getOrganizationConfigRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getOrganizationConfigRule(a, opts))
 }
 
 export interface GetOrganizationConfigRuleOutputArgs {

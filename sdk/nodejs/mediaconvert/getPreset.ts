@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MediaConvert::Preset
  */
 export function getPreset(args: GetPresetArgs, opts?: pulumi.InvokeOptions): Promise<GetPresetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconvert:getPreset", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetPresetResult {
     readonly settingsJson?: any;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::MediaConvert::Preset
+ */
 export function getPresetOutput(args: GetPresetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPresetResult> {
-    return pulumi.output(args).apply(a => getPreset(a, opts))
+    return pulumi.output(args).apply((a: any) => getPreset(a, opts))
 }
 
 export interface GetPresetOutputArgs {

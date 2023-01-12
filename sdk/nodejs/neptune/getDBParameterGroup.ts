@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Neptune::DBParameterGroup
  */
 export function getDBParameterGroup(args: GetDBParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBParameterGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:neptune:getDBParameterGroup", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDBParameterGroupResult {
     readonly parameters?: any;
     readonly tags?: outputs.neptune.DBParameterGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Neptune::DBParameterGroup
+ */
 export function getDBParameterGroupOutput(args: GetDBParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBParameterGroupResult> {
-    return pulumi.output(args).apply(a => getDBParameterGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBParameterGroup(a, opts))
 }
 
 export interface GetDBParameterGroupOutputArgs {

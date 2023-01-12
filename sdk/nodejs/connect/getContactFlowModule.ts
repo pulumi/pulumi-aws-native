@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Connect::ContactFlowModule.
  */
 export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetContactFlowModuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:connect:getContactFlowModule", {
         "contactFlowModuleArn": args.contactFlowModuleArn,
     }, opts);
@@ -62,9 +59,11 @@ export interface GetContactFlowModuleResult {
      */
     readonly tags?: outputs.connect.ContactFlowModuleTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Connect::ContactFlowModule.
+ */
 export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
-    return pulumi.output(args).apply(a => getContactFlowModule(a, opts))
+    return pulumi.output(args).apply((a: any) => getContactFlowModule(a, opts))
 }
 
 export interface GetContactFlowModuleOutputArgs {

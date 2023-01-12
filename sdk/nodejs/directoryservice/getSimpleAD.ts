@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  */
 export function getSimpleAD(args: GetSimpleADArgs, opts?: pulumi.InvokeOptions): Promise<GetSimpleADResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:directoryservice:getSimpleAD", {
         "directoryId": args.directoryId,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetSimpleADResult {
      */
     readonly enableSso?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::DirectoryService::SimpleAD
+ */
 export function getSimpleADOutput(args: GetSimpleADOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleADResult> {
-    return pulumi.output(args).apply(a => getSimpleAD(a, opts))
+    return pulumi.output(args).apply((a: any) => getSimpleAD(a, opts))
 }
 
 export interface GetSimpleADOutputArgs {

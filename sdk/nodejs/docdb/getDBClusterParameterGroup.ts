@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DocDB::DBClusterParameterGroup
  */
 export function getDBClusterParameterGroup(args: GetDBClusterParameterGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterParameterGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:docdb:getDBClusterParameterGroup", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDBClusterParameterGroupResult {
     readonly parameters?: any;
     readonly tags?: outputs.docdb.DBClusterParameterGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::DocDB::DBClusterParameterGroup
+ */
 export function getDBClusterParameterGroupOutput(args: GetDBClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterParameterGroupResult> {
-    return pulumi.output(args).apply(a => getDBClusterParameterGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBClusterParameterGroup(a, opts))
 }
 
 export interface GetDBClusterParameterGroupOutputArgs {

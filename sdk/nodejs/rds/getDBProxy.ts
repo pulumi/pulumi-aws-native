@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::RDS::DBProxy
  */
 export function getDBProxy(args: GetDBProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetDBProxyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBProxy", {
         "dBProxyName": args.dBProxyName,
     }, opts);
@@ -70,9 +67,11 @@ export interface GetDBProxyResult {
      */
     readonly vpcSecurityGroupIds?: string[];
 }
-
+/**
+ * Resource schema for AWS::RDS::DBProxy
+ */
 export function getDBProxyOutput(args: GetDBProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBProxyResult> {
-    return pulumi.output(args).apply(a => getDBProxy(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBProxy(a, opts))
 }
 
 export interface GetDBProxyOutputArgs {

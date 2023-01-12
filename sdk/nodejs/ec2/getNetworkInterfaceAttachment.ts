@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
  */
 export function getNetworkInterfaceAttachment(args: GetNetworkInterfaceAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInterfaceAttachment", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetNetworkInterfaceAttachmentResult {
     readonly instanceId?: string;
     readonly networkInterfaceId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+ */
 export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
-    return pulumi.output(args).apply(a => getNetworkInterfaceAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkInterfaceAttachment(a, opts))
 }
 
 export interface GetNetworkInterfaceAttachmentOutputArgs {

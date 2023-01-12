@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SecretsManager::RotationSchedule
  */
 export function getRotationSchedule(args: GetRotationScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetRotationScheduleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:secretsmanager:getRotationSchedule", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetRotationScheduleResult {
     readonly rotationLambdaARN?: string;
     readonly rotationRules?: outputs.secretsmanager.RotationScheduleRotationRules;
 }
-
+/**
+ * Resource Type definition for AWS::SecretsManager::RotationSchedule
+ */
 export function getRotationScheduleOutput(args: GetRotationScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRotationScheduleResult> {
-    return pulumi.output(args).apply(a => getRotationSchedule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRotationSchedule(a, opts))
 }
 
 export interface GetRotationScheduleOutputArgs {

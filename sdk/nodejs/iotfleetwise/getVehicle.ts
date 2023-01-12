@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::IoTFleetWise::Vehicle Resource Type
  */
 export function getVehicle(args: GetVehicleArgs, opts?: pulumi.InvokeOptions): Promise<GetVehicleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotfleetwise:getVehicle", {
         "name": args.name,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetVehicleResult {
     readonly modelManifestArn?: string;
     readonly tags?: outputs.iotfleetwise.VehicleTag[];
 }
-
+/**
+ * Definition of AWS::IoTFleetWise::Vehicle Resource Type
+ */
 export function getVehicleOutput(args: GetVehicleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVehicleResult> {
-    return pulumi.output(args).apply(a => getVehicle(a, opts))
+    return pulumi.output(args).apply((a: any) => getVehicle(a, opts))
 }
 
 export interface GetVehicleOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::Pipes::Pipe Resource Type
  */
 export function getPipe(args: GetPipeArgs, opts?: pulumi.InvokeOptions): Promise<GetPipeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pipes:getPipe", {
         "name": args.name,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetPipeResult {
     readonly tags?: outputs.pipes.PipeTagMap;
     readonly target?: string;
 }
-
+/**
+ * Definition of AWS::Pipes::Pipe Resource Type
+ */
 export function getPipeOutput(args: GetPipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipeResult> {
-    return pulumi.output(args).apply(a => getPipe(a, opts))
+    return pulumi.output(args).apply((a: any) => getPipe(a, opts))
 }
 
 export interface GetPipeOutputArgs {

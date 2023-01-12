@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getSuiteDefinition(args: GetSuiteDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuiteDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotcoredeviceadvisor:getSuiteDefinition", {
         "suiteDefinitionId": args.suiteDefinitionId,
     }, opts);
@@ -47,9 +44,11 @@ export interface GetSuiteDefinitionResult {
      */
     readonly tags?: outputs.iotcoredeviceadvisor.SuiteDefinitionTag[];
 }
-
+/**
+ * An example resource schema demonstrating some basic constructs and validation rules.
+ */
 export function getSuiteDefinitionOutput(args: GetSuiteDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuiteDefinitionResult> {
-    return pulumi.output(args).apply(a => getSuiteDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getSuiteDefinition(a, opts))
 }
 
 export interface GetSuiteDefinitionOutputArgs {

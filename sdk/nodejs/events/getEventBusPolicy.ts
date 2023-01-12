@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Events::EventBusPolicy
  */
 export function getEventBusPolicy(args: GetEventBusPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:events:getEventBusPolicy", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetEventBusPolicyResult {
     readonly principal?: string;
     readonly statement?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Events::EventBusPolicy
+ */
 export function getEventBusPolicyOutput(args: GetEventBusPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusPolicyResult> {
-    return pulumi.output(args).apply(a => getEventBusPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getEventBusPolicy(a, opts))
 }
 
 export interface GetEventBusPolicyOutputArgs {

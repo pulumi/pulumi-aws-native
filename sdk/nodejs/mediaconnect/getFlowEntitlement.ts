@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::FlowEntitlement
  */
 export function getFlowEntitlement(args: GetFlowEntitlementArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowEntitlementResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getFlowEntitlement", {
         "entitlementArn": args.entitlementArn,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetFlowEntitlementResult {
      */
     readonly subscribers?: string[];
 }
-
+/**
+ * Resource schema for AWS::MediaConnect::FlowEntitlement
+ */
 export function getFlowEntitlementOutput(args: GetFlowEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowEntitlementResult> {
-    return pulumi.output(args).apply(a => getFlowEntitlement(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlowEntitlement(a, opts))
 }
 
 export interface GetFlowEntitlementOutputArgs {

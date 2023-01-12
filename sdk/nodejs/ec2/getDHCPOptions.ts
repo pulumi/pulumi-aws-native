@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::DHCPOptions
  */
 export function getDHCPOptions(args: GetDHCPOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetDHCPOptionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getDHCPOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetDHCPOptionsResult {
      */
     readonly tags?: outputs.ec2.DHCPOptionsTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::DHCPOptions
+ */
 export function getDHCPOptionsOutput(args: GetDHCPOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDHCPOptionsResult> {
-    return pulumi.output(args).apply(a => getDHCPOptions(a, opts))
+    return pulumi.output(args).apply((a: any) => getDHCPOptions(a, opts))
 }
 
 export interface GetDHCPOptionsOutputArgs {

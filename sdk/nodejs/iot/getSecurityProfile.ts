@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A security profile defines a set of expected behaviors for devices in your account.
  */
 export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getSecurityProfile", {
         "securityProfileName": args.securityProfileName,
     }, opts);
@@ -58,9 +55,11 @@ export interface GetSecurityProfileResult {
      */
     readonly targetArns?: string[];
 }
-
+/**
+ * A security profile defines a set of expected behaviors for devices in your account.
+ */
 export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityProfileResult> {
-    return pulumi.output(args).apply(a => getSecurityProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityProfile(a, opts))
 }
 
 export interface GetSecurityProfileOutputArgs {

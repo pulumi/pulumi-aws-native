@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
  */
 export function getEgressOnlyInternetGateway(args: GetEgressOnlyInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetEgressOnlyInternetGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEgressOnlyInternetGateway", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetEgressOnlyInternetGatewayResult {
      */
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
+ */
 export function getEgressOnlyInternetGatewayOutput(args: GetEgressOnlyInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEgressOnlyInternetGatewayResult> {
-    return pulumi.output(args).apply(a => getEgressOnlyInternetGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getEgressOnlyInternetGateway(a, opts))
 }
 
 export interface GetEgressOnlyInternetGatewayOutputArgs {

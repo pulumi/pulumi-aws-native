@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SSM::Parameter
  */
 export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetParameterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ssm:getParameter", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetParameterResult {
     readonly type?: string;
     readonly value?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SSM::Parameter
+ */
 export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
-    return pulumi.output(args).apply(a => getParameter(a, opts))
+    return pulumi.output(args).apply((a: any) => getParameter(a, opts))
 }
 
 export interface GetParameterOutputArgs {

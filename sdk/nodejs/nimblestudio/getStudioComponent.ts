@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
  */
 export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioComponentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getStudioComponent", {
         "studioComponentId": args.studioComponentId,
         "studioId": args.studioId,
@@ -57,9 +54,11 @@ export interface GetStudioComponentResult {
     readonly studioComponentId?: string;
     readonly type?: enums.nimblestudio.StudioComponentType;
 }
-
+/**
+ * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+ */
 export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioComponentResult> {
-    return pulumi.output(args).apply(a => getStudioComponent(a, opts))
+    return pulumi.output(args).apply((a: any) => getStudioComponent(a, opts))
 }
 
 export interface GetStudioComponentOutputArgs {

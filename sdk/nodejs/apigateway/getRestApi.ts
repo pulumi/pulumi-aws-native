@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::RestApi
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getRestApi", {
         "id": args.id,
     }, opts);
@@ -44,9 +41,11 @@ export interface GetRestApiResult {
     readonly rootResourceId?: string;
     readonly tags?: outputs.apigateway.RestApiTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::RestApi
+ */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
-    return pulumi.output(args).apply(a => getRestApi(a, opts))
+    return pulumi.output(args).apply((a: any) => getRestApi(a, opts))
 }
 
 export interface GetRestApiOutputArgs {

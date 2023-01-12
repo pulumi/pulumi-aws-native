@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
  */
 export function getPortfolioPrincipalAssociation(args: GetPortfolioPrincipalAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioPrincipalAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getPortfolioPrincipalAssociation", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetPortfolioPrincipalAssociationArgs {
 export interface GetPortfolioPrincipalAssociationResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
+ */
 export function getPortfolioPrincipalAssociationOutput(args: GetPortfolioPrincipalAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioPrincipalAssociationResult> {
-    return pulumi.output(args).apply(a => getPortfolioPrincipalAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getPortfolioPrincipalAssociation(a, opts))
 }
 
 export interface GetPortfolioPrincipalAssociationOutputArgs {

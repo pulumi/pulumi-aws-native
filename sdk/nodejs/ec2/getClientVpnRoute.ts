@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::ClientVpnRoute
  */
 export function getClientVpnRoute(args: GetClientVpnRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnRouteResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getClientVpnRoute", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetClientVpnRouteArgs {
 export interface GetClientVpnRouteResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::ClientVpnRoute
+ */
 export function getClientVpnRouteOutput(args: GetClientVpnRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnRouteResult> {
-    return pulumi.output(args).apply(a => getClientVpnRoute(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientVpnRoute(a, opts))
 }
 
 export interface GetClientVpnRouteOutputArgs {

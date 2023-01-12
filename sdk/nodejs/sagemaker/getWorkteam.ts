@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::Workteam
  */
 export function getWorkteam(args: GetWorkteamArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkteamResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getWorkteam", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetWorkteamResult {
     readonly notificationConfiguration?: outputs.sagemaker.WorkteamNotificationConfiguration;
     readonly tags?: outputs.sagemaker.WorkteamTag[];
 }
-
+/**
+ * Resource Type definition for AWS::SageMaker::Workteam
+ */
 export function getWorkteamOutput(args: GetWorkteamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkteamResult> {
-    return pulumi.output(args).apply(a => getWorkteam(a, opts))
+    return pulumi.output(args).apply((a: any) => getWorkteam(a, opts))
 }
 
 export interface GetWorkteamOutputArgs {

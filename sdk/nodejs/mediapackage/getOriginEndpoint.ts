@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
 export function getOriginEndpoint(args: GetOriginEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediapackage:getOriginEndpoint", {
         "id": args.id,
     }, opts);
@@ -75,9 +72,11 @@ export interface GetOriginEndpointResult {
      */
     readonly whitelist?: string[];
 }
-
+/**
+ * Resource schema for AWS::MediaPackage::OriginEndpoint
+ */
 export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
-    return pulumi.output(args).apply(a => getOriginEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getOriginEndpoint(a, opts))
 }
 
 export interface GetOriginEndpointOutputArgs {

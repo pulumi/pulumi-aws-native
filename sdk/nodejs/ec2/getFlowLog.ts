@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
  */
 export function getFlowLog(args: GetFlowLogArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowLogResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getFlowLog", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetFlowLogResult {
      */
     readonly tags?: outputs.ec2.FlowLogTag[];
 }
-
+/**
+ * Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
+ */
 export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
-    return pulumi.output(args).apply(a => getFlowLog(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlowLog(a, opts))
 }
 
 export interface GetFlowLogOutputArgs {

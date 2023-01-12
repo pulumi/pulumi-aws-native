@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::UsagePlanKey
  */
 export function getUsagePlanKey(args: GetUsagePlanKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetUsagePlanKeyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getUsagePlanKey", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetUsagePlanKeyResult {
      */
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::UsagePlanKey
+ */
 export function getUsagePlanKeyOutput(args: GetUsagePlanKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsagePlanKeyResult> {
-    return pulumi.output(args).apply(a => getUsagePlanKey(a, opts))
+    return pulumi.output(args).apply((a: any) => getUsagePlanKey(a, opts))
 }
 
 export interface GetUsagePlanKeyOutputArgs {

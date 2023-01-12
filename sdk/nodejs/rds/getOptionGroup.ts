@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
  */
 export function getOptionGroup(args: GetOptionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOptionGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getOptionGroup", {
         "optionGroupName": args.optionGroupName,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetOptionGroupResult {
      */
     readonly tags?: outputs.rds.OptionGroupTag[];
 }
-
+/**
+ * The AWS::RDS::OptionGroup resource creates an option group, to enable and configure features that are specific to a particular DB engine.
+ */
 export function getOptionGroupOutput(args: GetOptionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOptionGroupResult> {
-    return pulumi.output(args).apply(a => getOptionGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getOptionGroup(a, opts))
 }
 
 export interface GetOptionGroupOutputArgs {

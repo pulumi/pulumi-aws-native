@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::CustomerGateway
  */
 export function getCustomerGateway(args: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getCustomerGateway", {
         "customerGatewayId": args.customerGatewayId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetCustomerGatewayResult {
      */
     readonly tags?: outputs.ec2.CustomerGatewayTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::CustomerGateway
+ */
 export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
-    return pulumi.output(args).apply(a => getCustomerGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
 }
 
 export interface GetCustomerGatewayOutputArgs {

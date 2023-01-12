@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::Timestream::Database resource creates a Timestream database.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:timestream:getDatabase", {
         "databaseName": args.databaseName,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetDatabaseResult {
      */
     readonly tags?: outputs.timestream.DatabaseTag[];
 }
-
+/**
+ * The AWS::Timestream::Database resource creates a Timestream database.
+ */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
-    return pulumi.output(args).apply(a => getDatabase(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatabase(a, opts))
 }
 
 export interface GetDatabaseOutputArgs {

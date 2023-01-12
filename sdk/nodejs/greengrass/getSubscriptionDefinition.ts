@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::SubscriptionDefinition
  */
 export function getSubscriptionDefinition(args: GetSubscriptionDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getSubscriptionDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetSubscriptionDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::SubscriptionDefinition
+ */
 export function getSubscriptionDefinitionOutput(args: GetSubscriptionDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDefinitionResult> {
-    return pulumi.output(args).apply(a => getSubscriptionDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getSubscriptionDefinition(a, opts))
 }
 
 export interface GetSubscriptionDefinitionOutputArgs {

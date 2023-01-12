@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::VPNConnection
  */
 export function getVPNConnection(args: GetVPNConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVPNConnectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVPNConnection", {
         "vpnConnectionId": args.vpnConnectionId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetVPNConnectionResult {
      */
     readonly vpnConnectionId?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::VPNConnection
+ */
 export function getVPNConnectionOutput(args: GetVPNConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVPNConnectionResult> {
-    return pulumi.output(args).apply(a => getVPNConnection(a, opts))
+    return pulumi.output(args).apply((a: any) => getVPNConnection(a, opts))
 }
 
 export interface GetVPNConnectionOutputArgs {

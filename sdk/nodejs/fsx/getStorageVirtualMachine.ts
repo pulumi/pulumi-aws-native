@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::FSx::StorageVirtualMachine
  */
 export function getStorageVirtualMachine(args: GetStorageVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageVirtualMachineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fsx:getStorageVirtualMachine", {
         "storageVirtualMachineId": args.storageVirtualMachineId,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetStorageVirtualMachineResult {
     readonly tags?: outputs.fsx.StorageVirtualMachineTag[];
     readonly uUID?: string;
 }
-
+/**
+ * Resource Type definition for AWS::FSx::StorageVirtualMachine
+ */
 export function getStorageVirtualMachineOutput(args: GetStorageVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageVirtualMachineResult> {
-    return pulumi.output(args).apply(a => getStorageVirtualMachine(a, opts))
+    return pulumi.output(args).apply((a: any) => getStorageVirtualMachine(a, opts))
 }
 
 export interface GetStorageVirtualMachineOutputArgs {

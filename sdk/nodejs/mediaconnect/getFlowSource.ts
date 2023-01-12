@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::MediaConnect::FlowSource
  */
 export function getFlowSource(args: GetFlowSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetFlowSourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:mediaconnect:getFlowSource", {
         "sourceArn": args.sourceArn,
     }, opts);
@@ -86,9 +83,11 @@ export interface GetFlowSourceResult {
      */
     readonly whitelistCidr?: string;
 }
-
+/**
+ * Resource schema for AWS::MediaConnect::FlowSource
+ */
 export function getFlowSourceOutput(args: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceResult> {
-    return pulumi.output(args).apply(a => getFlowSource(a, opts))
+    return pulumi.output(args).apply((a: any) => getFlowSource(a, opts))
 }
 
 export interface GetFlowSourceOutputArgs {

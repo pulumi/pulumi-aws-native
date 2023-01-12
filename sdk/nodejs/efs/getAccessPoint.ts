@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EFS::AccessPoint
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:efs:getAccessPoint", {
         "accessPointId": args.accessPointId,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetAccessPointResult {
     readonly accessPointTags?: outputs.efs.AccessPointTag[];
     readonly arn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EFS::AccessPoint
+ */
 export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
-    return pulumi.output(args).apply(a => getAccessPoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccessPoint(a, opts))
 }
 
 export interface GetAccessPointOutputArgs {

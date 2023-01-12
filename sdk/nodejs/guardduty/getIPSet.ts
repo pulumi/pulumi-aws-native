@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GuardDuty::IPSet
  */
 export function getIPSet(args: GetIPSetArgs, opts?: pulumi.InvokeOptions): Promise<GetIPSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getIPSet", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetIPSetResult {
     readonly name?: string;
     readonly tags?: outputs.guardduty.IPSetTag[];
 }
-
+/**
+ * Resource Type definition for AWS::GuardDuty::IPSet
+ */
 export function getIPSetOutput(args: GetIPSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSetResult> {
-    return pulumi.output(args).apply(a => getIPSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getIPSet(a, opts))
 }
 
 export interface GetIPSetOutputArgs {

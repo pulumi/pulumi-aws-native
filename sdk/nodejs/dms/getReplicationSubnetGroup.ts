@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DMS::ReplicationSubnetGroup
  */
 export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getReplicationSubnetGroup", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetReplicationSubnetGroupResult {
     readonly subnetIds?: string[];
     readonly tags?: outputs.dms.ReplicationSubnetGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::DMS::ReplicationSubnetGroup
+ */
 export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
-    return pulumi.output(args).apply(a => getReplicationSubnetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationSubnetGroup(a, opts))
 }
 
 export interface GetReplicationSubnetGroupOutputArgs {

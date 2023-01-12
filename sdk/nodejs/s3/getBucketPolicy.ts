@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::S3::BucketPolicy
  */
 export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBucketPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getBucketPolicy", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetBucketPolicyResult {
     readonly id?: string;
     readonly policyDocument?: any;
 }
-
+/**
+ * Resource Type definition for AWS::S3::BucketPolicy
+ */
 export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
-    return pulumi.output(args).apply(a => getBucketPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getBucketPolicy(a, opts))
 }
 
 export interface GetBucketPolicyOutputArgs {

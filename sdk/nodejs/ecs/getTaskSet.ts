@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
  */
 export function getTaskSet(args: GetTaskSetArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecs:getTaskSet", {
         "cluster": args.cluster,
         "id": args.id,
@@ -48,9 +45,11 @@ export interface GetTaskSetResult {
      */
     readonly scale?: outputs.ecs.TaskSetScale;
 }
-
+/**
+ * Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
+ */
 export function getTaskSetOutput(args: GetTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskSetResult> {
-    return pulumi.output(args).apply(a => getTaskSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getTaskSet(a, opts))
 }
 
 export interface GetTaskSetOutputArgs {

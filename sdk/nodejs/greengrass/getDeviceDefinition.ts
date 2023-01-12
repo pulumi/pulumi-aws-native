@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Greengrass::DeviceDefinition
  */
 export function getDeviceDefinition(args: GetDeviceDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:greengrass:getDeviceDefinition", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetDeviceDefinitionResult {
     readonly name?: string;
     readonly tags?: any;
 }
-
+/**
+ * Resource Type definition for AWS::Greengrass::DeviceDefinition
+ */
 export function getDeviceDefinitionOutput(args: GetDeviceDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceDefinitionResult> {
-    return pulumi.output(args).apply(a => getDeviceDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getDeviceDefinition(a, opts))
 }
 
 export interface GetDeviceDefinitionOutputArgs {

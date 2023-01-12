@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
  */
 export function getDBCluster(args: GetDBClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetDBClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBCluster", {
         "dBClusterIdentifier": args.dBClusterIdentifier,
     }, opts);
@@ -186,9 +183,11 @@ export interface GetDBClusterResult {
      */
     readonly vpcSecurityGroupIds?: string[];
 }
-
+/**
+ * The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
+ */
 export function getDBClusterOutput(args: GetDBClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBClusterResult> {
-    return pulumi.output(args).apply(a => getDBCluster(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBCluster(a, opts))
 }
 
 export interface GetDBClusterOutputArgs {

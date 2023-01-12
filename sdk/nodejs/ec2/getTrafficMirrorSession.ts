@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::TrafficMirrorSession
  */
 export function getTrafficMirrorSession(args: GetTrafficMirrorSessionArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorSessionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTrafficMirrorSession", {
         "id": args.id,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetTrafficMirrorSessionResult {
     readonly trafficMirrorTargetId?: string;
     readonly virtualNetworkId?: number;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::TrafficMirrorSession
+ */
 export function getTrafficMirrorSessionOutput(args: GetTrafficMirrorSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorSessionResult> {
-    return pulumi.output(args).apply(a => getTrafficMirrorSession(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrafficMirrorSession(a, opts))
 }
 
 export interface GetTrafficMirrorSessionOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * A resource schema representing a Lake Formation Permission.
  */
 export function getPrincipalPermissions(args: GetPrincipalPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPrincipalPermissionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getPrincipalPermissions", {
         "principalIdentifier": args.principalIdentifier,
         "resourceIdentifier": args.resourceIdentifier,
@@ -28,9 +25,11 @@ export interface GetPrincipalPermissionsResult {
     readonly principalIdentifier?: string;
     readonly resourceIdentifier?: string;
 }
-
+/**
+ * A resource schema representing a Lake Formation Permission.
+ */
 export function getPrincipalPermissionsOutput(args: GetPrincipalPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrincipalPermissionsResult> {
-    return pulumi.output(args).apply(a => getPrincipalPermissions(a, opts))
+    return pulumi.output(args).apply((a: any) => getPrincipalPermissions(a, opts))
 }
 
 export interface GetPrincipalPermissionsOutputArgs {
