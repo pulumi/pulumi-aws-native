@@ -223,7 +223,7 @@ class RestApi(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RestApiTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::RestApi
+        Resource Type definition for AWS::ApiGateway::RestApi.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,7 +235,7 @@ class RestApi(pulumi.CustomResource):
                  args: Optional[RestApiArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::RestApi
+        Resource Type definition for AWS::ApiGateway::RestApi.
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.
@@ -291,6 +291,7 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["rest_api_id"] = None
             __props__.__dict__["root_resource_id"] = None
         super(RestApi, __self__).__init__(
             'aws-native:apigateway:RestApi',
@@ -328,6 +329,7 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["policy"] = None
+        __props__.__dict__["rest_api_id"] = None
         __props__.__dict__["root_resource_id"] = None
         __props__.__dict__["tags"] = None
         return RestApi(resource_name, opts=opts, __props__=__props__)
@@ -401,6 +403,11 @@ class RestApi(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="restApiId")
+    def rest_api_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="rootResourceId")

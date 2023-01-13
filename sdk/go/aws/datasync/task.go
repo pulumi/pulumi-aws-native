@@ -18,14 +18,10 @@ type Task struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogGroupArn"`
 	// The ARN of an AWS storage resource's location.
-	DestinationLocationArn          pulumi.StringOutput      `pulumi:"destinationLocationArn"`
-	DestinationNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"destinationNetworkInterfaceArns"`
-	// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-	ErrorCode pulumi.StringOutput `pulumi:"errorCode"`
-	// Detailed description of an error that was encountered during the task execution.
-	ErrorDetail pulumi.StringOutput       `pulumi:"errorDetail"`
-	Excludes    TaskFilterRuleArrayOutput `pulumi:"excludes"`
-	Includes    TaskFilterRuleArrayOutput `pulumi:"includes"`
+	DestinationLocationArn          pulumi.StringOutput       `pulumi:"destinationLocationArn"`
+	DestinationNetworkInterfaceArns pulumi.StringArrayOutput  `pulumi:"destinationNetworkInterfaceArns"`
+	Excludes                        TaskFilterRuleArrayOutput `pulumi:"excludes"`
+	Includes                        TaskFilterRuleArrayOutput `pulumi:"includes"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name     pulumi.StringPtrOutput `pulumi:"name"`
 	Options  TaskOptionsPtrOutput   `pulumi:"options"`
@@ -169,16 +165,6 @@ func (o TaskOutput) DestinationLocationArn() pulumi.StringOutput {
 
 func (o TaskOutput) DestinationNetworkInterfaceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringArrayOutput { return v.DestinationNetworkInterfaceArns }).(pulumi.StringArrayOutput)
-}
-
-// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-func (o TaskOutput) ErrorCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.ErrorCode }).(pulumi.StringOutput)
-}
-
-// Detailed description of an error that was encountered during the task execution.
-func (o TaskOutput) ErrorDetail() pulumi.StringOutput {
-	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.ErrorDetail }).(pulumi.StringOutput)
 }
 
 func (o TaskOutput) Excludes() TaskFilterRuleArrayOutput {

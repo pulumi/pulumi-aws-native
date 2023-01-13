@@ -149,6 +149,7 @@ import * as fms from "./fms";
 import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
 import * as fsx from "./fsx";
+import * as gamecast from "./gamecast";
 import * as gamelift from "./gamelift";
 import * as globalaccelerator from "./globalaccelerator";
 import * as glue from "./glue";
@@ -360,6 +361,7 @@ export {
     forecast,
     frauddetector,
     fsx,
+    gamecast,
     gamelift,
     globalaccelerator,
     glue,

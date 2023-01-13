@@ -25,11 +25,11 @@ type LocationSMB struct {
 	LocationUri  pulumi.StringOutput              `pulumi:"locationUri"`
 	MountOptions LocationSMBMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-	Password pulumi.StringOutput `pulumi:"password"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
-	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
+	ServerHostname pulumi.StringPtrOutput `pulumi:"serverHostname"`
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
 	Tags LocationSMBTagArrayOutput `pulumi:"tags"`
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
@@ -45,15 +45,6 @@ func NewLocationSMB(ctx *pulumi.Context,
 
 	if args.AgentArns == nil {
 		return nil, errors.New("invalid value for required argument 'AgentArns'")
-	}
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
-	}
-	if args.ServerHostname == nil {
-		return nil, errors.New("invalid value for required argument 'ServerHostname'")
-	}
-	if args.Subdirectory == nil {
-		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
 	if args.User == nil {
 		return nil, errors.New("invalid value for required argument 'User'")
@@ -96,11 +87,11 @@ type locationSMBArgs struct {
 	Domain       *string                  `pulumi:"domain"`
 	MountOptions *LocationSMBMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
-	ServerHostname string `pulumi:"serverHostname"`
+	ServerHostname *string `pulumi:"serverHostname"`
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-	Subdirectory string `pulumi:"subdirectory"`
+	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LocationSMBTag `pulumi:"tags"`
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
@@ -115,11 +106,11 @@ type LocationSMBArgs struct {
 	Domain       pulumi.StringPtrInput
 	MountOptions LocationSMBMountOptionsPtrInput
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-	Password pulumi.StringInput
+	Password pulumi.StringPtrInput
 	// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
-	ServerHostname pulumi.StringInput
+	ServerHostname pulumi.StringPtrInput
 	// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-	Subdirectory pulumi.StringInput
+	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags LocationSMBTagArrayInput
 	// The user who can mount the share, has the permissions to access files and folders in the SMB share.
@@ -188,18 +179,18 @@ func (o LocationSMBOutput) MountOptions() LocationSMBMountOptionsPtrOutput {
 }
 
 // The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-func (o LocationSMBOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+func (o LocationSMBOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
-func (o LocationSMBOutput) ServerHostname() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+func (o LocationSMBOutput) ServerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringPtrOutput { return v.ServerHostname }).(pulumi.StringPtrOutput)
 }
 
 // The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-func (o LocationSMBOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationSMB) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationSMBOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationSMB) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

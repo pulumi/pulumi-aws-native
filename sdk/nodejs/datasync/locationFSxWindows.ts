@@ -44,7 +44,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string>;
+    public readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
      */
@@ -56,7 +56,7 @@ export class LocationFSxWindows extends pulumi.CustomResource {
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */
@@ -85,12 +85,6 @@ export class LocationFSxWindows extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fsxFilesystemArn'");
-            }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
             if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
@@ -133,11 +127,11 @@ export interface LocationFSxWindowsArgs {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    fsxFilesystemArn: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Windows file system.
      */

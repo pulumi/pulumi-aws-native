@@ -57,15 +57,15 @@ export class LocationSMB extends pulumi.CustomResource {
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
      */
-    public readonly serverHostname!: pulumi.Output<string>;
+    public readonly serverHostname!: pulumi.Output<string | undefined>;
     /**
      * The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -88,15 +88,6 @@ export class LocationSMB extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.agentArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
-            }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
-            if ((!args || args.serverHostname === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverHostname'");
-            }
-            if ((!args || args.subdirectory === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subdirectory'");
             }
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
@@ -144,15 +135,15 @@ export interface LocationSMBArgs {
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
      */
-    serverHostname: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string>;
     /**
      * The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
      */
-    subdirectory: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

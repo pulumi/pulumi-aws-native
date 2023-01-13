@@ -18,13 +18,13 @@ type LocationFSxWindows struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
-	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn pulumi.StringPtrOutput `pulumi:"fsxFilesystemArn"`
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx for Windows location that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
-	Password pulumi.StringOutput `pulumi:"password"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// A subdirectory in the location's path.
@@ -42,12 +42,6 @@ func NewLocationFSxWindows(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FsxFilesystemArn == nil {
-		return nil, errors.New("invalid value for required argument 'FsxFilesystemArn'")
-	}
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
-	}
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
@@ -89,9 +83,9 @@ type locationFSxWindowsArgs struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain *string `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
-	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// A subdirectory in the location's path.
@@ -107,9 +101,9 @@ type LocationFSxWindowsArgs struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
-	FsxFilesystemArn pulumi.StringInput
+	FsxFilesystemArn pulumi.StringPtrInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
-	Password pulumi.StringInput
+	Password pulumi.StringPtrInput
 	// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// A subdirectory in the location's path.
@@ -163,8 +157,8 @@ func (o LocationFSxWindowsOutput) Domain() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) for the FSx for Windows file system.
-func (o LocationFSxWindowsOutput) FsxFilesystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+func (o LocationFSxWindowsOutput) FsxFilesystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringPtrOutput { return v.FsxFilesystemArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -178,8 +172,8 @@ func (o LocationFSxWindowsOutput) LocationUri() pulumi.StringOutput {
 }
 
 // The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
-func (o LocationFSxWindowsOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+func (o LocationFSxWindowsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxWindows) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The ARNs of the security groups that are to use to configure the FSx for Windows file system.

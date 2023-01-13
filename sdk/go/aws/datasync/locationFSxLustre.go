@@ -16,7 +16,7 @@ type LocationFSxLustre struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn pulumi.StringPtrOutput `pulumi:"fsxFilesystemArn"`
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx for Lustre location that was described.
@@ -36,9 +36,6 @@ func NewLocationFSxLustre(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.FsxFilesystemArn == nil {
-		return nil, errors.New("invalid value for required argument 'FsxFilesystemArn'")
-	}
 	if args.SecurityGroupArns == nil {
 		return nil, errors.New("invalid value for required argument 'SecurityGroupArns'")
 	}
@@ -75,7 +72,7 @@ func (LocationFSxLustreState) ElementType() reflect.Type {
 
 type locationFSxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
+	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// A subdirectory in the location's path.
@@ -87,7 +84,7 @@ type locationFSxLustreArgs struct {
 // The set of arguments for constructing a LocationFSxLustre resource.
 type LocationFSxLustreArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-	FsxFilesystemArn pulumi.StringInput
+	FsxFilesystemArn pulumi.StringPtrInput
 	// The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// A subdirectory in the location's path.
@@ -134,8 +131,8 @@ func (o LocationFSxLustreOutput) ToLocationFSxLustreOutputWithContext(ctx contex
 }
 
 // The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-func (o LocationFSxLustreOutput) FsxFilesystemArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
+func (o LocationFSxLustreOutput) FsxFilesystemArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationFSxLustre) pulumi.StringPtrOutput { return v.FsxFilesystemArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.

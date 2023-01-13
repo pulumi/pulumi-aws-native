@@ -31,14 +31,6 @@ export interface GetTaskResult {
      */
     readonly cloudWatchLogGroupArn?: string;
     readonly destinationNetworkInterfaceArns?: string[];
-    /**
-     * Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-     */
-    readonly errorCode?: string;
-    /**
-     * Detailed description of an error that was encountered during the task execution.
-     */
-    readonly errorDetail?: string;
     readonly excludes?: outputs.datasync.TaskFilterRule[];
     readonly includes?: outputs.datasync.TaskFilterRule[];
     /**

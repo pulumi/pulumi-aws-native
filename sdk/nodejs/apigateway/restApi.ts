@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RestApi
+ * Resource Type definition for AWS::ApiGateway::RestApi.
  */
 export class RestApi extends pulumi.CustomResource {
     /**
@@ -51,6 +51,7 @@ export class RestApi extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly policy!: pulumi.Output<any | undefined>;
+    public /*out*/ readonly restApiId!: pulumi.Output<string>;
     public /*out*/ readonly rootResourceId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.apigateway.RestApiTag[] | undefined>;
 
@@ -80,6 +81,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["rootResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["apiKeySourceType"] = undefined /*out*/;
@@ -96,6 +98,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["rootResourceId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }

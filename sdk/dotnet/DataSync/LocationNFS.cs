@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.DataSync
         /// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         /// </summary>
         [Output("serverHostname")]
-        public Output<string> ServerHostname { get; private set; } = null!;
+        public Output<string?> ServerHostname { get; private set; } = null!;
 
         /// <summary>
         /// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -105,14 +105,14 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         /// </summary>
-        [Input("serverHostname", required: true)]
-        public Input<string> ServerHostname { get; set; } = null!;
+        [Input("serverHostname")]
+        public Input<string>? ServerHostname { get; set; }
 
         /// <summary>
         /// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         /// </summary>
-        [Input("subdirectory", required: true)]
-        public Input<string> Subdirectory { get; set; } = null!;
+        [Input("subdirectory")]
+        public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.LocationNFSTagArgs>? _tags;

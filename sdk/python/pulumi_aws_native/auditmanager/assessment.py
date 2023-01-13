@@ -19,6 +19,7 @@ class AssessmentArgs:
     def __init__(__self__, *,
                  assessment_reports_destination: Optional[pulumi.Input['AssessmentReportsDestinationArgs']] = None,
                  aws_account: Optional[pulumi.Input['AssessmentAWSAccountArgs']] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class AssessmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]] delegations: The list of delegations.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: The list of roles for the specified assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]] tags: The tags associated with the assessment.
         """
@@ -35,6 +37,8 @@ class AssessmentArgs:
             pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
         if aws_account is not None:
             pulumi.set(__self__, "aws_account", aws_account)
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if framework_id is not None:
@@ -67,6 +71,18 @@ class AssessmentArgs:
     @aws_account.setter
     def aws_account(self, value: Optional[pulumi.Input['AssessmentAWSAccountArgs']]):
         pulumi.set(self, "aws_account", value)
+
+    @property
+    @pulumi.getter
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]:
+        """
+        The list of delegations.
+        """
+        return pulumi.get(self, "delegations")
+
+    @delegations.setter
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]]):
+        pulumi.set(self, "delegations", value)
 
     @property
     @pulumi.getter
@@ -145,6 +161,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
                  aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -158,6 +175,7 @@ class Assessment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]] delegations: The list of delegations.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: The list of roles for the specified assessment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTagArgs']]]] tags: The tags associated with the assessment.
         """
@@ -187,6 +205,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_reports_destination: Optional[pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']]] = None,
                  aws_account: Optional[pulumi.Input[pulumi.InputType['AssessmentAWSAccountArgs']]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  framework_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -205,6 +224,7 @@ class Assessment(pulumi.CustomResource):
 
             __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
             __props__.__dict__["aws_account"] = aws_account
+            __props__.__dict__["delegations"] = delegations
             __props__.__dict__["description"] = description
             __props__.__dict__["framework_id"] = framework_id
             __props__.__dict__["name"] = name
@@ -215,7 +235,6 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["assessment_id"] = None
             __props__.__dict__["creation_time"] = None
-            __props__.__dict__["delegations"] = None
         super(Assessment, __self__).__init__(
             'aws-native:auditmanager:Assessment',
             resource_name,
@@ -280,7 +299,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def delegations(self) -> pulumi.Output[Sequence['outputs.AssessmentDelegation']]:
+    def delegations(self) -> pulumi.Output[Optional[Sequence['outputs.AssessmentDelegation']]]:
         """
         The list of delegations.
         """

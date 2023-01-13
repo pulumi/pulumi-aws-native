@@ -27,14 +27,10 @@ type LookupTaskArgs struct {
 
 type LookupTaskResult struct {
 	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
-	CloudWatchLogGroupArn           *string  `pulumi:"cloudWatchLogGroupArn"`
-	DestinationNetworkInterfaceArns []string `pulumi:"destinationNetworkInterfaceArns"`
-	// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-	ErrorCode *string `pulumi:"errorCode"`
-	// Detailed description of an error that was encountered during the task execution.
-	ErrorDetail *string          `pulumi:"errorDetail"`
-	Excludes    []TaskFilterRule `pulumi:"excludes"`
-	Includes    []TaskFilterRule `pulumi:"includes"`
+	CloudWatchLogGroupArn           *string          `pulumi:"cloudWatchLogGroupArn"`
+	DestinationNetworkInterfaceArns []string         `pulumi:"destinationNetworkInterfaceArns"`
+	Excludes                        []TaskFilterRule `pulumi:"excludes"`
+	Includes                        []TaskFilterRule `pulumi:"includes"`
 	// The name of a task. This value is a text reference that is used to identify the task in the console.
 	Name                       *string       `pulumi:"name"`
 	Options                    *TaskOptions  `pulumi:"options"`
@@ -91,16 +87,6 @@ func (o LookupTaskResultOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 
 func (o LookupTaskResultOutput) DestinationNetworkInterfaceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupTaskResult) []string { return v.DestinationNetworkInterfaceArns }).(pulumi.StringArrayOutput)
-}
-
-// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-func (o LookupTaskResultOutput) ErrorCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTaskResult) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
-}
-
-// Detailed description of an error that was encountered during the task execution.
-func (o LookupTaskResultOutput) ErrorDetail() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTaskResult) *string { return v.ErrorDetail }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTaskResultOutput) Excludes() TaskFilterRuleArrayOutput {

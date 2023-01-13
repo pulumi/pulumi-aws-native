@@ -14896,6 +14896,25 @@ export namespace fsx {
 
 }
 
+export namespace gamecast {
+    /**
+     * Information about default application running on the stream group.
+     */
+    export interface StreamGroupDefaultApplication {
+        /**
+         * GameCast resource ID, base62 encoded.
+         */
+        id?: string;
+    }
+
+    /**
+     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
+     */
+    export interface StreamGroupTags {
+    }
+
+}
+
 export namespace gamelift {
     export interface AliasRoutingStrategy {
         /**

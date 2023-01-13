@@ -197,6 +197,8 @@ if typing.TYPE_CHECKING:
     frauddetector = __frauddetector
     import pulumi_aws_native.fsx as __fsx
     fsx = __fsx
+    import pulumi_aws_native.gamecast as __gamecast
+    gamecast = __gamecast
     import pulumi_aws_native.gamelift as __gamelift
     gamelift = __gamelift
     import pulumi_aws_native.globalaccelerator as __globalaccelerator
@@ -526,6 +528,7 @@ else:
     forecast = _utilities.lazy_import('pulumi_aws_native.forecast')
     frauddetector = _utilities.lazy_import('pulumi_aws_native.frauddetector')
     fsx = _utilities.lazy_import('pulumi_aws_native.fsx')
+    gamecast = _utilities.lazy_import('pulumi_aws_native.gamecast')
     gamelift = _utilities.lazy_import('pulumi_aws_native.gamelift')
     globalaccelerator = _utilities.lazy_import('pulumi_aws_native.globalaccelerator')
     glue = _utilities.lazy_import('pulumi_aws_native.glue')
@@ -1693,6 +1696,14 @@ _utilities.register(
    "aws-native:fsx:Snapshot": "Snapshot",
    "aws-native:fsx:StorageVirtualMachine": "StorageVirtualMachine",
    "aws-native:fsx:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "gamecast",
+  "fqn": "pulumi_aws_native.gamecast",
+  "classes": {
+   "aws-native:gamecast:StreamGroup": "StreamGroup"
   }
  },
  {

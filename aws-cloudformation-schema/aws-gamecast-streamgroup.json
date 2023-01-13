@@ -1,0 +1,98 @@
+{
+  "typeName" : "AWS::GameCast::StreamGroup",
+  "description" : "Definition of AWS::GameCast::StreamGroup Resource Type",
+  "definitions" : {
+    "DefaultApplication" : {
+      "type" : "object",
+      "description" : "Information about default application running on the stream group.",
+      "properties" : {
+        "Id" : {
+          "type" : "string",
+          "maxLength" : 32,
+          "minLength" : 1,
+          "pattern" : "^[a-zA-Z0-9-]+$",
+          "description" : "GameCast resource ID, base62 encoded."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "StreamClass" : {
+      "type" : "string",
+      "description" : "These are pre-packed Motif virtual instance type used to run customer games where mini spec maps to high-end\nintegrated graphics and ultra maps to high-end gaming pc. These have different cost implications.",
+      "enum" : [ "MINI", "LOW", "MID", "HIGH", "ULTRA" ]
+    },
+    "Tags" : {
+      "type" : "object",
+      "maxProperties" : 50,
+      "minProperties" : 1,
+      "description" : "Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.",
+      "patternProperties" : {
+        ".+" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 0,
+          "description" : "A single tag value"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "maxLength" : 128,
+      "minLength" : 1,
+      "pattern" : "^arn:([^:\n]*):([^:\n]*):([^:\n]*):([0-9]{12}):([^:\n]*)$",
+      "description" : "ARN of the resource."
+    },
+    "DefaultApplication" : {
+      "$ref" : "#/definitions/DefaultApplication"
+    },
+    "Description" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9-_\\s]+$",
+      "description" : "Descriptive label for the resource, not a unique ID."
+    },
+    "DesiredCapacity" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "description" : "DesiredCapacity is the target number of stream sessions customer sets."
+    },
+    "StreamClass" : {
+      "$ref" : "#/definitions/StreamClass"
+    },
+    "Tags" : {
+      "$ref" : "#/definitions/Tags"
+    }
+  },
+  "required" : [ "Description" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "createOnlyProperties" : [ "/properties/StreamClass", "/properties/DefaultApplication/Id" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "gamecast:CreateStreamGroup", "gamecast:UpdateStreamGroup", "gamecast:GetStreamGroup" ]
+    },
+    "read" : {
+      "permissions" : [ "gamecast:GetStreamGroup", "gamecast:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "gamecast:UpdateStreamGroup", "gamecast:GetStreamGroup", "gamecast:TagResource", "gamecast:UntagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "gamecast:DeleteStreamGroup", "gamecast:GetStreamGroup" ]
+    },
+    "list" : {
+      "permissions" : [ "gamecast:ListStreamGroups" ]
+    }
+  },
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
+  }
+}

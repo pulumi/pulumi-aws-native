@@ -230,8 +230,6 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["destination_network_interface_arns"] = None
-            __props__.__dict__["error_code"] = None
-            __props__.__dict__["error_detail"] = None
             __props__.__dict__["source_network_interface_arns"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["task_arn"] = None
@@ -260,8 +258,6 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["cloud_watch_log_group_arn"] = None
         __props__.__dict__["destination_location_arn"] = None
         __props__.__dict__["destination_network_interface_arns"] = None
-        __props__.__dict__["error_code"] = None
-        __props__.__dict__["error_detail"] = None
         __props__.__dict__["excludes"] = None
         __props__.__dict__["includes"] = None
         __props__.__dict__["name"] = None
@@ -294,22 +290,6 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="destinationNetworkInterfaceArns")
     def destination_network_interface_arns(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "destination_network_interface_arns")
-
-    @property
-    @pulumi.getter(name="errorCode")
-    def error_code(self) -> pulumi.Output[str]:
-        """
-        Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-        """
-        return pulumi.get(self, "error_code")
-
-    @property
-    @pulumi.getter(name="errorDetail")
-    def error_detail(self) -> pulumi.Output[str]:
-        """
-        Detailed description of an error that was encountered during the task execution.
-        """
-        return pulumi.get(self, "error_detail")
 
     @property
     @pulumi.getter

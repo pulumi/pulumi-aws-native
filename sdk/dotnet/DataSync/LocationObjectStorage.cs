@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The name of the bucket on the self-managed object storage server.
         /// </summary>
         [Output("bucketName")]
-        public Output<string> BucketName { get; private set; } = null!;
+        public Output<string?> BucketName { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         /// </summary>
         [Output("serverHostname")]
-        public Output<string> ServerHostname { get; private set; } = null!;
+        public Output<string?> ServerHostname { get; private set; } = null!;
 
         /// <summary>
         /// The port that your self-managed server accepts inbound network traffic on.
@@ -147,8 +147,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The name of the bucket on the self-managed object storage server.
         /// </summary>
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
 
         /// <summary>
         /// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
@@ -159,8 +159,8 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         /// </summary>
-        [Input("serverHostname", required: true)]
-        public Input<string> ServerHostname { get; set; } = null!;
+        [Input("serverHostname")]
+        public Input<string>? ServerHostname { get; set; }
 
         /// <summary>
         /// The port that your self-managed server accepts inbound network traffic on.

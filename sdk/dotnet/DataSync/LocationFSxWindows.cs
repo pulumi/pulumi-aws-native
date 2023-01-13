@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
         [Output("fsxFilesystemArn")]
-        public Output<string> FsxFilesystemArn { get; private set; } = null!;
+        public Output<string?> FsxFilesystemArn { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.DataSync
         /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
@@ -123,14 +123,14 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
-        [Input("fsxFilesystemArn", required: true)]
-        public Input<string> FsxFilesystemArn { get; set; } = null!;
+        [Input("fsxFilesystemArn")]
+        public Input<string>? FsxFilesystemArn { get; set; }
 
         /// <summary>
         /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         [Input("securityGroupArns", required: true)]
         private InputList<string>? _securityGroupArns;

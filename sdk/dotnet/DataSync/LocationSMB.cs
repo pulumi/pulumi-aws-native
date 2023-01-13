@@ -46,19 +46,19 @@ namespace Pulumi.AwsNative.DataSync
         /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         /// </summary>
         [Output("serverHostname")]
-        public Output<string> ServerHostname { get; private set; } = null!;
+        public Output<string?> ServerHostname { get; private set; } = null!;
 
         /// <summary>
         /// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         /// </summary>
         [Output("subdirectory")]
-        public Output<string> Subdirectory { get; private set; } = null!;
+        public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -141,20 +141,20 @@ namespace Pulumi.AwsNative.DataSync
         /// <summary>
         /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         /// </summary>
-        [Input("serverHostname", required: true)]
-        public Input<string> ServerHostname { get; set; } = null!;
+        [Input("serverHostname")]
+        public Input<string>? ServerHostname { get; set; }
 
         /// <summary>
         /// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         /// </summary>
-        [Input("subdirectory", required: true)]
-        public Input<string> Subdirectory { get; set; } = null!;
+        [Input("subdirectory")]
+        public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.LocationSMBTagArgs>? _tags;

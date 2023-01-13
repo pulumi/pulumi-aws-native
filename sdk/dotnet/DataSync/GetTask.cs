@@ -62,14 +62,6 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? CloudWatchLogGroupArn;
         public readonly ImmutableArray<string> DestinationNetworkInterfaceArns;
-        /// <summary>
-        /// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-        /// </summary>
-        public readonly string? ErrorCode;
-        /// <summary>
-        /// Detailed description of an error that was encountered during the task execution.
-        /// </summary>
-        public readonly string? ErrorDetail;
         public readonly ImmutableArray<Outputs.TaskFilterRule> Excludes;
         public readonly ImmutableArray<Outputs.TaskFilterRule> Includes;
         /// <summary>
@@ -98,10 +90,6 @@ namespace Pulumi.AwsNative.DataSync
 
             ImmutableArray<string> destinationNetworkInterfaceArns,
 
-            string? errorCode,
-
-            string? errorDetail,
-
             ImmutableArray<Outputs.TaskFilterRule> excludes,
 
             ImmutableArray<Outputs.TaskFilterRule> includes,
@@ -122,8 +110,6 @@ namespace Pulumi.AwsNative.DataSync
         {
             CloudWatchLogGroupArn = cloudWatchLogGroupArn;
             DestinationNetworkInterfaceArns = destinationNetworkInterfaceArns;
-            ErrorCode = errorCode;
-            ErrorDetail = errorDetail;
             Excludes = excludes;
             Includes = includes;
             Name = name;

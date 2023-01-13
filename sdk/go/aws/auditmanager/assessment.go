@@ -73,9 +73,11 @@ func (AssessmentState) ElementType() reflect.Type {
 type assessmentArgs struct {
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
 	AwsAccount                   *AssessmentAWSAccount         `pulumi:"awsAccount"`
-	Description                  *string                       `pulumi:"description"`
-	FrameworkId                  *string                       `pulumi:"frameworkId"`
-	Name                         *string                       `pulumi:"name"`
+	// The list of delegations.
+	Delegations []AssessmentDelegation `pulumi:"delegations"`
+	Description *string                `pulumi:"description"`
+	FrameworkId *string                `pulumi:"frameworkId"`
+	Name        *string                `pulumi:"name"`
 	// The list of roles for the specified assessment.
 	Roles  []AssessmentRole  `pulumi:"roles"`
 	Scope  *AssessmentScope  `pulumi:"scope"`
@@ -88,9 +90,11 @@ type assessmentArgs struct {
 type AssessmentArgs struct {
 	AssessmentReportsDestination AssessmentReportsDestinationPtrInput
 	AwsAccount                   AssessmentAWSAccountPtrInput
-	Description                  pulumi.StringPtrInput
-	FrameworkId                  pulumi.StringPtrInput
-	Name                         pulumi.StringPtrInput
+	// The list of delegations.
+	Delegations AssessmentDelegationArrayInput
+	Description pulumi.StringPtrInput
+	FrameworkId pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
 	// The list of roles for the specified assessment.
 	Roles  AssessmentRoleArrayInput
 	Scope  AssessmentScopePtrInput

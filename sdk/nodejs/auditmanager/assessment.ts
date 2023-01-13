@@ -45,7 +45,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * The list of delegations.
      */
-    public /*out*/ readonly delegations!: pulumi.Output<outputs.auditmanager.AssessmentDelegation[]>;
+    public readonly delegations!: pulumi.Output<outputs.auditmanager.AssessmentDelegation[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly frameworkId!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
@@ -73,6 +73,7 @@ export class Assessment extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
             resourceInputs["awsAccount"] = args ? args.awsAccount : undefined;
+            resourceInputs["delegations"] = args ? args.delegations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -83,7 +84,6 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assessmentId"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
-            resourceInputs["delegations"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["assessmentId"] = undefined /*out*/;
@@ -110,6 +110,10 @@ export class Assessment extends pulumi.CustomResource {
 export interface AssessmentArgs {
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
     awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAWSAccountArgs>;
+    /**
+     * The list of delegations.
+     */
+    delegations?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentDelegationArgs>[]>;
     description?: pulumi.Input<string>;
     frameworkId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

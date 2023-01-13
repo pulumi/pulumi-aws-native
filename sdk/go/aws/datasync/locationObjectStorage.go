@@ -20,7 +20,7 @@ type LocationObjectStorage struct {
 	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
 	AgentArns pulumi.StringArrayOutput `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
@@ -28,7 +28,7 @@ type LocationObjectStorage struct {
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
-	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
+	ServerHostname pulumi.StringPtrOutput `pulumi:"serverHostname"`
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort pulumi.IntPtrOutput `pulumi:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
@@ -48,12 +48,6 @@ func NewLocationObjectStorage(ctx *pulumi.Context,
 
 	if args.AgentArns == nil {
 		return nil, errors.New("invalid value for required argument 'AgentArns'")
-	}
-	if args.BucketName == nil {
-		return nil, errors.New("invalid value for required argument 'BucketName'")
-	}
-	if args.ServerHostname == nil {
-		return nil, errors.New("invalid value for required argument 'ServerHostname'")
 	}
 	var resource LocationObjectStorage
 	err := ctx.RegisterResource("aws-native:datasync:LocationObjectStorage", name, args, &resource, opts...)
@@ -92,11 +86,11 @@ type locationObjectStorageArgs struct {
 	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
 	AgentArns []string `pulumi:"agentArns"`
 	// The name of the bucket on the self-managed object storage server.
-	BucketName string `pulumi:"bucketName"`
+	BucketName *string `pulumi:"bucketName"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey *string `pulumi:"secretKey"`
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
-	ServerHostname string `pulumi:"serverHostname"`
+	ServerHostname *string `pulumi:"serverHostname"`
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort *int `pulumi:"serverPort"`
 	// The protocol that the object storage server uses to communicate.
@@ -114,11 +108,11 @@ type LocationObjectStorageArgs struct {
 	// The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
 	AgentArns pulumi.StringArrayInput
 	// The name of the bucket on the self-managed object storage server.
-	BucketName pulumi.StringInput
+	BucketName pulumi.StringPtrInput
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrInput
 	// The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
-	ServerHostname pulumi.StringInput
+	ServerHostname pulumi.StringPtrInput
 	// The port that your self-managed server accepts inbound network traffic on.
 	ServerPort pulumi.IntPtrInput
 	// The protocol that the object storage server uses to communicate.
@@ -177,8 +171,8 @@ func (o LocationObjectStorageOutput) AgentArns() pulumi.StringArrayOutput {
 }
 
 // The name of the bucket on the self-managed object storage server.
-func (o LocationObjectStorageOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+func (o LocationObjectStorageOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the location that is created.
@@ -197,8 +191,8 @@ func (o LocationObjectStorageOutput) SecretKey() pulumi.StringPtrOutput {
 }
 
 // The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
-func (o LocationObjectStorageOutput) ServerHostname() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+func (o LocationObjectStorageOutput) ServerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.ServerHostname }).(pulumi.StringPtrOutput)
 }
 
 // The port that your self-managed server accepts inbound network traffic on.

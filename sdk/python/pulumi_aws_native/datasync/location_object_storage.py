@@ -18,10 +18,10 @@ __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 class LocationObjectStorageArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 bucket_name: pulumi.Input[str],
-                 server_hostname: pulumi.Input[str],
                  access_key: Optional[pulumi.Input[str]] = None,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
+                 server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
                  server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -29,22 +29,24 @@ class LocationObjectStorageArgs:
         """
         The set of arguments for constructing a LocationObjectStorage resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
-        :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
-        :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         :param pulumi.Input[str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] bucket_name: The name of the bucket on the self-managed object storage server.
         :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
+        :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
         :param pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "bucket_name", bucket_name)
-        pulumi.set(__self__, "server_hostname", server_hostname)
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
+        if server_hostname is not None:
+            pulumi.set(__self__, "server_hostname", server_hostname)
         if server_port is not None:
             pulumi.set(__self__, "server_port", server_port)
         if server_protocol is not None:
@@ -67,30 +69,6 @@ class LocationObjectStorageArgs:
         pulumi.set(self, "agent_arns", value)
 
     @property
-    @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[str]:
-        """
-        The name of the bucket on the self-managed object storage server.
-        """
-        return pulumi.get(self, "bucket_name")
-
-    @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "bucket_name", value)
-
-    @property
-    @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Input[str]:
-        """
-        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
-        """
-        return pulumi.get(self, "server_hostname")
-
-    @server_hostname.setter
-    def server_hostname(self, value: pulumi.Input[str]):
-        pulumi.set(self, "server_hostname", value)
-
-    @property
     @pulumi.getter(name="accessKey")
     def access_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,6 +81,18 @@ class LocationObjectStorageArgs:
         pulumi.set(self, "access_key", value)
 
     @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the bucket on the self-managed object storage server.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -113,6 +103,18 @@ class LocationObjectStorageArgs:
     @secret_key.setter
     def secret_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_key", value)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @server_hostname.setter
+    def server_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_hostname", value)
 
     @property
     @pulumi.getter(name="serverPort")
@@ -239,12 +241,8 @@ class LocationObjectStorage(pulumi.CustomResource):
             if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
-            if bucket_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bucket_name'")
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["secret_key"] = secret_key
-            if server_hostname is None and not opts.urn:
-                raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
             __props__.__dict__["server_port"] = server_port
             __props__.__dict__["server_protocol"] = server_protocol
@@ -305,7 +303,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Output[str]:
+    def bucket_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the bucket on the self-managed object storage server.
         """
@@ -337,7 +335,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Output[str]:
+    def server_hostname(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         """

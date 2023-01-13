@@ -18,9 +18,9 @@ __all__ = ['LocationNFSArgs', 'LocationNFS']
 class LocationNFSArgs:
     def __init__(__self__, *,
                  on_prem_config: pulumi.Input['LocationNFSOnPremConfigArgs'],
-                 server_hostname: pulumi.Input[str],
-                 subdirectory: pulumi.Input[str],
                  mount_options: Optional[pulumi.Input['LocationNFSMountOptionsArgs']] = None,
+                 server_hostname: Optional[pulumi.Input[str]] = None,
+                 subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNFS resource.
@@ -29,10 +29,12 @@ class LocationNFSArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LocationNFSTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "on_prem_config", on_prem_config)
-        pulumi.set(__self__, "server_hostname", server_hostname)
-        pulumi.set(__self__, "subdirectory", subdirectory)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
+        if server_hostname is not None:
+            pulumi.set(__self__, "server_hostname", server_hostname)
+        if subdirectory is not None:
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -46,30 +48,6 @@ class LocationNFSArgs:
         pulumi.set(self, "on_prem_config", value)
 
     @property
-    @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Input[str]:
-        """
-        The name of the NFS server. This value is the IP address or DNS name of the NFS server.
-        """
-        return pulumi.get(self, "server_hostname")
-
-    @server_hostname.setter
-    def server_hostname(self, value: pulumi.Input[str]):
-        pulumi.set(self, "server_hostname", value)
-
-    @property
-    @pulumi.getter
-    def subdirectory(self) -> pulumi.Input[str]:
-        """
-        The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
-        """
-        return pulumi.get(self, "subdirectory")
-
-    @subdirectory.setter
-    def subdirectory(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subdirectory", value)
-
-    @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['LocationNFSMountOptionsArgs']]:
         return pulumi.get(self, "mount_options")
@@ -77,6 +55,30 @@ class LocationNFSArgs:
     @mount_options.setter
     def mount_options(self, value: Optional[pulumi.Input['LocationNFSMountOptionsArgs']]):
         pulumi.set(self, "mount_options", value)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the NFS server. This value is the IP address or DNS name of the NFS server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @server_hostname.setter
+    def server_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_hostname", value)
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
+        """
+        return pulumi.get(self, "subdirectory")
+
+    @subdirectory.setter
+    def subdirectory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subdirectory", value)
 
     @property
     @pulumi.getter
@@ -153,11 +155,7 @@ class LocationNFS(pulumi.CustomResource):
             if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__.__dict__["on_prem_config"] = on_prem_config
-            if server_hostname is None and not opts.urn:
-                raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
-            if subdirectory is None and not opts.urn:
-                raise TypeError("Missing required property 'subdirectory'")
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
@@ -221,7 +219,7 @@ class LocationNFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Output[str]:
+    def server_hostname(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         """
@@ -229,7 +227,7 @@ class LocationNFS(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         """

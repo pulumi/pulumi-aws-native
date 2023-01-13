@@ -30,18 +30,6 @@ namespace Pulumi.AwsNative.DataSync
         [Output("destinationNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> DestinationNetworkInterfaceArns { get; private set; } = null!;
 
-        /// <summary>
-        /// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-        /// </summary>
-        [Output("errorCode")]
-        public Output<string> ErrorCode { get; private set; } = null!;
-
-        /// <summary>
-        /// Detailed description of an error that was encountered during the task execution.
-        /// </summary>
-        [Output("errorDetail")]
-        public Output<string> ErrorDetail { get; private set; } = null!;
-
         [Output("excludes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 

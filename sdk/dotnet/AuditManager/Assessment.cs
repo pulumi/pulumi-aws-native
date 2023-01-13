@@ -114,6 +114,18 @@ namespace Pulumi.AwsNative.AuditManager
         [Input("awsAccount")]
         public Input<Inputs.AssessmentAWSAccountArgs>? AwsAccount { get; set; }
 
+        [Input("delegations")]
+        private InputList<Inputs.AssessmentDelegationArgs>? _delegations;
+
+        /// <summary>
+        /// The list of delegations.
+        /// </summary>
+        public InputList<Inputs.AssessmentDelegationArgs> Delegations
+        {
+            get => _delegations ?? (_delegations = new InputList<Inputs.AssessmentDelegationArgs>());
+            set => _delegations = value;
+        }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 

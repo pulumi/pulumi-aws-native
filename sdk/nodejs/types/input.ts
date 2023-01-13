@@ -4627,6 +4627,23 @@ export namespace auditmanager {
     }
 
     /**
+     * The assignment of a control set to a delegate for review.
+     */
+    export interface AssessmentDelegationArgs {
+        assessmentId?: pulumi.Input<string>;
+        assessmentName?: pulumi.Input<string>;
+        comment?: pulumi.Input<string>;
+        controlSetId?: pulumi.Input<string>;
+        createdBy?: pulumi.Input<string>;
+        creationTime?: pulumi.Input<number>;
+        id?: pulumi.Input<string>;
+        lastUpdated?: pulumi.Input<number>;
+        roleArn?: pulumi.Input<string>;
+        roleType?: pulumi.Input<enums.auditmanager.AssessmentRoleType>;
+        status?: pulumi.Input<enums.auditmanager.AssessmentDelegationStatus>;
+    }
+
+    /**
      * The destination in which evidence reports are stored for the specified assessment.
      */
     export interface AssessmentReportsDestinationArgs {
@@ -14591,6 +14608,24 @@ export namespace fsx {
         id: pulumi.Input<number>;
         storageCapacityQuotaGiB: pulumi.Input<number>;
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace gamecast {
+    /**
+     * Information about default application running on the stream group.
+     */
+    export interface StreamGroupDefaultApplicationArgs {
+        /**
+         * GameCast resource ID, base62 encoded.
+         */
+        id?: pulumi.Input<string>;
+    }
+
+    /**
+     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
+     */
+    export interface StreamGroupTagsArgs {
     }
 }
 

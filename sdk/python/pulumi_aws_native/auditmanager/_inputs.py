@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AssessmentAWSAccountArgs',
     'AssessmentAWSServiceArgs',
+    'AssessmentDelegationArgs',
     'AssessmentReportsDestinationArgs',
     'AssessmentRoleArgs',
     'AssessmentScopeArgs',
@@ -81,6 +82,146 @@ class AssessmentAWSServiceArgs:
     @service_name.setter
     def service_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_name", value)
+
+
+@pulumi.input_type
+class AssessmentDelegationArgs:
+    def __init__(__self__, *,
+                 assessment_id: Optional[pulumi.Input[str]] = None,
+                 assessment_name: Optional[pulumi.Input[str]] = None,
+                 comment: Optional[pulumi.Input[str]] = None,
+                 control_set_id: Optional[pulumi.Input[str]] = None,
+                 created_by: Optional[pulumi.Input[str]] = None,
+                 creation_time: Optional[pulumi.Input[float]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 last_updated: Optional[pulumi.Input[float]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 role_type: Optional[pulumi.Input['AssessmentRoleType']] = None,
+                 status: Optional[pulumi.Input['AssessmentDelegationStatus']] = None):
+        """
+        The assignment of a control set to a delegate for review.
+        """
+        if assessment_id is not None:
+            pulumi.set(__self__, "assessment_id", assessment_id)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if control_set_id is not None:
+            pulumi.set(__self__, "control_set_id", control_set_id)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if role_type is not None:
+            pulumi.set(__self__, "role_type", role_type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="assessmentId")
+    def assessment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "assessment_id")
+
+    @assessment_id.setter
+    def assessment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_id", value)
+
+    @property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_name", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="controlSetId")
+    def control_set_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "control_set_id")
+
+    @control_set_id.setter
+    def control_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_set_id", value)
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "created_by")
+
+    @created_by.setter
+    def created_by(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_by", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "last_updated", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="roleType")
+    def role_type(self) -> Optional[pulumi.Input['AssessmentRoleType']]:
+        return pulumi.get(self, "role_type")
+
+    @role_type.setter
+    def role_type(self, value: Optional[pulumi.Input['AssessmentRoleType']]):
+        pulumi.set(self, "role_type", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['AssessmentDelegationStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['AssessmentDelegationStatus']]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

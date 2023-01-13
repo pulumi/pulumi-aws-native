@@ -20,19 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskResult:
-    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, error_code=None, error_detail=None, excludes=None, includes=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None):
+    def __init__(__self__, cloud_watch_log_group_arn=None, destination_network_interface_arns=None, excludes=None, includes=None, name=None, options=None, schedule=None, source_network_interface_arns=None, status=None, tags=None, task_arn=None):
         if cloud_watch_log_group_arn and not isinstance(cloud_watch_log_group_arn, str):
             raise TypeError("Expected argument 'cloud_watch_log_group_arn' to be a str")
         pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if destination_network_interface_arns and not isinstance(destination_network_interface_arns, list):
             raise TypeError("Expected argument 'destination_network_interface_arns' to be a list")
         pulumi.set(__self__, "destination_network_interface_arns", destination_network_interface_arns)
-        if error_code and not isinstance(error_code, str):
-            raise TypeError("Expected argument 'error_code' to be a str")
-        pulumi.set(__self__, "error_code", error_code)
-        if error_detail and not isinstance(error_detail, str):
-            raise TypeError("Expected argument 'error_detail' to be a str")
-        pulumi.set(__self__, "error_detail", error_detail)
         if excludes and not isinstance(excludes, list):
             raise TypeError("Expected argument 'excludes' to be a list")
         pulumi.set(__self__, "excludes", excludes)
@@ -73,22 +67,6 @@ class GetTaskResult:
     @pulumi.getter(name="destinationNetworkInterfaceArns")
     def destination_network_interface_arns(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "destination_network_interface_arns")
-
-    @property
-    @pulumi.getter(name="errorCode")
-    def error_code(self) -> Optional[str]:
-        """
-        Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-        """
-        return pulumi.get(self, "error_code")
-
-    @property
-    @pulumi.getter(name="errorDetail")
-    def error_detail(self) -> Optional[str]:
-        """
-        Detailed description of an error that was encountered during the task execution.
-        """
-        return pulumi.get(self, "error_detail")
 
     @property
     @pulumi.getter
@@ -156,8 +134,6 @@ class AwaitableGetTaskResult(GetTaskResult):
         return GetTaskResult(
             cloud_watch_log_group_arn=self.cloud_watch_log_group_arn,
             destination_network_interface_arns=self.destination_network_interface_arns,
-            error_code=self.error_code,
-            error_detail=self.error_detail,
             excludes=self.excludes,
             includes=self.includes,
             name=self.name,
@@ -185,8 +161,6 @@ def get_task(task_arn: Optional[str] = None,
     return AwaitableGetTaskResult(
         cloud_watch_log_group_arn=__ret__.cloud_watch_log_group_arn,
         destination_network_interface_arns=__ret__.destination_network_interface_arns,
-        error_code=__ret__.error_code,
-        error_detail=__ret__.error_detail,
         excludes=__ret__.excludes,
         includes=__ret__.includes,
         name=__ret__.name,

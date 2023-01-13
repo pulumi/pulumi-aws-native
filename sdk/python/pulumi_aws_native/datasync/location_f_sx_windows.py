@@ -16,57 +16,35 @@ __all__ = ['LocationFSxWindowsArgs', 'LocationFSxWindows']
 @pulumi.input_type
 class LocationFSxWindowsArgs:
     def __init__(__self__, *,
-                 fsx_filesystem_arn: pulumi.Input[str],
-                 password: pulumi.Input[str],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None,
+                 fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxWindows resource.
-        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
-        :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
+        :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        :param pulumi.Input[str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "user", user)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if fsx_filesystem_arn is not None:
+            pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) for the FSx for Windows file system.
-        """
-        return pulumi.get(self, "fsx_filesystem_arn")
-
-    @fsx_filesystem_arn.setter
-    def fsx_filesystem_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "fsx_filesystem_arn", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -103,6 +81,30 @@ class LocationFSxWindowsArgs:
     @domain.setter
     def domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="fsxFilesystemArn")
+    def fsx_filesystem_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the FSx for Windows file system.
+        """
+        return pulumi.get(self, "fsx_filesystem_arn")
+
+    @fsx_filesystem_arn.setter
+    def fsx_filesystem_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fsx_filesystem_arn", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter
@@ -196,11 +198,7 @@ class LocationFSxWindows(pulumi.CustomResource):
             __props__ = LocationFSxWindowsArgs.__new__(LocationFSxWindowsArgs)
 
             __props__.__dict__["domain"] = domain
-            if fsx_filesystem_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'fsx_filesystem_arn'")
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = password
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
@@ -255,7 +253,7 @@ class LocationFSxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> pulumi.Output[str]:
+    def fsx_filesystem_arn(self) -> pulumi.Output[Optional[str]]:
         """
         The Amazon Resource Name (ARN) for the FSx for Windows file system.
         """
@@ -279,7 +277,7 @@ class LocationFSxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         """

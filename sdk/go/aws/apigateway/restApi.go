@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ApiGateway::RestApi
+// Resource Type definition for AWS::ApiGateway::RestApi.
 type RestApi struct {
 	pulumi.CustomResourceState
 
@@ -28,6 +28,7 @@ type RestApi struct {
 	Name                      pulumi.StringPtrOutput                `pulumi:"name"`
 	Parameters                pulumi.AnyOutput                      `pulumi:"parameters"`
 	Policy                    pulumi.AnyOutput                      `pulumi:"policy"`
+	RestApiId                 pulumi.StringOutput                   `pulumi:"restApiId"`
 	RootResourceId            pulumi.StringOutput                   `pulumi:"rootResourceId"`
 	Tags                      RestApiTagArrayOutput                 `pulumi:"tags"`
 }
@@ -198,6 +199,10 @@ func (o RestApiOutput) Parameters() pulumi.AnyOutput {
 
 func (o RestApiOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
+}
+
+func (o RestApiOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
 func (o RestApiOutput) RootResourceId() pulumi.StringOutput {

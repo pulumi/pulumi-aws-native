@@ -40,7 +40,7 @@ export class LocationFSxLustre extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
-    public readonly fsxFilesystemArn!: pulumi.Output<string>;
+    public readonly fsxFilesystemArn!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
      */
@@ -73,9 +73,6 @@ export class LocationFSxLustre extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fsxFilesystemArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'fsxFilesystemArn'");
-            }
             if ((!args || args.securityGroupArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
@@ -105,7 +102,7 @@ export interface LocationFSxLustreArgs {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
-    fsxFilesystemArn: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */

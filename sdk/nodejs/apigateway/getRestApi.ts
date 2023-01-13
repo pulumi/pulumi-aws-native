@@ -8,46 +8,40 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RestApi
+ * Resource Type definition for AWS::ApiGateway::RestApi.
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getRestApi", {
-        "id": args.id,
+        "restApiId": args.restApiId,
     }, opts);
 }
 
 export interface GetRestApiArgs {
-    id: string;
+    restApiId: string;
 }
 
 export interface GetRestApiResult {
     readonly apiKeySourceType?: string;
     readonly binaryMediaTypes?: string[];
-    readonly body?: any;
-    readonly bodyS3Location?: outputs.apigateway.RestApiS3Location;
-    readonly cloneFrom?: string;
     readonly description?: string;
     readonly disableExecuteApiEndpoint?: boolean;
     readonly endpointConfiguration?: outputs.apigateway.RestApiEndpointConfiguration;
-    readonly failOnWarnings?: boolean;
-    readonly id?: string;
     readonly minimumCompressionSize?: number;
-    readonly mode?: string;
     readonly name?: string;
-    readonly parameters?: any;
     readonly policy?: any;
+    readonly restApiId?: string;
     readonly rootResourceId?: string;
     readonly tags?: outputs.apigateway.RestApiTag[];
 }
 /**
- * Resource Type definition for AWS::ApiGateway::RestApi
+ * Resource Type definition for AWS::ApiGateway::RestApi.
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
     return pulumi.output(args).apply((a: any) => getRestApi(a, opts))
 }
 
 export interface GetRestApiOutputArgs {
-    id: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

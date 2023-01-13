@@ -114,7 +114,7 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "AgentArns", "BucketName", "ServerHostname" ],
+  "required" : [ "AgentArns" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "writeOnlyProperties" : [ "/properties/SecretKey", "/properties/BucketName", "/properties/ServerHostname", "/properties/Subdirectory" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],

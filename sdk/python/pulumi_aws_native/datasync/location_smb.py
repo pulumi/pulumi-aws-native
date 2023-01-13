@@ -18,32 +18,35 @@ __all__ = ['LocationSMBArgs', 'LocationSMB']
 class LocationSMBArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 password: pulumi.Input[str],
-                 server_hostname: pulumi.Input[str],
-                 subdirectory: pulumi.Input[str],
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None,
                  mount_options: Optional[pulumi.Input['LocationSMBMountOptionsArgs']] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 server_hostname: Optional[pulumi.Input[str]] = None,
+                 subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationSMB resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
+        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
-        :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
         :param pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server_hostname", server_hostname)
-        pulumi.set(__self__, "subdirectory", subdirectory)
         pulumi.set(__self__, "user", user)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server_hostname is not None:
+            pulumi.set(__self__, "server_hostname", server_hostname)
+        if subdirectory is not None:
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,42 +61,6 @@ class LocationSMBArgs:
     @agent_arns.setter
     def agent_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "agent_arns", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Input[str]:
-        """
-        The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
-        """
-        return pulumi.get(self, "server_hostname")
-
-    @server_hostname.setter
-    def server_hostname(self, value: pulumi.Input[str]):
-        pulumi.set(self, "server_hostname", value)
-
-    @property
-    @pulumi.getter
-    def subdirectory(self) -> pulumi.Input[str]:
-        """
-        The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
-        """
-        return pulumi.get(self, "subdirectory")
-
-    @subdirectory.setter
-    def subdirectory(self, value: pulumi.Input[str]):
-        pulumi.set(self, "subdirectory", value)
 
     @property
     @pulumi.getter
@@ -127,6 +94,42 @@ class LocationSMBArgs:
     @mount_options.setter
     def mount_options(self, value: Optional[pulumi.Input['LocationSMBMountOptionsArgs']]):
         pulumi.set(self, "mount_options", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="serverHostname")
+    def server_hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
+        """
+        return pulumi.get(self, "server_hostname")
+
+    @server_hostname.setter
+    def server_hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_hostname", value)
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
+        """
+        return pulumi.get(self, "subdirectory")
+
+    @subdirectory.setter
+    def subdirectory(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subdirectory", value)
 
     @property
     @pulumi.getter
@@ -214,14 +217,8 @@ class LocationSMB(pulumi.CustomResource):
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["domain"] = domain
             __props__.__dict__["mount_options"] = mount_options
-            if password is None and not opts.urn:
-                raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = password
-            if server_hostname is None and not opts.urn:
-                raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
-            if subdirectory is None and not opts.urn:
-                raise TypeError("Missing required property 'subdirectory'")
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
             if user is None and not opts.urn:
@@ -302,7 +299,7 @@ class LocationSMB(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         """
@@ -310,7 +307,7 @@ class LocationSMB(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> pulumi.Output[str]:
+    def server_hostname(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         """
@@ -318,7 +315,7 @@ class LocationSMB(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subdirectory(self) -> pulumi.Output[str]:
+    def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
         The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         """

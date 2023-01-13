@@ -50,11 +50,11 @@ export class LocationNFS extends pulumi.CustomResource {
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
-    public readonly serverHostname!: pulumi.Output<string>;
+    public readonly serverHostname!: pulumi.Output<string | undefined>;
     /**
      * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
-    public readonly subdirectory!: pulumi.Output<string>;
+    public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -73,12 +73,6 @@ export class LocationNFS extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.onPremConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'onPremConfig'");
-            }
-            if ((!args || args.serverHostname === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverHostname'");
-            }
-            if ((!args || args.subdirectory === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'subdirectory'");
             }
             resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
             resourceInputs["onPremConfig"] = args ? args.onPremConfig : undefined;
@@ -110,11 +104,11 @@ export interface LocationNFSArgs {
     /**
      * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
-    serverHostname: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string>;
     /**
      * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
-    subdirectory: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

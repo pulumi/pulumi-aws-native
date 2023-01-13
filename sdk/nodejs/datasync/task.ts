@@ -46,14 +46,6 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly destinationLocationArn!: pulumi.Output<string>;
     public /*out*/ readonly destinationNetworkInterfaceArns!: pulumi.Output<string[]>;
-    /**
-     * Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
-     */
-    public /*out*/ readonly errorCode!: pulumi.Output<string>;
-    /**
-     * Detailed description of an error that was encountered during the task execution.
-     */
-    public /*out*/ readonly errorDetail!: pulumi.Output<string>;
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
@@ -107,8 +99,6 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
-            resourceInputs["errorCode"] = undefined /*out*/;
-            resourceInputs["errorDetail"] = undefined /*out*/;
             resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["taskArn"] = undefined /*out*/;
@@ -116,8 +106,6 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["cloudWatchLogGroupArn"] = undefined /*out*/;
             resourceInputs["destinationLocationArn"] = undefined /*out*/;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
-            resourceInputs["errorCode"] = undefined /*out*/;
-            resourceInputs["errorDetail"] = undefined /*out*/;
             resourceInputs["excludes"] = undefined /*out*/;
             resourceInputs["includes"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

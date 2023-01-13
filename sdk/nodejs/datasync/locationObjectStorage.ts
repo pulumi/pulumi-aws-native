@@ -48,7 +48,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * The name of the bucket on the self-managed object storage server.
      */
-    public readonly bucketName!: pulumi.Output<string>;
+    public readonly bucketName!: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
@@ -64,7 +64,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
-    public readonly serverHostname!: pulumi.Output<string>;
+    public readonly serverHostname!: pulumi.Output<string | undefined>;
     /**
      * The port that your self-managed server accepts inbound network traffic on.
      */
@@ -95,12 +95,6 @@ export class LocationObjectStorage extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.agentArns === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'agentArns'");
-            }
-            if ((!args || args.bucketName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'bucketName'");
-            }
-            if ((!args || args.serverHostname === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverHostname'");
             }
             resourceInputs["accessKey"] = args ? args.accessKey : undefined;
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
@@ -146,7 +140,7 @@ export interface LocationObjectStorageArgs {
     /**
      * The name of the bucket on the self-managed object storage server.
      */
-    bucketName: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
@@ -154,7 +148,7 @@ export interface LocationObjectStorageArgs {
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
-    serverHostname: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string>;
     /**
      * The port that your self-managed server accepts inbound network traffic on.
      */

@@ -22,9 +22,9 @@ type LocationNFS struct {
 	MountOptions LocationNFSMountOptionsPtrOutput `pulumi:"mountOptions"`
 	OnPremConfig LocationNFSOnPremConfigOutput    `pulumi:"onPremConfig"`
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
-	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
+	ServerHostname pulumi.StringPtrOutput `pulumi:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
-	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
+	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
 	Tags LocationNFSTagArrayOutput `pulumi:"tags"`
 }
@@ -38,12 +38,6 @@ func NewLocationNFS(ctx *pulumi.Context,
 
 	if args.OnPremConfig == nil {
 		return nil, errors.New("invalid value for required argument 'OnPremConfig'")
-	}
-	if args.ServerHostname == nil {
-		return nil, errors.New("invalid value for required argument 'ServerHostname'")
-	}
-	if args.Subdirectory == nil {
-		return nil, errors.New("invalid value for required argument 'Subdirectory'")
 	}
 	var resource LocationNFS
 	err := ctx.RegisterResource("aws-native:datasync:LocationNFS", name, args, &resource, opts...)
@@ -80,9 +74,9 @@ type locationNFSArgs struct {
 	MountOptions *LocationNFSMountOptions `pulumi:"mountOptions"`
 	OnPremConfig LocationNFSOnPremConfig  `pulumi:"onPremConfig"`
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
-	ServerHostname string `pulumi:"serverHostname"`
+	ServerHostname *string `pulumi:"serverHostname"`
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
-	Subdirectory string `pulumi:"subdirectory"`
+	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []LocationNFSTag `pulumi:"tags"`
 }
@@ -92,9 +86,9 @@ type LocationNFSArgs struct {
 	MountOptions LocationNFSMountOptionsPtrInput
 	OnPremConfig LocationNFSOnPremConfigInput
 	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
-	ServerHostname pulumi.StringInput
+	ServerHostname pulumi.StringPtrInput
 	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
-	Subdirectory pulumi.StringInput
+	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags LocationNFSTagArrayInput
 }
@@ -155,13 +149,13 @@ func (o LocationNFSOutput) OnPremConfig() LocationNFSOnPremConfigOutput {
 }
 
 // The name of the NFS server. This value is the IP address or DNS name of the NFS server.
-func (o LocationNFSOutput) ServerHostname() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
+func (o LocationNFSOutput) ServerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringPtrOutput { return v.ServerHostname }).(pulumi.StringPtrOutput)
 }
 
 // The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
-func (o LocationNFSOutput) Subdirectory() pulumi.StringOutput {
-	return o.ApplyT(func(v *LocationNFS) pulumi.StringOutput { return v.Subdirectory }).(pulumi.StringOutput)
+func (o LocationNFSOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationNFS) pulumi.StringPtrOutput { return v.Subdirectory }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

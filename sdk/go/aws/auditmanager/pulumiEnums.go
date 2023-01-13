@@ -19,6 +19,42 @@ const (
 	AssessmentDelegationStatusComplete    = AssessmentDelegationStatus("COMPLETE")
 )
 
+func (AssessmentDelegationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentDelegationStatus)(nil)).Elem()
+}
+
+func (e AssessmentDelegationStatus) ToAssessmentDelegationStatusOutput() AssessmentDelegationStatusOutput {
+	return pulumi.ToOutput(e).(AssessmentDelegationStatusOutput)
+}
+
+func (e AssessmentDelegationStatus) ToAssessmentDelegationStatusOutputWithContext(ctx context.Context) AssessmentDelegationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssessmentDelegationStatusOutput)
+}
+
+func (e AssessmentDelegationStatus) ToAssessmentDelegationStatusPtrOutput() AssessmentDelegationStatusPtrOutput {
+	return e.ToAssessmentDelegationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentDelegationStatus) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
+	return AssessmentDelegationStatus(e).ToAssessmentDelegationStatusOutputWithContext(ctx).ToAssessmentDelegationStatusPtrOutputWithContext(ctx)
+}
+
+func (e AssessmentDelegationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentDelegationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentDelegationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentDelegationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type AssessmentDelegationStatusOutput struct{ *pulumi.OutputState }
 
 func (AssessmentDelegationStatusOutput) ElementType() reflect.Type {
@@ -100,6 +136,44 @@ func (o AssessmentDelegationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// AssessmentDelegationStatusInput is an input type that accepts AssessmentDelegationStatusArgs and AssessmentDelegationStatusOutput values.
+// You can construct a concrete instance of `AssessmentDelegationStatusInput` via:
+//
+//	AssessmentDelegationStatusArgs{...}
+type AssessmentDelegationStatusInput interface {
+	pulumi.Input
+
+	ToAssessmentDelegationStatusOutput() AssessmentDelegationStatusOutput
+	ToAssessmentDelegationStatusOutputWithContext(context.Context) AssessmentDelegationStatusOutput
+}
+
+var assessmentDelegationStatusPtrType = reflect.TypeOf((**AssessmentDelegationStatus)(nil)).Elem()
+
+type AssessmentDelegationStatusPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentDelegationStatusPtrOutput() AssessmentDelegationStatusPtrOutput
+	ToAssessmentDelegationStatusPtrOutputWithContext(context.Context) AssessmentDelegationStatusPtrOutput
+}
+
+type assessmentDelegationStatusPtr string
+
+func AssessmentDelegationStatusPtr(v string) AssessmentDelegationStatusPtrInput {
+	return (*assessmentDelegationStatusPtr)(&v)
+}
+
+func (*assessmentDelegationStatusPtr) ElementType() reflect.Type {
+	return assessmentDelegationStatusPtrType
+}
+
+func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutput() AssessmentDelegationStatusPtrOutput {
+	return pulumi.ToOutput(in).(AssessmentDelegationStatusPtrOutput)
+}
+
+func (in *assessmentDelegationStatusPtr) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssessmentDelegationStatusPtrOutput)
 }
 
 // The destination type, such as Amazon S3.
@@ -597,6 +671,8 @@ func (in *assessmentStatusPtr) ToAssessmentStatusPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationStatusInput)(nil)).Elem(), AssessmentDelegationStatus("IN_PROGRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentDelegationStatusPtrInput)(nil)).Elem(), AssessmentDelegationStatus("IN_PROGRESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportDestinationTypeInput)(nil)).Elem(), AssessmentReportDestinationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentReportDestinationTypePtrInput)(nil)).Elem(), AssessmentReportDestinationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentRoleTypeInput)(nil)).Elem(), AssessmentRoleType("PROCESS_OWNER"))
