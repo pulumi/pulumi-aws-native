@@ -1,7 +1,47 @@
 ## HEAD (Unreleased)
 
+## 0.47.0 (January 13, 2023)
+
 Breaking changes:
-- Renamed broken type ClusterLogging to ClusterLoggingOuter, allowing the real ClusterLogging to be generated
+  - Renamed broken type ClusterLogging to ClusterLoggingOuter, allowing the real ClusterLogging to be generated (#644)
+  - Resource `aws-native:apigateway:RestApi` missing output `restApiId`
+  - Resource `aws-native:datasync:Task` missing output `errorDetail`
+  - Resource `aws-native:datasync:Task` missing output `errorCode`
+  - Function `aws-native:apigateway:getRestApi` missing input `id`
+  - Function `aws-native:apigateway:getRestApi` missing output `body`
+  - Function `aws-native:apigateway:getRestApi` missing output `parameters`
+  - Function `aws-native:apigateway:getRestApi` missing output `mode`
+  - Function `aws-native:apigateway:getRestApi` missing output `cloneFrom`
+  - Function `aws-native:apigateway:getRestApi` missing output `id`
+  - Function `aws-native:apigateway:getRestApi` missing output `bodyS3Location`
+  - Function `aws-native:apigateway:getRestApi` missing output `failOnWarnings`
+  - Function `aws-native:apigateway:getRestApi` missing input `restApiId`
+  - Function `aws-native:apigateway:getRestApi` missing output `restApiId`
+  - Function `aws-native:datasync:getTask` missing output `errorCode`
+  - Function `aws-native:datasync:getTask` missing output `errorDetail`
+  - Function `aws-native:ec2:getPlacementGroup` missing output `groupName`
+  - Function `aws-native:ec2:getVolume` missing input `id`
+  - Function `aws-native:ec2:getVolume` missing output `id`
+  - Function `aws-native:iotsitewise:getProject` missing output `assetIds`
+  - Function `aws-native:logs:getSubscriptionFilter` missing
+  - Function `aws-native:redshift:getClusterSubnetGroup` missing output `tags`
+  - Function `aws-native:redshift:getEventSubscription` missing output `tags`
+  - Function `aws-native:redshift:getClusterParameterGroup` missing output `tags`
+  - Function `aws-native:redshiftserverless:getNamespace` missing output `finalSnapshotName`
+  - Function `aws-native:redshiftserverless:getNamespace` missing output `finalSnapshotRetentionPeriod`
+
+New resources:
+  - `appflow.Connector`
+  - `directoryservice.SimpleAD`
+  - `gamecast.StreamGroup`
+  - `gamelift.Build`
+
+New functions:
+  - `appflow.getConnector`
+  - `directoryservice.getSimpleAD`
+  - `gamecast.getStreamGroup`
+  - `gamelift.getBuild`
+
 
 ## 0.46.0 (January 09, 2023)
 
