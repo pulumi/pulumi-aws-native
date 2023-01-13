@@ -118,7 +118,7 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "User", "Password", "Subdirectory", "ServerHostname", "AgentArns" ],
+  "required" : [ "User", "AgentArns" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "writeOnlyProperties" : [ "/properties/Password", "/properties/Subdirectory", "/properties/ServerHostname" ],

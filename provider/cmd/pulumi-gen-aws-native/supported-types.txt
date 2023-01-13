@@ -274,6 +274,7 @@ AWS::FraudDetector::EventType
 AWS::FraudDetector::Label
 AWS::FraudDetector::Outcome
 AWS::FraudDetector::Variable
+AWS::GameCast::StreamGroup
 AWS::GameLift::Alias
 AWS::GameLift::Build
 AWS::GameLift::Fleet
