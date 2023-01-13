@@ -111,7 +111,7 @@
     "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
-  "required" : [ "OnPremConfig", "ServerHostname", "Subdirectory" ],
+  "required" : [ "OnPremConfig" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
   "createOnlyProperties" : [ "/properties/ServerHostname" ],

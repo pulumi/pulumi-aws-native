@@ -1908,6 +1908,9 @@
                 "policy": {
                     "$ref": "pulumi.json#/Any"
                 },
+                "restApiId": {
+                    "type": "string"
+                },
                 "rootResourceId": {
                     "type": "string"
                 },
@@ -1920,7 +1923,15 @@
             },
             "autoNamingSpec": {
                 "sdkName": "name"
-            }
+            },
+            "writeOnly": [
+                "body",
+                "bodyS3Location",
+                "cloneFrom",
+                "failOnWarnings",
+                "mode",
+                "parameters"
+            ]
         },
         "aws-native:apigateway:Stage": {
             "cf": "AWS::ApiGateway::Stage",
@@ -4329,6 +4340,13 @@
                 },
                 "awsAccount": {
                     "$ref": "#/types/aws-native:auditmanager:AssessmentAWSAccount"
+                },
+                "delegations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:auditmanager:AssessmentDelegation"
+                    },
+                    "description": "The list of delegations."
                 },
                 "description": {
                     "type": "string"
@@ -10574,7 +10592,6 @@
                 }
             },
             "required": [
-                "fsxFilesystemArn",
                 "securityGroupArns"
             ],
             "createOnly": [
@@ -10833,8 +10850,6 @@
                 }
             },
             "required": [
-                "fsxFilesystemArn",
-                "password",
                 "securityGroupArns",
                 "user"
             ],
@@ -11054,9 +11069,7 @@
                 }
             },
             "required": [
-                "onPremConfig",
-                "serverHostname",
-                "subdirectory"
+                "onPremConfig"
             ],
             "createOnly": [
                 "serverHostname"
@@ -11165,9 +11178,7 @@
                 }
             },
             "required": [
-                "agentArns",
-                "bucketName",
-                "serverHostname"
+                "agentArns"
             ],
             "createOnly": [
                 "bucketName",
@@ -11343,9 +11354,6 @@
             },
             "required": [
                 "agentArns",
-                "password",
-                "serverHostname",
-                "subdirectory",
                 "user"
             ],
             "createOnly": [
@@ -11416,14 +11424,6 @@
                     "items": {
                         "type": "string"
                     }
-                },
-                "errorCode": {
-                    "type": "string",
-                    "description": "Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues."
-                },
-                "errorDetail": {
-                    "type": "string",
-                    "description": "Detailed description of an error that was encountered during the task execution."
                 },
                 "excludes": {
                     "type": "array",
@@ -20706,6 +20706,58 @@
                 "dataRepositoryPath",
                 "fileSystemId",
                 "fileSystemPath"
+            ]
+        },
+        "aws-native:gamecast:StreamGroup": {
+            "cf": "AWS::GameCast::StreamGroup",
+            "inputs": {
+                "defaultApplication": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupDefaultApplication"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Descriptive label for the resource, not a unique ID."
+                },
+                "desiredCapacity": {
+                    "type": "integer",
+                    "description": "DesiredCapacity is the target number of stream sessions customer sets."
+                },
+                "streamClass": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupStreamClass"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupTags"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the resource."
+                },
+                "defaultApplication": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupDefaultApplication"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Descriptive label for the resource, not a unique ID."
+                },
+                "desiredCapacity": {
+                    "type": "integer",
+                    "description": "DesiredCapacity is the target number of stream sessions customer sets."
+                },
+                "streamClass": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupStreamClass"
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:gamecast:StreamGroupTags"
+                }
+            },
+            "required": [
+                "description"
+            ],
+            "createOnly": [
+                "defaultApplication/Id",
+                "streamClass"
             ]
         },
         "aws-native:gamelift:Alias": {
@@ -67279,6 +67331,21 @@
                 }
             }
         },
+        "aws-native:gamecast:StreamGroupDefaultApplication": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "GameCast resource ID, base62 encoded."
+                }
+            }
+        },
+        "aws-native:gamecast:StreamGroupStreamClass": {
+            "type": "string"
+        },
+        "aws-native:gamecast:StreamGroupTags": {
+            "type": "object"
+        },
         "aws-native:gamelift:AliasRoutingStrategy": {
             "type": "object",
             "properties": {
@@ -95782,7 +95849,7 @@
         "aws-native:apigateway:getRestApi": {
             "cf": "AWS::ApiGateway::RestApi",
             "ids": [
-                "id"
+                "restApiId"
             ]
         },
         "aws-native:apigateway:getStage": {
@@ -97277,6 +97344,12 @@
             "cf": "AWS::FSx::DataRepositoryAssociation",
             "ids": [
                 "associationId"
+            ]
+        },
+        "aws-native:gamecast:getStreamGroup": {
+            "cf": "AWS::GameCast::StreamGroup",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:gamelift:getAlias": {

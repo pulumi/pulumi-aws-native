@@ -74,9 +74,9 @@
     "CreatedBy" : {
       "description" : "The IAM user or role that performed the action.",
       "type" : "string",
-      "maxLength" : 100,
-      "minLength" : 1,
-      "pattern" : "^[a-zA-Z0-9-_()\\[\\]\\s]+$"
+      "maxLength" : 2048,
+      "minLength" : 20,
+      "pattern" : "^arn:.*:*:.*"
     },
     "IamArn" : {
       "description" : "The Amazon Resource Name (ARN) of the IAM user or role.",
@@ -303,19 +303,19 @@
   },
   "required" : [ ],
   "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/AssessmentId", "/properties/Arn", "/properties/CreationTime", "/properties/Delegations" ],
+  "readOnlyProperties" : [ "/properties/AssessmentId", "/properties/Arn", "/properties/CreationTime" ],
   "createOnlyProperties" : [ "/properties/FrameworkId", "/properties/AwsAccount" ],
   "writeOnlyProperties" : [ "/properties/Name", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/AssessmentId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "auditmanager:CreateAssessment", "auditmanager:TagResource", "auditmanager:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "auditmanager:CreateAssessment", "auditmanager:TagResource", "auditmanager:ListTagsForResource", "auditmanager:BatchCreateDelegationByAssessment", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "auditmanager:GetAssessment" ]
     },
     "update" : {
-      "permissions" : [ "auditmanager:UpdateAssessment", "auditmanager:UpdateAssessmentStatus" ]
+      "permissions" : [ "auditmanager:UpdateAssessment", "auditmanager:UpdateAssessmentStatus", "auditmanager:BatchCreateDelegationByAssessment", "auditmanager:BatchDeleteDelegationByAssessment" ]
     },
     "delete" : {
       "permissions" : [ "auditmanager:DeleteAssessment" ]
