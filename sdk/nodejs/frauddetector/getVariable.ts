@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A resource schema for a Variable in Amazon Fraud Detector.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:frauddetector:getVariable", {
         "arn": args.arn,
     }, opts);
@@ -66,9 +63,11 @@ export interface GetVariableResult {
      */
     readonly variableType?: enums.frauddetector.VariableType;
 }
-
+/**
+ * A resource schema for a Variable in Amazon Fraud Detector.
+ */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
-    return pulumi.output(args).apply(a => getVariable(a, opts))
+    return pulumi.output(args).apply((a: any) => getVariable(a, opts))
 }
 
 export interface GetVariableOutputArgs {

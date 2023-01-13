@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::PlacementGroup
  */
 export function getPlacementGroup(args: GetPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPlacementGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getPlacementGroup", {
         "groupName": args.groupName,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetPlacementGroupResult {
      */
     readonly tags?: outputs.ec2.PlacementGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::PlacementGroup
+ */
 export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
-    return pulumi.output(args).apply(a => getPlacementGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getPlacementGroup(a, opts))
 }
 
 export interface GetPlacementGroupOutputArgs {

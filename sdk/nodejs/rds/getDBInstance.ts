@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
  */
 export function getDBInstance(args: GetDBInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetDBInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBInstance", {
         "dBInstanceIdentifier": args.dBInstanceIdentifier,
     }, opts);
@@ -234,9 +231,11 @@ export interface GetDBInstanceResult {
      */
     readonly vPCSecurityGroups?: string[];
 }
-
+/**
+ * The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
+ */
 export function getDBInstanceOutput(args: GetDBInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBInstanceResult> {
-    return pulumi.output(args).apply(a => getDBInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBInstance(a, opts))
 }
 
 export interface GetDBInstanceOutputArgs {

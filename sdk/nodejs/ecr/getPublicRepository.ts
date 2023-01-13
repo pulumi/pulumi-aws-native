@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
  */
 export function getPublicRepository(args: GetPublicRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ecr:getPublicRepository", {
         "repositoryName": args.repositoryName,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetPublicRepositoryResult {
      */
     readonly tags?: outputs.ecr.PublicRepositoryTag[];
 }
-
+/**
+ * The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
+ */
 export function getPublicRepositoryOutput(args: GetPublicRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicRepositoryResult> {
-    return pulumi.output(args).apply(a => getPublicRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicRepository(a, opts))
 }
 
 export interface GetPublicRepositoryOutputArgs {

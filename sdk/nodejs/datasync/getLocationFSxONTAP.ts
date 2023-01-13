@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationFSxONTAP.
  */
 export function getLocationFSxONTAP(args: GetLocationFSxONTAPArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxONTAPResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationFSxONTAP", {
         "locationArn": args.locationArn,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetLocationFSxONTAPResult {
      */
     readonly tags?: outputs.datasync.LocationFSxONTAPTag[];
 }
-
+/**
+ * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ */
 export function getLocationFSxONTAPOutput(args: GetLocationFSxONTAPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxONTAPResult> {
-    return pulumi.output(args).apply(a => getLocationFSxONTAP(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocationFSxONTAP(a, opts))
 }
 
 export interface GetLocationFSxONTAPOutputArgs {

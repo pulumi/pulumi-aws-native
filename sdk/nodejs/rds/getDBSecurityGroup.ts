@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::RDS::DBSecurityGroup
  */
 export function getDBSecurityGroup(args: GetDBSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBSecurityGroup", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetDBSecurityGroupResult {
     readonly id?: string;
     readonly tags?: outputs.rds.DBSecurityGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::RDS::DBSecurityGroup
+ */
 export function getDBSecurityGroupOutput(args: GetDBSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getDBSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBSecurityGroup(a, opts))
 }
 
 export interface GetDBSecurityGroupOutputArgs {

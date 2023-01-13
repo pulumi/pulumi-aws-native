@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppIntegrations::DataIntegration
  */
 export function getDataIntegration(args: GetDataIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataIntegrationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appintegrations:getDataIntegration", {
         "id": args.id,
     }, opts);
@@ -50,9 +47,11 @@ export interface GetDataIntegrationResult {
      */
     readonly tags?: outputs.appintegrations.DataIntegrationTag[];
 }
-
+/**
+ * Resource Type definition for AWS::AppIntegrations::DataIntegration
+ */
 export function getDataIntegrationOutput(args: GetDataIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataIntegrationResult> {
-    return pulumi.output(args).apply(a => getDataIntegration(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataIntegration(a, opts))
 }
 
 export interface GetDataIntegrationOutputArgs {

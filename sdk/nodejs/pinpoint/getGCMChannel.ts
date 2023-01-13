@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::GCMChannel
  */
 export function getGCMChannel(args: GetGCMChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetGCMChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getGCMChannel", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetGCMChannelResult {
     readonly enabled?: boolean;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::GCMChannel
+ */
 export function getGCMChannelOutput(args: GetGCMChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGCMChannelResult> {
-    return pulumi.output(args).apply(a => getGCMChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getGCMChannel(a, opts))
 }
 
 export interface GetGCMChannelOutputArgs {

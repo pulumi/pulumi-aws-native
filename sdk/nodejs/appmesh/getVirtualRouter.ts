@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::VirtualRouter
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getVirtualRouter", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVirtualRouterResult {
     readonly tags?: outputs.appmesh.VirtualRouterTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::VirtualRouter
+ */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
-    return pulumi.output(args).apply(a => getVirtualRouter(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))
 }
 
 export interface GetVirtualRouterOutputArgs {

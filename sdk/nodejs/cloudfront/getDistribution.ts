@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::Distribution
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getDistribution", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetDistributionResult {
     readonly id?: string;
     readonly tags?: outputs.cloudfront.DistributionTag[];
 }
-
+/**
+ * Resource Type definition for AWS::CloudFront::Distribution
+ */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
-    return pulumi.output(args).apply(a => getDistribution(a, opts))
+    return pulumi.output(args).apply((a: any) => getDistribution(a, opts))
 }
 
 export interface GetDistributionOutputArgs {

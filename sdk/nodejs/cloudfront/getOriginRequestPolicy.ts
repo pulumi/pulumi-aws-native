@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CloudFront::OriginRequestPolicy
  */
 export function getOriginRequestPolicy(args: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloudfront:getOriginRequestPolicy", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetOriginRequestPolicyResult {
     readonly lastModifiedTime?: string;
     readonly originRequestPolicyConfig?: outputs.cloudfront.OriginRequestPolicyConfig;
 }
-
+/**
+ * Resource Type definition for AWS::CloudFront::OriginRequestPolicy
+ */
 export function getOriginRequestPolicyOutput(args: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
-    return pulumi.output(args).apply(a => getOriginRequestPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getOriginRequestPolicy(a, opts))
 }
 
 export interface GetOriginRequestPolicyOutputArgs {

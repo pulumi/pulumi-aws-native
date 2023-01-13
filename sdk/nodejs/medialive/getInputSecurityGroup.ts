@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MediaLive::InputSecurityGroup
  */
 export function getInputSecurityGroup(args: GetInputSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInputSecurityGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:medialive:getInputSecurityGroup", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetInputSecurityGroupResult {
     readonly tags?: any;
     readonly whitelistRules?: outputs.medialive.InputSecurityGroupInputWhitelistRuleCidr[];
 }
-
+/**
+ * Resource Type definition for AWS::MediaLive::InputSecurityGroup
+ */
 export function getInputSecurityGroupOutput(args: GetInputSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputSecurityGroupResult> {
-    return pulumi.output(args).apply(a => getInputSecurityGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getInputSecurityGroup(a, opts))
 }
 
 export interface GetInputSecurityGroupOutputArgs {

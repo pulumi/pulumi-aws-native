@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
  */
 export function getObservabilityConfiguration(args: GetObservabilityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetObservabilityConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apprunner:getObservabilityConfiguration", {
         "observabilityConfigurationArn": args.observabilityConfigurationArn,
     }, opts);
@@ -39,9 +36,11 @@ export interface GetObservabilityConfigurationResult {
      */
     readonly observabilityConfigurationRevision?: number;
 }
-
+/**
+ * The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
+ */
 export function getObservabilityConfigurationOutput(args: GetObservabilityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObservabilityConfigurationResult> {
-    return pulumi.output(args).apply(a => getObservabilityConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getObservabilityConfiguration(a, opts))
 }
 
 export interface GetObservabilityConfigurationOutputArgs {

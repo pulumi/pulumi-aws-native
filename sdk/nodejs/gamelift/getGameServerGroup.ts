@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
  */
 export function getGameServerGroup(args: GetGameServerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGameServerGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getGameServerGroup", {
         "gameServerGroupArn": args.gameServerGroupArn,
     }, opts);
@@ -82,9 +79,11 @@ export interface GetGameServerGroupResult {
      */
     readonly vpcSubnets?: string[];
 }
-
+/**
+ * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
+ */
 export function getGameServerGroupOutput(args: GetGameServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameServerGroupResult> {
-    return pulumi.output(args).apply(a => getGameServerGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getGameServerGroup(a, opts))
 }
 
 export interface GetGameServerGroupOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::TrafficMirrorTarget
  */
 export function getTrafficMirrorTarget(args: GetTrafficMirrorTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficMirrorTargetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTrafficMirrorTarget", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetTrafficMirrorTargetResult {
     readonly id?: string;
     readonly tags?: outputs.ec2.TrafficMirrorTargetTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::TrafficMirrorTarget
+ */
 export function getTrafficMirrorTargetOutput(args: GetTrafficMirrorTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficMirrorTargetResult> {
-    return pulumi.output(args).apply(a => getTrafficMirrorTarget(a, opts))
+    return pulumi.output(args).apply((a: any) => getTrafficMirrorTarget(a, opts))
 }
 
 export interface GetTrafficMirrorTargetOutputArgs {

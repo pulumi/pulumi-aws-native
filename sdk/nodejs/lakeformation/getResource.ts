@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::LakeFormation::Resource
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lakeformation:getResource", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetResourceResult {
     readonly roleArn?: string;
     readonly useServiceLinkedRole?: boolean;
 }
-
+/**
+ * Resource Type definition for AWS::LakeFormation::Resource
+ */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
-    return pulumi.output(args).apply(a => getResource(a, opts))
+    return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
 
 export interface GetResourceOutputArgs {

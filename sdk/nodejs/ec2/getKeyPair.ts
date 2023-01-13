@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::EC2::KeyPair creates an SSH key pair
  */
 export function getKeyPair(args: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getKeyPair", {
         "keyName": args.keyName,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetKeyPairResult {
      */
     readonly tags?: outputs.ec2.KeyPairTag[];
 }
-
+/**
+ * The AWS::EC2::KeyPair creates an SSH key pair
+ */
 export function getKeyPairOutput(args: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
-    return pulumi.output(args).apply(a => getKeyPair(a, opts))
+    return pulumi.output(args).apply((a: any) => getKeyPair(a, opts))
 }
 
 export interface GetKeyPairOutputArgs {

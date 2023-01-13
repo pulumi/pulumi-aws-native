@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EMR::InstanceGroupConfig
  */
 export function getInstanceGroupConfig(args: GetInstanceGroupConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceGroupConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:emr:getInstanceGroupConfig", {
         "id": args.id,
     }, opts);
@@ -30,9 +27,11 @@ export interface GetInstanceGroupConfigResult {
     readonly id?: string;
     readonly instanceCount?: number;
 }
-
+/**
+ * Resource Type definition for AWS::EMR::InstanceGroupConfig
+ */
 export function getInstanceGroupConfigOutput(args: GetInstanceGroupConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceGroupConfigResult> {
-    return pulumi.output(args).apply(a => getInstanceGroupConfig(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceGroupConfig(a, opts))
 }
 
 export interface GetInstanceGroupConfigOutputArgs {

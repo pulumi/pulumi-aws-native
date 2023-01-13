@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Chatbot::SlackChannelConfiguration.
  */
 export function getSlackChannelConfiguration(args: GetSlackChannelConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSlackChannelConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:chatbot:getSlackChannelConfiguration", {
         "arn": args.arn,
     }, opts);
@@ -55,9 +52,11 @@ export interface GetSlackChannelConfigurationResult {
      */
     readonly userRoleRequired?: boolean;
 }
-
+/**
+ * Resource schema for AWS::Chatbot::SlackChannelConfiguration.
+ */
 export function getSlackChannelConfigurationOutput(args: GetSlackChannelConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackChannelConfigurationResult> {
-    return pulumi.output(args).apply(a => getSlackChannelConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getSlackChannelConfiguration(a, opts))
 }
 
 export interface GetSlackChannelConfigurationOutputArgs {

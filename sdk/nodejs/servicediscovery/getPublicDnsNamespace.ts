@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
  */
 export function getPublicDnsNamespace(args: GetPublicDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicDnsNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicediscovery:getPublicDnsNamespace", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetPublicDnsNamespaceResult {
     readonly properties?: outputs.servicediscovery.PublicDnsNamespaceProperties;
     readonly tags?: outputs.servicediscovery.PublicDnsNamespaceTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ServiceDiscovery::PublicDnsNamespace
+ */
 export function getPublicDnsNamespaceOutput(args: GetPublicDnsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicDnsNamespaceResult> {
-    return pulumi.output(args).apply(a => getPublicDnsNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getPublicDnsNamespace(a, opts))
 }
 
 export interface GetPublicDnsNamespaceOutputArgs {

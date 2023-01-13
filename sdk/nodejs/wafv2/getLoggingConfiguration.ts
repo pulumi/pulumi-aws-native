@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A WAFv2 Logging Configuration Resource Provider
  */
 export function getLoggingConfiguration(args: GetLoggingConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggingConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafv2:getLoggingConfiguration", {
         "resourceArn": args.resourceArn,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetLoggingConfigurationResult {
      */
     readonly redactedFields?: outputs.wafv2.LoggingConfigurationFieldToMatch[];
 }
-
+/**
+ * A WAFv2 Logging Configuration Resource Provider
+ */
 export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
-    return pulumi.output(args).apply(a => getLoggingConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoggingConfiguration(a, opts))
 }
 
 export interface GetLoggingConfigurationOutputArgs {

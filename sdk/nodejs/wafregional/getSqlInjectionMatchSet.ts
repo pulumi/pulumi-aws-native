@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::SqlInjectionMatchSet
  */
 export function getSqlInjectionMatchSet(args: GetSqlInjectionMatchSetArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlInjectionMatchSetResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getSqlInjectionMatchSet", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetSqlInjectionMatchSetResult {
     readonly id?: string;
     readonly sqlInjectionMatchTuples?: outputs.wafregional.SqlInjectionMatchSetSqlInjectionMatchTuple[];
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::SqlInjectionMatchSet
+ */
 export function getSqlInjectionMatchSetOutput(args: GetSqlInjectionMatchSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlInjectionMatchSetResult> {
-    return pulumi.output(args).apply(a => getSqlInjectionMatchSet(a, opts))
+    return pulumi.output(args).apply((a: any) => getSqlInjectionMatchSet(a, opts))
 }
 
 export interface GetSqlInjectionMatchSetOutputArgs {

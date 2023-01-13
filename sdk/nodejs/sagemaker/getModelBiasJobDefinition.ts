@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
  */
 export function getModelBiasJobDefinition(args: GetModelBiasJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetModelBiasJobDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sagemaker:getModelBiasJobDefinition", {
         "jobDefinitionArn": args.jobDefinitionArn,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetModelBiasJobDefinitionResult {
      */
     readonly jobDefinitionArn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
+ */
 export function getModelBiasJobDefinitionOutput(args: GetModelBiasJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelBiasJobDefinitionResult> {
-    return pulumi.output(args).apply(a => getModelBiasJobDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getModelBiasJobDefinition(a, opts))
 }
 
 export interface GetModelBiasJobDefinitionOutputArgs {

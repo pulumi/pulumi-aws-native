@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::FSx::FileSystem
  */
 export function getFileSystem(args: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fsx:getFileSystem", {
         "id": args.id,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetFileSystemResult {
     readonly tags?: outputs.fsx.FileSystemTag[];
     readonly windowsConfiguration?: outputs.fsx.FileSystemWindowsConfiguration;
 }
-
+/**
+ * Resource Type definition for AWS::FSx::FileSystem
+ */
 export function getFileSystemOutput(args: GetFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileSystemResult> {
-    return pulumi.output(args).apply(a => getFileSystem(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileSystem(a, opts))
 }
 
 export interface GetFileSystemOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
  */
 export function getUserPoolUserToGroupAttachment(args: GetUserPoolUserToGroupAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolUserToGroupAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolUserToGroupAttachment", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetUserPoolUserToGroupAttachmentArgs {
 export interface GetUserPoolUserToGroupAttachmentResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
+ */
 export function getUserPoolUserToGroupAttachmentOutput(args: GetUserPoolUserToGroupAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolUserToGroupAttachmentResult> {
-    return pulumi.output(args).apply(a => getUserPoolUserToGroupAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getUserPoolUserToGroupAttachment(a, opts))
 }
 
 export interface GetUserPoolUserToGroupAttachmentOutputArgs {

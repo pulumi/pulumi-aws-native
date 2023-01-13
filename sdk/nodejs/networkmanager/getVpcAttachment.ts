@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::VpcAttachment Resoruce Type
  */
 export function getVpcAttachment(args: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getVpcAttachment", {
         "attachmentId": args.attachmentId,
     }, opts);
@@ -90,9 +87,11 @@ export interface GetVpcAttachmentResult {
      */
     readonly updatedAt?: string;
 }
-
+/**
+ * AWS::NetworkManager::VpcAttachment Resoruce Type
+ */
 export function getVpcAttachmentOutput(args: GetVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentResult> {
-    return pulumi.output(args).apply(a => getVpcAttachment(a, opts))
+    return pulumi.output(args).apply((a: any) => getVpcAttachment(a, opts))
 }
 
 export interface GetVpcAttachmentOutputArgs {

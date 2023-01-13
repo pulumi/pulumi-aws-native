@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::SecurityConfiguration
  */
 export function getSecurityConfiguration(args: GetSecurityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getSecurityConfiguration", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetSecurityConfigurationResult {
     readonly encryptionConfiguration?: outputs.glue.SecurityConfigurationEncryptionConfiguration;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::SecurityConfiguration
+ */
 export function getSecurityConfigurationOutput(args: GetSecurityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConfigurationResult> {
-    return pulumi.output(args).apply(a => getSecurityConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getSecurityConfiguration(a, opts))
 }
 
 export interface GetSecurityConfigurationOutputArgs {

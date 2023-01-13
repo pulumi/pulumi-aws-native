@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::NetworkInterfacePermission
  */
 export function getNetworkInterfacePermission(args: GetNetworkInterfacePermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacePermissionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNetworkInterfacePermission", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetNetworkInterfacePermissionArgs {
 export interface GetNetworkInterfacePermissionResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::NetworkInterfacePermission
+ */
 export function getNetworkInterfacePermissionOutput(args: GetNetworkInterfacePermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacePermissionResult> {
-    return pulumi.output(args).apply(a => getNetworkInterfacePermission(a, opts))
+    return pulumi.output(args).apply((a: any) => getNetworkInterfacePermission(a, opts))
 }
 
 export interface GetNetworkInterfacePermissionOutputArgs {

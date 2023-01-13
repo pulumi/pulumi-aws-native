@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::AppFlow::Connector
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appflow:getConnector", {
         "connectorLabel": args.connectorLabel,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetConnectorResult {
      */
     readonly description?: string;
 }
-
+/**
+ * Resource schema for AWS::AppFlow::Connector
+ */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
-    return pulumi.output(args).apply(a => getConnector(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnector(a, opts))
 }
 
 export interface GetConnectorOutputArgs {

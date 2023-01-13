@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
  */
 export function getLaunchNotificationConstraint(args: GetLaunchNotificationConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchNotificationConstraintResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getLaunchNotificationConstraint", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetLaunchNotificationConstraintResult {
     readonly id?: string;
     readonly notificationArns?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::LaunchNotificationConstraint
+ */
 export function getLaunchNotificationConstraintOutput(args: GetLaunchNotificationConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchNotificationConstraintResult> {
-    return pulumi.output(args).apply(a => getLaunchNotificationConstraint(a, opts))
+    return pulumi.output(args).apply((a: any) => getLaunchNotificationConstraint(a, opts))
 }
 
 export interface GetLaunchNotificationConstraintOutputArgs {

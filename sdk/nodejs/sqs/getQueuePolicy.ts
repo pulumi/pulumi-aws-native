@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::SQS::QueuePolicy
  */
 export function getQueuePolicy(args: GetQueuePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuePolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:sqs:getQueuePolicy", {
         "id": args.id,
     }, opts);
@@ -27,9 +24,11 @@ export interface GetQueuePolicyResult {
     readonly policyDocument?: any;
     readonly queues?: string[];
 }
-
+/**
+ * Resource Type definition for AWS::SQS::QueuePolicy
+ */
 export function getQueuePolicyOutput(args: GetQueuePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuePolicyResult> {
-    return pulumi.output(args).apply(a => getQueuePolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getQueuePolicy(a, opts))
 }
 
 export interface GetQueuePolicyOutputArgs {

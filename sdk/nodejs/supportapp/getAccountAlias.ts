@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
  */
 export function getAccountAlias(args: GetAccountAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:supportapp:getAccountAlias", {
         "accountAliasResourceId": args.accountAliasResourceId,
     }, opts);
@@ -35,9 +32,11 @@ export interface GetAccountAliasResult {
      */
     readonly accountAliasResourceId?: string;
 }
-
+/**
+ * An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
+ */
 export function getAccountAliasOutput(args: GetAccountAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAliasResult> {
-    return pulumi.output(args).apply(a => getAccountAlias(a, opts))
+    return pulumi.output(args).apply((a: any) => getAccountAlias(a, opts))
 }
 
 export interface GetAccountAliasOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoTAnalytics::Channel
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotanalytics:getChannel", {
         "channelName": args.channelName,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetChannelResult {
     readonly retentionPeriod?: outputs.iotanalytics.ChannelRetentionPeriod;
     readonly tags?: outputs.iotanalytics.ChannelTag[];
 }
-
+/**
+ * Resource Type definition for AWS::IoTAnalytics::Channel
+ */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
-    return pulumi.output(args).apply(a => getChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getChannel(a, opts))
 }
 
 export interface GetChannelOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::IoTAnalytics::Datastore
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iotanalytics:getDatastore", {
         "datastoreName": args.datastoreName,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetDatastoreResult {
     readonly retentionPeriod?: outputs.iotanalytics.DatastoreRetentionPeriod;
     readonly tags?: outputs.iotanalytics.DatastoreTag[];
 }
-
+/**
+ * Resource Type definition for AWS::IoTAnalytics::Datastore
+ */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
-    return pulumi.output(args).apply(a => getDatastore(a, opts))
+    return pulumi.output(args).apply((a: any) => getDatastore(a, opts))
 }
 
 export interface GetDatastoreOutputArgs {

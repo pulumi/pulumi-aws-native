@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::VirtualNode
  */
 export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getVirtualNode", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetVirtualNodeResult {
     readonly tags?: outputs.appmesh.VirtualNodeTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::VirtualNode
+ */
 export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
-    return pulumi.output(args).apply(a => getVirtualNode(a, opts))
+    return pulumi.output(args).apply((a: any) => getVirtualNode(a, opts))
 }
 
 export interface GetVirtualNodeOutputArgs {

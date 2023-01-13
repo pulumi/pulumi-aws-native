@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::NetworkManager::ConnectPeer Resource Type Definition.
  */
 export function getConnectPeer(args: GetConnectPeerArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectPeerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getConnectPeer", {
         "connectPeerId": args.connectPeerId,
     }, opts);
@@ -58,9 +55,11 @@ export interface GetConnectPeerResult {
      */
     readonly tags?: outputs.networkmanager.ConnectPeerTag[];
 }
-
+/**
+ * AWS::NetworkManager::ConnectPeer Resource Type Definition.
+ */
 export function getConnectPeerOutput(args: GetConnectPeerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectPeerResult> {
-    return pulumi.output(args).apply(a => getConnectPeer(a, opts))
+    return pulumi.output(args).apply((a: any) => getConnectPeer(a, opts))
 }
 
 export interface GetConnectPeerOutputArgs {

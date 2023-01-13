@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::EIP
  */
 export function getEIP(args: GetEIPArgs, opts?: pulumi.InvokeOptions): Promise<GetEIPResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getEIP", {
         "allocationId": args.allocationId,
         "publicIp": args.publicIp,
@@ -55,9 +52,11 @@ export interface GetEIPResult {
      */
     readonly tags?: outputs.ec2.EIPTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::EIP
+ */
 export function getEIPOutput(args: GetEIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEIPResult> {
-    return pulumi.output(args).apply(a => getEIP(a, opts))
+    return pulumi.output(args).apply((a: any) => getEIP(a, opts))
 }
 
 export interface GetEIPOutputArgs {

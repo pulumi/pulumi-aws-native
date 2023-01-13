@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::MSK::Configuration
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:msk:getConfiguration", {
         "arn": args.arn,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetConfigurationResult {
     readonly arn?: string;
     readonly description?: string;
 }
-
+/**
+ * Resource Type definition for AWS::MSK::Configuration
+ */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
-    return pulumi.output(args).apply(a => getConfiguration(a, opts))
+    return pulumi.output(args).apply((a: any) => getConfiguration(a, opts))
 }
 
 export interface GetConfigurationOutputArgs {

@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::StaticIp
  */
 export function getStaticIp(args: GetStaticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticIpResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getStaticIp", {
         "staticIpName": args.staticIpName,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetStaticIpResult {
     readonly isAttached?: boolean;
     readonly staticIpArn?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Lightsail::StaticIp
+ */
 export function getStaticIpOutput(args: GetStaticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticIpResult> {
-    return pulumi.output(args).apply(a => getStaticIp(a, opts))
+    return pulumi.output(args).apply((a: any) => getStaticIp(a, opts))
 }
 
 export interface GetStaticIpOutputArgs {

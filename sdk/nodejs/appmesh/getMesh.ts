@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::AppMesh::Mesh
  */
 export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise<GetMeshResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appmesh:getMesh", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetMeshResult {
     readonly tags?: outputs.appmesh.MeshTag[];
     readonly uid?: string;
 }
-
+/**
+ * Resource Type definition for AWS::AppMesh::Mesh
+ */
 export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
-    return pulumi.output(args).apply(a => getMesh(a, opts))
+    return pulumi.output(args).apply((a: any) => getMesh(a, opts))
 }
 
 export interface GetMeshOutputArgs {

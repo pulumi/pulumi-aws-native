@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::Disk
  */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getDisk", {
         "diskName": args.diskName,
     }, opts);
@@ -72,9 +69,11 @@ export interface GetDiskResult {
      */
     readonly tags?: outputs.lightsail.DiskTag[];
 }
-
+/**
+ * Resource Type definition for AWS::Lightsail::Disk
+ */
 export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
-    return pulumi.output(args).apply(a => getDisk(a, opts))
+    return pulumi.output(args).apply((a: any) => getDisk(a, opts))
 }
 
 export interface GetDiskOutputArgs {

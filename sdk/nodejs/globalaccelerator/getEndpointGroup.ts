@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
  */
 export function getEndpointGroup(args: GetEndpointGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:globalaccelerator:getEndpointGroup", {
         "endpointGroupArn": args.endpointGroupArn,
     }, opts);
@@ -60,9 +57,11 @@ export interface GetEndpointGroupResult {
      */
     readonly trafficDialPercentage?: number;
 }
-
+/**
+ * Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
+ */
 export function getEndpointGroupOutput(args: GetEndpointGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointGroupResult> {
-    return pulumi.output(args).apply(a => getEndpointGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getEndpointGroup(a, opts))
 }
 
 export interface GetEndpointGroupOutputArgs {

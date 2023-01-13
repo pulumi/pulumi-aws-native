@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::NetworkManager::Device type describes a device.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:networkmanager:getDevice", {
         "deviceId": args.deviceId,
         "globalNetworkId": args.globalNetworkId,
@@ -75,9 +72,11 @@ export interface GetDeviceResult {
      */
     readonly vendor?: string;
 }
-
+/**
+ * The AWS::NetworkManager::Device type describes a device.
+ */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
-    return pulumi.output(args).apply(a => getDevice(a, opts))
+    return pulumi.output(args).apply((a: any) => getDevice(a, opts))
 }
 
 export interface GetDeviceOutputArgs {

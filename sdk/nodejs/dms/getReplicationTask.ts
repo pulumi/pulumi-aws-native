@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DMS::ReplicationTask
  */
 export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dms:getReplicationTask", {
         "id": args.id,
     }, opts);
@@ -33,9 +30,11 @@ export interface GetReplicationTaskResult {
     readonly tableMappings?: string;
     readonly taskData?: string;
 }
-
+/**
+ * Resource Type definition for AWS::DMS::ReplicationTask
+ */
 export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationTaskResult> {
-    return pulumi.output(args).apply(a => getReplicationTask(a, opts))
+    return pulumi.output(args).apply((a: any) => getReplicationTask(a, opts))
 }
 
 export interface GetReplicationTaskOutputArgs {

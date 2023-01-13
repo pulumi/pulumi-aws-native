@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::Permission
  */
 export function getPermission(args: GetPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getPermission", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetPermissionArgs {
 export interface GetPermissionResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Lambda::Permission
+ */
 export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
-    return pulumi.output(args).apply(a => getPermission(a, opts))
+    return pulumi.output(args).apply((a: any) => getPermission(a, opts))
 }
 
 export interface GetPermissionOutputArgs {

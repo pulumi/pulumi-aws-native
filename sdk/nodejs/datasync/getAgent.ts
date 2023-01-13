@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::Agent.
  */
 export function getAgent(args: GetAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getAgent", {
         "agentArn": args.agentArn,
     }, opts);
@@ -46,9 +43,11 @@ export interface GetAgentResult {
      */
     readonly tags?: outputs.datasync.AgentTag[];
 }
-
+/**
+ * Resource schema for AWS::DataSync::Agent.
+ */
 export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
-    return pulumi.output(args).apply(a => getAgent(a, opts))
+    return pulumi.output(args).apply((a: any) => getAgent(a, opts))
 }
 
 export interface GetAgentOutputArgs {

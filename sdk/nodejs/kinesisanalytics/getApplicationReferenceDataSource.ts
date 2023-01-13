@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
  */
 export function getApplicationReferenceDataSource(args: GetApplicationReferenceDataSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationReferenceDataSourceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:kinesisanalytics:getApplicationReferenceDataSource", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetApplicationReferenceDataSourceResult {
     readonly id?: string;
     readonly referenceDataSource?: outputs.kinesisanalytics.ApplicationReferenceDataSourceReferenceDataSource;
 }
-
+/**
+ * Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
+ */
 export function getApplicationReferenceDataSourceOutput(args: GetApplicationReferenceDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationReferenceDataSourceResult> {
-    return pulumi.output(args).apply(a => getApplicationReferenceDataSource(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationReferenceDataSource(a, opts))
 }
 
 export interface GetApplicationReferenceDataSourceOutputArgs {

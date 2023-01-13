@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::DocDB::DBSubnetGroup
  */
 export function getDBSubnetGroup(args: GetDBSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSubnetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:docdb:getDBSubnetGroup", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetDBSubnetGroupResult {
     readonly subnetIds?: string[];
     readonly tags?: outputs.docdb.DBSubnetGroupTag[];
 }
-
+/**
+ * Resource Type definition for AWS::DocDB::DBSubnetGroup
+ */
 export function getDBSubnetGroupOutput(args: GetDBSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSubnetGroupResult> {
-    return pulumi.output(args).apply(a => getDBSubnetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBSubnetGroup(a, opts))
 }
 
 export interface GetDBSubnetGroupOutputArgs {

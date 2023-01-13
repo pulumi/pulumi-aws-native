@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EventSchemas::Registry
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getRegistry", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetRegistryResult {
     readonly registryArn?: string;
     readonly tags?: outputs.eventschemas.RegistryTagsEntry[];
 }
-
+/**
+ * Resource Type definition for AWS::EventSchemas::Registry
+ */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
-    return pulumi.output(args).apply(a => getRegistry(a, opts))
+    return pulumi.output(args).apply((a: any) => getRegistry(a, opts))
 }
 
 export interface GetRegistryOutputArgs {

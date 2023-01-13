@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
  */
 export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:glue:getDataCatalogEncryptionSettings", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetDataCatalogEncryptionSettingsResult {
     readonly dataCatalogEncryptionSettings?: outputs.glue.DataCatalogEncryptionSettings;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
+ */
 export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
-    return pulumi.output(args).apply(a => getDataCatalogEncryptionSettings(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataCatalogEncryptionSettings(a, opts))
 }
 
 export interface GetDataCatalogEncryptionSettingsOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EventSchemas::Schema
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getSchema", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetSchemaResult {
     readonly tags?: outputs.eventschemas.SchemaTagsEntry[];
     readonly type?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EventSchemas::Schema
+ */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
-    return pulumi.output(args).apply(a => getSchema(a, opts))
+    return pulumi.output(args).apply((a: any) => getSchema(a, opts))
 }
 
 export interface GetSchemaOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
  */
 export function getHttpNamespace(args: GetHttpNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetHttpNamespaceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicediscovery:getHttpNamespace", {
         "id": args.id,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetHttpNamespaceResult {
     readonly id?: string;
     readonly tags?: outputs.servicediscovery.HttpNamespaceTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
+ */
 export function getHttpNamespaceOutput(args: GetHttpNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpNamespaceResult> {
-    return pulumi.output(args).apply(a => getHttpNamespace(a, opts))
+    return pulumi.output(args).apply((a: any) => getHttpNamespace(a, opts))
 }
 
 export interface GetHttpNamespaceOutputArgs {

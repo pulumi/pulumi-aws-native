@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::Url
  */
 export function getUrl(args: GetUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getUrl", {
         "functionArn": args.functionArn,
     }, opts);
@@ -47,9 +44,11 @@ export interface GetUrlResult {
      */
     readonly invokeMode?: enums.lambda.UrlInvokeMode;
 }
-
+/**
+ * Resource Type definition for AWS::Lambda::Url
+ */
 export function getUrlOutput(args: GetUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlResult> {
-    return pulumi.output(args).apply(a => getUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getUrl(a, opts))
 }
 
 export interface GetUrlOutputArgs {

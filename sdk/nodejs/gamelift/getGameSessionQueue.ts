@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::GameLift::GameSessionQueue
  */
 export function getGameSessionQueue(args: GetGameSessionQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetGameSessionQueueResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getGameSessionQueue", {
         "id": args.id,
     }, opts);
@@ -37,9 +34,11 @@ export interface GetGameSessionQueueResult {
     readonly tags?: outputs.gamelift.GameSessionQueueTag[];
     readonly timeoutInSeconds?: number;
 }
-
+/**
+ * Resource Type definition for AWS::GameLift::GameSessionQueue
+ */
 export function getGameSessionQueueOutput(args: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameSessionQueueResult> {
-    return pulumi.output(args).apply(a => getGameSessionQueue(a, opts))
+    return pulumi.output(args).apply((a: any) => getGameSessionQueue(a, opts))
 }
 
 export interface GetGameSessionQueueOutputArgs {

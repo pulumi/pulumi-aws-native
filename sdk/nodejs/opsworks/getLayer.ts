@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::OpsWorks::Layer
  */
 export function getLayer(args: GetLayerArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:opsworks:getLayer", {
         "id": args.id,
     }, opts);
@@ -45,9 +42,11 @@ export interface GetLayerResult {
     readonly useEbsOptimizedInstances?: boolean;
     readonly volumeConfigurations?: outputs.opsworks.LayerVolumeConfiguration[];
 }
-
+/**
+ * Resource Type definition for AWS::OpsWorks::Layer
+ */
 export function getLayerOutput(args: GetLayerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerResult> {
-    return pulumi.output(args).apply(a => getLayer(a, opts))
+    return pulumi.output(args).apply((a: any) => getLayer(a, opts))
 }
 
 export interface GetLayerOutputArgs {

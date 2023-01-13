@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::ClientVpnEndpoint
  */
 export function getClientVpnEndpoint(args: GetClientVpnEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnEndpointResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getClientVpnEndpoint", {
         "id": args.id,
     }, opts);
@@ -40,9 +37,11 @@ export interface GetClientVpnEndpointResult {
     readonly vpcId?: string;
     readonly vpnPort?: number;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::ClientVpnEndpoint
+ */
 export function getClientVpnEndpointOutput(args: GetClientVpnEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnEndpointResult> {
-    return pulumi.output(args).apply(a => getClientVpnEndpoint(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientVpnEndpoint(a, opts))
 }
 
 export interface GetClientVpnEndpointOutputArgs {

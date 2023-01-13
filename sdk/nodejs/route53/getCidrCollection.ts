@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Route53::CidrCollection.
  */
 export function getCidrCollection(args: GetCidrCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetCidrCollectionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53:getCidrCollection", {
         "id": args.id,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetCidrCollectionResult {
      */
     readonly locations?: outputs.route53.CidrCollectionLocation[];
 }
-
+/**
+ * Resource schema for AWS::Route53::CidrCollection.
+ */
 export function getCidrCollectionOutput(args: GetCidrCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCidrCollectionResult> {
-    return pulumi.output(args).apply(a => getCidrCollection(a, opts))
+    return pulumi.output(args).apply((a: any) => getCidrCollection(a, opts))
 }
 
 export interface GetCidrCollectionOutputArgs {

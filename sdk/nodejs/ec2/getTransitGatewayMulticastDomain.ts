@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::EC2::TransitGatewayMulticastDomain type
  */
 export function getTransitGatewayMulticastDomain(args: GetTransitGatewayMulticastDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayMulticastDomainResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getTransitGatewayMulticastDomain", {
         "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
     }, opts);
@@ -54,9 +51,11 @@ export interface GetTransitGatewayMulticastDomainResult {
      */
     readonly transitGatewayMulticastDomainId?: string;
 }
-
+/**
+ * The AWS::EC2::TransitGatewayMulticastDomain type
+ */
 export function getTransitGatewayMulticastDomainOutput(args: GetTransitGatewayMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainResult> {
-    return pulumi.output(args).apply(a => getTransitGatewayMulticastDomain(a, opts))
+    return pulumi.output(args).apply((a: any) => getTransitGatewayMulticastDomain(a, opts))
 }
 
 export interface GetTransitGatewayMulticastDomainOutputArgs {

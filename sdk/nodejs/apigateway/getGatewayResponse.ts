@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::GatewayResponse
  */
 export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResponseResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getGatewayResponse", {
         "id": args.id,
     }, opts);
@@ -43,9 +40,11 @@ export interface GetGatewayResponseResult {
      */
     readonly statusCode?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::GatewayResponse
+ */
 export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResponseResult> {
-    return pulumi.output(args).apply(a => getGatewayResponse(a, opts))
+    return pulumi.output(args).apply((a: any) => getGatewayResponse(a, opts))
 }
 
 export interface GetGatewayResponseOutputArgs {

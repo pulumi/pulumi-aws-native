@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::CodePipeline::Pipeline
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codepipeline:getPipeline", {
         "id": args.id,
     }, opts);
@@ -36,9 +33,11 @@ export interface GetPipelineResult {
     readonly tags?: outputs.codepipeline.PipelineTag[];
     readonly version?: string;
 }
-
+/**
+ * Resource Type definition for AWS::CodePipeline::Pipeline
+ */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply(a => getPipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {

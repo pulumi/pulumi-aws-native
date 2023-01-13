@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::AutoScaling::WarmPool.
  */
 export function getWarmPool(args: GetWarmPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetWarmPoolResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getWarmPool", {
         "autoScalingGroupName": args.autoScalingGroupName,
     }, opts);
@@ -31,9 +28,11 @@ export interface GetWarmPoolResult {
     readonly minSize?: number;
     readonly poolState?: string;
 }
-
+/**
+ * Resource schema for AWS::AutoScaling::WarmPool.
+ */
 export function getWarmPoolOutput(args: GetWarmPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWarmPoolResult> {
-    return pulumi.output(args).apply(a => getWarmPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getWarmPool(a, opts))
 }
 
 export interface GetWarmPoolOutputArgs {

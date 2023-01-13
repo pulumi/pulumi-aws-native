@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Schema for ApplicationInstance CloudFormation Resource
  */
 export function getApplicationInstance(args: GetApplicationInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationInstanceResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:panorama:getApplicationInstance", {
         "applicationInstanceId": args.applicationInstanceId,
     }, opts);
@@ -38,9 +35,11 @@ export interface GetApplicationInstanceResult {
     readonly statusFilter?: enums.panorama.ApplicationInstanceStatusFilter;
     readonly tags?: outputs.panorama.ApplicationInstanceTag[];
 }
-
+/**
+ * Schema for ApplicationInstance CloudFormation Resource
+ */
 export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
-    return pulumi.output(args).apply(a => getApplicationInstance(a, opts))
+    return pulumi.output(args).apply((a: any) => getApplicationInstance(a, opts))
 }
 
 export interface GetApplicationInstanceOutputArgs {

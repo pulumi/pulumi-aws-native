@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Cloud9::EnvironmentEC2
  */
 export function getEnvironmentEC2(args: GetEnvironmentEC2Args, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentEC2Result> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cloud9:getEnvironmentEC2", {
         "id": args.id,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetEnvironmentEC2Result {
     readonly name?: string;
     readonly tags?: outputs.cloud9.EnvironmentEC2Tag[];
 }
-
+/**
+ * Resource Type definition for AWS::Cloud9::EnvironmentEC2
+ */
 export function getEnvironmentEC2Output(args: GetEnvironmentEC2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentEC2Result> {
-    return pulumi.output(args).apply(a => getEnvironmentEC2(a, opts))
+    return pulumi.output(args).apply((a: any) => getEnvironmentEC2(a, opts))
 }
 
 export interface GetEnvironmentEC2OutputArgs {

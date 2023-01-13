@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for LookoutEquipment InferenceScheduler.
  */
 export function getInferenceScheduler(args: GetInferenceSchedulerArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceSchedulerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lookoutequipment:getInferenceScheduler", {
         "inferenceSchedulerName": args.inferenceSchedulerName,
     }, opts);
@@ -58,9 +55,11 @@ export interface GetInferenceSchedulerResult {
      */
     readonly tags?: outputs.lookoutequipment.InferenceSchedulerTag[];
 }
-
+/**
+ * Resource schema for LookoutEquipment InferenceScheduler.
+ */
 export function getInferenceSchedulerOutput(args: GetInferenceSchedulerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceSchedulerResult> {
-    return pulumi.output(args).apply(a => getInferenceScheduler(a, opts))
+    return pulumi.output(args).apply((a: any) => getInferenceScheduler(a, opts))
 }
 
 export interface GetInferenceSchedulerOutputArgs {

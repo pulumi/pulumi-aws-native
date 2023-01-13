@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::NatGateway
  */
 export function getNatGateway(args: GetNatGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getNatGateway", {
         "natGatewayId": args.natGatewayId,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetNatGatewayResult {
     readonly natGatewayId?: string;
     readonly tags?: outputs.ec2.NatGatewayTag[];
 }
-
+/**
+ * Resource Type definition for AWS::EC2::NatGateway
+ */
 export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
-    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+    return pulumi.output(args).apply((a: any) => getNatGateway(a, opts))
 }
 
 export interface GetNatGatewayOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
  */
 export function getDBSubnetGroup(args: GetDBSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDBSubnetGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:rds:getDBSubnetGroup", {
         "dBSubnetGroupName": args.dBSubnetGroupName,
     }, opts);
@@ -32,9 +29,11 @@ export interface GetDBSubnetGroupResult {
      */
     readonly tags?: outputs.rds.DBSubnetGroupTag[];
 }
-
+/**
+ * The AWS::RDS::DBSubnetGroup resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
+ */
 export function getDBSubnetGroupOutput(args: GetDBSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDBSubnetGroupResult> {
-    return pulumi.output(args).apply(a => getDBSubnetGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDBSubnetGroup(a, opts))
 }
 
 export interface GetDBSubnetGroupOutputArgs {

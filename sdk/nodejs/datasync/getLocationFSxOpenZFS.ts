@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::DataSync::LocationFSxOpenZFS.
  */
 export function getLocationFSxOpenZFS(args: GetLocationFSxOpenZFSArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationFSxOpenZFSResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datasync:getLocationFSxOpenZFS", {
         "locationArn": args.locationArn,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetLocationFSxOpenZFSResult {
      */
     readonly tags?: outputs.datasync.LocationFSxOpenZFSTag[];
 }
-
+/**
+ * Resource schema for AWS::DataSync::LocationFSxOpenZFS.
+ */
 export function getLocationFSxOpenZFSOutput(args: GetLocationFSxOpenZFSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxOpenZFSResult> {
-    return pulumi.output(args).apply(a => getLocationFSxOpenZFS(a, opts))
+    return pulumi.output(args).apply((a: any) => getLocationFSxOpenZFS(a, opts))
 }
 
 export interface GetLocationFSxOpenZFSOutputArgs {

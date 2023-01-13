@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::AmplifyUIBuilder::Theme Resource Type
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplifyuibuilder:getTheme", {
         "appId": args.appId,
         "environmentName": args.environmentName,
@@ -39,9 +36,11 @@ export interface GetThemeResult {
     readonly overrides?: outputs.amplifyuibuilder.ThemeValues[];
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }
-
+/**
+ * Definition of AWS::AmplifyUIBuilder::Theme Resource Type
+ */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
-    return pulumi.output(args).apply(a => getTheme(a, opts))
+    return pulumi.output(args).apply((a: any) => getTheme(a, opts))
 }
 
 export interface GetThemeOutputArgs {

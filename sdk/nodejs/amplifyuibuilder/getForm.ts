@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type
  */
 export function getForm(args: GetFormArgs, opts?: pulumi.InvokeOptions): Promise<GetFormResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:amplifyuibuilder:getForm", {
         "appId": args.appId,
         "environmentName": args.environmentName,
@@ -42,9 +39,11 @@ export interface GetFormResult {
     readonly sectionalElements?: outputs.amplifyuibuilder.FormSectionalElementMap;
     readonly style?: outputs.amplifyuibuilder.FormStyle;
 }
-
+/**
+ * Definition of AWS::AmplifyUIBuilder::Form Resource Type
+ */
 export function getFormOutput(args: GetFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormResult> {
-    return pulumi.output(args).apply(a => getForm(a, opts))
+    return pulumi.output(args).apply((a: any) => getForm(a, opts))
 }
 
 export interface GetFormOutputArgs {

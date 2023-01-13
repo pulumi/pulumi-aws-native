@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::Portfolio
  */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getPortfolio", {
         "id": args.id,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetPortfolioResult {
     readonly providerName?: string;
     readonly tags?: outputs.servicecatalog.PortfolioTag[];
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::Portfolio
+ */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
-    return pulumi.output(args).apply(a => getPortfolio(a, opts))
+    return pulumi.output(args).apply((a: any) => getPortfolio(a, opts))
 }
 
 export interface GetPortfolioOutputArgs {

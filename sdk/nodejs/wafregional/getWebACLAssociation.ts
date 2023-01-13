@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::WebACLAssociation
  */
 export function getWebACLAssociation(args: GetWebACLAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebACLAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getWebACLAssociation", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetWebACLAssociationArgs {
 export interface GetWebACLAssociationResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::WebACLAssociation
+ */
 export function getWebACLAssociationOutput(args: GetWebACLAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebACLAssociationResult> {
-    return pulumi.output(args).apply(a => getWebACLAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getWebACLAssociation(a, opts))
 }
 
 export interface GetWebACLAssociationOutputArgs {

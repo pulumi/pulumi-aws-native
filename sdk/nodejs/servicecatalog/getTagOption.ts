@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ServiceCatalog::TagOption
  */
 export function getTagOption(args: GetTagOptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTagOptionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:servicecatalog:getTagOption", {
         "id": args.id,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetTagOptionResult {
     readonly active?: boolean;
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ServiceCatalog::TagOption
+ */
 export function getTagOptionOutput(args: GetTagOptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOptionResult> {
-    return pulumi.output(args).apply(a => getTagOption(a, opts))
+    return pulumi.output(args).apply((a: any) => getTagOption(a, opts))
 }
 
 export interface GetTagOptionOutputArgs {

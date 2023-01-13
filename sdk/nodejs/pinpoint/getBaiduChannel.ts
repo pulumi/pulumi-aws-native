@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Pinpoint::BaiduChannel
  */
 export function getBaiduChannel(args: GetBaiduChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetBaiduChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:pinpoint:getBaiduChannel", {
         "id": args.id,
     }, opts);
@@ -28,9 +25,11 @@ export interface GetBaiduChannelResult {
     readonly id?: string;
     readonly secretKey?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Pinpoint::BaiduChannel
+ */
 export function getBaiduChannelOutput(args: GetBaiduChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBaiduChannelResult> {
-    return pulumi.output(args).apply(a => getBaiduChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getBaiduChannel(a, opts))
 }
 
 export interface GetBaiduChannelOutputArgs {

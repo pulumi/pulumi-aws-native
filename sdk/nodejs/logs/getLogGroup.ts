@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::Logs::LogGroup
  */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:logs:getLogGroup", {
         "logGroupName": args.logGroupName,
     }, opts);
@@ -56,9 +53,11 @@ export interface GetLogGroupResult {
      */
     readonly tags?: outputs.logs.LogGroupTag[];
 }
-
+/**
+ * Resource schema for AWS::Logs::LogGroup
+ */
 export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
-    return pulumi.output(args).apply(a => getLogGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getLogGroup(a, opts))
 }
 
 export interface GetLogGroupOutputArgs {

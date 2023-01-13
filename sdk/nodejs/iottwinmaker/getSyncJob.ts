@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource schema for AWS::IoTTwinMaker::SyncJob
  */
 export function getSyncJob(args: GetSyncJobArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncJobResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iottwinmaker:getSyncJob", {
         "syncSource": args.syncSource,
         "workspaceId": args.workspaceId,
@@ -48,9 +45,11 @@ export interface GetSyncJobResult {
      */
     readonly updateDateTime?: string;
 }
-
+/**
+ * Resource schema for AWS::IoTTwinMaker::SyncJob
+ */
 export function getSyncJobOutput(args: GetSyncJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncJobResult> {
-    return pulumi.output(args).apply(a => getSyncJob(a, opts))
+    return pulumi.output(args).apply((a: any) => getSyncJob(a, opts))
 }
 
 export interface GetSyncJobOutputArgs {

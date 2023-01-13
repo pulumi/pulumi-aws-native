@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
  */
 export function getClientVpnTargetNetworkAssociation(args: GetClientVpnTargetNetworkAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetClientVpnTargetNetworkAssociationResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getClientVpnTargetNetworkAssociation", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetClientVpnTargetNetworkAssociationArgs {
 export interface GetClientVpnTargetNetworkAssociationResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
+ */
 export function getClientVpnTargetNetworkAssociationOutput(args: GetClientVpnTargetNetworkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientVpnTargetNetworkAssociationResult> {
-    return pulumi.output(args).apply(a => getClientVpnTargetNetworkAssociation(a, opts))
+    return pulumi.output(args).apply((a: any) => getClientVpnTargetNetworkAssociation(a, opts))
 }
 
 export interface GetClientVpnTargetNetworkAssociationOutputArgs {

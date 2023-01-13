@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::WAFRegional::Rule
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:wafregional:getRule", {
         "id": args.id,
     }, opts);
@@ -29,9 +26,11 @@ export interface GetRuleResult {
     readonly id?: string;
     readonly predicates?: outputs.wafregional.RulePredicate[];
 }
-
+/**
+ * Resource Type definition for AWS::WAFRegional::Rule
+ */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
-    return pulumi.output(args).apply(a => getRule(a, opts))
+    return pulumi.output(args).apply((a: any) => getRule(a, opts))
 }
 
 export interface GetRuleOutputArgs {

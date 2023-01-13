@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Transfer::Server
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:transfer:getServer", {
         "serverId": args.serverId,
     }, opts);
@@ -41,9 +38,11 @@ export interface GetServerResult {
     readonly tags?: outputs.transfer.ServerTag[];
     readonly workflowDetails?: outputs.transfer.ServerWorkflowDetails;
 }
-
+/**
+ * Resource Type definition for AWS::Transfer::Server
+ */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
-    return pulumi.output(args).apply(a => getServer(a, opts))
+    return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }
 
 export interface GetServerOutputArgs {

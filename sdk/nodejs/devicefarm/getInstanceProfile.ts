@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:devicefarm:getInstanceProfile", {
         "arn": args.arn,
     }, opts);
@@ -34,9 +31,11 @@ export interface GetInstanceProfileResult {
     readonly rebootAfterUse?: boolean;
     readonly tags?: outputs.devicefarm.InstanceProfileTag[];
 }
-
+/**
+ * AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
+ */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
-    return pulumi.output(args).apply(a => getInstanceProfile(a, opts))
+    return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))
 }
 
 export interface GetInstanceProfileOutputArgs {

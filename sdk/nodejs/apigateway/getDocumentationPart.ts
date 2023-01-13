@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::ApiGateway::DocumentationPart
  */
 export function getDocumentationPart(args: GetDocumentationPartArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentationPartResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:apigateway:getDocumentationPart", {
         "documentationPartId": args.documentationPartId,
         "restApiId": args.restApiId,
@@ -40,9 +37,11 @@ export interface GetDocumentationPartResult {
      */
     readonly properties?: string;
 }
-
+/**
+ * Resource Type definition for AWS::ApiGateway::DocumentationPart
+ */
 export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationPartResult> {
-    return pulumi.output(args).apply(a => getDocumentationPart(a, opts))
+    return pulumi.output(args).apply((a: any) => getDocumentationPart(a, opts))
 }
 
 export interface GetDocumentationPartOutputArgs {

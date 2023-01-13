@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
  */
 export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationChannelResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:fms:getNotificationChannel", {
         "snsTopicArn": args.snsTopicArn,
     }, opts);
@@ -26,9 +23,11 @@ export interface GetNotificationChannelResult {
     readonly snsRoleName?: string;
     readonly snsTopicArn?: string;
 }
-
+/**
+ * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
+ */
 export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
-    return pulumi.output(args).apply(a => getNotificationChannel(a, opts))
+    return pulumi.output(args).apply((a: any) => getNotificationChannel(a, opts))
 }
 
 export interface GetNotificationChannelOutputArgs {

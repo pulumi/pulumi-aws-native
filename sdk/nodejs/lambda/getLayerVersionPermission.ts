@@ -8,11 +8,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lambda::LayerVersionPermission
  */
 export function getLayerVersionPermission(args: GetLayerVersionPermissionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionPermissionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lambda:getLayerVersionPermission", {
         "id": args.id,
     }, opts);
@@ -25,9 +22,11 @@ export interface GetLayerVersionPermissionArgs {
 export interface GetLayerVersionPermissionResult {
     readonly id?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Lambda::LayerVersionPermission
+ */
 export function getLayerVersionPermissionOutput(args: GetLayerVersionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionPermissionResult> {
-    return pulumi.output(args).apply(a => getLayerVersionPermission(a, opts))
+    return pulumi.output(args).apply((a: any) => getLayerVersionPermission(a, opts))
 }
 
 export interface GetLayerVersionPermissionOutputArgs {

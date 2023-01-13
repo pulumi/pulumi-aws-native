@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:datapipeline:getPipeline", {
         "pipelineId": args.pipelineId,
     }, opts);
@@ -48,9 +45,11 @@ export interface GetPipelineResult {
      */
     readonly pipelineTags?: outputs.datapipeline.PipelineTag[];
 }
-
+/**
+ * An example resource schema demonstrating some basic constructs and validation rules.
+ */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
-    return pulumi.output(args).apply(a => getPipeline(a, opts))
+    return pulumi.output(args).apply((a: any) => getPipeline(a, opts))
 }
 
 export interface GetPipelineOutputArgs {

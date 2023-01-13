@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * Resource Type definition for AWS::Lightsail::LoadBalancer
  */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:lightsail:getLoadBalancer", {
         "loadBalancerName": args.loadBalancerName,
     }, opts);
@@ -55,9 +52,11 @@ export interface GetLoadBalancerResult {
      */
     readonly tlsPolicyName?: string;
 }
-
+/**
+ * Resource Type definition for AWS::Lightsail::LoadBalancer
+ */
 export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
-    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+    return pulumi.output(args).apply((a: any) => getLoadBalancer(a, opts))
 }
 
 export interface GetLoadBalancerOutputArgs {

@@ -11,11 +11,8 @@ import * as utilities from "../utilities";
  * A custom metric published by your devices to Device Defender.
  */
 export function getCustomMetric(args: GetCustomMetricArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomMetricResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iot:getCustomMetric", {
         "metricName": args.metricName,
     }, opts);
@@ -42,9 +39,11 @@ export interface GetCustomMetricResult {
      */
     readonly tags?: outputs.iot.CustomMetricTag[];
 }
-
+/**
+ * A custom metric published by your devices to Device Defender.
+ */
 export function getCustomMetricOutput(args: GetCustomMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomMetricResult> {
-    return pulumi.output(args).apply(a => getCustomMetric(a, opts))
+    return pulumi.output(args).apply((a: any) => getCustomMetric(a, opts))
 }
 
 export interface GetCustomMetricOutputArgs {
