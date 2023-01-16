@@ -21,6 +21,9 @@
     "Type" : {
       "type" : "string"
     },
+    "EventBridgeConfig" : {
+      "$ref" : "#/definitions/EventBridgeConfig"
+    },
     "HttpConfig" : {
       "$ref" : "#/definitions/HttpConfig"
     },
@@ -90,6 +93,16 @@
           "type" : "string"
         }
       }
+    },
+    "EventBridgeConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EventBusArn" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "EventBusArn" ]
     },
     "AuthorizationConfig" : {
       "type" : "object",

@@ -7335,6 +7335,10 @@
                     },
                     "description": "Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null."
                 },
+                "includeLinkedAccountsMetrics": {
+                    "type": "boolean",
+                    "description": "If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false."
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the metric stream."
@@ -7368,7 +7372,14 @@
                     "description": "Amazon Resource Name of the metric stream."
                 },
                 "creationDate": {
-                    "type": "string",
+                    "oneOf": [
+                        {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    ],
                     "description": "The date of creation of the metric stream."
                 },
                 "excludeFilters": {
@@ -7389,8 +7400,19 @@
                     },
                     "description": "Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null."
                 },
+                "includeLinkedAccountsMetrics": {
+                    "type": "boolean",
+                    "description": "If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false."
+                },
                 "lastUpdateDate": {
-                    "type": "string",
+                    "oneOf": [
+                        {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        {
+                            "$ref": "pulumi.json#/Any"
+                        }
+                    ],
                     "description": "The date of the last update of the metric stream."
                 },
                 "name": {
@@ -14480,10 +14502,6 @@
         "aws-native:ec2:PlacementGroup": {
             "cf": "AWS::EC2::PlacementGroup",
             "inputs": {
-                "groupName": {
-                    "type": "string",
-                    "description": "The Group Name of Placement Group."
-                },
                 "partitionCount": {
                     "type": "integer",
                     "description": "The number of partitions. Valid only when **Strategy** is set to `partition`"
@@ -14530,7 +14548,6 @@
                 }
             },
             "createOnly": [
-                "groupName",
                 "partitionCount",
                 "spreadLevel",
                 "strategy"
@@ -19906,11 +19923,20 @@
                 "includeMap": {
                     "$ref": "#/types/aws-native:fms:PolicyIEMap"
                 },
+                "policyDescription": {
+                    "type": "string"
+                },
                 "policyName": {
                     "type": "string"
                 },
                 "remediationEnabled": {
                     "type": "boolean"
+                },
+                "resourceSetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "resourceTags": {
                     "type": "array",
@@ -19956,11 +19982,20 @@
                 "includeMap": {
                     "$ref": "#/types/aws-native:fms:PolicyIEMap"
                 },
+                "policyDescription": {
+                    "type": "string"
+                },
                 "policyName": {
                     "type": "string"
                 },
                 "remediationEnabled": {
                     "type": "boolean"
+                },
+                "resourceSetIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "resourceTags": {
                     "type": "array",
@@ -19998,7 +20033,6 @@
             "required": [
                 "excludeResourceTags",
                 "remediationEnabled",
-                "resourceType",
                 "securityServicePolicyData"
             ],
             "writeOnly": [
@@ -20706,6 +20740,86 @@
                 "dataRepositoryPath",
                 "fileSystemId",
                 "fileSystemPath"
+            ]
+        },
+        "aws-native:gamecast:Application": {
+            "cf": "AWS::GameCast::Application",
+            "inputs": {
+                "applicationSourceUri": {
+                    "type": "string",
+                    "description": "ApplicationSourceUri points to a S3 Uri to replicate game files from customer S3 bucket into Motif internal S3 bucket.\nThe uri points to a S3 prefix that could contain many objects. Motif will attempt to copy all the S3 objects under that prefix."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Descriptive label for the resource, not a unique ID."
+                },
+                "executablePath": {
+                    "type": "string",
+                    "description": "Executable path is a relative path to the game launcher executable."
+                },
+                "logLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment."
+                },
+                "runtimeEnvironment": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationRuntimeEnvironment"
+                },
+                "saveConfiguration": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationSaveConfiguration"
+                },
+                "saveKey": {
+                    "type": "string",
+                    "description": "SaveKey is used as key to manage save files, meaning that different applications with the\nsame SaveKey can share game save files generated by the game itself."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationTags"
+                }
+            },
+            "outputs": {
+                "applicationSourceUri": {
+                    "type": "string",
+                    "description": "ApplicationSourceUri points to a S3 Uri to replicate game files from customer S3 bucket into Motif internal S3 bucket.\nThe uri points to a S3 prefix that could contain many objects. Motif will attempt to copy all the S3 objects under that prefix."
+                },
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the resource."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Descriptive label for the resource, not a unique ID."
+                },
+                "executablePath": {
+                    "type": "string",
+                    "description": "Executable path is a relative path to the game launcher executable."
+                },
+                "logLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment."
+                },
+                "runtimeEnvironment": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationRuntimeEnvironment"
+                },
+                "saveConfiguration": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationSaveConfiguration"
+                },
+                "saveKey": {
+                    "type": "string",
+                    "description": "SaveKey is used as key to manage save files, meaning that different applications with the\nsame SaveKey can share game save files generated by the game itself."
+                },
+                "tags": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationTags"
+                }
+            },
+            "createOnly": [
+                "applicationSourceUri",
+                "runtimeEnvironment",
+                "saveKey"
             ]
         },
         "aws-native:gamecast:StreamGroup": {
@@ -27937,6 +28051,55 @@
                 "edition",
                 "serverSideEncryptionConfiguration"
             ]
+        },
+        "aws-native:kendraranking:ExecutionPlan": {
+            "cf": "AWS::KendraRanking::ExecutionPlan",
+            "inputs": {
+                "capacityUnits": {
+                    "$ref": "#/types/aws-native:kendraranking:ExecutionPlanCapacityUnitsConfiguration",
+                    "description": "Capacity units"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the execution plan"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kendraranking:ExecutionPlanTag"
+                    },
+                    "description": "Tags for labeling the execution plan"
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string"
+                },
+                "capacityUnits": {
+                    "$ref": "#/types/aws-native:kendraranking:ExecutionPlanCapacityUnitsConfiguration",
+                    "description": "Capacity units"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the execution plan"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:kendraranking:ExecutionPlanTag"
+                    },
+                    "description": "Tags for labeling the execution plan"
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            }
         },
         "aws-native:kinesis:Stream": {
             "cf": "AWS::Kinesis::Stream",
@@ -67331,6 +67494,43 @@
                 }
             }
         },
+        "aws-native:gamecast:ApplicationRuntimeEnvironment": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "$ref": "#/types/aws-native:gamecast:ApplicationRuntimeEnvironmentType"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "Versioned container environment used to run customer game. Each runtime fixed version of the Windows\ncompatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan\nversions are used in which Motif runtime environment version."
+                }
+            }
+        },
+        "aws-native:gamecast:ApplicationRuntimeEnvironmentType": {
+            "type": "string"
+        },
+        "aws-native:gamecast:ApplicationSaveConfiguration": {
+            "type": "object",
+            "properties": {
+                "fileLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment."
+                },
+                "registryLocations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment."
+                }
+            }
+        },
+        "aws-native:gamecast:ApplicationTags": {
+            "type": "object"
+        },
         "aws-native:gamecast:StreamGroupDefaultApplication": {
             "type": "object",
             "properties": {
@@ -74918,6 +75118,27 @@
                 },
                 "value": {
                     "type": "integer"
+                }
+            }
+        },
+        "aws-native:kendraranking:ExecutionPlanCapacityUnitsConfiguration": {
+            "type": "object",
+            "properties": {
+                "rescoreCapacityUnits": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:kendraranking:ExecutionPlanTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "A string used to identify this tag"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "A string containing the value for the tag"
                 }
             }
         },
@@ -93547,7 +93768,31 @@
         "aws-native:transfer:ProfileType": {
             "type": "string"
         },
+        "aws-native:transfer:WorkflowEfsInputFileLocation": {
+            "type": "object",
+            "properties": {
+                "fileSystemId": {
+                    "type": "string",
+                    "description": "Specifies the EFS filesystem that contains the file."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The name assigned to the file when it was created in EFS. You use the object path to retrieve the object."
+                }
+            }
+        },
         "aws-native:transfer:WorkflowInputFileLocation": {
+            "type": "object",
+            "properties": {
+                "efsFileLocation": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowEfsInputFileLocation"
+                },
+                "s3FileLocation": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowS3InputFileLocation"
+                }
+            }
+        },
+        "aws-native:transfer:WorkflowS3FileLocation": {
             "type": "object",
             "properties": {
                 "s3FileLocation": {
@@ -93560,7 +93805,7 @@
             "properties": {
                 "bucket": {
                     "type": "string",
-                    "description": "Specifies the S3 bucket that contains the file being copied."
+                    "description": "Specifies the S3 bucket that contains the file."
                 },
                 "key": {
                     "type": "string",
@@ -93592,6 +93837,10 @@
                     "$ref": "#/types/aws-native:transfer:WorkflowStepCustomStepDetailsProperties",
                     "description": "Details for a step that invokes a lambda function."
                 },
+                "decryptStepDetails": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepDecryptStepDetailsProperties",
+                    "description": "Details for a step that performs a file decryption."
+                },
                 "deleteStepDetails": {
                     "$ref": "#/types/aws-native:transfer:WorkflowStepDeleteStepDetailsProperties",
                     "description": "Details for a step that deletes the file."
@@ -93609,7 +93858,7 @@
             "type": "object",
             "properties": {
                 "destinationFileLocation": {
-                    "$ref": "#/types/aws-native:transfer:WorkflowInputFileLocation"
+                    "$ref": "#/types/aws-native:transfer:WorkflowS3FileLocation"
                 },
                 "name": {
                     "type": "string",
@@ -93648,6 +93897,36 @@
                     "description": "Timeout, in seconds, for the step."
                 }
             }
+        },
+        "aws-native:transfer:WorkflowStepDecryptStepDetailsProperties": {
+            "type": "object",
+            "properties": {
+                "destinationFileLocation": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowInputFileLocation"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the step, used as an identifier."
+                },
+                "overwriteExisting": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting",
+                    "description": "A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE."
+                },
+                "sourceFileLocation": {
+                    "type": "string",
+                    "description": "Specifies which file to use as input to the workflow step."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesType",
+                    "description": "Specifies which encryption method to use."
+                }
+            }
+        },
+        "aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting": {
+            "type": "string"
+        },
+        "aws-native:transfer:WorkflowStepDecryptStepDetailsPropertiesType": {
+            "type": "string"
         },
         "aws-native:transfer:WorkflowStepDeleteStepDetailsProperties": {
             "type": "object",
@@ -97346,6 +97625,12 @@
                 "associationId"
             ]
         },
+        "aws-native:gamecast:getApplication": {
+            "cf": "AWS::GameCast::Application",
+            "ids": [
+                "arn"
+            ]
+        },
         "aws-native:gamecast:getStreamGroup": {
             "cf": "AWS::GameCast::StreamGroup",
             "ids": [
@@ -97927,6 +98212,12 @@
         },
         "aws-native:kendra:getIndex": {
             "cf": "AWS::Kendra::Index",
+            "ids": [
+                "id"
+            ]
+        },
+        "aws-native:kendraranking:getExecutionPlan": {
+            "cf": "AWS::KendraRanking::ExecutionPlan",
             "ids": [
                 "id"
             ]
