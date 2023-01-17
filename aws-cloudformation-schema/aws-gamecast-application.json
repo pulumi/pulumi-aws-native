@@ -1,0 +1,163 @@
+{
+  "typeName" : "AWS::GameCast::Application",
+  "description" : "Definition of AWS::GameCast::Application Resource Type",
+  "definitions" : {
+    "RuntimeEnvironment" : {
+      "type" : "object",
+      "description" : "Runtime environment is a combination of Windows compatibility layer and other graphics libraries used to run the application.",
+      "properties" : {
+        "Type" : {
+          "$ref" : "#/definitions/RuntimeEnvironmentType"
+        },
+        "Version" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "description" : "Versioned container environment used to run customer game. Each runtime fixed version of the Windows\ncompatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan\nversions are used in which Motif runtime environment version."
+        }
+      },
+      "required" : [ "Type", "Version" ],
+      "additionalProperties" : false
+    },
+    "RuntimeEnvironmentType" : {
+      "type" : "string",
+      "description" : "Type of the runtime environment used to run games. For initial launch it only includes wine staging branch but Motif\nwill follow up with Proton support.",
+      "enum" : [ "WINE-STAGING" ]
+    },
+    "SaveConfiguration" : {
+      "type" : "object",
+      "description" : "Application save configuration",
+      "properties" : {
+        "RegistryLocations" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "maxLength" : 1024,
+            "minLength" : 1
+          },
+          "maxItems" : 10,
+          "minItems" : 1,
+          "description" : "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment.",
+          "insertionOrder" : false
+        },
+        "FileLocations" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "maxLength" : 1024,
+            "minLength" : 1
+          },
+          "maxItems" : 10,
+          "minItems" : 1,
+          "description" : "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment.",
+          "insertionOrder" : false
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tags" : {
+      "type" : "object",
+      "maxProperties" : 50,
+      "minProperties" : 1,
+      "description" : "Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.",
+      "patternProperties" : {
+        ".+" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 0,
+          "description" : "A single tag value"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "ApplicationSourceUri" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "minLength" : 1,
+      "description" : "ApplicationSourceUri points to a S3 Uri to replicate game files from customer S3 bucket into Motif internal S3 bucket.\nThe uri points to a S3 prefix that could contain many objects. Motif will attempt to copy all the S3 objects under that prefix."
+    },
+    "Arn" : {
+      "type" : "string",
+      "maxLength" : 128,
+      "minLength" : 1,
+      "pattern" : "^arn:([^:\n]*):([^:\n]*):([^:\n]*):([0-9]{12}):([^:\n]*)$",
+      "description" : "ARN of the resource."
+    },
+    "Description" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9-_\\s]+$",
+      "description" : "Descriptive label for the resource, not a unique ID."
+    },
+    "ExecutablePath" : {
+      "type" : "string",
+      "maxLength" : 1024,
+      "minLength" : 1,
+      "description" : "Executable path is a relative path to the game launcher executable."
+    },
+    "Id" : {
+      "type" : "string",
+      "maxLength" : 32,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z0-9-]+$",
+      "description" : "GameCast resource ID, base62 encoded."
+    },
+    "LogLocations" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "maxLength" : 1024,
+        "minLength" : 1
+      },
+      "maxItems" : 10,
+      "minItems" : 1,
+      "description" : "A list of save file, registry key or log paths that are absolute paths that store game save files when the games\nare running on a Windows environment.",
+      "insertionOrder" : false
+    },
+    "RuntimeEnvironment" : {
+      "$ref" : "#/definitions/RuntimeEnvironment"
+    },
+    "SaveConfiguration" : {
+      "$ref" : "#/definitions/SaveConfiguration"
+    },
+    "SaveKey" : {
+      "type" : "string",
+      "maxLength" : 128,
+      "minLength" : 1,
+      "description" : "SaveKey is used as key to manage save files, meaning that different applications with the\nsame SaveKey can share game save files generated by the game itself."
+    },
+    "Tags" : {
+      "$ref" : "#/definitions/Tags"
+    }
+  },
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
+  "createOnlyProperties" : [ "/properties/ApplicationSourceUri", "/properties/RuntimeEnvironment", "/properties/SaveKey" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "gamecast:CreateApplication", "gamecast:GetApplication", "s3:GetObject", "s3:ListBucket" ]
+    },
+    "read" : {
+      "permissions" : [ "gamecast:GetApplication", "gamecast:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "gamecast:UpdateApplication", "gamecast:GetApplication", "gamecast:TagResource", "gamecast:UntagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "gamecast:DeleteApplication", "gamecast:GetApplication" ]
+    },
+    "list" : {
+      "permissions" : [ "gamecast:ListApplications" ]
+    }
+  },
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false
+  }
+}
