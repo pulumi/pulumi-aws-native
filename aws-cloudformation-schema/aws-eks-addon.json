@@ -40,6 +40,10 @@
       "type" : "string",
       "minLength" : 1
     },
+    "PreserveOnDelete" : {
+      "description" : "PreserveOnDelete parameter value",
+      "type" : "boolean"
+    },
     "ResolveConflicts" : {
       "description" : "Resolve parameter value conflicts",
       "type" : "string",
@@ -75,7 +79,7 @@
   "primaryIdentifier" : [ "/properties/ClusterName", "/properties/AddonName" ],
   "createOnlyProperties" : [ "/properties/ClusterName", "/properties/AddonName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "writeOnlyProperties" : [ "/properties/ResolveConflicts" ],
+  "writeOnlyProperties" : [ "/properties/ResolveConflicts", "/properties/PreserveOnDelete" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "eks:CreateAddon", "eks:DescribeAddon", "eks:TagResource", "iam:PassRole" ]
