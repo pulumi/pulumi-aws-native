@@ -87,6 +87,10 @@
       "type" : "number",
       "minimum" : 0
     },
+    "ThresholdExpression" : {
+      "description" : "An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.",
+      "type" : "string"
+    },
     "Frequency" : {
       "description" : "The frequency at which anomaly reports are sent over email. ",
       "type" : "string",
@@ -104,9 +108,10 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "MonitorArnList", "Subscribers", "Threshold", "Frequency", "SubscriptionName" ],
+  "required" : [ "MonitorArnList", "Subscribers", "Frequency", "SubscriptionName" ],
   "createOnlyProperties" : [ "/properties/ResourceTags" ],
   "readOnlyProperties" : [ "/properties/SubscriptionArn", "/properties/AccountId", "/properties/Subscribers/*/Status" ],
+  "writeOnlyProperties" : [ "/properties/ResourceTags" ],
   "primaryIdentifier" : [ "/properties/SubscriptionArn" ],
   "handlers" : {
     "create" : {

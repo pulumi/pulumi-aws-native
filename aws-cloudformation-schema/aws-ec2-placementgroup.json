@@ -52,8 +52,9 @@
     }
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount", "/properties/GroupName" ],
+  "createOnlyProperties" : [ "/properties/Strategy", "/properties/SpreadLevel", "/properties/PartitionCount" ],
   "primaryIdentifier" : [ "/properties/GroupName" ],
+  "readOnlyProperties" : [ "/properties/GroupName" ],
   "tagging" : {
     "taggable" : true,
     "tagUpdatable" : false,
