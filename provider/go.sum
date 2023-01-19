@@ -1709,8 +1709,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.48.1-0.20221205185749-86e7d56df231/go.mod h1:
 github.com/pulumi/pulumi/pkg/v3 v3.48.1-0.20221207010559-e812f69ba562/go.mod h1:fCqwy4EYIamxchIckgUJBZIvQf3AA3JcLSUR2mWIho4=
 github.com/pulumi/pulumi/pkg/v3 v3.49.0/go.mod h1:4metm4SXH718jHxL3kQwWTzyJMFEVARH4L5zF1qnCek=
 github.com/pulumi/pulumi/pkg/v3 v3.49.1-0.20221210190028-cbf32d1940fa/go.mod h1:4metm4SXH718jHxL3kQwWTzyJMFEVARH4L5zF1qnCek=
-github.com/pulumi/pulumi/pkg/v3 v3.51.1 h1:332xuPVocexyjPy1a3AZFR3Qlxlc+POOqOaxGmgmXgU=
-github.com/pulumi/pulumi/pkg/v3 v3.51.1/go.mod h1:NhGfARTnE+R7XrSQ6Yo8/kSVgvkHJci6foum8jG542w=
+github.com/pulumi/pulumi/pkg/v3 v3.52.0 h1:zmM+x3YRRA18Imv0Nmk6T/IzNNSM81Vrh53rBhW41p4=
+github.com/pulumi/pulumi/pkg/v3 v3.52.0/go.mod h1:DK74sudTp/nbL7srp/Y7GDrZTWDz0kUURWLqGeKYrPo=
 github.com/pulumi/pulumi/sdk/v3 v3.26.0/go.mod h1:VsxW+TGv2VBLe/MeqsAr9r0zKzK/gbAhFT9QxYr24cY=
 github.com/pulumi/pulumi/sdk/v3 v3.28.0/go.mod h1:Oe6AnW5MjJE5X2UJeqeXm1Al7qahdLVhIPeiKuoqxAw=
 github.com/pulumi/pulumi/sdk/v3 v3.31.0/go.mod h1:hGo/+AL1L4sPL9Ukd/i5bNFM3WHs3dHcA+GKEW7M3RA=
@@ -1741,8 +1741,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.48.1-0.20221205185749-86e7d56df231/go.mod h1:
 github.com/pulumi/pulumi/sdk/v3 v3.48.1-0.20221207010559-e812f69ba562/go.mod h1:n5EPRVFDh+EFwYZ+oaZmEtwgVN1A6NnI82B7ks/bmTU=
 github.com/pulumi/pulumi/sdk/v3 v3.49.0/go.mod h1:58NOiU6vEdA0S8KFiFt4/eqH7vKtWhDFsEGCUFRBovw=
 github.com/pulumi/pulumi/sdk/v3 v3.49.1-0.20221210190028-cbf32d1940fa/go.mod h1:58NOiU6vEdA0S8KFiFt4/eqH7vKtWhDFsEGCUFRBovw=
-github.com/pulumi/pulumi/sdk/v3 v3.51.1 h1:8FoRMrjmz6Y2XUvkgEKB6OG7rjMIBR1/UKkv10m6kuU=
-github.com/pulumi/pulumi/sdk/v3 v3.51.1/go.mod h1:IYcBrkAwKEGRVq7R1ne3XJKB5bcux5eL3M/zqco7d6Y=
+github.com/pulumi/pulumi/sdk/v3 v3.52.0 h1:yfIt70VDYOoaSLshak0XWu73Vs7tv9izZ96Z2X+JyYY=
+github.com/pulumi/pulumi/sdk/v3 v3.52.0/go.mod h1:IYcBrkAwKEGRVq7R1ne3XJKB5bcux5eL3M/zqco7d6Y=
 github.com/pulumi/schema-tools v0.1.0/go.mod h1:feL1siLWdcCNUm+irXoHyNHbGaqoX7pfYojpGZe2ziY=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/rakyll/embedmd v0.0.0-20171029212350-c8060a0752a2/go.mod h1:7jOTMgqac46PZcF54q6l2hkLEG8op93fZu61KmxWDV4=
