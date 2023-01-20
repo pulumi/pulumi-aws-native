@@ -27,6 +27,10 @@ export interface GetPlacementGroupArgs {
 
 export interface GetPlacementGroupResult {
     /**
+     * The Group Name of Placement Group.
+     */
+    readonly groupName?: string;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.ec2.PlacementGroupTag[];

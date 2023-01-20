@@ -1687,13 +1687,343 @@ func (in *workflowStepCopyStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowS
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
+// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+type WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting string
+
+const (
+	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingTrue  = WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE")
+	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingFalse = WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("FALSE")
+)
+
+func (WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting)(nil)).Elem()
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
+	return pulumi.ToOutput(e).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return e.ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting(e).ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutputWithContext(ctx).ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) *WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting
+		return ret
+	}).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput is an input type that accepts WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingArgs and WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput` via:
+//
+//	WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingArgs{...}
+type WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput
+	ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput
+}
+
+var workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrType = reflect.TypeOf((**WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting)(nil)).Elem()
+
+type WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput
+	ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput
+}
+
+type workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr string
+
+func WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr(v string) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrInput {
+	return (*workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr)(&v)
+}
+
+func (*workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ElementType() reflect.Type {
+	return workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrType
+}
+
+func (in *workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return pulumi.ToOutput(in).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
+}
+
+func (in *workflowStepDecryptStepDetailsPropertiesOverwriteExistingPtr) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
+}
+
+// Specifies which encryption method to use.
+type WorkflowStepDecryptStepDetailsPropertiesType string
+
+const (
+	WorkflowStepDecryptStepDetailsPropertiesTypePgp = WorkflowStepDecryptStepDetailsPropertiesType("PGP")
+)
+
+func (WorkflowStepDecryptStepDetailsPropertiesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesType)(nil)).Elem()
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToWorkflowStepDecryptStepDetailsPropertiesTypeOutput() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return pulumi.ToOutput(e).(WorkflowStepDecryptStepDetailsPropertiesTypeOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToWorkflowStepDecryptStepDetailsPropertiesTypeOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowStepDecryptStepDetailsPropertiesTypeOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutput() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return e.ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return WorkflowStepDecryptStepDetailsPropertiesType(e).ToWorkflowStepDecryptStepDetailsPropertiesTypeOutputWithContext(ctx).ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStepDecryptStepDetailsPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowStepDecryptStepDetailsPropertiesTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesType)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypeOutput() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypeOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutput() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return o.ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsPropertiesType) *WorkflowStepDecryptStepDetailsPropertiesType {
+		return &v
+	}).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStepDecryptStepDetailsPropertiesType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStepDecryptStepDetailsPropertiesType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowStepDecryptStepDetailsPropertiesType)(nil)).Elem()
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutput() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return o
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
+	return o.ApplyT(func(v *WorkflowStepDecryptStepDetailsPropertiesType) WorkflowStepDecryptStepDetailsPropertiesType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowStepDecryptStepDetailsPropertiesType
+		return ret
+	}).(WorkflowStepDecryptStepDetailsPropertiesTypeOutput)
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowStepDecryptStepDetailsPropertiesType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowStepDecryptStepDetailsPropertiesTypeInput is an input type that accepts WorkflowStepDecryptStepDetailsPropertiesTypeArgs and WorkflowStepDecryptStepDetailsPropertiesTypeOutput values.
+// You can construct a concrete instance of `WorkflowStepDecryptStepDetailsPropertiesTypeInput` via:
+//
+//	WorkflowStepDecryptStepDetailsPropertiesTypeArgs{...}
+type WorkflowStepDecryptStepDetailsPropertiesTypeInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsPropertiesTypeOutput() WorkflowStepDecryptStepDetailsPropertiesTypeOutput
+	ToWorkflowStepDecryptStepDetailsPropertiesTypeOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsPropertiesTypeOutput
+}
+
+var workflowStepDecryptStepDetailsPropertiesTypePtrType = reflect.TypeOf((**WorkflowStepDecryptStepDetailsPropertiesType)(nil)).Elem()
+
+type WorkflowStepDecryptStepDetailsPropertiesTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutput() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput
+	ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput
+}
+
+type workflowStepDecryptStepDetailsPropertiesTypePtr string
+
+func WorkflowStepDecryptStepDetailsPropertiesTypePtr(v string) WorkflowStepDecryptStepDetailsPropertiesTypePtrInput {
+	return (*workflowStepDecryptStepDetailsPropertiesTypePtr)(&v)
+}
+
+func (*workflowStepDecryptStepDetailsPropertiesTypePtr) ElementType() reflect.Type {
+	return workflowStepDecryptStepDetailsPropertiesTypePtrType
+}
+
+func (in *workflowStepDecryptStepDetailsPropertiesTypePtr) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutput() WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
+}
+
+func (in *workflowStepDecryptStepDetailsPropertiesTypePtr) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
+}
+
 type WorkflowStepType string
 
 const (
-	WorkflowStepTypeCopy   = WorkflowStepType("COPY")
-	WorkflowStepTypeCustom = WorkflowStepType("CUSTOM")
-	WorkflowStepTypeDelete = WorkflowStepType("DELETE")
-	WorkflowStepTypeTag    = WorkflowStepType("TAG")
+	WorkflowStepTypeCopy    = WorkflowStepType("COPY")
+	WorkflowStepTypeCustom  = WorkflowStepType("CUSTOM")
+	WorkflowStepTypeDecrypt = WorkflowStepType("DECRYPT")
+	WorkflowStepTypeDelete  = WorkflowStepType("DELETE")
+	WorkflowStepTypeTag     = WorkflowStepType("TAG")
 )
 
 func (WorkflowStepType) ElementType() reflect.Type {
@@ -1872,6 +2202,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypePtrInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesTypeInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesType("PGP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesTypePtrInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesType("PGP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTypeInput)(nil)).Elem(), WorkflowStepType("COPY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTypePtrInput)(nil)).Elem(), WorkflowStepType("COPY"))
 	pulumi.RegisterOutputType(AgreementStatusOutput{})
@@ -1896,6 +2230,10 @@ func init() {
 	pulumi.RegisterOutputType(ProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTypeOutput{})
 	pulumi.RegisterOutputType(WorkflowStepTypePtrOutput{})
 }

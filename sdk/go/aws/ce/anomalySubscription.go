@@ -31,7 +31,9 @@ type AnomalySubscription struct {
 	// The name of the subscription.
 	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64Output `pulumi:"threshold"`
+	Threshold pulumi.Float64PtrOutput `pulumi:"threshold"`
+	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+	ThresholdExpression pulumi.StringPtrOutput `pulumi:"thresholdExpression"`
 }
 
 // NewAnomalySubscription registers a new resource with the given unique name, arguments, and options.
@@ -52,9 +54,6 @@ func NewAnomalySubscription(ctx *pulumi.Context,
 	}
 	if args.SubscriptionName == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
-	}
-	if args.Threshold == nil {
-		return nil, errors.New("invalid value for required argument 'Threshold'")
 	}
 	var resource AnomalySubscription
 	err := ctx.RegisterResource("aws-native:ce:AnomalySubscription", name, args, &resource, opts...)
@@ -99,7 +98,9 @@ type anomalySubscriptionArgs struct {
 	// The name of the subscription.
 	SubscriptionName string `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold float64 `pulumi:"threshold"`
+	Threshold *float64 `pulumi:"threshold"`
+	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+	ThresholdExpression *string `pulumi:"thresholdExpression"`
 }
 
 // The set of arguments for constructing a AnomalySubscription resource.
@@ -115,7 +116,9 @@ type AnomalySubscriptionArgs struct {
 	// The name of the subscription.
 	SubscriptionName pulumi.StringInput
 	// The dollar value that triggers a notification if the threshold is exceeded.
-	Threshold pulumi.Float64Input
+	Threshold pulumi.Float64PtrInput
+	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+	ThresholdExpression pulumi.StringPtrInput
 }
 
 func (AnomalySubscriptionArgs) ElementType() reflect.Type {
@@ -190,8 +193,13 @@ func (o AnomalySubscriptionOutput) SubscriptionName() pulumi.StringOutput {
 }
 
 // The dollar value that triggers a notification if the threshold is exceeded.
-func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64Output {
-	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64Output { return v.Threshold }).(pulumi.Float64Output)
+func (o AnomalySubscriptionOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.Float64PtrOutput { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+func (o AnomalySubscriptionOutput) ThresholdExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnomalySubscription) pulumi.StringPtrOutput { return v.ThresholdExpression }).(pulumi.StringPtrOutput)
 }
 
 func init() {

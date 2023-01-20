@@ -22,6 +22,7 @@ type DataSource struct {
 	Description              pulumi.StringPtrOutput                      `pulumi:"description"`
 	DynamoDBConfig           DataSourceDynamoDBConfigPtrOutput           `pulumi:"dynamoDBConfig"`
 	ElasticsearchConfig      DataSourceElasticsearchConfigPtrOutput      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        DataSourceEventBridgeConfigPtrOutput        `pulumi:"eventBridgeConfig"`
 	HttpConfig               DataSourceHttpConfigPtrOutput               `pulumi:"httpConfig"`
 	LambdaConfig             DataSourceLambdaConfigPtrOutput             `pulumi:"lambdaConfig"`
 	Name                     pulumi.StringOutput                         `pulumi:"name"`
@@ -80,6 +81,7 @@ type dataSourceArgs struct {
 	Description              *string                             `pulumi:"description"`
 	DynamoDBConfig           *DataSourceDynamoDBConfig           `pulumi:"dynamoDBConfig"`
 	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
 	Name                     *string                             `pulumi:"name"`
@@ -95,6 +97,7 @@ type DataSourceArgs struct {
 	Description              pulumi.StringPtrInput
 	DynamoDBConfig           DataSourceDynamoDBConfigPtrInput
 	ElasticsearchConfig      DataSourceElasticsearchConfigPtrInput
+	EventBridgeConfig        DataSourceEventBridgeConfigPtrInput
 	HttpConfig               DataSourceHttpConfigPtrInput
 	LambdaConfig             DataSourceLambdaConfigPtrInput
 	Name                     pulumi.StringPtrInput
@@ -159,6 +162,10 @@ func (o DataSourceOutput) DynamoDBConfig() DataSourceDynamoDBConfigPtrOutput {
 
 func (o DataSourceOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceElasticsearchConfigPtrOutput { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
+}
+
+func (o DataSourceOutput) EventBridgeConfig() DataSourceEventBridgeConfigPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceEventBridgeConfigPtrOutput { return v.EventBridgeConfig }).(DataSourceEventBridgeConfigPtrOutput)
 }
 
 func (o DataSourceOutput) HttpConfig() DataSourceHttpConfigPtrOutput {

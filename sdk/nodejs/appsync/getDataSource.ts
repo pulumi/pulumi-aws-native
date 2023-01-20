@@ -27,6 +27,7 @@ export interface GetDataSourceResult {
     readonly description?: string;
     readonly dynamoDBConfig?: outputs.appsync.DataSourceDynamoDBConfig;
     readonly elasticsearchConfig?: outputs.appsync.DataSourceElasticsearchConfig;
+    readonly eventBridgeConfig?: outputs.appsync.DataSourceEventBridgeConfig;
     readonly httpConfig?: outputs.appsync.DataSourceHttpConfig;
     readonly id?: string;
     readonly lambdaConfig?: outputs.appsync.DataSourceLambdaConfig;

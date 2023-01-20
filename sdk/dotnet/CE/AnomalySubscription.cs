@@ -59,7 +59,13 @@ namespace Pulumi.AwsNative.CE
         /// The dollar value that triggers a notification if the threshold is exceeded. 
         /// </summary>
         [Output("threshold")]
-        public Output<double> Threshold { get; private set; } = null!;
+        public Output<double?> Threshold { get; private set; } = null!;
+
+        /// <summary>
+        /// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+        /// </summary>
+        [Output("thresholdExpression")]
+        public Output<string?> ThresholdExpression { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,8 +163,14 @@ namespace Pulumi.AwsNative.CE
         /// <summary>
         /// The dollar value that triggers a notification if the threshold is exceeded. 
         /// </summary>
-        [Input("threshold", required: true)]
-        public Input<double> Threshold { get; set; } = null!;
+        [Input("threshold")]
+        public Input<double>? Threshold { get; set; }
+
+        /// <summary>
+        /// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+        /// </summary>
+        [Input("thresholdExpression")]
+        public Input<string>? ThresholdExpression { get; set; }
 
         public AnomalySubscriptionArgs()
         {

@@ -45,6 +45,7 @@ class PricingRuleScope(str, Enum):
     GLOBAL_ = "GLOBAL"
     SERVICE = "SERVICE"
     BILLING_ENTITY = "BILLING_ENTITY"
+    SKU = "SKU"
 
 
 class PricingRuleType(str, Enum):

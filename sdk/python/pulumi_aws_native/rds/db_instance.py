@@ -24,6 +24,8 @@ class DBInstanceArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_details: Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -93,6 +95,11 @@ class DBInstanceArgs:
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input['DBInstanceCertificateDetailsArgs'] certificate_details: Returns the details of the DB instance's server certificate.
+        :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+               By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+               If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+               This setting doesn't apply to RDS Custom.
         :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
@@ -182,6 +189,10 @@ class DBInstanceArgs:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if c_a_certificate_identifier is not None:
             pulumi.set(__self__, "c_a_certificate_identifier", c_a_certificate_identifier)
+        if certificate_details is not None:
+            pulumi.set(__self__, "certificate_details", certificate_details)
+        if certificate_rotation_restart is not None:
+            pulumi.set(__self__, "certificate_rotation_restart", certificate_rotation_restart)
         if character_set_name is not None:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
@@ -386,6 +397,33 @@ class DBInstanceArgs:
     @c_a_certificate_identifier.setter
     def c_a_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "c_a_certificate_identifier", value)
+
+    @property
+    @pulumi.getter(name="certificateDetails")
+    def certificate_details(self) -> Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']]:
+        """
+        Returns the details of the DB instance's server certificate.
+        """
+        return pulumi.get(self, "certificate_details")
+
+    @certificate_details.setter
+    def certificate_details(self, value: Optional[pulumi.Input['DBInstanceCertificateDetailsArgs']]):
+        pulumi.set(self, "certificate_details", value)
+
+    @property
+    @pulumi.getter(name="certificateRotationRestart")
+    def certificate_rotation_restart(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+        By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+        If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+        This setting doesn't apply to RDS Custom.
+        """
+        return pulumi.get(self, "certificate_rotation_restart")
+
+    @certificate_rotation_restart.setter
+    def certificate_rotation_restart(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "certificate_rotation_restart", value)
 
     @property
     @pulumi.getter(name="characterSetName")
@@ -1134,6 +1172,8 @@ class DBInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -1207,6 +1247,11 @@ class DBInstance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The Availability Zone (AZ) where the database will be created. For information on AWS Regions and Availability Zones.
         :param pulumi.Input[int] backup_retention_period: The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
         :param pulumi.Input[str] c_a_certificate_identifier: The identifier of the CA certificate for this DB instance.
+        :param pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']] certificate_details: Returns the details of the DB instance's server certificate.
+        :param pulumi.Input[bool] certificate_rotation_restart: A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+               By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+               If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+               This setting doesn't apply to RDS Custom.
         :param pulumi.Input[str] character_set_name: For supported engines, indicates that the DB instance should be associated with the specified character set.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
         :param pulumi.Input[str] custom_iam_instance_profile: The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance. The instance profile must meet the following requirements:
@@ -1313,6 +1358,8 @@ class DBInstance(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  c_a_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_details: Optional[pulumi.Input[pulumi.InputType['DBInstanceCertificateDetailsArgs']]] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
@@ -1389,6 +1436,8 @@ class DBInstance(pulumi.CustomResource):
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["c_a_certificate_identifier"] = c_a_certificate_identifier
+            __props__.__dict__["certificate_details"] = certificate_details
+            __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["custom_iam_instance_profile"] = custom_iam_instance_profile
@@ -1481,6 +1530,8 @@ class DBInstance(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["c_a_certificate_identifier"] = None
+        __props__.__dict__["certificate_details"] = None
+        __props__.__dict__["certificate_rotation_restart"] = None
         __props__.__dict__["character_set_name"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["custom_iam_instance_profile"] = None
@@ -1601,6 +1652,25 @@ class DBInstance(pulumi.CustomResource):
         The identifier of the CA certificate for this DB instance.
         """
         return pulumi.get(self, "c_a_certificate_identifier")
+
+    @property
+    @pulumi.getter(name="certificateDetails")
+    def certificate_details(self) -> pulumi.Output[Optional['outputs.DBInstanceCertificateDetails']]:
+        """
+        Returns the details of the DB instance's server certificate.
+        """
+        return pulumi.get(self, "certificate_details")
+
+    @property
+    @pulumi.getter(name="certificateRotationRestart")
+    def certificate_rotation_restart(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+        By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+        If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+        This setting doesn't apply to RDS Custom.
+        """
+        return pulumi.get(self, "certificate_rotation_restart")
 
     @property
     @pulumi.getter(name="characterSetName")

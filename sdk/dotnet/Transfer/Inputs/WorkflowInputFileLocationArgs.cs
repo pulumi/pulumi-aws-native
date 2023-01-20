@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
     /// <summary>
-    /// Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+    /// Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
     /// </summary>
     public sealed class WorkflowInputFileLocationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("efsFileLocation")]
+        public Input<Inputs.WorkflowEfsInputFileLocationArgs>? EfsFileLocation { get; set; }
+
         [Input("s3FileLocation")]
         public Input<Inputs.WorkflowS3InputFileLocationArgs>? S3FileLocation { get; set; }
 

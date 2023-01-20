@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? Description;
         public readonly Outputs.DataSourceDynamoDBConfig? DynamoDBConfig;
         public readonly Outputs.DataSourceElasticsearchConfig? ElasticsearchConfig;
+        public readonly Outputs.DataSourceEventBridgeConfig? EventBridgeConfig;
         public readonly Outputs.DataSourceHttpConfig? HttpConfig;
         public readonly string? Id;
         public readonly Outputs.DataSourceLambdaConfig? LambdaConfig;
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.AppSync
             Outputs.DataSourceDynamoDBConfig? dynamoDBConfig,
 
             Outputs.DataSourceElasticsearchConfig? elasticsearchConfig,
+
+            Outputs.DataSourceEventBridgeConfig? eventBridgeConfig,
 
             Outputs.DataSourceHttpConfig? httpConfig,
 
@@ -91,6 +94,7 @@ namespace Pulumi.AwsNative.AppSync
             Description = description;
             DynamoDBConfig = dynamoDBConfig;
             ElasticsearchConfig = elasticsearchConfig;
+            EventBridgeConfig = eventBridgeConfig;
             HttpConfig = httpConfig;
             Id = id;
             LambdaConfig = lambdaConfig;

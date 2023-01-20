@@ -33,7 +33,7 @@ export interface GetMetricStreamResult {
     /**
      * The date of creation of the metric stream.
      */
-    readonly creationDate?: string;
+    readonly creationDate?: any | any;
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
@@ -47,9 +47,13 @@ export interface GetMetricStreamResult {
      */
     readonly includeFilters?: outputs.cloudwatch.MetricStreamFilter[];
     /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+     */
+    readonly includeLinkedAccountsMetrics?: boolean;
+    /**
      * The date of the last update of the metric stream.
      */
-    readonly lastUpdateDate?: string;
+    readonly lastUpdateDate?: any | any;
     /**
      * The output format of the data streamed to the Kinesis Firehose.
      */

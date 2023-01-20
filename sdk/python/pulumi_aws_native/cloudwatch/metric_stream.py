@@ -21,6 +21,7 @@ class MetricStreamArgs:
                  role_arn: pulumi.Input[str],
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None):
@@ -31,6 +32,7 @@ class MetricStreamArgs:
         :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
         :param pulumi.Input[str] name: Name of the metric stream.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         :param pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]] tags: A set of tags to assign to the delivery stream.
@@ -42,6 +44,8 @@ class MetricStreamArgs:
             pulumi.set(__self__, "exclude_filters", exclude_filters)
         if include_filters is not None:
             pulumi.set(__self__, "include_filters", include_filters)
+        if include_linked_accounts_metrics is not None:
+            pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if statistics_configurations is not None:
@@ -110,6 +114,18 @@ class MetricStreamArgs:
         pulumi.set(self, "include_filters", value)
 
     @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
+
+    @include_linked_accounts_metrics.setter
+    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_linked_accounts_metrics", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -154,6 +170,7 @@ class MetricStream(pulumi.CustomResource):
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -168,6 +185,7 @@ class MetricStream(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
         :param pulumi.Input[str] name: Name of the metric stream.
         :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
         :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
@@ -201,6 +219,7 @@ class MetricStream(pulumi.CustomResource):
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
                  firehose_arn: Optional[pulumi.Input[str]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamFilterArgs']]]]] = None,
+                 include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -220,6 +239,7 @@ class MetricStream(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firehose_arn'")
             __props__.__dict__["firehose_arn"] = firehose_arn
             __props__.__dict__["include_filters"] = include_filters
+            __props__.__dict__["include_linked_accounts_metrics"] = include_linked_accounts_metrics
             __props__.__dict__["name"] = name
             if output_format is None and not opts.urn:
                 raise TypeError("Missing required property 'output_format'")
@@ -260,6 +280,7 @@ class MetricStream(pulumi.CustomResource):
         __props__.__dict__["exclude_filters"] = None
         __props__.__dict__["firehose_arn"] = None
         __props__.__dict__["include_filters"] = None
+        __props__.__dict__["include_linked_accounts_metrics"] = None
         __props__.__dict__["last_update_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["output_format"] = None
@@ -279,7 +300,7 @@ class MetricStream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> pulumi.Output[str]:
+    def creation_date(self) -> pulumi.Output[Any]:
         """
         The date of creation of the metric stream.
         """
@@ -310,8 +331,16 @@ class MetricStream(pulumi.CustomResource):
         return pulumi.get(self, "include_filters")
 
     @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
+
+    @property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> pulumi.Output[str]:
+    def last_update_date(self) -> pulumi.Output[Any]:
         """
         The date of the last update of the metric stream.
         """

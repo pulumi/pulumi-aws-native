@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationRuntimeEnvironmentType = {
+    WineStaging: "WINE-STAGING",
+} as const;
+
+/**
+ * Type of the runtime environment used to run games. For initial launch it only includes wine staging branch but Motif
+ * will follow up with Proton support.
+ */
+export type ApplicationRuntimeEnvironmentType = (typeof ApplicationRuntimeEnvironmentType)[keyof typeof ApplicationRuntimeEnvironmentType];
+
 export const StreamGroupStreamClass = {
     Mini: "MINI",
     Low: "LOW",

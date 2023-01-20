@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 {
 
     /// <summary>
-    /// Specifies the details for the S3 file being copied.
+    /// Specifies the details for a S3 file.
     /// </summary>
     [OutputType]
     public sealed class WorkflowS3InputFileLocation
     {
         /// <summary>
-        /// Specifies the S3 bucket that contains the file being copied.
+        /// Specifies the S3 bucket that contains the file.
         /// </summary>
         public readonly string? Bucket;
         /// <summary>

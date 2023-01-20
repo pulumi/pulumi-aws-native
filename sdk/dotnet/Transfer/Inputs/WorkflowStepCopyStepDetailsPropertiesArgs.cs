@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     public sealed class WorkflowStepCopyStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationFileLocation")]
-        public Input<Inputs.WorkflowInputFileLocationArgs>? DestinationFileLocation { get; set; }
+        public Input<Inputs.WorkflowS3FileLocationArgs>? DestinationFileLocation { get; set; }
 
         /// <summary>
         /// The name of the step, used as an identifier.

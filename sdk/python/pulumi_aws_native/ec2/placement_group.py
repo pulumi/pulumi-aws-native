@@ -16,21 +16,17 @@ __all__ = ['PlacementGroupArgs', 'PlacementGroup']
 @pulumi.input_type
 class PlacementGroupArgs:
     def __init__(__self__, *,
-                 group_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  spread_level: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
-        :param pulumi.Input[str] group_name: The Group Name of Placement Group.
         :param pulumi.Input[int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[str] strategy: The placement strategy.
         :param pulumi.Input[Sequence[pulumi.Input['PlacementGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if spread_level is not None:
@@ -39,18 +35,6 @@ class PlacementGroupArgs:
             pulumi.set(__self__, "strategy", strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Group Name of Placement Group.
-        """
-        return pulumi.get(self, "group_name")
-
-    @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "group_name", value)
 
     @property
     @pulumi.getter(name="partitionCount")
@@ -106,7 +90,6 @@ class PlacementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  spread_level: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
@@ -117,7 +100,6 @@ class PlacementGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_name: The Group Name of Placement Group.
         :param pulumi.Input[int] partition_count: The number of partitions. Valid only when **Strategy** is set to `partition`
         :param pulumi.Input[str] spread_level: The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
         :param pulumi.Input[str] strategy: The placement strategy.
@@ -147,7 +129,6 @@ class PlacementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  spread_level: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
@@ -161,11 +142,11 @@ class PlacementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
-            __props__.__dict__["group_name"] = group_name
             __props__.__dict__["partition_count"] = partition_count
             __props__.__dict__["spread_level"] = spread_level
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["group_name"] = None
         super(PlacementGroup, __self__).__init__(
             'aws-native:ec2:PlacementGroup',
             resource_name,
@@ -197,7 +178,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Output[Optional[str]]:
+    def group_name(self) -> pulumi.Output[str]:
         """
         The Group Name of Placement Group.
         """

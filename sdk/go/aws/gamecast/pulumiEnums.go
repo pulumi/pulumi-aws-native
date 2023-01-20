@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Type of the runtime environment used to run games. For initial launch it only includes wine staging branch but Motif
+// will follow up with Proton support.
+type ApplicationRuntimeEnvironmentType string
+
+const (
+	ApplicationRuntimeEnvironmentTypeWineStaging = ApplicationRuntimeEnvironmentType("WINE-STAGING")
+)
+
+func (ApplicationRuntimeEnvironmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuntimeEnvironmentType)(nil)).Elem()
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToApplicationRuntimeEnvironmentTypeOutput() ApplicationRuntimeEnvironmentTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationRuntimeEnvironmentTypeOutput)
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToApplicationRuntimeEnvironmentTypeOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationRuntimeEnvironmentTypeOutput)
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToApplicationRuntimeEnvironmentTypePtrOutput() ApplicationRuntimeEnvironmentTypePtrOutput {
+	return e.ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypePtrOutput {
+	return ApplicationRuntimeEnvironmentType(e).ToApplicationRuntimeEnvironmentTypeOutputWithContext(ctx).ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationRuntimeEnvironmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationRuntimeEnvironmentTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuntimeEnvironmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationRuntimeEnvironmentType)(nil)).Elem()
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToApplicationRuntimeEnvironmentTypeOutput() ApplicationRuntimeEnvironmentTypeOutput {
+	return o
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToApplicationRuntimeEnvironmentTypeOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypeOutput {
+	return o
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToApplicationRuntimeEnvironmentTypePtrOutput() ApplicationRuntimeEnvironmentTypePtrOutput {
+	return o.ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationRuntimeEnvironmentType) *ApplicationRuntimeEnvironmentType {
+		return &v
+	}).(ApplicationRuntimeEnvironmentTypePtrOutput)
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRuntimeEnvironmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRuntimeEnvironmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationRuntimeEnvironmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationRuntimeEnvironmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationRuntimeEnvironmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationRuntimeEnvironmentType)(nil)).Elem()
+}
+
+func (o ApplicationRuntimeEnvironmentTypePtrOutput) ToApplicationRuntimeEnvironmentTypePtrOutput() ApplicationRuntimeEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o ApplicationRuntimeEnvironmentTypePtrOutput) ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypePtrOutput {
+	return o
+}
+
+func (o ApplicationRuntimeEnvironmentTypePtrOutput) Elem() ApplicationRuntimeEnvironmentTypeOutput {
+	return o.ApplyT(func(v *ApplicationRuntimeEnvironmentType) ApplicationRuntimeEnvironmentType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationRuntimeEnvironmentType
+		return ret
+	}).(ApplicationRuntimeEnvironmentTypeOutput)
+}
+
+func (o ApplicationRuntimeEnvironmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationRuntimeEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationRuntimeEnvironmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationRuntimeEnvironmentTypeInput is an input type that accepts ApplicationRuntimeEnvironmentTypeArgs and ApplicationRuntimeEnvironmentTypeOutput values.
+// You can construct a concrete instance of `ApplicationRuntimeEnvironmentTypeInput` via:
+//
+//	ApplicationRuntimeEnvironmentTypeArgs{...}
+type ApplicationRuntimeEnvironmentTypeInput interface {
+	pulumi.Input
+
+	ToApplicationRuntimeEnvironmentTypeOutput() ApplicationRuntimeEnvironmentTypeOutput
+	ToApplicationRuntimeEnvironmentTypeOutputWithContext(context.Context) ApplicationRuntimeEnvironmentTypeOutput
+}
+
+var applicationRuntimeEnvironmentTypePtrType = reflect.TypeOf((**ApplicationRuntimeEnvironmentType)(nil)).Elem()
+
+type ApplicationRuntimeEnvironmentTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationRuntimeEnvironmentTypePtrOutput() ApplicationRuntimeEnvironmentTypePtrOutput
+	ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(context.Context) ApplicationRuntimeEnvironmentTypePtrOutput
+}
+
+type applicationRuntimeEnvironmentTypePtr string
+
+func ApplicationRuntimeEnvironmentTypePtr(v string) ApplicationRuntimeEnvironmentTypePtrInput {
+	return (*applicationRuntimeEnvironmentTypePtr)(&v)
+}
+
+func (*applicationRuntimeEnvironmentTypePtr) ElementType() reflect.Type {
+	return applicationRuntimeEnvironmentTypePtrType
+}
+
+func (in *applicationRuntimeEnvironmentTypePtr) ToApplicationRuntimeEnvironmentTypePtrOutput() ApplicationRuntimeEnvironmentTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationRuntimeEnvironmentTypePtrOutput)
+}
+
+func (in *applicationRuntimeEnvironmentTypePtr) ToApplicationRuntimeEnvironmentTypePtrOutputWithContext(ctx context.Context) ApplicationRuntimeEnvironmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationRuntimeEnvironmentTypePtrOutput)
+}
+
 // These are pre-packed Motif virtual instance type used to run customer games where mini spec maps to high-end
 // integrated graphics and ultra maps to high-end gaming pc. These have different cost implications.
 type StreamGroupStreamClass string
@@ -180,8 +345,12 @@ func (in *streamGroupStreamClassPtr) ToStreamGroupStreamClassPtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRuntimeEnvironmentTypeInput)(nil)).Elem(), ApplicationRuntimeEnvironmentType("WINE-STAGING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationRuntimeEnvironmentTypePtrInput)(nil)).Elem(), ApplicationRuntimeEnvironmentType("WINE-STAGING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupStreamClassInput)(nil)).Elem(), StreamGroupStreamClass("MINI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamGroupStreamClassPtrInput)(nil)).Elem(), StreamGroupStreamClass("MINI"))
+	pulumi.RegisterOutputType(ApplicationRuntimeEnvironmentTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationRuntimeEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(StreamGroupStreamClassOutput{})
 	pulumi.RegisterOutputType(StreamGroupStreamClassPtrOutput{})
 }

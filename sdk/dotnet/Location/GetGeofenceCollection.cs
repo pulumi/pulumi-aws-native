@@ -54,6 +54,7 @@ namespace Pulumi.AwsNative.Location
         public readonly string? Arn;
         public readonly string? CollectionArn;
         public readonly string? CreateTime;
+        public readonly Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? PricingPlan;
         public readonly string? PricingPlanDataSource;
         public readonly string? UpdateTime;
 
@@ -65,6 +66,8 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? pricingPlan,
+
             string? pricingPlanDataSource,
 
             string? updateTime)
@@ -72,6 +75,7 @@ namespace Pulumi.AwsNative.Location
             Arn = arn;
             CollectionArn = collectionArn;
             CreateTime = createTime;
+            PricingPlan = pricingPlan;
             PricingPlanDataSource = pricingPlanDataSource;
             UpdateTime = updateTime;
         }

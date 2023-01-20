@@ -21,6 +21,7 @@ class DataSourceArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDBConfigArgs']] = None,
                  elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
+                 event_bridge_config: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']] = None,
                  http_config: Optional[pulumi.Input['DataSourceHttpConfigArgs']] = None,
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "dynamo_db_config", dynamo_db_config)
         if elasticsearch_config is not None:
             pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+        if event_bridge_config is not None:
+            pulumi.set(__self__, "event_bridge_config", event_bridge_config)
         if http_config is not None:
             pulumi.set(__self__, "http_config", http_config)
         if lambda_config is not None:
@@ -95,6 +98,15 @@ class DataSourceArgs:
     @elasticsearch_config.setter
     def elasticsearch_config(self, value: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]):
         pulumi.set(self, "elasticsearch_config", value)
+
+    @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]:
+        return pulumi.get(self, "event_bridge_config")
+
+    @event_bridge_config.setter
+    def event_bridge_config(self, value: Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]):
+        pulumi.set(self, "event_bridge_config", value)
 
     @property
     @pulumi.getter(name="httpConfig")
@@ -165,6 +177,7 @@ class DataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDBConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+                 event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -207,6 +220,7 @@ class DataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dynamo_db_config: Optional[pulumi.Input[pulumi.InputType['DataSourceDynamoDBConfigArgs']]] = None,
                  elasticsearch_config: Optional[pulumi.Input[pulumi.InputType['DataSourceElasticsearchConfigArgs']]] = None,
+                 event_bridge_config: Optional[pulumi.Input[pulumi.InputType['DataSourceEventBridgeConfigArgs']]] = None,
                  http_config: Optional[pulumi.Input[pulumi.InputType['DataSourceHttpConfigArgs']]] = None,
                  lambda_config: Optional[pulumi.Input[pulumi.InputType['DataSourceLambdaConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -230,6 +244,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamo_db_config"] = dynamo_db_config
             __props__.__dict__["elasticsearch_config"] = elasticsearch_config
+            __props__.__dict__["event_bridge_config"] = event_bridge_config
             __props__.__dict__["http_config"] = http_config
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
@@ -267,6 +282,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["dynamo_db_config"] = None
         __props__.__dict__["elasticsearch_config"] = None
+        __props__.__dict__["event_bridge_config"] = None
         __props__.__dict__["http_config"] = None
         __props__.__dict__["lambda_config"] = None
         __props__.__dict__["name"] = None
@@ -300,6 +316,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="elasticsearchConfig")
     def elasticsearch_config(self) -> pulumi.Output[Optional['outputs.DataSourceElasticsearchConfig']]:
         return pulumi.get(self, "elasticsearch_config")
+
+    @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> pulumi.Output[Optional['outputs.DataSourceEventBridgeConfig']]:
+        return pulumi.get(self, "event_bridge_config")
 
     @property
     @pulumi.getter(name="httpConfig")

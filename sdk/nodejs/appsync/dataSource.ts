@@ -45,6 +45,7 @@ export class DataSource extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly dynamoDBConfig!: pulumi.Output<outputs.appsync.DataSourceDynamoDBConfig | undefined>;
     public readonly elasticsearchConfig!: pulumi.Output<outputs.appsync.DataSourceElasticsearchConfig | undefined>;
+    public readonly eventBridgeConfig!: pulumi.Output<outputs.appsync.DataSourceEventBridgeConfig | undefined>;
     public readonly httpConfig!: pulumi.Output<outputs.appsync.DataSourceHttpConfig | undefined>;
     public readonly lambdaConfig!: pulumi.Output<outputs.appsync.DataSourceLambdaConfig | undefined>;
     public readonly name!: pulumi.Output<string>;
@@ -76,6 +77,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dynamoDBConfig"] = args ? args.dynamoDBConfig : undefined;
             resourceInputs["elasticsearchConfig"] = args ? args.elasticsearchConfig : undefined;
+            resourceInputs["eventBridgeConfig"] = args ? args.eventBridgeConfig : undefined;
             resourceInputs["httpConfig"] = args ? args.httpConfig : undefined;
             resourceInputs["lambdaConfig"] = args ? args.lambdaConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -90,6 +92,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["dynamoDBConfig"] = undefined /*out*/;
             resourceInputs["elasticsearchConfig"] = undefined /*out*/;
+            resourceInputs["eventBridgeConfig"] = undefined /*out*/;
             resourceInputs["httpConfig"] = undefined /*out*/;
             resourceInputs["lambdaConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -111,6 +114,7 @@ export interface DataSourceArgs {
     description?: pulumi.Input<string>;
     dynamoDBConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDBConfigArgs>;
     elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs>;
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs>;
     httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;
     lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs>;
     name?: pulumi.Input<string>;

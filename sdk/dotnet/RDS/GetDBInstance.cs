@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         public readonly string? CACertificateIdentifier;
         /// <summary>
+        /// Returns the details of the DB instance's server certificate.
+        /// </summary>
+        public readonly Outputs.DBInstanceCertificateDetails? CertificateDetails;
+        /// <summary>
         /// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
@@ -278,6 +282,8 @@ namespace Pulumi.AwsNative.RDS
 
             string? cACertificateIdentifier,
 
+            Outputs.DBInstanceCertificateDetails? certificateDetails,
+
             bool? copyTagsToSnapshot,
 
             string? dBClusterSnapshotIdentifier,
@@ -369,6 +375,7 @@ namespace Pulumi.AwsNative.RDS
             AvailabilityZone = availabilityZone;
             BackupRetentionPeriod = backupRetentionPeriod;
             CACertificateIdentifier = cACertificateIdentifier;
+            CertificateDetails = certificateDetails;
             CopyTagsToSnapshot = copyTagsToSnapshot;
             DBClusterSnapshotIdentifier = dBClusterSnapshotIdentifier;
             DBInstanceArn = dBInstanceArn;

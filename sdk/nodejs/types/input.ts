@@ -4370,6 +4370,10 @@ export namespace appsync {
         endpoint: pulumi.Input<string>;
     }
 
+    export interface DataSourceEventBridgeConfigArgs {
+        eventBusArn: pulumi.Input<string>;
+    }
+
     export interface DataSourceHttpConfigArgs {
         authorizationConfig?: pulumi.Input<inputs.appsync.DataSourceAuthorizationConfigArgs>;
         endpoint: pulumi.Input<string>;
@@ -14613,6 +14617,41 @@ export namespace fsx {
 
 export namespace gamecast {
     /**
+     * Runtime environment is a combination of Windows compatibility layer and other graphics libraries used to run the application.
+     */
+    export interface ApplicationRuntimeEnvironmentArgs {
+        type: pulumi.Input<enums.gamecast.ApplicationRuntimeEnvironmentType>;
+        /**
+         * Versioned container environment used to run customer game. Each runtime fixed version of the Windows
+         * compatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan
+         * versions are used in which Motif runtime environment version.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    /**
+     * Application save configuration
+     */
+    export interface ApplicationSaveConfigurationArgs {
+        /**
+         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
+         * are running on a Windows environment.
+         */
+        fileLocations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
+         * are running on a Windows environment.
+         */
+        registryLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
+     */
+    export interface ApplicationTagsArgs {
+    }
+
+    /**
      * Information about default application running on the stream group.
      */
     export interface StreamGroupDefaultApplicationArgs {
@@ -20127,6 +20166,26 @@ export namespace kendra {
     export interface IndexValueImportanceItemArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<number>;
+    }
+}
+
+export namespace kendraranking {
+    export interface ExecutionPlanCapacityUnitsConfigurationArgs {
+        rescoreCapacityUnits: pulumi.Input<number>;
+    }
+
+    /**
+     * A label for tagging KendraRanking resources
+     */
+    export interface ExecutionPlanTagArgs {
+        /**
+         * A string used to identify this tag
+         */
+        key: pulumi.Input<string>;
+        /**
+         * A string containing the value for the tag
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -29307,6 +29366,17 @@ export namespace rds {
         value?: pulumi.Input<string>;
     }
 
+    export interface DBInstanceCertificateDetailsArgs {
+        /**
+         * The CA identifier of the CA certificate used for the DB instance's server certificate.
+         */
+        cAIdentifier?: pulumi.Input<string>;
+        /**
+         * The expiration date of the DB instance’s server certificate.
+         */
+        validTill?: pulumi.Input<string>;
+    }
+
     export interface DBInstanceEndpointArgs {
         /**
          * Specifies the DNS address of the DB instance.
@@ -34800,15 +34870,45 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretStringArgs {
+        /**
+         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+         */
         excludeCharacters?: pulumi.Input<string>;
+        /**
+         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+         */
         excludeLowercase?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+         */
         excludeNumbers?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+         */
         excludePunctuation?: pulumi.Input<boolean>;
+        /**
+         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+         */
         excludeUppercase?: pulumi.Input<boolean>;
+        /**
+         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+         */
         generateStringKey?: pulumi.Input<string>;
+        /**
+         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+         */
         includeSpace?: pulumi.Input<boolean>;
+        /**
+         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+         */
         passwordLength?: pulumi.Input<number>;
+        /**
+         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+         */
         requireEachIncludedType?: pulumi.Input<boolean>;
+        /**
+         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+         */
         secretStringTemplate?: pulumi.Input<string>;
     }
 
@@ -36256,18 +36356,40 @@ export namespace transfer {
     }
 
     /**
-     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     * Specifies the details for an EFS file.
+     */
+    export interface WorkflowEfsInputFileLocationArgs {
+        /**
+         * Specifies the EFS filesystem that contains the file.
+         */
+        fileSystemId?: pulumi.Input<string>;
+        /**
+         * The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    /**
+     * Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
      */
     export interface WorkflowInputFileLocationArgs {
+        efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowEfsInputFileLocationArgs>;
         s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowS3InputFileLocationArgs>;
     }
 
     /**
-     * Specifies the details for the S3 file being copied.
+     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     */
+    export interface WorkflowS3FileLocationArgs {
+        s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowS3InputFileLocationArgs>;
+    }
+
+    /**
+     * Specifies the details for a S3 file.
      */
     export interface WorkflowS3InputFileLocationArgs {
         /**
-         * Specifies the S3 bucket that contains the file being copied.
+         * Specifies the S3 bucket that contains the file.
          */
         bucket?: pulumi.Input<string>;
         /**
@@ -36303,6 +36425,10 @@ export namespace transfer {
          */
         customStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCustomStepDetailsPropertiesArgs>;
         /**
+         * Details for a step that performs a file decryption.
+         */
+        decryptStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDecryptStepDetailsPropertiesArgs>;
+        /**
          * Details for a step that deletes the file.
          */
         deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDeleteStepDetailsPropertiesArgs>;
@@ -36317,7 +36443,7 @@ export namespace transfer {
      * Details for a step that performs a file copy.
      */
     export interface WorkflowStepCopyStepDetailsPropertiesArgs {
-        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowInputFileLocationArgs>;
+        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowS3FileLocationArgs>;
         /**
          * The name of the step, used as an identifier.
          */
@@ -36352,6 +36478,29 @@ export namespace transfer {
          * Timeout, in seconds, for the step.
          */
         timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * Details for a step that performs a file decryption.
+     */
+    export interface WorkflowStepDecryptStepDetailsPropertiesArgs {
+        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowInputFileLocationArgs>;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+         */
+        overwriteExisting?: pulumi.Input<enums.transfer.WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting>;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+        /**
+         * Specifies which encryption method to use.
+         */
+        type?: pulumi.Input<enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType>;
     }
 
     /**

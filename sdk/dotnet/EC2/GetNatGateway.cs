@@ -52,15 +52,27 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetNatGatewayResult
     {
         public readonly string? NatGatewayId;
+        public readonly ImmutableArray<string> SecondaryAllocationIds;
+        public readonly int? SecondaryPrivateIpAddressCount;
+        public readonly ImmutableArray<string> SecondaryPrivateIpAddresses;
         public readonly ImmutableArray<Outputs.NatGatewayTag> Tags;
 
         [OutputConstructor]
         private GetNatGatewayResult(
             string? natGatewayId,
 
+            ImmutableArray<string> secondaryAllocationIds,
+
+            int? secondaryPrivateIpAddressCount,
+
+            ImmutableArray<string> secondaryPrivateIpAddresses,
+
             ImmutableArray<Outputs.NatGatewayTag> tags)
         {
             NatGatewayId = natGatewayId;
+            SecondaryAllocationIds = secondaryAllocationIds;
+            SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
+            SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;
             Tags = tags;
         }
     }

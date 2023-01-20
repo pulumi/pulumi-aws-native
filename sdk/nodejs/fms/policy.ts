@@ -42,10 +42,12 @@ export class Policy extends pulumi.CustomResource {
     public readonly excludeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
     public readonly excludeResourceTags!: pulumi.Output<boolean>;
     public readonly includeMap!: pulumi.Output<outputs.fms.PolicyIEMap | undefined>;
+    public readonly policyDescription!: pulumi.Output<string | undefined>;
     public readonly policyName!: pulumi.Output<string>;
     public readonly remediationEnabled!: pulumi.Output<boolean>;
+    public readonly resourceSetIds!: pulumi.Output<string[] | undefined>;
     public readonly resourceTags!: pulumi.Output<outputs.fms.PolicyResourceTag[] | undefined>;
-    public readonly resourceType!: pulumi.Output<string>;
+    public readonly resourceType!: pulumi.Output<string | undefined>;
     public readonly resourceTypeList!: pulumi.Output<string[] | undefined>;
     public readonly resourcesCleanUp!: pulumi.Output<boolean | undefined>;
     public readonly securityServicePolicyData!: pulumi.Output<outputs.fms.PolicySecurityServicePolicyData>;
@@ -68,9 +70,6 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.remediationEnabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remediationEnabled'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceType'");
-            }
             if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
@@ -78,8 +77,10 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
             resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
+            resourceInputs["policyDescription"] = args ? args.policyDescription : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
+            resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
@@ -93,8 +94,10 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["excludeMap"] = undefined /*out*/;
             resourceInputs["excludeResourceTags"] = undefined /*out*/;
             resourceInputs["includeMap"] = undefined /*out*/;
+            resourceInputs["policyDescription"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;
             resourceInputs["remediationEnabled"] = undefined /*out*/;
+            resourceInputs["resourceSetIds"] = undefined /*out*/;
             resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["resourceTypeList"] = undefined /*out*/;
@@ -115,10 +118,12 @@ export interface PolicyArgs {
     excludeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
     excludeResourceTags: pulumi.Input<boolean>;
     includeMap?: pulumi.Input<inputs.fms.PolicyIEMapArgs>;
+    policyDescription?: pulumi.Input<string>;
     policyName?: pulumi.Input<string>;
     remediationEnabled: pulumi.Input<boolean>;
+    resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
     resourceTags?: pulumi.Input<pulumi.Input<inputs.fms.PolicyResourceTagArgs>[]>;
-    resourceType: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     resourceTypeList?: pulumi.Input<pulumi.Input<string>[]>;
     resourcesCleanUp?: pulumi.Input<boolean>;
     securityServicePolicyData: pulumi.Input<inputs.fms.PolicySecurityServicePolicyDataArgs>;

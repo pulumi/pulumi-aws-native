@@ -28,11 +28,14 @@ __all__ = [
     'UserPosixProfileArgs',
     'UserSshPublicKeyArgs',
     'UserTagArgs',
+    'WorkflowEfsInputFileLocationArgs',
     'WorkflowInputFileLocationArgs',
+    'WorkflowS3FileLocationArgs',
     'WorkflowS3InputFileLocationArgs',
     'WorkflowS3TagArgs',
     'WorkflowStepCopyStepDetailsPropertiesArgs',
     'WorkflowStepCustomStepDetailsPropertiesArgs',
+    'WorkflowStepDecryptStepDetailsPropertiesArgs',
     'WorkflowStepDeleteStepDetailsPropertiesArgs',
     'WorkflowStepTagStepDetailsPropertiesArgs',
     'WorkflowStepArgs',
@@ -693,7 +696,79 @@ class UserTagArgs:
 
 
 @pulumi.input_type
+class WorkflowEfsInputFileLocationArgs:
+    def __init__(__self__, *,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the details for an EFS file.
+        :param pulumi.Input[str] file_system_id: Specifies the EFS filesystem that contains the file.
+        :param pulumi.Input[str] path: The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+        """
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the EFS filesystem that contains the file.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class WorkflowInputFileLocationArgs:
+    def __init__(__self__, *,
+                 efs_file_location: Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']] = None,
+                 s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
+        """
+        Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
+        """
+        if efs_file_location is not None:
+            pulumi.set(__self__, "efs_file_location", efs_file_location)
+        if s3_file_location is not None:
+            pulumi.set(__self__, "s3_file_location", s3_file_location)
+
+    @property
+    @pulumi.getter(name="efsFileLocation")
+    def efs_file_location(self) -> Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']]:
+        return pulumi.get(self, "efs_file_location")
+
+    @efs_file_location.setter
+    def efs_file_location(self, value: Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']]):
+        pulumi.set(self, "efs_file_location", value)
+
+    @property
+    @pulumi.getter(name="s3FileLocation")
+    def s3_file_location(self) -> Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]:
+        return pulumi.get(self, "s3_file_location")
+
+    @s3_file_location.setter
+    def s3_file_location(self, value: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']]):
+        pulumi.set(self, "s3_file_location", value)
+
+
+@pulumi.input_type
+class WorkflowS3FileLocationArgs:
     def __init__(__self__, *,
                  s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None):
         """
@@ -718,8 +793,8 @@ class WorkflowS3InputFileLocationArgs:
                  bucket: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
         """
-        Specifies the details for the S3 file being copied.
-        :param pulumi.Input[str] bucket: Specifies the S3 bucket that contains the file being copied.
+        Specifies the details for a S3 file.
+        :param pulumi.Input[str] bucket: Specifies the S3 bucket that contains the file.
         :param pulumi.Input[str] key: The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
         """
         if bucket is not None:
@@ -731,7 +806,7 @@ class WorkflowS3InputFileLocationArgs:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the S3 bucket that contains the file being copied.
+        Specifies the S3 bucket that contains the file.
         """
         return pulumi.get(self, "bucket")
 
@@ -793,7 +868,7 @@ class WorkflowS3TagArgs:
 @pulumi.input_type
 class WorkflowStepCopyStepDetailsPropertiesArgs:
     def __init__(__self__, *,
-                 destination_file_location: Optional[pulumi.Input['WorkflowInputFileLocationArgs']] = None,
+                 destination_file_location: Optional[pulumi.Input['WorkflowS3FileLocationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  overwrite_existing: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None,
                  source_file_location: Optional[pulumi.Input[str]] = None):
@@ -814,11 +889,11 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
 
     @property
     @pulumi.getter(name="destinationFileLocation")
-    def destination_file_location(self) -> Optional[pulumi.Input['WorkflowInputFileLocationArgs']]:
+    def destination_file_location(self) -> Optional[pulumi.Input['WorkflowS3FileLocationArgs']]:
         return pulumi.get(self, "destination_file_location")
 
     @destination_file_location.setter
-    def destination_file_location(self, value: Optional[pulumi.Input['WorkflowInputFileLocationArgs']]):
+    def destination_file_location(self, value: Optional[pulumi.Input['WorkflowS3FileLocationArgs']]):
         pulumi.set(self, "destination_file_location", value)
 
     @property
@@ -931,6 +1006,90 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
 
 
 @pulumi.input_type
+class WorkflowStepDecryptStepDetailsPropertiesArgs:
+    def __init__(__self__, *,
+                 destination_file_location: Optional[pulumi.Input['WorkflowInputFileLocationArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 overwrite_existing: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']] = None,
+                 source_file_location: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']] = None):
+        """
+        Details for a step that performs a file decryption.
+        :param pulumi.Input[str] name: The name of the step, used as an identifier.
+        :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting'] overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        :param pulumi.Input[str] source_file_location: Specifies which file to use as input to the workflow step.
+        :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType'] type: Specifies which encryption method to use.
+        """
+        if destination_file_location is not None:
+            pulumi.set(__self__, "destination_file_location", destination_file_location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if overwrite_existing is not None:
+            pulumi.set(__self__, "overwrite_existing", overwrite_existing)
+        if source_file_location is not None:
+            pulumi.set(__self__, "source_file_location", source_file_location)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationFileLocation")
+    def destination_file_location(self) -> Optional[pulumi.Input['WorkflowInputFileLocationArgs']]:
+        return pulumi.get(self, "destination_file_location")
+
+    @destination_file_location.setter
+    def destination_file_location(self, value: Optional[pulumi.Input['WorkflowInputFileLocationArgs']]):
+        pulumi.set(self, "destination_file_location", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the step, used as an identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="overwriteExisting")
+    def overwrite_existing(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]:
+        """
+        A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+        """
+        return pulumi.get(self, "overwrite_existing")
+
+    @overwrite_existing.setter
+    def overwrite_existing(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']]):
+        pulumi.set(self, "overwrite_existing", value)
+
+    @property
+    @pulumi.getter(name="sourceFileLocation")
+    def source_file_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which file to use as input to the workflow step.
+        """
+        return pulumi.get(self, "source_file_location")
+
+    @source_file_location.setter
+    def source_file_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_file_location", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']]:
+        """
+        Specifies which encryption method to use.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class WorkflowStepDeleteStepDetailsPropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1031,6 +1190,7 @@ class WorkflowStepArgs:
     def __init__(__self__, *,
                  copy_step_details: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs']] = None,
                  custom_step_details: Optional[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs']] = None,
+                 decrypt_step_details: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']] = None,
                  delete_step_details: Optional[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs']] = None,
                  tag_step_details: Optional[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs']] = None,
                  type: Optional[pulumi.Input['WorkflowStepType']] = None):
@@ -1038,6 +1198,7 @@ class WorkflowStepArgs:
         The basic building block of a workflow.
         :param pulumi.Input['WorkflowStepCopyStepDetailsPropertiesArgs'] copy_step_details: Details for a step that performs a file copy.
         :param pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs'] custom_step_details: Details for a step that invokes a lambda function.
+        :param pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs'] decrypt_step_details: Details for a step that performs a file decryption.
         :param pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs'] delete_step_details: Details for a step that deletes the file.
         :param pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs'] tag_step_details: Details for a step that creates one or more tags.
         """
@@ -1045,6 +1206,8 @@ class WorkflowStepArgs:
             pulumi.set(__self__, "copy_step_details", copy_step_details)
         if custom_step_details is not None:
             pulumi.set(__self__, "custom_step_details", custom_step_details)
+        if decrypt_step_details is not None:
+            pulumi.set(__self__, "decrypt_step_details", decrypt_step_details)
         if delete_step_details is not None:
             pulumi.set(__self__, "delete_step_details", delete_step_details)
         if tag_step_details is not None:
@@ -1075,6 +1238,18 @@ class WorkflowStepArgs:
     @custom_step_details.setter
     def custom_step_details(self, value: Optional[pulumi.Input['WorkflowStepCustomStepDetailsPropertiesArgs']]):
         pulumi.set(self, "custom_step_details", value)
+
+    @property
+    @pulumi.getter(name="decryptStepDetails")
+    def decrypt_step_details(self) -> Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']]:
+        """
+        Details for a step that performs a file decryption.
+        """
+        return pulumi.get(self, "decrypt_step_details")
+
+    @decrypt_step_details.setter
+    def decrypt_step_details(self, value: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesArgs']]):
+        pulumi.set(self, "decrypt_step_details", value)
 
     @property
     @pulumi.getter(name="deleteStepDetails")

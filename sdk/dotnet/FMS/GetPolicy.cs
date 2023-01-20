@@ -56,8 +56,10 @@ namespace Pulumi.AwsNative.FMS
         public readonly bool? ExcludeResourceTags;
         public readonly string? Id;
         public readonly Outputs.PolicyIEMap? IncludeMap;
+        public readonly string? PolicyDescription;
         public readonly string? PolicyName;
         public readonly bool? RemediationEnabled;
+        public readonly ImmutableArray<string> ResourceSetIds;
         public readonly ImmutableArray<Outputs.PolicyResourceTag> ResourceTags;
         public readonly string? ResourceType;
         public readonly ImmutableArray<string> ResourceTypeList;
@@ -77,9 +79,13 @@ namespace Pulumi.AwsNative.FMS
 
             Outputs.PolicyIEMap? includeMap,
 
+            string? policyDescription,
+
             string? policyName,
 
             bool? remediationEnabled,
+
+            ImmutableArray<string> resourceSetIds,
 
             ImmutableArray<Outputs.PolicyResourceTag> resourceTags,
 
@@ -98,8 +104,10 @@ namespace Pulumi.AwsNative.FMS
             ExcludeResourceTags = excludeResourceTags;
             Id = id;
             IncludeMap = includeMap;
+            PolicyDescription = policyDescription;
             PolicyName = policyName;
             RemediationEnabled = remediationEnabled;
+            ResourceSetIds = resourceSetIds;
             ResourceTags = resourceTags;
             ResourceType = resourceType;
             ResourceTypeList = resourceTypeList;

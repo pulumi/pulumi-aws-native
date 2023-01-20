@@ -28,8 +28,10 @@ export interface GetPolicyResult {
     readonly excludeResourceTags?: boolean;
     readonly id?: string;
     readonly includeMap?: outputs.fms.PolicyIEMap;
+    readonly policyDescription?: string;
     readonly policyName?: string;
     readonly remediationEnabled?: boolean;
+    readonly resourceSetIds?: string[];
     readonly resourceTags?: outputs.fms.PolicyResourceTag[];
     readonly resourceType?: string;
     readonly resourceTypeList?: string[];

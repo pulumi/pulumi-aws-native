@@ -188,6 +188,7 @@ const (
 	PolicyTypeNetworkFirewall            = PolicyType("NETWORK_FIREWALL")
 	PolicyTypeThirdPartyFirewall         = PolicyType("THIRD_PARTY_FIREWALL")
 	PolicyTypeDnsFirewall                = PolicyType("DNS_FIREWALL")
+	PolicyTypeImportNetworkFirewall      = PolicyType("IMPORT_NETWORK_FIREWALL")
 )
 
 func (PolicyType) ElementType() reflect.Type {

@@ -28,6 +28,13 @@ type DBInstance struct {
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	CACertificateIdentifier pulumi.StringPtrOutput `pulumi:"cACertificateIdentifier"`
+	// Returns the details of the DB instance's server certificate.
+	CertificateDetails DBInstanceCertificateDetailsPtrOutput `pulumi:"certificateDetails"`
+	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+	// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+	// This setting doesn't apply to RDS Custom.
+	CertificateRotationRestart pulumi.BoolPtrOutput `pulumi:"certificateRotationRestart"`
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	CharacterSetName pulumi.StringPtrOutput `pulumi:"characterSetName"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -223,6 +230,13 @@ type dbinstanceArgs struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
+	// Returns the details of the DB instance's server certificate.
+	CertificateDetails *DBInstanceCertificateDetails `pulumi:"certificateDetails"`
+	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+	// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+	// This setting doesn't apply to RDS Custom.
+	CertificateRotationRestart *bool `pulumi:"certificateRotationRestart"`
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -375,6 +389,13 @@ type DBInstanceArgs struct {
 	BackupRetentionPeriod pulumi.IntPtrInput
 	// The identifier of the CA certificate for this DB instance.
 	CACertificateIdentifier pulumi.StringPtrInput
+	// Returns the details of the DB instance's server certificate.
+	CertificateDetails DBInstanceCertificateDetailsPtrInput
+	// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+	// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+	// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+	// This setting doesn't apply to RDS Custom.
+	CertificateRotationRestart pulumi.BoolPtrInput
 	// For supported engines, indicates that the DB instance should be associated with the specified character set.
 	CharacterSetName pulumi.StringPtrInput
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
@@ -581,6 +602,19 @@ func (o DBInstanceOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 // The identifier of the CA certificate for this DB instance.
 func (o DBInstanceOutput) CACertificateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBInstance) pulumi.StringPtrOutput { return v.CACertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Returns the details of the DB instance's server certificate.
+func (o DBInstanceOutput) CertificateDetails() DBInstanceCertificateDetailsPtrOutput {
+	return o.ApplyT(func(v *DBInstance) DBInstanceCertificateDetailsPtrOutput { return v.CertificateDetails }).(DBInstanceCertificateDetailsPtrOutput)
+}
+
+// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+// This setting doesn't apply to RDS Custom.
+func (o DBInstanceOutput) CertificateRotationRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DBInstance) pulumi.BoolPtrOutput { return v.CertificateRotationRestart }).(pulumi.BoolPtrOutput)
 }
 
 // For supported engines, indicates that the DB instance should be associated with the specified character set.

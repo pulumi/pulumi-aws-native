@@ -20,10 +20,10 @@ class NetworkPerformanceMetricSubscriptionArgs:
                  statistic: pulumi.Input[str]):
         """
         The set of arguments for constructing a NetworkPerformanceMetricSubscription resource.
-        :param pulumi.Input[str] destination: The destination is a mandatory element for the metric subscription.
-        :param pulumi.Input[str] metric: The metric type for the metric subscription.
-        :param pulumi.Input[str] source: The source is a mandatory element for the metric subscription.
-        :param pulumi.Input[str] statistic: The statistic type for the metric subscription.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone for the metric to subscribe to.
+        :param pulumi.Input[str] metric: The metric type to subscribe to.
+        :param pulumi.Input[str] source: The starting Region or Availability Zone for metric to subscribe to.
+        :param pulumi.Input[str] statistic: The statistic to subscribe to.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "metric", metric)
@@ -34,7 +34,7 @@ class NetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
         """
-        The destination is a mandatory element for the metric subscription.
+        The target Region or Availability Zone for the metric to subscribe to.
         """
         return pulumi.get(self, "destination")
 
@@ -46,7 +46,7 @@ class NetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def metric(self) -> pulumi.Input[str]:
         """
-        The metric type for the metric subscription.
+        The metric type to subscribe to.
         """
         return pulumi.get(self, "metric")
 
@@ -58,7 +58,7 @@ class NetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        The source is a mandatory element for the metric subscription.
+        The starting Region or Availability Zone for metric to subscribe to.
         """
         return pulumi.get(self, "source")
 
@@ -70,7 +70,7 @@ class NetworkPerformanceMetricSubscriptionArgs:
     @pulumi.getter
     def statistic(self) -> pulumi.Input[str]:
         """
-        The statistic type for the metric subscription.
+        The statistic to subscribe to.
         """
         return pulumi.get(self, "statistic")
 
@@ -90,14 +90,14 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  statistic: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination: The destination is a mandatory element for the metric subscription.
-        :param pulumi.Input[str] metric: The metric type for the metric subscription.
-        :param pulumi.Input[str] source: The source is a mandatory element for the metric subscription.
-        :param pulumi.Input[str] statistic: The statistic type for the metric subscription.
+        :param pulumi.Input[str] destination: The target Region or Availability Zone for the metric to subscribe to.
+        :param pulumi.Input[str] metric: The metric type to subscribe to.
+        :param pulumi.Input[str] source: The starting Region or Availability Zone for metric to subscribe to.
+        :param pulumi.Input[str] statistic: The statistic to subscribe to.
         """
         ...
     @overload
@@ -106,7 +106,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  args: NetworkPerformanceMetricSubscriptionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
 
         :param str resource_name: The name of the resource.
         :param NetworkPerformanceMetricSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +180,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
         """
-        The destination is a mandatory element for the metric subscription.
+        The target Region or Availability Zone for the metric to subscribe to.
         """
         return pulumi.get(self, "destination")
 
@@ -188,7 +188,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def metric(self) -> pulumi.Output[str]:
         """
-        The metric type for the metric subscription.
+        The metric type to subscribe to.
         """
         return pulumi.get(self, "metric")
 
@@ -196,7 +196,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
         """
-        The source is a mandatory element for the metric subscription.
+        The starting Region or Availability Zone for metric to subscribe to.
         """
         return pulumi.get(self, "source")
 
@@ -204,7 +204,7 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @pulumi.getter
     def statistic(self) -> pulumi.Output[str]:
         """
-        The statistic type for the metric subscription.
+        The statistic to subscribe to.
         """
         return pulumi.get(self, "statistic")
 

@@ -21,11 +21,23 @@ namespace Pulumi.AwsNative.EC2
         [Output("connectivityType")]
         public Output<string?> ConnectivityType { get; private set; } = null!;
 
+        [Output("maxDrainDurationSeconds")]
+        public Output<int?> MaxDrainDurationSeconds { get; private set; } = null!;
+
         [Output("natGatewayId")]
         public Output<string> NatGatewayId { get; private set; } = null!;
 
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
+
+        [Output("secondaryAllocationIds")]
+        public Output<ImmutableArray<string>> SecondaryAllocationIds { get; private set; } = null!;
+
+        [Output("secondaryPrivateIpAddressCount")]
+        public Output<int?> SecondaryPrivateIpAddressCount { get; private set; } = null!;
+
+        [Output("secondaryPrivateIpAddresses")]
+        public Output<ImmutableArray<string>> SecondaryPrivateIpAddresses { get; private set; } = null!;
 
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -84,8 +96,30 @@ namespace Pulumi.AwsNative.EC2
         [Input("connectivityType")]
         public Input<string>? ConnectivityType { get; set; }
 
+        [Input("maxDrainDurationSeconds")]
+        public Input<int>? MaxDrainDurationSeconds { get; set; }
+
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
+
+        [Input("secondaryAllocationIds")]
+        private InputList<string>? _secondaryAllocationIds;
+        public InputList<string> SecondaryAllocationIds
+        {
+            get => _secondaryAllocationIds ?? (_secondaryAllocationIds = new InputList<string>());
+            set => _secondaryAllocationIds = value;
+        }
+
+        [Input("secondaryPrivateIpAddressCount")]
+        public Input<int>? SecondaryPrivateIpAddressCount { get; set; }
+
+        [Input("secondaryPrivateIpAddresses")]
+        private InputList<string>? _secondaryPrivateIpAddresses;
+        public InputList<string> SecondaryPrivateIpAddresses
+        {
+            get => _secondaryPrivateIpAddresses ?? (_secondaryPrivateIpAddresses = new InputList<string>());
+            set => _secondaryPrivateIpAddresses = value;
+        }
 
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

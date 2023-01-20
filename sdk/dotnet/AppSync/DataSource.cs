@@ -31,6 +31,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("elasticsearchConfig")]
         public Output<Outputs.DataSourceElasticsearchConfig?> ElasticsearchConfig { get; private set; } = null!;
 
+        [Output("eventBridgeConfig")]
+        public Output<Outputs.DataSourceEventBridgeConfig?> EventBridgeConfig { get; private set; } = null!;
+
         [Output("httpConfig")]
         public Output<Outputs.DataSourceHttpConfig?> HttpConfig { get; private set; } = null!;
 
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("elasticsearchConfig")]
         public Input<Inputs.DataSourceElasticsearchConfigArgs>? ElasticsearchConfig { get; set; }
+
+        [Input("eventBridgeConfig")]
+        public Input<Inputs.DataSourceEventBridgeConfigArgs>? EventBridgeConfig { get; set; }
 
         [Input("httpConfig")]
         public Input<Inputs.DataSourceHttpConfigArgs>? HttpConfig { get; set; }

@@ -810,6 +810,139 @@ func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSourceEventBridgeConfig struct {
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// DataSourceEventBridgeConfigInput is an input type that accepts DataSourceEventBridgeConfigArgs and DataSourceEventBridgeConfigOutput values.
+// You can construct a concrete instance of `DataSourceEventBridgeConfigInput` via:
+//
+//	DataSourceEventBridgeConfigArgs{...}
+type DataSourceEventBridgeConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput
+	ToDataSourceEventBridgeConfigOutputWithContext(context.Context) DataSourceEventBridgeConfigOutput
+}
+
+type DataSourceEventBridgeConfigArgs struct {
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (DataSourceEventBridgeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput {
+	return i.ToDataSourceEventBridgeConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigOutput)
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return i.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigOutput).ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceEventBridgeConfigPtrInput is an input type that accepts DataSourceEventBridgeConfigArgs, DataSourceEventBridgeConfigPtr and DataSourceEventBridgeConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceEventBridgeConfigPtrInput` via:
+//
+//	        DataSourceEventBridgeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceEventBridgeConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput
+	ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Context) DataSourceEventBridgeConfigPtrOutput
+}
+
+type dataSourceEventBridgeConfigPtrType DataSourceEventBridgeConfigArgs
+
+func DataSourceEventBridgeConfigPtr(v *DataSourceEventBridgeConfigArgs) DataSourceEventBridgeConfigPtrInput {
+	return (*dataSourceEventBridgeConfigPtrType)(v)
+}
+
+func (*dataSourceEventBridgeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (i *dataSourceEventBridgeConfigPtrType) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return i.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceEventBridgeConfigPtrType) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigPtrOutput)
+}
+
+type DataSourceEventBridgeConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEventBridgeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return o.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceEventBridgeConfig) *DataSourceEventBridgeConfig {
+		return &v
+	}).(DataSourceEventBridgeConfigPtrOutput)
+}
+
+func (o DataSourceEventBridgeConfigOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceEventBridgeConfig) string { return v.EventBusArn }).(pulumi.StringOutput)
+}
+
+type DataSourceEventBridgeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEventBridgeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) Elem() DataSourceEventBridgeConfigOutput {
+	return o.ApplyT(func(v *DataSourceEventBridgeConfig) DataSourceEventBridgeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceEventBridgeConfig
+		return ret
+	}).(DataSourceEventBridgeConfigOutput)
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceEventBridgeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventBusArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataSourceHttpConfig struct {
 	AuthorizationConfig *DataSourceAuthorizationConfig `pulumi:"authorizationConfig"`
 	Endpoint            string                         `pulumi:"endpoint"`
@@ -3827,6 +3960,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamoDBConfigPtrInput)(nil)).Elem(), DataSourceDynamoDBConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceElasticsearchConfigInput)(nil)).Elem(), DataSourceElasticsearchConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceElasticsearchConfigPtrInput)(nil)).Elem(), DataSourceElasticsearchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEventBridgeConfigInput)(nil)).Elem(), DataSourceEventBridgeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEventBridgeConfigPtrInput)(nil)).Elem(), DataSourceEventBridgeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHttpConfigInput)(nil)).Elem(), DataSourceHttpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHttpConfigPtrInput)(nil)).Elem(), DataSourceHttpConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
@@ -3877,6 +4012,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceDynamoDBConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceElasticsearchConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceElasticsearchConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceEventBridgeConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceEventBridgeConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceHttpConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceHttpConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceLambdaConfigOutput{})

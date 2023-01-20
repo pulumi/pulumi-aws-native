@@ -19,10 +19,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetNatGatewayResult:
-    def __init__(__self__, nat_gateway_id=None, tags=None):
+    def __init__(__self__, nat_gateway_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, tags=None):
         if nat_gateway_id and not isinstance(nat_gateway_id, str):
             raise TypeError("Expected argument 'nat_gateway_id' to be a str")
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if secondary_allocation_ids and not isinstance(secondary_allocation_ids, list):
+            raise TypeError("Expected argument 'secondary_allocation_ids' to be a list")
+        pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
+        if secondary_private_ip_address_count and not isinstance(secondary_private_ip_address_count, int):
+            raise TypeError("Expected argument 'secondary_private_ip_address_count' to be a int")
+        pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
+        if secondary_private_ip_addresses and not isinstance(secondary_private_ip_addresses, list):
+            raise TypeError("Expected argument 'secondary_private_ip_addresses' to be a list")
+        pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -31,6 +40,21 @@ class GetNatGatewayResult:
     @pulumi.getter(name="natGatewayId")
     def nat_gateway_id(self) -> Optional[str]:
         return pulumi.get(self, "nat_gateway_id")
+
+    @property
+    @pulumi.getter(name="secondaryAllocationIds")
+    def secondary_allocation_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "secondary_allocation_ids")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddressCount")
+    def secondary_private_ip_address_count(self) -> Optional[int]:
+        return pulumi.get(self, "secondary_private_ip_address_count")
+
+    @property
+    @pulumi.getter(name="secondaryPrivateIpAddresses")
+    def secondary_private_ip_addresses(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "secondary_private_ip_addresses")
 
     @property
     @pulumi.getter
@@ -45,6 +69,9 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             yield self
         return GetNatGatewayResult(
             nat_gateway_id=self.nat_gateway_id,
+            secondary_allocation_ids=self.secondary_allocation_ids,
+            secondary_private_ip_address_count=self.secondary_private_ip_address_count,
+            secondary_private_ip_addresses=self.secondary_private_ip_addresses,
             tags=self.tags)
 
 
@@ -60,6 +87,9 @@ def get_nat_gateway(nat_gateway_id: Optional[str] = None,
 
     return AwaitableGetNatGatewayResult(
         nat_gateway_id=__ret__.nat_gateway_id,
+        secondary_allocation_ids=__ret__.secondary_allocation_ids,
+        secondary_private_ip_address_count=__ret__.secondary_private_ip_address_count,
+        secondary_private_ip_addresses=__ret__.secondary_private_ip_addresses,
         tags=__ret__.tags)
 
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
  */
 export class NetworkPerformanceMetricSubscription extends pulumi.CustomResource {
     /**
@@ -35,19 +35,19 @@ export class NetworkPerformanceMetricSubscription extends pulumi.CustomResource 
     }
 
     /**
-     * The destination is a mandatory element for the metric subscription.
+     * The target Region or Availability Zone for the metric to subscribe to.
      */
     public readonly destination!: pulumi.Output<string>;
     /**
-     * The metric type for the metric subscription.
+     * The metric type to subscribe to.
      */
     public readonly metric!: pulumi.Output<string>;
     /**
-     * The source is a mandatory element for the metric subscription.
+     * The starting Region or Availability Zone for metric to subscribe to.
      */
     public readonly source!: pulumi.Output<string>;
     /**
-     * The statistic type for the metric subscription.
+     * The statistic to subscribe to.
      */
     public readonly statistic!: pulumi.Output<string>;
 
@@ -94,19 +94,19 @@ export class NetworkPerformanceMetricSubscription extends pulumi.CustomResource 
  */
 export interface NetworkPerformanceMetricSubscriptionArgs {
     /**
-     * The destination is a mandatory element for the metric subscription.
+     * The target Region or Availability Zone for the metric to subscribe to.
      */
     destination: pulumi.Input<string>;
     /**
-     * The metric type for the metric subscription.
+     * The metric type to subscribe to.
      */
     metric: pulumi.Input<string>;
     /**
-     * The source is a mandatory element for the metric subscription.
+     * The starting Region or Availability Zone for metric to subscribe to.
      */
     source: pulumi.Input<string>;
     /**
-     * The statistic type for the metric subscription.
+     * The statistic to subscribe to.
      */
     statistic: pulumi.Input<string>;
 }

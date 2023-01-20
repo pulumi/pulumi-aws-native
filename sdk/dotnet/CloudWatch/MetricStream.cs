@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// The date of creation of the metric stream.
         /// </summary>
         [Output("creationDate")]
-        public Output<string> CreationDate { get; private set; } = null!;
+        public Output<object> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
@@ -46,10 +46,16 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<ImmutableArray<Outputs.MetricStreamFilter>> IncludeFilters { get; private set; } = null!;
 
         /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        /// </summary>
+        [Output("includeLinkedAccountsMetrics")]
+        public Output<bool?> IncludeLinkedAccountsMetrics { get; private set; } = null!;
+
+        /// <summary>
         /// The date of the last update of the metric stream.
         /// </summary>
         [Output("lastUpdateDate")]
-        public Output<string> LastUpdateDate { get; private set; } = null!;
+        public Output<object> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
         /// Name of the metric stream.
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.CloudWatch
             get => _includeFilters ?? (_includeFilters = new InputList<Inputs.MetricStreamFilterArgs>());
             set => _includeFilters = value;
         }
+
+        /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        /// </summary>
+        [Input("includeLinkedAccountsMetrics")]
+        public Input<bool>? IncludeLinkedAccountsMetrics { get; set; }
 
         /// <summary>
         /// Name of the metric stream.

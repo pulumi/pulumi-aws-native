@@ -18,6 +18,7 @@ __all__ = [
     'DBClusterScalingConfigurationArgs',
     'DBClusterServerlessV2ScalingConfigurationArgs',
     'DBClusterTagArgs',
+    'DBInstanceCertificateDetailsArgs',
     'DBInstanceEndpointArgs',
     'DBInstanceMasterUserSecretArgs',
     'DBInstanceProcessorFeatureArgs',
@@ -380,6 +381,45 @@ class DBClusterTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DBInstanceCertificateDetailsArgs:
+    def __init__(__self__, *,
+                 c_a_identifier: Optional[pulumi.Input[str]] = None,
+                 valid_till: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] c_a_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
+        :param pulumi.Input[str] valid_till: The expiration date of the DB instance’s server certificate.
+        """
+        if c_a_identifier is not None:
+            pulumi.set(__self__, "c_a_identifier", c_a_identifier)
+        if valid_till is not None:
+            pulumi.set(__self__, "valid_till", valid_till)
+
+    @property
+    @pulumi.getter(name="cAIdentifier")
+    def c_a_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CA identifier of the CA certificate used for the DB instance's server certificate.
+        """
+        return pulumi.get(self, "c_a_identifier")
+
+    @c_a_identifier.setter
+    def c_a_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "c_a_identifier", value)
+
+    @property
+    @pulumi.getter(name="validTill")
+    def valid_till(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date of the DB instance’s server certificate.
+        """
+        return pulumi.get(self, "valid_till")
+
+    @valid_till.setter
+    def valid_till(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "valid_till", value)
 
 
 @pulumi.input_type

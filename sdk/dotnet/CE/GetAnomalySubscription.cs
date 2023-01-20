@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.CE
         /// The dollar value that triggers a notification if the threshold is exceeded. 
         /// </summary>
         public readonly double? Threshold;
+        /// <summary>
+        /// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+        /// </summary>
+        public readonly string? ThresholdExpression;
 
         [OutputConstructor]
         private GetAnomalySubscriptionResult(
@@ -91,7 +95,9 @@ namespace Pulumi.AwsNative.CE
 
             string? subscriptionName,
 
-            double? threshold)
+            double? threshold,
+
+            string? thresholdExpression)
         {
             AccountId = accountId;
             Frequency = frequency;
@@ -100,6 +106,7 @@ namespace Pulumi.AwsNative.CE
             SubscriptionArn = subscriptionArn;
             SubscriptionName = subscriptionName;
             Threshold = threshold;
+            ThresholdExpression = thresholdExpression;
         }
     }
 }

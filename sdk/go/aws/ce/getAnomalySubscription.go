@@ -38,6 +38,8 @@ type LookupAnomalySubscriptionResult struct {
 	SubscriptionName *string `pulumi:"subscriptionName"`
 	// The dollar value that triggers a notification if the threshold is exceeded.
 	Threshold *float64 `pulumi:"threshold"`
+	// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+	ThresholdExpression *string `pulumi:"thresholdExpression"`
 }
 
 func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalySubscriptionResultOutput {
@@ -107,6 +109,11 @@ func (o LookupAnomalySubscriptionResultOutput) SubscriptionName() pulumi.StringP
 // The dollar value that triggers a notification if the threshold is exceeded.
 func (o LookupAnomalySubscriptionResultOutput) Threshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupAnomalySubscriptionResult) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+func (o LookupAnomalySubscriptionResultOutput) ThresholdExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAnomalySubscriptionResult) *string { return v.ThresholdExpression }).(pulumi.StringPtrOutput)
 }
 
 func init() {

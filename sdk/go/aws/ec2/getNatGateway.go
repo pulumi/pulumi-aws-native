@@ -25,8 +25,11 @@ type LookupNatGatewayArgs struct {
 }
 
 type LookupNatGatewayResult struct {
-	NatGatewayId *string         `pulumi:"natGatewayId"`
-	Tags         []NatGatewayTag `pulumi:"tags"`
+	NatGatewayId                   *string         `pulumi:"natGatewayId"`
+	SecondaryAllocationIds         []string        `pulumi:"secondaryAllocationIds"`
+	SecondaryPrivateIpAddressCount *int            `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddresses    []string        `pulumi:"secondaryPrivateIpAddresses"`
+	Tags                           []NatGatewayTag `pulumi:"tags"`
 }
 
 func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupNatGatewayResultOutput {
@@ -66,6 +69,18 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(
 
 func (o LookupNatGatewayResultOutput) NatGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNatGatewayResult) *string { return v.NatGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupNatGatewayResultOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupNatGatewayResultOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNatGatewayResult) []string { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupNatGatewayResultOutput) Tags() NatGatewayTagArrayOutput {

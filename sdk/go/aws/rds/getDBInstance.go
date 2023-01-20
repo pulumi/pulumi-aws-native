@@ -40,6 +40,8 @@ type LookupDBInstanceResult struct {
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
 	// The identifier of the CA certificate for this DB instance.
 	CACertificateIdentifier *string `pulumi:"cACertificateIdentifier"`
+	// Returns the details of the DB instance's server certificate.
+	CertificateDetails *DBInstanceCertificateDetails `pulumi:"certificateDetails"`
 	// A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from. For more information on Multi-AZ DB clusters, see Multi-AZ deployments with two readable standby DB instances in the Amazon RDS User Guide .
@@ -203,6 +205,11 @@ func (o LookupDBInstanceResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutpu
 // The identifier of the CA certificate for this DB instance.
 func (o LookupDBInstanceResultOutput) CACertificateIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDBInstanceResult) *string { return v.CACertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Returns the details of the DB instance's server certificate.
+func (o LookupDBInstanceResultOutput) CertificateDetails() DBInstanceCertificateDetailsPtrOutput {
+	return o.ApplyT(func(v LookupDBInstanceResult) *DBInstanceCertificateDetails { return v.CertificateDetails }).(DBInstanceCertificateDetailsPtrOutput)
 }
 
 // A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.

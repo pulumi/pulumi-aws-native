@@ -15,12 +15,16 @@ import (
 type NatGateway struct {
 	pulumi.CustomResourceState
 
-	AllocationId     pulumi.StringPtrOutput   `pulumi:"allocationId"`
-	ConnectivityType pulumi.StringPtrOutput   `pulumi:"connectivityType"`
-	NatGatewayId     pulumi.StringOutput      `pulumi:"natGatewayId"`
-	PrivateIpAddress pulumi.StringPtrOutput   `pulumi:"privateIpAddress"`
-	SubnetId         pulumi.StringOutput      `pulumi:"subnetId"`
-	Tags             NatGatewayTagArrayOutput `pulumi:"tags"`
+	AllocationId                   pulumi.StringPtrOutput   `pulumi:"allocationId"`
+	ConnectivityType               pulumi.StringPtrOutput   `pulumi:"connectivityType"`
+	MaxDrainDurationSeconds        pulumi.IntPtrOutput      `pulumi:"maxDrainDurationSeconds"`
+	NatGatewayId                   pulumi.StringOutput      `pulumi:"natGatewayId"`
+	PrivateIpAddress               pulumi.StringPtrOutput   `pulumi:"privateIpAddress"`
+	SecondaryAllocationIds         pulumi.StringArrayOutput `pulumi:"secondaryAllocationIds"`
+	SecondaryPrivateIpAddressCount pulumi.IntPtrOutput      `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddresses    pulumi.StringArrayOutput `pulumi:"secondaryPrivateIpAddresses"`
+	SubnetId                       pulumi.StringOutput      `pulumi:"subnetId"`
+	Tags                           NatGatewayTagArrayOutput `pulumi:"tags"`
 }
 
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
@@ -65,20 +69,28 @@ func (NatGatewayState) ElementType() reflect.Type {
 }
 
 type natGatewayArgs struct {
-	AllocationId     *string         `pulumi:"allocationId"`
-	ConnectivityType *string         `pulumi:"connectivityType"`
-	PrivateIpAddress *string         `pulumi:"privateIpAddress"`
-	SubnetId         string          `pulumi:"subnetId"`
-	Tags             []NatGatewayTag `pulumi:"tags"`
+	AllocationId                   *string         `pulumi:"allocationId"`
+	ConnectivityType               *string         `pulumi:"connectivityType"`
+	MaxDrainDurationSeconds        *int            `pulumi:"maxDrainDurationSeconds"`
+	PrivateIpAddress               *string         `pulumi:"privateIpAddress"`
+	SecondaryAllocationIds         []string        `pulumi:"secondaryAllocationIds"`
+	SecondaryPrivateIpAddressCount *int            `pulumi:"secondaryPrivateIpAddressCount"`
+	SecondaryPrivateIpAddresses    []string        `pulumi:"secondaryPrivateIpAddresses"`
+	SubnetId                       string          `pulumi:"subnetId"`
+	Tags                           []NatGatewayTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NatGateway resource.
 type NatGatewayArgs struct {
-	AllocationId     pulumi.StringPtrInput
-	ConnectivityType pulumi.StringPtrInput
-	PrivateIpAddress pulumi.StringPtrInput
-	SubnetId         pulumi.StringInput
-	Tags             NatGatewayTagArrayInput
+	AllocationId                   pulumi.StringPtrInput
+	ConnectivityType               pulumi.StringPtrInput
+	MaxDrainDurationSeconds        pulumi.IntPtrInput
+	PrivateIpAddress               pulumi.StringPtrInput
+	SecondaryAllocationIds         pulumi.StringArrayInput
+	SecondaryPrivateIpAddressCount pulumi.IntPtrInput
+	SecondaryPrivateIpAddresses    pulumi.StringArrayInput
+	SubnetId                       pulumi.StringInput
+	Tags                           NatGatewayTagArrayInput
 }
 
 func (NatGatewayArgs) ElementType() reflect.Type {
@@ -126,12 +138,28 @@ func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
 }
 
+func (o NatGatewayOutput) MaxDrainDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.IntPtrOutput { return v.MaxDrainDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
 func (o NatGatewayOutput) NatGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
 }
 
 func (o NatGatewayOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o NatGatewayOutput) SecondaryAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.SecondaryAllocationIds }).(pulumi.StringArrayOutput)
+}
+
+func (o NatGatewayOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.IntPtrOutput { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+func (o NatGatewayOutput) SecondaryPrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.SecondaryPrivateIpAddresses }).(pulumi.StringArrayOutput)
 }
 
 func (o NatGatewayOutput) SubnetId() pulumi.StringOutput {

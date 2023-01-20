@@ -30,17 +30,23 @@ namespace Pulumi.AwsNative.FMS
         [Output("includeMap")]
         public Output<Outputs.PolicyIEMap?> IncludeMap { get; private set; } = null!;
 
+        [Output("policyDescription")]
+        public Output<string?> PolicyDescription { get; private set; } = null!;
+
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
         [Output("remediationEnabled")]
         public Output<bool> RemediationEnabled { get; private set; } = null!;
 
+        [Output("resourceSetIds")]
+        public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
+
         [Output("resourceTags")]
         public Output<ImmutableArray<Outputs.PolicyResourceTag>> ResourceTags { get; private set; } = null!;
 
         [Output("resourceType")]
-        public Output<string> ResourceType { get; private set; } = null!;
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         [Output("resourceTypeList")]
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
@@ -111,11 +117,22 @@ namespace Pulumi.AwsNative.FMS
         [Input("includeMap")]
         public Input<Inputs.PolicyIEMapArgs>? IncludeMap { get; set; }
 
+        [Input("policyDescription")]
+        public Input<string>? PolicyDescription { get; set; }
+
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
 
         [Input("remediationEnabled", required: true)]
         public Input<bool> RemediationEnabled { get; set; } = null!;
+
+        [Input("resourceSetIds")]
+        private InputList<string>? _resourceSetIds;
+        public InputList<string> ResourceSetIds
+        {
+            get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
+            set => _resourceSetIds = value;
+        }
 
         [Input("resourceTags")]
         private InputList<Inputs.PolicyResourceTagArgs>? _resourceTags;
@@ -125,8 +142,8 @@ namespace Pulumi.AwsNative.FMS
             set => _resourceTags = value;
         }
 
-        [Input("resourceType", required: true)]
-        public Input<string> ResourceType { get; set; } = null!;
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
 
         [Input("resourceTypeList")]
         private InputList<string>? _resourceTypeList;

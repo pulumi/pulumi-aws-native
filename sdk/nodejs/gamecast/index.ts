@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationArgs } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
+export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
+export const getApplication: typeof import("./getApplication").getApplication = null as any;
+export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
 export { GetStreamGroupArgs, GetStreamGroupResult, GetStreamGroupOutputArgs } from "./getStreamGroup";
 export const getStreamGroup: typeof import("./getStreamGroup").getStreamGroup = null as any;
 export const getStreamGroupOutput: typeof import("./getStreamGroup").getStreamGroupOutput = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:gamecast:Application":
+                return new Application(name, <any>undefined, { urn })
             case "aws-native:gamecast:StreamGroup":
                 return new StreamGroup(name, <any>undefined, { urn })
             default:

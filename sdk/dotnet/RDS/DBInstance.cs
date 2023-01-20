@@ -58,6 +58,21 @@ namespace Pulumi.AwsNative.RDS
         public Output<string?> CACertificateIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// Returns the details of the DB instance's server certificate.
+        /// </summary>
+        [Output("certificateDetails")]
+        public Output<Outputs.DBInstanceCertificateDetails?> CertificateDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+        /// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+        /// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+        /// This setting doesn't apply to RDS Custom.
+        /// </summary>
+        [Output("certificateRotationRestart")]
+        public Output<bool?> CertificateRotationRestart { get; private set; } = null!;
+
+        /// <summary>
         /// For supported engines, indicates that the DB instance should be associated with the specified character set.
         /// </summary>
         [Output("characterSetName")]
@@ -541,6 +556,21 @@ namespace Pulumi.AwsNative.RDS
         /// </summary>
         [Input("cACertificateIdentifier")]
         public Input<string>? CACertificateIdentifier { get; set; }
+
+        /// <summary>
+        /// Returns the details of the DB instance's server certificate.
+        /// </summary>
+        [Input("certificateDetails")]
+        public Input<Inputs.DBInstanceCertificateDetailsArgs>? CertificateDetails { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+        /// By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+        /// If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+        /// This setting doesn't apply to RDS Custom.
+        /// </summary>
+        [Input("certificateRotationRestart")]
+        public Input<bool>? CertificateRotationRestart { get; set; }
 
         /// <summary>
         /// For supported engines, indicates that the DB instance should be associated with the specified character set.

@@ -11,17 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An example resource schema demonstrating some basic constructs and validation rules.
+// Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
 type NetworkPerformanceMetricSubscription struct {
 	pulumi.CustomResourceState
 
-	// The destination is a mandatory element for the metric subscription.
+	// The target Region or Availability Zone for the metric to subscribe to.
 	Destination pulumi.StringOutput `pulumi:"destination"`
-	// The metric type for the metric subscription.
+	// The metric type to subscribe to.
 	Metric pulumi.StringOutput `pulumi:"metric"`
-	// The source is a mandatory element for the metric subscription.
+	// The starting Region or Availability Zone for metric to subscribe to.
 	Source pulumi.StringOutput `pulumi:"source"`
-	// The statistic type for the metric subscription.
+	// The statistic to subscribe to.
 	Statistic pulumi.StringOutput `pulumi:"statistic"`
 }
 
@@ -76,25 +76,25 @@ func (NetworkPerformanceMetricSubscriptionState) ElementType() reflect.Type {
 }
 
 type networkPerformanceMetricSubscriptionArgs struct {
-	// The destination is a mandatory element for the metric subscription.
+	// The target Region or Availability Zone for the metric to subscribe to.
 	Destination string `pulumi:"destination"`
-	// The metric type for the metric subscription.
+	// The metric type to subscribe to.
 	Metric string `pulumi:"metric"`
-	// The source is a mandatory element for the metric subscription.
+	// The starting Region or Availability Zone for metric to subscribe to.
 	Source string `pulumi:"source"`
-	// The statistic type for the metric subscription.
+	// The statistic to subscribe to.
 	Statistic string `pulumi:"statistic"`
 }
 
 // The set of arguments for constructing a NetworkPerformanceMetricSubscription resource.
 type NetworkPerformanceMetricSubscriptionArgs struct {
-	// The destination is a mandatory element for the metric subscription.
+	// The target Region or Availability Zone for the metric to subscribe to.
 	Destination pulumi.StringInput
-	// The metric type for the metric subscription.
+	// The metric type to subscribe to.
 	Metric pulumi.StringInput
-	// The source is a mandatory element for the metric subscription.
+	// The starting Region or Availability Zone for metric to subscribe to.
 	Source pulumi.StringInput
-	// The statistic type for the metric subscription.
+	// The statistic to subscribe to.
 	Statistic pulumi.StringInput
 }
 
@@ -135,22 +135,22 @@ func (o NetworkPerformanceMetricSubscriptionOutput) ToNetworkPerformanceMetricSu
 	return o
 }
 
-// The destination is a mandatory element for the metric subscription.
+// The target Region or Availability Zone for the metric to subscribe to.
 func (o NetworkPerformanceMetricSubscriptionOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
 }
 
-// The metric type for the metric subscription.
+// The metric type to subscribe to.
 func (o NetworkPerformanceMetricSubscriptionOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Metric }).(pulumi.StringOutput)
 }
 
-// The source is a mandatory element for the metric subscription.
+// The starting Region or Availability Zone for metric to subscribe to.
 func (o NetworkPerformanceMetricSubscriptionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// The statistic type for the metric subscription.
+// The statistic to subscribe to.
 func (o NetworkPerformanceMetricSubscriptionOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkPerformanceMetricSubscription) pulumi.StringOutput { return v.Statistic }).(pulumi.StringOutput)
 }

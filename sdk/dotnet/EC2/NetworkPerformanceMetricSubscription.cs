@@ -10,31 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkPerformanceMetricSubscription")]
     public partial class NetworkPerformanceMetricSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The destination is a mandatory element for the metric subscription.
+        /// The target Region or Availability Zone for the metric to subscribe to.
         /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// The metric type for the metric subscription.
+        /// The metric type to subscribe to.
         /// </summary>
         [Output("metric")]
         public Output<string> Metric { get; private set; } = null!;
 
         /// <summary>
-        /// The source is a mandatory element for the metric subscription.
+        /// The starting Region or Availability Zone for metric to subscribe to.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// The statistic type for the metric subscription.
+        /// The statistic to subscribe to.
         /// </summary>
         [Output("statistic")]
         public Output<string> Statistic { get; private set; } = null!;
@@ -85,25 +85,25 @@ namespace Pulumi.AwsNative.EC2
     public sealed class NetworkPerformanceMetricSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The destination is a mandatory element for the metric subscription.
+        /// The target Region or Availability Zone for the metric to subscribe to.
         /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
         /// <summary>
-        /// The metric type for the metric subscription.
+        /// The metric type to subscribe to.
         /// </summary>
         [Input("metric", required: true)]
         public Input<string> Metric { get; set; } = null!;
 
         /// <summary>
-        /// The source is a mandatory element for the metric subscription.
+        /// The starting Region or Availability Zone for metric to subscribe to.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// The statistic type for the metric subscription.
+        /// The statistic to subscribe to.
         /// </summary>
         [Input("statistic", required: true)]
         public Input<string> Statistic { get; set; } = null!;

@@ -66,6 +66,17 @@ export class DBInstance extends pulumi.CustomResource {
      */
     public readonly cACertificateIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * Returns the details of the DB instance's server certificate.
+     */
+    public readonly certificateDetails!: pulumi.Output<outputs.rds.DBInstanceCertificateDetails | undefined>;
+    /**
+     * A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+     * By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+     * If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+     * This setting doesn't apply to RDS Custom.
+     */
+    public readonly certificateRotationRestart!: pulumi.Output<boolean | undefined>;
+    /**
      * For supported engines, indicates that the DB instance should be associated with the specified character set.
      */
     public readonly characterSetName!: pulumi.Output<string | undefined>;
@@ -350,6 +361,8 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["cACertificateIdentifier"] = args ? args.cACertificateIdentifier : undefined;
+            resourceInputs["certificateDetails"] = args ? args.certificateDetails : undefined;
+            resourceInputs["certificateRotationRestart"] = args ? args.certificateRotationRestart : undefined;
             resourceInputs["characterSetName"] = args ? args.characterSetName : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["customIAMInstanceProfile"] = args ? args.customIAMInstanceProfile : undefined;
@@ -421,6 +434,8 @@ export class DBInstance extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["cACertificateIdentifier"] = undefined /*out*/;
+            resourceInputs["certificateDetails"] = undefined /*out*/;
+            resourceInputs["certificateRotationRestart"] = undefined /*out*/;
             resourceInputs["characterSetName"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["customIAMInstanceProfile"] = undefined /*out*/;
@@ -522,6 +537,17 @@ export interface DBInstanceArgs {
      * The identifier of the CA certificate for this DB instance.
      */
     cACertificateIdentifier?: pulumi.Input<string>;
+    /**
+     * Returns the details of the DB instance's server certificate.
+     */
+    certificateDetails?: pulumi.Input<inputs.rds.DBInstanceCertificateDetailsArgs>;
+    /**
+     * A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
+     * By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
+     * If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate
+     * This setting doesn't apply to RDS Custom.
+     */
+    certificateRotationRestart?: pulumi.Input<boolean>;
     /**
      * For supported engines, indicates that the DB instance should be associated with the specified character set.
      */

@@ -25,6 +25,13 @@ class SecretArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]] = None):
         """
         The set of arguments for constructing a Secret resource.
+        :param pulumi.Input[str] description: (Optional) Specifies a user-provided description of the secret.
+        :param pulumi.Input['SecretGenerateSecretStringArgs'] generate_secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        :param pulumi.Input[str] kms_key_id: (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+        :param pulumi.Input[str] name: The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]] replica_regions: (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+        :param pulumi.Input[str] secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -44,6 +51,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Specifies a user-provided description of the secret.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,6 +63,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="generateSecretString")
     def generate_secret_string(self) -> Optional[pulumi.Input['SecretGenerateSecretStringArgs']]:
+        """
+        (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        """
         return pulumi.get(self, "generate_secret_string")
 
     @generate_secret_string.setter
@@ -62,6 +75,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -71,6 +87,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -80,6 +99,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="replicaRegions")
     def replica_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]]:
+        """
+        (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+        """
         return pulumi.get(self, "replica_regions")
 
     @replica_regions.setter
@@ -89,6 +111,9 @@ class SecretArgs:
     @property
     @pulumi.getter(name="secretString")
     def secret_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        """
         return pulumi.get(self, "secret_string")
 
     @secret_string.setter
@@ -98,6 +123,9 @@ class SecretArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]]:
+        """
+        The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,12 +133,7 @@ class SecretArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Secret(pulumi.CustomResource):
-    warnings.warn("""Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -128,6 +151,13 @@ class Secret(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: (Optional) Specifies a user-provided description of the secret.
+        :param pulumi.Input[pulumi.InputType['SecretGenerateSecretStringArgs']] generate_secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        :param pulumi.Input[str] kms_key_id: (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+        :param pulumi.Input[str] name: The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaRegionArgs']]]] replica_regions: (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+        :param pulumi.Input[str] secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretTagArgs']]]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
         ...
     @overload
@@ -161,7 +191,6 @@ class Secret(pulumi.CustomResource):
                  secret_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Secret is deprecated: Secret is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -211,35 +240,56 @@ class Secret(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) Specifies a user-provided description of the secret.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="generateSecretString")
     def generate_secret_string(self) -> pulumi.Output[Optional['outputs.SecretGenerateSecretString']]:
+        """
+        (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        """
         return pulumi.get(self, "generate_secret_string")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="replicaRegions")
     def replica_regions(self) -> pulumi.Output[Optional[Sequence['outputs.SecretReplicaRegion']]]:
+        """
+        (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
+        """
         return pulumi.get(self, "replica_regions")
 
     @property
     @pulumi.getter(name="secretString")
     def secret_string(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+        """
         return pulumi.get(self, "secret_string")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SecretTag']]]:
+        """
+        The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
+        """
         return pulumi.get(self, "tags")
 

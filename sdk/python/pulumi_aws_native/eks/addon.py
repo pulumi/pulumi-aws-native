@@ -21,6 +21,7 @@ class AddonArgs:
                  addon_name: Optional[pulumi.Input[str]] = None,
                  addon_version: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 preserve_on_delete: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None):
@@ -30,6 +31,7 @@ class AddonArgs:
         :param pulumi.Input[str] addon_name: Name of Addon
         :param pulumi.Input[str] addon_version: Version of Addon
         :param pulumi.Input[str] configuration_values: The configuration values to use with the add-on
+        :param pulumi.Input[bool] preserve_on_delete: PreserveOnDelete parameter value
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -41,6 +43,8 @@ class AddonArgs:
             pulumi.set(__self__, "addon_version", addon_version)
         if configuration_values is not None:
             pulumi.set(__self__, "configuration_values", configuration_values)
+        if preserve_on_delete is not None:
+            pulumi.set(__self__, "preserve_on_delete", preserve_on_delete)
         if resolve_conflicts is not None:
             pulumi.set(__self__, "resolve_conflicts", resolve_conflicts)
         if service_account_role_arn is not None:
@@ -97,6 +101,18 @@ class AddonArgs:
         pulumi.set(self, "configuration_values", value)
 
     @property
+    @pulumi.getter(name="preserveOnDelete")
+    def preserve_on_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        PreserveOnDelete parameter value
+        """
+        return pulumi.get(self, "preserve_on_delete")
+
+    @preserve_on_delete.setter
+    def preserve_on_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_on_delete", value)
+
+    @property
     @pulumi.getter(name="resolveConflicts")
     def resolve_conflicts(self) -> Optional[pulumi.Input['AddonResolveConflicts']]:
         """
@@ -142,6 +158,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 preserve_on_delete: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
@@ -155,6 +172,7 @@ class Addon(pulumi.CustomResource):
         :param pulumi.Input[str] addon_version: Version of Addon
         :param pulumi.Input[str] cluster_name: Name of Cluster
         :param pulumi.Input[str] configuration_values: The configuration values to use with the add-on
+        :param pulumi.Input[bool] preserve_on_delete: PreserveOnDelete parameter value
         :param pulumi.Input['AddonResolveConflicts'] resolve_conflicts: Resolve parameter value conflicts
         :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -187,6 +205,7 @@ class Addon(pulumi.CustomResource):
                  addon_version: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  configuration_values: Optional[pulumi.Input[str]] = None,
+                 preserve_on_delete: Optional[pulumi.Input[bool]] = None,
                  resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
@@ -205,6 +224,7 @@ class Addon(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_values"] = configuration_values
+            __props__.__dict__["preserve_on_delete"] = preserve_on_delete
             __props__.__dict__["resolve_conflicts"] = resolve_conflicts
             __props__.__dict__["service_account_role_arn"] = service_account_role_arn
             __props__.__dict__["tags"] = tags
@@ -236,6 +256,7 @@ class Addon(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["configuration_values"] = None
+        __props__.__dict__["preserve_on_delete"] = None
         __props__.__dict__["resolve_conflicts"] = None
         __props__.__dict__["service_account_role_arn"] = None
         __props__.__dict__["tags"] = None
@@ -280,6 +301,14 @@ class Addon(pulumi.CustomResource):
         The configuration values to use with the add-on
         """
         return pulumi.get(self, "configuration_values")
+
+    @property
+    @pulumi.getter(name="preserveOnDelete")
+    def preserve_on_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        PreserveOnDelete parameter value
+        """
+        return pulumi.get(self, "preserve_on_delete")
 
     @property
     @pulumi.getter(name="resolveConflicts")

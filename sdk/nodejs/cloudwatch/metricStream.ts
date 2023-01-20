@@ -44,7 +44,7 @@ export class MetricStream extends pulumi.CustomResource {
     /**
      * The date of creation of the metric stream.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<any | any>;
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
@@ -58,9 +58,13 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly includeFilters!: pulumi.Output<outputs.cloudwatch.MetricStreamFilter[] | undefined>;
     /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+     */
+    public readonly includeLinkedAccountsMetrics!: pulumi.Output<boolean | undefined>;
+    /**
      * The date of the last update of the metric stream.
      */
-    public /*out*/ readonly lastUpdateDate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUpdateDate!: pulumi.Output<any | any>;
     /**
      * Name of the metric stream.
      */
@@ -109,6 +113,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
             resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
             resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
+            resourceInputs["includeLinkedAccountsMetrics"] = args ? args.includeLinkedAccountsMetrics : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -124,6 +129,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["excludeFilters"] = undefined /*out*/;
             resourceInputs["firehoseArn"] = undefined /*out*/;
             resourceInputs["includeFilters"] = undefined /*out*/;
+            resourceInputs["includeLinkedAccountsMetrics"] = undefined /*out*/;
             resourceInputs["lastUpdateDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputFormat"] = undefined /*out*/;
@@ -153,6 +159,10 @@ export interface MetricStreamArgs {
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
     includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[]>;
+    /**
+     * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+     */
+    includeLinkedAccountsMetrics?: pulumi.Input<boolean>;
     /**
      * Name of the metric stream.
      */

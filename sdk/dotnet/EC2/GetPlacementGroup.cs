@@ -58,13 +58,21 @@ namespace Pulumi.AwsNative.EC2
     public sealed class GetPlacementGroupResult
     {
         /// <summary>
+        /// The Group Name of Placement Group.
+        /// </summary>
+        public readonly string? GroupName;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.PlacementGroupTag> Tags;
 
         [OutputConstructor]
-        private GetPlacementGroupResult(ImmutableArray<Outputs.PlacementGroupTag> tags)
+        private GetPlacementGroupResult(
+            string? groupName,
+
+            ImmutableArray<Outputs.PlacementGroupTag> tags)
         {
+            GroupName = groupName;
             Tags = tags;
         }
     }

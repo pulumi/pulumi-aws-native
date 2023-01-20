@@ -25,6 +25,8 @@ type Addon struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrOutput `pulumi:"configurationValues"`
+	// PreserveOnDelete parameter value
+	PreserveOnDelete pulumi.BoolPtrOutput `pulumi:"preserveOnDelete"`
 	// Resolve parameter value conflicts
 	ResolveConflicts AddonResolveConflictsPtrOutput `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
@@ -83,6 +85,8 @@ type addonArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The configuration values to use with the add-on
 	ConfigurationValues *string `pulumi:"configurationValues"`
+	// PreserveOnDelete parameter value
+	PreserveOnDelete *bool `pulumi:"preserveOnDelete"`
 	// Resolve parameter value conflicts
 	ResolveConflicts *AddonResolveConflicts `pulumi:"resolveConflicts"`
 	// IAM role to bind to the add-on's service account
@@ -101,6 +105,8 @@ type AddonArgs struct {
 	ClusterName pulumi.StringInput
 	// The configuration values to use with the add-on
 	ConfigurationValues pulumi.StringPtrInput
+	// PreserveOnDelete parameter value
+	PreserveOnDelete pulumi.BoolPtrInput
 	// Resolve parameter value conflicts
 	ResolveConflicts AddonResolveConflictsPtrInput
 	// IAM role to bind to the add-on's service account
@@ -169,6 +175,11 @@ func (o AddonOutput) ClusterName() pulumi.StringOutput {
 // The configuration values to use with the add-on
 func (o AddonOutput) ConfigurationValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.ConfigurationValues }).(pulumi.StringPtrOutput)
+}
+
+// PreserveOnDelete parameter value
+func (o AddonOutput) PreserveOnDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.BoolPtrOutput { return v.PreserveOnDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Resolve parameter value conflicts

@@ -40,7 +40,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The Group Name of Placement Group.
      */
-    public readonly groupName!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly groupName!: pulumi.Output<string>;
     /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */
@@ -69,11 +69,11 @@ export class PlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
             resourceInputs["spreadLevel"] = args ? args.spreadLevel : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["groupName"] = undefined /*out*/;
         } else {
             resourceInputs["groupName"] = undefined /*out*/;
             resourceInputs["partitionCount"] = undefined /*out*/;
@@ -90,10 +90,6 @@ export class PlacementGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a PlacementGroup resource.
  */
 export interface PlacementGroupArgs {
-    /**
-     * The Group Name of Placement Group.
-     */
-    groupName?: pulumi.Input<string>;
     /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */

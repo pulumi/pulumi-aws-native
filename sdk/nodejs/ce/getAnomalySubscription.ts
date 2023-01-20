@@ -48,6 +48,10 @@ export interface GetAnomalySubscriptionResult {
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */
     readonly threshold?: number;
+    /**
+     * An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+     */
+    readonly thresholdExpression?: string;
 }
 /**
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified

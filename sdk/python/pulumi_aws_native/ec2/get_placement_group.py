@@ -19,10 +19,21 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlacementGroupResult:
-    def __init__(__self__, tags=None):
+    def __init__(__self__, group_name=None, tags=None):
+        if group_name and not isinstance(group_name, str):
+            raise TypeError("Expected argument 'group_name' to be a str")
+        pulumi.set(__self__, "group_name", group_name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        """
+        The Group Name of Placement Group.
+        """
+        return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter
@@ -39,6 +50,7 @@ class AwaitableGetPlacementGroupResult(GetPlacementGroupResult):
         if False:
             yield self
         return GetPlacementGroupResult(
+            group_name=self.group_name,
             tags=self.tags)
 
 
@@ -56,6 +68,7 @@ def get_placement_group(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getPlacementGroup', __args__, opts=opts, typ=GetPlacementGroupResult).value
 
     return AwaitableGetPlacementGroupResult(
+        group_name=__ret__.group_name,
         tags=__ret__.tags)
 
 

@@ -22,6 +22,7 @@ export const PolicyType = {
     NetworkFirewall: "NETWORK_FIREWALL",
     ThirdPartyFirewall: "THIRD_PARTY_FIREWALL",
     DnsFirewall: "DNS_FIREWALL",
+    ImportNetworkFirewall: "IMPORT_NETWORK_FIREWALL",
 } as const;
 
 /**

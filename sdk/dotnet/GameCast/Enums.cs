@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.GameCast
 {
     /// <summary>
+    /// Type of the runtime environment used to run games. For initial launch it only includes wine staging branch but Motif
+    /// will follow up with Proton support.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationRuntimeEnvironmentType : IEquatable<ApplicationRuntimeEnvironmentType>
+    {
+        private readonly string _value;
+
+        private ApplicationRuntimeEnvironmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationRuntimeEnvironmentType WineStaging { get; } = new ApplicationRuntimeEnvironmentType("WINE-STAGING");
+
+        public static bool operator ==(ApplicationRuntimeEnvironmentType left, ApplicationRuntimeEnvironmentType right) => left.Equals(right);
+        public static bool operator !=(ApplicationRuntimeEnvironmentType left, ApplicationRuntimeEnvironmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationRuntimeEnvironmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationRuntimeEnvironmentType other && Equals(other);
+        public bool Equals(ApplicationRuntimeEnvironmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// These are pre-packed Motif virtual instance type used to run customer games where mini spec maps to high-end
     /// integrated graphics and ultra maps to high-end gaming pc. These have different cost implications.
     /// </summary>

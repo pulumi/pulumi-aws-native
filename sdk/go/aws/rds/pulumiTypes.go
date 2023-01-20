@@ -1143,6 +1143,162 @@ func (o DBClusterTagArrayOutput) Index(i pulumi.IntInput) DBClusterTagOutput {
 	}).(DBClusterTagOutput)
 }
 
+type DBInstanceCertificateDetails struct {
+	// The CA identifier of the CA certificate used for the DB instance's server certificate.
+	CAIdentifier *string `pulumi:"cAIdentifier"`
+	// The expiration date of the DB instance’s server certificate.
+	ValidTill *string `pulumi:"validTill"`
+}
+
+// DBInstanceCertificateDetailsInput is an input type that accepts DBInstanceCertificateDetailsArgs and DBInstanceCertificateDetailsOutput values.
+// You can construct a concrete instance of `DBInstanceCertificateDetailsInput` via:
+//
+//	DBInstanceCertificateDetailsArgs{...}
+type DBInstanceCertificateDetailsInput interface {
+	pulumi.Input
+
+	ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput
+	ToDBInstanceCertificateDetailsOutputWithContext(context.Context) DBInstanceCertificateDetailsOutput
+}
+
+type DBInstanceCertificateDetailsArgs struct {
+	// The CA identifier of the CA certificate used for the DB instance's server certificate.
+	CAIdentifier pulumi.StringPtrInput `pulumi:"cAIdentifier"`
+	// The expiration date of the DB instance’s server certificate.
+	ValidTill pulumi.StringPtrInput `pulumi:"validTill"`
+}
+
+func (DBInstanceCertificateDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceCertificateDetails)(nil)).Elem()
+}
+
+func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput {
+	return i.ToDBInstanceCertificateDetailsOutputWithContext(context.Background())
+}
+
+func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsOutput)
+}
+
+func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
+	return i.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DBInstanceCertificateDetailsArgs) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsOutput).ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx)
+}
+
+// DBInstanceCertificateDetailsPtrInput is an input type that accepts DBInstanceCertificateDetailsArgs, DBInstanceCertificateDetailsPtr and DBInstanceCertificateDetailsPtrOutput values.
+// You can construct a concrete instance of `DBInstanceCertificateDetailsPtrInput` via:
+//
+//	        DBInstanceCertificateDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DBInstanceCertificateDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput
+	ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Context) DBInstanceCertificateDetailsPtrOutput
+}
+
+type dbinstanceCertificateDetailsPtrType DBInstanceCertificateDetailsArgs
+
+func DBInstanceCertificateDetailsPtr(v *DBInstanceCertificateDetailsArgs) DBInstanceCertificateDetailsPtrInput {
+	return (*dbinstanceCertificateDetailsPtrType)(v)
+}
+
+func (*dbinstanceCertificateDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceCertificateDetails)(nil)).Elem()
+}
+
+func (i *dbinstanceCertificateDetailsPtrType) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
+	return i.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dbinstanceCertificateDetailsPtrType) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DBInstanceCertificateDetailsPtrOutput)
+}
+
+type DBInstanceCertificateDetailsOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceCertificateDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DBInstanceCertificateDetails)(nil)).Elem()
+}
+
+func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsOutput() DBInstanceCertificateDetailsOutput {
+	return o
+}
+
+func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsOutput {
+	return o
+}
+
+func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
+	return o.ToDBInstanceCertificateDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DBInstanceCertificateDetailsOutput) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DBInstanceCertificateDetails) *DBInstanceCertificateDetails {
+		return &v
+	}).(DBInstanceCertificateDetailsPtrOutput)
+}
+
+// The CA identifier of the CA certificate used for the DB instance's server certificate.
+func (o DBInstanceCertificateDetailsOutput) CAIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.CAIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The expiration date of the DB instance’s server certificate.
+func (o DBInstanceCertificateDetailsOutput) ValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DBInstanceCertificateDetails) *string { return v.ValidTill }).(pulumi.StringPtrOutput)
+}
+
+type DBInstanceCertificateDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DBInstanceCertificateDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DBInstanceCertificateDetails)(nil)).Elem()
+}
+
+func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtrOutput() DBInstanceCertificateDetailsPtrOutput {
+	return o
+}
+
+func (o DBInstanceCertificateDetailsPtrOutput) ToDBInstanceCertificateDetailsPtrOutputWithContext(ctx context.Context) DBInstanceCertificateDetailsPtrOutput {
+	return o
+}
+
+func (o DBInstanceCertificateDetailsPtrOutput) Elem() DBInstanceCertificateDetailsOutput {
+	return o.ApplyT(func(v *DBInstanceCertificateDetails) DBInstanceCertificateDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DBInstanceCertificateDetails
+		return ret
+	}).(DBInstanceCertificateDetailsOutput)
+}
+
+// The CA identifier of the CA certificate used for the DB instance's server certificate.
+func (o DBInstanceCertificateDetailsPtrOutput) CAIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceCertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CAIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expiration date of the DB instance’s server certificate.
+func (o DBInstanceCertificateDetailsPtrOutput) ValidTill() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DBInstanceCertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidTill
+	}).(pulumi.StringPtrOutput)
+}
+
 type DBInstanceEndpoint struct {
 	// Specifies the DNS address of the DB instance.
 	Address *string `pulumi:"address"`
@@ -3271,6 +3427,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterServerlessV2ScalingConfigurationPtrInput)(nil)).Elem(), DBClusterServerlessV2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagInput)(nil)).Elem(), DBClusterTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBClusterTagArrayInput)(nil)).Elem(), DBClusterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceCertificateDetailsInput)(nil)).Elem(), DBInstanceCertificateDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceCertificateDetailsPtrInput)(nil)).Elem(), DBInstanceCertificateDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointInput)(nil)).Elem(), DBInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceEndpointPtrInput)(nil)).Elem(), DBInstanceEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DBInstanceMasterUserSecretInput)(nil)).Elem(), DBInstanceMasterUserSecretArgs{})
@@ -3321,6 +3479,8 @@ func init() {
 	pulumi.RegisterOutputType(DBClusterServerlessV2ScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DBClusterTagOutput{})
 	pulumi.RegisterOutputType(DBClusterTagArrayOutput{})
+	pulumi.RegisterOutputType(DBInstanceCertificateDetailsOutput{})
+	pulumi.RegisterOutputType(DBInstanceCertificateDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DBInstanceEndpointOutput{})
 	pulumi.RegisterOutputType(DBInstanceEndpointPtrOutput{})
 	pulumi.RegisterOutputType(DBInstanceMasterUserSecretOutput{})

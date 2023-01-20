@@ -139,6 +139,7 @@ namespace Pulumi.AwsNative.BillingConductor
         public static PricingRuleScope Global { get; } = new PricingRuleScope("GLOBAL");
         public static PricingRuleScope Service { get; } = new PricingRuleScope("SERVICE");
         public static PricingRuleScope BillingEntity { get; } = new PricingRuleScope("BILLING_ENTITY");
+        public static PricingRuleScope Sku { get; } = new PricingRuleScope("SKU");
 
         public static bool operator ==(PricingRuleScope left, PricingRuleScope right) => left.Equals(right);
         public static bool operator !=(PricingRuleScope left, PricingRuleScope right) => !left.Equals(right);

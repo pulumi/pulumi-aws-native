@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.FMS
         public static PolicyType NetworkFirewall { get; } = new PolicyType("NETWORK_FIREWALL");
         public static PolicyType ThirdPartyFirewall { get; } = new PolicyType("THIRD_PARTY_FIREWALL");
         public static PolicyType DnsFirewall { get; } = new PolicyType("DNS_FIREWALL");
+        public static PolicyType ImportNetworkFirewall { get; } = new PolicyType("IMPORT_NETWORK_FIREWALL");
 
         public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
         public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);

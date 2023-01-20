@@ -5,8 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationRuntimeEnvironmentType',
     'StreamGroupStreamClass',
 ]
+
+
+class ApplicationRuntimeEnvironmentType(str, Enum):
+    """
+    Type of the runtime environment used to run games. For initial launch it only includes wine staging branch but Motif
+    will follow up with Proton support.
+    """
+    WINE_STAGING = "WINE-STAGING"
 
 
 class StreamGroupStreamClass(str, Enum):

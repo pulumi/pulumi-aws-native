@@ -55,6 +55,10 @@ export interface GetDBInstanceResult {
      */
     readonly cACertificateIdentifier?: string;
     /**
+     * Returns the details of the DB instance's server certificate.
+     */
+    readonly certificateDetails?: outputs.rds.DBInstanceCertificateDetails;
+    /**
      * A value that indicates whether to copy tags from the DB instance to snapshots of the DB instance. By default, tags are not copied.
      */
     readonly copyTagsToSnapshot?: boolean;

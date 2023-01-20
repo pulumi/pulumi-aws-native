@@ -15,7 +15,7 @@ type PlacementGroup struct {
 	pulumi.CustomResourceState
 
 	// The Group Name of Placement Group.
-	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
+	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -65,8 +65,6 @@ func (PlacementGroupState) ElementType() reflect.Type {
 }
 
 type placementGroupArgs struct {
-	// The Group Name of Placement Group.
-	GroupName *string `pulumi:"groupName"`
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -79,8 +77,6 @@ type placementGroupArgs struct {
 
 // The set of arguments for constructing a PlacementGroup resource.
 type PlacementGroupArgs struct {
-	// The Group Name of Placement Group.
-	GroupName pulumi.StringPtrInput
 	// The number of partitions. Valid only when **Strategy** is set to `partition`
 	PartitionCount pulumi.IntPtrInput
 	// The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
@@ -129,8 +125,8 @@ func (o PlacementGroupOutput) ToPlacementGroupOutputWithContext(ctx context.Cont
 }
 
 // The Group Name of Placement Group.
-func (o PlacementGroupOutput) GroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
+func (o PlacementGroupOutput) GroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
 // The number of partitions. Valid only when **Strategy** is set to `partition`

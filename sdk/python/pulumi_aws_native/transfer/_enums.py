@@ -16,6 +16,8 @@ __all__ = [
     'ConnectorAs2ConfigPropertiesSigningAlgorithm',
     'ProfileType',
     'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting',
+    'WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting',
+    'WorkflowStepDecryptStepDetailsPropertiesType',
     'WorkflowStepType',
 ]
 
@@ -118,8 +120,24 @@ class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(str, Enum):
     FALSE = "FALSE"
 
 
+class WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting(str, Enum):
+    """
+    A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+    """
+    TRUE = "TRUE"
+    FALSE = "FALSE"
+
+
+class WorkflowStepDecryptStepDetailsPropertiesType(str, Enum):
+    """
+    Specifies which encryption method to use.
+    """
+    PGP = "PGP"
+
+
 class WorkflowStepType(str, Enum):
     COPY = "COPY"
     CUSTOM = "CUSTOM"
+    DECRYPT = "DECRYPT"
     DELETE = "DELETE"
     TAG = "TAG"

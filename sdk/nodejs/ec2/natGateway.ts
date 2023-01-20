@@ -39,8 +39,12 @@ export class NatGateway extends pulumi.CustomResource {
 
     public readonly allocationId!: pulumi.Output<string | undefined>;
     public readonly connectivityType!: pulumi.Output<string | undefined>;
+    public readonly maxDrainDurationSeconds!: pulumi.Output<number | undefined>;
     public /*out*/ readonly natGatewayId!: pulumi.Output<string>;
     public readonly privateIpAddress!: pulumi.Output<string | undefined>;
+    public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
+    public readonly secondaryPrivateIpAddressCount!: pulumi.Output<number | undefined>;
+    public readonly secondaryPrivateIpAddresses!: pulumi.Output<string[] | undefined>;
     public readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.ec2.NatGatewayTag[] | undefined>;
 
@@ -60,15 +64,23 @@ export class NatGateway extends pulumi.CustomResource {
             }
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
+            resourceInputs["maxDrainDurationSeconds"] = args ? args.maxDrainDurationSeconds : undefined;
             resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
+            resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
+            resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
+            resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["natGatewayId"] = undefined /*out*/;
         } else {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["connectivityType"] = undefined /*out*/;
+            resourceInputs["maxDrainDurationSeconds"] = undefined /*out*/;
             resourceInputs["natGatewayId"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["secondaryAllocationIds"] = undefined /*out*/;
+            resourceInputs["secondaryPrivateIpAddressCount"] = undefined /*out*/;
+            resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -83,7 +95,11 @@ export class NatGateway extends pulumi.CustomResource {
 export interface NatGatewayArgs {
     allocationId?: pulumi.Input<string>;
     connectivityType?: pulumi.Input<string>;
+    maxDrainDurationSeconds?: pulumi.Input<number>;
     privateIpAddress?: pulumi.Input<string>;
+    secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
+    secondaryPrivateIpAddressCount?: pulumi.Input<number>;
+    secondaryPrivateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     subnetId: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.NatGatewayTagArgs>[]>;
 }

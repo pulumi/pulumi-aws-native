@@ -3716,6 +3716,10 @@ export namespace appsync {
         endpoint: string;
     }
 
+    export interface DataSourceEventBridgeConfig {
+        eventBusArn: string;
+    }
+
     export interface DataSourceHttpConfig {
         authorizationConfig?: outputs.appsync.DataSourceAuthorizationConfig;
         endpoint: string;
@@ -14898,6 +14902,41 @@ export namespace fsx {
 
 export namespace gamecast {
     /**
+     * Runtime environment is a combination of Windows compatibility layer and other graphics libraries used to run the application.
+     */
+    export interface ApplicationRuntimeEnvironment {
+        type: enums.gamecast.ApplicationRuntimeEnvironmentType;
+        /**
+         * Versioned container environment used to run customer game. Each runtime fixed version of the Windows
+         * compatibility layer to provide a stable game performance. Refer to Motif public docs to see which wine, mesa, vulkan
+         * versions are used in which Motif runtime environment version.
+         */
+        version: string;
+    }
+
+    /**
+     * Application save configuration
+     */
+    export interface ApplicationSaveConfiguration {
+        /**
+         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
+         * are running on a Windows environment.
+         */
+        fileLocations?: string[];
+        /**
+         * A list of save file, registry key or log paths that are absolute paths that store game save files when the games
+         * are running on a Windows environment.
+         */
+        registryLocations?: string[];
+    }
+
+    /**
+     * Common AWS tags for supporting resource tagging and tag-based resource authorization. The maximum number of tags is 50.
+     */
+    export interface ApplicationTags {
+    }
+
+    /**
      * Information about default application running on the stream group.
      */
     export interface StreamGroupDefaultApplication {
@@ -20479,6 +20518,27 @@ export namespace kendra {
     export interface IndexValueImportanceItem {
         key?: string;
         value?: number;
+    }
+
+}
+
+export namespace kendraranking {
+    export interface ExecutionPlanCapacityUnitsConfiguration {
+        rescoreCapacityUnits: number;
+    }
+
+    /**
+     * A label for tagging KendraRanking resources
+     */
+    export interface ExecutionPlanTag {
+        /**
+         * A string used to identify this tag
+         */
+        key: string;
+        /**
+         * A string containing the value for the tag
+         */
+        value: string;
     }
 
 }
@@ -30169,6 +30229,17 @@ export namespace rds {
         value?: string;
     }
 
+    export interface DBInstanceCertificateDetails {
+        /**
+         * The CA identifier of the CA certificate used for the DB instance's server certificate.
+         */
+        cAIdentifier?: string;
+        /**
+         * The expiration date of the DB instance’s server certificate.
+         */
+        validTill?: string;
+    }
+
     export interface DBInstanceEndpoint {
         /**
          * Specifies the DNS address of the DB instance.
@@ -35729,15 +35800,45 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretString {
+        /**
+         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
+         */
         excludeCharacters?: string;
+        /**
+         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
+         */
         excludeLowercase?: boolean;
+        /**
+         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
+         */
         excludeNumbers?: boolean;
+        /**
+         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
+         */
         excludePunctuation?: boolean;
+        /**
+         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
+         */
         excludeUppercase?: boolean;
+        /**
+         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
+         */
         generateStringKey?: string;
+        /**
+         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
+         */
         includeSpace?: boolean;
+        /**
+         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
+         */
         passwordLength?: number;
+        /**
+         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
+         */
         requireEachIncludedType?: boolean;
+        /**
+         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
+         */
         secretStringTemplate?: string;
     }
 
@@ -37200,18 +37301,40 @@ export namespace transfer {
     }
 
     /**
-     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     * Specifies the details for an EFS file.
+     */
+    export interface WorkflowEfsInputFileLocation {
+        /**
+         * Specifies the EFS filesystem that contains the file.
+         */
+        fileSystemId?: string;
+        /**
+         * The name assigned to the file when it was created in EFS. You use the object path to retrieve the object.
+         */
+        path?: string;
+    }
+
+    /**
+     * Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
      */
     export interface WorkflowInputFileLocation {
+        efsFileLocation?: outputs.transfer.WorkflowEfsInputFileLocation;
         s3FileLocation?: outputs.transfer.WorkflowS3InputFileLocation;
     }
 
     /**
-     * Specifies the details for the S3 file being copied.
+     * Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
+     */
+    export interface WorkflowS3FileLocation {
+        s3FileLocation?: outputs.transfer.WorkflowS3InputFileLocation;
+    }
+
+    /**
+     * Specifies the details for a S3 file.
      */
     export interface WorkflowS3InputFileLocation {
         /**
-         * Specifies the S3 bucket that contains the file being copied.
+         * Specifies the S3 bucket that contains the file.
          */
         bucket?: string;
         /**
@@ -37247,6 +37370,10 @@ export namespace transfer {
          */
         customStepDetails?: outputs.transfer.WorkflowStepCustomStepDetailsProperties;
         /**
+         * Details for a step that performs a file decryption.
+         */
+        decryptStepDetails?: outputs.transfer.WorkflowStepDecryptStepDetailsProperties;
+        /**
          * Details for a step that deletes the file.
          */
         deleteStepDetails?: outputs.transfer.WorkflowStepDeleteStepDetailsProperties;
@@ -37261,7 +37388,7 @@ export namespace transfer {
      * Details for a step that performs a file copy.
      */
     export interface WorkflowStepCopyStepDetailsProperties {
-        destinationFileLocation?: outputs.transfer.WorkflowInputFileLocation;
+        destinationFileLocation?: outputs.transfer.WorkflowS3FileLocation;
         /**
          * The name of the step, used as an identifier.
          */
@@ -37296,6 +37423,29 @@ export namespace transfer {
          * Timeout, in seconds, for the step.
          */
         timeoutSeconds?: number;
+    }
+
+    /**
+     * Details for a step that performs a file decryption.
+     */
+    export interface WorkflowStepDecryptStepDetailsProperties {
+        destinationFileLocation?: outputs.transfer.WorkflowInputFileLocation;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: string;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+         */
+        overwriteExisting?: enums.transfer.WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting;
+        /**
+         * Specifies which file to use as input to the workflow step.
+         */
+        sourceFileLocation?: string;
+        /**
+         * Specifies which encryption method to use.
+         */
+        type?: enums.transfer.WorkflowStepDecryptStepDetailsPropertiesType;
     }
 
     /**

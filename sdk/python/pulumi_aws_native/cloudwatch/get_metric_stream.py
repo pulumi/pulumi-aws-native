@@ -19,12 +19,12 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricStreamResult:
-    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, last_update_date=None, output_format=None, role_arn=None, state=None, statistics_configurations=None):
+    def __init__(__self__, arn=None, creation_date=None, exclude_filters=None, firehose_arn=None, include_filters=None, include_linked_accounts_metrics=None, last_update_date=None, output_format=None, role_arn=None, state=None, statistics_configurations=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if creation_date and not isinstance(creation_date, str):
-            raise TypeError("Expected argument 'creation_date' to be a str")
+        if creation_date and not isinstance(creation_date, dict):
+            raise TypeError("Expected argument 'creation_date' to be a dict")
         pulumi.set(__self__, "creation_date", creation_date)
         if exclude_filters and not isinstance(exclude_filters, list):
             raise TypeError("Expected argument 'exclude_filters' to be a list")
@@ -35,8 +35,11 @@ class GetMetricStreamResult:
         if include_filters and not isinstance(include_filters, list):
             raise TypeError("Expected argument 'include_filters' to be a list")
         pulumi.set(__self__, "include_filters", include_filters)
-        if last_update_date and not isinstance(last_update_date, str):
-            raise TypeError("Expected argument 'last_update_date' to be a str")
+        if include_linked_accounts_metrics and not isinstance(include_linked_accounts_metrics, bool):
+            raise TypeError("Expected argument 'include_linked_accounts_metrics' to be a bool")
+        pulumi.set(__self__, "include_linked_accounts_metrics", include_linked_accounts_metrics)
+        if last_update_date and not isinstance(last_update_date, dict):
+            raise TypeError("Expected argument 'last_update_date' to be a dict")
         pulumi.set(__self__, "last_update_date", last_update_date)
         if output_format and not isinstance(output_format, str):
             raise TypeError("Expected argument 'output_format' to be a str")
@@ -61,7 +64,7 @@ class GetMetricStreamResult:
 
     @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> Optional[Any]:
         """
         The date of creation of the metric stream.
         """
@@ -92,8 +95,16 @@ class GetMetricStreamResult:
         return pulumi.get(self, "include_filters")
 
     @property
+    @pulumi.getter(name="includeLinkedAccountsMetrics")
+    def include_linked_accounts_metrics(self) -> Optional[bool]:
+        """
+        If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        """
+        return pulumi.get(self, "include_linked_accounts_metrics")
+
+    @property
     @pulumi.getter(name="lastUpdateDate")
-    def last_update_date(self) -> Optional[str]:
+    def last_update_date(self) -> Optional[Any]:
         """
         The date of the last update of the metric stream.
         """
@@ -143,6 +154,7 @@ class AwaitableGetMetricStreamResult(GetMetricStreamResult):
             exclude_filters=self.exclude_filters,
             firehose_arn=self.firehose_arn,
             include_filters=self.include_filters,
+            include_linked_accounts_metrics=self.include_linked_accounts_metrics,
             last_update_date=self.last_update_date,
             output_format=self.output_format,
             role_arn=self.role_arn,
@@ -169,6 +181,7 @@ def get_metric_stream(name: Optional[str] = None,
         exclude_filters=__ret__.exclude_filters,
         firehose_arn=__ret__.firehose_arn,
         include_filters=__ret__.include_filters,
+        include_linked_accounts_metrics=__ret__.include_linked_accounts_metrics,
         last_update_date=__ret__.last_update_date,
         output_format=__ret__.output_format,
         role_arn=__ret__.role_arn,

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, arn=None, exclude_map=None, exclude_resource_tags=None, id=None, include_map=None, policy_name=None, remediation_enabled=None, resource_tags=None, resource_type=None, resource_type_list=None, resources_clean_up=None, security_service_policy_data=None, tags=None):
+    def __init__(__self__, arn=None, exclude_map=None, exclude_resource_tags=None, id=None, include_map=None, policy_description=None, policy_name=None, remediation_enabled=None, resource_set_ids=None, resource_tags=None, resource_type=None, resource_type_list=None, resources_clean_up=None, security_service_policy_data=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,12 +36,18 @@ class GetPolicyResult:
         if include_map and not isinstance(include_map, dict):
             raise TypeError("Expected argument 'include_map' to be a dict")
         pulumi.set(__self__, "include_map", include_map)
+        if policy_description and not isinstance(policy_description, str):
+            raise TypeError("Expected argument 'policy_description' to be a str")
+        pulumi.set(__self__, "policy_description", policy_description)
         if policy_name and not isinstance(policy_name, str):
             raise TypeError("Expected argument 'policy_name' to be a str")
         pulumi.set(__self__, "policy_name", policy_name)
         if remediation_enabled and not isinstance(remediation_enabled, bool):
             raise TypeError("Expected argument 'remediation_enabled' to be a bool")
         pulumi.set(__self__, "remediation_enabled", remediation_enabled)
+        if resource_set_ids and not isinstance(resource_set_ids, list):
+            raise TypeError("Expected argument 'resource_set_ids' to be a list")
+        pulumi.set(__self__, "resource_set_ids", resource_set_ids)
         if resource_tags and not isinstance(resource_tags, list):
             raise TypeError("Expected argument 'resource_tags' to be a list")
         pulumi.set(__self__, "resource_tags", resource_tags)
@@ -87,6 +93,11 @@ class GetPolicyResult:
         return pulumi.get(self, "include_map")
 
     @property
+    @pulumi.getter(name="policyDescription")
+    def policy_description(self) -> Optional[str]:
+        return pulumi.get(self, "policy_description")
+
+    @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[str]:
         return pulumi.get(self, "policy_name")
@@ -95,6 +106,11 @@ class GetPolicyResult:
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "remediation_enabled")
+
+    @property
+    @pulumi.getter(name="resourceSetIds")
+    def resource_set_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "resource_set_ids")
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -138,8 +154,10 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             exclude_resource_tags=self.exclude_resource_tags,
             id=self.id,
             include_map=self.include_map,
+            policy_description=self.policy_description,
             policy_name=self.policy_name,
             remediation_enabled=self.remediation_enabled,
+            resource_set_ids=self.resource_set_ids,
             resource_tags=self.resource_tags,
             resource_type=self.resource_type,
             resource_type_list=self.resource_type_list,
@@ -164,8 +182,10 @@ def get_policy(id: Optional[str] = None,
         exclude_resource_tags=__ret__.exclude_resource_tags,
         id=__ret__.id,
         include_map=__ret__.include_map,
+        policy_description=__ret__.policy_description,
         policy_name=__ret__.policy_name,
         remediation_enabled=__ret__.remediation_enabled,
+        resource_set_ids=__ret__.resource_set_ids,
         resource_tags=__ret__.resource_tags,
         resource_type=__ret__.resource_type,
         resource_type_list=__ret__.resource_type_list,

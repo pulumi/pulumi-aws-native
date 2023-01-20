@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         public Input<Inputs.WorkflowStepCustomStepDetailsPropertiesArgs>? CustomStepDetails { get; set; }
 
         /// <summary>
+        /// Details for a step that performs a file decryption.
+        /// </summary>
+        [Input("decryptStepDetails")]
+        public Input<Inputs.WorkflowStepDecryptStepDetailsPropertiesArgs>? DecryptStepDetails { get; set; }
+
+        /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
         [Input("deleteStepDetails")]

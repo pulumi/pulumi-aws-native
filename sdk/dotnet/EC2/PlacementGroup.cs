@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EC2
         /// The Group Name of Placement Group.
         /// </summary>
         [Output("groupName")]
-        public Output<string?> GroupName { get; private set; } = null!;
+        public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
         /// The number of partitions. Valid only when **Strategy** is set to `partition`
@@ -90,12 +90,6 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Group Name of Placement Group.
-        /// </summary>
-        [Input("groupName")]
-        public Input<string>? GroupName { get; set; }
-
         /// <summary>
         /// The number of partitions. Valid only when **Strategy** is set to `partition`
         /// </summary>

@@ -20,6 +20,7 @@ __all__ = [
     'DBClusterScalingConfiguration',
     'DBClusterServerlessV2ScalingConfiguration',
     'DBClusterTag',
+    'DBInstanceCertificateDetails',
     'DBInstanceEndpoint',
     'DBInstanceMasterUserSecret',
     'DBInstanceProcessorFeature',
@@ -444,6 +445,56 @@ class DBClusterTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DBInstanceCertificateDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cAIdentifier":
+            suggest = "c_a_identifier"
+        elif key == "validTill":
+            suggest = "valid_till"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBInstanceCertificateDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBInstanceCertificateDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBInstanceCertificateDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 c_a_identifier: Optional[str] = None,
+                 valid_till: Optional[str] = None):
+        """
+        :param str c_a_identifier: The CA identifier of the CA certificate used for the DB instance's server certificate.
+        :param str valid_till: The expiration date of the DB instance’s server certificate.
+        """
+        if c_a_identifier is not None:
+            pulumi.set(__self__, "c_a_identifier", c_a_identifier)
+        if valid_till is not None:
+            pulumi.set(__self__, "valid_till", valid_till)
+
+    @property
+    @pulumi.getter(name="cAIdentifier")
+    def c_a_identifier(self) -> Optional[str]:
+        """
+        The CA identifier of the CA certificate used for the DB instance's server certificate.
+        """
+        return pulumi.get(self, "c_a_identifier")
+
+    @property
+    @pulumi.getter(name="validTill")
+    def valid_till(self) -> Optional[str]:
+        """
+        The expiration date of the DB instance’s server certificate.
+        """
+        return pulumi.get(self, "valid_till")
 
 
 @pulumi.output_type

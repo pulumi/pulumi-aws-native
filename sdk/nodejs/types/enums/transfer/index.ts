@@ -122,9 +122,29 @@ export const WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = {
  */
 export type WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = (typeof WorkflowStepCopyStepDetailsPropertiesOverwriteExisting)[keyof typeof WorkflowStepCopyStepDetailsPropertiesOverwriteExisting];
 
+export const WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting = {
+    True: "TRUE",
+    False: "FALSE",
+} as const;
+
+/**
+ * A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+ */
+export type WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting = (typeof WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting)[keyof typeof WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting];
+
+export const WorkflowStepDecryptStepDetailsPropertiesType = {
+    Pgp: "PGP",
+} as const;
+
+/**
+ * Specifies which encryption method to use.
+ */
+export type WorkflowStepDecryptStepDetailsPropertiesType = (typeof WorkflowStepDecryptStepDetailsPropertiesType)[keyof typeof WorkflowStepDecryptStepDetailsPropertiesType];
+
 export const WorkflowStepType = {
     Copy: "COPY",
     Custom: "CUSTOM",
+    Decrypt: "DECRYPT",
     Delete: "DELETE",
     Tag: "TAG",
 } as const;

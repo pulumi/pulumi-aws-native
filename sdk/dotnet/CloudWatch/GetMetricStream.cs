@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CloudWatch
         /// <summary>
         /// The date of creation of the metric stream.
         /// </summary>
-        public readonly string? CreationDate;
+        public readonly object? CreationDate;
         /// <summary>
         /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
@@ -78,9 +78,13 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public readonly ImmutableArray<Outputs.MetricStreamFilter> IncludeFilters;
         /// <summary>
+        /// If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
+        /// </summary>
+        public readonly bool? IncludeLinkedAccountsMetrics;
+        /// <summary>
         /// The date of the last update of the metric stream.
         /// </summary>
-        public readonly string? LastUpdateDate;
+        public readonly object? LastUpdateDate;
         /// <summary>
         /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
@@ -102,7 +106,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private GetMetricStreamResult(
             string? arn,
 
-            string? creationDate,
+            object? creationDate,
 
             ImmutableArray<Outputs.MetricStreamFilter> excludeFilters,
 
@@ -110,7 +114,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
             ImmutableArray<Outputs.MetricStreamFilter> includeFilters,
 
-            string? lastUpdateDate,
+            bool? includeLinkedAccountsMetrics,
+
+            object? lastUpdateDate,
 
             string? outputFormat,
 
@@ -125,6 +131,7 @@ namespace Pulumi.AwsNative.CloudWatch
             ExcludeFilters = excludeFilters;
             FirehoseArn = firehoseArn;
             IncludeFilters = includeFilters;
+            IncludeLinkedAccountsMetrics = includeLinkedAccountsMetrics;
             LastUpdateDate = lastUpdateDate;
             OutputFormat = outputFormat;
             RoleArn = roleArn;

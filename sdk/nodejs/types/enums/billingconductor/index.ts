@@ -38,6 +38,7 @@ export const PricingRuleScope = {
     Global: "GLOBAL",
     Service: "SERVICE",
     BillingEntity: "BILLING_ENTITY",
+    Sku: "SKU",
 } as const;
 
 /**

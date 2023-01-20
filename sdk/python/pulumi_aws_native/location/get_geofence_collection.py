@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetGeofenceCollectionResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGeofenceCollectionResult:
-    def __init__(__self__, arn=None, collection_arn=None, create_time=None, pricing_plan_data_source=None, update_time=None):
+    def __init__(__self__, arn=None, collection_arn=None, create_time=None, pricing_plan=None, pricing_plan_data_source=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,6 +29,9 @@ class GetGeofenceCollectionResult:
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if pricing_plan and not isinstance(pricing_plan, str):
+            raise TypeError("Expected argument 'pricing_plan' to be a str")
+        pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source and not isinstance(pricing_plan_data_source, str):
             raise TypeError("Expected argument 'pricing_plan_data_source' to be a str")
         pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
@@ -51,6 +55,11 @@ class GetGeofenceCollectionResult:
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional['GeofenceCollectionPricingPlan']:
+        return pulumi.get(self, "pricing_plan")
+
+    @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[str]:
         return pulumi.get(self, "pricing_plan_data_source")
@@ -70,6 +79,7 @@ class AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
             arn=self.arn,
             collection_arn=self.collection_arn,
             create_time=self.create_time,
+            pricing_plan=self.pricing_plan,
             pricing_plan_data_source=self.pricing_plan_data_source,
             update_time=self.update_time)
 
@@ -88,6 +98,7 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         arn=__ret__.arn,
         collection_arn=__ret__.collection_arn,
         create_time=__ret__.create_time,
+        pricing_plan=__ret__.pricing_plan,
         pricing_plan_data_source=__ret__.pricing_plan_data_source,
         update_time=__ret__.update_time)
 

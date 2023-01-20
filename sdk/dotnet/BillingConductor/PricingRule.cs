@@ -65,6 +65,12 @@ namespace Pulumi.AwsNative.BillingConductor
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The Operation which a SKU pricing rule is modifying
+        /// </summary>
+        [Output("operation")]
+        public Output<string?> Operation { get; private set; } = null!;
+
+        /// <summary>
         /// A term used to categorize the granularity of a Pricing Rule.
         /// </summary>
         [Output("scope")]
@@ -90,6 +96,12 @@ namespace Pulumi.AwsNative.BillingConductor
         /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.BillingConductor.PricingRuleType> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The UsageType which a SKU pricing rule is modifying
+        /// </summary>
+        [Output("usageType")]
+        public Output<string?> UsageType { get; private set; } = null!;
 
 
         /// <summary>
@@ -161,6 +173,12 @@ namespace Pulumi.AwsNative.BillingConductor
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The Operation which a SKU pricing rule is modifying
+        /// </summary>
+        [Input("operation")]
+        public Input<string>? Operation { get; set; }
+
+        /// <summary>
         /// A term used to categorize the granularity of a Pricing Rule.
         /// </summary>
         [Input("scope", required: true)]
@@ -191,6 +209,12 @@ namespace Pulumi.AwsNative.BillingConductor
         /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.BillingConductor.PricingRuleType> Type { get; set; } = null!;
+
+        /// <summary>
+        /// The UsageType which a SKU pricing rule is modifying
+        /// </summary>
+        [Input("usageType")]
+        public Input<string>? UsageType { get; set; }
 
         public PricingRuleArgs()
         {

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, data_source_arn=None, description=None, dynamo_db_config=None, elasticsearch_config=None, http_config=None, id=None, lambda_config=None, open_search_service_config=None, relational_database_config=None, service_role_arn=None, type=None):
+    def __init__(__self__, data_source_arn=None, description=None, dynamo_db_config=None, elasticsearch_config=None, event_bridge_config=None, http_config=None, id=None, lambda_config=None, open_search_service_config=None, relational_database_config=None, service_role_arn=None, type=None):
         if data_source_arn and not isinstance(data_source_arn, str):
             raise TypeError("Expected argument 'data_source_arn' to be a str")
         pulumi.set(__self__, "data_source_arn", data_source_arn)
@@ -32,6 +32,9 @@ class GetDataSourceResult:
         if elasticsearch_config and not isinstance(elasticsearch_config, dict):
             raise TypeError("Expected argument 'elasticsearch_config' to be a dict")
         pulumi.set(__self__, "elasticsearch_config", elasticsearch_config)
+        if event_bridge_config and not isinstance(event_bridge_config, dict):
+            raise TypeError("Expected argument 'event_bridge_config' to be a dict")
+        pulumi.set(__self__, "event_bridge_config", event_bridge_config)
         if http_config and not isinstance(http_config, dict):
             raise TypeError("Expected argument 'http_config' to be a dict")
         pulumi.set(__self__, "http_config", http_config)
@@ -73,6 +76,11 @@ class GetDataSourceResult:
     @pulumi.getter(name="elasticsearchConfig")
     def elasticsearch_config(self) -> Optional['outputs.DataSourceElasticsearchConfig']:
         return pulumi.get(self, "elasticsearch_config")
+
+    @property
+    @pulumi.getter(name="eventBridgeConfig")
+    def event_bridge_config(self) -> Optional['outputs.DataSourceEventBridgeConfig']:
+        return pulumi.get(self, "event_bridge_config")
 
     @property
     @pulumi.getter(name="httpConfig")
@@ -120,6 +128,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             description=self.description,
             dynamo_db_config=self.dynamo_db_config,
             elasticsearch_config=self.elasticsearch_config,
+            event_bridge_config=self.event_bridge_config,
             http_config=self.http_config,
             id=self.id,
             lambda_config=self.lambda_config,
@@ -144,6 +153,7 @@ def get_data_source(id: Optional[str] = None,
         description=__ret__.description,
         dynamo_db_config=__ret__.dynamo_db_config,
         elasticsearch_config=__ret__.elasticsearch_config,
+        event_bridge_config=__ret__.event_bridge_config,
         http_config=__ret__.http_config,
         id=__ret__.id,
         lambda_config=__ret__.lambda_config,

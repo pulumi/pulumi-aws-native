@@ -29,6 +29,7 @@ type LookupDataSourceResult struct {
 	Description              *string                             `pulumi:"description"`
 	DynamoDBConfig           *DataSourceDynamoDBConfig           `pulumi:"dynamoDBConfig"`
 	ElasticsearchConfig      *DataSourceElasticsearchConfig      `pulumi:"elasticsearchConfig"`
+	EventBridgeConfig        *DataSourceEventBridgeConfig        `pulumi:"eventBridgeConfig"`
 	HttpConfig               *DataSourceHttpConfig               `pulumi:"httpConfig"`
 	Id                       *string                             `pulumi:"id"`
 	LambdaConfig             *DataSourceLambdaConfig             `pulumi:"lambdaConfig"`
@@ -87,6 +88,10 @@ func (o LookupDataSourceResultOutput) DynamoDBConfig() DataSourceDynamoDBConfigP
 
 func (o LookupDataSourceResultOutput) ElasticsearchConfig() DataSourceElasticsearchConfigPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceElasticsearchConfig { return v.ElasticsearchConfig }).(DataSourceElasticsearchConfigPtrOutput)
+}
+
+func (o LookupDataSourceResultOutput) EventBridgeConfig() DataSourceEventBridgeConfigPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceEventBridgeConfig { return v.EventBridgeConfig }).(DataSourceEventBridgeConfigPtrOutput)
 }
 
 func (o LookupDataSourceResultOutput) HttpConfig() DataSourceHttpConfigPtrOutput {

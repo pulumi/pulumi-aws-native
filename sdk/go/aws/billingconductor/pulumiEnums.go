@@ -527,6 +527,7 @@ const (
 	PricingRuleScopeGlobal        = PricingRuleScope("GLOBAL")
 	PricingRuleScopeService       = PricingRuleScope("SERVICE")
 	PricingRuleScopeBillingEntity = PricingRuleScope("BILLING_ENTITY")
+	PricingRuleScopeSku           = PricingRuleScope("SKU")
 )
 
 func (PricingRuleScope) ElementType() reflect.Type {

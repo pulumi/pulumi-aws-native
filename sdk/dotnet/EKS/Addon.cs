@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.EKS
         public Output<string?> ConfigurationValues { get; private set; } = null!;
 
         /// <summary>
+        /// PreserveOnDelete parameter value
+        /// </summary>
+        [Output("preserveOnDelete")]
+        public Output<bool?> PreserveOnDelete { get; private set; } = null!;
+
+        /// <summary>
         /// Resolve parameter value conflicts
         /// </summary>
         [Output("resolveConflicts")]
@@ -131,6 +137,12 @@ namespace Pulumi.AwsNative.EKS
         /// </summary>
         [Input("configurationValues")]
         public Input<string>? ConfigurationValues { get; set; }
+
+        /// <summary>
+        /// PreserveOnDelete parameter value
+        /// </summary>
+        [Input("preserveOnDelete")]
+        public Input<bool>? PreserveOnDelete { get; set; }
 
         /// <summary>
         /// Resolve parameter value conflicts

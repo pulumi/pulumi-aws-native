@@ -33,6 +33,8 @@ type PricingRule struct {
 	ModifierPercentage pulumi.Float64PtrOutput `pulumi:"modifierPercentage"`
 	// Pricing rule name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The Operation which a SKU pricing rule is modifying
+	Operation pulumi.StringPtrOutput `pulumi:"operation"`
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScopeOutput `pulumi:"scope"`
 	// The service which a pricing rule is applied on
@@ -42,6 +44,8 @@ type PricingRule struct {
 	Tiering TieringPropertiesPtrOutput `pulumi:"tiering"`
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleTypeOutput `pulumi:"type"`
+	// The UsageType which a SKU pricing rule is modifying
+	UsageType pulumi.StringPtrOutput `pulumi:"usageType"`
 }
 
 // NewPricingRule registers a new resource with the given unique name, arguments, and options.
@@ -97,6 +101,8 @@ type pricingRuleArgs struct {
 	ModifierPercentage *float64 `pulumi:"modifierPercentage"`
 	// Pricing rule name
 	Name *string `pulumi:"name"`
+	// The Operation which a SKU pricing rule is modifying
+	Operation *string `pulumi:"operation"`
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScope `pulumi:"scope"`
 	// The service which a pricing rule is applied on
@@ -106,6 +112,8 @@ type pricingRuleArgs struct {
 	Tiering *TieringProperties `pulumi:"tiering"`
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleType `pulumi:"type"`
+	// The UsageType which a SKU pricing rule is modifying
+	UsageType *string `pulumi:"usageType"`
 }
 
 // The set of arguments for constructing a PricingRule resource.
@@ -118,6 +126,8 @@ type PricingRuleArgs struct {
 	ModifierPercentage pulumi.Float64PtrInput
 	// Pricing rule name
 	Name pulumi.StringPtrInput
+	// The Operation which a SKU pricing rule is modifying
+	Operation pulumi.StringPtrInput
 	// A term used to categorize the granularity of a Pricing Rule.
 	Scope PricingRuleScopeInput
 	// The service which a pricing rule is applied on
@@ -127,6 +137,8 @@ type PricingRuleArgs struct {
 	Tiering TieringPropertiesPtrInput
 	// One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 	Type PricingRuleTypeInput
+	// The UsageType which a SKU pricing rule is modifying
+	UsageType pulumi.StringPtrInput
 }
 
 func (PricingRuleArgs) ElementType() reflect.Type {
@@ -206,6 +218,11 @@ func (o PricingRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PricingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The Operation which a SKU pricing rule is modifying
+func (o PricingRuleOutput) Operation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringPtrOutput { return v.Operation }).(pulumi.StringPtrOutput)
+}
+
 // A term used to categorize the granularity of a Pricing Rule.
 func (o PricingRuleOutput) Scope() PricingRuleScopeOutput {
 	return o.ApplyT(func(v *PricingRule) PricingRuleScopeOutput { return v.Scope }).(PricingRuleScopeOutput)
@@ -228,6 +245,11 @@ func (o PricingRuleOutput) Tiering() TieringPropertiesPtrOutput {
 // One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
 func (o PricingRuleOutput) Type() PricingRuleTypeOutput {
 	return o.ApplyT(func(v *PricingRule) PricingRuleTypeOutput { return v.Type }).(PricingRuleTypeOutput)
+}
+
+// The UsageType which a SKU pricing rule is modifying
+func (o PricingRuleOutput) UsageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PricingRule) pulumi.StringPtrOutput { return v.UsageType }).(pulumi.StringPtrOutput)
 }
 
 func init() {

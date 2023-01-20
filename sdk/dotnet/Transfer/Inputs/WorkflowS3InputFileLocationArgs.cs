@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Transfer.Inputs
 {
 
     /// <summary>
-    /// Specifies the details for the S3 file being copied.
+    /// Specifies the details for a S3 file.
     /// </summary>
     public sealed class WorkflowS3InputFileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the S3 bucket that contains the file being copied.
+        /// Specifies the S3 bucket that contains the file.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }

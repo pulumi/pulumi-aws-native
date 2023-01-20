@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAnomalySubscriptionResult:
-    def __init__(__self__, account_id=None, frequency=None, monitor_arn_list=None, subscribers=None, subscription_arn=None, subscription_name=None, threshold=None):
+    def __init__(__self__, account_id=None, frequency=None, monitor_arn_list=None, subscribers=None, subscription_arn=None, subscription_name=None, threshold=None, threshold_expression=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -42,6 +42,9 @@ class GetAnomalySubscriptionResult:
         if threshold and not isinstance(threshold, float):
             raise TypeError("Expected argument 'threshold' to be a float")
         pulumi.set(__self__, "threshold", threshold)
+        if threshold_expression and not isinstance(threshold_expression, str):
+            raise TypeError("Expected argument 'threshold_expression' to be a str")
+        pulumi.set(__self__, "threshold_expression", threshold_expression)
 
     @property
     @pulumi.getter(name="accountId")
@@ -96,6 +99,14 @@ class GetAnomalySubscriptionResult:
         """
         return pulumi.get(self, "threshold")
 
+    @property
+    @pulumi.getter(name="thresholdExpression")
+    def threshold_expression(self) -> Optional[str]:
+        """
+        An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+        """
+        return pulumi.get(self, "threshold_expression")
+
 
 class AwaitableGetAnomalySubscriptionResult(GetAnomalySubscriptionResult):
     # pylint: disable=using-constant-test
@@ -109,7 +120,8 @@ class AwaitableGetAnomalySubscriptionResult(GetAnomalySubscriptionResult):
             subscribers=self.subscribers,
             subscription_arn=self.subscription_arn,
             subscription_name=self.subscription_name,
-            threshold=self.threshold)
+            threshold=self.threshold,
+            threshold_expression=self.threshold_expression)
 
 
 def get_anomaly_subscription(subscription_arn: Optional[str] = None,
@@ -129,7 +141,8 @@ def get_anomaly_subscription(subscription_arn: Optional[str] = None,
         subscribers=__ret__.subscribers,
         subscription_arn=__ret__.subscription_arn,
         subscription_name=__ret__.subscription_name,
-        threshold=__ret__.threshold)
+        threshold=__ret__.threshold,
+        threshold_expression=__ret__.threshold_expression)
 
 
 @_utilities.lift_output_func(get_anomaly_subscription)

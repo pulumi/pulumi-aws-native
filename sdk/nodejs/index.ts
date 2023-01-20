@@ -178,6 +178,7 @@ import * as iotwireless from "./iotwireless";
 import * as ivs from "./ivs";
 import * as kafkaconnect from "./kafkaconnect";
 import * as kendra from "./kendra";
+import * as kendraranking from "./kendraranking";
 import * as kinesis from "./kinesis";
 import * as kinesisanalytics from "./kinesisanalytics";
 import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
@@ -390,6 +391,7 @@ export {
     ivs,
     kafkaconnect,
     kendra,
+    kendraranking,
     kinesis,
     kinesisanalytics,
     kinesisanalyticsv2,

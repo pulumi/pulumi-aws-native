@@ -30,8 +30,10 @@ type LookupPolicyResult struct {
 	ExcludeResourceTags       *bool                            `pulumi:"excludeResourceTags"`
 	Id                        *string                          `pulumi:"id"`
 	IncludeMap                *PolicyIEMap                     `pulumi:"includeMap"`
+	PolicyDescription         *string                          `pulumi:"policyDescription"`
 	PolicyName                *string                          `pulumi:"policyName"`
 	RemediationEnabled        *bool                            `pulumi:"remediationEnabled"`
+	ResourceSetIds            []string                         `pulumi:"resourceSetIds"`
 	ResourceTags              []PolicyResourceTag              `pulumi:"resourceTags"`
 	ResourceType              *string                          `pulumi:"resourceType"`
 	ResourceTypeList          []string                         `pulumi:"resourceTypeList"`
@@ -95,12 +97,20 @@ func (o LookupPolicyResultOutput) IncludeMap() PolicyIEMapPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *PolicyIEMap { return v.IncludeMap }).(PolicyIEMapPtrOutput)
 }
 
+func (o LookupPolicyResultOutput) PolicyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyDescription }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupPolicyResultOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupPolicyResultOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPolicyResult) *bool { return v.RemediationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupPolicyResultOutput) ResourceSetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []string { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupPolicyResultOutput) ResourceTags() PolicyResourceTagArrayOutput {

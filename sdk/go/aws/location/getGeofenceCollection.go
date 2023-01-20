@@ -25,11 +25,12 @@ type LookupGeofenceCollectionArgs struct {
 }
 
 type LookupGeofenceCollectionResult struct {
-	Arn                   *string `pulumi:"arn"`
-	CollectionArn         *string `pulumi:"collectionArn"`
-	CreateTime            *string `pulumi:"createTime"`
-	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
-	UpdateTime            *string `pulumi:"updateTime"`
+	Arn                   *string                        `pulumi:"arn"`
+	CollectionArn         *string                        `pulumi:"collectionArn"`
+	CreateTime            *string                        `pulumi:"createTime"`
+	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
+	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
+	UpdateTime            *string                        `pulumi:"updateTime"`
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
@@ -77,6 +78,10 @@ func (o LookupGeofenceCollectionResultOutput) CollectionArn() pulumi.StringPtrOu
 
 func (o LookupGeofenceCollectionResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGeofenceCollectionResultOutput) PricingPlan() GeofenceCollectionPricingPlanPtrOutput {
+	return o.ApplyT(func(v LookupGeofenceCollectionResult) *GeofenceCollectionPricingPlan { return v.PricingPlan }).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
 func (o LookupGeofenceCollectionResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {

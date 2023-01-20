@@ -255,6 +255,8 @@ if typing.TYPE_CHECKING:
     kafkaconnect = __kafkaconnect
     import pulumi_aws_native.kendra as __kendra
     kendra = __kendra
+    import pulumi_aws_native.kendraranking as __kendraranking
+    kendraranking = __kendraranking
     import pulumi_aws_native.kinesis as __kinesis
     kinesis = __kinesis
     import pulumi_aws_native.kinesisanalytics as __kinesisanalytics
@@ -557,6 +559,7 @@ else:
     ivs = _utilities.lazy_import('pulumi_aws_native.ivs')
     kafkaconnect = _utilities.lazy_import('pulumi_aws_native.kafkaconnect')
     kendra = _utilities.lazy_import('pulumi_aws_native.kendra')
+    kendraranking = _utilities.lazy_import('pulumi_aws_native.kendraranking')
     kinesis = _utilities.lazy_import('pulumi_aws_native.kinesis')
     kinesisanalytics = _utilities.lazy_import('pulumi_aws_native.kinesisanalytics')
     kinesisanalyticsv2 = _utilities.lazy_import('pulumi_aws_native.kinesisanalyticsv2')
@@ -1703,6 +1706,7 @@ _utilities.register(
   "mod": "gamecast",
   "fqn": "pulumi_aws_native.gamecast",
   "classes": {
+   "aws-native:gamecast:Application": "Application",
    "aws-native:gamecast:StreamGroup": "StreamGroup"
   }
  },
@@ -2063,6 +2067,14 @@ _utilities.register(
    "aws-native:kendra:DataSource": "DataSource",
    "aws-native:kendra:Faq": "Faq",
    "aws-native:kendra:Index": "Index"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "kendraranking",
+  "fqn": "pulumi_aws_native.kendraranking",
+  "classes": {
+   "aws-native:kendraranking:ExecutionPlan": "ExecutionPlan"
   }
  },
  {

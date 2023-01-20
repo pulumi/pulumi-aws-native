@@ -73,6 +73,10 @@ export class PricingRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The Operation which a SKU pricing rule is modifying
+     */
+    public readonly operation!: pulumi.Output<string | undefined>;
+    /**
      * A term used to categorize the granularity of a Pricing Rule.
      */
     public readonly scope!: pulumi.Output<enums.billingconductor.PricingRuleScope>;
@@ -89,6 +93,10 @@ export class PricingRule extends pulumi.CustomResource {
      * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
      */
     public readonly type!: pulumi.Output<enums.billingconductor.PricingRuleType>;
+    /**
+     * The UsageType which a SKU pricing rule is modifying
+     */
+    public readonly usageType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PricingRule resource with the given unique name, arguments, and options.
@@ -113,11 +121,13 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["modifierPercentage"] = args ? args.modifierPercentage : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operation"] = args ? args.operation : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tiering"] = args ? args.tiering : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["usageType"] = args ? args.usageType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associatedPricingPlanCount"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -131,11 +141,13 @@ export class PricingRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["modifierPercentage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operation"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["service"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tiering"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PricingRule.__pulumiType, name, resourceInputs, opts);
@@ -163,6 +175,10 @@ export interface PricingRuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The Operation which a SKU pricing rule is modifying
+     */
+    operation?: pulumi.Input<string>;
+    /**
      * A term used to categorize the granularity of a Pricing Rule.
      */
     scope: pulumi.Input<enums.billingconductor.PricingRuleScope>;
@@ -179,4 +195,8 @@ export interface PricingRuleArgs {
      * One of MARKUP, DISCOUNT or TIERING that describes the behaviour of the pricing rule.
      */
     type: pulumi.Input<enums.billingconductor.PricingRuleType>;
+    /**
+     * The UsageType which a SKU pricing rule is modifying
+     */
+    usageType?: pulumi.Input<string>;
 }

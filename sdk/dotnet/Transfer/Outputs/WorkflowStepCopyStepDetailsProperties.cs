@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepCopyStepDetailsProperties
     {
-        public readonly Outputs.WorkflowInputFileLocation? DestinationFileLocation;
+        public readonly Outputs.WorkflowS3FileLocation? DestinationFileLocation;
         /// <summary>
         /// The name of the step, used as an identifier.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
         [OutputConstructor]
         private WorkflowStepCopyStepDetailsProperties(
-            Outputs.WorkflowInputFileLocation? destinationFileLocation,
+            Outputs.WorkflowS3FileLocation? destinationFileLocation,
 
             string? name,
 

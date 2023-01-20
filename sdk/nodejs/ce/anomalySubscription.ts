@@ -68,7 +68,11 @@ export class AnomalySubscription extends pulumi.CustomResource {
     /**
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */
-    public readonly threshold!: pulumi.Output<number>;
+    public readonly threshold!: pulumi.Output<number | undefined>;
+    /**
+     * An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+     */
+    public readonly thresholdExpression!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AnomalySubscription resource with the given unique name, arguments, and options.
@@ -95,15 +99,13 @@ export class AnomalySubscription extends pulumi.CustomResource {
             if ((!args || args.subscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            if ((!args || args.threshold === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'threshold'");
-            }
             resourceInputs["frequency"] = args ? args.frequency : undefined;
             resourceInputs["monitorArnList"] = args ? args.monitorArnList : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["subscribers"] = args ? args.subscribers : undefined;
             resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["thresholdExpression"] = args ? args.thresholdExpression : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["subscriptionArn"] = undefined /*out*/;
         } else {
@@ -115,6 +117,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["subscriptionArn"] = undefined /*out*/;
             resourceInputs["subscriptionName"] = undefined /*out*/;
             resourceInputs["threshold"] = undefined /*out*/;
+            resourceInputs["thresholdExpression"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnomalySubscription.__pulumiType, name, resourceInputs, opts);
@@ -148,5 +151,9 @@ export interface AnomalySubscriptionArgs {
     /**
      * The dollar value that triggers a notification if the threshold is exceeded. 
      */
-    threshold: pulumi.Input<number>;
+    threshold?: pulumi.Input<number>;
+    /**
+     * An Expression object in JSON String format used to specify the anomalies that you want to generate alerts for.
+     */
+    thresholdExpression?: pulumi.Input<string>;
 }

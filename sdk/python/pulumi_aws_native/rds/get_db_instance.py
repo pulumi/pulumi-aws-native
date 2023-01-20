@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDBInstanceResult:
-    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, allow_major_version_upgrade=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, c_a_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, d_b_cluster_snapshot_identifier=None, d_b_instance_arn=None, d_b_instance_class=None, d_b_parameter_group_name=None, d_b_security_groups=None, d_b_system_id=None, dbi_resource_id=None, delete_automated_backups=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, use_default_processor_features=None, v_pc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -42,6 +42,9 @@ class GetDBInstanceResult:
         if c_a_certificate_identifier and not isinstance(c_a_certificate_identifier, str):
             raise TypeError("Expected argument 'c_a_certificate_identifier' to be a str")
         pulumi.set(__self__, "c_a_certificate_identifier", c_a_certificate_identifier)
+        if certificate_details and not isinstance(certificate_details, dict):
+            raise TypeError("Expected argument 'certificate_details' to be a dict")
+        pulumi.set(__self__, "certificate_details", certificate_details)
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
@@ -224,6 +227,14 @@ class GetDBInstanceResult:
         The identifier of the CA certificate for this DB instance.
         """
         return pulumi.get(self, "c_a_certificate_identifier")
+
+    @property
+    @pulumi.getter(name="certificateDetails")
+    def certificate_details(self) -> Optional['outputs.DBInstanceCertificateDetails']:
+        """
+        Returns the details of the DB instance's server certificate.
+        """
+        return pulumi.get(self, "certificate_details")
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
@@ -583,6 +594,7 @@ class AwaitableGetDBInstanceResult(GetDBInstanceResult):
             availability_zone=self.availability_zone,
             backup_retention_period=self.backup_retention_period,
             c_a_certificate_identifier=self.c_a_certificate_identifier,
+            certificate_details=self.certificate_details,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
             d_b_cluster_snapshot_identifier=self.d_b_cluster_snapshot_identifier,
             d_b_instance_arn=self.d_b_instance_arn,
@@ -648,6 +660,7 @@ def get_db_instance(d_b_instance_identifier: Optional[str] = None,
         availability_zone=__ret__.availability_zone,
         backup_retention_period=__ret__.backup_retention_period,
         c_a_certificate_identifier=__ret__.c_a_certificate_identifier,
+        certificate_details=__ret__.certificate_details,
         copy_tags_to_snapshot=__ret__.copy_tags_to_snapshot,
         d_b_cluster_snapshot_identifier=__ret__.d_b_cluster_snapshot_identifier,
         d_b_instance_arn=__ret__.d_b_instance_arn,

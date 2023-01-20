@@ -358,6 +358,67 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting : IEquatable<WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting>
+    {
+        private readonly string _value;
+
+        private WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting True { get; } = new WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE");
+        public static WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting False { get; } = new WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("FALSE");
+
+        public static bool operator ==(WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting left, WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting right) => left.Equals(right);
+        public static bool operator !=(WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting left, WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting other && Equals(other);
+        public bool Equals(WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies which encryption method to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkflowStepDecryptStepDetailsPropertiesType : IEquatable<WorkflowStepDecryptStepDetailsPropertiesType>
+    {
+        private readonly string _value;
+
+        private WorkflowStepDecryptStepDetailsPropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowStepDecryptStepDetailsPropertiesType Pgp { get; } = new WorkflowStepDecryptStepDetailsPropertiesType("PGP");
+
+        public static bool operator ==(WorkflowStepDecryptStepDetailsPropertiesType left, WorkflowStepDecryptStepDetailsPropertiesType right) => left.Equals(right);
+        public static bool operator !=(WorkflowStepDecryptStepDetailsPropertiesType left, WorkflowStepDecryptStepDetailsPropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowStepDecryptStepDetailsPropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowStepDecryptStepDetailsPropertiesType other && Equals(other);
+        public bool Equals(WorkflowStepDecryptStepDetailsPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct WorkflowStepType : IEquatable<WorkflowStepType>
     {
@@ -370,6 +431,7 @@ namespace Pulumi.AwsNative.Transfer
 
         public static WorkflowStepType Copy { get; } = new WorkflowStepType("COPY");
         public static WorkflowStepType Custom { get; } = new WorkflowStepType("CUSTOM");
+        public static WorkflowStepType Decrypt { get; } = new WorkflowStepType("DECRYPT");
         public static WorkflowStepType Delete { get; } = new WorkflowStepType("DELETE");
         public static WorkflowStepType Tag { get; } = new WorkflowStepType("TAG");
 

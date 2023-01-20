@@ -15,6 +15,7 @@ __all__ = [
     'DataSourceDeltaSyncConfigArgs',
     'DataSourceDynamoDBConfigArgs',
     'DataSourceElasticsearchConfigArgs',
+    'DataSourceEventBridgeConfigArgs',
     'DataSourceHttpConfigArgs',
     'DataSourceLambdaConfigArgs',
     'DataSourceOpenSearchServiceConfigArgs',
@@ -220,6 +221,22 @@ class DataSourceElasticsearchConfigArgs:
     @endpoint.setter
     def endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint", value)
+
+
+@pulumi.input_type
+class DataSourceEventBridgeConfigArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
 
 
 @pulumi.input_type

@@ -24,6 +24,9 @@ export interface GetNatGatewayArgs {
 
 export interface GetNatGatewayResult {
     readonly natGatewayId?: string;
+    readonly secondaryAllocationIds?: string[];
+    readonly secondaryPrivateIpAddressCount?: number;
+    readonly secondaryPrivateIpAddresses?: string[];
     readonly tags?: outputs.ec2.NatGatewayTag[];
 }
 /**

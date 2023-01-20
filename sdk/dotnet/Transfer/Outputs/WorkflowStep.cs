@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         /// </summary>
         public readonly Outputs.WorkflowStepCustomStepDetailsProperties? CustomStepDetails;
         /// <summary>
+        /// Details for a step that performs a file decryption.
+        /// </summary>
+        public readonly Outputs.WorkflowStepDecryptStepDetailsProperties? DecryptStepDetails;
+        /// <summary>
         /// Details for a step that deletes the file.
         /// </summary>
         public readonly Outputs.WorkflowStepDeleteStepDetailsProperties? DeleteStepDetails;
@@ -40,6 +44,8 @@ namespace Pulumi.AwsNative.Transfer.Outputs
 
             Outputs.WorkflowStepCustomStepDetailsProperties? customStepDetails,
 
+            Outputs.WorkflowStepDecryptStepDetailsProperties? decryptStepDetails,
+
             Outputs.WorkflowStepDeleteStepDetailsProperties? deleteStepDetails,
 
             Outputs.WorkflowStepTagStepDetailsProperties? tagStepDetails,
@@ -48,6 +54,7 @@ namespace Pulumi.AwsNative.Transfer.Outputs
         {
             CopyStepDetails = copyStepDetails;
             CustomStepDetails = customStepDetails;
+            DecryptStepDetails = decryptStepDetails;
             DeleteStepDetails = deleteStepDetails;
             TagStepDetails = tagStepDetails;
             Type = type;
