@@ -26,7 +26,8 @@
           "description" : "The archive rule name"
         }
       },
-      "required" : [ "Filter", "RuleName" ]
+      "required" : [ "Filter", "RuleName" ],
+      "additionalProperties" : false
     },
     "Filter" : {
       "type" : "object",
@@ -59,7 +60,8 @@
           }
         }
       },
-      "required" : [ "Property" ]
+      "required" : [ "Property" ],
+      "additionalProperties" : false
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
@@ -78,7 +80,8 @@
           "maxLength" : 255
         }
       },
-      "required" : [ "Key", "Value" ]
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
