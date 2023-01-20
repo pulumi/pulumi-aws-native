@@ -1,5 +1,26 @@
 ## HEAD (Unreleased)
 
+## 0.48.0 (January 20, 2023)
+
+Breaking changes:
+  - Resource "aws-native:ec2:PlacementGroup" missing input "groupName"
+  - Resource "aws-native:cloudwatch:MetricStream" output "creationDate" type changed from "string" to "any"
+  - Resource "aws-native:cloudwatch:MetricStream" output "lastUpdateDate" type changed from "string" to "any"
+  - Function "aws-native:cloudwatch:getMetricStream" output "lastUpdateDate" type changed from "string" to "any"
+  - Function "aws-native:cloudwatch:getMetricStream" output "creationDate" type changed from "string" to "any"
+  - Type "aws-native:transfer:WorkflowStepCopyStepDetailsProperties" input "destinationFileLocation" type changed from "#/types/aws-native:transfer:WorkflowInputFileLocation" to "#/types/aws-native:transfer:WorkflowS3FileLocation"
+
+New resources:
+  - `gamecast.Application`
+  - `kendraranking.ExecutionPlan`
+  - `secretsmanager.Secret`
+
+New functions:
+  - `gamecast.getApplication`
+  - `kendraranking.getExecutionPlan`
+  - `secretsmanager.getSecret`
+
+
 ## 0.47.0 (January 13, 2023)
 
 Breaking changes:
