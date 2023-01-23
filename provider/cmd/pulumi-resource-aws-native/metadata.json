@@ -23270,6 +23270,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
                 },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
+                },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
@@ -23308,6 +23312,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
                 },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
+                },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
@@ -23334,6 +23342,7 @@
                 "distributionConfigurationArn",
                 "enhancedImageMetadataEnabled",
                 "imageRecipeArn",
+                "imageScanningConfiguration",
                 "imageTestsConfiguration",
                 "infrastructureConfigurationArn",
                 "tags"
@@ -23361,6 +23370,10 @@
                 "imageRecipeArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
+                },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
                 },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageTestsConfiguration",
@@ -23411,6 +23424,10 @@
                 "imageRecipeArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
+                },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
                 },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageTestsConfiguration",
@@ -45275,6 +45292,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
                 },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainDefaultSpaceSettings",
+                    "description": "The default space settings."
+                },
                 "defaultUserSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainUserSettings",
                     "description": "The default user settings."
@@ -45321,6 +45342,10 @@
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
+                },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainDefaultSpaceSettings",
+                    "description": "The default space settings."
                 },
                 "defaultUserSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainUserSettings",
@@ -69298,6 +69323,51 @@
         "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService": {
             "type": "string"
         },
+        "aws-native:imagebuilder:ImageEcrConfiguration": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images."
+                },
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImagePipelineEcrConfiguration": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images."
+                },
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImagePipelineImageScanningConfiguration": {
+            "type": "object",
+            "properties": {
+                "ecrConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineEcrConfiguration",
+                    "description": "Contains ECR settings for vulnerability scans."
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image."
+                }
+            }
+        },
         "aws-native:imagebuilder:ImagePipelineImageTestsConfiguration": {
             "type": "object",
             "properties": {
@@ -69442,6 +69512,19 @@
                 "uninstallAfterBuild": {
                     "type": "boolean",
                     "description": "Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImageScanningConfiguration": {
+            "type": "object",
+            "properties": {
+                "ecrConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageEcrConfiguration",
+                    "description": "Contains ECR settings for vulnerability scans."
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image."
                 }
             }
         },
@@ -89600,6 +89683,30 @@
                 }
             }
         },
+        "aws-native:sagemaker:DomainDefaultSpaceSettings": {
+            "type": "object",
+            "properties": {
+                "executionRole": {
+                    "type": "string",
+                    "description": "The execution role for the space."
+                },
+                "jupyterServerAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainJupyterServerAppSettings",
+                    "description": "The Jupyter server's app settings."
+                },
+                "kernelGatewayAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainKernelGatewayAppSettings",
+                    "description": "The kernel gateway app settings."
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication."
+                }
+            }
+        },
         "aws-native:sagemaker:DomainJupyterServerAppSettings": {
             "type": "object",
             "properties": {
@@ -89753,7 +89860,7 @@
             "properties": {
                 "executionRole": {
                     "type": "string",
-                    "description": "The user profile Amazon Resource Name (ARN)."
+                    "description": "The execution role for the user."
                 },
                 "jupyterServerAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainJupyterServerAppSettings",
