@@ -120,6 +120,9 @@
     "create" : {
       "permissions" : [ "route53resolver:CreateFirewallDomainList", "route53resolver:UpdateFirewallDomains", "route53resolver:ImportFirewallDomains", "route53resolver:TagResource" ]
     },
+    "list" : {
+      "permissions" : [ "route53resolver:ListFirewallDomainLists", "route53resolver:ListTagsForResource" ]
+    },
     "read" : {
       "permissions" : [ "route53resolver:GetFirewallDomainList", "route53resolver:ListFirewallDomains", "route53resolver:ListTagsForResource" ]
     },
