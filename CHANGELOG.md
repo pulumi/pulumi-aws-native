@@ -1,5 +1,24 @@
 ## HEAD (Unreleased)
 
+## 0.49.0 (January 26, 2023)
+
+Breaking changes:
+- Function `aws-native:robomaker:getRobotApplication` missing output `sources`
+- Function `aws-native:robomaker:getSimulationApplication` missing output `renderingEngine`
+- Function `aws-native:robomaker:getSimulationApplication` missing output `sources`
+
+New resources:
+- `applicationautoscaling.ScalableTarget`
+- `connect.ApprovedOrigin`
+- `connect.IntegrationAssociation`
+- `connect.SecurityKey`
+- `ec2.VPNConnectionRoute`
+
+New functions:
+- `applicationautoscaling.getScalableTarget`
+- `connect.getIntegrationAssociation`
+- `connect.getSecurityKey`
+
 ## 0.48.0 (January 20, 2023)
 
 Breaking changes:
