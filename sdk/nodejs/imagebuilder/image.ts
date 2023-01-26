@@ -62,6 +62,10 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
+     * Contains settings for vulnerability scans.
+     */
+    public readonly imageScanningConfiguration!: pulumi.Output<outputs.imagebuilder.ImageScanningConfiguration | undefined>;
+    /**
      * The image tests configuration used when creating this image.
      */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageTestsConfiguration | undefined>;
@@ -97,6 +101,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
             resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
+            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -111,6 +116,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageRecipeArn"] = undefined /*out*/;
+            resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export interface ImageArgs {
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     imageRecipeArn?: pulumi.Input<string>;
+    /**
+     * Contains settings for vulnerability scans.
+     */
+    imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImageScanningConfigurationArgs>;
     /**
      * The image tests configuration used when creating this image.
      */

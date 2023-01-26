@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+ * This schema is for testing purpose only.
  */
 export function getSimulationApplication(args: GetSimulationApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSimulationApplicationResult> {
 
@@ -33,10 +33,6 @@ export interface GetSimulationApplicationResult {
      */
     readonly environment?: string;
     /**
-     * The rendering engine for the simulation application.
-     */
-    readonly renderingEngine?: outputs.robomaker.SimulationApplicationRenderingEngine;
-    /**
      * The robot software suite used by the simulation application.
      */
     readonly robotSoftwareSuite?: outputs.robomaker.SimulationApplicationRobotSoftwareSuite;
@@ -44,14 +40,10 @@ export interface GetSimulationApplicationResult {
      * The simulation software suite used by the simulation application.
      */
     readonly simulationSoftwareSuite?: outputs.robomaker.SimulationApplicationSimulationSoftwareSuite;
-    /**
-     * The sources of the simulation application.
-     */
-    readonly sources?: outputs.robomaker.SimulationApplicationSourceConfig[];
     readonly tags?: outputs.robomaker.SimulationApplicationTags;
 }
 /**
- * AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+ * This schema is for testing purpose only.
  */
 export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
     return pulumi.output(args).apply((a: any) => getSimulationApplication(a, opts))

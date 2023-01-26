@@ -11,21 +11,34 @@ namespace Pulumi.AwsNative.Lex.Outputs
 {
 
     /// <summary>
-    /// An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+    /// Represents an action that the user wants to perform.
     /// </summary>
     [OutputType]
     public sealed class BotIntent
     {
+        /// <summary>
+        /// Description of thr intent.
+        /// </summary>
         public readonly string? Description;
         public readonly Outputs.BotDialogCodeHookSetting? DialogCodeHook;
         public readonly Outputs.BotFulfillmentCodeHookSetting? FulfillmentCodeHook;
+        /// <summary>
+        /// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        /// </summary>
+        public readonly Outputs.BotInitialResponseSetting? InitialResponseSetting;
         public readonly ImmutableArray<Outputs.BotInputContext> InputContexts;
         public readonly Outputs.BotIntentClosingSetting? IntentClosingSetting;
         public readonly Outputs.BotIntentConfirmationSetting? IntentConfirmationSetting;
         public readonly Outputs.BotKendraConfiguration? KendraConfiguration;
+        /// <summary>
+        /// The name of the intent.
+        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.BotOutputContext> OutputContexts;
         public readonly string? ParentIntentSignature;
+        /// <summary>
+        /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BotSampleUtterance> SampleUtterances;
         public readonly ImmutableArray<Outputs.BotSlotPriority> SlotPriorities;
         /// <summary>
@@ -40,6 +53,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
             Outputs.BotDialogCodeHookSetting? dialogCodeHook,
 
             Outputs.BotFulfillmentCodeHookSetting? fulfillmentCodeHook,
+
+            Outputs.BotInitialResponseSetting? initialResponseSetting,
 
             ImmutableArray<Outputs.BotInputContext> inputContexts,
 
@@ -64,6 +79,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             Description = description;
             DialogCodeHook = dialogCodeHook;
             FulfillmentCodeHook = fulfillmentCodeHook;
+            InitialResponseSetting = initialResponseSetting;
             InputContexts = inputContexts;
             IntentClosingSetting = intentClosingSetting;
             IntentConfirmationSetting = intentConfirmationSetting;

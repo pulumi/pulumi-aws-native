@@ -1918,6 +1918,7 @@ export namespace appflow {
         googleAnalytics?: pulumi.Input<inputs.appflow.ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs>;
         inforNexus?: pulumi.Input<inputs.appflow.ConnectorProfileInforNexusConnectorProfileCredentialsArgs>;
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfileCredentialsArgs>;
+        pardot?: pulumi.Input<inputs.appflow.ConnectorProfilePardotConnectorProfileCredentialsArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>;
         sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentialsArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>;
@@ -2081,6 +2082,40 @@ export namespace appflow {
         tokenUrl?: pulumi.Input<string>;
     }
 
+    export interface ConnectorProfilePardotConnectorProfileCredentialsArgs {
+        /**
+         * The credentials used to access protected resources.
+         */
+        accessToken?: pulumi.Input<string>;
+        /**
+         * The client credentials to fetch access token and refresh token.
+         */
+        clientCredentialsArn?: pulumi.Input<string>;
+        /**
+         * The oauth needed to request security tokens from the connector endpoint.
+         */
+        connectorOAuthRequest?: pulumi.Input<inputs.appflow.ConnectorProfileConnectorOAuthRequestArgs>;
+        /**
+         * The credentials used to acquire new access tokens.
+         */
+        refreshToken?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorProfilePardotConnectorProfilePropertiesArgs {
+        /**
+         * The Business unit id of Salesforce Pardot instance to be connected
+         */
+        businessUnitId: pulumi.Input<string>;
+        /**
+         * The location of the Salesforce Pardot resource
+         */
+        instanceUrl?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connector profile applies to a demo or production environment
+         */
+        isSandboxEnvironment?: pulumi.Input<boolean>;
+    }
+
     /**
      * A map for properties for custom connector.
      */
@@ -2096,6 +2131,7 @@ export namespace appflow {
         dynatrace?: pulumi.Input<inputs.appflow.ConnectorProfileDynatraceConnectorProfilePropertiesArgs>;
         inforNexus?: pulumi.Input<inputs.appflow.ConnectorProfileInforNexusConnectorProfilePropertiesArgs>;
         marketo?: pulumi.Input<inputs.appflow.ConnectorProfileMarketoConnectorProfilePropertiesArgs>;
+        pardot?: pulumi.Input<inputs.appflow.ConnectorProfilePardotConnectorProfilePropertiesArgs>;
         redshift?: pulumi.Input<inputs.appflow.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>;
         sAPOData?: pulumi.Input<inputs.appflow.ConnectorProfileSAPODataConnectorProfilePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>;
@@ -2203,6 +2239,9 @@ export namespace appflow {
          * The location of the Salesforce resource
          */
         instanceUrl?: pulumi.Input<string>;
+        /**
+         * Indicates whether the connector profile applies to a sandbox or production environment
+         */
         isSandboxEnvironment?: pulumi.Input<boolean>;
     }
 
@@ -2387,6 +2426,7 @@ export namespace appflow {
         googleAnalytics?: pulumi.Input<enums.appflow.FlowGoogleAnalyticsConnectorOperator>;
         inforNexus?: pulumi.Input<enums.appflow.FlowInforNexusConnectorOperator>;
         marketo?: pulumi.Input<enums.appflow.FlowMarketoConnectorOperator>;
+        pardot?: pulumi.Input<enums.appflow.FlowPardotConnectorOperator>;
         s3?: pulumi.Input<enums.appflow.FlowS3ConnectorOperator>;
         sAPOData?: pulumi.Input<enums.appflow.FlowSAPODataConnectorOperator>;
         salesforce?: pulumi.Input<enums.appflow.FlowSalesforceConnectorOperator>;
@@ -2534,6 +2574,10 @@ export namespace appflow {
         glueDataCatalog?: pulumi.Input<inputs.appflow.FlowGlueDataCatalogArgs>;
     }
 
+    export interface FlowPardotSourcePropertiesArgs {
+        object: pulumi.Input<string>;
+    }
+
     export interface FlowPrefixConfigArgs {
         pathPrefixHierarchy?: pulumi.Input<pulumi.Input<enums.appflow.FlowPathPrefix>[]>;
         prefixFormat?: pulumi.Input<enums.appflow.FlowPrefixFormat>;
@@ -2647,6 +2691,7 @@ export namespace appflow {
         googleAnalytics?: pulumi.Input<inputs.appflow.FlowGoogleAnalyticsSourcePropertiesArgs>;
         inforNexus?: pulumi.Input<inputs.appflow.FlowInforNexusSourcePropertiesArgs>;
         marketo?: pulumi.Input<inputs.appflow.FlowMarketoSourcePropertiesArgs>;
+        pardot?: pulumi.Input<inputs.appflow.FlowPardotSourcePropertiesArgs>;
         s3?: pulumi.Input<inputs.appflow.FlowS3SourcePropertiesArgs>;
         sAPOData?: pulumi.Input<inputs.appflow.FlowSAPODataSourcePropertiesArgs>;
         salesforce?: pulumi.Input<inputs.appflow.FlowSalesforceSourcePropertiesArgs>;
@@ -13432,6 +13477,16 @@ export namespace emrserverless {
         idleTimeoutMinutes?: pulumi.Input<number>;
     }
 
+    /**
+     * The image configuration.
+     */
+    export interface ApplicationImageConfigurationInputArgs {
+        /**
+         * The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+         */
+        imageUri?: pulumi.Input<string>;
+    }
+
     export interface ApplicationInitialCapacityConfigArgs {
         workerConfiguration: pulumi.Input<inputs.emrserverless.ApplicationWorkerConfigurationArgs>;
         /**
@@ -13501,6 +13556,9 @@ export namespace emrserverless {
          * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
          */
         memory: pulumi.Input<string>;
+    }
+
+    export interface ApplicationWorkerTypeSpecificationInputMapArgs {
     }
 }
 
@@ -16568,6 +16626,48 @@ export namespace imagebuilder {
     }
 
     /**
+     * Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+     */
+    export interface ImageEcrConfigurationArgs {
+        /**
+         * Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         */
+        repositoryName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+     */
+    export interface ImagePipelineEcrConfigurationArgs {
+        /**
+         * Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+         */
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         */
+        repositoryName?: pulumi.Input<string>;
+    }
+
+    /**
+     * Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+     */
+    export interface ImagePipelineImageScanningConfigurationArgs {
+        /**
+         * Contains ECR settings for vulnerability scans.
+         */
+        ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineEcrConfigurationArgs>;
+        /**
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         */
+        imageScanningEnabled?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Image tests configuration.
      */
     export interface ImagePipelineImageTestsConfigurationArgs {
@@ -16705,6 +16805,20 @@ export namespace imagebuilder {
          * Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
          */
         uninstallAfterBuild?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Contains settings for Image Builder image resource and container image scans.
+     */
+    export interface ImageScanningConfigurationArgs {
+        /**
+         * Contains ECR settings for vulnerability scans.
+         */
+        ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImageEcrConfigurationArgs>;
+        /**
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         */
+        imageScanningEnabled?: pulumi.Input<boolean>;
     }
 
     /**
@@ -17405,6 +17519,7 @@ export namespace iot {
     }
 
     export interface TopicRuleCloudwatchLogsActionArgs {
+        batchMode?: pulumi.Input<boolean>;
         logGroupName: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
     }
@@ -21777,6 +21892,17 @@ export namespace lambda {
         workingDirectory?: pulumi.Input<string>;
     }
 
+    export interface FunctionRuntimeManagementConfigArgs {
+        /**
+         * Unique identifier for a runtime version arn
+         */
+        runtimeVersionArn?: pulumi.Input<string>;
+        /**
+         * Trigger for runtime update
+         */
+        updateRuntimeOn: pulumi.Input<enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn>;
+    }
+
     /**
      * The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
      */
@@ -22030,6 +22156,56 @@ export namespace lex {
     }
 
     /**
+     * Provides an expression that evaluates to true or false.
+     */
+    export interface BotConditionArgs {
+        /**
+         * The expression string that is evaluated.
+         */
+        expressionString: pulumi.Input<string>;
+    }
+
+    /**
+     * A set of actions that Amazon Lex should run if the condition is matched.
+     */
+    export interface BotConditionalBranchArgs {
+        /**
+         * Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
+         */
+        condition: pulumi.Input<inputs.lex.BotConditionArgs>;
+        /**
+         * The name of the branch.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The next step in the conversation.
+         */
+        nextStep: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        response?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+    }
+
+    /**
+     * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+     */
+    export interface BotConditionalSpecificationArgs {
+        /**
+         * A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+         */
+        conditionalBranches: pulumi.Input<pulumi.Input<inputs.lex.BotConditionalBranchArgs>[]>;
+        /**
+         * The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
+         */
+        defaultBranch: pulumi.Input<inputs.lex.BotDefaultConditionalBranchArgs>;
+        /**
+         * Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        isActive: pulumi.Input<boolean>;
+    }
+
+    /**
      * Contains information about code hooks that Amazon Lex calls during a conversation.
      */
     export interface BotConversationLogSettingsArgs {
@@ -22069,10 +22245,96 @@ export namespace lex {
     }
 
     /**
+     * A set of actions that Amazon Lex should run if none of the other conditions are met.
+     */
+    export interface BotDefaultConditionalBranchArgs {
+        /**
+         * The next step in the conversation.
+         */
+        nextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        response?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+    }
+
+    /**
+     * Defines the action that the bot executes at runtime when the conversation reaches this step.
+     */
+    export interface BotDialogActionArgs {
+        /**
+         * If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+         */
+        slotToElicit?: pulumi.Input<string>;
+        /**
+         * When true the next message for the intent is not used.
+         */
+        suppressNextMessage?: pulumi.Input<boolean>;
+        /**
+         * The action that the bot should execute.
+         */
+        type: pulumi.Input<enums.lex.BotDialogActionType>;
+    }
+
+    /**
+     * Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+     */
+    export interface BotDialogCodeHookInvocationSettingArgs {
+        /**
+         * Indicates whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: pulumi.Input<boolean>;
+        /**
+         * A label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: pulumi.Input<string>;
+        /**
+         * Determines whether a dialog code hook is used when the intent is activated.
+         */
+        isActive: pulumi.Input<boolean>;
+        /**
+         * Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
+         */
+        postCodeHookSpecification: pulumi.Input<inputs.lex.BotPostDialogCodeHookInvocationSpecificationArgs>;
+    }
+
+    /**
      * Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
      */
     export interface BotDialogCodeHookSettingArgs {
         enabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The current state of the conversation with the user.
+     */
+    export interface BotDialogStateArgs {
+        /**
+         * Defines the action that the bot executes at runtime when the conversation reaches this step.
+         */
+        dialogAction?: pulumi.Input<inputs.lex.BotDialogActionArgs>;
+        /**
+         * Override settings to configure the intent state.
+         */
+        intent?: pulumi.Input<inputs.lex.BotIntentOverrideArgs>;
+        /**
+         * List of session attributes to be applied when the conversation reaches this step.
+         */
+        sessionAttributes?: pulumi.Input<pulumi.Input<inputs.lex.BotSessionAttributeArgs>[]>;
+    }
+
+    /**
+     * Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
+     */
+    export interface BotElicitationCodeHookInvocationSettingArgs {
+        /**
+         * Indicates whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: pulumi.Input<boolean>;
+        /**
+         * A label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: pulumi.Input<string>;
     }
 
     /**
@@ -22088,6 +22350,10 @@ export namespace lex {
     export interface BotFulfillmentCodeHookSettingArgs {
         enabled: pulumi.Input<boolean>;
         fulfillmentUpdatesSpecification?: pulumi.Input<inputs.lex.BotFulfillmentUpdatesSpecificationArgs>;
+        /**
+         * Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+         */
+        isActive?: pulumi.Input<boolean>;
         postFulfillmentStatusSpecification?: pulumi.Input<inputs.lex.BotPostFulfillmentStatusSpecificationArgs>;
     }
 
@@ -22185,6 +22451,28 @@ export namespace lex {
     }
 
     /**
+     * Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+     */
+    export interface BotInitialResponseSettingArgs {
+        /**
+         * Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+         */
+        codeHook?: pulumi.Input<inputs.lex.BotDialogCodeHookInvocationSettingArgs>;
+        /**
+         * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+         */
+        conditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        initialResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * The next step in the conversation.
+         */
+        nextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+    }
+
+    /**
      * InputContext specified for the intent.
      */
     export interface BotInputContextArgs {
@@ -22195,19 +22483,32 @@ export namespace lex {
     }
 
     /**
-     * An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+     * Represents an action that the user wants to perform.
      */
     export interface BotIntentArgs {
+        /**
+         * Description of thr intent.
+         */
         description?: pulumi.Input<string>;
         dialogCodeHook?: pulumi.Input<inputs.lex.BotDialogCodeHookSettingArgs>;
         fulfillmentCodeHook?: pulumi.Input<inputs.lex.BotFulfillmentCodeHookSettingArgs>;
+        /**
+         * Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+         */
+        initialResponseSetting?: pulumi.Input<inputs.lex.BotInitialResponseSettingArgs>;
         inputContexts?: pulumi.Input<pulumi.Input<inputs.lex.BotInputContextArgs>[]>;
         intentClosingSetting?: pulumi.Input<inputs.lex.BotIntentClosingSettingArgs>;
         intentConfirmationSetting?: pulumi.Input<inputs.lex.BotIntentConfirmationSettingArgs>;
         kendraConfiguration?: pulumi.Input<inputs.lex.BotKendraConfigurationArgs>;
+        /**
+         * The name of the intent.
+         */
         name: pulumi.Input<string>;
         outputContexts?: pulumi.Input<pulumi.Input<inputs.lex.BotOutputContextArgs>[]>;
         parentIntentSignature?: pulumi.Input<string>;
+        /**
+         * A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+         */
         sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.BotSampleUtteranceArgs>[]>;
         slotPriorities?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotPriorityArgs>[]>;
         /**
@@ -22217,20 +22518,97 @@ export namespace lex {
     }
 
     /**
-     * Response that Amazon Lex sends to the user when the intent is closed.
+     * Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
      */
     export interface BotIntentClosingSettingArgs {
-        closingResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * The response that Amazon Lex sends to the user when the intent is complete.
+         */
+        closingResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+         */
+        conditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+         */
         isActive?: pulumi.Input<boolean>;
+        /**
+         * Specifies the next step that the bot executes after playing the intent's closing response.
+         */
+        nextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
     }
 
     /**
-     * Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+     * Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
      */
     export interface BotIntentConfirmationSettingArgs {
-        declinationResponse: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+         */
+        codeHook?: pulumi.Input<inputs.lex.BotDialogCodeHookInvocationSettingArgs>;
+        /**
+         * A list of conditional branches to evaluate after the intent is closed.
+         */
+        confirmationConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot executes when the customer confirms the intent.
+         */
+        confirmationNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        confirmationResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches to evaluate after the intent is declined.
+         */
+        declinationConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot executes when the customer declines the intent.
+         */
+        declinationNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+         */
+        declinationResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+         */
+        elicitationCodeHook?: pulumi.Input<inputs.lex.BotElicitationCodeHookInvocationSettingArgs>;
+        /**
+         * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+         */
+        failureConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * The next step to take in the conversation if the confirmation step fails.
+         */
+        failureNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+         */
         isActive?: pulumi.Input<boolean>;
+        /**
+         * Prompts the user to confirm the intent. This question should have a yes or no answer.
+         */
         promptSpecification: pulumi.Input<inputs.lex.BotPromptSpecificationArgs>;
+    }
+
+    /**
+     * Override settings to configure the intent state.
+     */
+    export interface BotIntentOverrideArgs {
+        /**
+         * The name of the intent. Only required when you're switching intents.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A map of all of the slot value overrides for the intent.
+         */
+        slots?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotValueOverrideMapArgs>[]>;
     }
 
     /**
@@ -22322,11 +22700,86 @@ export namespace lex {
     }
 
     /**
-     * Provides information for updating the user on the progress of fulfilling an intent.
+     * Specifies next steps to run after the dialog code hook finishes.
+     */
+    export interface BotPostDialogCodeHookInvocationSpecificationArgs {
+        /**
+         * A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches to evaluate after the dialog code hook finishes successfully.
+         */
+        successConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifics the next step the bot runs after the dialog code hook finishes successfully.
+         */
+        successNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        successResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches to evaluate if the code hook times out.
+         */
+        timeoutConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot runs when the code hook times out.
+         */
+        timeoutNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        timeoutResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+    }
+
+    /**
+     * Provides a setting that determines whether the post-fulfillment response is sent to the user.
      */
     export interface BotPostFulfillmentStatusSpecificationArgs {
+        /**
+         * A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         failureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+         */
+        successConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+         */
+        successNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         successResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * A list of conditional branches to evaluate if the fulfillment code hook times out.
+         */
+        timeoutConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot runs when the fulfillment code hook times out.
+         */
+        timeoutNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         timeoutResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
     }
 
@@ -22422,6 +22875,14 @@ export namespace lex {
     }
 
     /**
+     * Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+     */
+    export interface BotSessionAttributeArgs {
+        key: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    /**
      * A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
      */
     export interface BotSlotArgs {
@@ -22431,6 +22892,44 @@ export namespace lex {
         obfuscationSetting?: pulumi.Input<inputs.lex.BotObfuscationSettingArgs>;
         slotTypeName: pulumi.Input<string>;
         valueElicitationSetting: pulumi.Input<inputs.lex.BotSlotValueElicitationSettingArgs>;
+    }
+
+    /**
+     * Settings used when Amazon Lex successfully captures a slot value from a user.
+     */
+    export interface BotSlotCaptureSettingArgs {
+        /**
+         * A list of conditional branches to evaluate after the slot value is captured.
+         */
+        captureConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
+         */
+        captureNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        captureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
+        /**
+         * Code hook called after Amazon Lex successfully captures a slot value.
+         */
+        codeHook?: pulumi.Input<inputs.lex.BotDialogCodeHookInvocationSettingArgs>;
+        /**
+         * Code hook called when Amazon Lex doesn't capture a slot value.
+         */
+        elicitationCodeHook?: pulumi.Input<inputs.lex.BotElicitationCodeHookInvocationSettingArgs>;
+        /**
+         * A list of conditional branches to evaluate when the slot value isn't captured.
+         */
+        failureConditional?: pulumi.Input<inputs.lex.BotConditionalSpecificationArgs>;
+        /**
+         * Specifies the next step that the bot runs when the slot value code is not recognized.
+         */
+        failureNextStep?: pulumi.Input<inputs.lex.BotDialogStateArgs>;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: pulumi.Input<inputs.lex.BotResponseSpecificationArgs>;
     }
 
     /**
@@ -22485,6 +22984,16 @@ export namespace lex {
     }
 
     /**
+     * The value to set in a slot.
+     */
+    export interface BotSlotValueArgs {
+        /**
+         * The value that Amazon Lex determines for the slot.
+         */
+        interpretedValue?: pulumi.Input<string>;
+    }
+
+    /**
      * Settings that you can use for eliciting a slot value.
      */
     export interface BotSlotValueElicitationSettingArgs {
@@ -22501,6 +23010,10 @@ export namespace lex {
          */
         sampleUtterances?: pulumi.Input<pulumi.Input<inputs.lex.BotSampleUtteranceArgs>[]>;
         /**
+         * Specifies the next stage in the conversation after capturing the slot.
+         */
+        slotCaptureSetting?: pulumi.Input<inputs.lex.BotSlotCaptureSettingArgs>;
+        /**
          * Specifies whether the slot is required or optional.
          */
         slotConstraint: pulumi.Input<enums.lex.BotSlotConstraint>;
@@ -22508,6 +23021,32 @@ export namespace lex {
          * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
          */
         waitAndContinueSpecification?: pulumi.Input<inputs.lex.BotWaitAndContinueSpecificationArgs>;
+    }
+
+    /**
+     * The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+     */
+    export interface BotSlotValueOverrideArgs {
+        /**
+         * When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+         */
+        shape?: pulumi.Input<enums.lex.BotSlotShape>;
+        /**
+         * The current value of the slot.
+         */
+        value?: pulumi.Input<inputs.lex.BotSlotValueArgs>;
+        /**
+         * A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
+         */
+        values?: pulumi.Input<pulumi.Input<inputs.lex.BotSlotValueOverrideArgs>[]>;
+    }
+
+    /**
+     * A map of slot names and their overridden values.
+     */
+    export interface BotSlotValueOverrideMapArgs {
+        slotName?: pulumi.Input<string>;
+        slotValueOverride?: pulumi.Input<inputs.lex.BotSlotValueOverrideArgs>;
     }
 
     /**
@@ -26755,9 +27294,12 @@ export namespace opensearchserverless {
 
 export namespace opensearchservice {
     export interface DomainAdvancedSecurityOptionsInputArgs {
+        anonymousAuthDisableDate?: pulumi.Input<string>;
+        anonymousAuthEnabled?: pulumi.Input<boolean>;
         enabled?: pulumi.Input<boolean>;
         internalUserDatabaseEnabled?: pulumi.Input<boolean>;
         masterUserOptions?: pulumi.Input<inputs.opensearchservice.DomainMasterUserOptionsArgs>;
+        sAMLOptions?: pulumi.Input<inputs.opensearchservice.DomainSAMLOptionsArgs>;
     }
 
     export interface DomainClusterConfigArgs {
@@ -26801,6 +27343,11 @@ export namespace opensearchservice {
         tLSSecurityPolicy?: pulumi.Input<string>;
     }
 
+    export interface DomainIdpArgs {
+        entityId: pulumi.Input<string>;
+        metadataContent: pulumi.Input<string>;
+    }
+
     export interface DomainMasterUserOptionsArgs {
         masterUserARN?: pulumi.Input<string>;
         masterUserName?: pulumi.Input<string>;
@@ -26809,6 +27356,16 @@ export namespace opensearchservice {
 
     export interface DomainNodeToNodeEncryptionOptionsArgs {
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainSAMLOptionsArgs {
+        enabled?: pulumi.Input<boolean>;
+        idp?: pulumi.Input<inputs.opensearchservice.DomainIdpArgs>;
+        masterBackendRole?: pulumi.Input<string>;
+        masterUserName?: pulumi.Input<string>;
+        rolesKey?: pulumi.Input<string>;
+        sessionTimeoutMinutes?: pulumi.Input<number>;
+        subjectKey?: pulumi.Input<string>;
     }
 
     export interface DomainSnapshotOptionsArgs {
@@ -30743,6 +31300,16 @@ export namespace rum {
     }
 
     /**
+     * AppMonitor custom events configuration
+     */
+    export interface AppMonitorCustomEventsArgs {
+        /**
+         * Indicates whether AppMonitor accepts custom events.
+         */
+        status?: pulumi.Input<enums.rum.AppMonitorCustomEventsStatus>;
+    }
+
+    /**
      * A single metric definition
      */
     export interface AppMonitorMetricDefinitionArgs {
@@ -32327,6 +32894,28 @@ export namespace sagemaker {
     }
 
     /**
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+     */
+    export interface DomainDefaultSpaceSettingsArgs {
+        /**
+         * The execution role for the space.
+         */
+        executionRole?: pulumi.Input<string>;
+        /**
+         * The Jupyter server's app settings.
+         */
+        jupyterServerAppSettings?: pulumi.Input<inputs.sagemaker.DomainJupyterServerAppSettingsArgs>;
+        /**
+         * The kernel gateway app settings.
+         */
+        kernelGatewayAppSettings?: pulumi.Input<inputs.sagemaker.DomainKernelGatewayAppSettingsArgs>;
+        /**
+         * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * The JupyterServer app settings.
      */
     export interface DomainJupyterServerAppSettingsArgs {
@@ -32449,7 +33038,7 @@ export namespace sagemaker {
      */
     export interface DomainUserSettingsArgs {
         /**
-         * The user profile Amazon Resource Name (ARN).
+         * The execution role for the user.
          */
         executionRole?: pulumi.Input<string>;
         /**
@@ -34870,45 +35459,15 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretStringArgs {
-        /**
-         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
-         */
         excludeCharacters?: pulumi.Input<string>;
-        /**
-         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-         */
         excludeLowercase?: pulumi.Input<boolean>;
-        /**
-         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-         */
         excludeNumbers?: pulumi.Input<boolean>;
-        /**
-         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
-         */
         excludePunctuation?: pulumi.Input<boolean>;
-        /**
-         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
-         */
         excludeUppercase?: pulumi.Input<boolean>;
-        /**
-         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
-         */
         generateStringKey?: pulumi.Input<string>;
-        /**
-         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-         */
         includeSpace?: pulumi.Input<boolean>;
-        /**
-         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
-         */
         passwordLength?: pulumi.Input<number>;
-        /**
-         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-         */
         requireEachIncludedType?: pulumi.Input<boolean>;
-        /**
-         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-         */
         secretStringTemplate?: pulumi.Input<string>;
     }
 

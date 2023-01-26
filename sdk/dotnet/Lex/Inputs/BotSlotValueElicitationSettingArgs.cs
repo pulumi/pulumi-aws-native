@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Lex.Inputs
         }
 
         /// <summary>
+        /// Specifies the next stage in the conversation after capturing the slot.
+        /// </summary>
+        [Input("slotCaptureSetting")]
+        public Input<Inputs.BotSlotCaptureSettingArgs>? SlotCaptureSetting { get; set; }
+
+        /// <summary>
         /// Specifies whether the slot is required or optional.
         /// </summary>
         [Input("slotConstraint", required: true)]

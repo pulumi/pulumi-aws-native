@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class DomainUserSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user profile Amazon Resource Name (ARN).
+        /// The execution role for the user.
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }

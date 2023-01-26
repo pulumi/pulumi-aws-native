@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_security_group_management=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_managed_application_instance_id=None, url=None):
+    def __init__(__self__, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_managed_application_instance_id=None, url=None):
         if app_security_group_management and not isinstance(app_security_group_management, str):
             raise TypeError("Expected argument 'app_security_group_management' to be a str")
         pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+        if default_space_settings and not isinstance(default_space_settings, dict):
+            raise TypeError("Expected argument 'default_space_settings' to be a dict")
+        pulumi.set(__self__, "default_space_settings", default_space_settings)
         if default_user_settings and not isinstance(default_user_settings, dict):
             raise TypeError("Expected argument 'default_user_settings' to be a dict")
         pulumi.set(__self__, "default_user_settings", default_user_settings)
@@ -56,6 +59,14 @@ class GetDomainResult:
         The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         """
         return pulumi.get(self, "app_security_group_management")
+
+    @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> Optional['outputs.DomainDefaultSpaceSettings']:
+        """
+        The default space settings.
+        """
+        return pulumi.get(self, "default_space_settings")
 
     @property
     @pulumi.getter(name="defaultUserSettings")
@@ -126,6 +137,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             yield self
         return GetDomainResult(
             app_security_group_management=self.app_security_group_management,
+            default_space_settings=self.default_space_settings,
             default_user_settings=self.default_user_settings,
             domain_arn=self.domain_arn,
             domain_id=self.domain_id,
@@ -151,6 +163,7 @@ def get_domain(domain_id: Optional[str] = None,
 
     return AwaitableGetDomainResult(
         app_security_group_management=__ret__.app_security_group_management,
+        default_space_settings=__ret__.default_space_settings,
         default_user_settings=__ret__.default_user_settings,
         domain_arn=__ret__.domain_arn,
         domain_id=__ret__.domain_id,

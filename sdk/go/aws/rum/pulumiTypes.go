@@ -321,6 +321,146 @@ func (o AppMonitorConfigurationPtrOutput) Telemetries() AppMonitorTelemetryArray
 	}).(AppMonitorTelemetryArrayOutput)
 }
 
+// AppMonitor custom events configuration
+type AppMonitorCustomEvents struct {
+	// Indicates whether AppMonitor accepts custom events.
+	Status *AppMonitorCustomEventsStatus `pulumi:"status"`
+}
+
+// AppMonitorCustomEventsInput is an input type that accepts AppMonitorCustomEventsArgs and AppMonitorCustomEventsOutput values.
+// You can construct a concrete instance of `AppMonitorCustomEventsInput` via:
+//
+//	AppMonitorCustomEventsArgs{...}
+type AppMonitorCustomEventsInput interface {
+	pulumi.Input
+
+	ToAppMonitorCustomEventsOutput() AppMonitorCustomEventsOutput
+	ToAppMonitorCustomEventsOutputWithContext(context.Context) AppMonitorCustomEventsOutput
+}
+
+// AppMonitor custom events configuration
+type AppMonitorCustomEventsArgs struct {
+	// Indicates whether AppMonitor accepts custom events.
+	Status AppMonitorCustomEventsStatusPtrInput `pulumi:"status"`
+}
+
+func (AppMonitorCustomEventsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorCustomEvents)(nil)).Elem()
+}
+
+func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsOutput() AppMonitorCustomEventsOutput {
+	return i.ToAppMonitorCustomEventsOutputWithContext(context.Background())
+}
+
+func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsOutputWithContext(ctx context.Context) AppMonitorCustomEventsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorCustomEventsOutput)
+}
+
+func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput {
+	return i.ToAppMonitorCustomEventsPtrOutputWithContext(context.Background())
+}
+
+func (i AppMonitorCustomEventsArgs) ToAppMonitorCustomEventsPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorCustomEventsOutput).ToAppMonitorCustomEventsPtrOutputWithContext(ctx)
+}
+
+// AppMonitorCustomEventsPtrInput is an input type that accepts AppMonitorCustomEventsArgs, AppMonitorCustomEventsPtr and AppMonitorCustomEventsPtrOutput values.
+// You can construct a concrete instance of `AppMonitorCustomEventsPtrInput` via:
+//
+//	        AppMonitorCustomEventsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppMonitorCustomEventsPtrInput interface {
+	pulumi.Input
+
+	ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput
+	ToAppMonitorCustomEventsPtrOutputWithContext(context.Context) AppMonitorCustomEventsPtrOutput
+}
+
+type appMonitorCustomEventsPtrType AppMonitorCustomEventsArgs
+
+func AppMonitorCustomEventsPtr(v *AppMonitorCustomEventsArgs) AppMonitorCustomEventsPtrInput {
+	return (*appMonitorCustomEventsPtrType)(v)
+}
+
+func (*appMonitorCustomEventsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorCustomEvents)(nil)).Elem()
+}
+
+func (i *appMonitorCustomEventsPtrType) ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput {
+	return i.ToAppMonitorCustomEventsPtrOutputWithContext(context.Background())
+}
+
+func (i *appMonitorCustomEventsPtrType) ToAppMonitorCustomEventsPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorCustomEventsPtrOutput)
+}
+
+// AppMonitor custom events configuration
+type AppMonitorCustomEventsOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorCustomEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorCustomEvents)(nil)).Elem()
+}
+
+func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsOutput() AppMonitorCustomEventsOutput {
+	return o
+}
+
+func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsOutputWithContext(ctx context.Context) AppMonitorCustomEventsOutput {
+	return o
+}
+
+func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput {
+	return o.ToAppMonitorCustomEventsPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorCustomEventsOutput) ToAppMonitorCustomEventsPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorCustomEvents) *AppMonitorCustomEvents {
+		return &v
+	}).(AppMonitorCustomEventsPtrOutput)
+}
+
+// Indicates whether AppMonitor accepts custom events.
+func (o AppMonitorCustomEventsOutput) Status() AppMonitorCustomEventsStatusPtrOutput {
+	return o.ApplyT(func(v AppMonitorCustomEvents) *AppMonitorCustomEventsStatus { return v.Status }).(AppMonitorCustomEventsStatusPtrOutput)
+}
+
+type AppMonitorCustomEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorCustomEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorCustomEvents)(nil)).Elem()
+}
+
+func (o AppMonitorCustomEventsPtrOutput) ToAppMonitorCustomEventsPtrOutput() AppMonitorCustomEventsPtrOutput {
+	return o
+}
+
+func (o AppMonitorCustomEventsPtrOutput) ToAppMonitorCustomEventsPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsPtrOutput {
+	return o
+}
+
+func (o AppMonitorCustomEventsPtrOutput) Elem() AppMonitorCustomEventsOutput {
+	return o.ApplyT(func(v *AppMonitorCustomEvents) AppMonitorCustomEvents {
+		if v != nil {
+			return *v
+		}
+		var ret AppMonitorCustomEvents
+		return ret
+	}).(AppMonitorCustomEventsOutput)
+}
+
+// Indicates whether AppMonitor accepts custom events.
+func (o AppMonitorCustomEventsPtrOutput) Status() AppMonitorCustomEventsStatusPtrOutput {
+	return o.ApplyT(func(v *AppMonitorCustomEvents) *AppMonitorCustomEventsStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(AppMonitorCustomEventsStatusPtrOutput)
+}
+
 // A single metric definition
 type AppMonitorMetricDefinition struct {
 	// Use this field only if you are sending the metric to CloudWatch.
@@ -864,6 +1004,8 @@ func (o AppMonitorTagArrayOutput) Index(i pulumi.IntInput) AppMonitorTagOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorConfigurationPtrInput)(nil)).Elem(), AppMonitorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorCustomEventsInput)(nil)).Elem(), AppMonitorCustomEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorCustomEventsPtrInput)(nil)).Elem(), AppMonitorCustomEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionInput)(nil)).Elem(), AppMonitorMetricDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDefinitionArrayInput)(nil)).Elem(), AppMonitorMetricDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationArgs{})
@@ -872,6 +1014,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTagArrayInput)(nil)).Elem(), AppMonitorTagArray{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationOutput{})
 	pulumi.RegisterOutputType(AppMonitorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AppMonitorCustomEventsOutput{})
+	pulumi.RegisterOutputType(AppMonitorCustomEventsPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDefinitionOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationOutput{})

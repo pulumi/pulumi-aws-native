@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? ImageRecipeArn;
         /// <summary>
+        /// Contains settings for vulnerability scans.
+        /// </summary>
+        public readonly Outputs.ImagePipelineImageScanningConfiguration? ImageScanningConfiguration;
+        /// <summary>
         /// The image tests configuration of the image pipeline.
         /// </summary>
         public readonly Outputs.ImagePipelineImageTestsConfiguration? ImageTestsConfiguration;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? imageRecipeArn,
 
+            Outputs.ImagePipelineImageScanningConfiguration? imageScanningConfiguration,
+
             Outputs.ImagePipelineImageTestsConfiguration? imageTestsConfiguration,
 
             string? infrastructureConfigurationArn,
@@ -132,6 +138,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             DistributionConfigurationArn = distributionConfigurationArn;
             EnhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
             ImageRecipeArn = imageRecipeArn;
+            ImageScanningConfiguration = imageScanningConfiguration;
             ImageTestsConfiguration = imageTestsConfiguration;
             InfrastructureConfigurationArn = infrastructureConfigurationArn;
             Schedule = schedule;

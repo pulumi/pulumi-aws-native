@@ -43,6 +43,7 @@ export interface GetApplicationResult {
      * Configuration for Auto Stop of Application.
      */
     readonly autoStopConfiguration?: outputs.emrserverless.ApplicationAutoStopConfiguration;
+    readonly imageConfiguration?: outputs.emrserverless.ApplicationImageConfigurationInput;
     /**
      * Initial capacity initialized when an Application is started.
      */
@@ -59,6 +60,7 @@ export interface GetApplicationResult {
      * Tag map with key and value
      */
     readonly tags?: outputs.emrserverless.ApplicationTag[];
+    readonly workerTypeSpecifications?: outputs.emrserverless.ApplicationWorkerTypeSpecificationInputMap;
 }
 /**
  * Resource schema for AWS::EMRServerless::Application Type

@@ -337,6 +337,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// Specifies the integration type to be associated with the instance
+    /// </summary>
+    [EnumType]
+    public readonly struct IntegrationAssociationIntegrationType : IEquatable<IntegrationAssociationIntegrationType>
+    {
+        private readonly string _value;
+
+        private IntegrationAssociationIntegrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntegrationAssociationIntegrationType LexBot { get; } = new IntegrationAssociationIntegrationType("LEX_BOT");
+        public static IntegrationAssociationIntegrationType LambdaFunction { get; } = new IntegrationAssociationIntegrationType("LAMBDA_FUNCTION");
+
+        public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
+        public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);
+
+        public static explicit operator string(IntegrationAssociationIntegrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntegrationAssociationIntegrationType other && Equals(other);
+        public bool Equals(IntegrationAssociationIntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     /// </summary>
     [EnumType]

@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecretResult:
-    def __init__(__self__, description=None, id=None, kms_key_id=None, replica_regions=None, tags=None):
+    def __init__(__self__, description=None, generate_secret_string=None, id=None, kms_key_id=None, replica_regions=None, secret_string=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if generate_secret_string and not isinstance(generate_secret_string, dict):
+            raise TypeError("Expected argument 'generate_secret_string' to be a dict")
+        pulumi.set(__self__, "generate_secret_string", generate_secret_string)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +35,9 @@ class GetSecretResult:
         if replica_regions and not isinstance(replica_regions, list):
             raise TypeError("Expected argument 'replica_regions' to be a list")
         pulumi.set(__self__, "replica_regions", replica_regions)
+        if secret_string and not isinstance(secret_string, str):
+            raise TypeError("Expected argument 'secret_string' to be a str")
+        pulumi.set(__self__, "secret_string", secret_string)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,41 +45,36 @@ class GetSecretResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        (Optional) Specifies a user-provided description of the secret.
-        """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="generateSecretString")
+    def generate_secret_string(self) -> Optional['outputs.SecretGenerateSecretString']:
+        return pulumi.get(self, "generate_secret_string")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        secret Id, the Arn of the resource.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
-        """
-        (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="replicaRegions")
     def replica_regions(self) -> Optional[Sequence['outputs.SecretReplicaRegion']]:
-        """
-        (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-        """
         return pulumi.get(self, "replica_regions")
+
+    @property
+    @pulumi.getter(name="secretString")
+    def secret_string(self) -> Optional[str]:
+        return pulumi.get(self, "secret_string")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SecretTag']]:
-        """
-        The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -84,9 +85,11 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             description=self.description,
+            generate_secret_string=self.generate_secret_string,
             id=self.id,
             kms_key_id=self.kms_key_id,
             replica_regions=self.replica_regions,
+            secret_string=self.secret_string,
             tags=self.tags)
 
 
@@ -94,9 +97,6 @@ def get_secret(id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Resource Type definition for AWS::SecretsManager::Secret
-
-
-    :param str id: secret Id, the Arn of the resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -105,9 +105,11 @@ def get_secret(id: Optional[str] = None,
 
     return AwaitableGetSecretResult(
         description=__ret__.description,
+        generate_secret_string=__ret__.generate_secret_string,
         id=__ret__.id,
         kms_key_id=__ret__.kms_key_id,
         replica_regions=__ret__.replica_regions,
+        secret_string=__ret__.secret_string,
         tags=__ret__.tags)
 
 
@@ -116,8 +118,5 @@ def get_secret_output(id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Resource Type definition for AWS::SecretsManager::Secret
-
-
-    :param str id: secret Id, the Arn of the resource.
     """
     ...

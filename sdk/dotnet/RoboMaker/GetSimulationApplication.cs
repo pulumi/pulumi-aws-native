@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public static class GetSimulationApplication
     {
         /// <summary>
-        /// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+        /// This schema is for testing purpose only.
         /// </summary>
         public static Task<GetSimulationApplicationResult> InvokeAsync(GetSimulationApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+        /// This schema is for testing purpose only.
         /// </summary>
         public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
@@ -61,10 +61,6 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public readonly string? Environment;
         /// <summary>
-        /// The rendering engine for the simulation application.
-        /// </summary>
-        public readonly Outputs.SimulationApplicationRenderingEngine? RenderingEngine;
-        /// <summary>
         /// The robot software suite used by the simulation application.
         /// </summary>
         public readonly Outputs.SimulationApplicationRobotSoftwareSuite? RobotSoftwareSuite;
@@ -72,10 +68,6 @@ namespace Pulumi.AwsNative.RoboMaker
         /// The simulation software suite used by the simulation application.
         /// </summary>
         public readonly Outputs.SimulationApplicationSimulationSoftwareSuite? SimulationSoftwareSuite;
-        /// <summary>
-        /// The sources of the simulation application.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SimulationApplicationSourceConfig> Sources;
         public readonly Outputs.SimulationApplicationTags? Tags;
 
         [OutputConstructor]
@@ -86,23 +78,17 @@ namespace Pulumi.AwsNative.RoboMaker
 
             string? environment,
 
-            Outputs.SimulationApplicationRenderingEngine? renderingEngine,
-
             Outputs.SimulationApplicationRobotSoftwareSuite? robotSoftwareSuite,
 
             Outputs.SimulationApplicationSimulationSoftwareSuite? simulationSoftwareSuite,
-
-            ImmutableArray<Outputs.SimulationApplicationSourceConfig> sources,
 
             Outputs.SimulationApplicationTags? tags)
         {
             Arn = arn;
             CurrentRevisionId = currentRevisionId;
             Environment = environment;
-            RenderingEngine = renderingEngine;
             RobotSoftwareSuite = robotSoftwareSuite;
             SimulationSoftwareSuite = simulationSoftwareSuite;
-            Sources = sources;
             Tags = tags;
         }
     }

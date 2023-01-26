@@ -442,26 +442,16 @@ func (o RotationScheduleRotationRulesPtrOutput) ScheduleExpression() pulumi.Stri
 }
 
 type SecretGenerateSecretString struct {
-	// A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
-	ExcludeCharacters *string `pulumi:"excludeCharacters"`
-	// Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-	ExcludeLowercase *bool `pulumi:"excludeLowercase"`
-	// Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-	ExcludeNumbers *bool `pulumi:"excludeNumbers"`
-	// Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
-	ExcludePunctuation *bool `pulumi:"excludePunctuation"`
-	// Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters.
-	ExcludeUppercase *bool `pulumi:"excludeUppercase"`
-	// The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
-	GenerateStringKey *string `pulumi:"generateStringKey"`
-	// Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-	IncludeSpace *bool `pulumi:"includeSpace"`
-	// The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
-	PasswordLength *int `pulumi:"passwordLength"`
-	// Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
-	// A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-	SecretStringTemplate *string `pulumi:"secretStringTemplate"`
+	ExcludeCharacters       *string `pulumi:"excludeCharacters"`
+	ExcludeLowercase        *bool   `pulumi:"excludeLowercase"`
+	ExcludeNumbers          *bool   `pulumi:"excludeNumbers"`
+	ExcludePunctuation      *bool   `pulumi:"excludePunctuation"`
+	ExcludeUppercase        *bool   `pulumi:"excludeUppercase"`
+	GenerateStringKey       *string `pulumi:"generateStringKey"`
+	IncludeSpace            *bool   `pulumi:"includeSpace"`
+	PasswordLength          *int    `pulumi:"passwordLength"`
+	RequireEachIncludedType *bool   `pulumi:"requireEachIncludedType"`
+	SecretStringTemplate    *string `pulumi:"secretStringTemplate"`
 }
 
 // SecretGenerateSecretStringInput is an input type that accepts SecretGenerateSecretStringArgs and SecretGenerateSecretStringOutput values.
@@ -476,26 +466,16 @@ type SecretGenerateSecretStringInput interface {
 }
 
 type SecretGenerateSecretStringArgs struct {
-	// A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
-	ExcludeCharacters pulumi.StringPtrInput `pulumi:"excludeCharacters"`
-	// Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-	ExcludeLowercase pulumi.BoolPtrInput `pulumi:"excludeLowercase"`
-	// Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-	ExcludeNumbers pulumi.BoolPtrInput `pulumi:"excludeNumbers"`
-	// Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
-	ExcludePunctuation pulumi.BoolPtrInput `pulumi:"excludePunctuation"`
-	// Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters.
-	ExcludeUppercase pulumi.BoolPtrInput `pulumi:"excludeUppercase"`
-	// The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
-	GenerateStringKey pulumi.StringPtrInput `pulumi:"generateStringKey"`
-	// Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
-	// The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
-	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
-	// Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
-	// A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-	SecretStringTemplate pulumi.StringPtrInput `pulumi:"secretStringTemplate"`
+	ExcludeCharacters       pulumi.StringPtrInput `pulumi:"excludeCharacters"`
+	ExcludeLowercase        pulumi.BoolPtrInput   `pulumi:"excludeLowercase"`
+	ExcludeNumbers          pulumi.BoolPtrInput   `pulumi:"excludeNumbers"`
+	ExcludePunctuation      pulumi.BoolPtrInput   `pulumi:"excludePunctuation"`
+	ExcludeUppercase        pulumi.BoolPtrInput   `pulumi:"excludeUppercase"`
+	GenerateStringKey       pulumi.StringPtrInput `pulumi:"generateStringKey"`
+	IncludeSpace            pulumi.BoolPtrInput   `pulumi:"includeSpace"`
+	PasswordLength          pulumi.IntPtrInput    `pulumi:"passwordLength"`
+	RequireEachIncludedType pulumi.BoolPtrInput   `pulumi:"requireEachIncludedType"`
+	SecretStringTemplate    pulumi.StringPtrInput `pulumi:"secretStringTemplate"`
 }
 
 func (SecretGenerateSecretStringArgs) ElementType() reflect.Type {
@@ -575,52 +555,42 @@ func (o SecretGenerateSecretStringOutput) ToSecretGenerateSecretStringPtrOutputW
 	}).(SecretGenerateSecretStringPtrOutput)
 }
 
-// A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
 func (o SecretGenerateSecretStringOutput) ExcludeCharacters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *string { return v.ExcludeCharacters }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
 func (o SecretGenerateSecretStringOutput) ExcludeLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.ExcludeLowercase }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
 func (o SecretGenerateSecretStringOutput) ExcludeNumbers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.ExcludeNumbers }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
 func (o SecretGenerateSecretStringOutput) ExcludePunctuation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.ExcludePunctuation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters.
 func (o SecretGenerateSecretStringOutput) ExcludeUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.ExcludeUppercase }).(pulumi.BoolPtrOutput)
 }
 
-// The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
 func (o SecretGenerateSecretStringOutput) GenerateStringKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *string { return v.GenerateStringKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
 func (o SecretGenerateSecretStringOutput) IncludeSpace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.IncludeSpace }).(pulumi.BoolPtrOutput)
 }
 
-// The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
 func (o SecretGenerateSecretStringOutput) PasswordLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *int { return v.PasswordLength }).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
 func (o SecretGenerateSecretStringOutput) RequireEachIncludedType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *bool { return v.RequireEachIncludedType }).(pulumi.BoolPtrOutput)
 }
 
-// A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
 func (o SecretGenerateSecretStringOutput) SecretStringTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecretGenerateSecretString) *string { return v.SecretStringTemplate }).(pulumi.StringPtrOutput)
 }
@@ -649,7 +619,6 @@ func (o SecretGenerateSecretStringPtrOutput) Elem() SecretGenerateSecretStringOu
 	}).(SecretGenerateSecretStringOutput)
 }
 
-// A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
 func (o SecretGenerateSecretStringPtrOutput) ExcludeCharacters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *string {
 		if v == nil {
@@ -659,7 +628,6 @@ func (o SecretGenerateSecretStringPtrOutput) ExcludeCharacters() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
 func (o SecretGenerateSecretStringPtrOutput) ExcludeLowercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -669,7 +637,6 @@ func (o SecretGenerateSecretStringPtrOutput) ExcludeLowercase() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
 func (o SecretGenerateSecretStringPtrOutput) ExcludeNumbers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -679,7 +646,6 @@ func (o SecretGenerateSecretStringPtrOutput) ExcludeNumbers() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included.
 func (o SecretGenerateSecretStringPtrOutput) ExcludePunctuation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -689,7 +655,6 @@ func (o SecretGenerateSecretStringPtrOutput) ExcludePunctuation() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters.
 func (o SecretGenerateSecretStringPtrOutput) ExcludeUppercase() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -699,7 +664,6 @@ func (o SecretGenerateSecretStringPtrOutput) ExcludeUppercase() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate.
 func (o SecretGenerateSecretStringPtrOutput) GenerateStringKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *string {
 		if v == nil {
@@ -709,7 +673,6 @@ func (o SecretGenerateSecretStringPtrOutput) GenerateStringKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
 func (o SecretGenerateSecretStringPtrOutput) IncludeSpace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -719,7 +682,6 @@ func (o SecretGenerateSecretStringPtrOutput) IncludeSpace() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The desired length of the generated password. The default value if you do not include this parameter is 32 characters.
 func (o SecretGenerateSecretStringPtrOutput) PasswordLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *int {
 		if v == nil {
@@ -729,7 +691,6 @@ func (o SecretGenerateSecretStringPtrOutput) PasswordLength() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
 func (o SecretGenerateSecretStringPtrOutput) RequireEachIncludedType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *bool {
 		if v == nil {
@@ -739,7 +700,6 @@ func (o SecretGenerateSecretStringPtrOutput) RequireEachIncludedType() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
 func (o SecretGenerateSecretStringPtrOutput) SecretStringTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretGenerateSecretString) *string {
 		if v == nil {

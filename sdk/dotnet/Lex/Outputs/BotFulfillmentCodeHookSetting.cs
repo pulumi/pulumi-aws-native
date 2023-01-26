@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
     {
         public readonly bool Enabled;
         public readonly Outputs.BotFulfillmentUpdatesSpecification? FulfillmentUpdatesSpecification;
+        /// <summary>
+        /// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        /// </summary>
+        public readonly bool? IsActive;
         public readonly Outputs.BotPostFulfillmentStatusSpecification? PostFulfillmentStatusSpecification;
 
         [OutputConstructor]
@@ -26,10 +30,13 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotFulfillmentUpdatesSpecification? fulfillmentUpdatesSpecification,
 
+            bool? isActive,
+
             Outputs.BotPostFulfillmentStatusSpecification? postFulfillmentStatusSpecification)
         {
             Enabled = enabled;
             FulfillmentUpdatesSpecification = fulfillmentUpdatesSpecification;
+            IsActive = isActive;
             PostFulfillmentStatusSpecification = postFulfillmentStatusSpecification;
         }
     }

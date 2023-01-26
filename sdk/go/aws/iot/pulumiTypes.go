@@ -7274,6 +7274,7 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateValue() pulumi.StringPtrOu
 }
 
 type TopicRuleCloudwatchLogsAction struct {
+	BatchMode    *bool  `pulumi:"batchMode"`
 	LogGroupName string `pulumi:"logGroupName"`
 	RoleArn      string `pulumi:"roleArn"`
 }
@@ -7290,8 +7291,9 @@ type TopicRuleCloudwatchLogsActionInput interface {
 }
 
 type TopicRuleCloudwatchLogsActionArgs struct {
-	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	RoleArn      pulumi.StringInput `pulumi:"roleArn"`
+	BatchMode    pulumi.BoolPtrInput `pulumi:"batchMode"`
+	LogGroupName pulumi.StringInput  `pulumi:"logGroupName"`
+	RoleArn      pulumi.StringInput  `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchLogsActionArgs) ElementType() reflect.Type {
@@ -7371,6 +7373,10 @@ func (o TopicRuleCloudwatchLogsActionOutput) ToTopicRuleCloudwatchLogsActionPtrO
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
+func (o TopicRuleCloudwatchLogsActionOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
+}
+
 func (o TopicRuleCloudwatchLogsActionOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
@@ -7401,6 +7407,15 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) Elem() TopicRuleCloudwatchLogsAc
 		var ret TopicRuleCloudwatchLogsAction
 		return ret
 	}).(TopicRuleCloudwatchLogsActionOutput)
+}
+
+func (o TopicRuleCloudwatchLogsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchMode
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o TopicRuleCloudwatchLogsActionPtrOutput) LogGroupName() pulumi.StringPtrOutput {

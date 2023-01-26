@@ -111,6 +111,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly runtime!: pulumi.Output<string | undefined>;
     /**
+     * RuntimeManagementConfig
+     */
+    public readonly runtimeManagementConfig!: pulumi.Output<outputs.lambda.FunctionRuntimeManagementConfig | undefined>;
+    /**
      * The SnapStart setting of your function
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
@@ -170,6 +174,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = args ? args.reservedConcurrentExecutions : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["runtimeManagementConfig"] = args ? args.runtimeManagementConfig : undefined;
             resourceInputs["snapStart"] = args ? args.snapStart : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
@@ -197,6 +202,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["runtime"] = undefined /*out*/;
+            resourceInputs["runtimeManagementConfig"] = undefined /*out*/;
             resourceInputs["snapStart"] = undefined /*out*/;
             resourceInputs["snapStartResponse"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -282,6 +288,10 @@ export interface FunctionArgs {
      * The identifier of the function's runtime.
      */
     runtime?: pulumi.Input<string>;
+    /**
+     * RuntimeManagementConfig
+     */
+    runtimeManagementConfig?: pulumi.Input<inputs.lambda.FunctionRuntimeManagementConfigArgs>;
     /**
      * The SnapStart setting of your function
      */

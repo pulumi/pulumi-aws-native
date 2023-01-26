@@ -54,6 +54,7 @@ export class Application extends pulumi.CustomResource {
      * Configuration for Auto Stop of Application.
      */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
+    public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
     /**
      * Initial capacity initialized when an Application is started.
      */
@@ -82,6 +83,7 @@ export class Application extends pulumi.CustomResource {
      * The type of the application
      */
     public readonly type!: pulumi.Output<string>;
+    public readonly workerTypeSpecifications!: pulumi.Output<outputs.emrserverless.ApplicationWorkerTypeSpecificationInputMap | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -103,6 +105,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["autoStartConfiguration"] = args ? args.autoStartConfiguration : undefined;
             resourceInputs["autoStopConfiguration"] = args ? args.autoStopConfiguration : undefined;
+            resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -110,6 +113,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["workerTypeSpecifications"] = args ? args.workerTypeSpecifications : undefined;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -118,6 +122,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoStartConfiguration"] = undefined /*out*/;
             resourceInputs["autoStopConfiguration"] = undefined /*out*/;
+            resourceInputs["imageConfiguration"] = undefined /*out*/;
             resourceInputs["initialCapacity"] = undefined /*out*/;
             resourceInputs["maximumCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -125,6 +130,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["releaseLabel"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerTypeSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Application.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +150,7 @@ export interface ApplicationArgs {
      * Configuration for Auto Stop of Application.
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs>;
+    imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs>;
     /**
      * Initial capacity initialized when an Application is started.
      */
@@ -172,4 +179,5 @@ export interface ApplicationArgs {
      * The type of the application
      */
     type: pulumi.Input<string>;
+    workerTypeSpecifications?: pulumi.Input<inputs.emrserverless.ApplicationWorkerTypeSpecificationInputMapArgs>;
 }

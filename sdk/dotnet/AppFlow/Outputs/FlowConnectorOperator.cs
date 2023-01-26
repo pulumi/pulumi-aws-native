@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Pulumi.AwsNative.AppFlow.FlowGoogleAnalyticsConnectorOperator? GoogleAnalytics;
         public readonly Pulumi.AwsNative.AppFlow.FlowInforNexusConnectorOperator? InforNexus;
         public readonly Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? Marketo;
+        public readonly Pulumi.AwsNative.AppFlow.FlowPardotConnectorOperator? Pardot;
         public readonly Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? S3;
         public readonly Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? SAPOData;
         public readonly Pulumi.AwsNative.AppFlow.FlowSalesforceConnectorOperator? Salesforce;
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator? marketo,
 
+            Pulumi.AwsNative.AppFlow.FlowPardotConnectorOperator? pardot,
+
             Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator? s3,
 
             Pulumi.AwsNative.AppFlow.FlowSAPODataConnectorOperator? sAPOData,
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             GoogleAnalytics = googleAnalytics;
             InforNexus = inforNexus;
             Marketo = marketo;
+            Pardot = pardot;
             S3 = s3;
             SAPOData = sAPOData;
             Salesforce = salesforce;

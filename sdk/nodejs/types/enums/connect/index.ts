@@ -121,6 +121,16 @@ export const InstanceStorageConfigStorageType = {
  */
 export type InstanceStorageConfigStorageType = (typeof InstanceStorageConfigStorageType)[keyof typeof InstanceStorageConfigStorageType];
 
+export const IntegrationAssociationIntegrationType = {
+    LexBot: "LEX_BOT",
+    LambdaFunction: "LAMBDA_FUNCTION",
+} as const;
+
+/**
+ * Specifies the integration type to be associated with the instance
+ */
+export type IntegrationAssociationIntegrationType = (typeof IntegrationAssociationIntegrationType)[keyof typeof IntegrationAssociationIntegrationType];
+
 export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",

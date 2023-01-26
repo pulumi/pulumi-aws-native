@@ -20,6 +20,23 @@ export const BotAudioRecognitionStrategy = {
  */
 export type BotAudioRecognitionStrategy = (typeof BotAudioRecognitionStrategy)[keyof typeof BotAudioRecognitionStrategy];
 
+export const BotDialogActionType = {
+    CloseIntent: "CloseIntent",
+    ConfirmIntent: "ConfirmIntent",
+    ElicitIntent: "ElicitIntent",
+    ElicitSlot: "ElicitSlot",
+    StartIntent: "StartIntent",
+    FulfillIntent: "FulfillIntent",
+    EndConversation: "EndConversation",
+    EvaluateConditional: "EvaluateConditional",
+    InvokeDialogCodeHook: "InvokeDialogCodeHook",
+} as const;
+
+/**
+ * The possible values of actions that the conversation can take.
+ */
+export type BotDialogActionType = (typeof BotDialogActionType)[keyof typeof BotDialogActionType];
+
 export const BotMessageSelectionStrategy = {
     Random: "Random",
     Ordered: "Ordered",
@@ -46,6 +63,16 @@ export const BotSlotConstraint = {
 } as const;
 
 export type BotSlotConstraint = (typeof BotSlotConstraint)[keyof typeof BotSlotConstraint];
+
+export const BotSlotShape = {
+    Scalar: "Scalar",
+    List: "List",
+} as const;
+
+/**
+ * The different shapes that a slot can be in during a conversation.
+ */
+export type BotSlotShape = (typeof BotSlotShape)[keyof typeof BotSlotShape];
 
 export const BotSlotValueResolutionStrategy = {
     OriginalValue: "ORIGINAL_VALUE",

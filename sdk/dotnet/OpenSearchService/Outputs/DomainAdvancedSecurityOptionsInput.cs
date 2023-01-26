@@ -13,21 +13,33 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainAdvancedSecurityOptionsInput
     {
+        public readonly string? AnonymousAuthDisableDate;
+        public readonly bool? AnonymousAuthEnabled;
         public readonly bool? Enabled;
         public readonly bool? InternalUserDatabaseEnabled;
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
+        public readonly Outputs.DomainSAMLOptions? SAMLOptions;
 
         [OutputConstructor]
         private DomainAdvancedSecurityOptionsInput(
+            string? anonymousAuthDisableDate,
+
+            bool? anonymousAuthEnabled,
+
             bool? enabled,
 
             bool? internalUserDatabaseEnabled,
 
-            Outputs.DomainMasterUserOptions? masterUserOptions)
+            Outputs.DomainMasterUserOptions? masterUserOptions,
+
+            Outputs.DomainSAMLOptions? sAMLOptions)
         {
+            AnonymousAuthDisableDate = anonymousAuthDisableDate;
+            AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
             MasterUserOptions = masterUserOptions;
+            SAMLOptions = sAMLOptions;
         }
     }
 }

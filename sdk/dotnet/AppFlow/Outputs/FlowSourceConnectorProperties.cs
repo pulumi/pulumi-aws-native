@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.FlowGoogleAnalyticsSourceProperties? GoogleAnalytics;
         public readonly Outputs.FlowInforNexusSourceProperties? InforNexus;
         public readonly Outputs.FlowMarketoSourceProperties? Marketo;
+        public readonly Outputs.FlowPardotSourceProperties? Pardot;
         public readonly Outputs.FlowS3SourceProperties? S3;
         public readonly Outputs.FlowSAPODataSourceProperties? SAPOData;
         public readonly Outputs.FlowSalesforceSourceProperties? Salesforce;
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 
             Outputs.FlowMarketoSourceProperties? marketo,
 
+            Outputs.FlowPardotSourceProperties? pardot,
+
             Outputs.FlowS3SourceProperties? s3,
 
             Outputs.FlowSAPODataSourceProperties? sAPOData,
@@ -74,6 +77,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             GoogleAnalytics = googleAnalytics;
             InforNexus = inforNexus;
             Marketo = marketo;
+            Pardot = pardot;
             S3 = s3;
             SAPOData = sAPOData;
             Salesforce = salesforce;

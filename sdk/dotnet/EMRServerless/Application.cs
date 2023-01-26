@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.EMRServerless
         [Output("autoStopConfiguration")]
         public Output<Outputs.ApplicationAutoStopConfiguration?> AutoStopConfiguration { get; private set; } = null!;
 
+        [Output("imageConfiguration")]
+        public Output<Outputs.ApplicationImageConfigurationInput?> ImageConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Initial capacity initialized when an Application is started.
         /// </summary>
@@ -83,6 +86,9 @@ namespace Pulumi.AwsNative.EMRServerless
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        [Output("workerTypeSpecifications")]
+        public Output<Outputs.ApplicationWorkerTypeSpecificationInputMap?> WorkerTypeSpecifications { get; private set; } = null!;
 
 
         /// <summary>
@@ -144,6 +150,9 @@ namespace Pulumi.AwsNative.EMRServerless
         [Input("autoStopConfiguration")]
         public Input<Inputs.ApplicationAutoStopConfigurationArgs>? AutoStopConfiguration { get; set; }
 
+        [Input("imageConfiguration")]
+        public Input<Inputs.ApplicationImageConfigurationInputArgs>? ImageConfiguration { get; set; }
+
         [Input("initialCapacity")]
         private InputList<Inputs.ApplicationInitialCapacityConfigKeyValuePairArgs>? _initialCapacity;
 
@@ -197,6 +206,9 @@ namespace Pulumi.AwsNative.EMRServerless
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("workerTypeSpecifications")]
+        public Input<Inputs.ApplicationWorkerTypeSpecificationInputMapArgs>? WorkerTypeSpecifications { get; set; }
 
         public ApplicationArgs()
         {

@@ -465,11 +465,6 @@ export const getVPNConnection: typeof import("./getVPNConnection").getVPNConnect
 export const getVPNConnectionOutput: typeof import("./getVPNConnection").getVPNConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVPNConnection","getVPNConnectionOutput"], () => require("./getVPNConnection"));
 
-export { GetVPNConnectionRouteArgs, GetVPNConnectionRouteResult, GetVPNConnectionRouteOutputArgs } from "./getVPNConnectionRoute";
-export const getVPNConnectionRoute: typeof import("./getVPNConnectionRoute").getVPNConnectionRoute = null as any;
-export const getVPNConnectionRouteOutput: typeof import("./getVPNConnectionRoute").getVPNConnectionRouteOutput = null as any;
-utilities.lazyLoad(exports, ["getVPNConnectionRoute","getVPNConnectionRouteOutput"], () => require("./getVPNConnectionRoute"));
-
 export { GetVPNGatewayArgs, GetVPNGatewayResult, GetVPNGatewayOutputArgs } from "./getVPNGateway";
 export const getVPNGateway: typeof import("./getVPNGateway").getVPNGateway = null as any;
 export const getVPNGatewayOutput: typeof import("./getVPNGateway").getVPNGatewayOutput = null as any;

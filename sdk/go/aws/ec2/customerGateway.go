@@ -19,6 +19,8 @@ type CustomerGateway struct {
 	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
 	// CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 	CustomerGatewayId pulumi.StringOutput `pulumi:"customerGatewayId"`
+	// A name for the customer gateway device.
+	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
@@ -77,6 +79,8 @@ func (CustomerGatewayState) ElementType() reflect.Type {
 type customerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	BgpAsn int `pulumi:"bgpAsn"`
+	// A name for the customer gateway device.
+	DeviceName *string `pulumi:"deviceName"`
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress string `pulumi:"ipAddress"`
 	// One or more tags for the customer gateway.
@@ -89,6 +93,8 @@ type customerGatewayArgs struct {
 type CustomerGatewayArgs struct {
 	// For devices that support BGP, the customer gateway's BGP ASN.
 	BgpAsn pulumi.IntInput
+	// A name for the customer gateway device.
+	DeviceName pulumi.StringPtrInput
 	// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
 	IpAddress pulumi.StringInput
 	// One or more tags for the customer gateway.
@@ -142,6 +148,11 @@ func (o CustomerGatewayOutput) BgpAsn() pulumi.IntOutput {
 // CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.
 func (o CustomerGatewayOutput) CustomerGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.CustomerGatewayId }).(pulumi.StringOutput)
+}
+
+// A name for the customer gateway device.
+func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
 // The internet-routable IP address for the customer gateway's outside interface. The address must be static.

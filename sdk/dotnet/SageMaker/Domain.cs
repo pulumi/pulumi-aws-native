@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Pulumi.AwsNative.SageMaker.DomainAuthMode> AuthMode { get; private set; } = null!;
 
         /// <summary>
+        /// The default space settings.
+        /// </summary>
+        [Output("defaultSpaceSettings")]
+        public Output<Outputs.DomainDefaultSpaceSettings?> DefaultSpaceSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The default user settings.
         /// </summary>
         [Output("defaultUserSettings")]
@@ -170,6 +176,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("authMode", required: true)]
         public Input<Pulumi.AwsNative.SageMaker.DomainAuthMode> AuthMode { get; set; } = null!;
+
+        /// <summary>
+        /// The default space settings.
+        /// </summary>
+        [Input("defaultSpaceSettings")]
+        public Input<Inputs.DomainDefaultSpaceSettingsArgs>? DefaultSpaceSettings { get; set; }
 
         /// <summary>
         /// The default user settings.

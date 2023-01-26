@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.RUM
 {
+    [EnumType]
+    public readonly struct AppMonitorCustomEventsStatus : IEquatable<AppMonitorCustomEventsStatus>
+    {
+        private readonly string _value;
+
+        private AppMonitorCustomEventsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppMonitorCustomEventsStatus Enabled { get; } = new AppMonitorCustomEventsStatus("ENABLED");
+        public static AppMonitorCustomEventsStatus Disabled { get; } = new AppMonitorCustomEventsStatus("DISABLED");
+
+        public static bool operator ==(AppMonitorCustomEventsStatus left, AppMonitorCustomEventsStatus right) => left.Equals(right);
+        public static bool operator !=(AppMonitorCustomEventsStatus left, AppMonitorCustomEventsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AppMonitorCustomEventsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppMonitorCustomEventsStatus other && Equals(other);
+        public bool Equals(AppMonitorCustomEventsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
     /// </summary>

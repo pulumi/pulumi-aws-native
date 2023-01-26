@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, project_arn=None, project_description=None, project_id=None, project_name=None, tags=None):
+    def __init__(__self__, asset_ids=None, project_arn=None, project_description=None, project_id=None, project_name=None, tags=None):
+        if asset_ids and not isinstance(asset_ids, list):
+            raise TypeError("Expected argument 'asset_ids' to be a list")
+        pulumi.set(__self__, "asset_ids", asset_ids)
         if project_arn and not isinstance(project_arn, str):
             raise TypeError("Expected argument 'project_arn' to be a str")
         pulumi.set(__self__, "project_arn", project_arn)
@@ -35,6 +38,14 @@ class GetProjectResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="assetIds")
+    def asset_ids(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the assets to be associated to the project.
+        """
+        return pulumi.get(self, "asset_ids")
 
     @property
     @pulumi.getter(name="projectArn")
@@ -83,6 +94,7 @@ class AwaitableGetProjectResult(GetProjectResult):
         if False:
             yield self
         return GetProjectResult(
+            asset_ids=self.asset_ids,
             project_arn=self.project_arn,
             project_description=self.project_description,
             project_id=self.project_id,
@@ -104,6 +116,7 @@ def get_project(project_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:iotsitewise:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
+        asset_ids=__ret__.asset_ids,
         project_arn=__ret__.project_arn,
         project_description=__ret__.project_description,
         project_id=__ret__.project_id,

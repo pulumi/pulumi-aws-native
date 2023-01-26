@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.RoboMaker
     public static class GetRobotApplication
     {
         /// <summary>
-        /// AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+        /// This schema is for testing purpose only.
         /// </summary>
         public static Task<GetRobotApplicationResult> InvokeAsync(GetRobotApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+        /// This schema is for testing purpose only.
         /// </summary>
         public static Output<GetRobotApplicationResult> Invoke(GetRobotApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRobotApplicationResult>("aws-native:robomaker:getRobotApplication", args ?? new GetRobotApplicationInvokeArgs(), options.WithDefaults());
@@ -61,10 +61,6 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public readonly string? Environment;
         public readonly Outputs.RobotApplicationRobotSoftwareSuite? RobotSoftwareSuite;
-        /// <summary>
-        /// The sources of the robot application.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RobotApplicationSourceConfig> Sources;
         public readonly Outputs.RobotApplicationTags? Tags;
 
         [OutputConstructor]
@@ -77,15 +73,12 @@ namespace Pulumi.AwsNative.RoboMaker
 
             Outputs.RobotApplicationRobotSoftwareSuite? robotSoftwareSuite,
 
-            ImmutableArray<Outputs.RobotApplicationSourceConfig> sources,
-
             Outputs.RobotApplicationTags? tags)
         {
             Arn = arn;
             CurrentRevisionId = currentRevisionId;
             Environment = environment;
             RobotSoftwareSuite = robotSoftwareSuite;
-            Sources = sources;
             Tags = tags;
         }
     }

@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSampleUtterance> SampleUtterances;
         /// <summary>
+        /// Specifies the next stage in the conversation after capturing the slot.
+        /// </summary>
+        public readonly Outputs.BotSlotCaptureSetting? SlotCaptureSetting;
+        /// <summary>
         /// Specifies whether the slot is required or optional.
         /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotSlotConstraint SlotConstraint;
@@ -45,6 +49,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             ImmutableArray<Outputs.BotSampleUtterance> sampleUtterances,
 
+            Outputs.BotSlotCaptureSetting? slotCaptureSetting,
+
             Pulumi.AwsNative.Lex.BotSlotConstraint slotConstraint,
 
             Outputs.BotWaitAndContinueSpecification? waitAndContinueSpecification)
@@ -52,6 +58,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             DefaultValueSpecification = defaultValueSpecification;
             PromptSpecification = promptSpecification;
             SampleUtterances = sampleUtterances;
+            SlotCaptureSetting = slotCaptureSetting;
             SlotConstraint = slotConstraint;
             WaitAndContinueSpecification = waitAndContinueSpecification;
         }

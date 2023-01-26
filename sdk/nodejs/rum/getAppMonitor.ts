@@ -27,6 +27,7 @@ export interface GetAppMonitorArgs {
 
 export interface GetAppMonitorResult {
     readonly appMonitorConfiguration?: outputs.rum.AppMonitorConfiguration;
+    readonly customEvents?: outputs.rum.AppMonitorCustomEvents;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */

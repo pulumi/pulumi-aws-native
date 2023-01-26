@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AppMonitorConfiguration',
+    'AppMonitorCustomEvents',
     'AppMonitorMetricDefinition',
     'AppMonitorMetricDestination',
     'AppMonitorTag',
@@ -180,6 +181,29 @@ class AppMonitorConfiguration(dict):
         An array that lists the types of telemetry data that this app monitor is to collect.
         """
         return pulumi.get(self, "telemetries")
+
+
+@pulumi.output_type
+class AppMonitorCustomEvents(dict):
+    """
+    AppMonitor custom events configuration
+    """
+    def __init__(__self__, *,
+                 status: Optional['AppMonitorCustomEventsStatus'] = None):
+        """
+        AppMonitor custom events configuration
+        :param 'AppMonitorCustomEventsStatus' status: Indicates whether AppMonitor accepts custom events.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['AppMonitorCustomEventsStatus']:
+        """
+        Indicates whether AppMonitor accepts custom events.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

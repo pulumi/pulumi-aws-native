@@ -23,6 +23,7 @@ export type ConnectorProfileConnectionMode = (typeof ConnectorProfileConnectionM
 
 export const ConnectorProfileConnectorType = {
     Salesforce: "Salesforce",
+    Pardot: "Pardot",
     Singular: "Singular",
     Slack: "Slack",
     Redshift: "Redshift",
@@ -66,6 +67,7 @@ export type FlowAmplitudeConnectorOperator = (typeof FlowAmplitudeConnectorOpera
 export const FlowConnectorType = {
     SAPOData: "SAPOData",
     Salesforce: "Salesforce",
+    Pardot: "Pardot",
     Singular: "Singular",
     Slack: "Slack",
     Redshift: "Redshift",
@@ -240,6 +242,25 @@ export const FlowOperatorPropertiesKeys = {
 } as const;
 
 export type FlowOperatorPropertiesKeys = (typeof FlowOperatorPropertiesKeys)[keyof typeof FlowOperatorPropertiesKeys];
+
+export const FlowPardotConnectorOperator = {
+    Projection: "PROJECTION",
+    EqualTo: "EQUAL_TO",
+    NoOp: "NO_OP",
+    Addition: "ADDITION",
+    Multiplication: "MULTIPLICATION",
+    Division: "DIVISION",
+    Subtraction: "SUBTRACTION",
+    MaskAll: "MASK_ALL",
+    MaskFirstN: "MASK_FIRST_N",
+    MaskLastN: "MASK_LAST_N",
+    ValidateNonNull: "VALIDATE_NON_NULL",
+    ValidateNonZero: "VALIDATE_NON_ZERO",
+    ValidateNonNegative: "VALIDATE_NON_NEGATIVE",
+    ValidateNumeric: "VALIDATE_NUMERIC",
+} as const;
+
+export type FlowPardotConnectorOperator = (typeof FlowPardotConnectorOperator)[keyof typeof FlowPardotConnectorOperator];
 
 export const FlowPathPrefix = {
     ExecutionId: "EXECUTION_ID",

@@ -43,6 +43,7 @@ __all__ = [
     'DeviceTagArgs',
     'DeviceArgs',
     'DomainCustomImageArgs',
+    'DomainDefaultSpaceSettingsArgs',
     'DomainJupyterServerAppSettingsArgs',
     'DomainKernelGatewayAppSettingsArgs',
     'DomainRSessionAppSettingsArgs',
@@ -1583,6 +1584,78 @@ class DomainCustomImageArgs:
 
 
 @pulumi.input_type
+class DomainDefaultSpaceSettingsArgs:
+    def __init__(__self__, *,
+                 execution_role: Optional[pulumi.Input[str]] = None,
+                 jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
+                 kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+        :param pulumi.Input[str] execution_role: The execution role for the space.
+        :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
+        :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The execution role for the space.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']]:
+        """
+        The Jupyter server's app settings.
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @jupyter_server_app_settings.setter
+    def jupyter_server_app_settings(self, value: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_server_app_settings", value)
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']]:
+        """
+        The kernel gateway app settings.
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @kernel_gateway_app_settings.setter
+    def kernel_gateway_app_settings(self, value: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']]):
+        pulumi.set(self, "kernel_gateway_app_settings", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
 class DomainJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None):
@@ -1987,7 +2060,7 @@ class DomainUserSettingsArgs:
                  sharing_settings: Optional[pulumi.Input['DomainSharingSettingsArgs']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
-        :param pulumi.Input[str] execution_role: The user profile Amazon Resource Name (ARN).
+        :param pulumi.Input[str] execution_role: The execution role for the user.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -2012,7 +2085,7 @@ class DomainUserSettingsArgs:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[pulumi.Input[str]]:
         """
-        The user profile Amazon Resource Name (ARN).
+        The execution role for the user.
         """
         return pulumi.get(self, "execution_role")
 

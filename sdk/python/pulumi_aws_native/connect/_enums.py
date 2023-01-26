@@ -15,6 +15,7 @@ __all__ = [
     'InstanceStorageConfigEncryptionType',
     'InstanceStorageConfigInstanceStorageResourceType',
     'InstanceStorageConfigStorageType',
+    'IntegrationAssociationIntegrationType',
     'QuickConnectType',
     'RulePublishStatus',
     'RuleSendNotificationActionContentType',
@@ -123,6 +124,14 @@ class InstanceStorageConfigStorageType(str, Enum):
     KINESIS_VIDEO_STREAM = "KINESIS_VIDEO_STREAM"
     KINESIS_STREAM = "KINESIS_STREAM"
     KINESIS_FIREHOSE = "KINESIS_FIREHOSE"
+
+
+class IntegrationAssociationIntegrationType(str, Enum):
+    """
+    Specifies the integration type to be associated with the instance
+    """
+    LEX_BOT = "LEX_BOT"
+    LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
 
 
 class QuickConnectType(str, Enum):

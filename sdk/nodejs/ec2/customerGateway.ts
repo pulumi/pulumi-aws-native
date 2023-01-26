@@ -46,6 +46,10 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly customerGatewayId!: pulumi.Output<string>;
     /**
+     * A name for the customer gateway device.
+     */
+    public readonly deviceName!: pulumi.Output<string | undefined>;
+    /**
      * The internet-routable IP address for the customer gateway's outside interface. The address must be static.
      */
     public readonly ipAddress!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class CustomerGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -86,6 +91,7 @@ export class CustomerGateway extends pulumi.CustomResource {
         } else {
             resourceInputs["bgpAsn"] = undefined /*out*/;
             resourceInputs["customerGatewayId"] = undefined /*out*/;
+            resourceInputs["deviceName"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -103,6 +109,10 @@ export interface CustomerGatewayArgs {
      * For devices that support BGP, the customer gateway's BGP ASN.
      */
     bgpAsn: pulumi.Input<number>;
+    /**
+     * A name for the customer gateway device.
+     */
+    deviceName?: pulumi.Input<string>;
     /**
      * The internet-routable IP address for the customer gateway's outside interface. The address must be static.
      */

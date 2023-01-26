@@ -23,6 +23,7 @@ class DomainArgs:
                  vpc_id: pulumi.Input[str],
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
                  app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
+                 default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class DomainArgs:
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
+        :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: A list of tags to apply to the user profile.
@@ -47,6 +49,8 @@ class DomainArgs:
             pulumi.set(__self__, "app_network_access_type", app_network_access_type)
         if app_security_group_management is not None:
             pulumi.set(__self__, "app_security_group_management", app_security_group_management)
+        if default_space_settings is not None:
+            pulumi.set(__self__, "default_space_settings", default_space_settings)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_settings is not None:
@@ -129,6 +133,18 @@ class DomainArgs:
         pulumi.set(self, "app_security_group_management", value)
 
     @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]:
+        """
+        The default space settings.
+        """
+        return pulumi.get(self, "default_space_settings")
+
+    @default_space_settings.setter
+    def default_space_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']]):
+        pulumi.set(self, "default_space_settings", value)
+
+    @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -182,6 +198,7 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
                  app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
+                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainSettingsArgs']]] = None,
@@ -198,6 +215,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         :param pulumi.Input['DomainAuthMode'] auth_mode: The mode of authentication that members use to access the domain.
+        :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings.
         :param pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']] default_user_settings: The default user settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
@@ -232,6 +250,7 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
                  app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
+                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainSettingsArgs']]] = None,
@@ -253,6 +272,7 @@ class Domain(pulumi.CustomResource):
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
+            __props__.__dict__["default_space_settings"] = default_space_settings
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
@@ -297,6 +317,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["app_network_access_type"] = None
         __props__.__dict__["app_security_group_management"] = None
         __props__.__dict__["auth_mode"] = None
+        __props__.__dict__["default_space_settings"] = None
         __props__.__dict__["default_user_settings"] = None
         __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_id"] = None
@@ -335,6 +356,14 @@ class Domain(pulumi.CustomResource):
         The mode of authentication that members use to access the domain.
         """
         return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="defaultSpaceSettings")
+    def default_space_settings(self) -> pulumi.Output[Optional['outputs.DomainDefaultSpaceSettings']]:
+        """
+        The default space settings.
+        """
+        return pulumi.get(self, "default_space_settings")
 
     @property
     @pulumi.getter(name="defaultUserSettings")

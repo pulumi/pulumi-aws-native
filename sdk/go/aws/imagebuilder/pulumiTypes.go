@@ -2456,6 +2456,485 @@ func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) Service() D
 	}).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
 }
 
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImageEcrConfiguration struct {
+	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	RepositoryName *string `pulumi:"repositoryName"`
+}
+
+// ImageEcrConfigurationInput is an input type that accepts ImageEcrConfigurationArgs and ImageEcrConfigurationOutput values.
+// You can construct a concrete instance of `ImageEcrConfigurationInput` via:
+//
+//	ImageEcrConfigurationArgs{...}
+type ImageEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToImageEcrConfigurationOutput() ImageEcrConfigurationOutput
+	ToImageEcrConfigurationOutputWithContext(context.Context) ImageEcrConfigurationOutput
+}
+
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImageEcrConfigurationArgs struct {
+	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+}
+
+func (ImageEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageEcrConfiguration)(nil)).Elem()
+}
+
+func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationOutput() ImageEcrConfigurationOutput {
+	return i.ToImageEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationOutputWithContext(ctx context.Context) ImageEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageEcrConfigurationOutput)
+}
+
+func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput {
+	return i.ToImageEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationPtrOutputWithContext(ctx context.Context) ImageEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageEcrConfigurationOutput).ToImageEcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageEcrConfigurationPtrInput is an input type that accepts ImageEcrConfigurationArgs, ImageEcrConfigurationPtr and ImageEcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageEcrConfigurationPtrInput` via:
+//
+//	        ImageEcrConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageEcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput
+	ToImageEcrConfigurationPtrOutputWithContext(context.Context) ImageEcrConfigurationPtrOutput
+}
+
+type imageEcrConfigurationPtrType ImageEcrConfigurationArgs
+
+func ImageEcrConfigurationPtr(v *ImageEcrConfigurationArgs) ImageEcrConfigurationPtrInput {
+	return (*imageEcrConfigurationPtrType)(v)
+}
+
+func (*imageEcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageEcrConfiguration)(nil)).Elem()
+}
+
+func (i *imageEcrConfigurationPtrType) ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput {
+	return i.ToImageEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageEcrConfigurationPtrType) ToImageEcrConfigurationPtrOutputWithContext(ctx context.Context) ImageEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageEcrConfigurationPtrOutput)
+}
+
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImageEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImageEcrConfigurationOutput) ToImageEcrConfigurationOutput() ImageEcrConfigurationOutput {
+	return o
+}
+
+func (o ImageEcrConfigurationOutput) ToImageEcrConfigurationOutputWithContext(ctx context.Context) ImageEcrConfigurationOutput {
+	return o
+}
+
+func (o ImageEcrConfigurationOutput) ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput {
+	return o.ToImageEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageEcrConfigurationOutput) ToImageEcrConfigurationPtrOutputWithContext(ctx context.Context) ImageEcrConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageEcrConfiguration) *ImageEcrConfiguration {
+		return &v
+	}).(ImageEcrConfigurationPtrOutput)
+}
+
+// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+func (o ImageEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+func (o ImageEcrConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageEcrConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+type ImageEcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageEcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImageEcrConfigurationPtrOutput) ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageEcrConfigurationPtrOutput) ToImageEcrConfigurationPtrOutputWithContext(ctx context.Context) ImageEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageEcrConfigurationPtrOutput) Elem() ImageEcrConfigurationOutput {
+	return o.ApplyT(func(v *ImageEcrConfiguration) ImageEcrConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageEcrConfiguration
+		return ret
+	}).(ImageEcrConfigurationOutput)
+}
+
+// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+func (o ImageEcrConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageEcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+func (o ImageEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageEcrConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImagePipelineEcrConfiguration struct {
+	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	RepositoryName *string `pulumi:"repositoryName"`
+}
+
+// ImagePipelineEcrConfigurationInput is an input type that accepts ImagePipelineEcrConfigurationArgs and ImagePipelineEcrConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineEcrConfigurationInput` via:
+//
+//	ImagePipelineEcrConfigurationArgs{...}
+type ImagePipelineEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineEcrConfigurationOutput() ImagePipelineEcrConfigurationOutput
+	ToImagePipelineEcrConfigurationOutputWithContext(context.Context) ImagePipelineEcrConfigurationOutput
+}
+
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImagePipelineEcrConfigurationArgs struct {
+	// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+}
+
+func (ImagePipelineEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineEcrConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationOutput() ImagePipelineEcrConfigurationOutput {
+	return i.ToImagePipelineEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineEcrConfigurationOutput)
+}
+
+func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput {
+	return i.ToImagePipelineEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineEcrConfigurationOutput).ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineEcrConfigurationPtrInput is an input type that accepts ImagePipelineEcrConfigurationArgs, ImagePipelineEcrConfigurationPtr and ImagePipelineEcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineEcrConfigurationPtrInput` via:
+//
+//	        ImagePipelineEcrConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineEcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput
+	ToImagePipelineEcrConfigurationPtrOutputWithContext(context.Context) ImagePipelineEcrConfigurationPtrOutput
+}
+
+type imagePipelineEcrConfigurationPtrType ImagePipelineEcrConfigurationArgs
+
+func ImagePipelineEcrConfigurationPtr(v *ImagePipelineEcrConfigurationArgs) ImagePipelineEcrConfigurationPtrInput {
+	return (*imagePipelineEcrConfigurationPtrType)(v)
+}
+
+func (*imagePipelineEcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineEcrConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineEcrConfigurationPtrType) ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput {
+	return i.ToImagePipelineEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineEcrConfigurationPtrType) ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineEcrConfigurationPtrOutput)
+}
+
+// Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+type ImagePipelineEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineEcrConfigurationOutput) ToImagePipelineEcrConfigurationOutput() ImagePipelineEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineEcrConfigurationOutput) ToImagePipelineEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineEcrConfigurationOutput) ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput {
+	return o.ToImagePipelineEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineEcrConfigurationOutput) ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineEcrConfiguration) *ImagePipelineEcrConfiguration {
+		return &v
+	}).(ImagePipelineEcrConfigurationPtrOutput)
+}
+
+// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+func (o ImagePipelineEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImagePipelineEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+func (o ImagePipelineEcrConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineEcrConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineEcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineEcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineEcrConfigurationPtrOutput) ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineEcrConfigurationPtrOutput) ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineEcrConfigurationPtrOutput) Elem() ImagePipelineEcrConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineEcrConfiguration) ImagePipelineEcrConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineEcrConfiguration
+		return ret
+	}).(ImagePipelineEcrConfigurationOutput)
+}
+
+// Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+func (o ImagePipelineEcrConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImagePipelineEcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+func (o ImagePipelineEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineEcrConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+type ImagePipelineImageScanningConfiguration struct {
+	// Contains ECR settings for vulnerability scans.
+	EcrConfiguration *ImagePipelineEcrConfiguration `pulumi:"ecrConfiguration"`
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+}
+
+// ImagePipelineImageScanningConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs and ImagePipelineImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationInput` via:
+//
+//	ImagePipelineImageScanningConfigurationArgs{...}
+type ImagePipelineImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput
+	ToImagePipelineImageScanningConfigurationOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationOutput
+}
+
+// Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+type ImagePipelineImageScanningConfigurationArgs struct {
+	// Contains ECR settings for vulnerability scans.
+	EcrConfiguration ImagePipelineEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+}
+
+func (ImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return i.ToImagePipelineImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput).ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageScanningConfigurationPtrInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs, ImagePipelineImageScanningConfigurationPtr and ImagePipelineImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationPtrInput` via:
+//
+//	        ImagePipelineImageScanningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineImageScanningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput
+	ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationPtrType ImagePipelineImageScanningConfigurationArgs
+
+func ImagePipelineImageScanningConfigurationPtr(v *ImagePipelineImageScanningConfigurationArgs) ImagePipelineImageScanningConfigurationPtrInput {
+	return (*imagePipelineImageScanningConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageScanningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+// Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+type ImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfiguration {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+// Contains ECR settings for vulnerability scans.
+func (o ImagePipelineImageScanningConfigurationOutput) EcrConfiguration() ImagePipelineEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *ImagePipelineEcrConfiguration {
+		return v.EcrConfiguration
+	}).(ImagePipelineEcrConfigurationPtrOutput)
+}
+
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) ImagePipelineImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfiguration
+		return ret
+	}).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+// Contains ECR settings for vulnerability scans.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) EcrConfiguration() ImagePipelineEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *ImagePipelineEcrConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EcrConfiguration
+	}).(ImagePipelineEcrConfigurationPtrOutput)
+}
+
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Image tests configuration.
 type ImagePipelineImageTestsConfiguration struct {
 	// Defines if tests should be executed when building this image.
@@ -3699,6 +4178,165 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Contains settings for Image Builder image resource and container image scans.
+type ImageScanningConfiguration struct {
+	// Contains ECR settings for vulnerability scans.
+	EcrConfiguration *ImageEcrConfiguration `pulumi:"ecrConfiguration"`
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+}
+
+// ImageScanningConfigurationInput is an input type that accepts ImageScanningConfigurationArgs and ImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `ImageScanningConfigurationInput` via:
+//
+//	ImageScanningConfigurationArgs{...}
+type ImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToImageScanningConfigurationOutput() ImageScanningConfigurationOutput
+	ToImageScanningConfigurationOutputWithContext(context.Context) ImageScanningConfigurationOutput
+}
+
+// Contains settings for Image Builder image resource and container image scans.
+type ImageScanningConfigurationArgs struct {
+	// Contains ECR settings for vulnerability scans.
+	EcrConfiguration ImageEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
+	// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+}
+
+func (ImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationOutput() ImageScanningConfigurationOutput {
+	return i.ToImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationOutputWithContext(ctx context.Context) ImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationOutput)
+}
+
+func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput {
+	return i.ToImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationOutput).ToImageScanningConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImageScanningConfigurationPtrInput is an input type that accepts ImageScanningConfigurationArgs, ImageScanningConfigurationPtr and ImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImageScanningConfigurationPtrInput` via:
+//
+//	        ImageScanningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImageScanningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput
+	ToImageScanningConfigurationPtrOutputWithContext(context.Context) ImageScanningConfigurationPtrOutput
+}
+
+type imageScanningConfigurationPtrType ImageScanningConfigurationArgs
+
+func ImageScanningConfigurationPtr(v *ImageScanningConfigurationArgs) ImageScanningConfigurationPtrInput {
+	return (*imageScanningConfigurationPtrType)(v)
+}
+
+func (*imageScanningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i *imageScanningConfigurationPtrType) ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput {
+	return i.ToImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imageScanningConfigurationPtrType) ToImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationPtrOutput)
+}
+
+// Contains settings for Image Builder image resource and container image scans.
+type ImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImageScanningConfigurationOutput) ToImageScanningConfigurationOutput() ImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationOutput) ToImageScanningConfigurationOutputWithContext(ctx context.Context) ImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationOutput) ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput {
+	return o.ToImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImageScanningConfigurationOutput) ToImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageScanningConfiguration) *ImageScanningConfiguration {
+		return &v
+	}).(ImageScanningConfigurationPtrOutput)
+}
+
+// Contains ECR settings for vulnerability scans.
+func (o ImageScanningConfigurationOutput) EcrConfiguration() ImageEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v ImageScanningConfiguration) *ImageEcrConfiguration { return v.EcrConfiguration }).(ImageEcrConfigurationPtrOutput)
+}
+
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+func (o ImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImageScanningConfigurationPtrOutput) ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationPtrOutput) ToImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImageScanningConfigurationPtrOutput) Elem() ImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *ImageScanningConfiguration) ImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageScanningConfiguration
+		return ret
+	}).(ImageScanningConfigurationOutput)
+}
+
+// Contains ECR settings for vulnerability scans.
+func (o ImageScanningConfigurationPtrOutput) EcrConfiguration() ImageEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImageScanningConfiguration) *ImageEcrConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EcrConfiguration
+	}).(ImageEcrConfigurationPtrOutput)
+}
+
+// This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+func (o ImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageScanningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The image tests configuration used when creating this image.
 type ImageTestsConfiguration struct {
 	// ImageTestsEnabled
@@ -4345,6 +4983,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationTargetContainerRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationTargetContainerRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageEcrConfigurationPtrInput)(nil)).Elem(), ImageEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
@@ -4361,6 +5005,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInstanceBlockDeviceMappingArrayInput)(nil)).Elem(), ImageRecipeInstanceBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentPtrInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationInput)(nil)).Elem(), ImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationPtrInput)(nil)).Elem(), ImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTestsConfigurationInput)(nil)).Elem(), ImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTestsConfigurationPtrInput)(nil)).Elem(), ImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
@@ -4399,6 +5045,12 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationTargetContainerRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(ImageEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageEcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineEcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -4415,6 +5067,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
+	pulumi.RegisterOutputType(ImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsOutput{})

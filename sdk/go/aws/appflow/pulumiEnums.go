@@ -345,6 +345,7 @@ type ConnectorProfileConnectorType string
 
 const (
 	ConnectorProfileConnectorTypeSalesforce      = ConnectorProfileConnectorType("Salesforce")
+	ConnectorProfileConnectorTypePardot          = ConnectorProfileConnectorType("Pardot")
 	ConnectorProfileConnectorTypeSingular        = ConnectorProfileConnectorType("Singular")
 	ConnectorProfileConnectorTypeSlack           = ConnectorProfileConnectorType("Slack")
 	ConnectorProfileConnectorTypeRedshift        = ConnectorProfileConnectorType("Redshift")
@@ -1016,6 +1017,7 @@ type FlowConnectorType string
 const (
 	FlowConnectorTypeSAPOData        = FlowConnectorType("SAPOData")
 	FlowConnectorTypeSalesforce      = FlowConnectorType("Salesforce")
+	FlowConnectorTypePardot          = FlowConnectorType("Pardot")
 	FlowConnectorTypeSingular        = FlowConnectorType("Singular")
 	FlowConnectorTypeSlack           = FlowConnectorType("Slack")
 	FlowConnectorTypeRedshift        = FlowConnectorType("Redshift")
@@ -2757,6 +2759,182 @@ func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutput()
 
 func (in *flowOperatorPropertiesKeysPtr) ToFlowOperatorPropertiesKeysPtrOutputWithContext(ctx context.Context) FlowOperatorPropertiesKeysPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FlowOperatorPropertiesKeysPtrOutput)
+}
+
+type FlowPardotConnectorOperator string
+
+const (
+	FlowPardotConnectorOperatorProjection          = FlowPardotConnectorOperator("PROJECTION")
+	FlowPardotConnectorOperatorEqualTo             = FlowPardotConnectorOperator("EQUAL_TO")
+	FlowPardotConnectorOperatorNoOp                = FlowPardotConnectorOperator("NO_OP")
+	FlowPardotConnectorOperatorAddition            = FlowPardotConnectorOperator("ADDITION")
+	FlowPardotConnectorOperatorMultiplication      = FlowPardotConnectorOperator("MULTIPLICATION")
+	FlowPardotConnectorOperatorDivision            = FlowPardotConnectorOperator("DIVISION")
+	FlowPardotConnectorOperatorSubtraction         = FlowPardotConnectorOperator("SUBTRACTION")
+	FlowPardotConnectorOperatorMaskAll             = FlowPardotConnectorOperator("MASK_ALL")
+	FlowPardotConnectorOperatorMaskFirstN          = FlowPardotConnectorOperator("MASK_FIRST_N")
+	FlowPardotConnectorOperatorMaskLastN           = FlowPardotConnectorOperator("MASK_LAST_N")
+	FlowPardotConnectorOperatorValidateNonNull     = FlowPardotConnectorOperator("VALIDATE_NON_NULL")
+	FlowPardotConnectorOperatorValidateNonZero     = FlowPardotConnectorOperator("VALIDATE_NON_ZERO")
+	FlowPardotConnectorOperatorValidateNonNegative = FlowPardotConnectorOperator("VALIDATE_NON_NEGATIVE")
+	FlowPardotConnectorOperatorValidateNumeric     = FlowPardotConnectorOperator("VALIDATE_NUMERIC")
+)
+
+func (FlowPardotConnectorOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPardotConnectorOperator)(nil)).Elem()
+}
+
+func (e FlowPardotConnectorOperator) ToFlowPardotConnectorOperatorOutput() FlowPardotConnectorOperatorOutput {
+	return pulumi.ToOutput(e).(FlowPardotConnectorOperatorOutput)
+}
+
+func (e FlowPardotConnectorOperator) ToFlowPardotConnectorOperatorOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowPardotConnectorOperatorOutput)
+}
+
+func (e FlowPardotConnectorOperator) ToFlowPardotConnectorOperatorPtrOutput() FlowPardotConnectorOperatorPtrOutput {
+	return e.ToFlowPardotConnectorOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPardotConnectorOperator) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
+	return FlowPardotConnectorOperator(e).ToFlowPardotConnectorOperatorOutputWithContext(ctx).ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx)
+}
+
+func (e FlowPardotConnectorOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPardotConnectorOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FlowPardotConnectorOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FlowPardotConnectorOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FlowPardotConnectorOperatorOutput struct{ *pulumi.OutputState }
+
+func (FlowPardotConnectorOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPardotConnectorOperator)(nil)).Elem()
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToFlowPardotConnectorOperatorOutput() FlowPardotConnectorOperatorOutput {
+	return o
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToFlowPardotConnectorOperatorOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorOutput {
+	return o
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToFlowPardotConnectorOperatorPtrOutput() FlowPardotConnectorOperatorPtrOutput {
+	return o.ToFlowPardotConnectorOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPardotConnectorOperator) *FlowPardotConnectorOperator {
+		return &v
+	}).(FlowPardotConnectorOperatorPtrOutput)
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPardotConnectorOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPardotConnectorOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPardotConnectorOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowPardotConnectorOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPardotConnectorOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPardotConnectorOperator)(nil)).Elem()
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) ToFlowPardotConnectorOperatorPtrOutput() FlowPardotConnectorOperatorPtrOutput {
+	return o
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
+	return o
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) Elem() FlowPardotConnectorOperatorOutput {
+	return o.ApplyT(func(v *FlowPardotConnectorOperator) FlowPardotConnectorOperator {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPardotConnectorOperator
+		return ret
+	}).(FlowPardotConnectorOperatorOutput)
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPardotConnectorOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowPardotConnectorOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FlowPardotConnectorOperatorInput is an input type that accepts FlowPardotConnectorOperatorArgs and FlowPardotConnectorOperatorOutput values.
+// You can construct a concrete instance of `FlowPardotConnectorOperatorInput` via:
+//
+//	FlowPardotConnectorOperatorArgs{...}
+type FlowPardotConnectorOperatorInput interface {
+	pulumi.Input
+
+	ToFlowPardotConnectorOperatorOutput() FlowPardotConnectorOperatorOutput
+	ToFlowPardotConnectorOperatorOutputWithContext(context.Context) FlowPardotConnectorOperatorOutput
+}
+
+var flowPardotConnectorOperatorPtrType = reflect.TypeOf((**FlowPardotConnectorOperator)(nil)).Elem()
+
+type FlowPardotConnectorOperatorPtrInput interface {
+	pulumi.Input
+
+	ToFlowPardotConnectorOperatorPtrOutput() FlowPardotConnectorOperatorPtrOutput
+	ToFlowPardotConnectorOperatorPtrOutputWithContext(context.Context) FlowPardotConnectorOperatorPtrOutput
+}
+
+type flowPardotConnectorOperatorPtr string
+
+func FlowPardotConnectorOperatorPtr(v string) FlowPardotConnectorOperatorPtrInput {
+	return (*flowPardotConnectorOperatorPtr)(&v)
+}
+
+func (*flowPardotConnectorOperatorPtr) ElementType() reflect.Type {
+	return flowPardotConnectorOperatorPtrType
+}
+
+func (in *flowPardotConnectorOperatorPtr) ToFlowPardotConnectorOperatorPtrOutput() FlowPardotConnectorOperatorPtrOutput {
+	return pulumi.ToOutput(in).(FlowPardotConnectorOperatorPtrOutput)
+}
+
+func (in *flowPardotConnectorOperatorPtr) ToFlowPardotConnectorOperatorPtrOutputWithContext(ctx context.Context) FlowPardotConnectorOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowPardotConnectorOperatorPtrOutput)
 }
 
 type FlowPathPrefix string
@@ -5782,6 +5960,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPtrInput)(nil)).Elem(), FlowOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowOperatorPropertiesKeysPtrInput)(nil)).Elem(), FlowOperatorPropertiesKeys("VALUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPardotConnectorOperatorInput)(nil)).Elem(), FlowPardotConnectorOperator("PROJECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPardotConnectorOperatorPtrInput)(nil)).Elem(), FlowPardotConnectorOperator("PROJECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixInput)(nil)).Elem(), FlowPathPrefix("EXECUTION_ID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixPtrInput)(nil)).Elem(), FlowPathPrefix("EXECUTION_ID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPathPrefixArrayInput)(nil)).Elem(), FlowPathPrefixArray{})
@@ -5849,6 +6029,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysOutput{})
 	pulumi.RegisterOutputType(FlowOperatorPropertiesKeysPtrOutput{})
+	pulumi.RegisterOutputType(FlowPardotConnectorOperatorOutput{})
+	pulumi.RegisterOutputType(FlowPardotConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(FlowPathPrefixOutput{})
 	pulumi.RegisterOutputType(FlowPathPrefixPtrOutput{})
 	pulumi.RegisterOutputType(FlowPathPrefixArrayOutput{})

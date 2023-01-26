@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, initial_capacity=None, maximum_capacity=None, network_configuration=None, tags=None):
+    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, maximum_capacity=None, network_configuration=None, tags=None, worker_type_specifications=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -36,6 +36,9 @@ class GetApplicationResult:
         if auto_stop_configuration and not isinstance(auto_stop_configuration, dict):
             raise TypeError("Expected argument 'auto_stop_configuration' to be a dict")
         pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if image_configuration and not isinstance(image_configuration, dict):
+            raise TypeError("Expected argument 'image_configuration' to be a dict")
+        pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacity and not isinstance(initial_capacity, list):
             raise TypeError("Expected argument 'initial_capacity' to be a list")
         pulumi.set(__self__, "initial_capacity", initial_capacity)
@@ -48,6 +51,9 @@ class GetApplicationResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if worker_type_specifications and not isinstance(worker_type_specifications, dict):
+            raise TypeError("Expected argument 'worker_type_specifications' to be a dict")
+        pulumi.set(__self__, "worker_type_specifications", worker_type_specifications)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -87,6 +93,11 @@ class GetApplicationResult:
         return pulumi.get(self, "auto_stop_configuration")
 
     @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional['outputs.ApplicationImageConfigurationInput']:
+        return pulumi.get(self, "image_configuration")
+
+    @property
     @pulumi.getter(name="initialCapacity")
     def initial_capacity(self) -> Optional[Sequence['outputs.ApplicationInitialCapacityConfigKeyValuePair']]:
         """
@@ -118,6 +129,11 @@ class GetApplicationResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="workerTypeSpecifications")
+    def worker_type_specifications(self) -> Optional['outputs.ApplicationWorkerTypeSpecificationInputMap']:
+        return pulumi.get(self, "worker_type_specifications")
+
 
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
@@ -130,10 +146,12 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             arn=self.arn,
             auto_start_configuration=self.auto_start_configuration,
             auto_stop_configuration=self.auto_stop_configuration,
+            image_configuration=self.image_configuration,
             initial_capacity=self.initial_capacity,
             maximum_capacity=self.maximum_capacity,
             network_configuration=self.network_configuration,
-            tags=self.tags)
+            tags=self.tags,
+            worker_type_specifications=self.worker_type_specifications)
 
 
 def get_application(application_id: Optional[str] = None,
@@ -155,10 +173,12 @@ def get_application(application_id: Optional[str] = None,
         arn=__ret__.arn,
         auto_start_configuration=__ret__.auto_start_configuration,
         auto_stop_configuration=__ret__.auto_stop_configuration,
+        image_configuration=__ret__.image_configuration,
         initial_capacity=__ret__.initial_capacity,
         maximum_capacity=__ret__.maximum_capacity,
         network_configuration=__ret__.network_configuration,
-        tags=__ret__.tags)
+        tags=__ret__.tags,
+        worker_type_specifications=__ret__.worker_type_specifications)
 
 
 @_utilities.lift_output_func(get_application)

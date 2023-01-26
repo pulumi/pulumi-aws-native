@@ -266,6 +266,178 @@ func (in *botAudioRecognitionStrategyPtr) ToBotAudioRecognitionStrategyPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(BotAudioRecognitionStrategyPtrOutput)
 }
 
+// The possible values of actions that the conversation can take.
+type BotDialogActionType string
+
+const (
+	BotDialogActionTypeCloseIntent          = BotDialogActionType("CloseIntent")
+	BotDialogActionTypeConfirmIntent        = BotDialogActionType("ConfirmIntent")
+	BotDialogActionTypeElicitIntent         = BotDialogActionType("ElicitIntent")
+	BotDialogActionTypeElicitSlot           = BotDialogActionType("ElicitSlot")
+	BotDialogActionTypeStartIntent          = BotDialogActionType("StartIntent")
+	BotDialogActionTypeFulfillIntent        = BotDialogActionType("FulfillIntent")
+	BotDialogActionTypeEndConversation      = BotDialogActionType("EndConversation")
+	BotDialogActionTypeEvaluateConditional  = BotDialogActionType("EvaluateConditional")
+	BotDialogActionTypeInvokeDialogCodeHook = BotDialogActionType("InvokeDialogCodeHook")
+)
+
+func (BotDialogActionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDialogActionType)(nil)).Elem()
+}
+
+func (e BotDialogActionType) ToBotDialogActionTypeOutput() BotDialogActionTypeOutput {
+	return pulumi.ToOutput(e).(BotDialogActionTypeOutput)
+}
+
+func (e BotDialogActionType) ToBotDialogActionTypeOutputWithContext(ctx context.Context) BotDialogActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotDialogActionTypeOutput)
+}
+
+func (e BotDialogActionType) ToBotDialogActionTypePtrOutput() BotDialogActionTypePtrOutput {
+	return e.ToBotDialogActionTypePtrOutputWithContext(context.Background())
+}
+
+func (e BotDialogActionType) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
+	return BotDialogActionType(e).ToBotDialogActionTypeOutputWithContext(ctx).ToBotDialogActionTypePtrOutputWithContext(ctx)
+}
+
+func (e BotDialogActionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotDialogActionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotDialogActionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotDialogActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotDialogActionTypeOutput struct{ *pulumi.OutputState }
+
+func (BotDialogActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotDialogActionType)(nil)).Elem()
+}
+
+func (o BotDialogActionTypeOutput) ToBotDialogActionTypeOutput() BotDialogActionTypeOutput {
+	return o
+}
+
+func (o BotDialogActionTypeOutput) ToBotDialogActionTypeOutputWithContext(ctx context.Context) BotDialogActionTypeOutput {
+	return o
+}
+
+func (o BotDialogActionTypeOutput) ToBotDialogActionTypePtrOutput() BotDialogActionTypePtrOutput {
+	return o.ToBotDialogActionTypePtrOutputWithContext(context.Background())
+}
+
+func (o BotDialogActionTypeOutput) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotDialogActionType) *BotDialogActionType {
+		return &v
+	}).(BotDialogActionTypePtrOutput)
+}
+
+func (o BotDialogActionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotDialogActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotDialogActionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotDialogActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotDialogActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotDialogActionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotDialogActionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BotDialogActionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotDialogActionType)(nil)).Elem()
+}
+
+func (o BotDialogActionTypePtrOutput) ToBotDialogActionTypePtrOutput() BotDialogActionTypePtrOutput {
+	return o
+}
+
+func (o BotDialogActionTypePtrOutput) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
+	return o
+}
+
+func (o BotDialogActionTypePtrOutput) Elem() BotDialogActionTypeOutput {
+	return o.ApplyT(func(v *BotDialogActionType) BotDialogActionType {
+		if v != nil {
+			return *v
+		}
+		var ret BotDialogActionType
+		return ret
+	}).(BotDialogActionTypeOutput)
+}
+
+func (o BotDialogActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotDialogActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotDialogActionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotDialogActionTypeInput is an input type that accepts BotDialogActionTypeArgs and BotDialogActionTypeOutput values.
+// You can construct a concrete instance of `BotDialogActionTypeInput` via:
+//
+//	BotDialogActionTypeArgs{...}
+type BotDialogActionTypeInput interface {
+	pulumi.Input
+
+	ToBotDialogActionTypeOutput() BotDialogActionTypeOutput
+	ToBotDialogActionTypeOutputWithContext(context.Context) BotDialogActionTypeOutput
+}
+
+var botDialogActionTypePtrType = reflect.TypeOf((**BotDialogActionType)(nil)).Elem()
+
+type BotDialogActionTypePtrInput interface {
+	pulumi.Input
+
+	ToBotDialogActionTypePtrOutput() BotDialogActionTypePtrOutput
+	ToBotDialogActionTypePtrOutputWithContext(context.Context) BotDialogActionTypePtrOutput
+}
+
+type botDialogActionTypePtr string
+
+func BotDialogActionTypePtr(v string) BotDialogActionTypePtrInput {
+	return (*botDialogActionTypePtr)(&v)
+}
+
+func (*botDialogActionTypePtr) ElementType() reflect.Type {
+	return botDialogActionTypePtrType
+}
+
+func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutput() BotDialogActionTypePtrOutput {
+	return pulumi.ToOutput(in).(BotDialogActionTypePtrOutput)
+}
+
+func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotDialogActionTypePtrOutput)
+}
+
 // Indicates how a message is selected from a message group among retries.
 type BotMessageSelectionStrategy string
 
@@ -760,6 +932,171 @@ func (in *botSlotConstraintPtr) ToBotSlotConstraintPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotConstraintPtrOutput)
 }
 
+// The different shapes that a slot can be in during a conversation.
+type BotSlotShape string
+
+const (
+	BotSlotShapeScalar = BotSlotShape("Scalar")
+	BotSlotShapeList   = BotSlotShape("List")
+)
+
+func (BotSlotShape) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSlotShape)(nil)).Elem()
+}
+
+func (e BotSlotShape) ToBotSlotShapeOutput() BotSlotShapeOutput {
+	return pulumi.ToOutput(e).(BotSlotShapeOutput)
+}
+
+func (e BotSlotShape) ToBotSlotShapeOutputWithContext(ctx context.Context) BotSlotShapeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotSlotShapeOutput)
+}
+
+func (e BotSlotShape) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
+	return e.ToBotSlotShapePtrOutputWithContext(context.Background())
+}
+
+func (e BotSlotShape) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
+	return BotSlotShape(e).ToBotSlotShapeOutputWithContext(ctx).ToBotSlotShapePtrOutputWithContext(ctx)
+}
+
+func (e BotSlotShape) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotSlotShape) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotSlotShape) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotSlotShape) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotSlotShapeOutput struct{ *pulumi.OutputState }
+
+func (BotSlotShapeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSlotShape)(nil)).Elem()
+}
+
+func (o BotSlotShapeOutput) ToBotSlotShapeOutput() BotSlotShapeOutput {
+	return o
+}
+
+func (o BotSlotShapeOutput) ToBotSlotShapeOutputWithContext(ctx context.Context) BotSlotShapeOutput {
+	return o
+}
+
+func (o BotSlotShapeOutput) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
+	return o.ToBotSlotShapePtrOutputWithContext(context.Background())
+}
+
+func (o BotSlotShapeOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSlotShape) *BotSlotShape {
+		return &v
+	}).(BotSlotShapePtrOutput)
+}
+
+func (o BotSlotShapeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotSlotShapeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotSlotShape) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotSlotShapeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotSlotShapeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotSlotShape) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotSlotShapePtrOutput struct{ *pulumi.OutputState }
+
+func (BotSlotShapePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSlotShape)(nil)).Elem()
+}
+
+func (o BotSlotShapePtrOutput) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
+	return o
+}
+
+func (o BotSlotShapePtrOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
+	return o
+}
+
+func (o BotSlotShapePtrOutput) Elem() BotSlotShapeOutput {
+	return o.ApplyT(func(v *BotSlotShape) BotSlotShape {
+		if v != nil {
+			return *v
+		}
+		var ret BotSlotShape
+		return ret
+	}).(BotSlotShapeOutput)
+}
+
+func (o BotSlotShapePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotSlotShapePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotSlotShape) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotSlotShapeInput is an input type that accepts BotSlotShapeArgs and BotSlotShapeOutput values.
+// You can construct a concrete instance of `BotSlotShapeInput` via:
+//
+//	BotSlotShapeArgs{...}
+type BotSlotShapeInput interface {
+	pulumi.Input
+
+	ToBotSlotShapeOutput() BotSlotShapeOutput
+	ToBotSlotShapeOutputWithContext(context.Context) BotSlotShapeOutput
+}
+
+var botSlotShapePtrType = reflect.TypeOf((**BotSlotShape)(nil)).Elem()
+
+type BotSlotShapePtrInput interface {
+	pulumi.Input
+
+	ToBotSlotShapePtrOutput() BotSlotShapePtrOutput
+	ToBotSlotShapePtrOutputWithContext(context.Context) BotSlotShapePtrOutput
+}
+
+type botSlotShapePtr string
+
+func BotSlotShapePtr(v string) BotSlotShapePtrInput {
+	return (*botSlotShapePtr)(&v)
+}
+
+func (*botSlotShapePtr) ElementType() reflect.Type {
+	return botSlotShapePtrType
+}
+
+func (in *botSlotShapePtr) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
+	return pulumi.ToOutput(in).(BotSlotShapePtrOutput)
+}
+
+func (in *botSlotShapePtr) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotSlotShapePtrOutput)
+}
+
 type BotSlotValueResolutionStrategy string
 
 const (
@@ -1092,12 +1429,16 @@ func (in *botVoiceSettingsEnginePtr) ToBotVoiceSettingsEnginePtrOutputWithContex
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAudioRecognitionStrategyPtrInput)(nil)).Elem(), BotAudioRecognitionStrategy("UseSlotValuesAsCustomVocabulary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypeInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypePtrInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyPtrInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypeInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypePtrInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotConstraintInput)(nil)).Elem(), BotSlotConstraint("Required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotConstraintPtrInput)(nil)).Elem(), BotSlotConstraint("Required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotShapeInput)(nil)).Elem(), BotSlotShape("Scalar"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotShapePtrInput)(nil)).Elem(), BotSlotShape("Scalar"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueResolutionStrategyInput)(nil)).Elem(), BotSlotValueResolutionStrategy("ORIGINAL_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueResolutionStrategyPtrInput)(nil)).Elem(), BotSlotValueResolutionStrategy("ORIGINAL_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEngineInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
@@ -1106,12 +1447,16 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasStatusPtrOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyOutput{})
 	pulumi.RegisterOutputType(BotAudioRecognitionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(BotDialogActionTypeOutput{})
+	pulumi.RegisterOutputType(BotDialogActionTypePtrOutput{})
 	pulumi.RegisterOutputType(BotMessageSelectionStrategyOutput{})
 	pulumi.RegisterOutputType(BotMessageSelectionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypeOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypePtrOutput{})
 	pulumi.RegisterOutputType(BotSlotConstraintOutput{})
 	pulumi.RegisterOutputType(BotSlotConstraintPtrOutput{})
+	pulumi.RegisterOutputType(BotSlotShapeOutput{})
+	pulumi.RegisterOutputType(BotSlotShapePtrOutput{})
 	pulumi.RegisterOutputType(BotSlotValueResolutionStrategyOutput{})
 	pulumi.RegisterOutputType(BotSlotValueResolutionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsEngineOutput{})

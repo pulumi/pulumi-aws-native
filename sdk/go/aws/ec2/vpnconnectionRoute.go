@@ -12,13 +12,13 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPNConnectionRoute
-//
-// Deprecated: VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VPNConnectionRoute struct {
 	pulumi.CustomResourceState
 
+	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	VpnConnectionId      pulumi.StringOutput `pulumi:"vpnConnectionId"`
+	// The ID of the VPN connection.
+	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 }
 
 // NewVPNConnectionRoute registers a new resource with the given unique name, arguments, and options.
@@ -66,14 +66,18 @@ func (VPNConnectionRouteState) ElementType() reflect.Type {
 }
 
 type vpnconnectionRouteArgs struct {
+	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	VpnConnectionId      string `pulumi:"vpnConnectionId"`
+	// The ID of the VPN connection.
+	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
 // The set of arguments for constructing a VPNConnectionRoute resource.
 type VPNConnectionRouteArgs struct {
+	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringInput
-	VpnConnectionId      pulumi.StringInput
+	// The ID of the VPN connection.
+	VpnConnectionId pulumi.StringInput
 }
 
 func (VPNConnectionRouteArgs) ElementType() reflect.Type {
@@ -113,10 +117,12 @@ func (o VPNConnectionRouteOutput) ToVPNConnectionRouteOutputWithContext(ctx cont
 	return o
 }
 
+// The CIDR block associated with the local subnet of the customer network.
 func (o VPNConnectionRouteOutput) DestinationCidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPNConnectionRoute) pulumi.StringOutput { return v.DestinationCidrBlock }).(pulumi.StringOutput)
 }
 
+// The ID of the VPN connection.
 func (o VPNConnectionRouteOutput) VpnConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VPNConnectionRoute) pulumi.StringOutput { return v.VpnConnectionId }).(pulumi.StringOutput)
 }

@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAppMonitorResult:
-    def __init__(__self__, app_monitor_configuration=None, cw_log_enabled=None, domain=None, tags=None):
+    def __init__(__self__, app_monitor_configuration=None, custom_events=None, cw_log_enabled=None, domain=None, tags=None):
         if app_monitor_configuration and not isinstance(app_monitor_configuration, dict):
             raise TypeError("Expected argument 'app_monitor_configuration' to be a dict")
         pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
+        if custom_events and not isinstance(custom_events, dict):
+            raise TypeError("Expected argument 'custom_events' to be a dict")
+        pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled and not isinstance(cw_log_enabled, bool):
             raise TypeError("Expected argument 'cw_log_enabled' to be a bool")
         pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
@@ -38,6 +41,11 @@ class GetAppMonitorResult:
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional['outputs.AppMonitorConfiguration']:
         return pulumi.get(self, "app_monitor_configuration")
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> Optional['outputs.AppMonitorCustomEvents']:
+        return pulumi.get(self, "custom_events")
 
     @property
     @pulumi.getter(name="cwLogEnabled")
@@ -68,6 +76,7 @@ class AwaitableGetAppMonitorResult(GetAppMonitorResult):
             yield self
         return GetAppMonitorResult(
             app_monitor_configuration=self.app_monitor_configuration,
+            custom_events=self.custom_events,
             cw_log_enabled=self.cw_log_enabled,
             domain=self.domain,
             tags=self.tags)
@@ -88,6 +97,7 @@ def get_app_monitor(name: Optional[str] = None,
 
     return AwaitableGetAppMonitorResult(
         app_monitor_configuration=__ret__.app_monitor_configuration,
+        custom_events=__ret__.custom_events,
         cw_log_enabled=__ret__.cw_log_enabled,
         domain=__ret__.domain,
         tags=__ret__.tags)

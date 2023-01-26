@@ -195,18 +195,6 @@ class SecretGenerateSecretStringArgs:
                  password_length: Optional[pulumi.Input[int]] = None,
                  require_each_included_type: Optional[pulumi.Input[bool]] = None,
                  secret_string_template: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] exclude_characters: A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
-        :param pulumi.Input[bool] exclude_lowercase: Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-        :param pulumi.Input[bool] exclude_numbers: Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-        :param pulumi.Input[bool] exclude_punctuation: Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
-        :param pulumi.Input[bool] exclude_uppercase: Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
-        :param pulumi.Input[str] generate_string_key: The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
-        :param pulumi.Input[bool] include_space: Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-        :param pulumi.Input[int] password_length: The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
-        :param pulumi.Input[bool] require_each_included_type: Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-        :param pulumi.Input[str] secret_string_template: A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-        """
         if exclude_characters is not None:
             pulumi.set(__self__, "exclude_characters", exclude_characters)
         if exclude_lowercase is not None:
@@ -231,9 +219,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="excludeCharacters")
     def exclude_characters(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
-        """
         return pulumi.get(self, "exclude_characters")
 
     @exclude_characters.setter
@@ -243,9 +228,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="excludeLowercase")
     def exclude_lowercase(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-        """
         return pulumi.get(self, "exclude_lowercase")
 
     @exclude_lowercase.setter
@@ -255,9 +237,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="excludeNumbers")
     def exclude_numbers(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-        """
         return pulumi.get(self, "exclude_numbers")
 
     @exclude_numbers.setter
@@ -267,9 +246,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="excludePunctuation")
     def exclude_punctuation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
-        """
         return pulumi.get(self, "exclude_punctuation")
 
     @exclude_punctuation.setter
@@ -279,9 +255,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="excludeUppercase")
     def exclude_uppercase(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
-        """
         return pulumi.get(self, "exclude_uppercase")
 
     @exclude_uppercase.setter
@@ -291,9 +264,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="generateStringKey")
     def generate_string_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
-        """
         return pulumi.get(self, "generate_string_key")
 
     @generate_string_key.setter
@@ -303,9 +273,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="includeSpace")
     def include_space(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-        """
         return pulumi.get(self, "include_space")
 
     @include_space.setter
@@ -315,9 +282,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="passwordLength")
     def password_length(self) -> Optional[pulumi.Input[int]]:
-        """
-        The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
-        """
         return pulumi.get(self, "password_length")
 
     @password_length.setter
@@ -327,9 +291,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="requireEachIncludedType")
     def require_each_included_type(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-        """
         return pulumi.get(self, "require_each_included_type")
 
     @require_each_included_type.setter
@@ -339,9 +300,6 @@ class SecretGenerateSecretStringArgs:
     @property
     @pulumi.getter(name="secretStringTemplate")
     def secret_string_template(self) -> Optional[pulumi.Input[str]]:
-        """
-        A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-        """
         return pulumi.get(self, "secret_string_template")
 
     @secret_string_template.setter

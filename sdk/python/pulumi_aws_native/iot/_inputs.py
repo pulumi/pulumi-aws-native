@@ -2373,9 +2373,12 @@ class TopicRuleCloudwatchAlarmActionArgs:
 class TopicRuleCloudwatchLogsActionArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 batch_mode: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -2394,6 +2397,15 @@ class TopicRuleCloudwatchLogsActionArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "batch_mode")
+
+    @batch_mode.setter
+    def batch_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batch_mode", value)
 
 
 @pulumi.input_type

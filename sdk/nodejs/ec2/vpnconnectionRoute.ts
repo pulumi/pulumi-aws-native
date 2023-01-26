@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::VPNConnectionRoute
- *
- * @deprecated VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class VPNConnectionRoute extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VPNConnectionRoute {
-        pulumi.log.warn("VPNConnectionRoute is deprecated: VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new VPNConnectionRoute(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,7 +34,13 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
         return obj['__pulumiType'] === VPNConnectionRoute.__pulumiType;
     }
 
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     public readonly vpnConnectionId!: pulumi.Output<string>;
 
     /**
@@ -47,9 +50,7 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: VPNConnectionRouteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VPNConnectionRoute is deprecated: VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -74,6 +75,12 @@ export class VPNConnectionRoute extends pulumi.CustomResource {
  * The set of arguments for constructing a VPNConnectionRoute resource.
  */
 export interface VPNConnectionRouteArgs {
+    /**
+     * The CIDR block associated with the local subnet of the customer network.
+     */
     destinationCidrBlock: pulumi.Input<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     vpnConnectionId: pulumi.Input<string>;
 }

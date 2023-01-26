@@ -918,6 +918,7 @@ type ConnectorProfileCredentials struct {
 	GoogleAnalytics *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials `pulumi:"googleAnalytics"`
 	InforNexus      *ConnectorProfileInforNexusConnectorProfileCredentials      `pulumi:"inforNexus"`
 	Marketo         *ConnectorProfileMarketoConnectorProfileCredentials         `pulumi:"marketo"`
+	Pardot          *ConnectorProfilePardotConnectorProfileCredentials          `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileCredentials        `pulumi:"redshift"`
 	SAPOData        *ConnectorProfileSAPODataConnectorProfileCredentials        `pulumi:"sAPOData"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileCredentials      `pulumi:"salesforce"`
@@ -950,6 +951,7 @@ type ConnectorProfileCredentialsArgs struct {
 	GoogleAnalytics ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrInput `pulumi:"googleAnalytics"`
 	InforNexus      ConnectorProfileInforNexusConnectorProfileCredentialsPtrInput      `pulumi:"inforNexus"`
 	Marketo         ConnectorProfileMarketoConnectorProfileCredentialsPtrInput         `pulumi:"marketo"`
+	Pardot          ConnectorProfilePardotConnectorProfileCredentialsPtrInput          `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput        `pulumi:"redshift"`
 	SAPOData        ConnectorProfileSAPODataConnectorProfileCredentialsPtrInput        `pulumi:"sAPOData"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput      `pulumi:"salesforce"`
@@ -1080,6 +1082,12 @@ func (o ConnectorProfileCredentialsOutput) Marketo() ConnectorProfileMarketoConn
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileCredentialsOutput) Pardot() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfilePardotConnectorProfileCredentials {
+		return v.Pardot
+	}).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
@@ -1223,6 +1231,15 @@ func (o ConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoC
 		}
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
+}
+
+func (o ConnectorProfileCredentialsPtrOutput) Pardot() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfilePardotConnectorProfileCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.Pardot
+	}).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
 }
 
 func (o ConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
@@ -3908,6 +3925,377 @@ func (o ConnectorProfileOAuthPropertiesPtrOutput) TokenUrl() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectorProfilePardotConnectorProfileCredentials struct {
+	// The credentials used to access protected resources.
+	AccessToken *string `pulumi:"accessToken"`
+	// The client credentials to fetch access token and refresh token.
+	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
+	// The oauth needed to request security tokens from the connector endpoint.
+	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
+	// The credentials used to acquire new access tokens.
+	RefreshToken *string `pulumi:"refreshToken"`
+}
+
+// ConnectorProfilePardotConnectorProfileCredentialsInput is an input type that accepts ConnectorProfilePardotConnectorProfileCredentialsArgs and ConnectorProfilePardotConnectorProfileCredentialsOutput values.
+// You can construct a concrete instance of `ConnectorProfilePardotConnectorProfileCredentialsInput` via:
+//
+//	ConnectorProfilePardotConnectorProfileCredentialsArgs{...}
+type ConnectorProfilePardotConnectorProfileCredentialsInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePardotConnectorProfileCredentialsOutput() ConnectorProfilePardotConnectorProfileCredentialsOutput
+	ToConnectorProfilePardotConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfilePardotConnectorProfileCredentialsOutput
+}
+
+type ConnectorProfilePardotConnectorProfileCredentialsArgs struct {
+	// The credentials used to access protected resources.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// The client credentials to fetch access token and refresh token.
+	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
+	// The oauth needed to request security tokens from the connector endpoint.
+	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
+	// The credentials used to acquire new access tokens.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+}
+
+func (ConnectorProfilePardotConnectorProfileCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfilePardotConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (i ConnectorProfilePardotConnectorProfileCredentialsArgs) ToConnectorProfilePardotConnectorProfileCredentialsOutput() ConnectorProfilePardotConnectorProfileCredentialsOutput {
+	return i.ToConnectorProfilePardotConnectorProfileCredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePardotConnectorProfileCredentialsArgs) ToConnectorProfilePardotConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfileCredentialsOutput)
+}
+
+func (i ConnectorProfilePardotConnectorProfileCredentialsArgs) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutput() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePardotConnectorProfileCredentialsArgs) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfileCredentialsOutput).ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfilePardotConnectorProfileCredentialsPtrInput is an input type that accepts ConnectorProfilePardotConnectorProfileCredentialsArgs, ConnectorProfilePardotConnectorProfileCredentialsPtr and ConnectorProfilePardotConnectorProfileCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfilePardotConnectorProfileCredentialsPtrInput` via:
+//
+//	        ConnectorProfilePardotConnectorProfileCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorProfilePardotConnectorProfileCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePardotConnectorProfileCredentialsPtrOutput() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput
+	ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(context.Context) ConnectorProfilePardotConnectorProfileCredentialsPtrOutput
+}
+
+type connectorProfilePardotConnectorProfileCredentialsPtrType ConnectorProfilePardotConnectorProfileCredentialsArgs
+
+func ConnectorProfilePardotConnectorProfileCredentialsPtr(v *ConnectorProfilePardotConnectorProfileCredentialsArgs) ConnectorProfilePardotConnectorProfileCredentialsPtrInput {
+	return (*connectorProfilePardotConnectorProfileCredentialsPtrType)(v)
+}
+
+func (*connectorProfilePardotConnectorProfileCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfilePardotConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (i *connectorProfilePardotConnectorProfileCredentialsPtrType) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutput() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return i.ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfilePardotConnectorProfileCredentialsPtrType) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
+}
+
+type ConnectorProfilePardotConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePardotConnectorProfileCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfilePardotConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ToConnectorProfilePardotConnectorProfileCredentialsOutput() ConnectorProfilePardotConnectorProfileCredentialsOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ToConnectorProfilePardotConnectorProfileCredentialsOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutput() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o.ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfilePardotConnectorProfileCredentials) *ConnectorProfilePardotConnectorProfileCredentials {
+		return &v
+	}).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
+}
+
+// The credentials used to access protected resources.
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The client credentials to fetch access token and refresh token.
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileCredentials) *string { return v.ClientCredentialsArn }).(pulumi.StringPtrOutput)
+}
+
+// The oauth needed to request security tokens from the connector endpoint.
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
+		return v.ConnectorOAuthRequest
+	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
+}
+
+// The credentials used to acquire new access tokens.
+func (o ConnectorProfilePardotConnectorProfileCredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileCredentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfilePardotConnectorProfileCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfilePardotConnectorProfileCredentials)(nil)).Elem()
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutput() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) ToConnectorProfilePardotConnectorProfileCredentialsPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) Elem() ConnectorProfilePardotConnectorProfileCredentialsOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileCredentials) ConnectorProfilePardotConnectorProfileCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfilePardotConnectorProfileCredentials
+		return ret
+	}).(ConnectorProfilePardotConnectorProfileCredentialsOutput)
+}
+
+// The credentials used to access protected resources.
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client credentials to fetch access token and refresh token.
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCredentialsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The oauth needed to request security tokens from the connector endpoint.
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectorOAuthRequest
+	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
+}
+
+// The credentials used to acquire new access tokens.
+func (o ConnectorProfilePardotConnectorProfileCredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorProfilePardotConnectorProfileProperties struct {
+	// The Business unit id of Salesforce Pardot instance to be connected
+	BusinessUnitId string `pulumi:"businessUnitId"`
+	// The location of the Salesforce Pardot resource
+	InstanceUrl *string `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a demo or production environment
+	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
+}
+
+// ConnectorProfilePardotConnectorProfilePropertiesInput is an input type that accepts ConnectorProfilePardotConnectorProfilePropertiesArgs and ConnectorProfilePardotConnectorProfilePropertiesOutput values.
+// You can construct a concrete instance of `ConnectorProfilePardotConnectorProfilePropertiesInput` via:
+//
+//	ConnectorProfilePardotConnectorProfilePropertiesArgs{...}
+type ConnectorProfilePardotConnectorProfilePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePardotConnectorProfilePropertiesOutput() ConnectorProfilePardotConnectorProfilePropertiesOutput
+	ToConnectorProfilePardotConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfilePardotConnectorProfilePropertiesOutput
+}
+
+type ConnectorProfilePardotConnectorProfilePropertiesArgs struct {
+	// The Business unit id of Salesforce Pardot instance to be connected
+	BusinessUnitId pulumi.StringInput `pulumi:"businessUnitId"`
+	// The location of the Salesforce Pardot resource
+	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a demo or production environment
+	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
+}
+
+func (ConnectorProfilePardotConnectorProfilePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfilePardotConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i ConnectorProfilePardotConnectorProfilePropertiesArgs) ToConnectorProfilePardotConnectorProfilePropertiesOutput() ConnectorProfilePardotConnectorProfilePropertiesOutput {
+	return i.ToConnectorProfilePardotConnectorProfilePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePardotConnectorProfilePropertiesArgs) ToConnectorProfilePardotConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfilePropertiesOutput)
+}
+
+func (i ConnectorProfilePardotConnectorProfilePropertiesArgs) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutput() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorProfilePardotConnectorProfilePropertiesArgs) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfilePropertiesOutput).ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectorProfilePardotConnectorProfilePropertiesPtrInput is an input type that accepts ConnectorProfilePardotConnectorProfilePropertiesArgs, ConnectorProfilePardotConnectorProfilePropertiesPtr and ConnectorProfilePardotConnectorProfilePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectorProfilePardotConnectorProfilePropertiesPtrInput` via:
+//
+//	        ConnectorProfilePardotConnectorProfilePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorProfilePardotConnectorProfilePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectorProfilePardotConnectorProfilePropertiesPtrOutput() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput
+	ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(context.Context) ConnectorProfilePardotConnectorProfilePropertiesPtrOutput
+}
+
+type connectorProfilePardotConnectorProfilePropertiesPtrType ConnectorProfilePardotConnectorProfilePropertiesArgs
+
+func ConnectorProfilePardotConnectorProfilePropertiesPtr(v *ConnectorProfilePardotConnectorProfilePropertiesArgs) ConnectorProfilePardotConnectorProfilePropertiesPtrInput {
+	return (*connectorProfilePardotConnectorProfilePropertiesPtrType)(v)
+}
+
+func (*connectorProfilePardotConnectorProfilePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfilePardotConnectorProfileProperties)(nil)).Elem()
+}
+
+func (i *connectorProfilePardotConnectorProfilePropertiesPtrType) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutput() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return i.ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorProfilePardotConnectorProfilePropertiesPtrType) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
+}
+
+type ConnectorProfilePardotConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePardotConnectorProfilePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProfilePardotConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) ToConnectorProfilePardotConnectorProfilePropertiesOutput() ConnectorProfilePardotConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) ToConnectorProfilePardotConnectorProfilePropertiesOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutput() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o.ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorProfilePardotConnectorProfileProperties) *ConnectorProfilePardotConnectorProfileProperties {
+		return &v
+	}).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
+}
+
+// The Business unit id of Salesforce Pardot instance to be connected
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) BusinessUnitId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileProperties) string { return v.BusinessUnitId }).(pulumi.StringOutput)
+}
+
+// The location of the Salesforce Pardot resource
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileProperties) *string { return v.InstanceUrl }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connector profile applies to a demo or production environment
+func (o ConnectorProfilePardotConnectorProfilePropertiesOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectorProfilePardotConnectorProfileProperties) *bool { return v.IsSandboxEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+type ConnectorProfilePardotConnectorProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProfilePardotConnectorProfileProperties)(nil)).Elem()
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutput() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) ToConnectorProfilePardotConnectorProfilePropertiesPtrOutputWithContext(ctx context.Context) ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfilePardotConnectorProfilePropertiesOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileProperties) ConnectorProfilePardotConnectorProfileProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProfilePardotConnectorProfileProperties
+		return ret
+	}).(ConnectorProfilePardotConnectorProfilePropertiesOutput)
+}
+
+// The Business unit id of Salesforce Pardot instance to be connected
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) BusinessUnitId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BusinessUnitId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of the Salesforce Pardot resource
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connector profile applies to a demo or production environment
+func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfilePardotConnectorProfileProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsSandboxEnvironment
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A map for properties for custom connector.
 type ConnectorProfileProfileProperties struct {
 }
@@ -4036,6 +4424,7 @@ type ConnectorProfileProperties struct {
 	Dynatrace       *ConnectorProfileDynatraceConnectorProfileProperties  `pulumi:"dynatrace"`
 	InforNexus      *ConnectorProfileInforNexusConnectorProfileProperties `pulumi:"inforNexus"`
 	Marketo         *ConnectorProfileMarketoConnectorProfileProperties    `pulumi:"marketo"`
+	Pardot          *ConnectorProfilePardotConnectorProfileProperties     `pulumi:"pardot"`
 	Redshift        *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
 	SAPOData        *ConnectorProfileSAPODataConnectorProfileProperties   `pulumi:"sAPOData"`
 	Salesforce      *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
@@ -4064,6 +4453,7 @@ type ConnectorProfilePropertiesArgs struct {
 	Dynatrace       ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput  `pulumi:"dynatrace"`
 	InforNexus      ConnectorProfileInforNexusConnectorProfilePropertiesPtrInput `pulumi:"inforNexus"`
 	Marketo         ConnectorProfileMarketoConnectorProfilePropertiesPtrInput    `pulumi:"marketo"`
+	Pardot          ConnectorProfilePardotConnectorProfilePropertiesPtrInput     `pulumi:"pardot"`
 	Redshift        ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
 	SAPOData        ConnectorProfileSAPODataConnectorProfilePropertiesPtrInput   `pulumi:"sAPOData"`
 	Salesforce      ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
@@ -4182,6 +4572,10 @@ func (o ConnectorProfilePropertiesOutput) Marketo() ConnectorProfileMarketoConne
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
+func (o ConnectorProfilePropertiesOutput) Pardot() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfilePardotConnectorProfileProperties { return v.Pardot }).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
+}
+
 func (o ConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
 		return v.Redshift
@@ -4293,6 +4687,15 @@ func (o ConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoCo
 		}
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
+}
+
+func (o ConnectorProfilePropertiesPtrOutput) Pardot() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfilePardotConnectorProfileProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Pardot
+	}).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
 }
 
 func (o ConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
@@ -5590,8 +5993,9 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) RefreshT
 
 type ConnectorProfileSalesforceConnectorProfileProperties struct {
 	// The location of the Salesforce resource
-	InstanceUrl          *string `pulumi:"instanceUrl"`
-	IsSandboxEnvironment *bool   `pulumi:"isSandboxEnvironment"`
+	InstanceUrl *string `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a sandbox or production environment
+	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
 }
 
 // ConnectorProfileSalesforceConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileSalesforceConnectorProfilePropertiesArgs and ConnectorProfileSalesforceConnectorProfilePropertiesOutput values.
@@ -5607,8 +6011,9 @@ type ConnectorProfileSalesforceConnectorProfilePropertiesInput interface {
 
 type ConnectorProfileSalesforceConnectorProfilePropertiesArgs struct {
 	// The location of the Salesforce resource
-	InstanceUrl          pulumi.StringPtrInput `pulumi:"instanceUrl"`
-	IsSandboxEnvironment pulumi.BoolPtrInput   `pulumi:"isSandboxEnvironment"`
+	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
+	// Indicates whether the connector profile applies to a sandbox or production environment
+	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
 }
 
 func (ConnectorProfileSalesforceConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -5693,6 +6098,7 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) InstanceUrl(
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *string { return v.InstanceUrl }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the connector profile applies to a sandbox or production environment
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *bool { return v.IsSandboxEnvironment }).(pulumi.BoolPtrOutput)
 }
@@ -5731,6 +6137,7 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) InstanceU
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether the connector profile applies to a sandbox or production environment
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileProperties) *bool {
 		if v == nil {
@@ -8177,6 +8584,7 @@ type FlowConnectorOperator struct {
 	GoogleAnalytics *FlowGoogleAnalyticsConnectorOperator `pulumi:"googleAnalytics"`
 	InforNexus      *FlowInforNexusConnectorOperator      `pulumi:"inforNexus"`
 	Marketo         *FlowMarketoConnectorOperator         `pulumi:"marketo"`
+	Pardot          *FlowPardotConnectorOperator          `pulumi:"pardot"`
 	S3              *FlowS3ConnectorOperator              `pulumi:"s3"`
 	SAPOData        *FlowSAPODataConnectorOperator        `pulumi:"sAPOData"`
 	Salesforce      *FlowSalesforceConnectorOperator      `pulumi:"salesforce"`
@@ -8208,6 +8616,7 @@ type FlowConnectorOperatorArgs struct {
 	GoogleAnalytics FlowGoogleAnalyticsConnectorOperatorPtrInput `pulumi:"googleAnalytics"`
 	InforNexus      FlowInforNexusConnectorOperatorPtrInput      `pulumi:"inforNexus"`
 	Marketo         FlowMarketoConnectorOperatorPtrInput         `pulumi:"marketo"`
+	Pardot          FlowPardotConnectorOperatorPtrInput          `pulumi:"pardot"`
 	S3              FlowS3ConnectorOperatorPtrInput              `pulumi:"s3"`
 	SAPOData        FlowSAPODataConnectorOperatorPtrInput        `pulumi:"sAPOData"`
 	Salesforce      FlowSalesforceConnectorOperatorPtrInput      `pulumi:"salesforce"`
@@ -8323,6 +8732,10 @@ func (o FlowConnectorOperatorOutput) InforNexus() FlowInforNexusConnectorOperato
 
 func (o FlowConnectorOperatorOutput) Marketo() FlowMarketoConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *FlowMarketoConnectorOperator { return v.Marketo }).(FlowMarketoConnectorOperatorPtrOutput)
+}
+
+func (o FlowConnectorOperatorOutput) Pardot() FlowPardotConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v FlowConnectorOperator) *FlowPardotConnectorOperator { return v.Pardot }).(FlowPardotConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorOutput) S3() FlowS3ConnectorOperatorPtrOutput {
@@ -8446,6 +8859,15 @@ func (o FlowConnectorOperatorPtrOutput) Marketo() FlowMarketoConnectorOperatorPt
 		}
 		return v.Marketo
 	}).(FlowMarketoConnectorOperatorPtrOutput)
+}
+
+func (o FlowConnectorOperatorPtrOutput) Pardot() FlowPardotConnectorOperatorPtrOutput {
+	return o.ApplyT(func(v *FlowConnectorOperator) *FlowPardotConnectorOperator {
+		if v == nil {
+			return nil
+		}
+		return v.Pardot
+	}).(FlowPardotConnectorOperatorPtrOutput)
 }
 
 func (o FlowConnectorOperatorPtrOutput) S3() FlowS3ConnectorOperatorPtrOutput {
@@ -10951,6 +11373,139 @@ func (o FlowMetadataCatalogConfigPtrOutput) GlueDataCatalog() FlowGlueDataCatalo
 		}
 		return v.GlueDataCatalog
 	}).(FlowGlueDataCatalogPtrOutput)
+}
+
+type FlowPardotSourceProperties struct {
+	Object string `pulumi:"object"`
+}
+
+// FlowPardotSourcePropertiesInput is an input type that accepts FlowPardotSourcePropertiesArgs and FlowPardotSourcePropertiesOutput values.
+// You can construct a concrete instance of `FlowPardotSourcePropertiesInput` via:
+//
+//	FlowPardotSourcePropertiesArgs{...}
+type FlowPardotSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToFlowPardotSourcePropertiesOutput() FlowPardotSourcePropertiesOutput
+	ToFlowPardotSourcePropertiesOutputWithContext(context.Context) FlowPardotSourcePropertiesOutput
+}
+
+type FlowPardotSourcePropertiesArgs struct {
+	Object pulumi.StringInput `pulumi:"object"`
+}
+
+func (FlowPardotSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPardotSourceProperties)(nil)).Elem()
+}
+
+func (i FlowPardotSourcePropertiesArgs) ToFlowPardotSourcePropertiesOutput() FlowPardotSourcePropertiesOutput {
+	return i.ToFlowPardotSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i FlowPardotSourcePropertiesArgs) ToFlowPardotSourcePropertiesOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPardotSourcePropertiesOutput)
+}
+
+func (i FlowPardotSourcePropertiesArgs) ToFlowPardotSourcePropertiesPtrOutput() FlowPardotSourcePropertiesPtrOutput {
+	return i.ToFlowPardotSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i FlowPardotSourcePropertiesArgs) ToFlowPardotSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPardotSourcePropertiesOutput).ToFlowPardotSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// FlowPardotSourcePropertiesPtrInput is an input type that accepts FlowPardotSourcePropertiesArgs, FlowPardotSourcePropertiesPtr and FlowPardotSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `FlowPardotSourcePropertiesPtrInput` via:
+//
+//	        FlowPardotSourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowPardotSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToFlowPardotSourcePropertiesPtrOutput() FlowPardotSourcePropertiesPtrOutput
+	ToFlowPardotSourcePropertiesPtrOutputWithContext(context.Context) FlowPardotSourcePropertiesPtrOutput
+}
+
+type flowPardotSourcePropertiesPtrType FlowPardotSourcePropertiesArgs
+
+func FlowPardotSourcePropertiesPtr(v *FlowPardotSourcePropertiesArgs) FlowPardotSourcePropertiesPtrInput {
+	return (*flowPardotSourcePropertiesPtrType)(v)
+}
+
+func (*flowPardotSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPardotSourceProperties)(nil)).Elem()
+}
+
+func (i *flowPardotSourcePropertiesPtrType) ToFlowPardotSourcePropertiesPtrOutput() FlowPardotSourcePropertiesPtrOutput {
+	return i.ToFlowPardotSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *flowPardotSourcePropertiesPtrType) ToFlowPardotSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPardotSourcePropertiesPtrOutput)
+}
+
+type FlowPardotSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (FlowPardotSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPardotSourceProperties)(nil)).Elem()
+}
+
+func (o FlowPardotSourcePropertiesOutput) ToFlowPardotSourcePropertiesOutput() FlowPardotSourcePropertiesOutput {
+	return o
+}
+
+func (o FlowPardotSourcePropertiesOutput) ToFlowPardotSourcePropertiesOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesOutput {
+	return o
+}
+
+func (o FlowPardotSourcePropertiesOutput) ToFlowPardotSourcePropertiesPtrOutput() FlowPardotSourcePropertiesPtrOutput {
+	return o.ToFlowPardotSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPardotSourcePropertiesOutput) ToFlowPardotSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPardotSourceProperties) *FlowPardotSourceProperties {
+		return &v
+	}).(FlowPardotSourcePropertiesPtrOutput)
+}
+
+func (o FlowPardotSourcePropertiesOutput) Object() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowPardotSourceProperties) string { return v.Object }).(pulumi.StringOutput)
+}
+
+type FlowPardotSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPardotSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPardotSourceProperties)(nil)).Elem()
+}
+
+func (o FlowPardotSourcePropertiesPtrOutput) ToFlowPardotSourcePropertiesPtrOutput() FlowPardotSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowPardotSourcePropertiesPtrOutput) ToFlowPardotSourcePropertiesPtrOutputWithContext(ctx context.Context) FlowPardotSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o FlowPardotSourcePropertiesPtrOutput) Elem() FlowPardotSourcePropertiesOutput {
+	return o.ApplyT(func(v *FlowPardotSourceProperties) FlowPardotSourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPardotSourceProperties
+		return ret
+	}).(FlowPardotSourcePropertiesOutput)
+}
+
+func (o FlowPardotSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowPardotSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Object
+	}).(pulumi.StringPtrOutput)
 }
 
 type FlowPrefixConfig struct {
@@ -13467,6 +14022,7 @@ type FlowSourceConnectorProperties struct {
 	GoogleAnalytics *FlowGoogleAnalyticsSourceProperties `pulumi:"googleAnalytics"`
 	InforNexus      *FlowInforNexusSourceProperties      `pulumi:"inforNexus"`
 	Marketo         *FlowMarketoSourceProperties         `pulumi:"marketo"`
+	Pardot          *FlowPardotSourceProperties          `pulumi:"pardot"`
 	S3              *FlowS3SourceProperties              `pulumi:"s3"`
 	SAPOData        *FlowSAPODataSourceProperties        `pulumi:"sAPOData"`
 	Salesforce      *FlowSalesforceSourceProperties      `pulumi:"salesforce"`
@@ -13498,6 +14054,7 @@ type FlowSourceConnectorPropertiesArgs struct {
 	GoogleAnalytics FlowGoogleAnalyticsSourcePropertiesPtrInput `pulumi:"googleAnalytics"`
 	InforNexus      FlowInforNexusSourcePropertiesPtrInput      `pulumi:"inforNexus"`
 	Marketo         FlowMarketoSourcePropertiesPtrInput         `pulumi:"marketo"`
+	Pardot          FlowPardotSourcePropertiesPtrInput          `pulumi:"pardot"`
 	S3              FlowS3SourcePropertiesPtrInput              `pulumi:"s3"`
 	SAPOData        FlowSAPODataSourcePropertiesPtrInput        `pulumi:"sAPOData"`
 	Salesforce      FlowSalesforceSourcePropertiesPtrInput      `pulumi:"salesforce"`
@@ -13562,6 +14119,10 @@ func (o FlowSourceConnectorPropertiesOutput) InforNexus() FlowInforNexusSourcePr
 
 func (o FlowSourceConnectorPropertiesOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowMarketoSourceProperties { return v.Marketo }).(FlowMarketoSourcePropertiesPtrOutput)
+}
+
+func (o FlowSourceConnectorPropertiesOutput) Pardot() FlowPardotSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowPardotSourceProperties { return v.Pardot }).(FlowPardotSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesOutput) S3() FlowS3SourcePropertiesPtrOutput {
@@ -13685,6 +14246,15 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePrope
 		}
 		return v.Marketo
 	}).(FlowMarketoSourcePropertiesPtrOutput)
+}
+
+func (o FlowSourceConnectorPropertiesPtrOutput) Pardot() FlowPardotSourcePropertiesPtrOutput {
+	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowPardotSourceProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Pardot
+	}).(FlowPardotSourcePropertiesPtrOutput)
 }
 
 func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOutput {
@@ -15550,6 +16120,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileOAuth2PropertiesPtrInput)(nil)).Elem(), ConnectorProfileOAuth2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileOAuthPropertiesInput)(nil)).Elem(), ConnectorProfileOAuthPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileOAuthPropertiesPtrInput)(nil)).Elem(), ConnectorProfileOAuthPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfileCredentialsInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfileCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfileCredentialsPtrInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfileCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfilePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePardotConnectorProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfilePardotConnectorProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileProfilePropertiesInput)(nil)).Elem(), ConnectorProfileProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfileProfilePropertiesPtrInput)(nil)).Elem(), ConnectorProfileProfilePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProfilePropertiesInput)(nil)).Elem(), ConnectorProfilePropertiesArgs{})
@@ -15634,6 +16208,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMarketoSourcePropertiesPtrInput)(nil)).Elem(), FlowMarketoSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowMetadataCatalogConfigPtrInput)(nil)).Elem(), FlowMetadataCatalogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPardotSourcePropertiesInput)(nil)).Elem(), FlowPardotSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPardotSourcePropertiesPtrInput)(nil)).Elem(), FlowPardotSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixConfigInput)(nil)).Elem(), FlowPrefixConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowPrefixConfigPtrInput)(nil)).Elem(), FlowPrefixConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowRedshiftDestinationPropertiesInput)(nil)).Elem(), FlowRedshiftDestinationPropertiesArgs{})
@@ -15733,6 +16309,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorProfileOAuth2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileOAuthPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileOAuthPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfileCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfilePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileProfilePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectorProfileProfilePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorProfilePropertiesOutput{})
@@ -15818,6 +16398,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowMarketoSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowMetadataCatalogConfigOutput{})
 	pulumi.RegisterOutputType(FlowMetadataCatalogConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowPardotSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(FlowPardotSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigOutput{})
 	pulumi.RegisterOutputType(FlowPrefixConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowRedshiftDestinationPropertiesOutput{})

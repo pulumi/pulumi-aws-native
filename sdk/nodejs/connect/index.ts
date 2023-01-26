@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApprovedOriginArgs } from "./approvedOrigin";
+export type ApprovedOrigin = import("./approvedOrigin").ApprovedOrigin;
+export const ApprovedOrigin: typeof import("./approvedOrigin").ApprovedOrigin = null as any;
+utilities.lazyLoad(exports, ["ApprovedOrigin"], () => require("./approvedOrigin"));
+
 export { ContactFlowArgs } from "./contactFlow";
 export type ContactFlow = import("./contactFlow").ContactFlow;
 export const ContactFlow: typeof import("./contactFlow").ContactFlow = null as any;
@@ -40,6 +45,11 @@ export const getInstanceStorageConfig: typeof import("./getInstanceStorageConfig
 export const getInstanceStorageConfigOutput: typeof import("./getInstanceStorageConfig").getInstanceStorageConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceStorageConfig","getInstanceStorageConfigOutput"], () => require("./getInstanceStorageConfig"));
 
+export { GetIntegrationAssociationArgs, GetIntegrationAssociationResult, GetIntegrationAssociationOutputArgs } from "./getIntegrationAssociation";
+export const getIntegrationAssociation: typeof import("./getIntegrationAssociation").getIntegrationAssociation = null as any;
+export const getIntegrationAssociationOutput: typeof import("./getIntegrationAssociation").getIntegrationAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegrationAssociation","getIntegrationAssociationOutput"], () => require("./getIntegrationAssociation"));
+
 export { GetPhoneNumberArgs, GetPhoneNumberResult, GetPhoneNumberOutputArgs } from "./getPhoneNumber";
 export const getPhoneNumber: typeof import("./getPhoneNumber").getPhoneNumber = null as any;
 export const getPhoneNumberOutput: typeof import("./getPhoneNumber").getPhoneNumberOutput = null as any;
@@ -54,6 +64,11 @@ export { GetRuleArgs, GetRuleResult, GetRuleOutputArgs } from "./getRule";
 export const getRule: typeof import("./getRule").getRule = null as any;
 export const getRuleOutput: typeof import("./getRule").getRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getRule","getRuleOutput"], () => require("./getRule"));
+
+export { GetSecurityKeyArgs, GetSecurityKeyResult, GetSecurityKeyOutputArgs } from "./getSecurityKey";
+export const getSecurityKey: typeof import("./getSecurityKey").getSecurityKey = null as any;
+export const getSecurityKeyOutput: typeof import("./getSecurityKey").getSecurityKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityKey","getSecurityKeyOutput"], () => require("./getSecurityKey"));
 
 export { GetTaskTemplateArgs, GetTaskTemplateResult, GetTaskTemplateOutputArgs } from "./getTaskTemplate";
 export const getTaskTemplate: typeof import("./getTaskTemplate").getTaskTemplate = null as any;
@@ -85,6 +100,11 @@ export type InstanceStorageConfig = import("./instanceStorageConfig").InstanceSt
 export const InstanceStorageConfig: typeof import("./instanceStorageConfig").InstanceStorageConfig = null as any;
 utilities.lazyLoad(exports, ["InstanceStorageConfig"], () => require("./instanceStorageConfig"));
 
+export { IntegrationAssociationArgs } from "./integrationAssociation";
+export type IntegrationAssociation = import("./integrationAssociation").IntegrationAssociation;
+export const IntegrationAssociation: typeof import("./integrationAssociation").IntegrationAssociation = null as any;
+utilities.lazyLoad(exports, ["IntegrationAssociation"], () => require("./integrationAssociation"));
+
 export { PhoneNumberArgs } from "./phoneNumber";
 export type PhoneNumber = import("./phoneNumber").PhoneNumber;
 export const PhoneNumber: typeof import("./phoneNumber").PhoneNumber = null as any;
@@ -99,6 +119,11 @@ export { RuleArgs } from "./rule";
 export type Rule = import("./rule").Rule;
 export const Rule: typeof import("./rule").Rule = null as any;
 utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
+
+export { SecurityKeyArgs } from "./securityKey";
+export type SecurityKey = import("./securityKey").SecurityKey;
+export const SecurityKey: typeof import("./securityKey").SecurityKey = null as any;
+utilities.lazyLoad(exports, ["SecurityKey"], () => require("./securityKey"));
 
 export { TaskTemplateArgs } from "./taskTemplate";
 export type TaskTemplate = import("./taskTemplate").TaskTemplate;
@@ -123,6 +148,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:connect:ApprovedOrigin":
+                return new ApprovedOrigin(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlow":
                 return new ContactFlow(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowModule":
@@ -133,12 +160,16 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:connect:InstanceStorageConfig":
                 return new InstanceStorageConfig(name, <any>undefined, { urn })
+            case "aws-native:connect:IntegrationAssociation":
+                return new IntegrationAssociation(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
             case "aws-native:connect:QuickConnect":
                 return new QuickConnect(name, <any>undefined, { urn })
             case "aws-native:connect:Rule":
                 return new Rule(name, <any>undefined, { urn })
+            case "aws-native:connect:SecurityKey":
+                return new SecurityKey(name, <any>undefined, { urn })
             case "aws-native:connect:TaskTemplate":
                 return new TaskTemplate(name, <any>undefined, { urn })
             case "aws-native:connect:User":

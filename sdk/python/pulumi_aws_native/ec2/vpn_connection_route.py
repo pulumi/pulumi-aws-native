@@ -18,6 +18,8 @@ class VPNConnectionRouteArgs:
                  vpn_connection_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VPNConnectionRoute resource.
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "vpn_connection_id", vpn_connection_id)
@@ -25,6 +27,9 @@ class VPNConnectionRouteArgs:
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[str]:
+        """
+        The CIDR block associated with the local subnet of the customer network.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -34,6 +39,9 @@ class VPNConnectionRouteArgs:
     @property
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPN connection.
+        """
         return pulumi.get(self, "vpn_connection_id")
 
     @vpn_connection_id.setter
@@ -41,12 +49,7 @@ class VPNConnectionRouteArgs:
         pulumi.set(self, "vpn_connection_id", value)
 
 
-warnings.warn("""VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class VPNConnectionRoute(pulumi.CustomResource):
-    warnings.warn("""VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -59,6 +62,8 @@ class VPNConnectionRoute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] destination_cidr_block: The CIDR block associated with the local subnet of the customer network.
+        :param pulumi.Input[str] vpn_connection_id: The ID of the VPN connection.
         """
         ...
     @overload
@@ -87,7 +92,6 @@ class VPNConnectionRoute(pulumi.CustomResource):
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  vpn_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VPNConnectionRoute is deprecated: VPNConnectionRoute is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -131,10 +135,16 @@ class VPNConnectionRoute(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[str]:
+        """
+        The CIDR block associated with the local subnet of the customer network.
+        """
         return pulumi.get(self, "destination_cidr_block")
 
     @property
     @pulumi.getter(name="vpnConnectionId")
     def vpn_connection_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the VPN connection.
+        """
         return pulumi.get(self, "vpn_connection_id")
 

@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? AppSecurityGroupManagement;
         /// <summary>
+        /// The default space settings.
+        /// </summary>
+        public readonly Outputs.DomainDefaultSpaceSettings? DefaultSpaceSettings;
+        /// <summary>
         /// The default user settings.
         /// </summary>
         public readonly Outputs.DomainUserSettings? DefaultUserSettings;
@@ -95,6 +99,8 @@ namespace Pulumi.AwsNative.SageMaker
         private GetDomainResult(
             Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? appSecurityGroupManagement,
 
+            Outputs.DomainDefaultSpaceSettings? defaultSpaceSettings,
+
             Outputs.DomainUserSettings? defaultUserSettings,
 
             string? domainArn,
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.SageMaker
             string? url)
         {
             AppSecurityGroupManagement = appSecurityGroupManagement;
+            DefaultSpaceSettings = defaultSpaceSettings;
             DefaultUserSettings = defaultUserSettings;
             DomainArn = domainArn;
             DomainId = domainId;

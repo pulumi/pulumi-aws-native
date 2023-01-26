@@ -29,11 +29,19 @@ __all__ = [
     'BotAudioLogSetting',
     'BotButton',
     'BotCloudWatchLogGroupLogDestination',
+    'BotCondition',
+    'BotConditionalBranch',
+    'BotConditionalSpecification',
     'BotConversationLogSettings',
     'BotCustomPayload',
     'BotCustomVocabulary',
     'BotCustomVocabularyItem',
+    'BotDefaultConditionalBranch',
+    'BotDialogAction',
+    'BotDialogCodeHookInvocationSetting',
     'BotDialogCodeHookSetting',
+    'BotDialogState',
+    'BotElicitationCodeHookInvocationSetting',
     'BotExternalSourceSetting',
     'BotFulfillmentCodeHookSetting',
     'BotFulfillmentStartResponseSpecification',
@@ -42,10 +50,12 @@ __all__ = [
     'BotGrammarSlotTypeSetting',
     'BotGrammarSlotTypeSource',
     'BotImageResponseCard',
+    'BotInitialResponseSetting',
     'BotInputContext',
     'BotIntent',
     'BotIntentClosingSetting',
     'BotIntentConfirmationSetting',
+    'BotIntentOverride',
     'BotKendraConfiguration',
     'BotLocale',
     'BotMessage',
@@ -54,6 +64,7 @@ __all__ = [
     'BotObfuscationSetting',
     'BotOutputContext',
     'BotPlainTextMessage',
+    'BotPostDialogCodeHookInvocationSpecification',
     'BotPostFulfillmentStatusSpecification',
     'BotPromptSpecification',
     'BotResponseSpecification',
@@ -62,13 +73,18 @@ __all__ = [
     'BotSSMLMessage',
     'BotSampleUtterance',
     'BotSampleValue',
+    'BotSessionAttribute',
     'BotSlot',
+    'BotSlotCaptureSetting',
     'BotSlotDefaultValue',
     'BotSlotDefaultValueSpecification',
     'BotSlotPriority',
     'BotSlotType',
     'BotSlotTypeValue',
+    'BotSlotValue',
     'BotSlotValueElicitationSetting',
+    'BotSlotValueOverride',
+    'BotSlotValueOverrideMap',
     'BotSlotValueRegexFilter',
     'BotSlotValueSelectionSetting',
     'BotStillWaitingResponseSpecification',
@@ -759,6 +775,183 @@ class BotCloudWatchLogGroupLogDestination(dict):
 
 
 @pulumi.output_type
+class BotCondition(dict):
+    """
+    Provides an expression that evaluates to true or false.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expressionString":
+            suggest = "expression_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression_string: str):
+        """
+        Provides an expression that evaluates to true or false.
+        :param str expression_string: The expression string that is evaluated.
+        """
+        pulumi.set(__self__, "expression_string", expression_string)
+
+    @property
+    @pulumi.getter(name="expressionString")
+    def expression_string(self) -> str:
+        """
+        The expression string that is evaluated.
+        """
+        return pulumi.get(self, "expression_string")
+
+
+@pulumi.output_type
+class BotConditionalBranch(dict):
+    """
+    A set of actions that Amazon Lex should run if the condition is matched.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextStep":
+            suggest = "next_step"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotConditionalBranch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotConditionalBranch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotConditionalBranch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: 'outputs.BotCondition',
+                 name: str,
+                 next_step: 'outputs.BotDialogState',
+                 response: Optional['outputs.BotResponseSpecification'] = None):
+        """
+        A set of actions that Amazon Lex should run if the condition is matched.
+        :param 'BotCondition' condition: Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
+        :param str name: The name of the branch.
+        :param 'BotDialogState' next_step: The next step in the conversation.
+        :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_step", next_step)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'outputs.BotCondition':
+        """
+        Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the branch.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextStep")
+    def next_step(self) -> 'outputs.BotDialogState':
+        """
+        The next step in the conversation.
+        """
+        return pulumi.get(self, "next_step")
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "response")
+
+
+@pulumi.output_type
+class BotConditionalSpecification(dict):
+    """
+    Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionalBranches":
+            suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
+        elif key == "isActive":
+            suggest = "is_active"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotConditionalSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotConditionalSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotConditionalSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 conditional_branches: Sequence['outputs.BotConditionalBranch'],
+                 default_branch: 'outputs.BotDefaultConditionalBranch',
+                 is_active: bool):
+        """
+        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+        :param Sequence['BotConditionalBranch'] conditional_branches: A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+        :param 'BotDefaultConditionalBranch' default_branch: The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
+        :param bool is_active: Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+        """
+        pulumi.set(__self__, "conditional_branches", conditional_branches)
+        pulumi.set(__self__, "default_branch", default_branch)
+        pulumi.set(__self__, "is_active", is_active)
+
+    @property
+    @pulumi.getter(name="conditionalBranches")
+    def conditional_branches(self) -> Sequence['outputs.BotConditionalBranch']:
+        """
+        A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+        """
+        return pulumi.get(self, "conditional_branches")
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> 'outputs.BotDefaultConditionalBranch':
+        """
+        The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> bool:
+        """
+        Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+        """
+        return pulumi.get(self, "is_active")
+
+
+@pulumi.output_type
 class BotConversationLogSettings(dict):
     """
     Contains information about code hooks that Amazon Lex calls during a conversation.
@@ -896,6 +1089,202 @@ class BotCustomVocabularyItem(dict):
 
 
 @pulumi.output_type
+class BotDefaultConditionalBranch(dict):
+    """
+    A set of actions that Amazon Lex should run if none of the other conditions are met.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextStep":
+            suggest = "next_step"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDefaultConditionalBranch. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDefaultConditionalBranch.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDefaultConditionalBranch.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_step: Optional['outputs.BotDialogState'] = None,
+                 response: Optional['outputs.BotResponseSpecification'] = None):
+        """
+        A set of actions that Amazon Lex should run if none of the other conditions are met.
+        :param 'BotDialogState' next_step: The next step in the conversation.
+        :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter(name="nextStep")
+    def next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        The next step in the conversation.
+        """
+        return pulumi.get(self, "next_step")
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "response")
+
+
+@pulumi.output_type
+class BotDialogAction(dict):
+    """
+    Defines the action that the bot executes at runtime when the conversation reaches this step.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotToElicit":
+            suggest = "slot_to_elicit"
+        elif key == "suppressNextMessage":
+            suggest = "suppress_next_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDialogAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDialogAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDialogAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'BotDialogActionType',
+                 slot_to_elicit: Optional[str] = None,
+                 suppress_next_message: Optional[bool] = None):
+        """
+        Defines the action that the bot executes at runtime when the conversation reaches this step.
+        :param 'BotDialogActionType' type: The action that the bot should execute.
+        :param str slot_to_elicit: If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+        :param bool suppress_next_message: When true the next message for the intent is not used.
+        """
+        pulumi.set(__self__, "type", type)
+        if slot_to_elicit is not None:
+            pulumi.set(__self__, "slot_to_elicit", slot_to_elicit)
+        if suppress_next_message is not None:
+            pulumi.set(__self__, "suppress_next_message", suppress_next_message)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'BotDialogActionType':
+        """
+        The action that the bot should execute.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="slotToElicit")
+    def slot_to_elicit(self) -> Optional[str]:
+        """
+        If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+        """
+        return pulumi.get(self, "slot_to_elicit")
+
+    @property
+    @pulumi.getter(name="suppressNextMessage")
+    def suppress_next_message(self) -> Optional[bool]:
+        """
+        When true the next message for the intent is not used.
+        """
+        return pulumi.get(self, "suppress_next_message")
+
+
+@pulumi.output_type
+class BotDialogCodeHookInvocationSetting(dict):
+    """
+    Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableCodeHookInvocation":
+            suggest = "enable_code_hook_invocation"
+        elif key == "isActive":
+            suggest = "is_active"
+        elif key == "postCodeHookSpecification":
+            suggest = "post_code_hook_specification"
+        elif key == "invocationLabel":
+            suggest = "invocation_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDialogCodeHookInvocationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDialogCodeHookInvocationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDialogCodeHookInvocationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_code_hook_invocation: bool,
+                 is_active: bool,
+                 post_code_hook_specification: 'outputs.BotPostDialogCodeHookInvocationSpecification',
+                 invocation_label: Optional[str] = None):
+        """
+        Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+        :param bool enable_code_hook_invocation: Indicates whether a Lambda function should be invoked for the dialog.
+        :param bool is_active: Determines whether a dialog code hook is used when the intent is activated.
+        :param 'BotPostDialogCodeHookInvocationSpecification' post_code_hook_specification: Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
+        :param str invocation_label: A label that indicates the dialog step from which the dialog code hook is happening.
+        """
+        pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
+        pulumi.set(__self__, "is_active", is_active)
+        pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
+        if invocation_label is not None:
+            pulumi.set(__self__, "invocation_label", invocation_label)
+
+    @property
+    @pulumi.getter(name="enableCodeHookInvocation")
+    def enable_code_hook_invocation(self) -> bool:
+        """
+        Indicates whether a Lambda function should be invoked for the dialog.
+        """
+        return pulumi.get(self, "enable_code_hook_invocation")
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> bool:
+        """
+        Determines whether a dialog code hook is used when the intent is activated.
+        """
+        return pulumi.get(self, "is_active")
+
+    @property
+    @pulumi.getter(name="postCodeHookSpecification")
+    def post_code_hook_specification(self) -> 'outputs.BotPostDialogCodeHookInvocationSpecification':
+        """
+        Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
+        """
+        return pulumi.get(self, "post_code_hook_specification")
+
+    @property
+    @pulumi.getter(name="invocationLabel")
+    def invocation_label(self) -> Optional[str]:
+        """
+        A label that indicates the dialog step from which the dialog code hook is happening.
+        """
+        return pulumi.get(self, "invocation_label")
+
+
+@pulumi.output_type
 class BotDialogCodeHookSetting(dict):
     """
     Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
@@ -911,6 +1300,125 @@ class BotDialogCodeHookSetting(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class BotDialogState(dict):
+    """
+    The current state of the conversation with the user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dialogAction":
+            suggest = "dialog_action"
+        elif key == "sessionAttributes":
+            suggest = "session_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotDialogState. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotDialogState.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotDialogState.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dialog_action: Optional['outputs.BotDialogAction'] = None,
+                 intent: Optional['outputs.BotIntentOverride'] = None,
+                 session_attributes: Optional[Sequence['outputs.BotSessionAttribute']] = None):
+        """
+        The current state of the conversation with the user.
+        :param 'BotDialogAction' dialog_action: Defines the action that the bot executes at runtime when the conversation reaches this step.
+        :param 'BotIntentOverride' intent: Override settings to configure the intent state.
+        :param Sequence['BotSessionAttribute'] session_attributes: List of session attributes to be applied when the conversation reaches this step.
+        """
+        if dialog_action is not None:
+            pulumi.set(__self__, "dialog_action", dialog_action)
+        if intent is not None:
+            pulumi.set(__self__, "intent", intent)
+        if session_attributes is not None:
+            pulumi.set(__self__, "session_attributes", session_attributes)
+
+    @property
+    @pulumi.getter(name="dialogAction")
+    def dialog_action(self) -> Optional['outputs.BotDialogAction']:
+        """
+        Defines the action that the bot executes at runtime when the conversation reaches this step.
+        """
+        return pulumi.get(self, "dialog_action")
+
+    @property
+    @pulumi.getter
+    def intent(self) -> Optional['outputs.BotIntentOverride']:
+        """
+        Override settings to configure the intent state.
+        """
+        return pulumi.get(self, "intent")
+
+    @property
+    @pulumi.getter(name="sessionAttributes")
+    def session_attributes(self) -> Optional[Sequence['outputs.BotSessionAttribute']]:
+        """
+        List of session attributes to be applied when the conversation reaches this step.
+        """
+        return pulumi.get(self, "session_attributes")
+
+
+@pulumi.output_type
+class BotElicitationCodeHookInvocationSetting(dict):
+    """
+    Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableCodeHookInvocation":
+            suggest = "enable_code_hook_invocation"
+        elif key == "invocationLabel":
+            suggest = "invocation_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotElicitationCodeHookInvocationSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotElicitationCodeHookInvocationSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotElicitationCodeHookInvocationSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_code_hook_invocation: bool,
+                 invocation_label: Optional[str] = None):
+        """
+        Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
+        :param bool enable_code_hook_invocation: Indicates whether a Lambda function should be invoked for the dialog.
+        :param str invocation_label: A label that indicates the dialog step from which the dialog code hook is happening.
+        """
+        pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
+        if invocation_label is not None:
+            pulumi.set(__self__, "invocation_label", invocation_label)
+
+    @property
+    @pulumi.getter(name="enableCodeHookInvocation")
+    def enable_code_hook_invocation(self) -> bool:
+        """
+        Indicates whether a Lambda function should be invoked for the dialog.
+        """
+        return pulumi.get(self, "enable_code_hook_invocation")
+
+    @property
+    @pulumi.getter(name="invocationLabel")
+    def invocation_label(self) -> Optional[str]:
+        """
+        A label that indicates the dialog step from which the dialog code hook is happening.
+        """
+        return pulumi.get(self, "invocation_label")
 
 
 @pulumi.output_type
@@ -959,6 +1467,8 @@ class BotFulfillmentCodeHookSetting(dict):
         suggest = None
         if key == "fulfillmentUpdatesSpecification":
             suggest = "fulfillment_updates_specification"
+        elif key == "isActive":
+            suggest = "is_active"
         elif key == "postFulfillmentStatusSpecification":
             suggest = "post_fulfillment_status_specification"
 
@@ -976,13 +1486,17 @@ class BotFulfillmentCodeHookSetting(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  fulfillment_updates_specification: Optional['outputs.BotFulfillmentUpdatesSpecification'] = None,
+                 is_active: Optional[bool] = None,
                  post_fulfillment_status_specification: Optional['outputs.BotPostFulfillmentStatusSpecification'] = None):
         """
         Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
+        :param bool is_active: Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
         """
         pulumi.set(__self__, "enabled", enabled)
         if fulfillment_updates_specification is not None:
             pulumi.set(__self__, "fulfillment_updates_specification", fulfillment_updates_specification)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
         if post_fulfillment_status_specification is not None:
             pulumi.set(__self__, "post_fulfillment_status_specification", post_fulfillment_status_specification)
 
@@ -995,6 +1509,14 @@ class BotFulfillmentCodeHookSetting(dict):
     @pulumi.getter(name="fulfillmentUpdatesSpecification")
     def fulfillment_updates_specification(self) -> Optional['outputs.BotFulfillmentUpdatesSpecification']:
         return pulumi.get(self, "fulfillment_updates_specification")
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[bool]:
+        """
+        Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+        """
+        return pulumi.get(self, "is_active")
 
     @property
     @pulumi.getter(name="postFulfillmentStatusSpecification")
@@ -1358,6 +1880,86 @@ class BotImageResponseCard(dict):
 
 
 @pulumi.output_type
+class BotInitialResponseSetting(dict):
+    """
+    Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeHook":
+            suggest = "code_hook"
+        elif key == "initialResponse":
+            suggest = "initial_response"
+        elif key == "nextStep":
+            suggest = "next_step"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotInitialResponseSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotInitialResponseSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotInitialResponseSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
+                 conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 initial_response: Optional['outputs.BotResponseSpecification'] = None,
+                 next_step: Optional['outputs.BotDialogState'] = None):
+        """
+        Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        :param 'BotDialogCodeHookInvocationSetting' code_hook: Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+        :param 'BotConditionalSpecification' conditional: Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+        :param 'BotResponseSpecification' initial_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotDialogState' next_step: The next step in the conversation.
+        """
+        if code_hook is not None:
+            pulumi.set(__self__, "code_hook", code_hook)
+        if conditional is not None:
+            pulumi.set(__self__, "conditional", conditional)
+        if initial_response is not None:
+            pulumi.set(__self__, "initial_response", initial_response)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
+
+    @property
+    @pulumi.getter(name="codeHook")
+    def code_hook(self) -> Optional['outputs.BotDialogCodeHookInvocationSetting']:
+        """
+        Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+        """
+        return pulumi.get(self, "code_hook")
+
+    @property
+    @pulumi.getter
+    def conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+        """
+        return pulumi.get(self, "conditional")
+
+    @property
+    @pulumi.getter(name="initialResponse")
+    def initial_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "initial_response")
+
+    @property
+    @pulumi.getter(name="nextStep")
+    def next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        The next step in the conversation.
+        """
+        return pulumi.get(self, "next_step")
+
+
+@pulumi.output_type
 class BotInputContext(dict):
     """
     InputContext specified for the intent.
@@ -1382,7 +1984,7 @@ class BotInputContext(dict):
 @pulumi.output_type
 class BotIntent(dict):
     """
-    An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+    Represents an action that the user wants to perform.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1391,6 +1993,8 @@ class BotIntent(dict):
             suggest = "dialog_code_hook"
         elif key == "fulfillmentCodeHook":
             suggest = "fulfillment_code_hook"
+        elif key == "initialResponseSetting":
+            suggest = "initial_response_setting"
         elif key == "inputContexts":
             suggest = "input_contexts"
         elif key == "intentClosingSetting":
@@ -1424,6 +2028,7 @@ class BotIntent(dict):
                  description: Optional[str] = None,
                  dialog_code_hook: Optional['outputs.BotDialogCodeHookSetting'] = None,
                  fulfillment_code_hook: Optional['outputs.BotFulfillmentCodeHookSetting'] = None,
+                 initial_response_setting: Optional['outputs.BotInitialResponseSetting'] = None,
                  input_contexts: Optional[Sequence['outputs.BotInputContext']] = None,
                  intent_closing_setting: Optional['outputs.BotIntentClosingSetting'] = None,
                  intent_confirmation_setting: Optional['outputs.BotIntentConfirmationSetting'] = None,
@@ -1434,7 +2039,11 @@ class BotIntent(dict):
                  slot_priorities: Optional[Sequence['outputs.BotSlotPriority']] = None,
                  slots: Optional[Sequence['outputs.BotSlot']] = None):
         """
-        An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+        Represents an action that the user wants to perform.
+        :param str name: The name of the intent.
+        :param str description: Description of thr intent.
+        :param 'BotInitialResponseSetting' initial_response_setting: Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        :param Sequence['BotSampleUtterance'] sample_utterances: A sample utterance that invokes an intent or respond to a slot elicitation prompt.
         :param Sequence['BotSlot'] slots: List of slots
         """
         pulumi.set(__self__, "name", name)
@@ -1444,6 +2053,8 @@ class BotIntent(dict):
             pulumi.set(__self__, "dialog_code_hook", dialog_code_hook)
         if fulfillment_code_hook is not None:
             pulumi.set(__self__, "fulfillment_code_hook", fulfillment_code_hook)
+        if initial_response_setting is not None:
+            pulumi.set(__self__, "initial_response_setting", initial_response_setting)
         if input_contexts is not None:
             pulumi.set(__self__, "input_contexts", input_contexts)
         if intent_closing_setting is not None:
@@ -1466,11 +2077,17 @@ class BotIntent(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the intent.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Description of thr intent.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -1482,6 +2099,14 @@ class BotIntent(dict):
     @pulumi.getter(name="fulfillmentCodeHook")
     def fulfillment_code_hook(self) -> Optional['outputs.BotFulfillmentCodeHookSetting']:
         return pulumi.get(self, "fulfillment_code_hook")
+
+    @property
+    @pulumi.getter(name="initialResponseSetting")
+    def initial_response_setting(self) -> Optional['outputs.BotInitialResponseSetting']:
+        """
+        Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        """
+        return pulumi.get(self, "initial_response_setting")
 
     @property
     @pulumi.getter(name="inputContexts")
@@ -1516,6 +2141,9 @@ class BotIntent(dict):
     @property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[Sequence['outputs.BotSampleUtterance']]:
+        """
+        A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        """
         return pulumi.get(self, "sample_utterances")
 
     @property
@@ -1535,7 +2163,7 @@ class BotIntent(dict):
 @pulumi.output_type
 class BotIntentClosingSetting(dict):
     """
-    Response that Amazon Lex sends to the user when the intent is closed.
+    Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1544,6 +2172,8 @@ class BotIntentClosingSetting(dict):
             suggest = "closing_response"
         elif key == "isActive":
             suggest = "is_active"
+        elif key == "nextStep":
+            suggest = "next_step"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotIntentClosingSetting. Access the value via the '{suggest}' property getter instead.")
@@ -1557,38 +2187,91 @@ class BotIntentClosingSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 closing_response: 'outputs.BotResponseSpecification',
-                 is_active: Optional[bool] = None):
+                 closing_response: Optional['outputs.BotResponseSpecification'] = None,
+                 conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 is_active: Optional[bool] = None,
+                 next_step: Optional['outputs.BotDialogState'] = None):
         """
-        Response that Amazon Lex sends to the user when the intent is closed.
+        Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+        :param 'BotResponseSpecification' closing_response: The response that Amazon Lex sends to the user when the intent is complete.
+        :param 'BotConditionalSpecification' conditional: A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+        :param bool is_active: Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+        :param 'BotDialogState' next_step: Specifies the next step that the bot executes after playing the intent's closing response.
         """
-        pulumi.set(__self__, "closing_response", closing_response)
+        if closing_response is not None:
+            pulumi.set(__self__, "closing_response", closing_response)
+        if conditional is not None:
+            pulumi.set(__self__, "conditional", conditional)
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
 
     @property
     @pulumi.getter(name="closingResponse")
-    def closing_response(self) -> 'outputs.BotResponseSpecification':
+    def closing_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        The response that Amazon Lex sends to the user when the intent is complete.
+        """
         return pulumi.get(self, "closing_response")
+
+    @property
+    @pulumi.getter
+    def conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+        """
+        return pulumi.get(self, "conditional")
 
     @property
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
+        """
+        Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+        """
         return pulumi.get(self, "is_active")
+
+    @property
+    @pulumi.getter(name="nextStep")
+    def next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot executes after playing the intent's closing response.
+        """
+        return pulumi.get(self, "next_step")
 
 
 @pulumi.output_type
 class BotIntentConfirmationSetting(dict):
     """
-    Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+    Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "declinationResponse":
-            suggest = "declination_response"
-        elif key == "promptSpecification":
+        if key == "promptSpecification":
             suggest = "prompt_specification"
+        elif key == "codeHook":
+            suggest = "code_hook"
+        elif key == "confirmationConditional":
+            suggest = "confirmation_conditional"
+        elif key == "confirmationNextStep":
+            suggest = "confirmation_next_step"
+        elif key == "confirmationResponse":
+            suggest = "confirmation_response"
+        elif key == "declinationConditional":
+            suggest = "declination_conditional"
+        elif key == "declinationNextStep":
+            suggest = "declination_next_step"
+        elif key == "declinationResponse":
+            suggest = "declination_response"
+        elif key == "elicitationCodeHook":
+            suggest = "elicitation_code_hook"
+        elif key == "failureConditional":
+            suggest = "failure_conditional"
+        elif key == "failureNextStep":
+            suggest = "failure_next_step"
+        elif key == "failureResponse":
+            suggest = "failure_response"
         elif key == "isActive":
             suggest = "is_active"
 
@@ -1604,31 +2287,199 @@ class BotIntentConfirmationSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 declination_response: 'outputs.BotResponseSpecification',
                  prompt_specification: 'outputs.BotPromptSpecification',
+                 code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
+                 confirmation_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 confirmation_next_step: Optional['outputs.BotDialogState'] = None,
+                 confirmation_response: Optional['outputs.BotResponseSpecification'] = None,
+                 declination_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 declination_next_step: Optional['outputs.BotDialogState'] = None,
+                 declination_response: Optional['outputs.BotResponseSpecification'] = None,
+                 elicitation_code_hook: Optional['outputs.BotElicitationCodeHookInvocationSetting'] = None,
+                 failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 failure_next_step: Optional['outputs.BotDialogState'] = None,
+                 failure_response: Optional['outputs.BotResponseSpecification'] = None,
                  is_active: Optional[bool] = None):
         """
-        Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+        Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+        :param 'BotPromptSpecification' prompt_specification: Prompts the user to confirm the intent. This question should have a yes or no answer.
+        :param 'BotDialogCodeHookInvocationSetting' code_hook: The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+        :param 'BotConditionalSpecification' confirmation_conditional: A list of conditional branches to evaluate after the intent is closed.
+        :param 'BotDialogState' confirmation_next_step: Specifies the next step that the bot executes when the customer confirms the intent.
+        :param 'BotResponseSpecification' confirmation_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' declination_conditional: A list of conditional branches to evaluate after the intent is declined.
+        :param 'BotDialogState' declination_next_step: Specifies the next step that the bot executes when the customer declines the intent.
+        :param 'BotResponseSpecification' declination_response: When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+        :param 'BotElicitationCodeHookInvocationSetting' elicitation_code_hook: The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+        :param 'BotConditionalSpecification' failure_conditional: Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+        :param 'BotDialogState' failure_next_step: The next step to take in the conversation if the confirmation step fails.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param bool is_active: Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
         """
-        pulumi.set(__self__, "declination_response", declination_response)
         pulumi.set(__self__, "prompt_specification", prompt_specification)
+        if code_hook is not None:
+            pulumi.set(__self__, "code_hook", code_hook)
+        if confirmation_conditional is not None:
+            pulumi.set(__self__, "confirmation_conditional", confirmation_conditional)
+        if confirmation_next_step is not None:
+            pulumi.set(__self__, "confirmation_next_step", confirmation_next_step)
+        if confirmation_response is not None:
+            pulumi.set(__self__, "confirmation_response", confirmation_response)
+        if declination_conditional is not None:
+            pulumi.set(__self__, "declination_conditional", declination_conditional)
+        if declination_next_step is not None:
+            pulumi.set(__self__, "declination_next_step", declination_next_step)
+        if declination_response is not None:
+            pulumi.set(__self__, "declination_response", declination_response)
+        if elicitation_code_hook is not None:
+            pulumi.set(__self__, "elicitation_code_hook", elicitation_code_hook)
+        if failure_conditional is not None:
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
+        if failure_next_step is not None:
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
+        if failure_response is not None:
+            pulumi.set(__self__, "failure_response", failure_response)
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
 
     @property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> 'outputs.BotPromptSpecification':
+        """
+        Prompts the user to confirm the intent. This question should have a yes or no answer.
+        """
+        return pulumi.get(self, "prompt_specification")
+
+    @property
+    @pulumi.getter(name="codeHook")
+    def code_hook(self) -> Optional['outputs.BotDialogCodeHookInvocationSetting']:
+        """
+        The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+        """
+        return pulumi.get(self, "code_hook")
+
+    @property
+    @pulumi.getter(name="confirmationConditional")
+    def confirmation_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the intent is closed.
+        """
+        return pulumi.get(self, "confirmation_conditional")
+
+    @property
+    @pulumi.getter(name="confirmationNextStep")
+    def confirmation_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot executes when the customer confirms the intent.
+        """
+        return pulumi.get(self, "confirmation_next_step")
+
+    @property
+    @pulumi.getter(name="confirmationResponse")
+    def confirmation_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "confirmation_response")
+
+    @property
+    @pulumi.getter(name="declinationConditional")
+    def declination_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the intent is declined.
+        """
+        return pulumi.get(self, "declination_conditional")
+
+    @property
+    @pulumi.getter(name="declinationNextStep")
+    def declination_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot executes when the customer declines the intent.
+        """
+        return pulumi.get(self, "declination_next_step")
+
+    @property
     @pulumi.getter(name="declinationResponse")
-    def declination_response(self) -> 'outputs.BotResponseSpecification':
+    def declination_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+        """
         return pulumi.get(self, "declination_response")
 
     @property
-    @pulumi.getter(name="promptSpecification")
-    def prompt_specification(self) -> 'outputs.BotPromptSpecification':
-        return pulumi.get(self, "prompt_specification")
+    @pulumi.getter(name="elicitationCodeHook")
+    def elicitation_code_hook(self) -> Optional['outputs.BotElicitationCodeHookInvocationSetting']:
+        """
+        The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+        """
+        return pulumi.get(self, "elicitation_code_hook")
+
+    @property
+    @pulumi.getter(name="failureConditional")
+    def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+        """
+        return pulumi.get(self, "failure_conditional")
+
+    @property
+    @pulumi.getter(name="failureNextStep")
+    def failure_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        The next step to take in the conversation if the confirmation step fails.
+        """
+        return pulumi.get(self, "failure_next_step")
+
+    @property
+    @pulumi.getter(name="failureResponse")
+    def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "failure_response")
 
     @property
     @pulumi.getter(name="isActive")
     def is_active(self) -> Optional[bool]:
+        """
+        Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+        """
         return pulumi.get(self, "is_active")
+
+
+@pulumi.output_type
+class BotIntentOverride(dict):
+    """
+    Override settings to configure the intent state.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 slots: Optional[Sequence['outputs.BotSlotValueOverrideMap']] = None):
+        """
+        Override settings to configure the intent state.
+        :param str name: The name of the intent. Only required when you're switching intents.
+        :param Sequence['BotSlotValueOverrideMap'] slots: A map of all of the slot value overrides for the intent.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if slots is not None:
+            pulumi.set(__self__, "slots", slots)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the intent. Only required when you're switching intents.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def slots(self) -> Optional[Sequence['outputs.BotSlotValueOverrideMap']]:
+        """
+        A map of all of the slot value overrides for the intent.
+        """
+        return pulumi.get(self, "slots")
 
 
 @pulumi.output_type
@@ -2033,17 +2884,181 @@ class BotPlainTextMessage(dict):
 
 
 @pulumi.output_type
-class BotPostFulfillmentStatusSpecification(dict):
+class BotPostDialogCodeHookInvocationSpecification(dict):
     """
-    Provides information for updating the user on the progress of fulfilling an intent.
+    Specifies next steps to run after the dialog code hook finishes.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "failureResponse":
+        if key == "failureConditional":
+            suggest = "failure_conditional"
+        elif key == "failureNextStep":
+            suggest = "failure_next_step"
+        elif key == "failureResponse":
             suggest = "failure_response"
+        elif key == "successConditional":
+            suggest = "success_conditional"
+        elif key == "successNextStep":
+            suggest = "success_next_step"
         elif key == "successResponse":
             suggest = "success_response"
+        elif key == "timeoutConditional":
+            suggest = "timeout_conditional"
+        elif key == "timeoutNextStep":
+            suggest = "timeout_next_step"
+        elif key == "timeoutResponse":
+            suggest = "timeout_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotPostDialogCodeHookInvocationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotPostDialogCodeHookInvocationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotPostDialogCodeHookInvocationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 failure_next_step: Optional['outputs.BotDialogState'] = None,
+                 failure_response: Optional['outputs.BotResponseSpecification'] = None,
+                 success_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 success_next_step: Optional['outputs.BotDialogState'] = None,
+                 success_response: Optional['outputs.BotResponseSpecification'] = None,
+                 timeout_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 timeout_next_step: Optional['outputs.BotDialogState'] = None,
+                 timeout_response: Optional['outputs.BotResponseSpecification'] = None):
+        """
+        Specifies next steps to run after the dialog code hook finishes.
+        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' success_conditional: A list of conditional branches to evaluate after the dialog code hook finishes successfully.
+        :param 'BotDialogState' success_next_step: Specifics the next step the bot runs after the dialog code hook finishes successfully.
+        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' timeout_conditional: A list of conditional branches to evaluate if the code hook times out.
+        :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the code hook times out.
+        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        if failure_conditional is not None:
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
+        if failure_next_step is not None:
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
+        if failure_response is not None:
+            pulumi.set(__self__, "failure_response", failure_response)
+        if success_conditional is not None:
+            pulumi.set(__self__, "success_conditional", success_conditional)
+        if success_next_step is not None:
+            pulumi.set(__self__, "success_next_step", success_next_step)
+        if success_response is not None:
+            pulumi.set(__self__, "success_response", success_response)
+        if timeout_conditional is not None:
+            pulumi.set(__self__, "timeout_conditional", timeout_conditional)
+        if timeout_next_step is not None:
+            pulumi.set(__self__, "timeout_next_step", timeout_next_step)
+        if timeout_response is not None:
+            pulumi.set(__self__, "timeout_response", timeout_response)
+
+    @property
+    @pulumi.getter(name="failureConditional")
+    def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        """
+        return pulumi.get(self, "failure_conditional")
+
+    @property
+    @pulumi.getter(name="failureNextStep")
+    def failure_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        """
+        return pulumi.get(self, "failure_next_step")
+
+    @property
+    @pulumi.getter(name="failureResponse")
+    def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "failure_response")
+
+    @property
+    @pulumi.getter(name="successConditional")
+    def success_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the dialog code hook finishes successfully.
+        """
+        return pulumi.get(self, "success_conditional")
+
+    @property
+    @pulumi.getter(name="successNextStep")
+    def success_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifics the next step the bot runs after the dialog code hook finishes successfully.
+        """
+        return pulumi.get(self, "success_next_step")
+
+    @property
+    @pulumi.getter(name="successResponse")
+    def success_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "success_response")
+
+    @property
+    @pulumi.getter(name="timeoutConditional")
+    def timeout_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate if the code hook times out.
+        """
+        return pulumi.get(self, "timeout_conditional")
+
+    @property
+    @pulumi.getter(name="timeoutNextStep")
+    def timeout_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot runs when the code hook times out.
+        """
+        return pulumi.get(self, "timeout_next_step")
+
+    @property
+    @pulumi.getter(name="timeoutResponse")
+    def timeout_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "timeout_response")
+
+
+@pulumi.output_type
+class BotPostFulfillmentStatusSpecification(dict):
+    """
+    Provides a setting that determines whether the post-fulfillment response is sent to the user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureConditional":
+            suggest = "failure_conditional"
+        elif key == "failureNextStep":
+            suggest = "failure_next_step"
+        elif key == "failureResponse":
+            suggest = "failure_response"
+        elif key == "successConditional":
+            suggest = "success_conditional"
+        elif key == "successNextStep":
+            suggest = "success_next_step"
+        elif key == "successResponse":
+            suggest = "success_response"
+        elif key == "timeoutConditional":
+            suggest = "timeout_conditional"
+        elif key == "timeoutNextStep":
+            suggest = "timeout_next_step"
         elif key == "timeoutResponse":
             suggest = "timeout_response"
 
@@ -2059,32 +3074,116 @@ class BotPostFulfillmentStatusSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 failure_next_step: Optional['outputs.BotDialogState'] = None,
                  failure_response: Optional['outputs.BotResponseSpecification'] = None,
+                 success_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 success_next_step: Optional['outputs.BotDialogState'] = None,
                  success_response: Optional['outputs.BotResponseSpecification'] = None,
+                 timeout_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 timeout_next_step: Optional['outputs.BotDialogState'] = None,
                  timeout_response: Optional['outputs.BotResponseSpecification'] = None):
         """
-        Provides information for updating the user on the progress of fulfilling an intent.
+        Provides a setting that determines whether the post-fulfillment response is sent to the user.
+        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        :param 'BotDialogState' failure_next_step: Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' success_conditional: A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+        :param 'BotDialogState' success_next_step: Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+        :param 'BotResponseSpecification' success_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotConditionalSpecification' timeout_conditional: A list of conditional branches to evaluate if the fulfillment code hook times out.
+        :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the fulfillment code hook times out.
+        :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
+        if failure_conditional is not None:
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
+        if failure_next_step is not None:
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
             pulumi.set(__self__, "failure_response", failure_response)
+        if success_conditional is not None:
+            pulumi.set(__self__, "success_conditional", success_conditional)
+        if success_next_step is not None:
+            pulumi.set(__self__, "success_next_step", success_next_step)
         if success_response is not None:
             pulumi.set(__self__, "success_response", success_response)
+        if timeout_conditional is not None:
+            pulumi.set(__self__, "timeout_conditional", timeout_conditional)
+        if timeout_next_step is not None:
+            pulumi.set(__self__, "timeout_next_step", timeout_next_step)
         if timeout_response is not None:
             pulumi.set(__self__, "timeout_response", timeout_response)
 
     @property
+    @pulumi.getter(name="failureConditional")
+    def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        """
+        return pulumi.get(self, "failure_conditional")
+
+    @property
+    @pulumi.getter(name="failureNextStep")
+    def failure_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        """
+        return pulumi.get(self, "failure_next_step")
+
+    @property
     @pulumi.getter(name="failureResponse")
     def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
         return pulumi.get(self, "failure_response")
+
+    @property
+    @pulumi.getter(name="successConditional")
+    def success_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+        """
+        return pulumi.get(self, "success_conditional")
+
+    @property
+    @pulumi.getter(name="successNextStep")
+    def success_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+        """
+        return pulumi.get(self, "success_next_step")
 
     @property
     @pulumi.getter(name="successResponse")
     def success_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
         return pulumi.get(self, "success_response")
+
+    @property
+    @pulumi.getter(name="timeoutConditional")
+    def timeout_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate if the fulfillment code hook times out.
+        """
+        return pulumi.get(self, "timeout_conditional")
+
+    @property
+    @pulumi.getter(name="timeoutNextStep")
+    def timeout_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot runs when the fulfillment code hook times out.
+        """
+        return pulumi.get(self, "timeout_next_step")
 
     @property
     @pulumi.getter(name="timeoutResponse")
     def timeout_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
         return pulumi.get(self, "timeout_response")
 
 
@@ -2414,6 +3513,32 @@ class BotSampleValue(dict):
 
 
 @pulumi.output_type
+class BotSessionAttribute(dict):
+    """
+    Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class BotSlot(dict):
     """
     A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
@@ -2490,6 +3615,144 @@ class BotSlot(dict):
     @pulumi.getter(name="obfuscationSetting")
     def obfuscation_setting(self) -> Optional['outputs.BotObfuscationSetting']:
         return pulumi.get(self, "obfuscation_setting")
+
+
+@pulumi.output_type
+class BotSlotCaptureSetting(dict):
+    """
+    Settings used when Amazon Lex successfully captures a slot value from a user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureConditional":
+            suggest = "capture_conditional"
+        elif key == "captureNextStep":
+            suggest = "capture_next_step"
+        elif key == "captureResponse":
+            suggest = "capture_response"
+        elif key == "codeHook":
+            suggest = "code_hook"
+        elif key == "elicitationCodeHook":
+            suggest = "elicitation_code_hook"
+        elif key == "failureConditional":
+            suggest = "failure_conditional"
+        elif key == "failureNextStep":
+            suggest = "failure_next_step"
+        elif key == "failureResponse":
+            suggest = "failure_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSlotCaptureSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSlotCaptureSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSlotCaptureSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 capture_next_step: Optional['outputs.BotDialogState'] = None,
+                 capture_response: Optional['outputs.BotResponseSpecification'] = None,
+                 code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
+                 elicitation_code_hook: Optional['outputs.BotElicitationCodeHookInvocationSetting'] = None,
+                 failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
+                 failure_next_step: Optional['outputs.BotDialogState'] = None,
+                 failure_response: Optional['outputs.BotResponseSpecification'] = None):
+        """
+        Settings used when Amazon Lex successfully captures a slot value from a user.
+        :param 'BotConditionalSpecification' capture_conditional: A list of conditional branches to evaluate after the slot value is captured.
+        :param 'BotDialogState' capture_next_step: Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
+        :param 'BotResponseSpecification' capture_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        :param 'BotDialogCodeHookInvocationSetting' code_hook: Code hook called after Amazon Lex successfully captures a slot value.
+        :param 'BotElicitationCodeHookInvocationSetting' elicitation_code_hook: Code hook called when Amazon Lex doesn't capture a slot value.
+        :param 'BotConditionalSpecification' failure_conditional: A list of conditional branches to evaluate when the slot value isn't captured.
+        :param 'BotDialogState' failure_next_step: Specifies the next step that the bot runs when the slot value code is not recognized.
+        :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        if capture_conditional is not None:
+            pulumi.set(__self__, "capture_conditional", capture_conditional)
+        if capture_next_step is not None:
+            pulumi.set(__self__, "capture_next_step", capture_next_step)
+        if capture_response is not None:
+            pulumi.set(__self__, "capture_response", capture_response)
+        if code_hook is not None:
+            pulumi.set(__self__, "code_hook", code_hook)
+        if elicitation_code_hook is not None:
+            pulumi.set(__self__, "elicitation_code_hook", elicitation_code_hook)
+        if failure_conditional is not None:
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
+        if failure_next_step is not None:
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
+        if failure_response is not None:
+            pulumi.set(__self__, "failure_response", failure_response)
+
+    @property
+    @pulumi.getter(name="captureConditional")
+    def capture_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate after the slot value is captured.
+        """
+        return pulumi.get(self, "capture_conditional")
+
+    @property
+    @pulumi.getter(name="captureNextStep")
+    def capture_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
+        """
+        return pulumi.get(self, "capture_next_step")
+
+    @property
+    @pulumi.getter(name="captureResponse")
+    def capture_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "capture_response")
+
+    @property
+    @pulumi.getter(name="codeHook")
+    def code_hook(self) -> Optional['outputs.BotDialogCodeHookInvocationSetting']:
+        """
+        Code hook called after Amazon Lex successfully captures a slot value.
+        """
+        return pulumi.get(self, "code_hook")
+
+    @property
+    @pulumi.getter(name="elicitationCodeHook")
+    def elicitation_code_hook(self) -> Optional['outputs.BotElicitationCodeHookInvocationSetting']:
+        """
+        Code hook called when Amazon Lex doesn't capture a slot value.
+        """
+        return pulumi.get(self, "elicitation_code_hook")
+
+    @property
+    @pulumi.getter(name="failureConditional")
+    def failure_conditional(self) -> Optional['outputs.BotConditionalSpecification']:
+        """
+        A list of conditional branches to evaluate when the slot value isn't captured.
+        """
+        return pulumi.get(self, "failure_conditional")
+
+    @property
+    @pulumi.getter(name="failureNextStep")
+    def failure_next_step(self) -> Optional['outputs.BotDialogState']:
+        """
+        Specifies the next step that the bot runs when the slot value code is not recognized.
+        """
+        return pulumi.get(self, "failure_next_step")
+
+    @property
+    @pulumi.getter(name="failureResponse")
+    def failure_response(self) -> Optional['outputs.BotResponseSpecification']:
+        """
+        Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        """
+        return pulumi.get(self, "failure_response")
 
 
 @pulumi.output_type
@@ -2741,6 +4004,46 @@ class BotSlotTypeValue(dict):
 
 
 @pulumi.output_type
+class BotSlotValue(dict):
+    """
+    The value to set in a slot.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interpretedValue":
+            suggest = "interpreted_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSlotValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSlotValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSlotValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interpreted_value: Optional[str] = None):
+        """
+        The value to set in a slot.
+        :param str interpreted_value: The value that Amazon Lex determines for the slot.
+        """
+        if interpreted_value is not None:
+            pulumi.set(__self__, "interpreted_value", interpreted_value)
+
+    @property
+    @pulumi.getter(name="interpretedValue")
+    def interpreted_value(self) -> Optional[str]:
+        """
+        The value that Amazon Lex determines for the slot.
+        """
+        return pulumi.get(self, "interpreted_value")
+
+
+@pulumi.output_type
 class BotSlotValueElicitationSetting(dict):
     """
     Settings that you can use for eliciting a slot value.
@@ -2756,6 +4059,8 @@ class BotSlotValueElicitationSetting(dict):
             suggest = "prompt_specification"
         elif key == "sampleUtterances":
             suggest = "sample_utterances"
+        elif key == "slotCaptureSetting":
+            suggest = "slot_capture_setting"
         elif key == "waitAndContinueSpecification":
             suggest = "wait_and_continue_specification"
 
@@ -2775,6 +4080,7 @@ class BotSlotValueElicitationSetting(dict):
                  default_value_specification: Optional['outputs.BotSlotDefaultValueSpecification'] = None,
                  prompt_specification: Optional['outputs.BotPromptSpecification'] = None,
                  sample_utterances: Optional[Sequence['outputs.BotSampleUtterance']] = None,
+                 slot_capture_setting: Optional['outputs.BotSlotCaptureSetting'] = None,
                  wait_and_continue_specification: Optional['outputs.BotWaitAndContinueSpecification'] = None):
         """
         Settings that you can use for eliciting a slot value.
@@ -2782,6 +4088,7 @@ class BotSlotValueElicitationSetting(dict):
         :param 'BotSlotDefaultValueSpecification' default_value_specification: A list of default values for a slot.
         :param 'BotPromptSpecification' prompt_specification: The prompt that Amazon Lex uses to elicit the slot value from the user.
         :param Sequence['BotSampleUtterance'] sample_utterances: If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy.
+        :param 'BotSlotCaptureSetting' slot_capture_setting: Specifies the next stage in the conversation after capturing the slot.
         :param 'BotWaitAndContinueSpecification' wait_and_continue_specification: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
         """
         pulumi.set(__self__, "slot_constraint", slot_constraint)
@@ -2791,6 +4098,8 @@ class BotSlotValueElicitationSetting(dict):
             pulumi.set(__self__, "prompt_specification", prompt_specification)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
+        if slot_capture_setting is not None:
+            pulumi.set(__self__, "slot_capture_setting", slot_capture_setting)
         if wait_and_continue_specification is not None:
             pulumi.set(__self__, "wait_and_continue_specification", wait_and_continue_specification)
 
@@ -2827,12 +4136,113 @@ class BotSlotValueElicitationSetting(dict):
         return pulumi.get(self, "sample_utterances")
 
     @property
+    @pulumi.getter(name="slotCaptureSetting")
+    def slot_capture_setting(self) -> Optional['outputs.BotSlotCaptureSetting']:
+        """
+        Specifies the next stage in the conversation after capturing the slot.
+        """
+        return pulumi.get(self, "slot_capture_setting")
+
+    @property
     @pulumi.getter(name="waitAndContinueSpecification")
     def wait_and_continue_specification(self) -> Optional['outputs.BotWaitAndContinueSpecification']:
         """
         Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
         """
         return pulumi.get(self, "wait_and_continue_specification")
+
+
+@pulumi.output_type
+class BotSlotValueOverride(dict):
+    """
+    The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+    """
+    def __init__(__self__, *,
+                 shape: Optional['BotSlotShape'] = None,
+                 value: Optional['outputs.BotSlotValue'] = None,
+                 values: Optional[Sequence['outputs.BotSlotValueOverride']] = None):
+        """
+        The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+        :param 'BotSlotShape' shape: When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+        :param 'BotSlotValue' value: The current value of the slot.
+        :param Sequence['BotSlotValueOverride'] values: A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
+        """
+        if shape is not None:
+            pulumi.set(__self__, "shape", shape)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def shape(self) -> Optional['BotSlotShape']:
+        """
+        When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+        """
+        return pulumi.get(self, "shape")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.BotSlotValue']:
+        """
+        The current value of the slot.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.BotSlotValueOverride']]:
+        """
+        A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class BotSlotValueOverrideMap(dict):
+    """
+    A map of slot names and their overridden values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "slotName":
+            suggest = "slot_name"
+        elif key == "slotValueOverride":
+            suggest = "slot_value_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotSlotValueOverrideMap. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotSlotValueOverrideMap.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotSlotValueOverrideMap.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 slot_name: Optional[str] = None,
+                 slot_value_override: Optional['outputs.BotSlotValueOverride'] = None):
+        """
+        A map of slot names and their overridden values.
+        """
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+        if slot_value_override is not None:
+            pulumi.set(__self__, "slot_value_override", slot_value_override)
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[str]:
+        return pulumi.get(self, "slot_name")
+
+    @property
+    @pulumi.getter(name="slotValueOverride")
+    def slot_value_override(self) -> Optional['outputs.BotSlotValueOverride']:
+        return pulumi.get(self, "slot_value_override")
 
 
 @pulumi.output_type

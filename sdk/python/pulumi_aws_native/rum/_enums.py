@@ -5,9 +5,15 @@
 from enum import Enum
 
 __all__ = [
+    'AppMonitorCustomEventsStatus',
     'AppMonitorMetricDestinationDestination',
     'AppMonitorTelemetry',
 ]
+
+
+class AppMonitorCustomEventsStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class AppMonitorMetricDestinationDestination(str, Enum):

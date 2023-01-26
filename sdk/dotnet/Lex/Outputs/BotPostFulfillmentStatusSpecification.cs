@@ -11,25 +11,76 @@ namespace Pulumi.AwsNative.Lex.Outputs
 {
 
     /// <summary>
-    /// Provides information for updating the user on the progress of fulfilling an intent.
+    /// Provides a setting that determines whether the post-fulfillment response is sent to the user.
     /// </summary>
     [OutputType]
     public sealed class BotPostFulfillmentStatusSpecification
     {
+        /// <summary>
+        /// A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// </summary>
+        public readonly Outputs.BotConditionalSpecification? FailureConditional;
+        /// <summary>
+        /// Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+        /// </summary>
+        public readonly Outputs.BotDialogState? FailureNextStep;
+        /// <summary>
+        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// </summary>
         public readonly Outputs.BotResponseSpecification? FailureResponse;
+        /// <summary>
+        /// A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+        /// </summary>
+        public readonly Outputs.BotConditionalSpecification? SuccessConditional;
+        /// <summary>
+        /// Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+        /// </summary>
+        public readonly Outputs.BotDialogState? SuccessNextStep;
+        /// <summary>
+        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// </summary>
         public readonly Outputs.BotResponseSpecification? SuccessResponse;
+        /// <summary>
+        /// A list of conditional branches to evaluate if the fulfillment code hook times out.
+        /// </summary>
+        public readonly Outputs.BotConditionalSpecification? TimeoutConditional;
+        /// <summary>
+        /// Specifies the next step that the bot runs when the fulfillment code hook times out.
+        /// </summary>
+        public readonly Outputs.BotDialogState? TimeoutNextStep;
+        /// <summary>
+        /// Specifies a list of message groups that Amazon Lex uses to respond the user input.
+        /// </summary>
         public readonly Outputs.BotResponseSpecification? TimeoutResponse;
 
         [OutputConstructor]
         private BotPostFulfillmentStatusSpecification(
+            Outputs.BotConditionalSpecification? failureConditional,
+
+            Outputs.BotDialogState? failureNextStep,
+
             Outputs.BotResponseSpecification? failureResponse,
+
+            Outputs.BotConditionalSpecification? successConditional,
+
+            Outputs.BotDialogState? successNextStep,
 
             Outputs.BotResponseSpecification? successResponse,
 
+            Outputs.BotConditionalSpecification? timeoutConditional,
+
+            Outputs.BotDialogState? timeoutNextStep,
+
             Outputs.BotResponseSpecification? timeoutResponse)
         {
+            FailureConditional = failureConditional;
+            FailureNextStep = failureNextStep;
             FailureResponse = failureResponse;
+            SuccessConditional = successConditional;
+            SuccessNextStep = successNextStep;
             SuccessResponse = successResponse;
+            TimeoutConditional = timeoutConditional;
+            TimeoutNextStep = timeoutNextStep;
             TimeoutResponse = timeoutResponse;
         }
     }

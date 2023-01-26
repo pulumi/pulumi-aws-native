@@ -20,6 +20,7 @@ class ImageArgs:
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input['ImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None):
@@ -29,6 +30,7 @@ class ImageArgs:
         :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+        :param pulumi.Input['ImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input['ImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param Any tags: The tags associated with the image.
@@ -41,6 +43,8 @@ class ImageArgs:
             pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
         if image_recipe_arn is not None:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        if image_scanning_configuration is not None:
+            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tests_configuration is not None:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
@@ -97,6 +101,18 @@ class ImageArgs:
         pulumi.set(self, "image_recipe_arn", value)
 
     @property
+    @pulumi.getter(name="imageScanningConfiguration")
+    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImageScanningConfigurationArgs']]:
+        """
+        Contains settings for vulnerability scans.
+        """
+        return pulumi.get(self, "image_scanning_configuration")
+
+    @image_scanning_configuration.setter
+    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImageScanningConfigurationArgs']]):
+        pulumi.set(self, "image_scanning_configuration", value)
+
+    @property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional[pulumi.Input['ImageTestsConfigurationArgs']]:
         """
@@ -142,6 +158,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -155,6 +172,7 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: The Amazon Resource Name (ARN) of the distribution configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Collects additional information about the image being created, including the operating system (OS) version and package list.
         :param pulumi.Input[str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
+        :param pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']] image_scanning_configuration: Contains settings for vulnerability scans.
         :param pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']] image_tests_configuration: The image tests configuration used when creating this image.
         :param pulumi.Input[str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration.
         :param Any tags: The tags associated with the image.
@@ -187,6 +205,7 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageScanningConfigurationArgs']]] = None,
                  image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageTestsConfigurationArgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
@@ -203,6 +222,7 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
+            __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["tags"] = tags
@@ -238,6 +258,7 @@ class Image(pulumi.CustomResource):
         __props__.__dict__["enhanced_image_metadata_enabled"] = None
         __props__.__dict__["image_id"] = None
         __props__.__dict__["image_recipe_arn"] = None
+        __props__.__dict__["image_scanning_configuration"] = None
         __props__.__dict__["image_tests_configuration"] = None
         __props__.__dict__["image_uri"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
@@ -292,6 +313,14 @@ class Image(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         """
         return pulumi.get(self, "image_recipe_arn")
+
+    @property
+    @pulumi.getter(name="imageScanningConfiguration")
+    def image_scanning_configuration(self) -> pulumi.Output[Optional['outputs.ImageScanningConfiguration']]:
+        """
+        Contains settings for vulnerability scans.
+        """
+        return pulumi.get(self, "image_scanning_configuration")
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")

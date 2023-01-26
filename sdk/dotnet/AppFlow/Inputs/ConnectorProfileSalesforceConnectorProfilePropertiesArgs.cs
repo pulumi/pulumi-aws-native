@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("instanceUrl")]
         public Input<string>? InstanceUrl { get; set; }
 
+        /// <summary>
+        /// Indicates whether the connector profile applies to a sandbox or production environment
+        /// </summary>
         [Input("isSandboxEnvironment")]
         public Input<bool>? IsSandboxEnvironment { get; set; }
 

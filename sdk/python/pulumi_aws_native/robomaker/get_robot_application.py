@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRobotApplicationResult:
-    def __init__(__self__, arn=None, current_revision_id=None, environment=None, robot_software_suite=None, sources=None, tags=None):
+    def __init__(__self__, arn=None, current_revision_id=None, environment=None, robot_software_suite=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -33,9 +33,6 @@ class GetRobotApplicationResult:
         if robot_software_suite and not isinstance(robot_software_suite, dict):
             raise TypeError("Expected argument 'robot_software_suite' to be a dict")
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
-        if sources and not isinstance(sources, list):
-            raise TypeError("Expected argument 'sources' to be a list")
-        pulumi.set(__self__, "sources", sources)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,14 +65,6 @@ class GetRobotApplicationResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[Sequence['outputs.RobotApplicationSourceConfig']]:
-        """
-        The sources of the robot application.
-        """
-        return pulumi.get(self, "sources")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional['outputs.RobotApplicationTags']:
         return pulumi.get(self, "tags")
 
@@ -90,14 +79,13 @@ class AwaitableGetRobotApplicationResult(GetRobotApplicationResult):
             current_revision_id=self.current_revision_id,
             environment=self.environment,
             robot_software_suite=self.robot_software_suite,
-            sources=self.sources,
             tags=self.tags)
 
 
 def get_robot_application(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRobotApplicationResult:
     """
-    AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+    This schema is for testing purpose only.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -109,7 +97,6 @@ def get_robot_application(arn: Optional[str] = None,
         current_revision_id=__ret__.current_revision_id,
         environment=__ret__.environment,
         robot_software_suite=__ret__.robot_software_suite,
-        sources=__ret__.sources,
         tags=__ret__.tags)
 
 
@@ -117,6 +104,6 @@ def get_robot_application(arn: Optional[str] = None,
 def get_robot_application_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationResult]:
     """
-    AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+    This schema is for testing purpose only.
     """
     ...

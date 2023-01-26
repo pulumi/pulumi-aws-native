@@ -1197,14 +1197,17 @@ _utilities.register(
   "mod": "connect",
   "fqn": "pulumi_aws_native.connect",
   "classes": {
+   "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
    "aws-native:connect:Instance": "Instance",
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
+   "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
    "aws-native:connect:QuickConnect": "QuickConnect",
    "aws-native:connect:Rule": "Rule",
+   "aws-native:connect:SecurityKey": "SecurityKey",
    "aws-native:connect:TaskTemplate": "TaskTemplate",
    "aws-native:connect:User": "User",
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup"

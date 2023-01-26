@@ -7,9 +7,11 @@ from enum import Enum
 __all__ = [
     'BotAliasStatus',
     'BotAudioRecognitionStrategy',
+    'BotDialogActionType',
     'BotMessageSelectionStrategy',
     'BotObfuscationSettingObfuscationSettingType',
     'BotSlotConstraint',
+    'BotSlotShape',
     'BotSlotValueResolutionStrategy',
     'BotVoiceSettingsEngine',
 ]
@@ -27,6 +29,21 @@ class BotAudioRecognitionStrategy(str, Enum):
     Enables using slot values as a custom vocabulary when recognizing user utterances.
     """
     USE_SLOT_VALUES_AS_CUSTOM_VOCABULARY = "UseSlotValuesAsCustomVocabulary"
+
+
+class BotDialogActionType(str, Enum):
+    """
+    The possible values of actions that the conversation can take.
+    """
+    CLOSE_INTENT = "CloseIntent"
+    CONFIRM_INTENT = "ConfirmIntent"
+    ELICIT_INTENT = "ElicitIntent"
+    ELICIT_SLOT = "ElicitSlot"
+    START_INTENT = "StartIntent"
+    FULFILL_INTENT = "FulfillIntent"
+    END_CONVERSATION = "EndConversation"
+    EVALUATE_CONDITIONAL = "EvaluateConditional"
+    INVOKE_DIALOG_CODE_HOOK = "InvokeDialogCodeHook"
 
 
 class BotMessageSelectionStrategy(str, Enum):
@@ -48,6 +65,14 @@ class BotObfuscationSettingObfuscationSettingType(str, Enum):
 class BotSlotConstraint(str, Enum):
     REQUIRED = "Required"
     OPTIONAL = "Optional"
+
+
+class BotSlotShape(str, Enum):
+    """
+    The different shapes that a slot can be in during a conversation.
+    """
+    SCALAR = "Scalar"
+    LIST = "List"
 
 
 class BotSlotValueResolutionStrategy(str, Enum):

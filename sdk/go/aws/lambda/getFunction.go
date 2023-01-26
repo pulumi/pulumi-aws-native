@@ -59,6 +59,8 @@ type LookupFunctionResult struct {
 	Role *string `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime *string `pulumi:"runtime"`
+	// RuntimeManagementConfig
+	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
 	// The SnapStart setting of your function
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// The SnapStart response of your function
@@ -191,6 +193,11 @@ func (o LookupFunctionResultOutput) Role() pulumi.StringPtrOutput {
 // The identifier of the function's runtime.
 func (o LookupFunctionResultOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// RuntimeManagementConfig
+func (o LookupFunctionResultOutput) RuntimeManagementConfig() FunctionRuntimeManagementConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionRuntimeManagementConfig { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
 // The SnapStart setting of your function

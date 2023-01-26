@@ -162,6 +162,38 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// Trigger for runtime update
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionRuntimeManagementConfigUpdateRuntimeOn : IEquatable<FunctionRuntimeManagementConfigUpdateRuntimeOn>
+    {
+        private readonly string _value;
+
+        private FunctionRuntimeManagementConfigUpdateRuntimeOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionRuntimeManagementConfigUpdateRuntimeOn Auto { get; } = new FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto");
+        public static FunctionRuntimeManagementConfigUpdateRuntimeOn FunctionUpdate { get; } = new FunctionRuntimeManagementConfigUpdateRuntimeOn("FunctionUpdate");
+        public static FunctionRuntimeManagementConfigUpdateRuntimeOn Manual { get; } = new FunctionRuntimeManagementConfigUpdateRuntimeOn("Manual");
+
+        public static bool operator ==(FunctionRuntimeManagementConfigUpdateRuntimeOn left, FunctionRuntimeManagementConfigUpdateRuntimeOn right) => left.Equals(right);
+        public static bool operator !=(FunctionRuntimeManagementConfigUpdateRuntimeOn left, FunctionRuntimeManagementConfigUpdateRuntimeOn right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionRuntimeManagementConfigUpdateRuntimeOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionRuntimeManagementConfigUpdateRuntimeOn other && Equals(other);
+        public bool Equals(FunctionRuntimeManagementConfigUpdateRuntimeOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Applying SnapStart setting on function resource type.
     /// </summary>
     [EnumType]

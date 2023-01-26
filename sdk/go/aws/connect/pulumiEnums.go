@@ -1531,6 +1531,171 @@ func (in *instanceStorageConfigStorageTypePtr) ToInstanceStorageConfigStorageTyp
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceStorageConfigStorageTypePtrOutput)
 }
 
+// Specifies the integration type to be associated with the instance
+type IntegrationAssociationIntegrationType string
+
+const (
+	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
+	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
+)
+
+func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAssociationIntegrationType)(nil)).Elem()
+}
+
+func (e IntegrationAssociationIntegrationType) ToIntegrationAssociationIntegrationTypeOutput() IntegrationAssociationIntegrationTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationAssociationIntegrationTypeOutput)
+}
+
+func (e IntegrationAssociationIntegrationType) ToIntegrationAssociationIntegrationTypeOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationAssociationIntegrationTypeOutput)
+}
+
+func (e IntegrationAssociationIntegrationType) ToIntegrationAssociationIntegrationTypePtrOutput() IntegrationAssociationIntegrationTypePtrOutput {
+	return e.ToIntegrationAssociationIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationAssociationIntegrationType) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
+	return IntegrationAssociationIntegrationType(e).ToIntegrationAssociationIntegrationTypeOutputWithContext(ctx).ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationAssociationIntegrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationAssociationIntegrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationAssociationIntegrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationAssociationIntegrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationAssociationIntegrationTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAssociationIntegrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAssociationIntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationIntegrationTypeOutput() IntegrationAssociationIntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationIntegrationTypeOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypeOutput {
+	return o
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationIntegrationTypePtrOutput() IntegrationAssociationIntegrationTypePtrOutput {
+	return o.ToIntegrationAssociationIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAssociationIntegrationType) *IntegrationAssociationIntegrationType {
+		return &v
+	}).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationAssociationIntegrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationIntegrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationAssociationIntegrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAssociationIntegrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAssociationIntegrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAssociationIntegrationType)(nil)).Elem()
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) ToIntegrationAssociationIntegrationTypePtrOutput() IntegrationAssociationIntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
+	return o
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) Elem() IntegrationAssociationIntegrationTypeOutput {
+	return o.ApplyT(func(v *IntegrationAssociationIntegrationType) IntegrationAssociationIntegrationType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAssociationIntegrationType
+		return ret
+	}).(IntegrationAssociationIntegrationTypeOutput)
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationAssociationIntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationAssociationIntegrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntegrationAssociationIntegrationTypeInput is an input type that accepts IntegrationAssociationIntegrationTypeArgs and IntegrationAssociationIntegrationTypeOutput values.
+// You can construct a concrete instance of `IntegrationAssociationIntegrationTypeInput` via:
+//
+//	IntegrationAssociationIntegrationTypeArgs{...}
+type IntegrationAssociationIntegrationTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationAssociationIntegrationTypeOutput() IntegrationAssociationIntegrationTypeOutput
+	ToIntegrationAssociationIntegrationTypeOutputWithContext(context.Context) IntegrationAssociationIntegrationTypeOutput
+}
+
+var integrationAssociationIntegrationTypePtrType = reflect.TypeOf((**IntegrationAssociationIntegrationType)(nil)).Elem()
+
+type IntegrationAssociationIntegrationTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationAssociationIntegrationTypePtrOutput() IntegrationAssociationIntegrationTypePtrOutput
+	ToIntegrationAssociationIntegrationTypePtrOutputWithContext(context.Context) IntegrationAssociationIntegrationTypePtrOutput
+}
+
+type integrationAssociationIntegrationTypePtr string
+
+func IntegrationAssociationIntegrationTypePtr(v string) IntegrationAssociationIntegrationTypePtrInput {
+	return (*integrationAssociationIntegrationTypePtr)(&v)
+}
+
+func (*integrationAssociationIntegrationTypePtr) ElementType() reflect.Type {
+	return integrationAssociationIntegrationTypePtrType
+}
+
+func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationIntegrationTypePtrOutput() IntegrationAssociationIntegrationTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
+func (in *integrationAssociationIntegrationTypePtr) ToIntegrationAssociationIntegrationTypePtrOutputWithContext(ctx context.Context) IntegrationAssociationIntegrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationAssociationIntegrationTypePtrOutput)
+}
+
 // The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 type QuickConnectType string
 
@@ -2881,6 +3046,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigInstanceStorageResourceTypePtrInput)(nil)).Elem(), InstanceStorageConfigInstanceStorageResourceType("CHAT_TRANSCRIPTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypeInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigStorageTypePtrInput)(nil)).Elem(), InstanceStorageConfigStorageType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypeInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAssociationIntegrationTypePtrInput)(nil)).Elem(), IntegrationAssociationIntegrationType("LEX_BOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypeInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectTypePtrInput)(nil)).Elem(), QuickConnectType("PHONE_NUMBER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
@@ -2917,6 +3084,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigInstanceStorageResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypeOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationAssociationIntegrationTypePtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypeOutput{})
 	pulumi.RegisterOutputType(QuickConnectTypePtrOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusOutput{})

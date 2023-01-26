@@ -3141,6 +3141,164 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionRuntimeManagementConfig struct {
+	// Unique identifier for a runtime version arn
+	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
+	// Trigger for runtime update
+	UpdateRuntimeOn FunctionRuntimeManagementConfigUpdateRuntimeOn `pulumi:"updateRuntimeOn"`
+}
+
+// FunctionRuntimeManagementConfigInput is an input type that accepts FunctionRuntimeManagementConfigArgs and FunctionRuntimeManagementConfigOutput values.
+// You can construct a concrete instance of `FunctionRuntimeManagementConfigInput` via:
+//
+//	FunctionRuntimeManagementConfigArgs{...}
+type FunctionRuntimeManagementConfigInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeManagementConfigOutput() FunctionRuntimeManagementConfigOutput
+	ToFunctionRuntimeManagementConfigOutputWithContext(context.Context) FunctionRuntimeManagementConfigOutput
+}
+
+type FunctionRuntimeManagementConfigArgs struct {
+	// Unique identifier for a runtime version arn
+	RuntimeVersionArn pulumi.StringPtrInput `pulumi:"runtimeVersionArn"`
+	// Trigger for runtime update
+	UpdateRuntimeOn FunctionRuntimeManagementConfigUpdateRuntimeOnInput `pulumi:"updateRuntimeOn"`
+}
+
+func (FunctionRuntimeManagementConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeManagementConfig)(nil)).Elem()
+}
+
+func (i FunctionRuntimeManagementConfigArgs) ToFunctionRuntimeManagementConfigOutput() FunctionRuntimeManagementConfigOutput {
+	return i.ToFunctionRuntimeManagementConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeManagementConfigArgs) ToFunctionRuntimeManagementConfigOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeManagementConfigOutput)
+}
+
+func (i FunctionRuntimeManagementConfigArgs) ToFunctionRuntimeManagementConfigPtrOutput() FunctionRuntimeManagementConfigPtrOutput {
+	return i.ToFunctionRuntimeManagementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionRuntimeManagementConfigArgs) ToFunctionRuntimeManagementConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeManagementConfigOutput).ToFunctionRuntimeManagementConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionRuntimeManagementConfigPtrInput is an input type that accepts FunctionRuntimeManagementConfigArgs, FunctionRuntimeManagementConfigPtr and FunctionRuntimeManagementConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionRuntimeManagementConfigPtrInput` via:
+//
+//	        FunctionRuntimeManagementConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionRuntimeManagementConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionRuntimeManagementConfigPtrOutput() FunctionRuntimeManagementConfigPtrOutput
+	ToFunctionRuntimeManagementConfigPtrOutputWithContext(context.Context) FunctionRuntimeManagementConfigPtrOutput
+}
+
+type functionRuntimeManagementConfigPtrType FunctionRuntimeManagementConfigArgs
+
+func FunctionRuntimeManagementConfigPtr(v *FunctionRuntimeManagementConfigArgs) FunctionRuntimeManagementConfigPtrInput {
+	return (*functionRuntimeManagementConfigPtrType)(v)
+}
+
+func (*functionRuntimeManagementConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntimeManagementConfig)(nil)).Elem()
+}
+
+func (i *functionRuntimeManagementConfigPtrType) ToFunctionRuntimeManagementConfigPtrOutput() FunctionRuntimeManagementConfigPtrOutput {
+	return i.ToFunctionRuntimeManagementConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionRuntimeManagementConfigPtrType) ToFunctionRuntimeManagementConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionRuntimeManagementConfigPtrOutput)
+}
+
+type FunctionRuntimeManagementConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeManagementConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionRuntimeManagementConfig)(nil)).Elem()
+}
+
+func (o FunctionRuntimeManagementConfigOutput) ToFunctionRuntimeManagementConfigOutput() FunctionRuntimeManagementConfigOutput {
+	return o
+}
+
+func (o FunctionRuntimeManagementConfigOutput) ToFunctionRuntimeManagementConfigOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigOutput {
+	return o
+}
+
+func (o FunctionRuntimeManagementConfigOutput) ToFunctionRuntimeManagementConfigPtrOutput() FunctionRuntimeManagementConfigPtrOutput {
+	return o.ToFunctionRuntimeManagementConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionRuntimeManagementConfigOutput) ToFunctionRuntimeManagementConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionRuntimeManagementConfig) *FunctionRuntimeManagementConfig {
+		return &v
+	}).(FunctionRuntimeManagementConfigPtrOutput)
+}
+
+// Unique identifier for a runtime version arn
+func (o FunctionRuntimeManagementConfigOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionRuntimeManagementConfig) *string { return v.RuntimeVersionArn }).(pulumi.StringPtrOutput)
+}
+
+// Trigger for runtime update
+func (o FunctionRuntimeManagementConfigOutput) UpdateRuntimeOn() FunctionRuntimeManagementConfigUpdateRuntimeOnOutput {
+	return o.ApplyT(func(v FunctionRuntimeManagementConfig) FunctionRuntimeManagementConfigUpdateRuntimeOn {
+		return v.UpdateRuntimeOn
+	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnOutput)
+}
+
+type FunctionRuntimeManagementConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionRuntimeManagementConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionRuntimeManagementConfig)(nil)).Elem()
+}
+
+func (o FunctionRuntimeManagementConfigPtrOutput) ToFunctionRuntimeManagementConfigPtrOutput() FunctionRuntimeManagementConfigPtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeManagementConfigPtrOutput) ToFunctionRuntimeManagementConfigPtrOutputWithContext(ctx context.Context) FunctionRuntimeManagementConfigPtrOutput {
+	return o
+}
+
+func (o FunctionRuntimeManagementConfigPtrOutput) Elem() FunctionRuntimeManagementConfigOutput {
+	return o.ApplyT(func(v *FunctionRuntimeManagementConfig) FunctionRuntimeManagementConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionRuntimeManagementConfig
+		return ret
+	}).(FunctionRuntimeManagementConfigOutput)
+}
+
+// Unique identifier for a runtime version arn
+func (o FunctionRuntimeManagementConfigPtrOutput) RuntimeVersionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntimeManagementConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimeVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Trigger for runtime update
+func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput {
+	return o.ApplyT(func(v *FunctionRuntimeManagementConfig) *FunctionRuntimeManagementConfigUpdateRuntimeOn {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdateRuntimeOn
+	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
+}
+
 // The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
 type FunctionSnapStart struct {
 	// Applying SnapStart setting on function resource type.
@@ -4234,6 +4392,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTagInput)(nil)).Elem(), FunctionTagArgs{})
@@ -4294,6 +4454,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigOutput{})
+	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOutput{})

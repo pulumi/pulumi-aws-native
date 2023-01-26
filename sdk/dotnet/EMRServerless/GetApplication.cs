@@ -74,6 +74,7 @@ namespace Pulumi.AwsNative.EMRServerless
         /// Configuration for Auto Stop of Application.
         /// </summary>
         public readonly Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration;
+        public readonly Outputs.ApplicationImageConfigurationInput? ImageConfiguration;
         /// <summary>
         /// Initial capacity initialized when an Application is started.
         /// </summary>
@@ -90,6 +91,7 @@ namespace Pulumi.AwsNative.EMRServerless
         /// Tag map with key and value
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationTag> Tags;
+        public readonly Outputs.ApplicationWorkerTypeSpecificationInputMap? WorkerTypeSpecifications;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -103,23 +105,29 @@ namespace Pulumi.AwsNative.EMRServerless
 
             Outputs.ApplicationAutoStopConfiguration? autoStopConfiguration,
 
+            Outputs.ApplicationImageConfigurationInput? imageConfiguration,
+
             ImmutableArray<Outputs.ApplicationInitialCapacityConfigKeyValuePair> initialCapacity,
 
             Outputs.ApplicationMaximumAllowedResources? maximumCapacity,
 
             Outputs.ApplicationNetworkConfiguration? networkConfiguration,
 
-            ImmutableArray<Outputs.ApplicationTag> tags)
+            ImmutableArray<Outputs.ApplicationTag> tags,
+
+            Outputs.ApplicationWorkerTypeSpecificationInputMap? workerTypeSpecifications)
         {
             ApplicationId = applicationId;
             Architecture = architecture;
             Arn = arn;
             AutoStartConfiguration = autoStartConfiguration;
             AutoStopConfiguration = autoStopConfiguration;
+            ImageConfiguration = imageConfiguration;
             InitialCapacity = initialCapacity;
             MaximumCapacity = maximumCapacity;
             NetworkConfiguration = networkConfiguration;
             Tags = tags;
+            WorkerTypeSpecifications = workerTypeSpecifications;
         }
     }
 }

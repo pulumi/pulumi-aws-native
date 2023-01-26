@@ -100,7 +100,6 @@ from .get_vpc_gateway_attachment import *
 from .get_vpc_peering_connection import *
 from .get_vpcdhcp_options_association import *
 from .get_vpn_connection import *
-from .get_vpn_connection_route import *
 from .get_vpn_gateway import *
 from .get_vpn_gateway_route_propagation import *
 from .host import *

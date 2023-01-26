@@ -12,6 +12,7 @@ from ._enums import *
 
 __all__ = [
     'AppMonitorConfigurationArgs',
+    'AppMonitorCustomEventsArgs',
     'AppMonitorMetricDefinitionArgs',
     'AppMonitorMetricDestinationArgs',
     'AppMonitorTagArgs',
@@ -183,6 +184,30 @@ class AppMonitorConfigurationArgs:
     @telemetries.setter
     def telemetries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]]):
         pulumi.set(self, "telemetries", value)
+
+
+@pulumi.input_type
+class AppMonitorCustomEventsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input['AppMonitorCustomEventsStatus']] = None):
+        """
+        AppMonitor custom events configuration
+        :param pulumi.Input['AppMonitorCustomEventsStatus'] status: Indicates whether AppMonitor accepts custom events.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['AppMonitorCustomEventsStatus']]:
+        """
+        Indicates whether AppMonitor accepts custom events.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['AppMonitorCustomEventsStatus']]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

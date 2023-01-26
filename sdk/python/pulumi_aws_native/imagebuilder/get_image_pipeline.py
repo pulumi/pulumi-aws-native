@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImagePipelineResult:
-    def __init__(__self__, arn=None, container_recipe_arn=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, image_recipe_arn=None, image_tests_configuration=None, infrastructure_configuration_arn=None, schedule=None, status=None, tags=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, schedule=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetImagePipelineResult:
         if image_recipe_arn and not isinstance(image_recipe_arn, str):
             raise TypeError("Expected argument 'image_recipe_arn' to be a str")
         pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
+        if image_scanning_configuration and not isinstance(image_scanning_configuration, dict):
+            raise TypeError("Expected argument 'image_scanning_configuration' to be a dict")
+        pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tests_configuration and not isinstance(image_tests_configuration, dict):
             raise TypeError("Expected argument 'image_tests_configuration' to be a dict")
         pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
@@ -104,6 +107,14 @@ class GetImagePipelineResult:
         return pulumi.get(self, "image_recipe_arn")
 
     @property
+    @pulumi.getter(name="imageScanningConfiguration")
+    def image_scanning_configuration(self) -> Optional['outputs.ImagePipelineImageScanningConfiguration']:
+        """
+        Contains settings for vulnerability scans.
+        """
+        return pulumi.get(self, "image_scanning_configuration")
+
+    @property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional['outputs.ImagePipelineImageTestsConfiguration']:
         """
@@ -156,6 +167,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             distribution_configuration_arn=self.distribution_configuration_arn,
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
             image_recipe_arn=self.image_recipe_arn,
+            image_scanning_configuration=self.image_scanning_configuration,
             image_tests_configuration=self.image_tests_configuration,
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             schedule=self.schedule,
@@ -183,6 +195,7 @@ def get_image_pipeline(arn: Optional[str] = None,
         distribution_configuration_arn=__ret__.distribution_configuration_arn,
         enhanced_image_metadata_enabled=__ret__.enhanced_image_metadata_enabled,
         image_recipe_arn=__ret__.image_recipe_arn,
+        image_scanning_configuration=__ret__.image_scanning_configuration,
         image_tests_configuration=__ret__.image_tests_configuration,
         infrastructure_configuration_arn=__ret__.infrastructure_configuration_arn,
         schedule=__ret__.schedule,

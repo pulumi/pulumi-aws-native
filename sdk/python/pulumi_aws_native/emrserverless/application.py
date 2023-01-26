@@ -22,11 +22,13 @@ class ApplicationArgs:
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']] = None,
                  auto_stop_configuration: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']] = None,
+                 image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumAllowedResourcesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
+                 worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] release_label: EMR release label.
@@ -47,6 +49,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "auto_start_configuration", auto_start_configuration)
         if auto_stop_configuration is not None:
             pulumi.set(__self__, "auto_stop_configuration", auto_stop_configuration)
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
         if initial_capacity is not None:
             pulumi.set(__self__, "initial_capacity", initial_capacity)
         if maximum_capacity is not None:
@@ -57,6 +61,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if worker_type_specifications is not None:
+            pulumi.set(__self__, "worker_type_specifications", worker_type_specifications)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -114,6 +120,15 @@ class ApplicationArgs:
     @auto_stop_configuration.setter
     def auto_stop_configuration(self, value: Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]):
         pulumi.set(self, "auto_stop_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]:
+        return pulumi.get(self, "image_configuration")
+
+    @image_configuration.setter
+    def image_configuration(self, value: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]):
+        pulumi.set(self, "image_configuration", value)
 
     @property
     @pulumi.getter(name="initialCapacity")
@@ -175,6 +190,15 @@ class ApplicationArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="workerTypeSpecifications")
+    def worker_type_specifications(self) -> Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']]:
+        return pulumi.get(self, "worker_type_specifications")
+
+    @worker_type_specifications.setter
+    def worker_type_specifications(self, value: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']]):
+        pulumi.set(self, "worker_type_specifications", value)
+
 
 class Application(pulumi.CustomResource):
     @overload
@@ -184,6 +208,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
+                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -191,6 +216,7 @@ class Application(pulumi.CustomResource):
                  release_label: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EMRServerless::Application Type
@@ -234,6 +260,7 @@ class Application(pulumi.CustomResource):
                  architecture: Optional[pulumi.Input['ApplicationArchitecture']] = None,
                  auto_start_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']]] = None,
                  auto_stop_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']]] = None,
+                 image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -241,6 +268,7 @@ class Application(pulumi.CustomResource):
                  release_label: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
+                 worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,6 +281,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["architecture"] = architecture
             __props__.__dict__["auto_start_configuration"] = auto_start_configuration
             __props__.__dict__["auto_stop_configuration"] = auto_stop_configuration
+            __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
             __props__.__dict__["maximum_capacity"] = maximum_capacity
             __props__.__dict__["name"] = name
@@ -264,6 +293,7 @@ class Application(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["worker_type_specifications"] = worker_type_specifications
             __props__.__dict__["application_id"] = None
             __props__.__dict__["arn"] = None
         super(Application, __self__).__init__(
@@ -293,6 +323,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_start_configuration"] = None
         __props__.__dict__["auto_stop_configuration"] = None
+        __props__.__dict__["image_configuration"] = None
         __props__.__dict__["initial_capacity"] = None
         __props__.__dict__["maximum_capacity"] = None
         __props__.__dict__["name"] = None
@@ -300,6 +331,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["release_label"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["worker_type_specifications"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -338,6 +370,11 @@ class Application(pulumi.CustomResource):
         Configuration for Auto Stop of Application.
         """
         return pulumi.get(self, "auto_stop_configuration")
+
+    @property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationImageConfigurationInput']]:
+        return pulumi.get(self, "image_configuration")
 
     @property
     @pulumi.getter(name="initialCapacity")
@@ -394,4 +431,9 @@ class Application(pulumi.CustomResource):
         The type of the application
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workerTypeSpecifications")
+    def worker_type_specifications(self) -> pulumi.Output[Optional['outputs.ApplicationWorkerTypeSpecificationInputMap']]:
+        return pulumi.get(self, "worker_type_specifications")
 

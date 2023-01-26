@@ -2540,6 +2540,8 @@ class TopicRuleCloudwatchLogsAction(dict):
             suggest = "log_group_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "batchMode":
+            suggest = "batch_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleCloudwatchLogsAction. Access the value via the '{suggest}' property getter instead.")
@@ -2554,9 +2556,12 @@ class TopicRuleCloudwatchLogsAction(dict):
 
     def __init__(__self__, *,
                  log_group_name: str,
-                 role_arn: str):
+                 role_arn: str,
+                 batch_mode: Optional[bool] = None):
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "role_arn", role_arn)
+        if batch_mode is not None:
+            pulumi.set(__self__, "batch_mode", batch_mode)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -2567,6 +2572,11 @@ class TopicRuleCloudwatchLogsAction(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="batchMode")
+    def batch_mode(self) -> Optional[bool]:
+        return pulumi.get(self, "batch_mode")
 
 
 @pulumi.output_type

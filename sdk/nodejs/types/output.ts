@@ -1223,6 +1223,7 @@ export namespace appflow {
         googleAnalytics?: outputs.appflow.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials;
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileCredentials;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileCredentials;
+        pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileCredentials;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileCredentials;
         sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileCredentials;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileCredentials;
@@ -1386,6 +1387,40 @@ export namespace appflow {
         tokenUrl?: string;
     }
 
+    export interface ConnectorProfilePardotConnectorProfileCredentials {
+        /**
+         * The credentials used to access protected resources.
+         */
+        accessToken?: string;
+        /**
+         * The client credentials to fetch access token and refresh token.
+         */
+        clientCredentialsArn?: string;
+        /**
+         * The oauth needed to request security tokens from the connector endpoint.
+         */
+        connectorOAuthRequest?: outputs.appflow.ConnectorProfileConnectorOAuthRequest;
+        /**
+         * The credentials used to acquire new access tokens.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfilePardotConnectorProfileProperties {
+        /**
+         * The Business unit id of Salesforce Pardot instance to be connected
+         */
+        businessUnitId: string;
+        /**
+         * The location of the Salesforce Pardot resource
+         */
+        instanceUrl?: string;
+        /**
+         * Indicates whether the connector profile applies to a demo or production environment
+         */
+        isSandboxEnvironment?: boolean;
+    }
+
     /**
      * A map for properties for custom connector.
      */
@@ -1401,6 +1436,7 @@ export namespace appflow {
         dynatrace?: outputs.appflow.ConnectorProfileDynatraceConnectorProfileProperties;
         inforNexus?: outputs.appflow.ConnectorProfileInforNexusConnectorProfileProperties;
         marketo?: outputs.appflow.ConnectorProfileMarketoConnectorProfileProperties;
+        pardot?: outputs.appflow.ConnectorProfilePardotConnectorProfileProperties;
         redshift?: outputs.appflow.ConnectorProfileRedshiftConnectorProfileProperties;
         sAPOData?: outputs.appflow.ConnectorProfileSAPODataConnectorProfileProperties;
         salesforce?: outputs.appflow.ConnectorProfileSalesforceConnectorProfileProperties;
@@ -1508,6 +1544,9 @@ export namespace appflow {
          * The location of the Salesforce resource
          */
         instanceUrl?: string;
+        /**
+         * Indicates whether the connector profile applies to a sandbox or production environment
+         */
         isSandboxEnvironment?: boolean;
     }
 
@@ -1692,6 +1731,7 @@ export namespace appflow {
         googleAnalytics?: enums.appflow.FlowGoogleAnalyticsConnectorOperator;
         inforNexus?: enums.appflow.FlowInforNexusConnectorOperator;
         marketo?: enums.appflow.FlowMarketoConnectorOperator;
+        pardot?: enums.appflow.FlowPardotConnectorOperator;
         s3?: enums.appflow.FlowS3ConnectorOperator;
         sAPOData?: enums.appflow.FlowSAPODataConnectorOperator;
         salesforce?: enums.appflow.FlowSalesforceConnectorOperator;
@@ -1839,6 +1879,10 @@ export namespace appflow {
         glueDataCatalog?: outputs.appflow.FlowGlueDataCatalog;
     }
 
+    export interface FlowPardotSourceProperties {
+        object: string;
+    }
+
     export interface FlowPrefixConfig {
         pathPrefixHierarchy?: enums.appflow.FlowPathPrefix[];
         prefixFormat?: enums.appflow.FlowPrefixFormat;
@@ -1952,6 +1996,7 @@ export namespace appflow {
         googleAnalytics?: outputs.appflow.FlowGoogleAnalyticsSourceProperties;
         inforNexus?: outputs.appflow.FlowInforNexusSourceProperties;
         marketo?: outputs.appflow.FlowMarketoSourceProperties;
+        pardot?: outputs.appflow.FlowPardotSourceProperties;
         s3?: outputs.appflow.FlowS3SourceProperties;
         sAPOData?: outputs.appflow.FlowSAPODataSourceProperties;
         salesforce?: outputs.appflow.FlowSalesforceSourceProperties;
@@ -13707,6 +13752,16 @@ export namespace emrserverless {
         idleTimeoutMinutes?: number;
     }
 
+    /**
+     * The image configuration.
+     */
+    export interface ApplicationImageConfigurationInput {
+        /**
+         * The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+         */
+        imageUri?: string;
+    }
+
     export interface ApplicationInitialCapacityConfig {
         workerConfiguration: outputs.emrserverless.ApplicationWorkerConfiguration;
         /**
@@ -13776,6 +13831,9 @@ export namespace emrserverless {
          * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
          */
         memory: string;
+    }
+
+    export interface ApplicationWorkerTypeSpecificationInputMap {
     }
 
 }
@@ -16879,6 +16937,48 @@ export namespace imagebuilder {
     }
 
     /**
+     * Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+     */
+    export interface ImageEcrConfiguration {
+        /**
+         * Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+         */
+        containerTags?: string[];
+        /**
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         */
+        repositoryName?: string;
+    }
+
+    /**
+     * Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+     */
+    export interface ImagePipelineEcrConfiguration {
+        /**
+         * Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+         */
+        containerTags?: string[];
+        /**
+         * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+         */
+        repositoryName?: string;
+    }
+
+    /**
+     * Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+     */
+    export interface ImagePipelineImageScanningConfiguration {
+        /**
+         * Contains ECR settings for vulnerability scans.
+         */
+        ecrConfiguration?: outputs.imagebuilder.ImagePipelineEcrConfiguration;
+        /**
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         */
+        imageScanningEnabled?: boolean;
+    }
+
+    /**
      * Image tests configuration.
      */
     export interface ImagePipelineImageTestsConfiguration {
@@ -17016,6 +17116,20 @@ export namespace imagebuilder {
          * Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
          */
         uninstallAfterBuild?: boolean;
+    }
+
+    /**
+     * Contains settings for Image Builder image resource and container image scans.
+     */
+    export interface ImageScanningConfiguration {
+        /**
+         * Contains ECR settings for vulnerability scans.
+         */
+        ecrConfiguration?: outputs.imagebuilder.ImageEcrConfiguration;
+        /**
+         * This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+         */
+        imageScanningEnabled?: boolean;
     }
 
     /**
@@ -17725,6 +17839,7 @@ export namespace iot {
     }
 
     export interface TopicRuleCloudwatchLogsAction {
+        batchMode?: boolean;
         logGroupName: string;
         roleArn: string;
     }
@@ -22138,6 +22253,17 @@ export namespace lambda {
         workingDirectory?: string;
     }
 
+    export interface FunctionRuntimeManagementConfig {
+        /**
+         * Unique identifier for a runtime version arn
+         */
+        runtimeVersionArn?: string;
+        /**
+         * Trigger for runtime update
+         */
+        updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
+    }
+
     /**
      * The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
      */
@@ -22406,6 +22532,56 @@ export namespace lex {
     }
 
     /**
+     * Provides an expression that evaluates to true or false.
+     */
+    export interface BotCondition {
+        /**
+         * The expression string that is evaluated.
+         */
+        expressionString: string;
+    }
+
+    /**
+     * A set of actions that Amazon Lex should run if the condition is matched.
+     */
+    export interface BotConditionalBranch {
+        /**
+         * Contains the expression to evaluate. If the condition is true, the branch's actions are taken.
+         */
+        condition: outputs.lex.BotCondition;
+        /**
+         * The name of the branch.
+         */
+        name: string;
+        /**
+         * The next step in the conversation.
+         */
+        nextStep: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        response?: outputs.lex.BotResponseSpecification;
+    }
+
+    /**
+     * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+     */
+    export interface BotConditionalSpecification {
+        /**
+         * A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true.
+         */
+        conditionalBranches: outputs.lex.BotConditionalBranch[];
+        /**
+         * The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
+         */
+        defaultBranch: outputs.lex.BotDefaultConditionalBranch;
+        /**
+         * Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
+         */
+        isActive: boolean;
+    }
+
+    /**
      * Contains information about code hooks that Amazon Lex calls during a conversation.
      */
     export interface BotConversationLogSettings {
@@ -22445,10 +22621,96 @@ export namespace lex {
     }
 
     /**
+     * A set of actions that Amazon Lex should run if none of the other conditions are met.
+     */
+    export interface BotDefaultConditionalBranch {
+        /**
+         * The next step in the conversation.
+         */
+        nextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        response?: outputs.lex.BotResponseSpecification;
+    }
+
+    /**
+     * Defines the action that the bot executes at runtime when the conversation reaches this step.
+     */
+    export interface BotDialogAction {
+        /**
+         * If the dialog action is ElicitSlot, defines the slot to elicit from the user.
+         */
+        slotToElicit?: string;
+        /**
+         * When true the next message for the intent is not used.
+         */
+        suppressNextMessage?: boolean;
+        /**
+         * The action that the bot should execute.
+         */
+        type: enums.lex.BotDialogActionType;
+    }
+
+    /**
+     * Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+     */
+    export interface BotDialogCodeHookInvocationSetting {
+        /**
+         * Indicates whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: boolean;
+        /**
+         * A label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: string;
+        /**
+         * Determines whether a dialog code hook is used when the intent is activated.
+         */
+        isActive: boolean;
+        /**
+         * Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
+         */
+        postCodeHookSpecification: outputs.lex.BotPostDialogCodeHookInvocationSpecification;
+    }
+
+    /**
      * Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
      */
     export interface BotDialogCodeHookSetting {
         enabled: boolean;
+    }
+
+    /**
+     * The current state of the conversation with the user.
+     */
+    export interface BotDialogState {
+        /**
+         * Defines the action that the bot executes at runtime when the conversation reaches this step.
+         */
+        dialogAction?: outputs.lex.BotDialogAction;
+        /**
+         * Override settings to configure the intent state.
+         */
+        intent?: outputs.lex.BotIntentOverride;
+        /**
+         * List of session attributes to be applied when the conversation reaches this step.
+         */
+        sessionAttributes?: outputs.lex.BotSessionAttribute[];
+    }
+
+    /**
+     * Settings that specify the dialog code hook that is called by Amazon Lex between eliciting slot values.
+     */
+    export interface BotElicitationCodeHookInvocationSetting {
+        /**
+         * Indicates whether a Lambda function should be invoked for the dialog.
+         */
+        enableCodeHookInvocation: boolean;
+        /**
+         * A label that indicates the dialog step from which the dialog code hook is happening.
+         */
+        invocationLabel?: string;
     }
 
     /**
@@ -22464,6 +22726,10 @@ export namespace lex {
     export interface BotFulfillmentCodeHookSetting {
         enabled: boolean;
         fulfillmentUpdatesSpecification?: outputs.lex.BotFulfillmentUpdatesSpecification;
+        /**
+         * Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
+         */
+        isActive?: boolean;
         postFulfillmentStatusSpecification?: outputs.lex.BotPostFulfillmentStatusSpecification;
     }
 
@@ -22561,6 +22827,28 @@ export namespace lex {
     }
 
     /**
+     * Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+     */
+    export interface BotInitialResponseSetting {
+        /**
+         * Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation.
+         */
+        codeHook?: outputs.lex.BotDialogCodeHookInvocationSetting;
+        /**
+         * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+         */
+        conditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        initialResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * The next step in the conversation.
+         */
+        nextStep?: outputs.lex.BotDialogState;
+    }
+
+    /**
      * InputContext specified for the intent.
      */
     export interface BotInputContext {
@@ -22571,19 +22859,32 @@ export namespace lex {
     }
 
     /**
-     * An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+     * Represents an action that the user wants to perform.
      */
     export interface BotIntent {
+        /**
+         * Description of thr intent.
+         */
         description?: string;
         dialogCodeHook?: outputs.lex.BotDialogCodeHookSetting;
         fulfillmentCodeHook?: outputs.lex.BotFulfillmentCodeHookSetting;
+        /**
+         * Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+         */
+        initialResponseSetting?: outputs.lex.BotInitialResponseSetting;
         inputContexts?: outputs.lex.BotInputContext[];
         intentClosingSetting?: outputs.lex.BotIntentClosingSetting;
         intentConfirmationSetting?: outputs.lex.BotIntentConfirmationSetting;
         kendraConfiguration?: outputs.lex.BotKendraConfiguration;
+        /**
+         * The name of the intent.
+         */
         name: string;
         outputContexts?: outputs.lex.BotOutputContext[];
         parentIntentSignature?: string;
+        /**
+         * A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+         */
         sampleUtterances?: outputs.lex.BotSampleUtterance[];
         slotPriorities?: outputs.lex.BotSlotPriority[];
         /**
@@ -22593,20 +22894,97 @@ export namespace lex {
     }
 
     /**
-     * Response that Amazon Lex sends to the user when the intent is closed.
+     * Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
      */
     export interface BotIntentClosingSetting {
-        closingResponse: outputs.lex.BotResponseSpecification;
+        /**
+         * The response that Amazon Lex sends to the user when the intent is complete.
+         */
+        closingResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional.
+         */
+        conditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
+         */
         isActive?: boolean;
+        /**
+         * Specifies the next step that the bot executes after playing the intent's closing response.
+         */
+        nextStep?: outputs.lex.BotDialogState;
     }
 
     /**
-     * Prompts that Amazon Lex sends to the user to confirm the completion of an intent.
+     * Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
      */
     export interface BotIntentConfirmationSetting {
-        declinationResponse: outputs.lex.BotResponseSpecification;
+        /**
+         * The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook.
+         */
+        codeHook?: outputs.lex.BotDialogCodeHookInvocationSetting;
+        /**
+         * A list of conditional branches to evaluate after the intent is closed.
+         */
+        confirmationConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot executes when the customer confirms the intent.
+         */
+        confirmationNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        confirmationResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches to evaluate after the intent is declined.
+         */
+        declinationConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot executes when the customer declines the intent.
+         */
+        declinationNextStep?: outputs.lex.BotDialogState;
+        /**
+         * When the user answers "no" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled.
+         */
+        declinationResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries.
+         */
+        elicitationCodeHook?: outputs.lex.BotElicitationCodeHookInvocationSetting;
+        /**
+         * Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition.
+         */
+        failureConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * The next step to take in the conversation if the confirmation step fails.
+         */
+        failureNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
+         */
         isActive?: boolean;
+        /**
+         * Prompts the user to confirm the intent. This question should have a yes or no answer.
+         */
         promptSpecification: outputs.lex.BotPromptSpecification;
+    }
+
+    /**
+     * Override settings to configure the intent state.
+     */
+    export interface BotIntentOverride {
+        /**
+         * The name of the intent. Only required when you're switching intents.
+         */
+        name?: string;
+        /**
+         * A map of all of the slot value overrides for the intent.
+         */
+        slots?: outputs.lex.BotSlotValueOverrideMap[];
     }
 
     /**
@@ -22698,11 +23076,86 @@ export namespace lex {
     }
 
     /**
-     * Provides information for updating the user on the progress of fulfilling an intent.
+     * Specifies next steps to run after the dialog code hook finishes.
+     */
+    export interface BotPostDialogCodeHookInvocationSpecification {
+        /**
+         * A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches to evaluate after the dialog code hook finishes successfully.
+         */
+        successConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifics the next step the bot runs after the dialog code hook finishes successfully.
+         */
+        successNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        successResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches to evaluate if the code hook times out.
+         */
+        timeoutConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot runs when the code hook times out.
+         */
+        timeoutNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        timeoutResponse?: outputs.lex.BotResponseSpecification;
+    }
+
+    /**
+     * Provides a setting that determines whether the post-fulfillment response is sent to the user.
      */
     export interface BotPostFulfillmentStatusSpecification {
+        /**
+         * A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed.
+         */
+        failureNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         failureResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches to evaluate after the fulfillment code hook finishes successfully.
+         */
+        successConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully.
+         */
+        successNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         successResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * A list of conditional branches to evaluate if the fulfillment code hook times out.
+         */
+        timeoutConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot runs when the fulfillment code hook times out.
+         */
+        timeoutNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
         timeoutResponse?: outputs.lex.BotResponseSpecification;
     }
 
@@ -22798,6 +23251,14 @@ export namespace lex {
     }
 
     /**
+     * Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
+     */
+    export interface BotSessionAttribute {
+        key: string;
+        value?: string;
+    }
+
+    /**
      * A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
      */
     export interface BotSlot {
@@ -22807,6 +23268,44 @@ export namespace lex {
         obfuscationSetting?: outputs.lex.BotObfuscationSetting;
         slotTypeName: string;
         valueElicitationSetting: outputs.lex.BotSlotValueElicitationSetting;
+    }
+
+    /**
+     * Settings used when Amazon Lex successfully captures a slot value from a user.
+     */
+    export interface BotSlotCaptureSetting {
+        /**
+         * A list of conditional branches to evaluate after the slot value is captured.
+         */
+        captureConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot runs when the slot value is captured before the code hook times out.
+         */
+        captureNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        captureResponse?: outputs.lex.BotResponseSpecification;
+        /**
+         * Code hook called after Amazon Lex successfully captures a slot value.
+         */
+        codeHook?: outputs.lex.BotDialogCodeHookInvocationSetting;
+        /**
+         * Code hook called when Amazon Lex doesn't capture a slot value.
+         */
+        elicitationCodeHook?: outputs.lex.BotElicitationCodeHookInvocationSetting;
+        /**
+         * A list of conditional branches to evaluate when the slot value isn't captured.
+         */
+        failureConditional?: outputs.lex.BotConditionalSpecification;
+        /**
+         * Specifies the next step that the bot runs when the slot value code is not recognized.
+         */
+        failureNextStep?: outputs.lex.BotDialogState;
+        /**
+         * Specifies a list of message groups that Amazon Lex uses to respond the user input.
+         */
+        failureResponse?: outputs.lex.BotResponseSpecification;
     }
 
     /**
@@ -22861,6 +23360,16 @@ export namespace lex {
     }
 
     /**
+     * The value to set in a slot.
+     */
+    export interface BotSlotValue {
+        /**
+         * The value that Amazon Lex determines for the slot.
+         */
+        interpretedValue?: string;
+    }
+
+    /**
      * Settings that you can use for eliciting a slot value.
      */
     export interface BotSlotValueElicitationSetting {
@@ -22877,6 +23386,10 @@ export namespace lex {
          */
         sampleUtterances?: outputs.lex.BotSampleUtterance[];
         /**
+         * Specifies the next stage in the conversation after capturing the slot.
+         */
+        slotCaptureSetting?: outputs.lex.BotSlotCaptureSetting;
+        /**
          * Specifies whether the slot is required or optional.
          */
         slotConstraint: enums.lex.BotSlotConstraint;
@@ -22884,6 +23397,32 @@ export namespace lex {
          * Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
          */
         waitAndContinueSpecification?: outputs.lex.BotWaitAndContinueSpecification;
+    }
+
+    /**
+     * The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+     */
+    export interface BotSlotValueOverride {
+        /**
+         * When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value.
+         */
+        shape?: enums.lex.BotSlotShape;
+        /**
+         * The current value of the slot.
+         */
+        value?: outputs.lex.BotSlotValue;
+        /**
+         * A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
+         */
+        values?: outputs.lex.BotSlotValueOverride[];
+    }
+
+    /**
+     * A map of slot names and their overridden values.
+     */
+    export interface BotSlotValueOverrideMap {
+        slotName?: string;
+        slotValueOverride?: outputs.lex.BotSlotValueOverride;
     }
 
     /**
@@ -27294,9 +27833,12 @@ export namespace opensearchserverless {
 
 export namespace opensearchservice {
     export interface DomainAdvancedSecurityOptionsInput {
+        anonymousAuthDisableDate?: string;
+        anonymousAuthEnabled?: boolean;
         enabled?: boolean;
         internalUserDatabaseEnabled?: boolean;
         masterUserOptions?: outputs.opensearchservice.DomainMasterUserOptions;
+        sAMLOptions?: outputs.opensearchservice.DomainSAMLOptions;
     }
 
     export interface DomainClusterConfig {
@@ -27340,6 +27882,11 @@ export namespace opensearchservice {
         tLSSecurityPolicy?: string;
     }
 
+    export interface DomainIdp {
+        entityId: string;
+        metadataContent: string;
+    }
+
     export interface DomainMasterUserOptions {
         masterUserARN?: string;
         masterUserName?: string;
@@ -27348,6 +27895,16 @@ export namespace opensearchservice {
 
     export interface DomainNodeToNodeEncryptionOptions {
         enabled?: boolean;
+    }
+
+    export interface DomainSAMLOptions {
+        enabled?: boolean;
+        idp?: outputs.opensearchservice.DomainIdp;
+        masterBackendRole?: string;
+        masterUserName?: string;
+        rolesKey?: string;
+        sessionTimeoutMinutes?: number;
+        subjectKey?: string;
     }
 
     export interface DomainServiceSoftwareOptions {
@@ -31620,6 +32177,16 @@ export namespace rum {
     }
 
     /**
+     * AppMonitor custom events configuration
+     */
+    export interface AppMonitorCustomEvents {
+        /**
+         * Indicates whether AppMonitor accepts custom events.
+         */
+        status?: enums.rum.AppMonitorCustomEventsStatus;
+    }
+
+    /**
      * A single metric definition
      */
     export interface AppMonitorMetricDefinition {
@@ -33247,6 +33814,28 @@ export namespace sagemaker {
     }
 
     /**
+     * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+     */
+    export interface DomainDefaultSpaceSettings {
+        /**
+         * The execution role for the space.
+         */
+        executionRole?: string;
+        /**
+         * The Jupyter server's app settings.
+         */
+        jupyterServerAppSettings?: outputs.sagemaker.DomainJupyterServerAppSettings;
+        /**
+         * The kernel gateway app settings.
+         */
+        kernelGatewayAppSettings?: outputs.sagemaker.DomainKernelGatewayAppSettings;
+        /**
+         * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+         */
+        securityGroups?: string[];
+    }
+
+    /**
      * The JupyterServer app settings.
      */
     export interface DomainJupyterServerAppSettings {
@@ -33369,7 +33958,7 @@ export namespace sagemaker {
      */
     export interface DomainUserSettings {
         /**
-         * The user profile Amazon Resource Name (ARN).
+         * The execution role for the user.
          */
         executionRole?: string;
         /**
@@ -35800,45 +36389,15 @@ export namespace secretsmanager {
     }
 
     export interface SecretGenerateSecretString {
-        /**
-         * A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. 
-         */
         excludeCharacters?: string;
-        /**
-         * Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters.
-         */
         excludeLowercase?: boolean;
-        /**
-         * Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits.
-         */
         excludeNumbers?: boolean;
-        /**
-         * Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. 
-         */
         excludePunctuation?: boolean;
-        /**
-         * Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. 
-         */
         excludeUppercase?: boolean;
-        /**
-         * The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. 
-         */
         generateStringKey?: string;
-        /**
-         * Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space
-         */
         includeSpace?: boolean;
-        /**
-         * The desired length of the generated password. The default value if you do not include this parameter is 32 characters. 
-         */
         passwordLength?: number;
-        /**
-         * Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type.
-         */
         requireEachIncludedType?: boolean;
-        /**
-         * A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey.
-         */
         secretStringTemplate?: string;
     }
 

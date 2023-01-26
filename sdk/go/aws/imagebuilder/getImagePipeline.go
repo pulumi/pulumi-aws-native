@@ -38,6 +38,8 @@ type LookupImagePipelineResult struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -114,6 +116,13 @@ func (o LookupImagePipelineResultOutput) EnhancedImageMetadataEnabled() pulumi.B
 // The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// Contains settings for vulnerability scans.
+func (o LookupImagePipelineResultOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *ImagePipelineImageScanningConfiguration {
+		return v.ImageScanningConfiguration
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
 }
 
 // The image tests configuration of the image pipeline.

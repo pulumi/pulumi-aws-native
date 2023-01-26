@@ -27,6 +27,7 @@ type LookupAppMonitorArgs struct {
 
 type LookupAppMonitorResult struct {
 	AppMonitorConfiguration *AppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
+	CustomEvents            *AppMonitorCustomEvents  `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
@@ -72,6 +73,10 @@ func (o LookupAppMonitorResultOutput) ToLookupAppMonitorResultOutputWithContext(
 
 func (o LookupAppMonitorResultOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorConfiguration { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
+}
+
+func (o LookupAppMonitorResultOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {
+	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorCustomEvents { return v.CustomEvents }).(AppMonitorCustomEventsPtrOutput)
 }
 
 // Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false

@@ -52,6 +52,8 @@ namespace Pulumi.AwsNative.GroundStation
     public sealed class GetDataflowEndpointGroupResult
     {
         public readonly string? Arn;
+        public readonly int? ContactPostPassDurationSeconds;
+        public readonly int? ContactPrePassDurationSeconds;
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> EndpointDetails;
         public readonly string? Id;
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupTag> Tags;
@@ -60,6 +62,10 @@ namespace Pulumi.AwsNative.GroundStation
         private GetDataflowEndpointGroupResult(
             string? arn,
 
+            int? contactPostPassDurationSeconds,
+
+            int? contactPrePassDurationSeconds,
+
             ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> endpointDetails,
 
             string? id,
@@ -67,6 +73,8 @@ namespace Pulumi.AwsNative.GroundStation
             ImmutableArray<Outputs.DataflowEndpointGroupTag> tags)
         {
             Arn = arn;
+            ContactPostPassDurationSeconds = contactPostPassDurationSeconds;
+            ContactPrePassDurationSeconds = contactPrePassDurationSeconds;
             EndpointDetails = endpointDetails;
             Id = id;
             Tags = tags;

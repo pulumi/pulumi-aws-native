@@ -14,20 +14,13 @@ import (
 type Secret struct {
 	pulumi.CustomResourceState
 
-	// (Optional) Specifies a user-provided description of the secret.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+	Description          pulumi.StringPtrOutput              `pulumi:"description"`
 	GenerateSecretString SecretGenerateSecretStringPtrOutput `pulumi:"generateSecretString"`
-	// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-	ReplicaRegions SecretReplicaRegionArrayOutput `pulumi:"replicaRegions"`
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
-	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags SecretTagArrayOutput `pulumi:"tags"`
+	KmsKeyId             pulumi.StringPtrOutput              `pulumi:"kmsKeyId"`
+	Name                 pulumi.StringPtrOutput              `pulumi:"name"`
+	ReplicaRegions       SecretReplicaRegionArrayOutput      `pulumi:"replicaRegions"`
+	SecretString         pulumi.StringPtrOutput              `pulumi:"secretString"`
+	Tags                 SecretTagArrayOutput                `pulumi:"tags"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -69,38 +62,24 @@ func (SecretState) ElementType() reflect.Type {
 }
 
 type secretArgs struct {
-	// (Optional) Specifies a user-provided description of the secret.
-	Description *string `pulumi:"description"`
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+	Description          *string                     `pulumi:"description"`
 	GenerateSecretString *SecretGenerateSecretString `pulumi:"generateSecretString"`
-	// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
-	Name *string `pulumi:"name"`
-	// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-	ReplicaRegions []SecretReplicaRegion `pulumi:"replicaRegions"`
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-	SecretString *string `pulumi:"secretString"`
-	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags []SecretTag `pulumi:"tags"`
+	KmsKeyId             *string                     `pulumi:"kmsKeyId"`
+	Name                 *string                     `pulumi:"name"`
+	ReplicaRegions       []SecretReplicaRegion       `pulumi:"replicaRegions"`
+	SecretString         *string                     `pulumi:"secretString"`
+	Tags                 []SecretTag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Secret resource.
 type SecretArgs struct {
-	// (Optional) Specifies a user-provided description of the secret.
-	Description pulumi.StringPtrInput
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
+	Description          pulumi.StringPtrInput
 	GenerateSecretString SecretGenerateSecretStringPtrInput
-	// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-	KmsKeyId pulumi.StringPtrInput
-	// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
-	Name pulumi.StringPtrInput
-	// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-	ReplicaRegions SecretReplicaRegionArrayInput
-	// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-	SecretString pulumi.StringPtrInput
-	// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-	Tags SecretTagArrayInput
+	KmsKeyId             pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	ReplicaRegions       SecretReplicaRegionArrayInput
+	SecretString         pulumi.StringPtrInput
+	Tags                 SecretTagArrayInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {
@@ -140,37 +119,30 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
-// (Optional) Specifies a user-provided description of the secret.
 func (o SecretOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 func (o SecretOutput) GenerateSecretString() SecretGenerateSecretStringPtrOutput {
 	return o.ApplyT(func(v *Secret) SecretGenerateSecretStringPtrOutput { return v.GenerateSecretString }).(SecretGenerateSecretStringPtrOutput)
 }
 
-// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
 func (o SecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
 func (o SecretOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
 func (o SecretOutput) ReplicaRegions() SecretReplicaRegionArrayOutput {
 	return o.ApplyT(func(v *Secret) SecretReplicaRegionArrayOutput { return v.ReplicaRegions }).(SecretReplicaRegionArrayOutput)
 }
 
-// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
 func (o SecretOutput) SecretString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Secret) pulumi.StringPtrOutput { return v.SecretString }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
 func (o SecretOutput) Tags() SecretTagArrayOutput {
 	return o.ApplyT(func(v *Secret) SecretTagArrayOutput { return v.Tags }).(SecretTagArrayOutput)
 }

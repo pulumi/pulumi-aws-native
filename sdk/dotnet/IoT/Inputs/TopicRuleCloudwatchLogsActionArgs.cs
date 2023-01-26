@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class TopicRuleCloudwatchLogsActionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 

@@ -44,6 +44,7 @@ __all__ = [
     'DeviceFleetTag',
     'DeviceTag',
     'DomainCustomImage',
+    'DomainDefaultSpaceSettings',
     'DomainJupyterServerAppSettings',
     'DomainKernelGatewayAppSettings',
     'DomainRSessionAppSettings',
@@ -1804,6 +1805,88 @@ class DomainCustomImage(dict):
 
 
 @pulumi.output_type
+class DomainDefaultSpaceSettings(dict):
+    """
+    A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionRole":
+            suggest = "execution_role"
+        elif key == "jupyterServerAppSettings":
+            suggest = "jupyter_server_app_settings"
+        elif key == "kernelGatewayAppSettings":
+            suggest = "kernel_gateway_app_settings"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultSpaceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultSpaceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultSpaceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_role: Optional[str] = None,
+                 jupyter_server_app_settings: Optional['outputs.DomainJupyterServerAppSettings'] = None,
+                 kernel_gateway_app_settings: Optional['outputs.DomainKernelGatewayAppSettings'] = None,
+                 security_groups: Optional[Sequence[str]] = None):
+        """
+        A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+        :param str execution_role: The execution role for the space.
+        :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
+        :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
+        :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        if execution_role is not None:
+            pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_server_app_settings is not None:
+            pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
+        if kernel_gateway_app_settings is not None:
+            pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[str]:
+        """
+        The execution role for the space.
+        """
+        return pulumi.get(self, "execution_role")
+
+    @property
+    @pulumi.getter(name="jupyterServerAppSettings")
+    def jupyter_server_app_settings(self) -> Optional['outputs.DomainJupyterServerAppSettings']:
+        """
+        The Jupyter server's app settings.
+        """
+        return pulumi.get(self, "jupyter_server_app_settings")
+
+    @property
+    @pulumi.getter(name="kernelGatewayAppSettings")
+    def kernel_gateway_app_settings(self) -> Optional['outputs.DomainKernelGatewayAppSettings']:
+        """
+        The kernel gateway app settings.
+        """
+        return pulumi.get(self, "kernel_gateway_app_settings")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
 class DomainJupyterServerAppSettings(dict):
     """
     The JupyterServer app settings.
@@ -2333,7 +2416,7 @@ class DomainUserSettings(dict):
                  sharing_settings: Optional['outputs.DomainSharingSettings'] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
-        :param str execution_role: The user profile Amazon Resource Name (ARN).
+        :param str execution_role: The execution role for the user.
         :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -2358,7 +2441,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> Optional[str]:
         """
-        The user profile Amazon Resource Name (ARN).
+        The execution role for the user.
         """
         return pulumi.get(self, "execution_role")
 

@@ -15,45 +15,24 @@ namespace Pulumi.AwsNative.SecretsManager
     [AwsNativeResourceType("aws-native:secretsmanager:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// (Optional) Specifies a user-provided description of the secret.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        /// </summary>
         [Output("generateSecretString")]
         public Output<Outputs.SecretGenerateSecretString?> GenerateSecretString { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-        /// </summary>
         [Output("replicaRegions")]
         public Output<ImmutableArray<Outputs.SecretReplicaRegion>> ReplicaRegions { get; private set; } = null!;
 
-        /// <summary>
-        /// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        /// </summary>
         [Output("secretString")]
         public Output<string?> SecretString { get; private set; } = null!;
 
-        /// <summary>
-        /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.SecretTag>> Tags { get; private set; } = null!;
 
@@ -102,54 +81,31 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// (Optional) Specifies a user-provided description of the secret.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        /// </summary>
         [Input("generateSecretString")]
         public Input<Inputs.SecretGenerateSecretStringArgs>? GenerateSecretString { get; set; }
 
-        /// <summary>
-        /// (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
-        /// <summary>
-        /// The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy.
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("replicaRegions")]
         private InputList<Inputs.SecretReplicaRegionArgs>? _replicaRegions;
-
-        /// <summary>
-        /// (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-        /// </summary>
         public InputList<Inputs.SecretReplicaRegionArgs> ReplicaRegions
         {
             get => _replicaRegions ?? (_replicaRegions = new InputList<Inputs.SecretReplicaRegionArgs>());
             set => _replicaRegions = value;
         }
 
-        /// <summary>
-        /// (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
-        /// </summary>
         [Input("secretString")]
         public Input<string>? SecretString { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SecretTagArgs>? _tags;
-
-        /// <summary>
-        /// The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-        /// </summary>
         public InputList<Inputs.SecretTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.SecretTagArgs>());

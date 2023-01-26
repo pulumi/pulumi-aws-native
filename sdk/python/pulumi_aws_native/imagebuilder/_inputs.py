@@ -26,6 +26,9 @@ __all__ = [
     'DistributionConfigurationLaunchPermissionConfigurationArgs',
     'DistributionConfigurationLaunchTemplateConfigurationArgs',
     'DistributionConfigurationTargetContainerRepositoryArgs',
+    'ImageEcrConfigurationArgs',
+    'ImagePipelineEcrConfigurationArgs',
+    'ImagePipelineImageScanningConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeAdditionalInstanceConfigurationArgs',
@@ -34,6 +37,7 @@ __all__ = [
     'ImageRecipeEbsInstanceBlockDeviceSpecificationArgs',
     'ImageRecipeInstanceBlockDeviceMappingArgs',
     'ImageRecipeSystemsManagerAgentArgs',
+    'ImageScanningConfigurationArgs',
     'ImageTestsConfigurationArgs',
     'InfrastructureConfigurationInstanceMetadataOptionsArgs',
     'InfrastructureConfigurationLoggingArgs',
@@ -994,6 +998,126 @@ class DistributionConfigurationTargetContainerRepositoryArgs:
 
 
 @pulumi.input_type
+class ImageEcrConfigurationArgs:
+    def __init__(__self__, *,
+                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None):
+        """
+        Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+        :param pulumi.Input[str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @container_tags.setter
+    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_tags", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+
+@pulumi.input_type
+class ImagePipelineEcrConfigurationArgs:
+    def __init__(__self__, *,
+                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None):
+        """
+        Settings for Image Builder to configure the ECR repository and output container images that are scanned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] container_tags: Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+        :param pulumi.Input[str] repository_name: The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
+        """
+        return pulumi.get(self, "container_tags")
+
+    @container_tags.setter
+    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_tags", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+
+@pulumi.input_type
+class ImagePipelineImageScanningConfigurationArgs:
+    def __init__(__self__, *,
+                 ecr_configuration: Optional[pulumi.Input['ImagePipelineEcrConfigurationArgs']] = None,
+                 image_scanning_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
+        :param pulumi.Input['ImagePipelineEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
+        :param pulumi.Input[bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional[pulumi.Input['ImagePipelineEcrConfigurationArgs']]:
+        """
+        Contains ECR settings for vulnerability scans.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @ecr_configuration.setter
+    def ecr_configuration(self, value: Optional[pulumi.Input['ImagePipelineEcrConfigurationArgs']]):
+        pulumi.set(self, "ecr_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+    @image_scanning_enabled.setter
+    def image_scanning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_scanning_enabled", value)
+
+
+@pulumi.input_type
 class ImagePipelineImageTestsConfigurationArgs:
     def __init__(__self__, *,
                  image_tests_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1421,6 +1545,46 @@ class ImageRecipeSystemsManagerAgentArgs:
     @uninstall_after_build.setter
     def uninstall_after_build(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "uninstall_after_build", value)
+
+
+@pulumi.input_type
+class ImageScanningConfigurationArgs:
+    def __init__(__self__, *,
+                 ecr_configuration: Optional[pulumi.Input['ImageEcrConfigurationArgs']] = None,
+                 image_scanning_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Contains settings for Image Builder image resource and container image scans.
+        :param pulumi.Input['ImageEcrConfigurationArgs'] ecr_configuration: Contains ECR settings for vulnerability scans.
+        :param pulumi.Input[bool] image_scanning_enabled: This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional[pulumi.Input['ImageEcrConfigurationArgs']]:
+        """
+        Contains ECR settings for vulnerability scans.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @ecr_configuration.setter
+    def ecr_configuration(self, value: Optional[pulumi.Input['ImageEcrConfigurationArgs']]):
+        pulumi.set(self, "ecr_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+    @image_scanning_enabled.setter
+    def image_scanning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_scanning_enabled", value)
 
 
 @pulumi.input_type

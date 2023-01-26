@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSimulationApplicationResult:
-    def __init__(__self__, arn=None, current_revision_id=None, environment=None, rendering_engine=None, robot_software_suite=None, simulation_software_suite=None, sources=None, tags=None):
+    def __init__(__self__, arn=None, current_revision_id=None, environment=None, robot_software_suite=None, simulation_software_suite=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,18 +30,12 @@ class GetSimulationApplicationResult:
         if environment and not isinstance(environment, str):
             raise TypeError("Expected argument 'environment' to be a str")
         pulumi.set(__self__, "environment", environment)
-        if rendering_engine and not isinstance(rendering_engine, dict):
-            raise TypeError("Expected argument 'rendering_engine' to be a dict")
-        pulumi.set(__self__, "rendering_engine", rendering_engine)
         if robot_software_suite and not isinstance(robot_software_suite, dict):
             raise TypeError("Expected argument 'robot_software_suite' to be a dict")
         pulumi.set(__self__, "robot_software_suite", robot_software_suite)
         if simulation_software_suite and not isinstance(simulation_software_suite, dict):
             raise TypeError("Expected argument 'simulation_software_suite' to be a dict")
         pulumi.set(__self__, "simulation_software_suite", simulation_software_suite)
-        if sources and not isinstance(sources, list):
-            raise TypeError("Expected argument 'sources' to be a list")
-        pulumi.set(__self__, "sources", sources)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,14 +62,6 @@ class GetSimulationApplicationResult:
         return pulumi.get(self, "environment")
 
     @property
-    @pulumi.getter(name="renderingEngine")
-    def rendering_engine(self) -> Optional['outputs.SimulationApplicationRenderingEngine']:
-        """
-        The rendering engine for the simulation application.
-        """
-        return pulumi.get(self, "rendering_engine")
-
-    @property
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> Optional['outputs.SimulationApplicationRobotSoftwareSuite']:
         """
@@ -93,14 +79,6 @@ class GetSimulationApplicationResult:
 
     @property
     @pulumi.getter
-    def sources(self) -> Optional[Sequence['outputs.SimulationApplicationSourceConfig']]:
-        """
-        The sources of the simulation application.
-        """
-        return pulumi.get(self, "sources")
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional['outputs.SimulationApplicationTags']:
         return pulumi.get(self, "tags")
 
@@ -114,17 +92,15 @@ class AwaitableGetSimulationApplicationResult(GetSimulationApplicationResult):
             arn=self.arn,
             current_revision_id=self.current_revision_id,
             environment=self.environment,
-            rendering_engine=self.rendering_engine,
             robot_software_suite=self.robot_software_suite,
             simulation_software_suite=self.simulation_software_suite,
-            sources=self.sources,
             tags=self.tags)
 
 
 def get_simulation_application(arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimulationApplicationResult:
     """
-    AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+    This schema is for testing purpose only.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -135,10 +111,8 @@ def get_simulation_application(arn: Optional[str] = None,
         arn=__ret__.arn,
         current_revision_id=__ret__.current_revision_id,
         environment=__ret__.environment,
-        rendering_engine=__ret__.rendering_engine,
         robot_software_suite=__ret__.robot_software_suite,
         simulation_software_suite=__ret__.simulation_software_suite,
-        sources=__ret__.sources,
         tags=__ret__.tags)
 
 
@@ -146,6 +120,6 @@ def get_simulation_application(arn: Optional[str] = None,
 def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
-    AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+    This schema is for testing purpose only.
     """
     ...

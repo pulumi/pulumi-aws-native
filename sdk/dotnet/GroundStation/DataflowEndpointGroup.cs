@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("contactPostPassDurationSeconds")]
+        public Output<int?> ContactPostPassDurationSeconds { get; private set; } = null!;
+
+        [Output("contactPrePassDurationSeconds")]
+        public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
+
         [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
 
@@ -69,6 +75,12 @@ namespace Pulumi.AwsNative.GroundStation
 
     public sealed class DataflowEndpointGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("contactPostPassDurationSeconds")]
+        public Input<int>? ContactPostPassDurationSeconds { get; set; }
+
+        [Input("contactPrePassDurationSeconds")]
+        public Input<int>? ContactPrePassDurationSeconds { get; set; }
+
         [Input("endpointDetails", required: true)]
         private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
         public InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs> EndpointDetails

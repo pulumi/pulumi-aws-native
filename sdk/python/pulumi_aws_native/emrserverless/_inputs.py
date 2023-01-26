@@ -13,12 +13,14 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfigurationArgs',
     'ApplicationAutoStopConfigurationArgs',
+    'ApplicationImageConfigurationInputArgs',
     'ApplicationInitialCapacityConfigKeyValuePairArgs',
     'ApplicationInitialCapacityConfigArgs',
     'ApplicationMaximumAllowedResourcesArgs',
     'ApplicationNetworkConfigurationArgs',
     'ApplicationTagArgs',
     'ApplicationWorkerConfigurationArgs',
+    'ApplicationWorkerTypeSpecificationInputMapArgs',
 ]
 
 @pulumi.input_type
@@ -83,6 +85,30 @@ class ApplicationAutoStopConfigurationArgs:
     @idle_timeout_minutes.setter
     def idle_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_minutes", value)
+
+
+@pulumi.input_type
+class ApplicationImageConfigurationInputArgs:
+    def __init__(__self__, *,
+                 image_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The image configuration.
+        :param pulumi.Input[str] image_uri: The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+        """
+        if image_uri is not None:
+            pulumi.set(__self__, "image_uri", image_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @image_uri.setter
+    def image_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_uri", value)
 
 
 @pulumi.input_type
@@ -332,5 +358,11 @@ class ApplicationWorkerConfigurationArgs:
     @disk.setter
     def disk(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk", value)
+
+
+@pulumi.input_type
+class ApplicationWorkerTypeSpecificationInputMapArgs:
+    def __init__(__self__):
+        pass
 
 

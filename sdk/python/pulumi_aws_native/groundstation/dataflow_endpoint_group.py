@@ -17,11 +17,17 @@ __all__ = ['DataflowEndpointGroupArgs', 'DataflowEndpointGroup']
 class DataflowEndpointGroupArgs:
     def __init__(__self__, *,
                  endpoint_details: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]],
+                 contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroup resource.
         """
         pulumi.set(__self__, "endpoint_details", endpoint_details)
+        if contact_post_pass_duration_seconds is not None:
+            pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
+        if contact_pre_pass_duration_seconds is not None:
+            pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -33,6 +39,24 @@ class DataflowEndpointGroupArgs:
     @endpoint_details.setter
     def endpoint_details(self, value: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]):
         pulumi.set(self, "endpoint_details", value)
+
+    @property
+    @pulumi.getter(name="contactPostPassDurationSeconds")
+    def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "contact_post_pass_duration_seconds")
+
+    @contact_post_pass_duration_seconds.setter
+    def contact_post_pass_duration_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "contact_post_pass_duration_seconds", value)
+
+    @property
+    @pulumi.getter(name="contactPrePassDurationSeconds")
+    def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "contact_pre_pass_duration_seconds")
+
+    @contact_pre_pass_duration_seconds.setter
+    def contact_pre_pass_duration_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "contact_pre_pass_duration_seconds", value)
 
     @property
     @pulumi.getter
@@ -49,6 +73,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -82,6 +108,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
+                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupEndpointDetailsArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataflowEndpointGroupTagArgs']]]]] = None,
                  __props__=None):
@@ -93,6 +121,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataflowEndpointGroupArgs.__new__(DataflowEndpointGroupArgs)
 
+            __props__.__dict__["contact_post_pass_duration_seconds"] = contact_post_pass_duration_seconds
+            __props__.__dict__["contact_pre_pass_duration_seconds"] = contact_pre_pass_duration_seconds
             if endpoint_details is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_details'")
             __props__.__dict__["endpoint_details"] = endpoint_details
@@ -121,6 +151,8 @@ class DataflowEndpointGroup(pulumi.CustomResource):
         __props__ = DataflowEndpointGroupArgs.__new__(DataflowEndpointGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["contact_post_pass_duration_seconds"] = None
+        __props__.__dict__["contact_pre_pass_duration_seconds"] = None
         __props__.__dict__["endpoint_details"] = None
         __props__.__dict__["tags"] = None
         return DataflowEndpointGroup(resource_name, opts=opts, __props__=__props__)
@@ -129,6 +161,16 @@ class DataflowEndpointGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="contactPostPassDurationSeconds")
+    def contact_post_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "contact_post_pass_duration_seconds")
+
+    @property
+    @pulumi.getter(name="contactPrePassDurationSeconds")
+    def contact_pre_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property
     @pulumi.getter(name="endpointDetails")

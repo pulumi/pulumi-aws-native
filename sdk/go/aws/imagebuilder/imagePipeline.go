@@ -26,6 +26,8 @@ type ImagePipeline struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -89,6 +91,8 @@ type imagePipelineArgs struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -115,6 +119,8 @@ type ImagePipelineArgs struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrInput
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -194,6 +200,13 @@ func (o ImagePipelineOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput
 // The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 func (o ImagePipelineOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// Contains settings for vulnerability scans.
+func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationPtrOutput {
+		return v.ImageScanningConfiguration
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
 }
 
 // The image tests configuration of the image pipeline.

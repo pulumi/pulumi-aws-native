@@ -24,6 +24,8 @@ export interface GetDataflowEndpointGroupArgs {
 
 export interface GetDataflowEndpointGroupResult {
     readonly arn?: string;
+    readonly contactPostPassDurationSeconds?: number;
+    readonly contactPrePassDurationSeconds?: number;
     readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupEndpointDetails[];
     readonly id?: string;
     readonly tags?: outputs.groundstation.DataflowEndpointGroupTag[];

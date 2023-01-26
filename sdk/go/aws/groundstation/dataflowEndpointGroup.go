@@ -15,9 +15,11 @@ import (
 type DataflowEndpointGroup struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput                             `pulumi:"arn"`
-	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
-	Tags            DataflowEndpointGroupTagArrayOutput             `pulumi:"tags"`
+	Arn                            pulumi.StringOutput                             `pulumi:"arn"`
+	ContactPostPassDurationSeconds pulumi.IntPtrOutput                             `pulumi:"contactPostPassDurationSeconds"`
+	ContactPrePassDurationSeconds  pulumi.IntPtrOutput                             `pulumi:"contactPrePassDurationSeconds"`
+	EndpointDetails                DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
+	Tags                           DataflowEndpointGroupTagArrayOutput             `pulumi:"tags"`
 }
 
 // NewDataflowEndpointGroup registers a new resource with the given unique name, arguments, and options.
@@ -62,14 +64,18 @@ func (DataflowEndpointGroupState) ElementType() reflect.Type {
 }
 
 type dataflowEndpointGroupArgs struct {
-	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	Tags            []DataflowEndpointGroupTag             `pulumi:"tags"`
+	ContactPostPassDurationSeconds *int                                   `pulumi:"contactPostPassDurationSeconds"`
+	ContactPrePassDurationSeconds  *int                                   `pulumi:"contactPrePassDurationSeconds"`
+	EndpointDetails                []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
+	Tags                           []DataflowEndpointGroupTag             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataflowEndpointGroup resource.
 type DataflowEndpointGroupArgs struct {
-	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayInput
-	Tags            DataflowEndpointGroupTagArrayInput
+	ContactPostPassDurationSeconds pulumi.IntPtrInput
+	ContactPrePassDurationSeconds  pulumi.IntPtrInput
+	EndpointDetails                DataflowEndpointGroupEndpointDetailsArrayInput
+	Tags                           DataflowEndpointGroupTagArrayInput
 }
 
 func (DataflowEndpointGroupArgs) ElementType() reflect.Type {
@@ -111,6 +117,14 @@ func (o DataflowEndpointGroupOutput) ToDataflowEndpointGroupOutputWithContext(ct
 
 func (o DataflowEndpointGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DataflowEndpointGroupOutput) ContactPostPassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.IntPtrOutput { return v.ContactPostPassDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o DataflowEndpointGroupOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {

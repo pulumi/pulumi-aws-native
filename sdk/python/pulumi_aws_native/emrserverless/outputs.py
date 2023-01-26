@@ -14,12 +14,14 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfiguration',
     'ApplicationAutoStopConfiguration',
+    'ApplicationImageConfigurationInput',
     'ApplicationInitialCapacityConfig',
     'ApplicationInitialCapacityConfigKeyValuePair',
     'ApplicationMaximumAllowedResources',
     'ApplicationNetworkConfiguration',
     'ApplicationTag',
     'ApplicationWorkerConfiguration',
+    'ApplicationWorkerTypeSpecificationInputMap',
 ]
 
 @pulumi.output_type
@@ -95,6 +97,46 @@ class ApplicationAutoStopConfiguration(dict):
         The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
         return pulumi.get(self, "idle_timeout_minutes")
+
+
+@pulumi.output_type
+class ApplicationImageConfigurationInput(dict):
+    """
+    The image configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationImageConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationImageConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationImageConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: Optional[str] = None):
+        """
+        The image configuration.
+        :param str image_uri: The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+        """
+        if image_uri is not None:
+            pulumi.set(__self__, "image_uri", image_uri)
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> Optional[str]:
+        """
+        The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+        """
+        return pulumi.get(self, "image_uri")
 
 
 @pulumi.output_type
@@ -329,5 +371,11 @@ class ApplicationWorkerConfiguration(dict):
         Per worker Disk resource. GB is the only supported unit and specifying GB is optional
         """
         return pulumi.get(self, "disk")
+
+
+@pulumi.output_type
+class ApplicationWorkerTypeSpecificationInputMap(dict):
+    def __init__(__self__):
+        pass
 
 

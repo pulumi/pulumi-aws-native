@@ -11,10 +11,13 @@ namespace Pulumi.AwsNative.Lex.Inputs
 {
 
     /// <summary>
-    /// An intent represents an action that the user wants to perform. You create a bot to support one or more related intents.
+    /// Represents an action that the user wants to perform.
     /// </summary>
     public sealed class BotIntentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Description of thr intent.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -23,6 +26,12 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("fulfillmentCodeHook")]
         public Input<Inputs.BotFulfillmentCodeHookSettingArgs>? FulfillmentCodeHook { get; set; }
+
+        /// <summary>
+        /// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
+        /// </summary>
+        [Input("initialResponseSetting")]
+        public Input<Inputs.BotInitialResponseSettingArgs>? InitialResponseSetting { get; set; }
 
         [Input("inputContexts")]
         private InputList<Inputs.BotInputContextArgs>? _inputContexts;
@@ -41,6 +50,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         [Input("kendraConfiguration")]
         public Input<Inputs.BotKendraConfigurationArgs>? KendraConfiguration { get; set; }
 
+        /// <summary>
+        /// The name of the intent.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -57,6 +69,10 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
         [Input("sampleUtterances")]
         private InputList<Inputs.BotSampleUtteranceArgs>? _sampleUtterances;
+
+        /// <summary>
+        /// A sample utterance that invokes an intent or respond to a slot elicitation prompt.
+        /// </summary>
         public InputList<Inputs.BotSampleUtteranceArgs> SampleUtterances
         {
             get => _sampleUtterances ?? (_sampleUtterances = new InputList<Inputs.BotSampleUtteranceArgs>());

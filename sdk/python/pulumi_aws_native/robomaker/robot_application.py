@@ -122,7 +122,7 @@ class RobotApplication(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[pulumi.InputType['RobotApplicationTagsArgs']]] = None,
                  __props__=None):
         """
-        AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+        This schema is for testing purpose only.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class RobotApplication(pulumi.CustomResource):
                  args: RobotApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+        This schema is for testing purpose only.
 
         :param str resource_name: The name of the resource.
         :param RobotApplicationArgs args: The arguments to use to populate this resource's properties.

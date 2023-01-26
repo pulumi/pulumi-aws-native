@@ -35,6 +35,7 @@ class FunctionArgs:
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -59,6 +60,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input['FunctionRuntimeManagementConfigArgs'] runtime_management_config: RuntimeManagementConfig
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: The SnapStart setting of your function
         :param pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -99,6 +101,8 @@ class FunctionArgs:
             pulumi.set(__self__, "reserved_concurrent_executions", reserved_concurrent_executions)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
+        if runtime_management_config is not None:
+            pulumi.set(__self__, "runtime_management_config", runtime_management_config)
         if snap_start is not None:
             pulumi.set(__self__, "snap_start", snap_start)
         if tags is not None:
@@ -324,6 +328,18 @@ class FunctionArgs:
         pulumi.set(self, "runtime", value)
 
     @property
+    @pulumi.getter(name="runtimeManagementConfig")
+    def runtime_management_config(self) -> Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']]:
+        """
+        RuntimeManagementConfig
+        """
+        return pulumi.get(self, "runtime_management_config")
+
+    @runtime_management_config.setter
+    def runtime_management_config(self, value: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']]):
+        pulumi.set(self, "runtime_management_config", value)
+
+    @property
     @pulumi.getter(name="snapStart")
     def snap_start(self) -> Optional[pulumi.Input['FunctionSnapStartArgs']]:
         """
@@ -407,6 +423,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -435,6 +452,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
         :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']] runtime_management_config: RuntimeManagementConfig
         :param pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']] snap_start: The SnapStart setting of your function
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]] tags: A list of tags to apply to the function.
         :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
@@ -483,6 +501,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
+                 runtime_management_config: Optional[pulumi.Input[pulumi.InputType['FunctionRuntimeManagementConfigArgs']]] = None,
                  snap_start: Optional[pulumi.Input[pulumi.InputType['FunctionSnapStartArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -519,6 +538,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["runtime"] = runtime
+            __props__.__dict__["runtime_management_config"] = runtime_management_config
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
@@ -567,6 +587,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
         __props__.__dict__["runtime"] = None
+        __props__.__dict__["runtime_management_config"] = None
         __props__.__dict__["snap_start"] = None
         __props__.__dict__["snap_start_response"] = None
         __props__.__dict__["tags"] = None
@@ -723,6 +744,14 @@ class Function(pulumi.CustomResource):
         The identifier of the function's runtime.
         """
         return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="runtimeManagementConfig")
+    def runtime_management_config(self) -> pulumi.Output[Optional['outputs.FunctionRuntimeManagementConfig']]:
+        """
+        RuntimeManagementConfig
+        """
+        return pulumi.get(self, "runtime_management_config")
 
     @property
     @pulumi.getter(name="snapStart")

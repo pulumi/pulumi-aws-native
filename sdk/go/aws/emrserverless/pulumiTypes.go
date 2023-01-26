@@ -309,6 +309,146 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// The image configuration.
+type ApplicationImageConfigurationInput struct {
+	// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+	ImageUri *string `pulumi:"imageUri"`
+}
+
+// ApplicationImageConfigurationInputInput is an input type that accepts ApplicationImageConfigurationInputArgs and ApplicationImageConfigurationInputOutput values.
+// You can construct a concrete instance of `ApplicationImageConfigurationInputInput` via:
+//
+//	ApplicationImageConfigurationInputArgs{...}
+type ApplicationImageConfigurationInputInput interface {
+	pulumi.Input
+
+	ToApplicationImageConfigurationInputOutput() ApplicationImageConfigurationInputOutput
+	ToApplicationImageConfigurationInputOutputWithContext(context.Context) ApplicationImageConfigurationInputOutput
+}
+
+// The image configuration.
+type ApplicationImageConfigurationInputArgs struct {
+	// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+	ImageUri pulumi.StringPtrInput `pulumi:"imageUri"`
+}
+
+func (ApplicationImageConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationImageConfigurationInput)(nil)).Elem()
+}
+
+func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationInputOutput() ApplicationImageConfigurationInputOutput {
+	return i.ToApplicationImageConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationInputOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationInputOutput)
+}
+
+func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput {
+	return i.ToApplicationImageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationImageConfigurationInputArgs) ToApplicationImageConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationInputOutput).ToApplicationImageConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// ApplicationImageConfigurationInputPtrInput is an input type that accepts ApplicationImageConfigurationInputArgs, ApplicationImageConfigurationInputPtr and ApplicationImageConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `ApplicationImageConfigurationInputPtrInput` via:
+//
+//	        ApplicationImageConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationImageConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput
+	ToApplicationImageConfigurationInputPtrOutputWithContext(context.Context) ApplicationImageConfigurationInputPtrOutput
+}
+
+type applicationImageConfigurationInputPtrType ApplicationImageConfigurationInputArgs
+
+func ApplicationImageConfigurationInputPtr(v *ApplicationImageConfigurationInputArgs) ApplicationImageConfigurationInputPtrInput {
+	return (*applicationImageConfigurationInputPtrType)(v)
+}
+
+func (*applicationImageConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationImageConfigurationInput)(nil)).Elem()
+}
+
+func (i *applicationImageConfigurationInputPtrType) ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput {
+	return i.ToApplicationImageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationImageConfigurationInputPtrType) ToApplicationImageConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationImageConfigurationInputPtrOutput)
+}
+
+// The image configuration.
+type ApplicationImageConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (ApplicationImageConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationImageConfigurationInput)(nil)).Elem()
+}
+
+func (o ApplicationImageConfigurationInputOutput) ToApplicationImageConfigurationInputOutput() ApplicationImageConfigurationInputOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationInputOutput) ToApplicationImageConfigurationInputOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationInputOutput) ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput {
+	return o.ToApplicationImageConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationImageConfigurationInputOutput) ToApplicationImageConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationImageConfigurationInput) *ApplicationImageConfigurationInput {
+		return &v
+	}).(ApplicationImageConfigurationInputPtrOutput)
+}
+
+// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+func (o ApplicationImageConfigurationInputOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationImageConfigurationInput) *string { return v.ImageUri }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationImageConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationImageConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationImageConfigurationInput)(nil)).Elem()
+}
+
+func (o ApplicationImageConfigurationInputPtrOutput) ToApplicationImageConfigurationInputPtrOutput() ApplicationImageConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationInputPtrOutput) ToApplicationImageConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationImageConfigurationInputPtrOutput {
+	return o
+}
+
+func (o ApplicationImageConfigurationInputPtrOutput) Elem() ApplicationImageConfigurationInputOutput {
+	return o.ApplyT(func(v *ApplicationImageConfigurationInput) ApplicationImageConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationImageConfigurationInput
+		return ret
+	}).(ApplicationImageConfigurationInputOutput)
+}
+
+// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
+func (o ApplicationImageConfigurationInputPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationImageConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationInitialCapacityConfig struct {
 	WorkerConfiguration ApplicationWorkerConfiguration `pulumi:"workerConfiguration"`
 	// Initial count of workers to be initialized when an Application is started. This count will be continued to be maintained until the Application is stopped
@@ -980,11 +1120,131 @@ func (o ApplicationWorkerConfigurationOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationWorkerConfiguration) string { return v.Memory }).(pulumi.StringOutput)
 }
 
+type ApplicationWorkerTypeSpecificationInputMap struct {
+}
+
+// ApplicationWorkerTypeSpecificationInputMapInput is an input type that accepts ApplicationWorkerTypeSpecificationInputMap and ApplicationWorkerTypeSpecificationInputMapOutput values.
+// You can construct a concrete instance of `ApplicationWorkerTypeSpecificationInputMapInput` via:
+//
+//	ApplicationWorkerTypeSpecificationInputMap{ "key": ApplicationWorkerTypeSpecificationInputArgs{...} }
+type ApplicationWorkerTypeSpecificationInputMapInput interface {
+	pulumi.Input
+
+	ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput
+	ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(context.Context) ApplicationWorkerTypeSpecificationInputMapOutput
+}
+
+type ApplicationWorkerTypeSpecificationInputMapArgs struct {
+}
+
+func (ApplicationWorkerTypeSpecificationInputMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
+}
+
+func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput {
+	return i.ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(context.Background())
+}
+
+func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapOutput)
+}
+
+func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationWorkerTypeSpecificationInputMapArgs) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapOutput).ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx)
+}
+
+// ApplicationWorkerTypeSpecificationInputMapPtrInput is an input type that accepts ApplicationWorkerTypeSpecificationInputMapArgs, ApplicationWorkerTypeSpecificationInputMapPtr and ApplicationWorkerTypeSpecificationInputMapPtrOutput values.
+// You can construct a concrete instance of `ApplicationWorkerTypeSpecificationInputMapPtrInput` via:
+//
+//	        ApplicationWorkerTypeSpecificationInputMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationWorkerTypeSpecificationInputMapPtrInput interface {
+	pulumi.Input
+
+	ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput
+	ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput
+}
+
+type applicationWorkerTypeSpecificationInputMapPtrType ApplicationWorkerTypeSpecificationInputMapArgs
+
+func ApplicationWorkerTypeSpecificationInputMapPtr(v *ApplicationWorkerTypeSpecificationInputMapArgs) ApplicationWorkerTypeSpecificationInputMapPtrInput {
+	return (*applicationWorkerTypeSpecificationInputMapPtrType)(v)
+}
+
+func (*applicationWorkerTypeSpecificationInputMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
+}
+
+func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return i.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationWorkerTypeSpecificationInputMapPtrType) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
+}
+
+type ApplicationWorkerTypeSpecificationInputMapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationWorkerTypeSpecificationInputMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapOutput() ApplicationWorkerTypeSpecificationInputMapOutput {
+	return o
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapOutput {
+	return o
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o.ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationWorkerTypeSpecificationInputMap) *ApplicationWorkerTypeSpecificationInputMap {
+		return &v
+	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
+}
+
+type ApplicationWorkerTypeSpecificationInputMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationWorkerTypeSpecificationInputMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationWorkerTypeSpecificationInputMap)(nil)).Elem()
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutput() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) ToApplicationWorkerTypeSpecificationInputMapPtrOutputWithContext(ctx context.Context) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o
+}
+
+func (o ApplicationWorkerTypeSpecificationInputMapPtrOutput) Elem() ApplicationWorkerTypeSpecificationInputMapOutput {
+	return o.ApplyT(func(v *ApplicationWorkerTypeSpecificationInputMap) ApplicationWorkerTypeSpecificationInputMap {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationWorkerTypeSpecificationInputMap
+		return ret
+	}).(ApplicationWorkerTypeSpecificationInputMapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputPtrInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigInput)(nil)).Elem(), ApplicationInitialCapacityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairArrayInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArray{})
@@ -995,10 +1255,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerConfigurationInput)(nil)).Elem(), ApplicationWorkerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerTypeSpecificationInputMapPtrInput)(nil)).Elem(), ApplicationWorkerTypeSpecificationInputMapArgs{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationImageConfigurationInputOutput{})
+	pulumi.RegisterOutputType(ApplicationImageConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairArrayOutput{})
@@ -1009,4 +1273,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapOutput{})
+	pulumi.RegisterOutputType(ApplicationWorkerTypeSpecificationInputMapPtrOutput{})
 }

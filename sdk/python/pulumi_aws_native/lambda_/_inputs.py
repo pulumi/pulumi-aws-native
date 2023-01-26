@@ -35,6 +35,7 @@ __all__ = [
     'FunctionEphemeralStorageArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionRuntimeManagementConfigArgs',
     'FunctionSnapStartArgs',
     'FunctionTagArgs',
     'FunctionTracingConfigArgs',
@@ -714,6 +715,44 @@ class FunctionImageConfigArgs:
     @working_directory.setter
     def working_directory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "working_directory", value)
+
+
+@pulumi.input_type
+class FunctionRuntimeManagementConfigArgs:
+    def __init__(__self__, *,
+                 update_runtime_on: pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn'],
+                 runtime_version_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn'] update_runtime_on: Trigger for runtime update
+        :param pulumi.Input[str] runtime_version_arn: Unique identifier for a runtime version arn
+        """
+        pulumi.set(__self__, "update_runtime_on", update_runtime_on)
+        if runtime_version_arn is not None:
+            pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
+
+    @property
+    @pulumi.getter(name="updateRuntimeOn")
+    def update_runtime_on(self) -> pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn']:
+        """
+        Trigger for runtime update
+        """
+        return pulumi.get(self, "update_runtime_on")
+
+    @update_runtime_on.setter
+    def update_runtime_on(self, value: pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn']):
+        pulumi.set(self, "update_runtime_on", value)
+
+    @property
+    @pulumi.getter(name="runtimeVersionArn")
+    def runtime_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier for a runtime version arn
+        """
+        return pulumi.get(self, "runtime_version_arn")
+
+    @runtime_version_arn.setter
+    def runtime_version_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime_version_arn", value)
 
 
 @pulumi.input_type

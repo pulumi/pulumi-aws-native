@@ -25,10 +25,12 @@ type LookupDataflowEndpointGroupArgs struct {
 }
 
 type LookupDataflowEndpointGroupResult struct {
-	Arn             *string                                `pulumi:"arn"`
-	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	Id              *string                                `pulumi:"id"`
-	Tags            []DataflowEndpointGroupTag             `pulumi:"tags"`
+	Arn                            *string                                `pulumi:"arn"`
+	ContactPostPassDurationSeconds *int                                   `pulumi:"contactPostPassDurationSeconds"`
+	ContactPrePassDurationSeconds  *int                                   `pulumi:"contactPrePassDurationSeconds"`
+	EndpointDetails                []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
+	Id                             *string                                `pulumi:"id"`
+	Tags                           []DataflowEndpointGroupTag             `pulumi:"tags"`
 }
 
 func LookupDataflowEndpointGroupOutput(ctx *pulumi.Context, args LookupDataflowEndpointGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupResultOutput {
@@ -68,6 +70,14 @@ func (o LookupDataflowEndpointGroupResultOutput) ToLookupDataflowEndpointGroupRe
 
 func (o LookupDataflowEndpointGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDataflowEndpointGroupResultOutput) ContactPostPassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *int { return v.ContactPostPassDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupDataflowEndpointGroupResultOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDataflowEndpointGroupResult) *int { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupDataflowEndpointGroupResultOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {

@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
+        /// Contains settings for vulnerability scans.
+        /// </summary>
+        [Output("imageScanningConfiguration")]
+        public Output<Outputs.ImagePipelineImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The image tests configuration of the image pipeline.
         /// </summary>
         [Output("imageTestsConfiguration")]
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
+
+        /// <summary>
+        /// Contains settings for vulnerability scans.
+        /// </summary>
+        [Input("imageScanningConfiguration")]
+        public Input<Inputs.ImagePipelineImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
         /// The image tests configuration of the image pipeline.

@@ -4091,6 +4091,203 @@ func (o DomainCustomImageArrayOutput) Index(i pulumi.IntInput) DomainCustomImage
 	}).(DomainCustomImageOutput)
 }
 
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+type DomainDefaultSpaceSettings struct {
+	// The execution role for the space.
+	ExecutionRole *string `pulumi:"executionRole"`
+	// The Jupyter server's app settings.
+	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings.
+	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	SecurityGroups []string `pulumi:"securityGroups"`
+}
+
+// DomainDefaultSpaceSettingsInput is an input type that accepts DomainDefaultSpaceSettingsArgs and DomainDefaultSpaceSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsInput` via:
+//
+//	DomainDefaultSpaceSettingsArgs{...}
+type DomainDefaultSpaceSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsOutput() DomainDefaultSpaceSettingsOutput
+	ToDomainDefaultSpaceSettingsOutputWithContext(context.Context) DomainDefaultSpaceSettingsOutput
+}
+
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+type DomainDefaultSpaceSettingsArgs struct {
+	// The execution role for the space.
+	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
+	// The Jupyter server's app settings.
+	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
+	// The kernel gateway app settings.
+	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+}
+
+func (DomainDefaultSpaceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultSpaceSettingsArgs) ToDomainDefaultSpaceSettingsOutput() DomainDefaultSpaceSettingsOutput {
+	return i.ToDomainDefaultSpaceSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsArgs) ToDomainDefaultSpaceSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsOutput)
+}
+
+func (i DomainDefaultSpaceSettingsArgs) ToDomainDefaultSpaceSettingsPtrOutput() DomainDefaultSpaceSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultSpaceSettingsArgs) ToDomainDefaultSpaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsOutput).ToDomainDefaultSpaceSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultSpaceSettingsPtrInput is an input type that accepts DomainDefaultSpaceSettingsArgs, DomainDefaultSpaceSettingsPtr and DomainDefaultSpaceSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultSpaceSettingsPtrInput` via:
+//
+//	        DomainDefaultSpaceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultSpaceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultSpaceSettingsPtrOutput() DomainDefaultSpaceSettingsPtrOutput
+	ToDomainDefaultSpaceSettingsPtrOutputWithContext(context.Context) DomainDefaultSpaceSettingsPtrOutput
+}
+
+type domainDefaultSpaceSettingsPtrType DomainDefaultSpaceSettingsArgs
+
+func DomainDefaultSpaceSettingsPtr(v *DomainDefaultSpaceSettingsArgs) DomainDefaultSpaceSettingsPtrInput {
+	return (*domainDefaultSpaceSettingsPtrType)(v)
+}
+
+func (*domainDefaultSpaceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultSpaceSettingsPtrType) ToDomainDefaultSpaceSettingsPtrOutput() DomainDefaultSpaceSettingsPtrOutput {
+	return i.ToDomainDefaultSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultSpaceSettingsPtrType) ToDomainDefaultSpaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultSpaceSettingsPtrOutput)
+}
+
+// A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateDomain API is called.
+type DomainDefaultSpaceSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultSpaceSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsOutput() DomainDefaultSpaceSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutput() DomainDefaultSpaceSettingsPtrOutput {
+	return o.ToDomainDefaultSpaceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultSpaceSettings) *DomainDefaultSpaceSettings {
+		return &v
+	}).(DomainDefaultSpaceSettingsPtrOutput)
+}
+
+// The execution role for the space.
+func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter server's app settings.
+func (o DomainDefaultSpaceSettingsOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainJupyterServerAppSettings { return v.JupyterServerAppSettings }).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+func (o DomainDefaultSpaceSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultSpaceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultSpaceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultSpaceSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultSpaceSettingsPtrOutput) ToDomainDefaultSpaceSettingsPtrOutput() DomainDefaultSpaceSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsPtrOutput) ToDomainDefaultSpaceSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultSpaceSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) DomainDefaultSpaceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultSpaceSettings
+		return ret
+	}).(DomainDefaultSpaceSettingsOutput)
+}
+
+// The execution role for the space.
+func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter server's app settings.
+func (o DomainDefaultSpaceSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainJupyterServerAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterServerAppSettings
+	}).(DomainJupyterServerAppSettingsPtrOutput)
+}
+
+// The kernel gateway app settings.
+func (o DomainDefaultSpaceSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainKernelGatewayAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KernelGatewayAppSettings
+	}).(DomainKernelGatewayAppSettingsPtrOutput)
+}
+
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
 // The JupyterServer app settings.
 type DomainJupyterServerAppSettings struct {
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
@@ -5528,7 +5725,7 @@ func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
-	// The user profile Amazon Resource Name (ARN).
+	// The execution role for the user.
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
@@ -5555,7 +5752,7 @@ type DomainUserSettingsInput interface {
 
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
-	// The user profile Amazon Resource Name (ARN).
+	// The execution role for the user.
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
@@ -5596,7 +5793,7 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx cont
 	return o
 }
 
-// The user profile Amazon Resource Name (ARN).
+// The execution role for the user.
 func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
@@ -5653,7 +5850,7 @@ func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
 	}).(DomainUserSettingsOutput)
 }
 
-// The user profile Amazon Resource Name (ARN).
+// The execution role for the user.
 func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *string {
 		if v == nil {
@@ -30703,6 +30900,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceTagArrayInput)(nil)).Elem(), DeviceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCustomImageInput)(nil)).Elem(), DomainCustomImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCustomImageArrayInput)(nil)).Elem(), DomainCustomImageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsInput)(nil)).Elem(), DomainDefaultSpaceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultSpaceSettingsPtrInput)(nil)).Elem(), DomainDefaultSpaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterServerAppSettingsInput)(nil)).Elem(), DomainJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainKernelGatewayAppSettingsInput)(nil)).Elem(), DomainKernelGatewayAppSettingsArgs{})
@@ -31106,6 +31305,8 @@ func init() {
 	pulumi.RegisterOutputType(DeviceTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainCustomImageOutput{})
 	pulumi.RegisterOutputType(DomainCustomImageArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultSpaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainKernelGatewayAppSettingsOutput{})

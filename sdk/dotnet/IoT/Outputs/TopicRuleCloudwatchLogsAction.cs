@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class TopicRuleCloudwatchLogsAction
     {
+        public readonly bool? BatchMode;
         public readonly string LogGroupName;
         public readonly string RoleArn;
 
         [OutputConstructor]
         private TopicRuleCloudwatchLogsAction(
+            bool? batchMode,
+
             string logGroupName,
 
             string roleArn)
         {
+            BatchMode = batchMode;
             LogGroupName = logGroupName;
             RoleArn = roleArn;
         }

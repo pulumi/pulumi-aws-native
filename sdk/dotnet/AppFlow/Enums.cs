@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.AppFlow
         }
 
         public static ConnectorProfileConnectorType Salesforce { get; } = new ConnectorProfileConnectorType("Salesforce");
+        public static ConnectorProfileConnectorType Pardot { get; } = new ConnectorProfileConnectorType("Pardot");
         public static ConnectorProfileConnectorType Singular { get; } = new ConnectorProfileConnectorType("Singular");
         public static ConnectorProfileConnectorType Slack { get; } = new ConnectorProfileConnectorType("Slack");
         public static ConnectorProfileConnectorType Redshift { get; } = new ConnectorProfileConnectorType("Redshift");
@@ -206,6 +207,7 @@ namespace Pulumi.AwsNative.AppFlow
 
         public static FlowConnectorType SAPOData { get; } = new FlowConnectorType("SAPOData");
         public static FlowConnectorType Salesforce { get; } = new FlowConnectorType("Salesforce");
+        public static FlowConnectorType Pardot { get; } = new FlowConnectorType("Pardot");
         public static FlowConnectorType Singular { get; } = new FlowConnectorType("Singular");
         public static FlowConnectorType Slack { get; } = new FlowConnectorType("Slack");
         public static FlowConnectorType Redshift { get; } = new FlowConnectorType("Redshift");
@@ -575,6 +577,46 @@ namespace Pulumi.AwsNative.AppFlow
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowOperatorPropertiesKeys other && Equals(other);
         public bool Equals(FlowOperatorPropertiesKeys other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowPardotConnectorOperator : IEquatable<FlowPardotConnectorOperator>
+    {
+        private readonly string _value;
+
+        private FlowPardotConnectorOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowPardotConnectorOperator Projection { get; } = new FlowPardotConnectorOperator("PROJECTION");
+        public static FlowPardotConnectorOperator EqualTo { get; } = new FlowPardotConnectorOperator("EQUAL_TO");
+        public static FlowPardotConnectorOperator NoOp { get; } = new FlowPardotConnectorOperator("NO_OP");
+        public static FlowPardotConnectorOperator Addition { get; } = new FlowPardotConnectorOperator("ADDITION");
+        public static FlowPardotConnectorOperator Multiplication { get; } = new FlowPardotConnectorOperator("MULTIPLICATION");
+        public static FlowPardotConnectorOperator Division { get; } = new FlowPardotConnectorOperator("DIVISION");
+        public static FlowPardotConnectorOperator Subtraction { get; } = new FlowPardotConnectorOperator("SUBTRACTION");
+        public static FlowPardotConnectorOperator MaskAll { get; } = new FlowPardotConnectorOperator("MASK_ALL");
+        public static FlowPardotConnectorOperator MaskFirstN { get; } = new FlowPardotConnectorOperator("MASK_FIRST_N");
+        public static FlowPardotConnectorOperator MaskLastN { get; } = new FlowPardotConnectorOperator("MASK_LAST_N");
+        public static FlowPardotConnectorOperator ValidateNonNull { get; } = new FlowPardotConnectorOperator("VALIDATE_NON_NULL");
+        public static FlowPardotConnectorOperator ValidateNonZero { get; } = new FlowPardotConnectorOperator("VALIDATE_NON_ZERO");
+        public static FlowPardotConnectorOperator ValidateNonNegative { get; } = new FlowPardotConnectorOperator("VALIDATE_NON_NEGATIVE");
+        public static FlowPardotConnectorOperator ValidateNumeric { get; } = new FlowPardotConnectorOperator("VALIDATE_NUMERIC");
+
+        public static bool operator ==(FlowPardotConnectorOperator left, FlowPardotConnectorOperator right) => left.Equals(right);
+        public static bool operator !=(FlowPardotConnectorOperator left, FlowPardotConnectorOperator right) => !left.Equals(right);
+
+        public static explicit operator string(FlowPardotConnectorOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowPardotConnectorOperator other && Equals(other);
+        public bool Equals(FlowPardotConnectorOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

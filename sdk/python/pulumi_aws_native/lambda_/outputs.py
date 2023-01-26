@@ -36,6 +36,7 @@ __all__ = [
     'FunctionEphemeralStorage',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionRuntimeManagementConfig',
     'FunctionSnapStart',
     'FunctionSnapStartResponse',
     'FunctionTag',
@@ -911,6 +912,55 @@ class FunctionImageConfig(dict):
         WorkingDirectory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionRuntimeManagementConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "updateRuntimeOn":
+            suggest = "update_runtime_on"
+        elif key == "runtimeVersionArn":
+            suggest = "runtime_version_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionRuntimeManagementConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionRuntimeManagementConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionRuntimeManagementConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 update_runtime_on: 'FunctionRuntimeManagementConfigUpdateRuntimeOn',
+                 runtime_version_arn: Optional[str] = None):
+        """
+        :param 'FunctionRuntimeManagementConfigUpdateRuntimeOn' update_runtime_on: Trigger for runtime update
+        :param str runtime_version_arn: Unique identifier for a runtime version arn
+        """
+        pulumi.set(__self__, "update_runtime_on", update_runtime_on)
+        if runtime_version_arn is not None:
+            pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
+
+    @property
+    @pulumi.getter(name="updateRuntimeOn")
+    def update_runtime_on(self) -> 'FunctionRuntimeManagementConfigUpdateRuntimeOn':
+        """
+        Trigger for runtime update
+        """
+        return pulumi.get(self, "update_runtime_on")
+
+    @property
+    @pulumi.getter(name="runtimeVersionArn")
+    def runtime_version_arn(self) -> Optional[str]:
+        """
+        Unique identifier for a runtime version arn
+        """
+        return pulumi.get(self, "runtime_version_arn")
 
 
 @pulumi.output_type

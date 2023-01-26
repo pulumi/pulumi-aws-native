@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::RoboMaker::SimulationApplication resource creates an AWS RoboMaker SimulationApplication. Simulation application can be used in AWS RoboMaker Simulation Jobs.
+// This schema is for testing purpose only.
 func LookupSimulationApplication(ctx *pulumi.Context, args *LookupSimulationApplicationArgs, opts ...pulumi.InvokeOption) (*LookupSimulationApplicationResult, error) {
 	var rv LookupSimulationApplicationResult
 	err := ctx.Invoke("aws-native:robomaker:getSimulationApplication", args, &rv, opts...)
@@ -30,15 +30,11 @@ type LookupSimulationApplicationResult struct {
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
 	// The URI of the Docker image for the robot application.
 	Environment *string `pulumi:"environment"`
-	// The rendering engine for the simulation application.
-	RenderingEngine *SimulationApplicationRenderingEngine `pulumi:"renderingEngine"`
 	// The robot software suite used by the simulation application.
 	RobotSoftwareSuite *SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite *SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
-	// The sources of the simulation application.
-	Sources []SimulationApplicationSourceConfig `pulumi:"sources"`
-	Tags    *SimulationApplicationTags          `pulumi:"tags"`
+	Tags                    *SimulationApplicationTags                    `pulumi:"tags"`
 }
 
 func LookupSimulationApplicationOutput(ctx *pulumi.Context, args LookupSimulationApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationApplicationResultOutput {
@@ -90,13 +86,6 @@ func (o LookupSimulationApplicationResultOutput) Environment() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupSimulationApplicationResult) *string { return v.Environment }).(pulumi.StringPtrOutput)
 }
 
-// The rendering engine for the simulation application.
-func (o LookupSimulationApplicationResultOutput) RenderingEngine() SimulationApplicationRenderingEnginePtrOutput {
-	return o.ApplyT(func(v LookupSimulationApplicationResult) *SimulationApplicationRenderingEngine {
-		return v.RenderingEngine
-	}).(SimulationApplicationRenderingEnginePtrOutput)
-}
-
 // The robot software suite used by the simulation application.
 func (o LookupSimulationApplicationResultOutput) RobotSoftwareSuite() SimulationApplicationRobotSoftwareSuitePtrOutput {
 	return o.ApplyT(func(v LookupSimulationApplicationResult) *SimulationApplicationRobotSoftwareSuite {
@@ -109,11 +98,6 @@ func (o LookupSimulationApplicationResultOutput) SimulationSoftwareSuite() Simul
 	return o.ApplyT(func(v LookupSimulationApplicationResult) *SimulationApplicationSimulationSoftwareSuite {
 		return v.SimulationSoftwareSuite
 	}).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
-}
-
-// The sources of the simulation application.
-func (o LookupSimulationApplicationResultOutput) Sources() SimulationApplicationSourceConfigArrayOutput {
-	return o.ApplyT(func(v LookupSimulationApplicationResult) []SimulationApplicationSourceConfig { return v.Sources }).(SimulationApplicationSourceConfigArrayOutput)
 }
 
 func (o LookupSimulationApplicationResultOutput) Tags() SimulationApplicationTagsPtrOutput {

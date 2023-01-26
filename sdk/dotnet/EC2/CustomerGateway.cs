@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> CustomerGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Output("deviceName")]
+        public Output<string?> DeviceName { get; private set; } = null!;
+
+        /// <summary>
         /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.
         /// </summary>
         [Output("ipAddress")]
@@ -95,6 +101,12 @@ namespace Pulumi.AwsNative.EC2
         /// </summary>
         [Input("bgpAsn", required: true)]
         public Input<int> BgpAsn { get; set; } = null!;
+
+        /// <summary>
+        /// A name for the customer gateway device.
+        /// </summary>
+        [Input("deviceName")]
+        public Input<string>? DeviceName { get; set; }
 
         /// <summary>
         /// The internet-routable IP address for the customer gateway's outside interface. The address must be static.

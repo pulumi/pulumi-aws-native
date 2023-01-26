@@ -19,6 +19,7 @@ class AppMonitorArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  app_monitor_configuration: Optional[pulumi.Input['AppMonitorConfigurationArgs']] = None,
+                 custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTagArgs']]]] = None):
@@ -31,6 +32,8 @@ class AppMonitorArgs:
         pulumi.set(__self__, "domain", domain)
         if app_monitor_configuration is not None:
             pulumi.set(__self__, "app_monitor_configuration", app_monitor_configuration)
+        if custom_events is not None:
+            pulumi.set(__self__, "custom_events", custom_events)
         if cw_log_enabled is not None:
             pulumi.set(__self__, "cw_log_enabled", cw_log_enabled)
         if name is not None:
@@ -58,6 +61,15 @@ class AppMonitorArgs:
     @app_monitor_configuration.setter
     def app_monitor_configuration(self, value: Optional[pulumi.Input['AppMonitorConfigurationArgs']]):
         pulumi.set(self, "app_monitor_configuration", value)
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
+        return pulumi.get(self, "custom_events")
+
+    @custom_events.setter
+    def custom_events(self, value: Optional[pulumi.Input['AppMonitorCustomEventsArgs']]):
+        pulumi.set(self, "custom_events", value)
 
     @property
     @pulumi.getter(name="cwLogEnabled")
@@ -99,6 +111,7 @@ class AppMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']]] = None,
+                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -138,6 +151,7 @@ class AppMonitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_monitor_configuration: Optional[pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']]] = None,
+                 custom_events: Optional[pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']]] = None,
                  cw_log_enabled: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,6 +166,7 @@ class AppMonitor(pulumi.CustomResource):
             __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
             __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
+            __props__.__dict__["custom_events"] = custom_events
             __props__.__dict__["cw_log_enabled"] = cw_log_enabled
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
@@ -181,6 +196,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
         __props__.__dict__["app_monitor_configuration"] = None
+        __props__.__dict__["custom_events"] = None
         __props__.__dict__["cw_log_enabled"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["name"] = None
@@ -191,6 +207,11 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output[Optional['outputs.AppMonitorConfiguration']]:
         return pulumi.get(self, "app_monitor_configuration")
+
+    @property
+    @pulumi.getter(name="customEvents")
+    def custom_events(self) -> pulumi.Output[Optional['outputs.AppMonitorCustomEvents']]:
+        return pulumi.get(self, "custom_events")
 
     @property
     @pulumi.getter(name="cwLogEnabled")

@@ -38,6 +38,8 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly contactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
+    public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     public readonly tags!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupTag[] | undefined>;
 
@@ -55,11 +57,15 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             if ((!args || args.endpointDetails === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointDetails'");
             }
+            resourceInputs["contactPostPassDurationSeconds"] = args ? args.contactPostPassDurationSeconds : undefined;
+            resourceInputs["contactPrePassDurationSeconds"] = args ? args.contactPrePassDurationSeconds : undefined;
             resourceInputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["contactPostPassDurationSeconds"] = undefined /*out*/;
+            resourceInputs["contactPrePassDurationSeconds"] = undefined /*out*/;
             resourceInputs["endpointDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -72,6 +78,8 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DataflowEndpointGroup resource.
  */
 export interface DataflowEndpointGroupArgs {
+    contactPostPassDurationSeconds?: pulumi.Input<number>;
+    contactPrePassDurationSeconds?: pulumi.Input<number>;
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupTagArgs>[]>;
 }

@@ -26,6 +26,8 @@ type Image struct {
 	ImageId pulumi.StringOutput `pulumi:"imageId"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration ImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration ImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// URI for containers created in current Region with default ECR image tag
@@ -85,6 +87,8 @@ type imageArgs struct {
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration *ImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration *ImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -103,6 +107,8 @@ type ImageArgs struct {
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
+	// Contains settings for vulnerability scans.
+	ImageScanningConfiguration ImageScanningConfigurationPtrInput
 	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration ImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -176,6 +182,11 @@ func (o ImageOutput) ImageId() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 func (o ImageOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
+}
+
+// Contains settings for vulnerability scans.
+func (o ImageOutput) ImageScanningConfiguration() ImageScanningConfigurationPtrOutput {
+	return o.ApplyT(func(v *Image) ImageScanningConfigurationPtrOutput { return v.ImageScanningConfiguration }).(ImageScanningConfigurationPtrOutput)
 }
 
 // The image tests configuration used when creating this image.

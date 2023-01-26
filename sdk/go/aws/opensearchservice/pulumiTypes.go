@@ -11,9 +11,12 @@ import (
 )
 
 type DomainAdvancedSecurityOptionsInput struct {
+	AnonymousAuthDisableDate    *string                  `pulumi:"anonymousAuthDisableDate"`
+	AnonymousAuthEnabled        *bool                    `pulumi:"anonymousAuthEnabled"`
 	Enabled                     *bool                    `pulumi:"enabled"`
 	InternalUserDatabaseEnabled *bool                    `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           *DomainMasterUserOptions `pulumi:"masterUserOptions"`
+	SAMLOptions                 *DomainSAMLOptions       `pulumi:"sAMLOptions"`
 }
 
 // DomainAdvancedSecurityOptionsInputInput is an input type that accepts DomainAdvancedSecurityOptionsInputArgs and DomainAdvancedSecurityOptionsInputOutput values.
@@ -28,9 +31,12 @@ type DomainAdvancedSecurityOptionsInputInput interface {
 }
 
 type DomainAdvancedSecurityOptionsInputArgs struct {
+	AnonymousAuthDisableDate    pulumi.StringPtrInput           `pulumi:"anonymousAuthDisableDate"`
+	AnonymousAuthEnabled        pulumi.BoolPtrInput             `pulumi:"anonymousAuthEnabled"`
 	Enabled                     pulumi.BoolPtrInput             `pulumi:"enabled"`
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput             `pulumi:"internalUserDatabaseEnabled"`
 	MasterUserOptions           DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
+	SAMLOptions                 DomainSAMLOptionsPtrInput       `pulumi:"sAMLOptions"`
 }
 
 func (DomainAdvancedSecurityOptionsInputArgs) ElementType() reflect.Type {
@@ -110,6 +116,14 @@ func (o DomainAdvancedSecurityOptionsInputOutput) ToDomainAdvancedSecurityOption
 	}).(DomainAdvancedSecurityOptionsInputPtrOutput)
 }
 
+func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthDisableDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *string { return v.AnonymousAuthDisableDate }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.AnonymousAuthEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o DomainAdvancedSecurityOptionsInputOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -120,6 +134,10 @@ func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() 
 
 func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputOutput) SAMLOptions() DomainSAMLOptionsPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainSAMLOptions { return v.SAMLOptions }).(DomainSAMLOptionsPtrOutput)
 }
 
 type DomainAdvancedSecurityOptionsInputPtrOutput struct{ *pulumi.OutputState }
@@ -144,6 +162,24 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) Elem() DomainAdvancedSecuri
 		var ret DomainAdvancedSecurityOptionsInput
 		return ret
 	}).(DomainAdvancedSecurityOptionsInputOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthDisableDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousAuthDisableDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) AnonymousAuthEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AnonymousAuthEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) Enabled() pulumi.BoolPtrOutput {
@@ -171,6 +207,15 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainM
 		}
 		return v.MasterUserOptions
 	}).(DomainMasterUserOptionsPtrOutput)
+}
+
+func (o DomainAdvancedSecurityOptionsInputPtrOutput) SAMLOptions() DomainSAMLOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainSAMLOptions {
+		if v == nil {
+			return nil
+		}
+		return v.SAMLOptions
+	}).(DomainSAMLOptionsPtrOutput)
 }
 
 type DomainClusterConfig struct {
@@ -1153,6 +1198,154 @@ func (o DomainEndpointOptionsPtrOutput) TLSSecurityPolicy() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainIdp struct {
+	EntityId        string `pulumi:"entityId"`
+	MetadataContent string `pulumi:"metadataContent"`
+}
+
+// DomainIdpInput is an input type that accepts DomainIdpArgs and DomainIdpOutput values.
+// You can construct a concrete instance of `DomainIdpInput` via:
+//
+//	DomainIdpArgs{...}
+type DomainIdpInput interface {
+	pulumi.Input
+
+	ToDomainIdpOutput() DomainIdpOutput
+	ToDomainIdpOutputWithContext(context.Context) DomainIdpOutput
+}
+
+type DomainIdpArgs struct {
+	EntityId        pulumi.StringInput `pulumi:"entityId"`
+	MetadataContent pulumi.StringInput `pulumi:"metadataContent"`
+}
+
+func (DomainIdpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdp)(nil)).Elem()
+}
+
+func (i DomainIdpArgs) ToDomainIdpOutput() DomainIdpOutput {
+	return i.ToDomainIdpOutputWithContext(context.Background())
+}
+
+func (i DomainIdpArgs) ToDomainIdpOutputWithContext(ctx context.Context) DomainIdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdpOutput)
+}
+
+func (i DomainIdpArgs) ToDomainIdpPtrOutput() DomainIdpPtrOutput {
+	return i.ToDomainIdpPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdpArgs) ToDomainIdpPtrOutputWithContext(ctx context.Context) DomainIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdpOutput).ToDomainIdpPtrOutputWithContext(ctx)
+}
+
+// DomainIdpPtrInput is an input type that accepts DomainIdpArgs, DomainIdpPtr and DomainIdpPtrOutput values.
+// You can construct a concrete instance of `DomainIdpPtrInput` via:
+//
+//	        DomainIdpArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdpPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdpPtrOutput() DomainIdpPtrOutput
+	ToDomainIdpPtrOutputWithContext(context.Context) DomainIdpPtrOutput
+}
+
+type domainIdpPtrType DomainIdpArgs
+
+func DomainIdpPtr(v *DomainIdpArgs) DomainIdpPtrInput {
+	return (*domainIdpPtrType)(v)
+}
+
+func (*domainIdpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdp)(nil)).Elem()
+}
+
+func (i *domainIdpPtrType) ToDomainIdpPtrOutput() DomainIdpPtrOutput {
+	return i.ToDomainIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdpPtrType) ToDomainIdpPtrOutputWithContext(ctx context.Context) DomainIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdpPtrOutput)
+}
+
+type DomainIdpOutput struct{ *pulumi.OutputState }
+
+func (DomainIdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdp)(nil)).Elem()
+}
+
+func (o DomainIdpOutput) ToDomainIdpOutput() DomainIdpOutput {
+	return o
+}
+
+func (o DomainIdpOutput) ToDomainIdpOutputWithContext(ctx context.Context) DomainIdpOutput {
+	return o
+}
+
+func (o DomainIdpOutput) ToDomainIdpPtrOutput() DomainIdpPtrOutput {
+	return o.ToDomainIdpPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdpOutput) ToDomainIdpPtrOutputWithContext(ctx context.Context) DomainIdpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdp) *DomainIdp {
+		return &v
+	}).(DomainIdpPtrOutput)
+}
+
+func (o DomainIdpOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainIdp) string { return v.EntityId }).(pulumi.StringOutput)
+}
+
+func (o DomainIdpOutput) MetadataContent() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainIdp) string { return v.MetadataContent }).(pulumi.StringOutput)
+}
+
+type DomainIdpPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdp)(nil)).Elem()
+}
+
+func (o DomainIdpPtrOutput) ToDomainIdpPtrOutput() DomainIdpPtrOutput {
+	return o
+}
+
+func (o DomainIdpPtrOutput) ToDomainIdpPtrOutputWithContext(ctx context.Context) DomainIdpPtrOutput {
+	return o
+}
+
+func (o DomainIdpPtrOutput) Elem() DomainIdpOutput {
+	return o.ApplyT(func(v *DomainIdp) DomainIdp {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdp
+		return ret
+	}).(DomainIdpOutput)
+}
+
+func (o DomainIdpPtrOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataContent
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainMasterUserOptions struct {
 	MasterUserARN      *string `pulumi:"masterUserARN"`
 	MasterUserName     *string `pulumi:"masterUserName"`
@@ -1447,6 +1640,229 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Enabled() pulumi.BoolPtrOutp
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainSAMLOptions struct {
+	Enabled               *bool      `pulumi:"enabled"`
+	Idp                   *DomainIdp `pulumi:"idp"`
+	MasterBackendRole     *string    `pulumi:"masterBackendRole"`
+	MasterUserName        *string    `pulumi:"masterUserName"`
+	RolesKey              *string    `pulumi:"rolesKey"`
+	SessionTimeoutMinutes *int       `pulumi:"sessionTimeoutMinutes"`
+	SubjectKey            *string    `pulumi:"subjectKey"`
+}
+
+// DomainSAMLOptionsInput is an input type that accepts DomainSAMLOptionsArgs and DomainSAMLOptionsOutput values.
+// You can construct a concrete instance of `DomainSAMLOptionsInput` via:
+//
+//	DomainSAMLOptionsArgs{...}
+type DomainSAMLOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSAMLOptionsOutput() DomainSAMLOptionsOutput
+	ToDomainSAMLOptionsOutputWithContext(context.Context) DomainSAMLOptionsOutput
+}
+
+type DomainSAMLOptionsArgs struct {
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Idp                   DomainIdpPtrInput     `pulumi:"idp"`
+	MasterBackendRole     pulumi.StringPtrInput `pulumi:"masterBackendRole"`
+	MasterUserName        pulumi.StringPtrInput `pulumi:"masterUserName"`
+	RolesKey              pulumi.StringPtrInput `pulumi:"rolesKey"`
+	SessionTimeoutMinutes pulumi.IntPtrInput    `pulumi:"sessionTimeoutMinutes"`
+	SubjectKey            pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainSAMLOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSAMLOptions)(nil)).Elem()
+}
+
+func (i DomainSAMLOptionsArgs) ToDomainSAMLOptionsOutput() DomainSAMLOptionsOutput {
+	return i.ToDomainSAMLOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainSAMLOptionsArgs) ToDomainSAMLOptionsOutputWithContext(ctx context.Context) DomainSAMLOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSAMLOptionsOutput)
+}
+
+func (i DomainSAMLOptionsArgs) ToDomainSAMLOptionsPtrOutput() DomainSAMLOptionsPtrOutput {
+	return i.ToDomainSAMLOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSAMLOptionsArgs) ToDomainSAMLOptionsPtrOutputWithContext(ctx context.Context) DomainSAMLOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSAMLOptionsOutput).ToDomainSAMLOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainSAMLOptionsPtrInput is an input type that accepts DomainSAMLOptionsArgs, DomainSAMLOptionsPtr and DomainSAMLOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSAMLOptionsPtrInput` via:
+//
+//	        DomainSAMLOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainSAMLOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSAMLOptionsPtrOutput() DomainSAMLOptionsPtrOutput
+	ToDomainSAMLOptionsPtrOutputWithContext(context.Context) DomainSAMLOptionsPtrOutput
+}
+
+type domainSAMLOptionsPtrType DomainSAMLOptionsArgs
+
+func DomainSAMLOptionsPtr(v *DomainSAMLOptionsArgs) DomainSAMLOptionsPtrInput {
+	return (*domainSAMLOptionsPtrType)(v)
+}
+
+func (*domainSAMLOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSAMLOptions)(nil)).Elem()
+}
+
+func (i *domainSAMLOptionsPtrType) ToDomainSAMLOptionsPtrOutput() DomainSAMLOptionsPtrOutput {
+	return i.ToDomainSAMLOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSAMLOptionsPtrType) ToDomainSAMLOptionsPtrOutputWithContext(ctx context.Context) DomainSAMLOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSAMLOptionsPtrOutput)
+}
+
+type DomainSAMLOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainSAMLOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSAMLOptions)(nil)).Elem()
+}
+
+func (o DomainSAMLOptionsOutput) ToDomainSAMLOptionsOutput() DomainSAMLOptionsOutput {
+	return o
+}
+
+func (o DomainSAMLOptionsOutput) ToDomainSAMLOptionsOutputWithContext(ctx context.Context) DomainSAMLOptionsOutput {
+	return o
+}
+
+func (o DomainSAMLOptionsOutput) ToDomainSAMLOptionsPtrOutput() DomainSAMLOptionsPtrOutput {
+	return o.ToDomainSAMLOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSAMLOptionsOutput) ToDomainSAMLOptionsPtrOutputWithContext(ctx context.Context) DomainSAMLOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSAMLOptions) *DomainSAMLOptions {
+		return &v
+	}).(DomainSAMLOptionsPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) Idp() DomainIdpPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *DomainIdp { return v.Idp }).(DomainIdpPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) MasterBackendRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *string { return v.MasterBackendRole }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *int { return v.SessionTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainSAMLOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSAMLOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainSAMLOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSAMLOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSAMLOptions)(nil)).Elem()
+}
+
+func (o DomainSAMLOptionsPtrOutput) ToDomainSAMLOptionsPtrOutput() DomainSAMLOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSAMLOptionsPtrOutput) ToDomainSAMLOptionsPtrOutputWithContext(ctx context.Context) DomainSAMLOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSAMLOptionsPtrOutput) Elem() DomainSAMLOptionsOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) DomainSAMLOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSAMLOptions
+		return ret
+	}).(DomainSAMLOptionsOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) Idp() DomainIdpPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *DomainIdp {
+		if v == nil {
+			return nil
+		}
+		return v.Idp
+	}).(DomainIdpPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) MasterBackendRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterBackendRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainSAMLOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSAMLOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainServiceSoftwareOptions struct {
@@ -2135,10 +2551,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsPtrInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsPtrInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpInput)(nil)).Elem(), DomainIdpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpPtrInput)(nil)).Elem(), DomainIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsPtrInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSAMLOptionsInput)(nil)).Elem(), DomainSAMLOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSAMLOptionsPtrInput)(nil)).Elem(), DomainSAMLOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagInput)(nil)).Elem(), DomainTagArgs{})
@@ -2159,10 +2579,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdpOutput{})
+	pulumi.RegisterOutputType(DomainIdpPtrOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSAMLOptionsOutput{})
+	pulumi.RegisterOutputType(DomainSAMLOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})

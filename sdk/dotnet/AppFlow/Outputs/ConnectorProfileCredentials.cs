@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? GoogleAnalytics;
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? InforNexus;
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileCredentials? Marketo;
+        public readonly Outputs.ConnectorProfilePardotConnectorProfileCredentials? Pardot;
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift;
         public readonly Outputs.ConnectorProfileSAPODataConnectorProfileCredentials? SAPOData;
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce;
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? inforNexus,
 
             Outputs.ConnectorProfileMarketoConnectorProfileCredentials? marketo,
+
+            Outputs.ConnectorProfilePardotConnectorProfileCredentials? pardot,
 
             Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? redshift,
 
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             GoogleAnalytics = googleAnalytics;
             InforNexus = inforNexus;
             Marketo = marketo;
+            Pardot = pardot;
             Redshift = redshift;
             SAPOData = sAPOData;
             Salesforce = salesforce;

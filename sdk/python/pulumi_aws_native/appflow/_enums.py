@@ -21,6 +21,7 @@ __all__ = [
     'FlowMarketoConnectorOperator',
     'FlowOperator',
     'FlowOperatorPropertiesKeys',
+    'FlowPardotConnectorOperator',
     'FlowPathPrefix',
     'FlowPrefixFormat',
     'FlowPrefixType',
@@ -58,6 +59,7 @@ class ConnectorProfileConnectionMode(str, Enum):
 
 class ConnectorProfileConnectorType(str, Enum):
     SALESFORCE = "Salesforce"
+    PARDOT = "Pardot"
     SINGULAR = "Singular"
     SLACK = "Slack"
     REDSHIFT = "Redshift"
@@ -93,6 +95,7 @@ class FlowAmplitudeConnectorOperator(str, Enum):
 class FlowConnectorType(str, Enum):
     SAPO_DATA = "SAPOData"
     SALESFORCE = "Salesforce"
+    PARDOT = "Pardot"
     SINGULAR = "Singular"
     SLACK = "Slack"
     REDSHIFT = "Redshift"
@@ -246,6 +249,23 @@ class FlowOperatorPropertiesKeys(str, Enum):
     EXCLUDE_SOURCE_FIELDS_LIST = "EXCLUDE_SOURCE_FIELDS_LIST"
     INCLUDE_NEW_FIELDS = "INCLUDE_NEW_FIELDS"
     ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST"
+
+
+class FlowPardotConnectorOperator(str, Enum):
+    PROJECTION = "PROJECTION"
+    EQUAL_TO = "EQUAL_TO"
+    NO_OP = "NO_OP"
+    ADDITION = "ADDITION"
+    MULTIPLICATION = "MULTIPLICATION"
+    DIVISION = "DIVISION"
+    SUBTRACTION = "SUBTRACTION"
+    MASK_ALL = "MASK_ALL"
+    MASK_FIRST_N = "MASK_FIRST_N"
+    MASK_LAST_N = "MASK_LAST_N"
+    VALIDATE_NON_NULL = "VALIDATE_NON_NULL"
+    VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO"
+    VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE"
+    VALIDATE_NUMERIC = "VALIDATE_NUMERIC"
 
 
 class FlowPathPrefix(str, Enum):

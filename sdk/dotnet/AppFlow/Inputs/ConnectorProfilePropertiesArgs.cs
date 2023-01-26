@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("marketo")]
         public Input<Inputs.ConnectorProfileMarketoConnectorProfilePropertiesArgs>? Marketo { get; set; }
 
+        [Input("pardot")]
+        public Input<Inputs.ConnectorProfilePardotConnectorProfilePropertiesArgs>? Pardot { get; set; }
+
         [Input("redshift")]
         public Input<Inputs.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>? Redshift { get; set; }
 

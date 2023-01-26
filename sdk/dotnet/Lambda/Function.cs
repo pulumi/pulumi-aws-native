@@ -127,6 +127,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
+        /// RuntimeManagementConfig
+        /// </summary>
+        [Output("runtimeManagementConfig")]
+        public Output<Outputs.FunctionRuntimeManagementConfig?> RuntimeManagementConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The SnapStart setting of your function
         /// </summary>
         [Output("snapStart")]
@@ -328,6 +334,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
+
+        /// <summary>
+        /// RuntimeManagementConfig
+        /// </summary>
+        [Input("runtimeManagementConfig")]
+        public Input<Inputs.FunctionRuntimeManagementConfigArgs>? RuntimeManagementConfig { get; set; }
 
         /// <summary>
         /// The SnapStart setting of your function

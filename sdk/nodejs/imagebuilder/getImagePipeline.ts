@@ -51,6 +51,10 @@ export interface GetImagePipelineResult {
      */
     readonly imageRecipeArn?: string;
     /**
+     * Contains settings for vulnerability scans.
+     */
+    readonly imageScanningConfiguration?: outputs.imagebuilder.ImagePipelineImageScanningConfiguration;
+    /**
      * The image tests configuration of the image pipeline.
      */
     readonly imageTestsConfiguration?: outputs.imagebuilder.ImagePipelineImageTestsConfiguration;

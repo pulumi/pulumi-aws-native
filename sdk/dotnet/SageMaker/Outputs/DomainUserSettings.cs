@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class DomainUserSettings
     {
         /// <summary>
-        /// The user profile Amazon Resource Name (ARN).
+        /// The execution role for the user.
         /// </summary>
         public readonly string? ExecutionRole;
         /// <summary>

@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("marketo")]
         public Input<Inputs.FlowMarketoSourcePropertiesArgs>? Marketo { get; set; }
 
+        [Input("pardot")]
+        public Input<Inputs.FlowPardotSourcePropertiesArgs>? Pardot { get; set; }
+
         [Input("s3")]
         public Input<Inputs.FlowS3SourcePropertiesArgs>? S3 { get; set; }
 

@@ -52,6 +52,8 @@ type Function struct {
 	Role pulumi.StringOutput `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime pulumi.StringPtrOutput `pulumi:"runtime"`
+	// RuntimeManagementConfig
+	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrOutput `pulumi:"runtimeManagementConfig"`
 	// The SnapStart setting of your function
 	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
 	// The SnapStart response of your function
@@ -146,6 +148,8 @@ type functionArgs struct {
 	Role string `pulumi:"role"`
 	// The identifier of the function's runtime.
 	Runtime *string `pulumi:"runtime"`
+	// RuntimeManagementConfig
+	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
 	// The SnapStart setting of your function
 	SnapStart *FunctionSnapStart `pulumi:"snapStart"`
 	// A list of tags to apply to the function.
@@ -195,6 +199,8 @@ type FunctionArgs struct {
 	Role pulumi.StringInput
 	// The identifier of the function's runtime.
 	Runtime pulumi.StringPtrInput
+	// RuntimeManagementConfig
+	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrInput
 	// The SnapStart setting of your function
 	SnapStart FunctionSnapStartPtrInput
 	// A list of tags to apply to the function.
@@ -336,6 +342,11 @@ func (o FunctionOutput) Role() pulumi.StringOutput {
 // The identifier of the function's runtime.
 func (o FunctionOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// RuntimeManagementConfig
+func (o FunctionOutput) RuntimeManagementConfig() FunctionRuntimeManagementConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionRuntimeManagementConfigPtrOutput { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
 // The SnapStart setting of your function

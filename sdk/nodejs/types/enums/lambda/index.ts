@@ -51,6 +51,17 @@ export const FunctionPackageType = {
  */
 export type FunctionPackageType = (typeof FunctionPackageType)[keyof typeof FunctionPackageType];
 
+export const FunctionRuntimeManagementConfigUpdateRuntimeOn = {
+    Auto: "Auto",
+    FunctionUpdate: "FunctionUpdate",
+    Manual: "Manual",
+} as const;
+
+/**
+ * Trigger for runtime update
+ */
+export type FunctionRuntimeManagementConfigUpdateRuntimeOn = (typeof FunctionRuntimeManagementConfigUpdateRuntimeOn)[keyof typeof FunctionRuntimeManagementConfigUpdateRuntimeOn];
+
 export const FunctionSnapStartApplyOn = {
     PublishedVersions: "PublishedVersions",
     None: "None",

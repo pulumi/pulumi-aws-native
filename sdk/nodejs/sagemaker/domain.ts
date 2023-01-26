@@ -50,6 +50,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly authMode!: pulumi.Output<enums.sagemaker.DomainAuthMode>;
     /**
+     * The default space settings.
+     */
+    public readonly defaultSpaceSettings!: pulumi.Output<outputs.sagemaker.DomainDefaultSpaceSettings | undefined>;
+    /**
      * The default user settings.
      */
     public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainUserSettings>;
@@ -125,6 +129,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
             resourceInputs["appSecurityGroupManagement"] = args ? args.appSecurityGroupManagement : undefined;
             resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultSpaceSettings"] = args ? args.defaultSpaceSettings : undefined;
             resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
@@ -142,6 +147,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["appNetworkAccessType"] = undefined /*out*/;
             resourceInputs["appSecurityGroupManagement"] = undefined /*out*/;
             resourceInputs["authMode"] = undefined /*out*/;
+            resourceInputs["defaultSpaceSettings"] = undefined /*out*/;
             resourceInputs["defaultUserSettings"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export interface DomainArgs {
      * The mode of authentication that members use to access the domain.
      */
     authMode: pulumi.Input<enums.sagemaker.DomainAuthMode>;
+    /**
+     * The default space settings.
+     */
+    defaultSpaceSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceSettingsArgs>;
     /**
      * The default user settings.
      */

@@ -68,6 +68,44 @@ namespace Pulumi.AwsNative.Lex
     }
 
     /// <summary>
+    /// The possible values of actions that the conversation can take.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotDialogActionType : IEquatable<BotDialogActionType>
+    {
+        private readonly string _value;
+
+        private BotDialogActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotDialogActionType CloseIntent { get; } = new BotDialogActionType("CloseIntent");
+        public static BotDialogActionType ConfirmIntent { get; } = new BotDialogActionType("ConfirmIntent");
+        public static BotDialogActionType ElicitIntent { get; } = new BotDialogActionType("ElicitIntent");
+        public static BotDialogActionType ElicitSlot { get; } = new BotDialogActionType("ElicitSlot");
+        public static BotDialogActionType StartIntent { get; } = new BotDialogActionType("StartIntent");
+        public static BotDialogActionType FulfillIntent { get; } = new BotDialogActionType("FulfillIntent");
+        public static BotDialogActionType EndConversation { get; } = new BotDialogActionType("EndConversation");
+        public static BotDialogActionType EvaluateConditional { get; } = new BotDialogActionType("EvaluateConditional");
+        public static BotDialogActionType InvokeDialogCodeHook { get; } = new BotDialogActionType("InvokeDialogCodeHook");
+
+        public static bool operator ==(BotDialogActionType left, BotDialogActionType right) => left.Equals(right);
+        public static bool operator !=(BotDialogActionType left, BotDialogActionType right) => !left.Equals(right);
+
+        public static explicit operator string(BotDialogActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotDialogActionType other && Equals(other);
+        public bool Equals(BotDialogActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates how a message is selected from a message group among retries.
     /// </summary>
     [EnumType]
@@ -150,6 +188,37 @@ namespace Pulumi.AwsNative.Lex
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BotSlotConstraint other && Equals(other);
         public bool Equals(BotSlotConstraint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The different shapes that a slot can be in during a conversation.
+    /// </summary>
+    [EnumType]
+    public readonly struct BotSlotShape : IEquatable<BotSlotShape>
+    {
+        private readonly string _value;
+
+        private BotSlotShape(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotSlotShape Scalar { get; } = new BotSlotShape("Scalar");
+        public static BotSlotShape List { get; } = new BotSlotShape("List");
+
+        public static bool operator ==(BotSlotShape left, BotSlotShape right) => left.Equals(right);
+        public static bool operator !=(BotSlotShape left, BotSlotShape right) => !left.Equals(right);
+
+        public static explicit operator string(BotSlotShape value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotSlotShape other && Equals(other);
+        public bool Equals(BotSlotShape other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

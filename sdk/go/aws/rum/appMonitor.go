@@ -16,6 +16,7 @@ type AppMonitor struct {
 	pulumi.CustomResourceState
 
 	AppMonitorConfiguration AppMonitorConfigurationPtrOutput `pulumi:"appMonitorConfiguration"`
+	CustomEvents            AppMonitorCustomEventsPtrOutput  `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrOutput `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
@@ -68,6 +69,7 @@ func (AppMonitorState) ElementType() reflect.Type {
 
 type appMonitorArgs struct {
 	AppMonitorConfiguration *AppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
+	CustomEvents            *AppMonitorCustomEvents  `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
 	// The top-level internet domain name for which your application has administrative authority.
@@ -80,6 +82,7 @@ type appMonitorArgs struct {
 // The set of arguments for constructing a AppMonitor resource.
 type AppMonitorArgs struct {
 	AppMonitorConfiguration AppMonitorConfigurationPtrInput
+	CustomEvents            AppMonitorCustomEventsPtrInput
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled pulumi.BoolPtrInput
 	// The top-level internet domain name for which your application has administrative authority.
@@ -128,6 +131,10 @@ func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) App
 
 func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v *AppMonitor) AppMonitorConfigurationPtrOutput { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
+}
+
+func (o AppMonitorOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorCustomEventsPtrOutput { return v.CustomEvents }).(AppMonitorCustomEventsPtrOutput)
 }
 
 // Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false

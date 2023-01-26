@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("marketo")]
         public Input<Pulumi.AwsNative.AppFlow.FlowMarketoConnectorOperator>? Marketo { get; set; }
 
+        [Input("pardot")]
+        public Input<Pulumi.AwsNative.AppFlow.FlowPardotConnectorOperator>? Pardot { get; set; }
+
         [Input("s3")]
         public Input<Pulumi.AwsNative.AppFlow.FlowS3ConnectorOperator>? S3 { get; set; }
 

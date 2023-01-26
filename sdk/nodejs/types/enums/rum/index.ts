@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AppMonitorCustomEventsStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type AppMonitorCustomEventsStatus = (typeof AppMonitorCustomEventsStatus)[keyof typeof AppMonitorCustomEventsStatus];
+
 export const AppMonitorMetricDestinationDestination = {
     CloudWatch: "CloudWatch",
     Evidently: "Evidently",

@@ -23,7 +23,8 @@ type Application struct {
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrOutput `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
-	AutoStopConfiguration ApplicationAutoStopConfigurationPtrOutput `pulumi:"autoStopConfiguration"`
+	AutoStopConfiguration ApplicationAutoStopConfigurationPtrOutput   `pulumi:"autoStopConfiguration"`
+	ImageConfiguration    ApplicationImageConfigurationInputPtrOutput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayOutput `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
@@ -37,7 +38,8 @@ type Application struct {
 	// Tag map with key and value
 	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 	// The type of the application
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type                     pulumi.StringOutput                                 `pulumi:"type"`
+	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapPtrOutput `pulumi:"workerTypeSpecifications"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -89,7 +91,8 @@ type applicationArgs struct {
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	AutoStopConfiguration *ApplicationAutoStopConfiguration   `pulumi:"autoStopConfiguration"`
+	ImageConfiguration    *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
@@ -103,7 +106,8 @@ type applicationArgs struct {
 	// Tag map with key and value
 	Tags []ApplicationTag `pulumi:"tags"`
 	// The type of the application
-	Type string `pulumi:"type"`
+	Type                     string                                      `pulumi:"type"`
+	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -113,6 +117,7 @@ type ApplicationArgs struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
+	ImageConfiguration    ApplicationImageConfigurationInputPtrInput
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayInput
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
@@ -126,7 +131,8 @@ type ApplicationArgs struct {
 	// Tag map with key and value
 	Tags ApplicationTagArrayInput
 	// The type of the application
-	Type pulumi.StringInput
+	Type                     pulumi.StringInput
+	WorkerTypeSpecifications ApplicationWorkerTypeSpecificationInputMapPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -190,6 +196,10 @@ func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurat
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationPtrOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
+func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationImageConfigurationInputPtrOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationInputPtrOutput)
+}
+
 // Initial capacity initialized when an Application is started.
 func (o ApplicationOutput) InitialCapacity() ApplicationInitialCapacityConfigKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationInitialCapacityConfigKeyValuePairArrayOutput { return v.InitialCapacity }).(ApplicationInitialCapacityConfigKeyValuePairArrayOutput)
@@ -223,6 +233,12 @@ func (o ApplicationOutput) Tags() ApplicationTagArrayOutput {
 // The type of the application
 func (o ApplicationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+		return v.WorkerTypeSpecifications
+	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
 }
 
 func init() {

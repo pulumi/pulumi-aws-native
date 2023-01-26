@@ -19,32 +19,16 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetSecretArgs {
-    /**
-     * secret Id, the Arn of the resource.
-     */
     id: string;
 }
 
 export interface GetSecretResult {
-    /**
-     * (Optional) Specifies a user-provided description of the secret.
-     */
     readonly description?: string;
-    /**
-     * secret Id, the Arn of the resource.
-     */
+    readonly generateSecretString?: outputs.secretsmanager.SecretGenerateSecretString;
     readonly id?: string;
-    /**
-     * (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString.
-     */
     readonly kmsKeyId?: string;
-    /**
-     * (Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias.
-     */
     readonly replicaRegions?: outputs.secretsmanager.SecretReplicaRegion[];
-    /**
-     * The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
-     */
+    readonly secretString?: string;
     readonly tags?: outputs.secretsmanager.SecretTag[];
 }
 /**
@@ -55,8 +39,5 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSecretOutputArgs {
-    /**
-     * secret Id, the Arn of the resource.
-     */
     id: pulumi.Input<string>;
 }

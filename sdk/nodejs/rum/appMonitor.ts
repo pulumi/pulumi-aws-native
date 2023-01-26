@@ -38,6 +38,7 @@ export class AppMonitor extends pulumi.CustomResource {
     }
 
     public readonly appMonitorConfiguration!: pulumi.Output<outputs.rum.AppMonitorConfiguration | undefined>;
+    public readonly customEvents!: pulumi.Output<outputs.rum.AppMonitorCustomEvents | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */
@@ -67,12 +68,14 @@ export class AppMonitor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domain'");
             }
             resourceInputs["appMonitorConfiguration"] = args ? args.appMonitorConfiguration : undefined;
+            resourceInputs["customEvents"] = args ? args.customEvents : undefined;
             resourceInputs["cwLogEnabled"] = args ? args.cwLogEnabled : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["appMonitorConfiguration"] = undefined /*out*/;
+            resourceInputs["customEvents"] = undefined /*out*/;
             resourceInputs["cwLogEnabled"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -88,6 +91,7 @@ export class AppMonitor extends pulumi.CustomResource {
  */
 export interface AppMonitorArgs {
     appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorConfigurationArgs>;
+    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEventsArgs>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */

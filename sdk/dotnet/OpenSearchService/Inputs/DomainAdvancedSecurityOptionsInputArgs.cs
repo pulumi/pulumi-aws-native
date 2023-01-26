@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainAdvancedSecurityOptionsInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("anonymousAuthDisableDate")]
+        public Input<string>? AnonymousAuthDisableDate { get; set; }
+
+        [Input("anonymousAuthEnabled")]
+        public Input<bool>? AnonymousAuthEnabled { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -20,6 +26,9 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
         [Input("masterUserOptions")]
         public Input<Inputs.DomainMasterUserOptionsArgs>? MasterUserOptions { get; set; }
+
+        [Input("sAMLOptions")]
+        public Input<Inputs.DomainSAMLOptionsArgs>? SAMLOptions { get; set; }
 
         public DomainAdvancedSecurityOptionsInputArgs()
         {

@@ -34,7 +34,8 @@ type LookupApplicationResult struct {
 	// Configuration for Auto Start of Application.
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
-	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
+	AutoStopConfiguration *ApplicationAutoStopConfiguration   `pulumi:"autoStopConfiguration"`
+	ImageConfiguration    *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
@@ -42,7 +43,8 @@ type LookupApplicationResult struct {
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Tag map with key and value
-	Tags []ApplicationTag `pulumi:"tags"`
+	Tags                     []ApplicationTag                            `pulumi:"tags"`
+	WorkerTypeSpecifications *ApplicationWorkerTypeSpecificationInputMap `pulumi:"workerTypeSpecifications"`
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
@@ -105,6 +107,10 @@ func (o LookupApplicationResultOutput) AutoStopConfiguration() ApplicationAutoSt
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoStopConfiguration { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
+func (o LookupApplicationResultOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationImageConfigurationInput { return v.ImageConfiguration }).(ApplicationImageConfigurationInputPtrOutput)
+}
+
 // Initial capacity initialized when an Application is started.
 func (o LookupApplicationResultOutput) InitialCapacity() ApplicationInitialCapacityConfigKeyValuePairArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationInitialCapacityConfigKeyValuePair {
@@ -125,6 +131,12 @@ func (o LookupApplicationResultOutput) NetworkConfiguration() ApplicationNetwork
 // Tag map with key and value
 func (o LookupApplicationResultOutput) Tags() ApplicationTagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationTag { return v.Tags }).(ApplicationTagArrayOutput)
+}
+
+func (o LookupApplicationResultOutput) WorkerTypeSpecifications() ApplicationWorkerTypeSpecificationInputMapPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationWorkerTypeSpecificationInputMap {
+		return v.WorkerTypeSpecifications
+	}).(ApplicationWorkerTypeSpecificationInputMapPtrOutput)
 }
 
 func init() {

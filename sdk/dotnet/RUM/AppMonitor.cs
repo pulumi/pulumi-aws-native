@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.RUM
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
 
+        [Output("customEvents")]
+        public Output<Outputs.AppMonitorCustomEvents?> CustomEvents { get; private set; } = null!;
+
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         /// </summary>
@@ -86,6 +89,9 @@ namespace Pulumi.AwsNative.RUM
     {
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
+
+        [Input("customEvents")]
+        public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }
 
         /// <summary>
         /// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false

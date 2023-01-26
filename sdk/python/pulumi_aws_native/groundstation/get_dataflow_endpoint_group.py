@@ -19,10 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataflowEndpointGroupResult:
-    def __init__(__self__, arn=None, endpoint_details=None, id=None, tags=None):
+    def __init__(__self__, arn=None, contact_post_pass_duration_seconds=None, contact_pre_pass_duration_seconds=None, endpoint_details=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if contact_post_pass_duration_seconds and not isinstance(contact_post_pass_duration_seconds, int):
+            raise TypeError("Expected argument 'contact_post_pass_duration_seconds' to be a int")
+        pulumi.set(__self__, "contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)
+        if contact_pre_pass_duration_seconds and not isinstance(contact_pre_pass_duration_seconds, int):
+            raise TypeError("Expected argument 'contact_pre_pass_duration_seconds' to be a int")
+        pulumi.set(__self__, "contact_pre_pass_duration_seconds", contact_pre_pass_duration_seconds)
         if endpoint_details and not isinstance(endpoint_details, list):
             raise TypeError("Expected argument 'endpoint_details' to be a list")
         pulumi.set(__self__, "endpoint_details", endpoint_details)
@@ -37,6 +43,16 @@ class GetDataflowEndpointGroupResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="contactPostPassDurationSeconds")
+    def contact_post_pass_duration_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "contact_post_pass_duration_seconds")
+
+    @property
+    @pulumi.getter(name="contactPrePassDurationSeconds")
+    def contact_pre_pass_duration_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property
     @pulumi.getter(name="endpointDetails")
@@ -61,6 +77,8 @@ class AwaitableGetDataflowEndpointGroupResult(GetDataflowEndpointGroupResult):
             yield self
         return GetDataflowEndpointGroupResult(
             arn=self.arn,
+            contact_post_pass_duration_seconds=self.contact_post_pass_duration_seconds,
+            contact_pre_pass_duration_seconds=self.contact_pre_pass_duration_seconds,
             endpoint_details=self.endpoint_details,
             id=self.id,
             tags=self.tags)
@@ -78,6 +96,8 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
 
     return AwaitableGetDataflowEndpointGroupResult(
         arn=__ret__.arn,
+        contact_post_pass_duration_seconds=__ret__.contact_post_pass_duration_seconds,
+        contact_pre_pass_duration_seconds=__ret__.contact_pre_pass_duration_seconds,
         endpoint_details=__ret__.endpoint_details,
         id=__ret__.id,
         tags=__ret__.tags)

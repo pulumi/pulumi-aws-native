@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// AWS::RoboMaker::RobotApplication resource creates an AWS RoboMaker RobotApplication. Robot application can be used in AWS RoboMaker Simulation Jobs.
+// This schema is for testing purpose only.
 func LookupRobotApplication(ctx *pulumi.Context, args *LookupRobotApplicationArgs, opts ...pulumi.InvokeOption) (*LookupRobotApplicationResult, error) {
 	var rv LookupRobotApplicationResult
 	err := ctx.Invoke("aws-native:robomaker:getRobotApplication", args, &rv, opts...)
@@ -31,9 +31,7 @@ type LookupRobotApplicationResult struct {
 	// The URI of the Docker image for the robot application.
 	Environment        *string                             `pulumi:"environment"`
 	RobotSoftwareSuite *RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
-	// The sources of the robot application.
-	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
-	Tags    *RobotApplicationTags          `pulumi:"tags"`
+	Tags               *RobotApplicationTags               `pulumi:"tags"`
 }
 
 func LookupRobotApplicationOutput(ctx *pulumi.Context, args LookupRobotApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationResultOutput {
@@ -87,11 +85,6 @@ func (o LookupRobotApplicationResultOutput) Environment() pulumi.StringPtrOutput
 
 func (o LookupRobotApplicationResultOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuitePtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationRobotSoftwareSuite { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuitePtrOutput)
-}
-
-// The sources of the robot application.
-func (o LookupRobotApplicationResultOutput) Sources() RobotApplicationSourceConfigArrayOutput {
-	return o.ApplyT(func(v LookupRobotApplicationResult) []RobotApplicationSourceConfig { return v.Sources }).(RobotApplicationSourceConfigArrayOutput)
 }
 
 func (o LookupRobotApplicationResultOutput) Tags() RobotApplicationTagsPtrOutput {

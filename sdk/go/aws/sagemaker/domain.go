@@ -21,6 +21,8 @@ type Domain struct {
 	AppSecurityGroupManagement DomainAppSecurityGroupManagementPtrOutput `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthModeOutput `pulumi:"authMode"`
+	// The default space settings.
+	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrOutput `pulumi:"defaultSpaceSettings"`
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsOutput `pulumi:"defaultUserSettings"`
 	// The Amazon Resource Name (ARN) of the created domain.
@@ -105,6 +107,8 @@ type domainArgs struct {
 	AppSecurityGroupManagement *DomainAppSecurityGroupManagement `pulumi:"appSecurityGroupManagement"`
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthMode `pulumi:"authMode"`
+	// The default space settings.
+	DefaultSpaceSettings *DomainDefaultSpaceSettings `pulumi:"defaultSpaceSettings"`
 	// The default user settings.
 	DefaultUserSettings DomainUserSettings `pulumi:"defaultUserSettings"`
 	// A name for the domain.
@@ -128,6 +132,8 @@ type DomainArgs struct {
 	AppSecurityGroupManagement DomainAppSecurityGroupManagementPtrInput
 	// The mode of authentication that members use to access the domain.
 	AuthMode DomainAuthModeInput
+	// The default space settings.
+	DefaultSpaceSettings DomainDefaultSpaceSettingsPtrInput
 	// The default user settings.
 	DefaultUserSettings DomainUserSettingsInput
 	// A name for the domain.
@@ -193,6 +199,11 @@ func (o DomainOutput) AppSecurityGroupManagement() DomainAppSecurityGroupManagem
 // The mode of authentication that members use to access the domain.
 func (o DomainOutput) AuthMode() DomainAuthModeOutput {
 	return o.ApplyT(func(v *Domain) DomainAuthModeOutput { return v.AuthMode }).(DomainAuthModeOutput)
+}
+
+// The default space settings.
+func (o DomainOutput) DefaultSpaceSettings() DomainDefaultSpaceSettingsPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainDefaultSpaceSettingsPtrOutput { return v.DefaultSpaceSettings }).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
 // The default user settings.

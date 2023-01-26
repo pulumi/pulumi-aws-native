@@ -1,20 +1,36 @@
 {
   "typeName" : "AWS::EC2::VPNConnectionRoute",
   "description" : "Resource Type definition for AWS::EC2::VPNConnectionRoute",
-  "additionalProperties" : false,
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
   "properties" : {
-    "Id" : {
-      "type" : "string"
-    },
     "DestinationCidrBlock" : {
+      "description" : "The CIDR block associated with the local subnet of the customer network.",
       "type" : "string"
     },
     "VpnConnectionId" : {
+      "description" : "The ID of the VPN connection.",
       "type" : "string"
     }
   },
+  "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "DestinationCidrBlock", "VpnConnectionId" ],
   "createOnlyProperties" : [ "/properties/DestinationCidrBlock", "/properties/VpnConnectionId" ],
-  "readOnlyProperties" : [ "/properties/Id" ],
-  "primaryIdentifier" : [ "/properties/Id" ]
+  "primaryIdentifier" : [ "/properties/DestinationCidrBlock", "/properties/VpnConnectionId" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ec2:CreateVpnConnectionRoute", "ec2:DescribeVpnConnections" ]
+    },
+    "read" : {
+      "permissions" : [ "ec2:DescribeVpnConnections" ]
+    },
+    "delete" : {
+      "permissions" : [ "ec2:DeleteVpnConnectionRoute", "ec2:DescribeVpnConnections" ]
+    },
+    "list" : {
+      "permissions" : [ "ec2:DescribeVpnConnections" ]
+    }
+  }
 }

@@ -31,6 +31,10 @@ export interface GetDomainResult {
      */
     readonly appSecurityGroupManagement?: enums.sagemaker.DomainAppSecurityGroupManagement;
     /**
+     * The default space settings.
+     */
+    readonly defaultSpaceSettings?: outputs.sagemaker.DomainDefaultSpaceSettings;
+    /**
      * The default user settings.
      */
     readonly defaultUserSettings?: outputs.sagemaker.DomainUserSettings;

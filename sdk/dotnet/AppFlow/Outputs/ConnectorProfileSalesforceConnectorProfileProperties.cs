@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// The location of the Salesforce resource
         /// </summary>
         public readonly string? InstanceUrl;
+        /// <summary>
+        /// Indicates whether the connector profile applies to a sandbox or production environment
+        /// </summary>
         public readonly bool? IsSandboxEnvironment;
 
         [OutputConstructor]

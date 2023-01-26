@@ -17,8 +17,10 @@ __all__ = [
     'DomainEBSOptions',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
+    'DomainIdp',
     'DomainMasterUserOptions',
     'DomainNodeToNodeEncryptionOptions',
+    'DomainSAMLOptions',
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
     'DomainTag',
@@ -31,10 +33,16 @@ class DomainAdvancedSecurityOptionsInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "internalUserDatabaseEnabled":
+        if key == "anonymousAuthDisableDate":
+            suggest = "anonymous_auth_disable_date"
+        elif key == "anonymousAuthEnabled":
+            suggest = "anonymous_auth_enabled"
+        elif key == "internalUserDatabaseEnabled":
             suggest = "internal_user_database_enabled"
         elif key == "masterUserOptions":
             suggest = "master_user_options"
+        elif key == "sAMLOptions":
+            suggest = "s_aml_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainAdvancedSecurityOptionsInput. Access the value via the '{suggest}' property getter instead.")
@@ -48,15 +56,34 @@ class DomainAdvancedSecurityOptionsInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 anonymous_auth_disable_date: Optional[str] = None,
+                 anonymous_auth_enabled: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
-                 master_user_options: Optional['outputs.DomainMasterUserOptions'] = None):
+                 master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
+                 s_aml_options: Optional['outputs.DomainSAMLOptions'] = None):
+        if anonymous_auth_disable_date is not None:
+            pulumi.set(__self__, "anonymous_auth_disable_date", anonymous_auth_disable_date)
+        if anonymous_auth_enabled is not None:
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
             pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
             pulumi.set(__self__, "master_user_options", master_user_options)
+        if s_aml_options is not None:
+            pulumi.set(__self__, "s_aml_options", s_aml_options)
+
+    @property
+    @pulumi.getter(name="anonymousAuthDisableDate")
+    def anonymous_auth_disable_date(self) -> Optional[str]:
+        return pulumi.get(self, "anonymous_auth_disable_date")
+
+    @property
+    @pulumi.getter(name="anonymousAuthEnabled")
+    def anonymous_auth_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "anonymous_auth_enabled")
 
     @property
     @pulumi.getter
@@ -72,6 +99,11 @@ class DomainAdvancedSecurityOptionsInput(dict):
     @pulumi.getter(name="masterUserOptions")
     def master_user_options(self) -> Optional['outputs.DomainMasterUserOptions']:
         return pulumi.get(self, "master_user_options")
+
+    @property
+    @pulumi.getter(name="sAMLOptions")
+    def s_aml_options(self) -> Optional['outputs.DomainSAMLOptions']:
+        return pulumi.get(self, "s_aml_options")
 
 
 @pulumi.output_type
@@ -427,6 +459,44 @@ class DomainEndpointOptions(dict):
 
 
 @pulumi.output_type
+class DomainIdp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityId":
+            suggest = "entity_id"
+        elif key == "metadataContent":
+            suggest = "metadata_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_id: str,
+                 metadata_content: str):
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "metadata_content", metadata_content)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> str:
+        return pulumi.get(self, "entity_id")
+
+    @property
+    @pulumi.getter(name="metadataContent")
+    def metadata_content(self) -> str:
+        return pulumi.get(self, "metadata_content")
+
+
+@pulumi.output_type
 class DomainMasterUserOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -487,6 +557,92 @@ class DomainNodeToNodeEncryptionOptions(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainSAMLOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterBackendRole":
+            suggest = "master_backend_role"
+        elif key == "masterUserName":
+            suggest = "master_user_name"
+        elif key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "sessionTimeoutMinutes":
+            suggest = "session_timeout_minutes"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSAMLOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSAMLOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSAMLOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 idp: Optional['outputs.DomainIdp'] = None,
+                 master_backend_role: Optional[str] = None,
+                 master_user_name: Optional[str] = None,
+                 roles_key: Optional[str] = None,
+                 session_timeout_minutes: Optional[int] = None,
+                 subject_key: Optional[str] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if idp is not None:
+            pulumi.set(__self__, "idp", idp)
+        if master_backend_role is not None:
+            pulumi.set(__self__, "master_backend_role", master_backend_role)
+        if master_user_name is not None:
+            pulumi.set(__self__, "master_user_name", master_user_name)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if session_timeout_minutes is not None:
+            pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def idp(self) -> Optional['outputs.DomainIdp']:
+        return pulumi.get(self, "idp")
+
+    @property
+    @pulumi.getter(name="masterBackendRole")
+    def master_backend_role(self) -> Optional[str]:
+        return pulumi.get(self, "master_backend_role")
+
+    @property
+    @pulumi.getter(name="masterUserName")
+    def master_user_name(self) -> Optional[str]:
+        return pulumi.get(self, "master_user_name")
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[str]:
+        return pulumi.get(self, "roles_key")
+
+    @property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "session_timeout_minutes")
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[str]:
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileProperties? Dynatrace;
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileProperties? InforNexus;
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileProperties? Marketo;
+        public readonly Outputs.ConnectorProfilePardotConnectorProfileProperties? Pardot;
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileProperties? Redshift;
         public readonly Outputs.ConnectorProfileSAPODataConnectorProfileProperties? SAPOData;
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileProperties? Salesforce;
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Outputs.ConnectorProfileInforNexusConnectorProfileProperties? inforNexus,
 
             Outputs.ConnectorProfileMarketoConnectorProfileProperties? marketo,
+
+            Outputs.ConnectorProfilePardotConnectorProfileProperties? pardot,
 
             Outputs.ConnectorProfileRedshiftConnectorProfileProperties? redshift,
 
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
             Dynatrace = dynatrace;
             InforNexus = inforNexus;
             Marketo = marketo;
+            Pardot = pardot;
             Redshift = redshift;
             SAPOData = sAPOData;
             Salesforce = salesforce;

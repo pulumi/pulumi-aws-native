@@ -34,6 +34,8 @@ __all__ = [
     'ConnectorProfileOAuth2CredentialsArgs',
     'ConnectorProfileOAuth2PropertiesArgs',
     'ConnectorProfileOAuthPropertiesArgs',
+    'ConnectorProfilePardotConnectorProfileCredentialsArgs',
+    'ConnectorProfilePardotConnectorProfilePropertiesArgs',
     'ConnectorProfileProfilePropertiesArgs',
     'ConnectorProfilePropertiesArgs',
     'ConnectorProfileRedshiftConnectorProfileCredentialsArgs',
@@ -77,6 +79,7 @@ __all__ = [
     'FlowMarketoDestinationPropertiesArgs',
     'FlowMarketoSourcePropertiesArgs',
     'FlowMetadataCatalogConfigArgs',
+    'FlowPardotSourcePropertiesArgs',
     'FlowPrefixConfigArgs',
     'FlowRedshiftDestinationPropertiesArgs',
     'FlowS3DestinationPropertiesArgs',
@@ -310,6 +313,7 @@ class ConnectorProfileCredentialsArgs:
                  google_analytics: Optional[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']] = None,
                  infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']] = None,
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']] = None,
+                 pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']] = None,
                  s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfileCredentialsArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']] = None,
@@ -337,6 +341,8 @@ class ConnectorProfileCredentialsArgs:
             pulumi.set(__self__, "infor_nexus", infor_nexus)
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
+        if pardot is not None:
+            pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
         if s_apo_data is not None:
@@ -420,6 +426,15 @@ class ConnectorProfileCredentialsArgs:
     @marketo.setter
     def marketo(self, value: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "marketo", value)
+
+    @property
+    @pulumi.getter
+    def pardot(self) -> Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']]:
+        return pulumi.get(self, "pardot")
+
+    @pardot.setter
+    def pardot(self, value: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']]):
+        pulumi.set(self, "pardot", value)
 
     @property
     @pulumi.getter
@@ -1149,6 +1164,131 @@ class ConnectorProfileOAuthPropertiesArgs:
 
 
 @pulumi.input_type
+class ConnectorProfilePardotConnectorProfileCredentialsArgs:
+    def __init__(__self__, *,
+                 access_token: Optional[pulumi.Input[str]] = None,
+                 client_credentials_arn: Optional[pulumi.Input[str]] = None,
+                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_token: The credentials used to access protected resources.
+        :param pulumi.Input[str] client_credentials_arn: The client credentials to fetch access token and refresh token.
+        :param pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs'] connector_o_auth_request: The oauth needed to request security tokens from the connector endpoint.
+        :param pulumi.Input[str] refresh_token: The credentials used to acquire new access tokens.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if client_credentials_arn is not None:
+            pulumi.set(__self__, "client_credentials_arn", client_credentials_arn)
+        if connector_o_auth_request is not None:
+            pulumi.set(__self__, "connector_o_auth_request", connector_o_auth_request)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The credentials used to access protected resources.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter(name="clientCredentialsArn")
+    def client_credentials_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client credentials to fetch access token and refresh token.
+        """
+        return pulumi.get(self, "client_credentials_arn")
+
+    @client_credentials_arn.setter
+    def client_credentials_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_credentials_arn", value)
+
+    @property
+    @pulumi.getter(name="connectorOAuthRequest")
+    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+        """
+        The oauth needed to request security tokens from the connector endpoint.
+        """
+        return pulumi.get(self, "connector_o_auth_request")
+
+    @connector_o_auth_request.setter
+    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+        pulumi.set(self, "connector_o_auth_request", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The credentials used to acquire new access tokens.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
+
+
+@pulumi.input_type
+class ConnectorProfilePardotConnectorProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 business_unit_id: pulumi.Input[str],
+                 instance_url: Optional[pulumi.Input[str]] = None,
+                 is_sandbox_environment: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] business_unit_id: The Business unit id of Salesforce Pardot instance to be connected
+        :param pulumi.Input[str] instance_url: The location of the Salesforce Pardot resource
+        :param pulumi.Input[bool] is_sandbox_environment: Indicates whether the connector profile applies to a demo or production environment
+        """
+        pulumi.set(__self__, "business_unit_id", business_unit_id)
+        if instance_url is not None:
+            pulumi.set(__self__, "instance_url", instance_url)
+        if is_sandbox_environment is not None:
+            pulumi.set(__self__, "is_sandbox_environment", is_sandbox_environment)
+
+    @property
+    @pulumi.getter(name="businessUnitId")
+    def business_unit_id(self) -> pulumi.Input[str]:
+        """
+        The Business unit id of Salesforce Pardot instance to be connected
+        """
+        return pulumi.get(self, "business_unit_id")
+
+    @business_unit_id.setter
+    def business_unit_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "business_unit_id", value)
+
+    @property
+    @pulumi.getter(name="instanceUrl")
+    def instance_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the Salesforce Pardot resource
+        """
+        return pulumi.get(self, "instance_url")
+
+    @instance_url.setter
+    def instance_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_url", value)
+
+    @property
+    @pulumi.getter(name="isSandboxEnvironment")
+    def is_sandbox_environment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the connector profile applies to a demo or production environment
+        """
+        return pulumi.get(self, "is_sandbox_environment")
+
+    @is_sandbox_environment.setter
+    def is_sandbox_environment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_sandbox_environment", value)
+
+
+@pulumi.input_type
 class ConnectorProfileProfilePropertiesArgs:
     def __init__(__self__):
         """
@@ -1165,6 +1305,7 @@ class ConnectorProfilePropertiesArgs:
                  dynatrace: Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']] = None,
                  infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']] = None,
                  marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']] = None,
+                 pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']] = None,
                  redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']] = None,
                  s_apo_data: Optional[pulumi.Input['ConnectorProfileSAPODataConnectorProfilePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']] = None,
@@ -1186,6 +1327,8 @@ class ConnectorProfilePropertiesArgs:
             pulumi.set(__self__, "infor_nexus", infor_nexus)
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
+        if pardot is not None:
+            pulumi.set(__self__, "pardot", pardot)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
         if s_apo_data is not None:
@@ -1247,6 +1390,15 @@ class ConnectorProfilePropertiesArgs:
     @marketo.setter
     def marketo(self, value: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "marketo", value)
+
+    @property
+    @pulumi.getter
+    def pardot(self) -> Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']]:
+        return pulumi.get(self, "pardot")
+
+    @pardot.setter
+    def pardot(self, value: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']]):
+        pulumi.set(self, "pardot", value)
 
     @property
     @pulumi.getter
@@ -1770,6 +1922,7 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
                  is_sandbox_environment: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] instance_url: The location of the Salesforce resource
+        :param pulumi.Input[bool] is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment
         """
         if instance_url is not None:
             pulumi.set(__self__, "instance_url", instance_url)
@@ -1791,6 +1944,9 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
     @property
     @pulumi.getter(name="isSandboxEnvironment")
     def is_sandbox_environment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the connector profile applies to a sandbox or production environment
+        """
         return pulumi.get(self, "is_sandbox_environment")
 
     @is_sandbox_environment.setter
@@ -2385,6 +2541,7 @@ class FlowConnectorOperatorArgs:
                  google_analytics: Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']] = None,
                  infor_nexus: Optional[pulumi.Input['FlowInforNexusConnectorOperator']] = None,
                  marketo: Optional[pulumi.Input['FlowMarketoConnectorOperator']] = None,
+                 pardot: Optional[pulumi.Input['FlowPardotConnectorOperator']] = None,
                  s3: Optional[pulumi.Input['FlowS3ConnectorOperator']] = None,
                  s_apo_data: Optional[pulumi.Input['FlowSAPODataConnectorOperator']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceConnectorOperator']] = None,
@@ -2411,6 +2568,8 @@ class FlowConnectorOperatorArgs:
             pulumi.set(__self__, "infor_nexus", infor_nexus)
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
+        if pardot is not None:
+            pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
         if s_apo_data is not None:
@@ -2492,6 +2651,15 @@ class FlowConnectorOperatorArgs:
     @marketo.setter
     def marketo(self, value: Optional[pulumi.Input['FlowMarketoConnectorOperator']]):
         pulumi.set(self, "marketo", value)
+
+    @property
+    @pulumi.getter
+    def pardot(self) -> Optional[pulumi.Input['FlowPardotConnectorOperator']]:
+        return pulumi.get(self, "pardot")
+
+    @pardot.setter
+    def pardot(self, value: Optional[pulumi.Input['FlowPardotConnectorOperator']]):
+        pulumi.set(self, "pardot", value)
 
     @property
     @pulumi.getter
@@ -3184,6 +3352,22 @@ class FlowMetadataCatalogConfigArgs:
 
 
 @pulumi.input_type
+class FlowPardotSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 object: pulumi.Input[str]):
+        pulumi.set(__self__, "object", object)
+
+    @property
+    @pulumi.getter
+    def object(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "object")
+
+    @object.setter
+    def object(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object", value)
+
+
+@pulumi.input_type
 class FlowPrefixConfigArgs:
     def __init__(__self__, *,
                  path_prefix_hierarchy: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]] = None,
@@ -3844,6 +4028,7 @@ class FlowSourceConnectorPropertiesArgs:
                  google_analytics: Optional[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgs']] = None,
                  infor_nexus: Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']] = None,
                  marketo: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']] = None,
+                 pardot: Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']] = None,
                  s3: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']] = None,
                  s_apo_data: Optional[pulumi.Input['FlowSAPODataSourcePropertiesArgs']] = None,
                  salesforce: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']] = None,
@@ -3870,6 +4055,8 @@ class FlowSourceConnectorPropertiesArgs:
             pulumi.set(__self__, "infor_nexus", infor_nexus)
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
+        if pardot is not None:
+            pulumi.set(__self__, "pardot", pardot)
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
         if s_apo_data is not None:
@@ -3951,6 +4138,15 @@ class FlowSourceConnectorPropertiesArgs:
     @marketo.setter
     def marketo(self, value: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']]):
         pulumi.set(self, "marketo", value)
+
+    @property
+    @pulumi.getter
+    def pardot(self) -> Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']]:
+        return pulumi.get(self, "pardot")
+
+    @pardot.setter
+    def pardot(self, value: Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']]):
+        pulumi.set(self, "pardot", value)
 
     @property
     @pulumi.getter

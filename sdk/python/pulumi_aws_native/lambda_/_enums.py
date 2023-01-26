@@ -10,6 +10,7 @@ __all__ = [
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
     'FunctionPackageType',
+    'FunctionRuntimeManagementConfigUpdateRuntimeOn',
     'FunctionSnapStartApplyOn',
     'FunctionSnapStartResponseApplyOn',
     'FunctionSnapStartResponseOptimizationStatus',
@@ -57,6 +58,15 @@ class FunctionPackageType(str, Enum):
     """
     IMAGE = "Image"
     ZIP = "Zip"
+
+
+class FunctionRuntimeManagementConfigUpdateRuntimeOn(str, Enum):
+    """
+    Trigger for runtime update
+    """
+    AUTO = "Auto"
+    FUNCTION_UPDATE = "FunctionUpdate"
+    MANUAL = "Manual"
 
 
 class FunctionSnapStartApplyOn(str, Enum):

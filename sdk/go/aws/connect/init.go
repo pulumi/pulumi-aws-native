@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:connect:ApprovedOrigin":
+		r = &ApprovedOrigin{}
 	case "aws-native:connect:ContactFlow":
 		r = &ContactFlow{}
 	case "aws-native:connect:ContactFlowModule":
@@ -31,12 +33,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws-native:connect:InstanceStorageConfig":
 		r = &InstanceStorageConfig{}
+	case "aws-native:connect:IntegrationAssociation":
+		r = &IntegrationAssociation{}
 	case "aws-native:connect:PhoneNumber":
 		r = &PhoneNumber{}
 	case "aws-native:connect:QuickConnect":
 		r = &QuickConnect{}
 	case "aws-native:connect:Rule":
 		r = &Rule{}
+	case "aws-native:connect:SecurityKey":
+		r = &SecurityKey{}
 	case "aws-native:connect:TaskTemplate":
 		r = &TaskTemplate{}
 	case "aws-native:connect:User":
