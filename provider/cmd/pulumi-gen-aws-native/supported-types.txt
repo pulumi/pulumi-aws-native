@@ -51,6 +51,7 @@ AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
+AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
 AWS::Athena::DataCatalog
 AWS::Athena::NamedQuery
@@ -117,14 +118,17 @@ AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
 AWS::Config::OrganizationConformancePack
 AWS::Config::StoredQuery
+AWS::Connect::ApprovedOrigin
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
 AWS::Connect::HoursOfOperation
 AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
+AWS::Connect::IntegrationAssociation
 AWS::Connect::PhoneNumber
 AWS::Connect::QuickConnect
 AWS::Connect::Rule
+AWS::Connect::SecurityKey
 AWS::Connect::TaskTemplate
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
@@ -214,6 +218,7 @@ AWS::EC2::VPC
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
+AWS::EC2::VPNConnectionRoute
 AWS::EC2::VPNGateway
 AWS::EC2::Volume
 AWS::ECR::PullThroughCacheRule

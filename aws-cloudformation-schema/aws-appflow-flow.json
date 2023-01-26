@@ -307,6 +307,9 @@
         "Salesforce" : {
           "$ref" : "#/definitions/SalesforceSourceProperties"
         },
+        "Pardot" : {
+          "$ref" : "#/definitions/PardotSourceProperties"
+        },
         "ServiceNow" : {
           "$ref" : "#/definitions/ServiceNowSourceProperties"
         },
@@ -360,6 +363,9 @@
         },
         "Salesforce" : {
           "$ref" : "#/definitions/SalesforceConnectorOperator"
+        },
+        "Pardot" : {
+          "$ref" : "#/definitions/PardotConnectorOperator"
         },
         "ServiceNow" : {
           "$ref" : "#/definitions/ServiceNowConnectorOperator"
@@ -628,7 +634,7 @@
     },
     "ConnectorType" : {
       "type" : "string",
-      "enum" : [ "SAPOData", "Salesforce", "Singular", "Slack", "Redshift", "S3", "Marketo", "Googleanalytics", "Zendesk", "Servicenow", "Datadog", "Trendmicro", "Snowflake", "Dynatrace", "Infornexus", "Amplitude", "Veeva", "CustomConnector", "EventBridge", "Upsolver", "LookoutMetrics" ]
+      "enum" : [ "SAPOData", "Salesforce", "Pardot", "Singular", "Slack", "Redshift", "S3", "Marketo", "Googleanalytics", "Zendesk", "Servicenow", "Datadog", "Trendmicro", "Snowflake", "Dynatrace", "Infornexus", "Amplitude", "Veeva", "CustomConnector", "EventBridge", "Upsolver", "LookoutMetrics" ]
     },
     "ApiVersion" : {
       "description" : "The API version that the connector will use.",
@@ -742,6 +748,16 @@
         },
         "DataTransferApi" : {
           "$ref" : "#/definitions/DataTransferApi"
+        }
+      },
+      "required" : [ "Object" ],
+      "additionalProperties" : false
+    },
+    "PardotSourceProperties" : {
+      "type" : "object",
+      "properties" : {
+        "Object" : {
+          "$ref" : "#/definitions/Object"
         }
       },
       "required" : [ "Object" ],
@@ -1102,6 +1118,10 @@
     "SalesforceConnectorOperator" : {
       "type" : "string",
       "enum" : [ "PROJECTION", "LESS_THAN", "CONTAINS", "GREATER_THAN", "BETWEEN", "LESS_THAN_OR_EQUAL_TO", "GREATER_THAN_OR_EQUAL_TO", "EQUAL_TO", "NOT_EQUAL_TO", "ADDITION", "MULTIPLICATION", "DIVISION", "SUBTRACTION", "MASK_ALL", "MASK_FIRST_N", "MASK_LAST_N", "VALIDATE_NON_NULL", "VALIDATE_NON_ZERO", "VALIDATE_NON_NEGATIVE", "VALIDATE_NUMERIC", "NO_OP" ]
+    },
+    "PardotConnectorOperator" : {
+      "type" : "string",
+      "enum" : [ "PROJECTION", "EQUAL_TO", "NO_OP", "ADDITION", "MULTIPLICATION", "DIVISION", "SUBTRACTION", "MASK_ALL", "MASK_FIRST_N", "MASK_LAST_N", "VALIDATE_NON_NULL", "VALIDATE_NON_ZERO", "VALIDATE_NON_NEGATIVE", "VALIDATE_NUMERIC" ]
     },
     "ServiceNowConnectorOperator" : {
       "type" : "string",

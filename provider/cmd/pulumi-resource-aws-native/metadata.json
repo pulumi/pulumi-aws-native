@@ -2962,6 +2962,98 @@
                 "name"
             ]
         },
+        "aws-native:applicationautoscaling:ScalableTarget": {
+            "cf": "AWS::ApplicationAutoScaling::ScalableTarget",
+            "inputs": {
+                "maxCapacity": {
+                    "type": "integer",
+                    "description": "The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand"
+                },
+                "minCapacity": {
+                    "type": "integer",
+                    "description": "The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "The identifier of the resource associated with the scalable target"
+                },
+                "roleARN": {
+                    "type": "string",
+                    "description": "Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. "
+                },
+                "scalableDimension": {
+                    "type": "string",
+                    "description": "The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property"
+                },
+                "scheduledActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetScheduledAction"
+                    },
+                    "description": "The scheduled actions for the scalable target. Duplicates aren't allowed."
+                },
+                "serviceNamespace": {
+                    "type": "string",
+                    "description": "The namespace of the AWS service that provides the resource, or a custom-resource"
+                },
+                "suspendedState": {
+                    "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetSuspendedState",
+                    "description": "An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities."
+                }
+            },
+            "outputs": {
+                "maxCapacity": {
+                    "type": "integer",
+                    "description": "The maximum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand"
+                },
+                "minCapacity": {
+                    "type": "integer",
+                    "description": "The minimum value that you plan to scale in to. When a scaling policy is in effect, Application Auto Scaling can scale in (contract) as needed to the minimum capacity limit in response to changing demand"
+                },
+                "resourceId": {
+                    "type": "string",
+                    "description": "The identifier of the resource associated with the scalable target"
+                },
+                "roleARN": {
+                    "type": "string",
+                    "description": "Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. "
+                },
+                "scalableDimension": {
+                    "type": "string",
+                    "description": "The scalable dimension associated with the scalable target. This string consists of the service namespace, resource type, and scaling property"
+                },
+                "scheduledActions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetScheduledAction"
+                    },
+                    "description": "The scheduled actions for the scalable target. Duplicates aren't allowed."
+                },
+                "serviceNamespace": {
+                    "type": "string",
+                    "description": "The namespace of the AWS service that provides the resource, or a custom-resource"
+                },
+                "suspendedState": {
+                    "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetSuspendedState",
+                    "description": "An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to true suspends the specified scaling activities. Setting it to false (default) resumes the specified scaling activities."
+                }
+            },
+            "required": [
+                "maxCapacity",
+                "minCapacity",
+                "resourceId",
+                "scalableDimension",
+                "serviceNamespace"
+            ],
+            "createOnly": [
+                "resourceId",
+                "scalableDimension",
+                "serviceNamespace"
+            ],
+            "writeOnly": [
+                "roleARN"
+            ]
+        },
         "aws-native:applicationinsights:Application": {
             "cf": "AWS::ApplicationInsights::Application",
             "inputs": {
@@ -8482,6 +8574,33 @@
                 "queryName"
             ]
         },
+        "aws-native:connect:ApprovedOrigin": {
+            "cf": "AWS::Connect::ApprovedOrigin",
+            "inputs": {
+                "instanceId": {
+                    "type": "string"
+                },
+                "origin": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "instanceId": {
+                    "type": "string"
+                },
+                "origin": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "instanceId",
+                "origin"
+            ],
+            "createOnly": [
+                "instanceId",
+                "origin"
+            ]
+        },
         "aws-native:connect:ContactFlow": {
             "cf": "AWS::Connect::ContactFlow",
             "inputs": {
@@ -8857,6 +8976,44 @@
                 "resourceType"
             ]
         },
+        "aws-native:connect:IntegrationAssociation": {
+            "cf": "AWS::Connect::IntegrationAssociation",
+            "inputs": {
+                "instanceId": {
+                    "type": "string"
+                },
+                "integrationArn": {
+                    "type": "string"
+                },
+                "integrationType": {
+                    "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType"
+                }
+            },
+            "outputs": {
+                "instanceId": {
+                    "type": "string"
+                },
+                "integrationArn": {
+                    "type": "string"
+                },
+                "integrationAssociationId": {
+                    "type": "string"
+                },
+                "integrationType": {
+                    "$ref": "#/types/aws-native:connect:IntegrationAssociationIntegrationType"
+                }
+            },
+            "required": [
+                "instanceId",
+                "integrationArn",
+                "integrationType"
+            ],
+            "createOnly": [
+                "instanceId",
+                "integrationArn",
+                "integrationType"
+            ]
+        },
         "aws-native:connect:PhoneNumber": {
             "cf": "AWS::Connect::PhoneNumber",
             "inputs": {
@@ -9091,6 +9248,36 @@
             "createOnly": [
                 "instanceArn",
                 "triggerEventSource"
+            ]
+        },
+        "aws-native:connect:SecurityKey": {
+            "cf": "AWS::Connect::SecurityKey",
+            "inputs": {
+                "instanceId": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                }
+            },
+            "outputs": {
+                "associationId": {
+                    "type": "string"
+                },
+                "instanceId": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "instanceId",
+                "key"
+            ],
+            "createOnly": [
+                "instanceId",
+                "key"
             ]
         },
         "aws-native:connect:TaskTemplate": {
@@ -12758,6 +12945,10 @@
                     "type": "integer",
                     "description": "For devices that support BGP, the customer gateway's BGP ASN."
                 },
+                "deviceName": {
+                    "type": "string",
+                    "description": "A name for the customer gateway device."
+                },
                 "ipAddress": {
                     "type": "string",
                     "description": "The internet-routable IP address for the customer gateway's outside interface. The address must be static."
@@ -12783,6 +12974,10 @@
                     "type": "string",
                     "description": "CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID."
                 },
+                "deviceName": {
+                    "type": "string",
+                    "description": "A name for the customer gateway device."
+                },
                 "ipAddress": {
                     "type": "string",
                     "description": "The internet-routable IP address for the customer gateway's outside interface. The address must be static."
@@ -12806,6 +13001,7 @@
             ],
             "createOnly": [
                 "bgpAsn",
+                "deviceName",
                 "ipAddress",
                 "type"
             ]
@@ -15858,6 +16054,37 @@
                 "type",
                 "vpnGatewayId",
                 "vpnTunnelOptionsSpecifications"
+            ]
+        },
+        "aws-native:ec2:VPNConnectionRoute": {
+            "cf": "AWS::EC2::VPNConnectionRoute",
+            "inputs": {
+                "destinationCidrBlock": {
+                    "type": "string",
+                    "description": "The CIDR block associated with the local subnet of the customer network."
+                },
+                "vpnConnectionId": {
+                    "type": "string",
+                    "description": "The ID of the VPN connection."
+                }
+            },
+            "outputs": {
+                "destinationCidrBlock": {
+                    "type": "string",
+                    "description": "The CIDR block associated with the local subnet of the customer network."
+                },
+                "vpnConnectionId": {
+                    "type": "string",
+                    "description": "The ID of the VPN connection."
+                }
+            },
+            "required": [
+                "destinationCidrBlock",
+                "vpnConnectionId"
+            ],
+            "createOnly": [
+                "destinationCidrBlock",
+                "vpnConnectionId"
             ]
         },
         "aws-native:ec2:VPNGateway": {
@@ -18962,6 +19189,9 @@
                     "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStopConfiguration",
                     "description": "Configuration for Auto Stop of Application."
                 },
+                "imageConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationImageConfigurationInput"
+                },
                 "initialCapacity": {
                     "type": "array",
                     "items": {
@@ -18995,6 +19225,9 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the application"
+                },
+                "workerTypeSpecifications": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationWorkerTypeSpecificationInputMap"
                 }
             },
             "outputs": {
@@ -19017,6 +19250,9 @@
                     "$ref": "#/types/aws-native:emrserverless:ApplicationAutoStopConfiguration",
                     "description": "Configuration for Auto Stop of Application."
                 },
+                "imageConfiguration": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationImageConfigurationInput"
+                },
                 "initialCapacity": {
                     "type": "array",
                     "items": {
@@ -19050,6 +19286,9 @@
                 "type": {
                     "type": "string",
                     "description": "The type of the application"
+                },
+                "workerTypeSpecifications": {
+                    "$ref": "#/types/aws-native:emrserverless:ApplicationWorkerTypeSpecificationInputMap"
                 }
             },
             "autoNamingSpec": {
@@ -22238,6 +22477,12 @@
         "aws-native:groundstation:DataflowEndpointGroup": {
             "cf": "AWS::GroundStation::DataflowEndpointGroup",
             "inputs": {
+                "contactPostPassDurationSeconds": {
+                    "type": "integer"
+                },
+                "contactPrePassDurationSeconds": {
+                    "type": "integer"
+                },
                 "endpointDetails": {
                     "type": "array",
                     "items": {
@@ -22254,6 +22499,12 @@
             "outputs": {
                 "arn": {
                     "type": "string"
+                },
+                "contactPostPassDurationSeconds": {
+                    "type": "integer"
+                },
+                "contactPrePassDurationSeconds": {
+                    "type": "integer"
                 },
                 "endpointDetails": {
                     "type": "array",
@@ -23270,6 +23521,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
                 },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
+                },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
@@ -23308,6 +23563,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
                 },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
+                },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImageTestsConfiguration",
                     "description": "The image tests configuration used when creating this image."
@@ -23334,6 +23593,7 @@
                 "distributionConfigurationArn",
                 "enhancedImageMetadataEnabled",
                 "imageRecipeArn",
+                "imageScanningConfiguration",
                 "imageTestsConfiguration",
                 "infrastructureConfigurationArn",
                 "tags"
@@ -23361,6 +23621,10 @@
                 "imageRecipeArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
+                },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
                 },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageTestsConfiguration",
@@ -23411,6 +23675,10 @@
                 "imageRecipeArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed."
+                },
+                "imageScanningConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageScanningConfiguration",
+                    "description": "Contains settings for vulnerability scans."
                 },
                 "imageTestsConfiguration": {
                     "$ref": "#/types/aws-native:imagebuilder:ImagePipelineImageTestsConfiguration",
@@ -26328,7 +26596,6 @@
                 "portalId"
             ],
             "createOnly": [
-                "assetIds",
                 "portalId"
             ]
         },
@@ -29359,6 +29626,10 @@
                     "type": "string",
                     "description": "The identifier of the function's runtime."
                 },
+                "runtimeManagementConfig": {
+                    "$ref": "#/types/aws-native:lambda:FunctionRuntimeManagementConfig",
+                    "description": "RuntimeManagementConfig"
+                },
                 "snapStart": {
                     "$ref": "#/types/aws-native:lambda:FunctionSnapStart",
                     "description": "The SnapStart setting of your function"
@@ -29467,6 +29738,10 @@
                 "runtime": {
                     "type": "string",
                     "description": "The identifier of the function's runtime."
+                },
+                "runtimeManagementConfig": {
+                    "$ref": "#/types/aws-native:lambda:FunctionRuntimeManagementConfig",
+                    "description": "RuntimeManagementConfig"
                 },
                 "snapStart": {
                     "$ref": "#/types/aws-native:lambda:FunctionSnapStart",
@@ -36389,7 +36664,9 @@
                 "domainName"
             ],
             "writeOnly": [
-                "advancedSecurityOptions/MasterUserOptions"
+                "advancedSecurityOptions/MasterUserOptions",
+                "advancedSecurityOptions/SAMLOptions/MasterBackendRole",
+                "advancedSecurityOptions/SAMLOptions/MasterUserName"
             ]
         },
         "aws-native:opsworkscm:Server": {
@@ -42471,6 +42748,10 @@
             ],
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "robotSoftwareSuite/Version",
+                "sources"
             ]
         },
         "aws-native:robomaker:RobotApplicationVersion": {
@@ -42595,6 +42876,12 @@
             ],
             "createOnly": [
                 "name"
+            ],
+            "writeOnly": [
+                "renderingEngine",
+                "robotSoftwareSuite/Version",
+                "simulationSoftwareSuite/Version",
+                "sources"
             ]
         },
         "aws-native:robomaker:SimulationApplicationVersion": {
@@ -44102,6 +44389,9 @@
                 "appMonitorConfiguration": {
                     "$ref": "#/types/aws-native:rum:AppMonitorConfiguration"
                 },
+                "customEvents": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorCustomEvents"
+                },
                 "cwLogEnabled": {
                     "type": "boolean",
                     "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false"
@@ -44124,6 +44414,9 @@
             "outputs": {
                 "appMonitorConfiguration": {
                     "$ref": "#/types/aws-native:rum:AppMonitorConfiguration"
+                },
+                "customEvents": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorCustomEvents"
                 },
                 "cwLogEnabled": {
                     "type": "boolean",
@@ -45275,6 +45568,10 @@
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
                 },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainDefaultSpaceSettings",
+                    "description": "The default space settings."
+                },
                 "defaultUserSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainUserSettings",
                     "description": "The default user settings."
@@ -45321,6 +45618,10 @@
                 "authMode": {
                     "$ref": "#/types/aws-native:sagemaker:DomainAuthMode",
                     "description": "The mode of authentication that members use to access the domain."
+                },
+                "defaultSpaceSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainDefaultSpaceSettings",
+                    "description": "The default space settings."
                 },
                 "defaultUserSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainUserSettings",
@@ -46702,74 +47003,60 @@
             "cf": "AWS::SecretsManager::Secret",
             "inputs": {
                 "description": {
-                    "type": "string",
-                    "description": "(Optional) Specifies a user-provided description of the secret."
+                    "type": "string"
                 },
                 "generateSecretString": {
-                    "$ref": "#/types/aws-native:secretsmanager:SecretGenerateSecretString",
-                    "description": "(Optional) Specifies text data that you want to encrypt and store in this new version of the secret."
+                    "$ref": "#/types/aws-native:secretsmanager:SecretGenerateSecretString"
                 },
                 "kmsKeyId": {
-                    "type": "string",
-                    "description": "(Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString."
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy."
+                    "type": "string"
                 },
                 "replicaRegions": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:secretsmanager:SecretReplicaRegion"
-                    },
-                    "description": "(Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias."
+                    }
                 },
                 "secretString": {
-                    "type": "string",
-                    "description": "(Optional) Specifies text data that you want to encrypt and store in this new version of the secret."
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:secretsmanager:SecretTag"
-                    },
-                    "description": "The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource."
+                    }
                 }
             },
             "outputs": {
                 "description": {
-                    "type": "string",
-                    "description": "(Optional) Specifies a user-provided description of the secret."
+                    "type": "string"
                 },
                 "generateSecretString": {
-                    "$ref": "#/types/aws-native:secretsmanager:SecretGenerateSecretString",
-                    "description": "(Optional) Specifies text data that you want to encrypt and store in this new version of the secret."
+                    "$ref": "#/types/aws-native:secretsmanager:SecretGenerateSecretString"
                 },
                 "kmsKeyId": {
-                    "type": "string",
-                    "description": "(Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) used to encrypt the SecretString."
+                    "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "description": "The friendly name of the secret. You can use forward slashes in the name to represent a path hierarchy."
+                    "type": "string"
                 },
                 "replicaRegions": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:secretsmanager:SecretReplicaRegion"
-                    },
-                    "description": "(Optional) A list of ReplicaRegion objects. The ReplicaRegion type consists of a Region (required) and the KmsKeyId which can be an ARN, Key ID, or Alias."
+                    }
                 },
                 "secretString": {
-                    "type": "string",
-                    "description": "(Optional) Specifies text data that you want to encrypt and store in this new version of the secret."
+                    "type": "string"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:secretsmanager:SecretTag"
-                    },
-                    "description": "The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource."
+                    }
                 }
             },
             "autoNamingSpec": {
@@ -46777,10 +47064,6 @@
             },
             "createOnly": [
                 "name"
-            ],
-            "writeOnly": [
-                "generateSecretString",
-                "secretString"
             ]
         },
         "aws-native:servicecatalog:CloudFormationProvisionedProduct": {
@@ -52392,6 +52675,9 @@
                 "marketo": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileMarketoConnectorProfileCredentials"
                 },
+                "pardot": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfilePardotConnectorProfileCredentials"
+                },
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileCredentials"
                 },
@@ -52648,6 +52934,44 @@
                 }
             }
         },
+        "aws-native:appflow:ConnectorProfilePardotConnectorProfileCredentials": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "The credentials used to access protected resources."
+                },
+                "clientCredentialsArn": {
+                    "type": "string",
+                    "description": "The client credentials to fetch access token and refresh token."
+                },
+                "connectorOAuthRequest": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfileConnectorOAuthRequest",
+                    "description": "The oauth needed to request security tokens from the connector endpoint."
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "description": "The credentials used to acquire new access tokens."
+                }
+            }
+        },
+        "aws-native:appflow:ConnectorProfilePardotConnectorProfileProperties": {
+            "type": "object",
+            "properties": {
+                "businessUnitId": {
+                    "type": "string",
+                    "description": "The Business unit id of Salesforce Pardot instance to be connected"
+                },
+                "instanceUrl": {
+                    "type": "string",
+                    "description": "The location of the Salesforce Pardot resource"
+                },
+                "isSandboxEnvironment": {
+                    "type": "boolean",
+                    "description": "Indicates whether the connector profile applies to a demo or production environment"
+                }
+            }
+        },
         "aws-native:appflow:ConnectorProfileProfileProperties": {
             "type": "object"
         },
@@ -52668,6 +52992,9 @@
                 },
                 "marketo": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileMarketoConnectorProfileProperties"
+                },
+                "pardot": {
+                    "$ref": "#/types/aws-native:appflow:ConnectorProfilePardotConnectorProfileProperties"
                 },
                 "redshift": {
                     "$ref": "#/types/aws-native:appflow:ConnectorProfileRedshiftConnectorProfileProperties"
@@ -52835,7 +53162,8 @@
                     "description": "The location of the Salesforce resource"
                 },
                 "isSandboxEnvironment": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Indicates whether the connector profile applies to a sandbox or production environment"
                 }
             }
         },
@@ -53067,6 +53395,9 @@
                 },
                 "marketo": {
                     "$ref": "#/types/aws-native:appflow:FlowMarketoConnectorOperator"
+                },
+                "pardot": {
+                    "$ref": "#/types/aws-native:appflow:FlowPardotConnectorOperator"
                 },
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3ConnectorOperator"
@@ -53341,6 +53672,17 @@
         },
         "aws-native:appflow:FlowOperatorPropertiesKeys": {
             "type": "string"
+        },
+        "aws-native:appflow:FlowPardotConnectorOperator": {
+            "type": "string"
+        },
+        "aws-native:appflow:FlowPardotSourceProperties": {
+            "type": "object",
+            "properties": {
+                "object": {
+                    "type": "string"
+                }
+            }
         },
         "aws-native:appflow:FlowPathPrefix": {
             "type": "string"
@@ -53628,6 +53970,9 @@
                 },
                 "marketo": {
                     "$ref": "#/types/aws-native:appflow:FlowMarketoSourceProperties"
+                },
+                "pardot": {
+                    "$ref": "#/types/aws-native:appflow:FlowPardotSourceProperties"
                 },
                 "s3": {
                     "$ref": "#/types/aws-native:appflow:FlowS3SourceProperties"
@@ -53955,6 +54300,54 @@
                 "value": {
                     "type": "string",
                     "description": "Corresponding tag value for the key."
+                }
+            }
+        },
+        "aws-native:applicationautoscaling:ScalableTargetAction": {
+            "type": "object",
+            "properties": {
+                "maxCapacity": {
+                    "type": "integer"
+                },
+                "minCapacity": {
+                    "type": "integer"
+                }
+            }
+        },
+        "aws-native:applicationautoscaling:ScalableTargetScheduledAction": {
+            "type": "object",
+            "properties": {
+                "endTime": {
+                    "type": "string"
+                },
+                "scalableTargetAction": {
+                    "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetAction"
+                },
+                "schedule": {
+                    "type": "string"
+                },
+                "scheduledActionName": {
+                    "type": "string"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "timezone": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:applicationautoscaling:ScalableTargetSuspendedState": {
+            "type": "object",
+            "properties": {
+                "dynamicScalingInSuspended": {
+                    "type": "boolean"
+                },
+                "dynamicScalingOutSuspended": {
+                    "type": "boolean"
+                },
+                "scheduledScalingSuspended": {
+                    "type": "boolean"
                 }
             }
         },
@@ -58246,6 +58639,9 @@
             }
         },
         "aws-native:connect:InstanceStorageConfigStorageType": {
+            "type": "string"
+        },
+        "aws-native:connect:IntegrationAssociationIntegrationType": {
             "type": "string"
         },
         "aws-native:connect:PhoneNumberTag": {
@@ -66281,6 +66677,15 @@
                 }
             }
         },
+        "aws-native:emrserverless:ApplicationImageConfigurationInput": {
+            "type": "object",
+            "properties": {
+                "imageUri": {
+                    "type": "string",
+                    "description": "The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration."
+                }
+            }
+        },
         "aws-native:emrserverless:ApplicationInitialCapacityConfig": {
             "type": "object",
             "properties": {
@@ -66370,6 +66775,9 @@
                     "description": "Per worker memory resource. GB is the only supported unit and specifying GB is optional."
                 }
             }
+        },
+        "aws-native:emrserverless:ApplicationWorkerTypeSpecificationInputMap": {
+            "type": "object"
         },
         "aws-native:events:ApiDestinationHttpMethod": {
             "type": "string"
@@ -69298,6 +69706,51 @@
         "aws-native:imagebuilder:DistributionConfigurationTargetContainerRepositoryService": {
             "type": "string"
         },
+        "aws-native:imagebuilder:ImageEcrConfiguration": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images."
+                },
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImagePipelineEcrConfiguration": {
+            "type": "object",
+            "properties": {
+                "containerTags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images."
+                },
+                "repositoryName": {
+                    "type": "string",
+                    "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImagePipelineImageScanningConfiguration": {
+            "type": "object",
+            "properties": {
+                "ecrConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImagePipelineEcrConfiguration",
+                    "description": "Contains ECR settings for vulnerability scans."
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image."
+                }
+            }
+        },
         "aws-native:imagebuilder:ImagePipelineImageTestsConfiguration": {
             "type": "object",
             "properties": {
@@ -69442,6 +69895,19 @@
                 "uninstallAfterBuild": {
                     "type": "boolean",
                     "description": "Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false."
+                }
+            }
+        },
+        "aws-native:imagebuilder:ImageScanningConfiguration": {
+            "type": "object",
+            "properties": {
+                "ecrConfiguration": {
+                    "$ref": "#/types/aws-native:imagebuilder:ImageEcrConfiguration",
+                    "description": "Contains ECR settings for vulnerability scans."
+                },
+                "imageScanningEnabled": {
+                    "type": "boolean",
+                    "description": "This sets whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image."
                 }
             }
         },
@@ -70668,6 +71134,9 @@
         "aws-native:iot:TopicRuleCloudwatchLogsAction": {
             "type": "object",
             "properties": {
+                "batchMode": {
+                    "type": "boolean"
+                },
                 "logGroupName": {
                     "type": "string"
                 },
@@ -77289,6 +77758,22 @@
         "aws-native:lambda:FunctionPackageType": {
             "type": "string"
         },
+        "aws-native:lambda:FunctionRuntimeManagementConfig": {
+            "type": "object",
+            "properties": {
+                "runtimeVersionArn": {
+                    "type": "string",
+                    "description": "Unique identifier for a runtime version arn"
+                },
+                "updateRuntimeOn": {
+                    "$ref": "#/types/aws-native:lambda:FunctionRuntimeManagementConfigUpdateRuntimeOn",
+                    "description": "Trigger for runtime update"
+                }
+            }
+        },
+        "aws-native:lambda:FunctionRuntimeManagementConfigUpdateRuntimeOn": {
+            "type": "string"
+        },
         "aws-native:lambda:FunctionSnapStart": {
             "type": "object",
             "properties": {
@@ -77623,6 +78108,56 @@
                 }
             }
         },
+        "aws-native:lex:BotCondition": {
+            "type": "object",
+            "properties": {
+                "expressionString": {
+                    "type": "string",
+                    "description": "The expression string that is evaluated."
+                }
+            }
+        },
+        "aws-native:lex:BotConditionalBranch": {
+            "type": "object",
+            "properties": {
+                "condition": {
+                    "$ref": "#/types/aws-native:lex:BotCondition",
+                    "description": "Contains the expression to evaluate. If the condition is true, the branch's actions are taken."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the branch."
+                },
+                "nextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "The next step in the conversation."
+                },
+                "response": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                }
+            }
+        },
+        "aws-native:lex:BotConditionalSpecification": {
+            "type": "object",
+            "properties": {
+                "conditionalBranches": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotConditionalBranch"
+                    },
+                    "description": "A list of conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true."
+                },
+                "defaultBranch": {
+                    "$ref": "#/types/aws-native:lex:BotDefaultConditionalBranch",
+                    "description": "The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step."
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "description": "Determines whether a conditional branch is active. When active is false, the conditions are not evaluated."
+                }
+            }
+        },
         "aws-native:lex:BotConversationLogSettings": {
             "type": "object",
             "properties": {
@@ -77673,11 +78208,98 @@
                 }
             }
         },
+        "aws-native:lex:BotDefaultConditionalBranch": {
+            "type": "object",
+            "properties": {
+                "nextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "The next step in the conversation."
+                },
+                "response": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                }
+            }
+        },
+        "aws-native:lex:BotDialogAction": {
+            "type": "object",
+            "properties": {
+                "slotToElicit": {
+                    "type": "string",
+                    "description": "If the dialog action is ElicitSlot, defines the slot to elicit from the user."
+                },
+                "suppressNextMessage": {
+                    "type": "boolean",
+                    "description": "When true the next message for the intent is not used."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:lex:BotDialogActionType",
+                    "description": "The action that the bot should execute."
+                }
+            }
+        },
+        "aws-native:lex:BotDialogActionType": {
+            "type": "string"
+        },
+        "aws-native:lex:BotDialogCodeHookInvocationSetting": {
+            "type": "object",
+            "properties": {
+                "enableCodeHookInvocation": {
+                    "type": "boolean",
+                    "description": "Indicates whether a Lambda function should be invoked for the dialog."
+                },
+                "invocationLabel": {
+                    "type": "string",
+                    "description": "A label that indicates the dialog step from which the dialog code hook is happening."
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "description": "Determines whether a dialog code hook is used when the intent is activated."
+                },
+                "postCodeHookSpecification": {
+                    "$ref": "#/types/aws-native:lex:BotPostDialogCodeHookInvocationSpecification",
+                    "description": "Contains the responses and actions that Amazon Lex takes after the Lambda function is complete."
+                }
+            }
+        },
         "aws-native:lex:BotDialogCodeHookSetting": {
             "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                }
+            }
+        },
+        "aws-native:lex:BotDialogState": {
+            "type": "object",
+            "properties": {
+                "dialogAction": {
+                    "$ref": "#/types/aws-native:lex:BotDialogAction",
+                    "description": "Defines the action that the bot executes at runtime when the conversation reaches this step."
+                },
+                "intent": {
+                    "$ref": "#/types/aws-native:lex:BotIntentOverride",
+                    "description": "Override settings to configure the intent state."
+                },
+                "sessionAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotSessionAttribute"
+                    },
+                    "description": "List of session attributes to be applied when the conversation reaches this step."
+                }
+            }
+        },
+        "aws-native:lex:BotElicitationCodeHookInvocationSetting": {
+            "type": "object",
+            "properties": {
+                "enableCodeHookInvocation": {
+                    "type": "boolean",
+                    "description": "Indicates whether a Lambda function should be invoked for the dialog."
+                },
+                "invocationLabel": {
+                    "type": "string",
+                    "description": "A label that indicates the dialog step from which the dialog code hook is happening."
                 }
             }
         },
@@ -77697,6 +78319,10 @@
                 },
                 "fulfillmentUpdatesSpecification": {
                     "$ref": "#/types/aws-native:lex:BotFulfillmentUpdatesSpecification"
+                },
+                "isActive": {
+                    "type": "boolean",
+                    "description": "Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run."
                 },
                 "postFulfillmentStatusSpecification": {
                     "$ref": "#/types/aws-native:lex:BotPostFulfillmentStatusSpecification"
@@ -77809,6 +78435,27 @@
                 }
             }
         },
+        "aws-native:lex:BotInitialResponseSetting": {
+            "type": "object",
+            "properties": {
+                "codeHook": {
+                    "$ref": "#/types/aws-native:lex:BotDialogCodeHookInvocationSetting",
+                    "description": "Settings that specify the dialog code hook that is called by Amazon Lex at a step of the conversation."
+                },
+                "conditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition."
+                },
+                "initialResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "nextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "The next step in the conversation."
+                }
+            }
+        },
         "aws-native:lex:BotInputContext": {
             "type": "object",
             "properties": {
@@ -77822,13 +78469,18 @@
             "type": "object",
             "properties": {
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of thr intent."
                 },
                 "dialogCodeHook": {
                     "$ref": "#/types/aws-native:lex:BotDialogCodeHookSetting"
                 },
                 "fulfillmentCodeHook": {
                     "$ref": "#/types/aws-native:lex:BotFulfillmentCodeHookSetting"
+                },
+                "initialResponseSetting": {
+                    "$ref": "#/types/aws-native:lex:BotInitialResponseSetting",
+                    "description": "Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots."
                 },
                 "inputContexts": {
                     "type": "array",
@@ -77846,7 +78498,8 @@
                     "$ref": "#/types/aws-native:lex:BotKendraConfiguration"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the intent."
                 },
                 "outputContexts": {
                     "type": "array",
@@ -77861,7 +78514,8 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:lex:BotSampleUtterance"
-                    }
+                    },
+                    "description": "A sample utterance that invokes an intent or respond to a slot elicitation prompt."
                 },
                 "slotPriorities": {
                     "type": "array",
@@ -77882,24 +78536,93 @@
             "type": "object",
             "properties": {
                 "closingResponse": {
-                    "$ref": "#/types/aws-native:lex:BotResponseSpecification"
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "The response that Amazon Lex sends to the user when the intent is complete."
+                },
+                "conditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches associated with the intent's closing response. These branches are executed when the nextStep attribute is set to EvalutateConditional."
                 },
                 "isActive": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true."
+                },
+                "nextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot executes after playing the intent's closing response."
                 }
             }
         },
         "aws-native:lex:BotIntentConfirmationSetting": {
             "type": "object",
             "properties": {
+                "codeHook": {
+                    "$ref": "#/types/aws-native:lex:BotDialogCodeHookInvocationSetting",
+                    "description": "The DialogCodeHookInvocationSetting object associated with intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is InvokeDialogCodeHook."
+                },
+                "confirmationConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the intent is closed."
+                },
+                "confirmationNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot executes when the customer confirms the intent."
+                },
+                "confirmationResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "declinationConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the intent is declined."
+                },
+                "declinationNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot executes when the customer declines the intent."
+                },
                 "declinationResponse": {
-                    "$ref": "#/types/aws-native:lex:BotResponseSpecification"
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "When the user answers \"no\" to the question defined in promptSpecification, Amazon Lex responds with this response to acknowledge that the intent was canceled."
+                },
+                "elicitationCodeHook": {
+                    "$ref": "#/types/aws-native:lex:BotElicitationCodeHookInvocationSetting",
+                    "description": "The DialogCodeHookInvocationSetting used when the code hook is invoked during confirmation prompt retries."
+                },
+                "failureConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "Provides a list of conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition."
+                },
+                "failureNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "The next step to take in the conversation if the confirmation step fails."
+                },
+                "failureResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
                 },
                 "isActive": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true."
                 },
                 "promptSpecification": {
-                    "$ref": "#/types/aws-native:lex:BotPromptSpecification"
+                    "$ref": "#/types/aws-native:lex:BotPromptSpecification",
+                    "description": "Prompts the user to confirm the intent. This question should have a yes or no answer."
+                }
+            }
+        },
+        "aws-native:lex:BotIntentOverride": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the intent. Only required when you're switching intents."
+                },
+                "slots": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotSlotValueOverrideMap"
+                    },
+                    "description": "A map of all of the slot value overrides for the intent."
                 }
             }
         },
@@ -78043,17 +78766,85 @@
                 }
             }
         },
+        "aws-native:lex:BotPostDialogCodeHookInvocationSpecification": {
+            "type": "object",
+            "properties": {
+                "failureConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed."
+                },
+                "failureNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed."
+                },
+                "failureResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "successConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the dialog code hook finishes successfully."
+                },
+                "successNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifics the next step the bot runs after the dialog code hook finishes successfully."
+                },
+                "successResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "timeoutConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate if the code hook times out."
+                },
+                "timeoutNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot runs when the code hook times out."
+                },
+                "timeoutResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                }
+            }
+        },
         "aws-native:lex:BotPostFulfillmentStatusSpecification": {
             "type": "object",
             "properties": {
+                "failureConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed."
+                },
+                "failureNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step the bot runs after the fulfillment code hook throws an exception or returns with the State field of the Intent object set to Failed."
+                },
                 "failureResponse": {
-                    "$ref": "#/types/aws-native:lex:BotResponseSpecification"
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "successConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the fulfillment code hook finishes successfully."
+                },
+                "successNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step in the conversation that Amazon Lex invokes when the fulfillment code hook completes successfully."
                 },
                 "successResponse": {
-                    "$ref": "#/types/aws-native:lex:BotResponseSpecification"
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "timeoutConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate if the fulfillment code hook times out."
+                },
+                "timeoutNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot runs when the fulfillment code hook times out."
                 },
                 "timeoutResponse": {
-                    "$ref": "#/types/aws-native:lex:BotResponseSpecification"
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
                 }
             }
         },
@@ -78157,6 +78948,17 @@
                 }
             }
         },
+        "aws-native:lex:BotSessionAttribute": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:lex:BotSlot": {
             "type": "object",
             "properties": {
@@ -78177,6 +78979,43 @@
                 },
                 "valueElicitationSetting": {
                     "$ref": "#/types/aws-native:lex:BotSlotValueElicitationSetting"
+                }
+            }
+        },
+        "aws-native:lex:BotSlotCaptureSetting": {
+            "type": "object",
+            "properties": {
+                "captureConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate after the slot value is captured."
+                },
+                "captureNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot runs when the slot value is captured before the code hook times out."
+                },
+                "captureResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
+                },
+                "codeHook": {
+                    "$ref": "#/types/aws-native:lex:BotDialogCodeHookInvocationSetting",
+                    "description": "Code hook called after Amazon Lex successfully captures a slot value."
+                },
+                "elicitationCodeHook": {
+                    "$ref": "#/types/aws-native:lex:BotElicitationCodeHookInvocationSetting",
+                    "description": "Code hook called when Amazon Lex doesn't capture a slot value."
+                },
+                "failureConditional": {
+                    "$ref": "#/types/aws-native:lex:BotConditionalSpecification",
+                    "description": "A list of conditional branches to evaluate when the slot value isn't captured."
+                },
+                "failureNextStep": {
+                    "$ref": "#/types/aws-native:lex:BotDialogState",
+                    "description": "Specifies the next step that the bot runs when the slot value code is not recognized."
+                },
+                "failureResponse": {
+                    "$ref": "#/types/aws-native:lex:BotResponseSpecification",
+                    "description": "Specifies a list of message groups that Amazon Lex uses to respond the user input."
                 }
             }
         },
@@ -78215,6 +79054,9 @@
                     "description": "The name of the slot."
                 }
             }
+        },
+        "aws-native:lex:BotSlotShape": {
+            "type": "string"
         },
         "aws-native:lex:BotSlotType": {
             "type": "object",
@@ -78256,6 +79098,15 @@
                 }
             }
         },
+        "aws-native:lex:BotSlotValue": {
+            "type": "object",
+            "properties": {
+                "interpretedValue": {
+                    "type": "string",
+                    "description": "The value that Amazon Lex determines for the slot."
+                }
+            }
+        },
         "aws-native:lex:BotSlotValueElicitationSetting": {
             "type": "object",
             "properties": {
@@ -78274,6 +79125,10 @@
                     },
                     "description": "If you know a specific pattern that users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy."
                 },
+                "slotCaptureSetting": {
+                    "$ref": "#/types/aws-native:lex:BotSlotCaptureSetting",
+                    "description": "Specifies the next stage in the conversation after capturing the slot."
+                },
                 "slotConstraint": {
                     "$ref": "#/types/aws-native:lex:BotSlotConstraint",
                     "description": "Specifies whether the slot is required or optional."
@@ -78281,6 +79136,37 @@
                 "waitAndContinueSpecification": {
                     "$ref": "#/types/aws-native:lex:BotWaitAndContinueSpecification",
                     "description": "Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input."
+                }
+            }
+        },
+        "aws-native:lex:BotSlotValueOverride": {
+            "type": "object",
+            "properties": {
+                "shape": {
+                    "$ref": "#/types/aws-native:lex:BotSlotShape",
+                    "description": "When the shape value is List, it indicates that the values field contains a list of slot values. When the value is Scalar, it indicates that the value field contains a single value."
+                },
+                "value": {
+                    "$ref": "#/types/aws-native:lex:BotSlotValue",
+                    "description": "The current value of the slot."
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:lex:BotSlotValueOverride"
+                    },
+                    "description": "A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be \"pepperoni\" and \"pineapple.\""
+                }
+            }
+        },
+        "aws-native:lex:BotSlotValueOverrideMap": {
+            "type": "object",
+            "properties": {
+                "slotName": {
+                    "type": "string"
+                },
+                "slotValueOverride": {
+                    "$ref": "#/types/aws-native:lex:BotSlotValueOverride"
                 }
             }
         },
@@ -82438,6 +83324,12 @@
         "aws-native:opensearchservice:DomainAdvancedSecurityOptionsInput": {
             "type": "object",
             "properties": {
+                "anonymousAuthDisableDate": {
+                    "type": "string"
+                },
+                "anonymousAuthEnabled": {
+                    "type": "boolean"
+                },
                 "enabled": {
                     "type": "boolean"
                 },
@@ -82446,6 +83338,9 @@
                 },
                 "masterUserOptions": {
                     "$ref": "#/types/aws-native:opensearchservice:DomainMasterUserOptions"
+                },
+                "sAMLOptions": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainSAMLOptions"
                 }
             }
         },
@@ -82552,6 +83447,17 @@
                 }
             }
         },
+        "aws-native:opensearchservice:DomainIdp": {
+            "type": "object",
+            "properties": {
+                "entityId": {
+                    "type": "string"
+                },
+                "metadataContent": {
+                    "type": "string"
+                }
+            }
+        },
         "aws-native:opensearchservice:DomainMasterUserOptions": {
             "type": "object",
             "properties": {
@@ -82571,6 +83477,32 @@
             "properties": {
                 "enabled": {
                     "type": "boolean"
+                }
+            }
+        },
+        "aws-native:opensearchservice:DomainSAMLOptions": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "idp": {
+                    "$ref": "#/types/aws-native:opensearchservice:DomainIdp"
+                },
+                "masterBackendRole": {
+                    "type": "string"
+                },
+                "masterUserName": {
+                    "type": "string"
+                },
+                "rolesKey": {
+                    "type": "string"
+                },
+                "sessionTimeoutMinutes": {
+                    "type": "integer"
+                },
+                "subjectKey": {
+                    "type": "string"
                 }
             }
         },
@@ -87578,6 +88510,18 @@
                 }
             }
         },
+        "aws-native:rum:AppMonitorCustomEvents": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/types/aws-native:rum:AppMonitorCustomEventsStatus",
+                    "description": "Indicates whether AppMonitor accepts custom events."
+                }
+            }
+        },
+        "aws-native:rum:AppMonitorCustomEventsStatus": {
+            "type": "string"
+        },
         "aws-native:rum:AppMonitorMetricDefinition": {
             "type": "object",
             "properties": {
@@ -89600,6 +90544,30 @@
                 }
             }
         },
+        "aws-native:sagemaker:DomainDefaultSpaceSettings": {
+            "type": "object",
+            "properties": {
+                "executionRole": {
+                    "type": "string",
+                    "description": "The execution role for the space."
+                },
+                "jupyterServerAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainJupyterServerAppSettings",
+                    "description": "The Jupyter server's app settings."
+                },
+                "kernelGatewayAppSettings": {
+                    "$ref": "#/types/aws-native:sagemaker:DomainKernelGatewayAppSettings",
+                    "description": "The kernel gateway app settings."
+                },
+                "securityGroups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication."
+                }
+            }
+        },
         "aws-native:sagemaker:DomainJupyterServerAppSettings": {
             "type": "object",
             "properties": {
@@ -89753,7 +90721,7 @@
             "properties": {
                 "executionRole": {
                     "type": "string",
-                    "description": "The user profile Amazon Resource Name (ARN)."
+                    "description": "The execution role for the user."
                 },
                 "jupyterServerAppSettings": {
                     "$ref": "#/types/aws-native:sagemaker:DomainJupyterServerAppSettings",
@@ -92388,44 +93356,34 @@
             "type": "object",
             "properties": {
                 "excludeCharacters": {
-                    "type": "string",
-                    "description": "A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters. "
+                    "type": "string"
                 },
                 "excludeLowercase": {
-                    "type": "boolean",
-                    "description": "Specifies the generated password should not include lowercase letters. By default, ecrets Manager disables this parameter, and the generated password can include lowercase False, and the generated password can include lowercase letters."
+                    "type": "boolean"
                 },
                 "excludeNumbers": {
-                    "type": "boolean",
-                    "description": "Specifies that the generated password should exclude digits. By default, Secrets Manager does not enable the parameter, False, and the generated password can include digits."
+                    "type": "boolean"
                 },
                 "excludePunctuation": {
-                    "type": "boolean",
-                    "description": "Specifies that the generated password should not include punctuation characters. The default if you do not include this switch parameter is that punctuation characters can be included. "
+                    "type": "boolean"
                 },
                 "excludeUppercase": {
-                    "type": "boolean",
-                    "description": "Specifies that the generated password should not include uppercase letters. The default behavior is False, and the generated password can include uppercase letters. "
+                    "type": "boolean"
                 },
                 "generateStringKey": {
-                    "type": "string",
-                    "description": "The JSON key name used to add the generated password to the JSON structure specified by the SecretStringTemplate parameter. If you specify this parameter, then you must also specify SecretStringTemplate. "
+                    "type": "string"
                 },
                 "includeSpace": {
-                    "type": "boolean",
-                    "description": "Specifies that the generated password can include the space character. By default, Secrets Manager disables this parameter, and the generated password doesn't include space"
+                    "type": "boolean"
                 },
                 "passwordLength": {
-                    "type": "integer",
-                    "description": "The desired length of the generated password. The default value if you do not include this parameter is 32 characters. "
+                    "type": "integer"
                 },
                 "requireEachIncludedType": {
-                    "type": "boolean",
-                    "description": "Specifies whether the generated password must include at least one of every allowed character type. By default, Secrets Manager enables this parameter, and the generated password includes at least one of every character type."
+                    "type": "boolean"
                 },
                 "secretStringTemplate": {
-                    "type": "string",
-                    "description": "A properly structured JSON string that the generated password can be added to. If you specify this parameter, then you must also specify GenerateStringKey."
+                    "type": "string"
                 }
             }
         },
@@ -96443,6 +97401,14 @@
                 "name"
             ]
         },
+        "aws-native:applicationautoscaling:getScalableTarget": {
+            "cf": "AWS::ApplicationAutoScaling::ScalableTarget",
+            "ids": [
+                "resourceId",
+                "scalableDimension",
+                "serviceNamespace"
+            ]
+        },
         "aws-native:applicationinsights:getApplication": {
             "cf": "AWS::ApplicationInsights::Application",
             "ids": [
@@ -96940,6 +97906,14 @@
                 "resourceType"
             ]
         },
+        "aws-native:connect:getIntegrationAssociation": {
+            "cf": "AWS::Connect::IntegrationAssociation",
+            "ids": [
+                "instanceId",
+                "integrationType",
+                "integrationArn"
+            ]
+        },
         "aws-native:connect:getPhoneNumber": {
             "cf": "AWS::Connect::PhoneNumber",
             "ids": [
@@ -96956,6 +97930,13 @@
             "cf": "AWS::Connect::Rule",
             "ids": [
                 "ruleArn"
+            ]
+        },
+        "aws-native:connect:getSecurityKey": {
+            "cf": "AWS::Connect::SecurityKey",
+            "ids": [
+                "instanceId",
+                "associationId"
             ]
         },
         "aws-native:connect:getTaskTemplate": {
