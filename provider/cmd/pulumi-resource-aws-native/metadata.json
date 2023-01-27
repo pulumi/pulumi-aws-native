@@ -36859,8 +36859,14 @@
                 "subnetIds"
             ],
             "writeOnly": [
+                "backupId",
+                "customCertificate",
+                "customDomain",
                 "customPrivateKey",
-                "engineAttributes"
+                "engineAttributes",
+                "engineVersion",
+                "keyPair",
+                "tags"
             ]
         },
         "aws-native:organizations:Account": {
@@ -40047,10 +40053,6 @@
                     },
                     "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint."
                 },
-                "targetRole": {
-                    "$ref": "#/types/aws-native:rds:DBProxyEndpointTargetRole",
-                    "description": "A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations."
-                },
                 "vpcSecurityGroupIds": {
                     "type": "array",
                     "items": {
@@ -40128,7 +40130,6 @@
             "createOnly": [
                 "dBProxyEndpointName",
                 "dBProxyName",
-                "targetRole",
                 "vpcSubnetIds"
             ]
         },
@@ -40193,7 +40194,6 @@
                 "targetGroupName"
             ],
             "createOnly": [
-                "dBProxyName",
                 "targetGroupName"
             ]
         },
@@ -83087,6 +83087,9 @@
         "aws-native:nimblestudio:LaunchProfileAutomaticTerminationMode": {
             "type": "string"
         },
+        "aws-native:nimblestudio:LaunchProfileSessionBackupMode": {
+            "type": "string"
+        },
         "aws-native:nimblestudio:LaunchProfileSessionPersistenceMode": {
             "type": "string"
         },
@@ -83112,7 +83115,10 @@
                 },
                 "maxStoppedSessionLengthInMinutes": {
                     "type": "number",
-                    "description": "\u003cp\u003eInteger that determines if you can start and stop your sessions and how long a session\n            can stay in the STOPPED state. The default value is 0. The maximum value is 5760.\u003c/p\u003e\n         \u003cp\u003eIf the value is missing or set to 0, your sessions can’t be stopped. If you then call\n                \u003ccode\u003eStopStreamingSession\u003c/code\u003e, the session fails. If the time that a session\n            stays in the READY state exceeds the \u003ccode\u003emaxSessionLengthInMinutes\u003c/code\u003e value, the\n            session will automatically be terminated (instead of stopped).\u003c/p\u003e\n         \u003cp\u003eIf the value is set to a positive number, the session can be stopped. You can call\n                \u003ccode\u003eStopStreamingSession\u003c/code\u003e to stop sessions in the READY state. If the time\n            that a session stays in the READY state exceeds the\n                \u003ccode\u003emaxSessionLengthInMinutes\u003c/code\u003e value, the session will automatically be\n            stopped (instead of terminated).\u003c/p\u003e"
+                    "description": "\u003cp\u003eInteger that determines if you can start and stop your sessions and how long a session\n            can stay in the \u003ccode\u003eSTOPPED\u003c/code\u003e state. The default value is 0. The maximum value is\n            5760.\u003c/p\u003e\n         \u003cp\u003eThis field is allowed only when \u003ccode\u003esessionPersistenceMode\u003c/code\u003e is\n                \u003ccode\u003eACTIVATED\u003c/code\u003e and \u003ccode\u003eautomaticTerminationMode\u003c/code\u003e is\n                \u003ccode\u003eACTIVATED\u003c/code\u003e.\u003c/p\u003e\n         \u003cp\u003eIf the value is set to 0, your sessions can’t be \u003ccode\u003eSTOPPED\u003c/code\u003e. If you then\n            call \u003ccode\u003eStopStreamingSession\u003c/code\u003e, the session fails. If the time that a session\n            stays in the \u003ccode\u003eREADY\u003c/code\u003e state exceeds the \u003ccode\u003emaxSessionLengthInMinutes\u003c/code\u003e\n            value, the session will automatically be terminated (instead of\n            \u003ccode\u003eSTOPPED\u003c/code\u003e).\u003c/p\u003e\n         \u003cp\u003eIf the value is set to a positive number, the session can be stopped. You can call\n                \u003ccode\u003eStopStreamingSession\u003c/code\u003e to stop sessions in the \u003ccode\u003eREADY\u003c/code\u003e state.\n            If the time that a session stays in the \u003ccode\u003eREADY\u003c/code\u003e state exceeds the\n                \u003ccode\u003emaxSessionLengthInMinutes\u003c/code\u003e value, the session will automatically be\n            stopped (instead of terminated).\u003c/p\u003e"
+                },
+                "sessionBackup": {
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileStreamConfigurationSessionBackup"
                 },
                 "sessionPersistenceMode": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileSessionPersistenceMode"
@@ -83129,6 +83135,18 @@
                 },
                 "volumeConfiguration": {
                     "$ref": "#/types/aws-native:nimblestudio:LaunchProfileVolumeConfiguration"
+                }
+            }
+        },
+        "aws-native:nimblestudio:LaunchProfileStreamConfigurationSessionBackup": {
+            "type": "object",
+            "properties": {
+                "maxBackupsToRetain": {
+                    "type": "number",
+                    "description": "\u003cp\u003eThe maximum number of backups that each streaming session created from this launch\n            profile can have.\u003c/p\u003e"
+                },
+                "mode": {
+                    "$ref": "#/types/aws-native:nimblestudio:LaunchProfileSessionBackupMode"
                 }
             }
         },
@@ -83176,13 +83194,16 @@
             "type": "object",
             "properties": {
                 "iops": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "\u003cp\u003eThe number of I/O operations per second for the root volume that is attached to\n            streaming session.\u003c/p\u003e"
                 },
                 "size": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "\u003cp\u003eThe size of the root volume that is attached to the streaming session. The root volume\n            size is measured in GiBs.\u003c/p\u003e"
                 },
                 "throughput": {
-                    "type": "number"
+                    "type": "number",
+                    "description": "\u003cp\u003eThe throughput to provision for the root volume that is attached to the streaming\n            session. The throughput is measured in MiB/s.\u003c/p\u003e"
                 }
             }
         },
@@ -86780,10 +86801,6 @@
                 "secretArn": {
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. "
-                },
-                "userName": {
-                    "type": "string",
-                    "description": "The name of the database user to which the proxy connects."
                 }
             }
         },
@@ -100186,7 +100203,7 @@
         "aws-native:rds:getDBProxyTargetGroup": {
             "cf": "AWS::RDS::DBProxyTargetGroup",
             "ids": [
-                "targetGroupArn"
+                "dBProxyName"
             ]
         },
         "aws-native:rds:getDBSubnetGroup": {
