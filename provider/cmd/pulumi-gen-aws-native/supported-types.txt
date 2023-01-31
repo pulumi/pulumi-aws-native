@@ -185,6 +185,8 @@ AWS::EC2::Host
 AWS::EC2::IPAM
 AWS::EC2::IPAMAllocation
 AWS::EC2::IPAMPool
+AWS::EC2::IPAMPoolCidr
+AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMScope
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
@@ -607,6 +609,7 @@ AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::ModelBiasJobDefinition
+AWS::SageMaker::ModelCard
 AWS::SageMaker::ModelExplainabilityJobDefinition
 AWS::SageMaker::ModelPackage
 AWS::SageMaker::ModelPackageGroup

@@ -66,7 +66,7 @@
     }
   },
   "required" : [ "TableMappings", "SourceEndpointArn", "MigrationType", "TargetEndpointArn", "ReplicationInstanceArn" ],
-  "createOnlyProperties" : [ "/properties/ResourceIdentifier", "/properties/TargetEndpointArn", "/properties/Tags", "/properties/ReplicationInstanceArn", "/properties/SourceEndpointArn" ],
+  "createOnlyProperties" : [ "/properties/ResourceIdentifier", "/properties/TargetEndpointArn", "/properties/ReplicationInstanceArn", "/properties/SourceEndpointArn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

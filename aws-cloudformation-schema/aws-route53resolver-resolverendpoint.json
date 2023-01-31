@@ -22,6 +22,9 @@
     "PreferredInstanceType" : {
       "type" : "string"
     },
+    "ResolverEndpointType" : {
+      "type" : "string"
+    },
     "Arn" : {
       "type" : "string"
     },
@@ -54,10 +57,13 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Ip" : {
+        "SubnetId" : {
           "type" : "string"
         },
-        "SubnetId" : {
+        "Ipv6" : {
+          "type" : "string"
+        },
+        "Ip" : {
           "type" : "string"
         }
       },
