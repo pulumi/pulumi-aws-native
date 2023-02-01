@@ -100,7 +100,9 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudTrail::Channel
 AWS::CloudTrail::EventDataStore
+AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::MetricStream
@@ -185,6 +187,8 @@ AWS::EC2::Host
 AWS::EC2::IPAM
 AWS::EC2::IPAMAllocation
 AWS::EC2::IPAMPool
+AWS::EC2::IPAMPoolCidr
+AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMScope
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
@@ -475,6 +479,12 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::Oam::Link
 AWS::Oam::Sink
+AWS::Omics::AnnotationStore
+AWS::Omics::ReferenceStore
+AWS::Omics::RunGroup
+AWS::Omics::SequenceStore
+AWS::Omics::VariantStore
+AWS::Omics::Workflow
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
 AWS::OpenSearchServerless::SecurityConfig
@@ -607,6 +617,7 @@ AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::ModelBiasJobDefinition
+AWS::SageMaker::ModelCard
 AWS::SageMaker::ModelExplainabilityJobDefinition
 AWS::SageMaker::ModelPackage
 AWS::SageMaker::ModelPackageGroup
@@ -663,6 +674,7 @@ AWSQS::Kubernetes::Resource
 Atlassian::Opsgenie::Integration
 Atlassian::Opsgenie::Team
 Atlassian::Opsgenie::User
+AwsCommunity::Account::AlternateContact
 AwsCommunity::S3::DeleteBucketContents
 BigID::DataSource::DynamoDB
 BigID::DataSource::S3

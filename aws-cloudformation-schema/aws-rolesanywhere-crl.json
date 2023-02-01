@@ -54,8 +54,8 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ ],
-  "readOnlyProperties" : [ "/properties/Crl", "/properties/CrlId" ],
+  "required" : [ "Name", "CrlData" ],
+  "readOnlyProperties" : [ "/properties/CrlId" ],
   "primaryIdentifier" : [ "/properties/CrlId" ],
   "handlers" : {
     "create" : {

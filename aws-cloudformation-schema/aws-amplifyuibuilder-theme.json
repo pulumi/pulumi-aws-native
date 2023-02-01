@@ -46,19 +46,11 @@
     "AppId" : {
       "type" : "string"
     },
-    "CreatedAt" : {
-      "type" : "string",
-      "format" : "date-time"
-    },
     "EnvironmentName" : {
       "type" : "string"
     },
     "Id" : {
       "type" : "string"
-    },
-    "ModifiedAt" : {
-      "type" : "string",
-      "format" : "date-time"
     },
     "Name" : {
       "type" : "string",
@@ -84,7 +76,7 @@
     }
   },
   "required" : [ "Name", "Values" ],
-  "readOnlyProperties" : [ "/properties/AppId", "/properties/CreatedAt", "/properties/EnvironmentName", "/properties/Id", "/properties/ModifiedAt" ],
+  "readOnlyProperties" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
   "handlers" : {
