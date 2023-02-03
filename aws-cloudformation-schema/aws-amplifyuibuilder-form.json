@@ -70,6 +70,9 @@
         },
         "Value" : {
           "type" : "string"
+        },
+        "IsArray" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "Type" ],
@@ -268,6 +271,9 @@
         },
         "Orientation" : {
           "type" : "string"
+        },
+        "Excluded" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "Type" ],

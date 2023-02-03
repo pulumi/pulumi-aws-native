@@ -42,6 +42,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ContactId", "/properties/ChannelType" ],
+  "writeOnlyProperties" : [ "/properties/DeferActivation" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ssm-contacts:CreateContactChannel" ]

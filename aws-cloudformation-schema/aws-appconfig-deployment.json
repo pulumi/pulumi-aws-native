@@ -12,6 +12,9 @@
     "EnvironmentId" : {
       "type" : "string"
     },
+    "KmsKeyIdentifier" : {
+      "type" : "string"
+    },
     "Description" : {
       "type" : "string"
     },
@@ -47,7 +50,7 @@
     }
   },
   "required" : [ "DeploymentStrategyId", "ConfigurationProfileId", "EnvironmentId", "ConfigurationVersion", "ApplicationId" ],
-  "createOnlyProperties" : [ "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/Tags", "/properties/EnvironmentId", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyIdentifier", "/properties/DeploymentStrategyId", "/properties/ConfigurationVersion", "/properties/ApplicationId", "/properties/ConfigurationProfileId", "/properties/Tags", "/properties/EnvironmentId", "/properties/Description" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }
