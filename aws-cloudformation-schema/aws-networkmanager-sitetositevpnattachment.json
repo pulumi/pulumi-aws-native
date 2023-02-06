@@ -121,7 +121,7 @@
   "writeOnlyProperties" : [ "/properties/VpnConnectionArn" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/ProposedSegmentChange", "/properties/SegmentName" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
-  "additionalIdentifiers" : [ [ "/properties/ResourceArn" ] ],
+  "required" : [ "CoreNetworkId", "VpnConnectionArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:CreateSiteToSiteVpnAttachment", "ec2:DescribeRegions" ],

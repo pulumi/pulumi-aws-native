@@ -463,7 +463,7 @@
     }
   },
   "required" : [ "BindingProperties", "ComponentType", "Name", "Overrides", "Properties", "Variants" ],
-  "readOnlyProperties" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ],
   "createOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/AppId", "/properties/EnvironmentName", "/properties/Id" ],
   "handlers" : {
@@ -482,6 +482,13 @@
     "list" : {
       "permissions" : [ "amplify:GetApp", "amplifyuibuilder:ListComponents" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "#/properties/Tags"
   },
   "additionalProperties" : false
 }

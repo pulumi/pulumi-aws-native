@@ -85,8 +85,15 @@
   },
   "additionalProperties" : false,
   "required" : [ "DBProxyName", "DBProxyEndpointName", "VpcSubnetIds" ],
-  "readOnlyProperties" : [ "/properties/DBProxyEndpointArn", "/properties/Endpoint", "/properties/VpcId", "/properties/IsDefault" ],
-  "createOnlyProperties" : [ "/properties/DBProxyName", "/properties/DBProxyEndpointName", "/properties/VpcSubnetIds", "/properties/TargetRole" ],
+  "readOnlyProperties" : [ "/properties/DBProxyEndpointArn", "/properties/Endpoint", "/properties/VpcId", "/properties/IsDefault", "/properties/TargetRole" ],
+  "createOnlyProperties" : [ "/properties/DBProxyName", "/properties/DBProxyEndpointName", "/properties/VpcSubnetIds" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "primaryIdentifier" : [ "/properties/DBProxyEndpointName" ],
   "handlers" : {
     "create" : {

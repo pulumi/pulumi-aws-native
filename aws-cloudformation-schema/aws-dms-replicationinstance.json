@@ -82,7 +82,7 @@
     }
   },
   "required" : [ "ReplicationInstanceClass" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ResourceIdentifier", "/properties/Tags", "/properties/ReplicationSubnetGroupIdentifier", "/properties/PubliclyAccessible" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ResourceIdentifier", "/properties/ReplicationSubnetGroupIdentifier", "/properties/PubliclyAccessible" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ReplicationInstancePublicIpAddresses", "/properties/Id", "/properties/ReplicationInstancePrivateIpAddresses" ]
 }
