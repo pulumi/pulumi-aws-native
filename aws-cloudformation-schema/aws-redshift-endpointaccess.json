@@ -125,7 +125,7 @@
   "required" : [ "ClusterIdentifier", "SubnetGroupName", "EndpointName", "VpcSecurityGroupIds" ],
   "primaryIdentifier" : [ "/properties/EndpointName" ],
   "createOnlyProperties" : [ "/properties/EndpointName", "/properties/ClusterIdentifier", "/properties/ResourceOwner", "/properties/SubnetGroupName" ],
-  "readOnlyProperties" : [ "/properties/Address", "/properties/EndpointStatus", "/properties/EndpointCreateTime", "/properties/Port", "/properties/VpcSecurityGroups/*/VpcSecurityGroupId", "/properties/VpcSecurityGroups/*/Status", "/properties/VpcEndpoint/VpcEndpointId", "/properties/VpcEndpoint/VpcId", "/properties/VpcEndpoint/NetworkInterfaces/*/NetworkInterfaceId", "/properties/VpcEndpoint/NetworkInterfaces/*/PrivateIpAddress", "/properties/VpcEndpoint/NetworkInterfaces/*/SubnetId", "/properties/VpcEndpoint/NetworkInterfaces/*/AvailabilityZone" ],
+  "readOnlyProperties" : [ "/properties/Address", "/properties/EndpointStatus", "/properties/EndpointCreateTime", "/properties/Port", "/properties/VpcSecurityGroups", "/properties/VpcEndpoint" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "redshift:CreateEndpointAccess", "ec2:CreateClientVpnEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],

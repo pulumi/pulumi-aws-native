@@ -93,7 +93,7 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ ],
+  "required" : [ "Name", "Source" ],
   "readOnlyProperties" : [ "/properties/TrustAnchorId", "/properties/TrustAnchorArn" ],
   "primaryIdentifier" : [ "/properties/TrustAnchorId" ],
   "handlers" : {
